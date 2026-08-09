@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SuccessfulQueuedPurchaseDeletionSet:
+    import capo_ec2.types.successful_queued_purchase_deletion
+
+    out: SuccessfulQueuedPurchaseDeletionSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.successful_queued_purchase_deletion.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SuccessfulQueuedPurchaseDeletionSet:
     import capo_ec2.types.successful_queued_purchase_deletion

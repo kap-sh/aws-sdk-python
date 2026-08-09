@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ClientVpnAuthenticationRequestList:
+    import capo_ec2.types.client_vpn_authentication_request
+
+    out: ClientVpnAuthenticationRequestList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.client_vpn_authentication_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ClientVpnAuthenticationRequestList:
     import capo_ec2.types.client_vpn_authentication_request

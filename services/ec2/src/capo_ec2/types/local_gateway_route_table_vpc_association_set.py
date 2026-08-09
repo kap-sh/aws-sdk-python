@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> LocalGatewayRouteTableVpcAssociationSet:
+    import capo_ec2.types.local_gateway_route_table_vpc_association
+
+    out: LocalGatewayRouteTableVpcAssociationSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.local_gateway_route_table_vpc_association.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> LocalGatewayRouteTableVpcAssociationSet:
     import capo_ec2.types.local_gateway_route_table_vpc_association

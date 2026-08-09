@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> IpamDiscoveredPublicAddressSet:
+def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddressSet:
+    import capo_ec2.types.ipam_discovered_public_address
+
+    out: IpamDiscoveredPublicAddressSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.ipam_discovered_public_address.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> IpamDiscoveredPublicAddressSet:
     import capo_ec2.types.ipam_discovered_public_address
 
     out: IpamDiscoveredPublicAddressSet = []

@@ -247,23 +247,26 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
     child_policy_document = el.find("policyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("routeTableIdSet") is not None:
+    child_route_table_ids = el.find("routeTableIdSet")
+    if child_route_table_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["route_table_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "routeTableIdSet"
+            child_route_table_ids
         )
-    if el.find("subnetIdSet") is not None:
+    child_subnet_ids = el.find("subnetIdSet")
+    if child_subnet_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["subnet_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "subnetIdSet"
+            child_subnet_ids
         )
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_set
 
         out["groups"] = capo_ec2.types.group_identifier_set.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
     child_ip_address_type = el.find("ipAddressType")
     if child_ip_address_type is not None:
@@ -289,19 +292,21 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
         out["requester_managed"] = (
             child_requester_managed.text or ""
         ).lower() == "true"
-    if el.find("networkInterfaceIdSet") is not None:
+    child_network_interface_ids = el.find("networkInterfaceIdSet")
+    if child_network_interface_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["network_interface_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "networkInterfaceIdSet"
+                child_network_interface_ids
             )
         )
-    if el.find("dnsEntrySet") is not None:
+    child_dns_entries = el.find("dnsEntrySet")
+    if child_dns_entries is not None:
         import capo_ec2.types.dns_entry_set
 
         out["dns_entries"] = capo_ec2.types.dns_entry_set.deserialize_ec2_query(
-            el, "dnsEntrySet"
+            child_dns_entries
         )
     child_creation_timestamp = el.find("creationTimestamp")
     if child_creation_timestamp is not None:
@@ -312,10 +317,11 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
                 child_creation_timestamp
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
@@ -326,20 +332,22 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
         out["last_error"] = capo_ec2.types.last_error.deserialize_ec2_query(
             child_last_error
         )
-    if el.find("ipv4PrefixSet") is not None:
+    child_ipv4_prefixes = el.find("ipv4PrefixSet")
+    if child_ipv4_prefixes is not None:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         out["ipv4_prefixes"] = (
             capo_ec2.types.subnet_ip_prefixes_list.deserialize_ec2_query(
-                el, "ipv4PrefixSet"
+                child_ipv4_prefixes
             )
         )
-    if el.find("ipv6PrefixSet") is not None:
+    child_ipv6_prefixes = el.find("ipv6PrefixSet")
+    if child_ipv6_prefixes is not None:
         import capo_ec2.types.subnet_ip_prefixes_list
 
         out["ipv6_prefixes"] = (
             capo_ec2.types.subnet_ip_prefixes_list.deserialize_ec2_query(
-                el, "ipv6PrefixSet"
+                child_ipv6_prefixes
             )
         )
     child_failure_reason = el.find("failureReason")

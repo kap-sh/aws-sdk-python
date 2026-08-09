@@ -47,14 +47,16 @@ def deserialize_ec2_query(el: Element) -> CreateTagsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ResourceId") is not None:
+    child_resources = el.find("ResourceId")
+    if child_resources is not None:
         import capo_ec2.types.resource_id_list
 
         out["resources"] = capo_ec2.types.resource_id_list.deserialize_ec2_query(
-            el, "ResourceId"
+            child_resources
         )
-    if el.find("Tag") is not None:
+    child_tags = el.find("Tag")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "Tag")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

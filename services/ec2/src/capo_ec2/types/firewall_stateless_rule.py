@@ -82,35 +82,40 @@ def deserialize_ec2_query(el: Element) -> FirewallStatelessRule:
     child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    if el.find("sourceSet") is not None:
+    child_sources = el.find("sourceSet")
+    if child_sources is not None:
         import capo_ec2.types.value_string_list
 
         out["sources"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "sourceSet"
+            child_sources
         )
-    if el.find("destinationSet") is not None:
+    child_destinations = el.find("destinationSet")
+    if child_destinations is not None:
         import capo_ec2.types.value_string_list
 
         out["destinations"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "destinationSet"
+            child_destinations
         )
-    if el.find("sourcePortSet") is not None:
+    child_source_ports = el.find("sourcePortSet")
+    if child_source_ports is not None:
         import capo_ec2.types.port_range_list
 
         out["source_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "sourcePortSet"
+            child_source_ports
         )
-    if el.find("destinationPortSet") is not None:
+    child_destination_ports = el.find("destinationPortSet")
+    if child_destination_ports is not None:
         import capo_ec2.types.port_range_list
 
         out["destination_ports"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "destinationPortSet"
+            child_destination_ports
         )
-    if el.find("protocolSet") is not None:
+    child_protocols = el.find("protocolSet")
+    if child_protocols is not None:
         import capo_ec2.types.protocol_int_list
 
         out["protocols"] = capo_ec2.types.protocol_int_list.deserialize_ec2_query(
-            el, "protocolSet"
+            child_protocols
         )
     child_rule_action = el.find("ruleAction")
     if child_rule_action is not None:

@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.fpga_image.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> FpgaImageList:
+def deserialize_ec2_query(el: Element) -> FpgaImageList:
+    import capo_ec2.types.fpga_image
+
+    out: FpgaImageList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.fpga_image.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> FpgaImageList:
     import capo_ec2.types.fpga_image
 
     out: FpgaImageList = []

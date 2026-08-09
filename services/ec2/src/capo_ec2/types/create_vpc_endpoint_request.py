@@ -183,28 +183,31 @@ def deserialize_ec2_query(el: Element) -> CreateVpcEndpointRequest:
     child_policy_document = el.find("PolicyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("RouteTableId") is not None:
+    child_route_table_ids = el.find("RouteTableId")
+    if child_route_table_ids is not None:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         out["route_table_ids"] = (
             capo_ec2.types.vpc_endpoint_route_table_id_list.deserialize_ec2_query(
-                el, "RouteTableId"
+                child_route_table_ids
             )
         )
-    if el.find("SubnetId") is not None:
+    child_subnet_ids = el.find("SubnetId")
+    if child_subnet_ids is not None:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.vpc_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetId"
+                child_subnet_ids
             )
         )
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.vpc_endpoint_security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
     child_ip_address_type = el.find("IpAddressType")
@@ -231,20 +234,22 @@ def deserialize_ec2_query(el: Element) -> CreateVpcEndpointRequest:
         out["private_dns_enabled"] = (
             child_private_dns_enabled.text or ""
         ).lower() == "true"
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
-    if el.find("SubnetConfiguration") is not None:
+    child_subnet_configurations = el.find("SubnetConfiguration")
+    if child_subnet_configurations is not None:
         import capo_ec2.types.subnet_configurations_list
 
         out["subnet_configurations"] = (
             capo_ec2.types.subnet_configurations_list.deserialize_ec2_query(
-                el, "SubnetConfiguration"
+                child_subnet_configurations
             )
         )
     child_service_network_arn = el.find("ServiceNetworkArn")

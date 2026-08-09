@@ -46,11 +46,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkDnsSupportRequest:
     out: DescribeVpcClassicLinkDnsSupportRequest = {}  # type: ignore[typeddict-item]
-    if el.find("VpcIds") is not None:
+    child_vpc_ids = el.find("VpcIds")
+    if child_vpc_ids is not None:
         import capo_ec2.types.vpc_classic_link_id_list
 
         out["vpc_ids"] = capo_ec2.types.vpc_classic_link_id_list.deserialize_ec2_query(
-            el, "VpcIds"
+            child_vpc_ids
         )
     child_max_results = el.find("maxResults")
     if child_max_results is not None:

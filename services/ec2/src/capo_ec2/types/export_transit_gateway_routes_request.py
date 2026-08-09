@@ -57,10 +57,11 @@ def deserialize_ec2_query(el: Element) -> ExportTransitGatewayRoutesRequest:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_s3_bucket = el.find("S3Bucket")
     if child_s3_bucket is not None:
         out["s3_bucket"] = str(child_s3_bucket.text or "")

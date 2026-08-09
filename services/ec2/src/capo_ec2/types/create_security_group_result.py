@@ -44,10 +44,11 @@ def deserialize_ec2_query(el: Element) -> CreateSecurityGroupResult:
     child_group_id = el.find("groupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_security_group_arn = el.find("securityGroupArn")
     if child_security_group_arn is not None:
         out["security_group_arn"] = str(child_security_group_arn.text or "")

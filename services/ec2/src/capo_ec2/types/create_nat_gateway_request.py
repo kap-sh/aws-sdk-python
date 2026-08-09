@@ -154,20 +154,22 @@ def deserialize_ec2_query(el: Element) -> CreateNatGatewayRequest:
     child_vpc_id = el.find("VpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("AvailabilityZoneAddress") is not None:
+    child_availability_zone_addresses = el.find("AvailabilityZoneAddress")
+    if child_availability_zone_addresses is not None:
         import capo_ec2.types.availability_zone_addresses
 
         out["availability_zone_addresses"] = (
             capo_ec2.types.availability_zone_addresses.deserialize_ec2_query(
-                el, "AvailabilityZoneAddress"
+                child_availability_zone_addresses
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_connectivity_type = el.find("ConnectivityType")
@@ -182,20 +184,22 @@ def deserialize_ec2_query(el: Element) -> CreateNatGatewayRequest:
     child_private_ip_address = el.find("PrivateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("SecondaryAllocationId") is not None:
+    child_secondary_allocation_ids = el.find("SecondaryAllocationId")
+    if child_secondary_allocation_ids is not None:
         import capo_ec2.types.allocation_id_list
 
         out["secondary_allocation_ids"] = (
             capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-                el, "SecondaryAllocationId"
+                child_secondary_allocation_ids
             )
         )
-    if el.find("SecondaryPrivateIpAddress") is not None:
+    child_secondary_private_ip_addresses = el.find("SecondaryPrivateIpAddress")
+    if child_secondary_private_ip_addresses is not None:
         import capo_ec2.types.ip_list
 
         out["secondary_private_ip_addresses"] = (
             capo_ec2.types.ip_list.deserialize_ec2_query(
-                el, "SecondaryPrivateIpAddress"
+                child_secondary_private_ip_addresses
             )
         )
     child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")

@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeNetworkInsightsAccessScopesResult:
     out: DescribeNetworkInsightsAccessScopesResult = {}  # type: ignore[typeddict-item]
-    if el.find("networkInsightsAccessScopeSet") is not None:
+    child_network_insights_access_scopes = el.find("networkInsightsAccessScopeSet")
+    if child_network_insights_access_scopes is not None:
         import capo_ec2.types.network_insights_access_scope_list
 
         out["network_insights_access_scopes"] = (
             capo_ec2.types.network_insights_access_scope_list.deserialize_ec2_query(
-                el, "networkInsightsAccessScopeSet"
+                child_network_insights_access_scopes
             )
         )
     child_next_token = el.find("nextToken")

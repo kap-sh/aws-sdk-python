@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SecondaryNetworkIpv4CidrBlockAssociationList:
+    import capo_ec2.types.secondary_network_ipv4_cidr_block_association
+
+    out: SecondaryNetworkIpv4CidrBlockAssociationList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.secondary_network_ipv4_cidr_block_association.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SecondaryNetworkIpv4CidrBlockAssociationList:
     import capo_ec2.types.secondary_network_ipv4_cidr_block_association

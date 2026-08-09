@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeClientVpnAuthorizationRulesResult:
     out: DescribeClientVpnAuthorizationRulesResult = {}  # type: ignore[typeddict-item]
-    if el.find("authorizationRule") is not None:
+    child_authorization_rules = el.find("authorizationRule")
+    if child_authorization_rules is not None:
         import capo_ec2.types.authorization_rule_set
 
         out["authorization_rules"] = (
             capo_ec2.types.authorization_rule_set.deserialize_ec2_query(
-                el, "authorizationRule"
+                child_authorization_rules
             )
         )
     child_next_token = el.find("nextToken")

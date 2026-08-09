@@ -219,26 +219,29 @@ def deserialize_ec2_query(el: Element) -> ImageAttribute:
     child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    if el.find("launchPermission") is not None:
+    child_launch_permissions = el.find("launchPermission")
+    if child_launch_permissions is not None:
         import capo_ec2.types.launch_permission_list
 
         out["launch_permissions"] = (
             capo_ec2.types.launch_permission_list.deserialize_ec2_query(
-                el, "launchPermission"
+                child_launch_permissions
             )
         )
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     return out

@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> Filter:
     child_name = el.find("Name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    if el.find("Value") is not None:
+    child_values = el.find("Value")
+    if child_values is not None:
         import capo_ec2.types.value_string_list
 
         out["values"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "Value"
+            child_values
         )
     return out

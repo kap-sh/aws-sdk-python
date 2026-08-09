@@ -190,16 +190,18 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetResult:
                 child_tenancy
             )
         )
-    if el.find("fleetCapacityReservationSet") is not None:
+    child_fleet_capacity_reservations = el.find("fleetCapacityReservationSet")
+    if child_fleet_capacity_reservations is not None:
         import capo_ec2.types.fleet_capacity_reservation_set
 
         out["fleet_capacity_reservations"] = (
             capo_ec2.types.fleet_capacity_reservation_set.deserialize_ec2_query(
-                el, "fleetCapacityReservationSet"
+                child_fleet_capacity_reservations
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

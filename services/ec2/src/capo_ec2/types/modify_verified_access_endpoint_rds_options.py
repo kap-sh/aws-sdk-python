@@ -46,12 +46,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessEndpointRdsOptions:
     out: ModifyVerifiedAccessEndpointRdsOptions = {}  # type: ignore[typeddict-item]
-    if el.find("SubnetId") is not None:
+    child_subnet_ids = el.find("SubnetId")
+    if child_subnet_ids is not None:
         import capo_ec2.types.modify_verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.modify_verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetId"
+                child_subnet_ids
             )
         )
     child_port = el.find("Port")

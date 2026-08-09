@@ -155,12 +155,13 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredResourceCidr:
         out["resource_type"] = capo_ec2.types.ipam_resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("resourceTagSet") is not None:
+    child_resource_tags = el.find("resourceTagSet")
+    if child_resource_tags is not None:
         import capo_ec2.types.ipam_resource_tag_list
 
         out["resource_tags"] = (
             capo_ec2.types.ipam_resource_tag_list.deserialize_ec2_query(
-                el, "resourceTagSet"
+                child_resource_tags
             )
         )
     child_ip_usage = el.find("ipUsage")

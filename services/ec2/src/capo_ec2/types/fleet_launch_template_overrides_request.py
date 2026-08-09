@@ -131,12 +131,13 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverridesRequest:
         out["placement"] = capo_ec2.types.placement.deserialize_ec2_query(
             child_placement
         )
-    if el.find("BlockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("BlockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.fleet_block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.fleet_block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_instance_requirements = el.find("InstanceRequirements")

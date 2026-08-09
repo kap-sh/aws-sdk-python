@@ -87,12 +87,13 @@ def deserialize_ec2_query(el: Element) -> ModifyFleetRequest:
                 child_excess_capacity_termination_policy
             )
         )
-    if el.find("LaunchTemplateConfig") is not None:
+    child_launch_template_configs = el.find("LaunchTemplateConfig")
+    if child_launch_template_configs is not None:
         import capo_ec2.types.fleet_launch_template_config_list_request
 
         out["launch_template_configs"] = (
             capo_ec2.types.fleet_launch_template_config_list_request.deserialize_ec2_query(
-                el, "LaunchTemplateConfig"
+                child_launch_template_configs
             )
         )
     child_fleet_id = el.find("FleetId")

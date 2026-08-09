@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> VerifiedAccessTrustProviderCondensedList:
+    import capo_ec2.types.verified_access_trust_provider_condensed
+
+    out: VerifiedAccessTrustProviderCondensedList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.verified_access_trust_provider_condensed.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> VerifiedAccessTrustProviderCondensedList:
     import capo_ec2.types.verified_access_trust_provider_condensed

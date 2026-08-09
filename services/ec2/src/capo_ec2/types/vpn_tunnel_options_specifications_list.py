@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> VpnTunnelOptionsSpecificationsList:
+    import capo_ec2.types.vpn_tunnel_options_specification
+
+    out: VpnTunnelOptionsSpecificationsList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.vpn_tunnel_options_specification.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> VpnTunnelOptionsSpecificationsList:
     import capo_ec2.types.vpn_tunnel_options_specification

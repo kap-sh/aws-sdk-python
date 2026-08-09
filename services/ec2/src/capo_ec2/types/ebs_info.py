@@ -149,10 +149,11 @@ def deserialize_ec2_query(el: Element) -> EbsInfo:
     child_maximum_ebs_cards = el.find("maximumEbsCards")
     if child_maximum_ebs_cards is not None:
         out["maximum_ebs_cards"] = int(child_maximum_ebs_cards.text or "")
-    if el.find("ebsCardSet") is not None:
+    child_ebs_cards = el.find("ebsCardSet")
+    if child_ebs_cards is not None:
         import capo_ec2.types.ebs_card_info_list
 
         out["ebs_cards"] = capo_ec2.types.ebs_card_info_list.deserialize_ec2_query(
-            el, "ebsCardSet"
+            child_ebs_cards
         )
     return out

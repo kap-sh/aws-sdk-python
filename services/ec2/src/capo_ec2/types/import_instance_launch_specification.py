@@ -122,20 +122,22 @@ def deserialize_ec2_query(el: Element) -> ImportInstanceLaunchSpecification:
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    if el.find("GroupName") is not None:
+    child_group_names = el.find("GroupName")
+    if child_group_names is not None:
         import capo_ec2.types.security_group_string_list
 
         out["group_names"] = (
             capo_ec2.types.security_group_string_list.deserialize_ec2_query(
-                el, "GroupName"
+                child_group_names
             )
         )
-    if el.find("GroupId") is not None:
+    child_group_ids = el.find("GroupId")
+    if child_group_ids is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["group_ids"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "GroupId"
+                child_group_ids
             )
         )
     child_additional_info = el.find("additionalInfo")

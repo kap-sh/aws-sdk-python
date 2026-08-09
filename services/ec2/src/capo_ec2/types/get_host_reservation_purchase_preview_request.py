@@ -37,11 +37,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetHostReservationPurchasePreviewRequest:
     out: GetHostReservationPurchasePreviewRequest = {}  # type: ignore[typeddict-item]
-    if el.find("HostIdSet") is not None:
+    child_host_id_set = el.find("HostIdSet")
+    if child_host_id_set is not None:
         import capo_ec2.types.request_host_id_set
 
         out["host_id_set"] = capo_ec2.types.request_host_id_set.deserialize_ec2_query(
-            el, "HostIdSet"
+            child_host_id_set
         )
     child_offering_id = el.find("OfferingId")
     if child_offering_id is not None:

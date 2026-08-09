@@ -67,17 +67,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupsRequest:
     out: DescribeSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("GroupId") is not None:
+    child_group_ids = el.find("GroupId")
+    if child_group_ids is not None:
         import capo_ec2.types.group_id_string_list
 
         out["group_ids"] = capo_ec2.types.group_id_string_list.deserialize_ec2_query(
-            el, "GroupId"
+            child_group_ids
         )
-    if el.find("GroupName") is not None:
+    child_group_names = el.find("GroupName")
+    if child_group_names is not None:
         import capo_ec2.types.group_name_string_list
 
         out["group_names"] = (
-            capo_ec2.types.group_name_string_list.deserialize_ec2_query(el, "GroupName")
+            capo_ec2.types.group_name_string_list.deserialize_ec2_query(
+                child_group_names
+            )
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
@@ -88,8 +92,9 @@ def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

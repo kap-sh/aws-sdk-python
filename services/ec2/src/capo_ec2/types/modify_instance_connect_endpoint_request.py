@@ -84,12 +84,13 @@ def deserialize_ec2_query(el: Element) -> ModifyInstanceConnectEndpointRequest:
         out["ip_address_type"] = capo_ec2.types.ip_address_type.deserialize_ec2_query(
             child_ip_address_type
         )
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.security_group_id_string_list_request
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_string_list_request.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
     child_preserve_client_ip = el.find("PreserveClientIp")

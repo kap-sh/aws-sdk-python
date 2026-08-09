@@ -44,17 +44,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeBundleTasksRequest:
     out: DescribeBundleTasksRequest = {}  # type: ignore[typeddict-item]
-    if el.find("BundleId") is not None:
+    child_bundle_ids = el.find("BundleId")
+    if child_bundle_ids is not None:
         import capo_ec2.types.bundle_id_string_list
 
         out["bundle_ids"] = capo_ec2.types.bundle_id_string_list.deserialize_ec2_query(
-            el, "BundleId"
+            child_bundle_ids
         )
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

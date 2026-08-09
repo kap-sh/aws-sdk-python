@@ -52,11 +52,12 @@ def deserialize_ec2_query(el: Element) -> GetRouteServerRoutingDatabaseResult:
         out["are_routes_persisted"] = (
             child_are_routes_persisted.text or ""
         ).lower() == "true"
-    if el.find("routeSet") is not None:
+    child_routes = el.find("routeSet")
+    if child_routes is not None:
         import capo_ec2.types.route_server_route_list
 
         out["routes"] = capo_ec2.types.route_server_route_list.deserialize_ec2_query(
-            el, "routeSet"
+            child_routes
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

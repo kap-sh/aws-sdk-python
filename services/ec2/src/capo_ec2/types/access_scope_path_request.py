@@ -67,12 +67,13 @@ def deserialize_ec2_query(el: Element) -> AccessScopePathRequest:
                 child_destination
             )
         )
-    if el.find("ThroughResource") is not None:
+    child_through_resources = el.find("ThroughResource")
+    if child_through_resources is not None:
         import capo_ec2.types.through_resources_statement_request_list
 
         out["through_resources"] = (
             capo_ec2.types.through_resources_statement_request_list.deserialize_ec2_query(
-                el, "ThroughResource"
+                child_through_resources
             )
         )
     return out

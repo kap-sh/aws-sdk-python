@@ -40,8 +40,9 @@ def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupReferencesRequest
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("GroupId") is not None:
+    child_group_id = el.find("GroupId")
+    if child_group_id is not None:
         import capo_ec2.types.group_ids
 
-        out["group_id"] = capo_ec2.types.group_ids.deserialize_ec2_query(el, "GroupId")
+        out["group_id"] = capo_ec2.types.group_ids.deserialize_ec2_query(child_group_id)
     return out

@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DeclarativePoliciesReportList:
+def deserialize_ec2_query(el: Element) -> DeclarativePoliciesReportList:
+    import capo_ec2.types.declarative_policies_report
+
+    out: DeclarativePoliciesReportList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.declarative_policies_report.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> DeclarativePoliciesReportList:
     import capo_ec2.types.declarative_policies_report
 
     out: DeclarativePoliciesReportList = []

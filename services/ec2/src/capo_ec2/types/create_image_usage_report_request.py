@@ -77,31 +77,34 @@ def deserialize_ec2_query(el: Element) -> CreateImageUsageReportRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ResourceType") is not None:
+    child_resource_types = el.find("ResourceType")
+    if child_resource_types is not None:
         import capo_ec2.types.image_usage_resource_type_request_list
 
         out["resource_types"] = (
             capo_ec2.types.image_usage_resource_type_request_list.deserialize_ec2_query(
-                el, "ResourceType"
+                child_resource_types
             )
         )
-    if el.find("AccountId") is not None:
+    child_account_ids = el.find("AccountId")
+    if child_account_ids is not None:
         import capo_ec2.types.image_usage_report_user_id_string_list
 
         out["account_ids"] = (
             capo_ec2.types.image_usage_report_user_id_string_list.deserialize_ec2_query(
-                el, "AccountId"
+                child_account_ids
             )
         )
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

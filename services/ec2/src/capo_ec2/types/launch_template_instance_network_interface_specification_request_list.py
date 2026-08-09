@@ -27,6 +27,21 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList:
+    import capo_ec2.types.launch_template_instance_network_interface_specification_request
+
+    out: LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList = []
+    for child in el.findall("InstanceNetworkInterfaceSpecification"):
+        out.append(
+            capo_ec2.types.launch_template_instance_network_interface_specification_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList:
     import capo_ec2.types.launch_template_instance_network_interface_specification_request

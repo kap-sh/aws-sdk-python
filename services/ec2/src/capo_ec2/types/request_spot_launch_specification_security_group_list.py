@@ -23,6 +23,15 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> RequestSpotLaunchSpecificationSecurityGroupList:
+    out: RequestSpotLaunchSpecificationSecurityGroupList = []
+    for child in el.findall("item"):
+        out.append(str(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> RequestSpotLaunchSpecificationSecurityGroupList:
     out: RequestSpotLaunchSpecificationSecurityGroupList = []

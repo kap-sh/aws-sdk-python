@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetAssociatedIpv6PoolCidrsResult:
     out: GetAssociatedIpv6PoolCidrsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ipv6CidrAssociationSet") is not None:
+    child_ipv6_cidr_associations = el.find("ipv6CidrAssociationSet")
+    if child_ipv6_cidr_associations is not None:
         import capo_ec2.types.ipv6_cidr_association_set
 
         out["ipv6_cidr_associations"] = (
             capo_ec2.types.ipv6_cidr_association_set.deserialize_ec2_query(
-                el, "ipv6CidrAssociationSet"
+                child_ipv6_cidr_associations
             )
         )
     child_next_token = el.find("nextToken")

@@ -66,20 +66,22 @@ def deserialize_ec2_query(
     child_traffic_mirror_filter_id = el.find("TrafficMirrorFilterId")
     if child_traffic_mirror_filter_id is not None:
         out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
-    if el.find("AddNetworkService") is not None:
+    child_add_network_services = el.find("AddNetworkService")
+    if child_add_network_services is not None:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         out["add_network_services"] = (
             capo_ec2.types.traffic_mirror_network_service_list.deserialize_ec2_query(
-                el, "AddNetworkService"
+                child_add_network_services
             )
         )
-    if el.find("RemoveNetworkService") is not None:
+    child_remove_network_services = el.find("RemoveNetworkService")
+    if child_remove_network_services is not None:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         out["remove_network_services"] = (
             capo_ec2.types.traffic_mirror_network_service_list.deserialize_ec2_query(
-                el, "RemoveNetworkService"
+                child_remove_network_services
             )
         )
     child_dry_run = el.find("DryRun")

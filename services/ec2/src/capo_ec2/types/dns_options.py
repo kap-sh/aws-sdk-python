@@ -83,12 +83,13 @@ def deserialize_ec2_query(el: Element) -> DnsOptions:
     child_private_dns_preference = el.find("privateDnsPreference")
     if child_private_dns_preference is not None:
         out["private_dns_preference"] = str(child_private_dns_preference.text or "")
-    if el.find("privateDnsSpecifiedDomainSet") is not None:
+    child_private_dns_specified_domains = el.find("privateDnsSpecifiedDomainSet")
+    if child_private_dns_specified_domains is not None:
         import capo_ec2.types.private_dns_specified_domain_set
 
         out["private_dns_specified_domains"] = (
             capo_ec2.types.private_dns_specified_domain_set.deserialize_ec2_query(
-                el, "privateDnsSpecifiedDomainSet"
+                child_private_dns_specified_domains
             )
         )
     return out

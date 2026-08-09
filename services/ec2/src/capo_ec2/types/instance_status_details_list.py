@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceStatusDetailsList:
+def deserialize_ec2_query(el: Element) -> InstanceStatusDetailsList:
+    import capo_ec2.types.instance_status_details
+
+    out: InstanceStatusDetailsList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.instance_status_details.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> InstanceStatusDetailsList:
     import capo_ec2.types.instance_status_details
 
     out: InstanceStatusDetailsList = []

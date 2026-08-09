@@ -34,12 +34,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetAssociatedEnclaveCertificateIamRolesResult:
     out: GetAssociatedEnclaveCertificateIamRolesResult = {}  # type: ignore[typeddict-item]
-    if el.find("associatedRoleSet") is not None:
+    child_associated_roles = el.find("associatedRoleSet")
+    if child_associated_roles is not None:
         import capo_ec2.types.associated_roles_list
 
         out["associated_roles"] = (
             capo_ec2.types.associated_roles_list.deserialize_ec2_query(
-                el, "associatedRoleSet"
+                child_associated_roles
             )
         )
     return out

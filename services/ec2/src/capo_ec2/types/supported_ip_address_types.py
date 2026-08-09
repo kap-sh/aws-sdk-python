@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> SupportedIpAddressTypes:
+def deserialize_ec2_query(el: Element) -> SupportedIpAddressTypes:
+    import capo_ec2.types.service_connectivity_type
+
+    out: SupportedIpAddressTypes = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.service_connectivity_type.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> SupportedIpAddressTypes:
     import capo_ec2.types.service_connectivity_type
 
     out: SupportedIpAddressTypes = []

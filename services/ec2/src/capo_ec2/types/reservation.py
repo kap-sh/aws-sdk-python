@@ -61,16 +61,18 @@ def deserialize_ec2_query(el: Element) -> Reservation:
     child_requester_id = el.find("requesterId")
     if child_requester_id is not None:
         out["requester_id"] = str(child_requester_id.text or "")
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
-    if el.find("instancesSet") is not None:
+    child_instances = el.find("instancesSet")
+    if child_instances is not None:
         import capo_ec2.types.instance_list
 
         out["instances"] = capo_ec2.types.instance_list.deserialize_ec2_query(
-            el, "instancesSet"
+            child_instances
         )
     return out

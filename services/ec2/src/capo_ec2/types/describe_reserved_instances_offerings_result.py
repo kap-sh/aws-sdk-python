@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesOfferingsResu
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("reservedInstancesOfferingsSet") is not None:
+    child_reserved_instances_offerings = el.find("reservedInstancesOfferingsSet")
+    if child_reserved_instances_offerings is not None:
         import capo_ec2.types.reserved_instances_offering_list
 
         out["reserved_instances_offerings"] = (
             capo_ec2.types.reserved_instances_offering_list.deserialize_ec2_query(
-                el, "reservedInstancesOfferingsSet"
+                child_reserved_instances_offerings
             )
         )
     return out

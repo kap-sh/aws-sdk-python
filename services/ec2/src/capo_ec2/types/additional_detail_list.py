@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AdditionalDetailList:
+def deserialize_ec2_query(el: Element) -> AdditionalDetailList:
+    import capo_ec2.types.additional_detail
+
+    out: AdditionalDetailList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.additional_detail.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AdditionalDetailList:
     import capo_ec2.types.additional_detail
 
     out: AdditionalDetailList = []

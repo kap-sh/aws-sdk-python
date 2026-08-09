@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> DescribeIpamScopesResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamScopeSet") is not None:
+    child_ipam_scopes = el.find("ipamScopeSet")
+    if child_ipam_scopes is not None:
         import capo_ec2.types.ipam_scope_set
 
         out["ipam_scopes"] = capo_ec2.types.ipam_scope_set.deserialize_ec2_query(
-            el, "ipamScopeSet"
+            child_ipam_scopes
         )
     return out

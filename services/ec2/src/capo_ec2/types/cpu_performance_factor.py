@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CpuPerformanceFactor:
     out: CpuPerformanceFactor = {}  # type: ignore[typeddict-item]
-    if el.find("referenceSet") is not None:
+    child_references = el.find("referenceSet")
+    if child_references is not None:
         import capo_ec2.types.performance_factor_reference_set
 
         out["references"] = (
             capo_ec2.types.performance_factor_reference_set.deserialize_ec2_query(
-                el, "referenceSet"
+                child_references
             )
         )
     return out

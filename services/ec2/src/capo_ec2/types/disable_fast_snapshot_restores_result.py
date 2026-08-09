@@ -43,20 +43,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisableFastSnapshotRestoresResult:
     out: DisableFastSnapshotRestoresResult = {}  # type: ignore[typeddict-item]
-    if el.find("successful") is not None:
+    child_successful = el.find("successful")
+    if child_successful is not None:
         import capo_ec2.types.disable_fast_snapshot_restore_success_set
 
         out["successful"] = (
             capo_ec2.types.disable_fast_snapshot_restore_success_set.deserialize_ec2_query(
-                el, "successful"
+                child_successful
             )
         )
-    if el.find("unsuccessful") is not None:
+    child_unsuccessful = el.find("unsuccessful")
+    if child_unsuccessful is not None:
         import capo_ec2.types.disable_fast_snapshot_restore_error_set
 
         out["unsuccessful"] = (
             capo_ec2.types.disable_fast_snapshot_restore_error_set.deserialize_ec2_query(
-                el, "unsuccessful"
+                child_unsuccessful
             )
         )
     return out

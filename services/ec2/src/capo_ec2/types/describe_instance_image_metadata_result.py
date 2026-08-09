@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceImageMetadataResult:
     out: DescribeInstanceImageMetadataResult = {}  # type: ignore[typeddict-item]
-    if el.find("instanceImageMetadataSet") is not None:
+    child_instance_image_metadata = el.find("instanceImageMetadataSet")
+    if child_instance_image_metadata is not None:
         import capo_ec2.types.instance_image_metadata_list
 
         out["instance_image_metadata"] = (
             capo_ec2.types.instance_image_metadata_list.deserialize_ec2_query(
-                el, "instanceImageMetadataSet"
+                child_instance_image_metadata
             )
         )
     child_next_token = el.find("nextToken")

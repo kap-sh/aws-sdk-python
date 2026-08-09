@@ -87,11 +87,12 @@ def deserialize_ec2_query(el: Element) -> Purchase:
     child_duration = el.find("duration")
     if child_duration is not None:
         out["duration"] = int(child_duration.text or "")
-    if el.find("hostIdSet") is not None:
+    child_host_id_set = el.find("hostIdSet")
+    if child_host_id_set is not None:
         import capo_ec2.types.response_host_id_set
 
         out["host_id_set"] = capo_ec2.types.response_host_id_set.deserialize_ec2_query(
-            el, "hostIdSet"
+            child_host_id_set
         )
     child_host_reservation_id = el.find("hostReservationId")
     if child_host_reservation_id is not None:

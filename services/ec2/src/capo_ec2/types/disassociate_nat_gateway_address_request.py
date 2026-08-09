@@ -57,12 +57,13 @@ def deserialize_ec2_query(el: Element) -> DisassociateNatGatewayAddressRequest:
     child_nat_gateway_id = el.find("NatGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("AssociationId") is not None:
+    child_association_ids = el.find("AssociationId")
+    if child_association_ids is not None:
         import capo_ec2.types.eip_association_id_list
 
         out["association_ids"] = (
             capo_ec2.types.eip_association_id_list.deserialize_ec2_query(
-                el, "AssociationId"
+                child_association_ids
             )
         )
     child_max_drain_duration_seconds = el.find("MaxDrainDurationSeconds")

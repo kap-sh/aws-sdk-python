@@ -78,12 +78,13 @@ def deserialize_ec2_query(el: Element) -> AttributeSummary:
         out["number_of_unmatched_accounts"] = int(
             child_number_of_unmatched_accounts.text or ""
         )
-    if el.find("regionalSummarySet") is not None:
+    child_regional_summaries = el.find("regionalSummarySet")
+    if child_regional_summaries is not None:
         import capo_ec2.types.regional_summary_list
 
         out["regional_summaries"] = (
             capo_ec2.types.regional_summary_list.deserialize_ec2_query(
-                el, "regionalSummarySet"
+                child_regional_summaries
             )
         )
     return out

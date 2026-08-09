@@ -113,47 +113,52 @@ def deserialize_ec2_query(el: Element) -> CreateVpcEndpointServiceConfigurationR
     child_private_dns_name = el.find("PrivateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    if el.find("NetworkLoadBalancerArn") is not None:
+    child_network_load_balancer_arns = el.find("NetworkLoadBalancerArn")
+    if child_network_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "NetworkLoadBalancerArn"
+                child_network_load_balancer_arns
             )
         )
-    if el.find("GatewayLoadBalancerArn") is not None:
+    child_gateway_load_balancer_arns = el.find("GatewayLoadBalancerArn")
+    if child_gateway_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "GatewayLoadBalancerArn"
+                child_gateway_load_balancer_arns
             )
         )
-    if el.find("SupportedIpAddressType") is not None:
+    child_supported_ip_address_types = el.find("SupportedIpAddressType")
+    if child_supported_ip_address_types is not None:
         import capo_ec2.types.value_string_list
 
         out["supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SupportedIpAddressType"
+                child_supported_ip_address_types
             )
         )
-    if el.find("SupportedRegion") is not None:
+    child_supported_regions = el.find("SupportedRegion")
+    if child_supported_regions is not None:
         import capo_ec2.types.value_string_list
 
         out["supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SupportedRegion"
+                child_supported_regions
             )
         )
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

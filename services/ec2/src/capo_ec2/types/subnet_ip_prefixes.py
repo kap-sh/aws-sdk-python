@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> SubnetIpPrefixes:
     child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("ipPrefixSet") is not None:
+    child_ip_prefixes = el.find("ipPrefixSet")
+    if child_ip_prefixes is not None:
         import capo_ec2.types.value_string_list
 
         out["ip_prefixes"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ipPrefixSet"
+            child_ip_prefixes
         )
     return out

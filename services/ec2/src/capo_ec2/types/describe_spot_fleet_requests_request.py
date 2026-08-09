@@ -50,12 +50,13 @@ def deserialize_ec2_query(el: Element) -> DescribeSpotFleetRequestsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("spotFleetRequestId") is not None:
+    child_spot_fleet_request_ids = el.find("spotFleetRequestId")
+    if child_spot_fleet_request_ids is not None:
         import capo_ec2.types.spot_fleet_request_id_list
 
         out["spot_fleet_request_ids"] = (
             capo_ec2.types.spot_fleet_request_id_list.deserialize_ec2_query(
-                el, "spotFleetRequestId"
+                child_spot_fleet_request_ids
             )
         )
     child_next_token = el.find("nextToken")

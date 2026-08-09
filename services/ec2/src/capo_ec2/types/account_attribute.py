@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> AccountAttribute:
     child_attribute_name = el.find("attributeName")
     if child_attribute_name is not None:
         out["attribute_name"] = str(child_attribute_name.text or "")
-    if el.find("attributeValueSet") is not None:
+    child_attribute_values = el.find("attributeValueSet")
+    if child_attribute_values is not None:
         import capo_ec2.types.account_attribute_value_list
 
         out["attribute_values"] = (
             capo_ec2.types.account_attribute_value_list.deserialize_ec2_query(
-                el, "attributeValueSet"
+                child_attribute_values
             )
         )
     return out

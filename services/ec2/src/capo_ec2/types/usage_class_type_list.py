@@ -22,7 +22,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> UsageClassTypeList:
+def deserialize_ec2_query(el: Element) -> UsageClassTypeList:
+    import capo_ec2.types.usage_class_type
+
+    out: UsageClassTypeList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.usage_class_type.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> UsageClassTypeList:
     import capo_ec2.types.usage_class_type
 
     out: UsageClassTypeList = []

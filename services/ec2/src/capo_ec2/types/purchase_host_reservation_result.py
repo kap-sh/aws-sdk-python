@@ -68,11 +68,12 @@ def deserialize_ec2_query(el: Element) -> PurchaseHostReservationResult:
                 child_currency_code
             )
         )
-    if el.find("purchase") is not None:
+    child_purchase = el.find("purchase")
+    if child_purchase is not None:
         import capo_ec2.types.purchase_set
 
         out["purchase"] = capo_ec2.types.purchase_set.deserialize_ec2_query(
-            el, "purchase"
+            child_purchase
         )
     child_total_hourly_price = el.find("totalHourlyPrice")
     if child_total_hourly_price is not None:

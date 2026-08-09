@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.disk_image.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DiskImageList:
+def deserialize_ec2_query(el: Element) -> DiskImageList:
+    import capo_ec2.types.disk_image
+
+    out: DiskImageList = []
+    for child in el.findall("member"):
+        out.append(capo_ec2.types.disk_image.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> DiskImageList:
     import capo_ec2.types.disk_image
 
     out: DiskImageList = []

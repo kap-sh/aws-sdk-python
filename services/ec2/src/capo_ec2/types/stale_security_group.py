@@ -70,20 +70,22 @@ def deserialize_ec2_query(el: Element) -> StaleSecurityGroup:
     child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("staleIpPermissions") is not None:
+    child_stale_ip_permissions = el.find("staleIpPermissions")
+    if child_stale_ip_permissions is not None:
         import capo_ec2.types.stale_ip_permission_set
 
         out["stale_ip_permissions"] = (
             capo_ec2.types.stale_ip_permission_set.deserialize_ec2_query(
-                el, "staleIpPermissions"
+                child_stale_ip_permissions
             )
         )
-    if el.find("staleIpPermissionsEgress") is not None:
+    child_stale_ip_permissions_egress = el.find("staleIpPermissionsEgress")
+    if child_stale_ip_permissions_egress is not None:
         import capo_ec2.types.stale_ip_permission_set
 
         out["stale_ip_permissions_egress"] = (
             capo_ec2.types.stale_ip_permission_set.deserialize_ec2_query(
-                el, "staleIpPermissionsEgress"
+                child_stale_ip_permissions_egress
             )
         )
     child_vpc_id = el.find("vpcId")

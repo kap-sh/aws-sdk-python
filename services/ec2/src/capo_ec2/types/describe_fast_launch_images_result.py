@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFastLaunchImagesResult:
     out: DescribeFastLaunchImagesResult = {}  # type: ignore[typeddict-item]
-    if el.find("fastLaunchImageSet") is not None:
+    child_fast_launch_images = el.find("fastLaunchImageSet")
+    if child_fast_launch_images is not None:
         import capo_ec2.types.describe_fast_launch_images_success_set
 
         out["fast_launch_images"] = (
             capo_ec2.types.describe_fast_launch_images_success_set.deserialize_ec2_query(
-                el, "fastLaunchImageSet"
+                child_fast_launch_images
             )
         )
     child_next_token = el.find("nextToken")

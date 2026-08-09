@@ -95,12 +95,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayRoute:
         out["transit_gateway_route_table_announcement_id"] = str(
             child_transit_gateway_route_table_announcement_id.text or ""
         )
-    if el.find("transitGatewayAttachments") is not None:
+    child_transit_gateway_attachments = el.find("transitGatewayAttachments")
+    if child_transit_gateway_attachments is not None:
         import capo_ec2.types.transit_gateway_route_attachment_list
 
         out["transit_gateway_attachments"] = (
             capo_ec2.types.transit_gateway_route_attachment_list.deserialize_ec2_query(
-                el, "transitGatewayAttachments"
+                child_transit_gateway_attachments
             )
         )
     child_type = el.find("type")

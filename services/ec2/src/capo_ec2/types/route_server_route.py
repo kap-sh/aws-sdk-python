@@ -95,12 +95,13 @@ def deserialize_ec2_query(el: Element) -> RouteServerRoute:
     child_route_server_peer_id = el.find("routeServerPeerId")
     if child_route_server_peer_id is not None:
         out["route_server_peer_id"] = str(child_route_server_peer_id.text or "")
-    if el.find("routeInstallationDetailSet") is not None:
+    child_route_installation_details = el.find("routeInstallationDetailSet")
+    if child_route_installation_details is not None:
         import capo_ec2.types.route_server_route_installation_details
 
         out["route_installation_details"] = (
             capo_ec2.types.route_server_route_installation_details.deserialize_ec2_query(
-                el, "routeInstallationDetailSet"
+                child_route_installation_details
             )
         )
     child_route_status = el.find("routeStatus")
@@ -115,10 +116,11 @@ def deserialize_ec2_query(el: Element) -> RouteServerRoute:
     child_prefix = el.find("prefix")
     if child_prefix is not None:
         out["prefix"] = str(child_prefix.text or "")
-    if el.find("asPathSet") is not None:
+    child_as_paths = el.find("asPathSet")
+    if child_as_paths is not None:
         import capo_ec2.types.as_path
 
-        out["as_paths"] = capo_ec2.types.as_path.deserialize_ec2_query(el, "asPathSet")
+        out["as_paths"] = capo_ec2.types.as_path.deserialize_ec2_query(child_as_paths)
     child_med = el.find("med")
     if child_med is not None:
         out["med"] = int(child_med.text or "")

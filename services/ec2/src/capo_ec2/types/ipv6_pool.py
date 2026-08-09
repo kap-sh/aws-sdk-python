@@ -56,16 +56,18 @@ def deserialize_ec2_query(el: Element) -> Ipv6Pool:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("poolCidrBlockSet") is not None:
+    child_pool_cidr_blocks = el.find("poolCidrBlockSet")
+    if child_pool_cidr_blocks is not None:
         import capo_ec2.types.pool_cidr_blocks_set
 
         out["pool_cidr_blocks"] = (
             capo_ec2.types.pool_cidr_blocks_set.deserialize_ec2_query(
-                el, "poolCidrBlockSet"
+                child_pool_cidr_blocks
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

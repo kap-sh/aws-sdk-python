@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRuleRequestSet:
+    import capo_ec2.types.ipam_prefix_list_resolver_rule_request
+
+    out: IpamPrefixListResolverRuleRequestSet = []
+    for child in el.findall("Rule"):
+        out.append(
+            capo_ec2.types.ipam_prefix_list_resolver_rule_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> IpamPrefixListResolverRuleRequestSet:
     import capo_ec2.types.ipam_prefix_list_resolver_rule_request

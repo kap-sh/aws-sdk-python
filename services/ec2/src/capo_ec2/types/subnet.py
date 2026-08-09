@@ -219,18 +219,20 @@ def deserialize_ec2_query(el: Element) -> Subnet:
         out["assign_ipv6_address_on_creation"] = (
             child_assign_ipv6_address_on_creation.text or ""
         ).lower() == "true"
-    if el.find("ipv6CidrBlockAssociationSet") is not None:
+    child_ipv6_cidr_block_association_set = el.find("ipv6CidrBlockAssociationSet")
+    if child_ipv6_cidr_block_association_set is not None:
         import capo_ec2.types.subnet_ipv6_cidr_block_association_set
 
         out["ipv6_cidr_block_association_set"] = (
             capo_ec2.types.subnet_ipv6_cidr_block_association_set.deserialize_ec2_query(
-                el, "ipv6CidrBlockAssociationSet"
+                child_ipv6_cidr_block_association_set
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_subnet_arn = el.find("subnetArn")
     if child_subnet_arn is not None:
         out["subnet_arn"] = str(child_subnet_arn.text or "")

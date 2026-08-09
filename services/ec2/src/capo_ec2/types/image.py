@@ -271,12 +271,13 @@ def deserialize_ec2_query(el: Element) -> Image:
     child_usage_operation = el.find("usageOperation")
     if child_usage_operation is not None:
         out["usage_operation"] = str(child_usage_operation.text or "")
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_description = el.find("description")
@@ -318,10 +319,11 @@ def deserialize_ec2_query(el: Element) -> Image:
         out["state_reason"] = capo_ec2.types.state_reason.deserialize_ec2_query(
             child_state_reason
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_virtualization_type = el.find("virtualizationType")
     if child_virtualization_type is not None:
         import capo_ec2.types.virtualization_type
@@ -400,11 +402,12 @@ def deserialize_ec2_query(el: Element) -> Image:
     child_public = el.find("isPublic")
     if child_public is not None:
         out["public"] = (child_public.text or "").lower() == "true"
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
     child_architecture = el.find("architecture")
     if child_architecture is not None:

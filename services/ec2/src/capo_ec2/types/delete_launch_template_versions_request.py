@@ -64,10 +64,11 @@ def deserialize_ec2_query(el: Element) -> DeleteLaunchTemplateVersionsRequest:
     child_launch_template_name = el.find("LaunchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    if el.find("LaunchTemplateVersion") is not None:
+    child_versions = el.find("LaunchTemplateVersion")
+    if child_versions is not None:
         import capo_ec2.types.version_string_list
 
         out["versions"] = capo_ec2.types.version_string_list.deserialize_ec2_query(
-            el, "LaunchTemplateVersion"
+            child_versions
         )
     return out

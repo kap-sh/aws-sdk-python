@@ -90,12 +90,13 @@ def deserialize_ec2_query(el: Element) -> InstanceEventWindow:
     child_instance_event_window_id = el.find("instanceEventWindowId")
     if child_instance_event_window_id is not None:
         out["instance_event_window_id"] = str(child_instance_event_window_id.text or "")
-    if el.find("timeRangeSet") is not None:
+    child_time_ranges = el.find("timeRangeSet")
+    if child_time_ranges is not None:
         import capo_ec2.types.instance_event_window_time_range_list
 
         out["time_ranges"] = (
             capo_ec2.types.instance_event_window_time_range_list.deserialize_ec2_query(
-                el, "timeRangeSet"
+                child_time_ranges
             )
         )
     child_name = el.find("name")
@@ -120,8 +121,9 @@ def deserialize_ec2_query(el: Element) -> InstanceEventWindow:
         out["state"] = capo_ec2.types.instance_event_window_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

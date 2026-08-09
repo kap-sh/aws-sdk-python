@@ -44,18 +44,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateVolumePermissionModifications:
     out: CreateVolumePermissionModifications = {}  # type: ignore[typeddict-item]
-    if el.find("Add") is not None:
+    child_add = el.find("Add")
+    if child_add is not None:
         import capo_ec2.types.create_volume_permission_list
 
         out["add"] = capo_ec2.types.create_volume_permission_list.deserialize_ec2_query(
-            el, "Add"
+            child_add
         )
-    if el.find("Remove") is not None:
+    child_remove = el.find("Remove")
+    if child_remove is not None:
         import capo_ec2.types.create_volume_permission_list
 
         out["remove"] = (
             capo_ec2.types.create_volume_permission_list.deserialize_ec2_query(
-                el, "Remove"
+                child_remove
             )
         )
     return out

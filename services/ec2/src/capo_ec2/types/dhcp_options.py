@@ -53,19 +53,21 @@ def deserialize_ec2_query(el: Element) -> DhcpOptions:
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_dhcp_options_id = el.find("dhcpOptionsId")
     if child_dhcp_options_id is not None:
         out["dhcp_options_id"] = str(child_dhcp_options_id.text or "")
-    if el.find("dhcpConfigurationSet") is not None:
+    child_dhcp_configurations = el.find("dhcpConfigurationSet")
+    if child_dhcp_configurations is not None:
         import capo_ec2.types.dhcp_configuration_list
 
         out["dhcp_configurations"] = (
             capo_ec2.types.dhcp_configuration_list.deserialize_ec2_query(
-                el, "dhcpConfigurationSet"
+                child_dhcp_configurations
             )
         )
     return out

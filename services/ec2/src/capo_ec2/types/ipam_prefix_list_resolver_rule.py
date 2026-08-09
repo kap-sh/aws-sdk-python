@@ -84,12 +84,13 @@ def deserialize_ec2_query(el: Element) -> IpamPrefixListResolverRule:
         out["resource_type"] = capo_ec2.types.ipam_resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("conditionSet") is not None:
+    child_conditions = el.find("conditionSet")
+    if child_conditions is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_condition_set
 
         out["conditions"] = (
             capo_ec2.types.ipam_prefix_list_resolver_rule_condition_set.deserialize_ec2_query(
-                el, "conditionSet"
+                child_conditions
             )
         )
     return out

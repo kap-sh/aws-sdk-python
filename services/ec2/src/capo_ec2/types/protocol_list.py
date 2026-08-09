@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.protocol.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ProtocolList:
+def deserialize_ec2_query(el: Element) -> ProtocolList:
+    import capo_ec2.types.protocol
+
+    out: ProtocolList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.protocol.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ProtocolList:
     import capo_ec2.types.protocol
 
     out: ProtocolList = []

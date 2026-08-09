@@ -66,23 +66,25 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceEventWindowRequest:
     child_name = el.find("Name")
     if child_name is not None:
         out["name"] = str(child_name.text or "")
-    if el.find("TimeRange") is not None:
+    child_time_ranges = el.find("TimeRange")
+    if child_time_ranges is not None:
         import capo_ec2.types.instance_event_window_time_range_request_set
 
         out["time_ranges"] = (
             capo_ec2.types.instance_event_window_time_range_request_set.deserialize_ec2_query(
-                el, "TimeRange"
+                child_time_ranges
             )
         )
     child_cron_expression = el.find("CronExpression")
     if child_cron_expression is not None:
         out["cron_expression"] = str(child_cron_expression.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

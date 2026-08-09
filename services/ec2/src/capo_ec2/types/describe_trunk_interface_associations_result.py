@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeTrunkInterfaceAssociationsResult:
     out: DescribeTrunkInterfaceAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("interfaceAssociationSet") is not None:
+    child_interface_associations = el.find("interfaceAssociationSet")
+    if child_interface_associations is not None:
         import capo_ec2.types.trunk_interface_association_list
 
         out["interface_associations"] = (
             capo_ec2.types.trunk_interface_association_list.deserialize_ec2_query(
-                el, "interfaceAssociationSet"
+                child_interface_associations
             )
         )
     child_next_token = el.find("nextToken")

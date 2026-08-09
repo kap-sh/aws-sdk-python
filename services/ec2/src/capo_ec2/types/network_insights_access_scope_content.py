@@ -59,20 +59,22 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsAccessScopeContent:
         out["network_insights_access_scope_id"] = str(
             child_network_insights_access_scope_id.text or ""
         )
-    if el.find("matchPathSet") is not None:
+    child_match_paths = el.find("matchPathSet")
+    if child_match_paths is not None:
         import capo_ec2.types.access_scope_path_list
 
         out["match_paths"] = (
             capo_ec2.types.access_scope_path_list.deserialize_ec2_query(
-                el, "matchPathSet"
+                child_match_paths
             )
         )
-    if el.find("excludePathSet") is not None:
+    child_exclude_paths = el.find("excludePathSet")
+    if child_exclude_paths is not None:
         import capo_ec2.types.access_scope_path_list
 
         out["exclude_paths"] = (
             capo_ec2.types.access_scope_path_list.deserialize_ec2_query(
-                el, "excludePathSet"
+                child_exclude_paths
             )
         )
     return out

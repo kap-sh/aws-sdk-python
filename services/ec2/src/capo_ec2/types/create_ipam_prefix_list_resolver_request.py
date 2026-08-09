@@ -89,20 +89,22 @@ def deserialize_ec2_query(el: Element) -> CreateIpamPrefixListResolverRequest:
         out["address_family"] = capo_ec2.types.address_family.deserialize_ec2_query(
             child_address_family
         )
-    if el.find("Rule") is not None:
+    child_rules = el.find("Rule")
+    if child_rules is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 
         out["rules"] = (
             capo_ec2.types.ipam_prefix_list_resolver_rule_request_set.deserialize_ec2_query(
-                el, "Rule"
+                child_rules
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_client_token = el.find("ClientToken")

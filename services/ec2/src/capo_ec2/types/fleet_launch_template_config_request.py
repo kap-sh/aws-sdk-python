@@ -54,12 +54,13 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateConfigRequest:
                 child_launch_template_specification
             )
         )
-    if el.find("Overrides") is not None:
+    child_overrides = el.find("Overrides")
+    if child_overrides is not None:
         import capo_ec2.types.fleet_launch_template_overrides_list_request
 
         out["overrides"] = (
             capo_ec2.types.fleet_launch_template_overrides_list_request.deserialize_ec2_query(
-                el, "Overrides"
+                child_overrides
             )
         )
     return out

@@ -57,12 +57,13 @@ def deserialize_ec2_query(el: Element) -> CreateReservedInstancesListingRequest:
     child_instance_count = el.find("instanceCount")
     if child_instance_count is not None:
         out["instance_count"] = int(child_instance_count.text or "")
-    if el.find("priceSchedules") is not None:
+    child_price_schedules = el.find("priceSchedules")
+    if child_price_schedules is not None:
         import capo_ec2.types.price_schedule_specification_list
 
         out["price_schedules"] = (
             capo_ec2.types.price_schedule_specification_list.deserialize_ec2_query(
-                el, "priceSchedules"
+                child_price_schedules
             )
         )
     child_client_token = el.find("clientToken")

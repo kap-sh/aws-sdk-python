@@ -53,18 +53,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIamInstanceProfileAssociationsRequest:
     out: DescribeIamInstanceProfileAssociationsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("AssociationId") is not None:
+    child_association_ids = el.find("AssociationId")
+    if child_association_ids is not None:
         import capo_ec2.types.association_id_list
 
         out["association_ids"] = (
             capo_ec2.types.association_id_list.deserialize_ec2_query(
-                el, "AssociationId"
+                child_association_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

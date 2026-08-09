@@ -157,20 +157,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayOptions:
     out: ModifyTransitGatewayOptions = {}  # type: ignore[typeddict-item]
-    if el.find("AddTransitGatewayCidrBlocks") is not None:
+    child_add_transit_gateway_cidr_blocks = el.find("AddTransitGatewayCidrBlocks")
+    if child_add_transit_gateway_cidr_blocks is not None:
         import capo_ec2.types.transit_gateway_cidr_block_string_list
 
         out["add_transit_gateway_cidr_blocks"] = (
             capo_ec2.types.transit_gateway_cidr_block_string_list.deserialize_ec2_query(
-                el, "AddTransitGatewayCidrBlocks"
+                child_add_transit_gateway_cidr_blocks
             )
         )
-    if el.find("RemoveTransitGatewayCidrBlocks") is not None:
+    child_remove_transit_gateway_cidr_blocks = el.find("RemoveTransitGatewayCidrBlocks")
+    if child_remove_transit_gateway_cidr_blocks is not None:
         import capo_ec2.types.transit_gateway_cidr_block_string_list
 
         out["remove_transit_gateway_cidr_blocks"] = (
             capo_ec2.types.transit_gateway_cidr_block_string_list.deserialize_ec2_query(
-                el, "RemoveTransitGatewayCidrBlocks"
+                child_remove_transit_gateway_cidr_blocks
             )
         )
     child_vpn_ecmp_support = el.find("VpnEcmpSupport")

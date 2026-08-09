@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFastSnapshotRestoresResult:
     out: DescribeFastSnapshotRestoresResult = {}  # type: ignore[typeddict-item]
-    if el.find("fastSnapshotRestoreSet") is not None:
+    child_fast_snapshot_restores = el.find("fastSnapshotRestoreSet")
+    if child_fast_snapshot_restores is not None:
         import capo_ec2.types.describe_fast_snapshot_restore_success_set
 
         out["fast_snapshot_restores"] = (
             capo_ec2.types.describe_fast_snapshot_restore_success_set.deserialize_ec2_query(
-                el, "fastSnapshotRestoreSet"
+                child_fast_snapshot_restores
             )
         )
     child_next_token = el.find("nextToken")

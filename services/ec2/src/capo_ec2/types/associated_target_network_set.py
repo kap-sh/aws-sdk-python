@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AssociatedTargetNetworkSet:
+def deserialize_ec2_query(el: Element) -> AssociatedTargetNetworkSet:
+    import capo_ec2.types.associated_target_network
+
+    out: AssociatedTargetNetworkSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.associated_target_network.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AssociatedTargetNetworkSet:
     import capo_ec2.types.associated_target_network
 
     out: AssociatedTargetNetworkSet = []

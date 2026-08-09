@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeOutpostLagsResult:
     out: DescribeOutpostLagsResult = {}  # type: ignore[typeddict-item]
-    if el.find("outpostLagSet") is not None:
+    child_outpost_lags = el.find("outpostLagSet")
+    if child_outpost_lags is not None:
         import capo_ec2.types.outpost_lag_set
 
         out["outpost_lags"] = capo_ec2.types.outpost_lag_set.deserialize_ec2_query(
-            el, "outpostLagSet"
+            child_outpost_lags
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

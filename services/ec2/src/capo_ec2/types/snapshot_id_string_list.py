@@ -18,7 +18,14 @@ def serialize_ec2_query(
         pairs.append((f"{prefix}.{n}", str(item)))
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> SnapshotIdStringList:
+def deserialize_ec2_query(el: Element) -> SnapshotIdStringList:
+    out: SnapshotIdStringList = []
+    for child in el.findall("SnapshotId"):
+        out.append(str(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> SnapshotIdStringList:
     out: SnapshotIdStringList = []
     for child in parent.findall(tag):
         out.append(str(child.text or ""))

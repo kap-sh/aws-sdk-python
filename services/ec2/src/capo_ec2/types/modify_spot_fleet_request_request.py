@@ -73,12 +73,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifySpotFleetRequestRequest:
     out: ModifySpotFleetRequestRequest = {}  # type: ignore[typeddict-item]
-    if el.find("LaunchTemplateConfig") is not None:
+    child_launch_template_configs = el.find("LaunchTemplateConfig")
+    if child_launch_template_configs is not None:
         import capo_ec2.types.launch_template_config_list
 
         out["launch_template_configs"] = (
             capo_ec2.types.launch_template_config_list.deserialize_ec2_query(
-                el, "LaunchTemplateConfig"
+                child_launch_template_configs
             )
         )
     child_on_demand_target_capacity = el.find("OnDemandTargetCapacity")

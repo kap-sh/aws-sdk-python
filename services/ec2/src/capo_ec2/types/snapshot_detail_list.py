@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.snapshot_detail.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> SnapshotDetailList:
+def deserialize_ec2_query(el: Element) -> SnapshotDetailList:
+    import capo_ec2.types.snapshot_detail
+
+    out: SnapshotDetailList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.snapshot_detail.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> SnapshotDetailList:
     import capo_ec2.types.snapshot_detail
 
     out: SnapshotDetailList = []

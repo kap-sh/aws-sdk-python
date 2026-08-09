@@ -514,12 +514,13 @@ def deserialize_ec2_query(el: Element) -> Instance:
         out["architecture"] = capo_ec2.types.architecture_values.deserialize_ec2_query(
             child_architecture
         )
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.instance_block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.instance_block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_client_token = el.find("clientToken")
@@ -556,28 +557,33 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_instance_lifecycle
             )
         )
-    if el.find("elasticGpuAssociationSet") is not None:
+    child_elastic_gpu_associations = el.find("elasticGpuAssociationSet")
+    if child_elastic_gpu_associations is not None:
         import capo_ec2.types.elastic_gpu_association_list
 
         out["elastic_gpu_associations"] = (
             capo_ec2.types.elastic_gpu_association_list.deserialize_ec2_query(
-                el, "elasticGpuAssociationSet"
+                child_elastic_gpu_associations
             )
         )
-    if el.find("elasticInferenceAcceleratorAssociationSet") is not None:
+    child_elastic_inference_accelerator_associations = el.find(
+        "elasticInferenceAcceleratorAssociationSet"
+    )
+    if child_elastic_inference_accelerator_associations is not None:
         import capo_ec2.types.elastic_inference_accelerator_association_list
 
         out["elastic_inference_accelerator_associations"] = (
             capo_ec2.types.elastic_inference_accelerator_association_list.deserialize_ec2_query(
-                el, "elasticInferenceAcceleratorAssociationSet"
+                child_elastic_inference_accelerator_associations
             )
         )
-    if el.find("networkInterfaceSet") is not None:
+    child_network_interfaces = el.find("networkInterfaceSet")
+    if child_network_interfaces is not None:
         import capo_ec2.types.instance_network_interface_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_list.deserialize_ec2_query(
-                el, "networkInterfaceSet"
+                child_network_interfaces
             )
         )
     child_outpost_arn = el.find("outpostArn")
@@ -593,11 +599,14 @@ def deserialize_ec2_query(el: Element) -> Instance:
         out["root_device_type"] = capo_ec2.types.device_type.deserialize_ec2_query(
             child_root_device_type
         )
-    if el.find("groupSet") is not None:
+    child_security_groups = el.find("groupSet")
+    if child_security_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["security_groups"] = (
-            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "groupSet")
+            capo_ec2.types.group_identifier_list.deserialize_ec2_query(
+                child_security_groups
+            )
         )
     child_source_dest_check = el.find("sourceDestCheck")
     if child_source_dest_check is not None:
@@ -617,10 +626,11 @@ def deserialize_ec2_query(el: Element) -> Instance:
         out["state_reason"] = capo_ec2.types.state_reason.deserialize_ec2_query(
             child_state_reason
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_virtualization_type = el.find("virtualizationType")
     if child_virtualization_type is not None:
         import capo_ec2.types.virtualization_type
@@ -663,11 +673,12 @@ def deserialize_ec2_query(el: Element) -> Instance:
                 child_hibernation_options
             )
         )
-    if el.find("licenseSet") is not None:
+    child_licenses = el.find("licenseSet")
+    if child_licenses is not None:
         import capo_ec2.types.license_list
 
         out["licenses"] = capo_ec2.types.license_list.deserialize_ec2_query(
-            el, "licenseSet"
+            child_licenses
         )
     child_metadata_options = el.find("metadataOptions")
     if child_metadata_options is not None:
@@ -756,12 +767,13 @@ def deserialize_ec2_query(el: Element) -> Instance:
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    if el.find("secondaryInterfaceSet") is not None:
+    child_secondary_interfaces = el.find("secondaryInterfaceSet")
+    if child_secondary_interfaces is not None:
         import capo_ec2.types.instance_secondary_interface_list
 
         out["secondary_interfaces"] = (
             capo_ec2.types.instance_secondary_interface_list.deserialize_ec2_query(
-                el, "secondaryInterfaceSet"
+                child_secondary_interfaces
             )
         )
     child_instance_id = el.find("instanceId")
@@ -790,11 +802,12 @@ def deserialize_ec2_query(el: Element) -> Instance:
     child_ami_launch_index = el.find("amiLaunchIndex")
     if child_ami_launch_index is not None:
         out["ami_launch_index"] = int(child_ami_launch_index.text or "")
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
     child_instance_type = el.find("instanceType")
     if child_instance_type is not None:

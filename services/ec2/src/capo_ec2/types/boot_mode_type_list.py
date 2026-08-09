@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.boot_mode_type.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> BootModeTypeList:
+def deserialize_ec2_query(el: Element) -> BootModeTypeList:
+    import capo_ec2.types.boot_mode_type
+
+    out: BootModeTypeList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.boot_mode_type.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> BootModeTypeList:
     import capo_ec2.types.boot_mode_type
 
     out: BootModeTypeList = []

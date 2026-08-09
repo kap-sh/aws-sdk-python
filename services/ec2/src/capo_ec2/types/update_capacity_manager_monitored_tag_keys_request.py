@@ -50,18 +50,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> UpdateCapacityManagerMonitoredTagKeysRequest:
     out: UpdateCapacityManagerMonitoredTagKeysRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ActivateTagKey") is not None:
+    child_activate_tag_keys = el.find("ActivateTagKey")
+    if child_activate_tag_keys is not None:
         import capo_ec2.types.value_string_list
 
         out["activate_tag_keys"] = (
-            capo_ec2.types.value_string_list.deserialize_ec2_query(el, "ActivateTagKey")
+            capo_ec2.types.value_string_list.deserialize_ec2_query(
+                child_activate_tag_keys
+            )
         )
-    if el.find("DeactivateTagKey") is not None:
+    child_deactivate_tag_keys = el.find("DeactivateTagKey")
+    if child_deactivate_tag_keys is not None:
         import capo_ec2.types.value_string_list
 
         out["deactivate_tag_keys"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DeactivateTagKey"
+                child_deactivate_tag_keys
             )
         )
     child_dry_run = el.find("DryRun")

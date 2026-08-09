@@ -39,11 +39,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GpuInfo:
     out: GpuInfo = {}  # type: ignore[typeddict-item]
-    if el.find("gpus") is not None:
+    child_gpus = el.find("gpus")
+    if child_gpus is not None:
         import capo_ec2.types.gpu_device_info_list
 
         out["gpus"] = capo_ec2.types.gpu_device_info_list.deserialize_ec2_query(
-            el, "gpus"
+            child_gpus
         )
     child_total_gpu_memory_in_mi_b = el.find("totalGpuMemoryInMiB")
     if child_total_gpu_memory_in_mi_b is not None:

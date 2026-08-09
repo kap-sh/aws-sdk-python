@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeHostReservationsResult:
     out: DescribeHostReservationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("hostReservationSet") is not None:
+    child_host_reservation_set = el.find("hostReservationSet")
+    if child_host_reservation_set is not None:
         import capo_ec2.types.host_reservation_set
 
         out["host_reservation_set"] = (
             capo_ec2.types.host_reservation_set.deserialize_ec2_query(
-                el, "hostReservationSet"
+                child_host_reservation_set
             )
         )
     child_next_token = el.find("nextToken")

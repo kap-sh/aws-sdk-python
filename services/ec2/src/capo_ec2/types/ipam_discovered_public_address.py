@@ -234,12 +234,13 @@ def deserialize_ec2_query(el: Element) -> IpamDiscoveredPublicAddress:
     child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    if el.find("securityGroupSet") is not None:
+    child_security_groups = el.find("securityGroupSet")
+    if child_security_groups is not None:
         import capo_ec2.types.ipam_public_address_security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.ipam_public_address_security_group_list.deserialize_ec2_query(
-                el, "securityGroupSet"
+                child_security_groups
             )
         )
     child_sample_time = el.find("sampleTime")

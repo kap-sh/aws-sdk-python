@@ -50,23 +50,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyReservedInstancesRequest:
     out: ModifyReservedInstancesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReservedInstancesId") is not None:
+    child_reserved_instances_ids = el.find("ReservedInstancesId")
+    if child_reserved_instances_ids is not None:
         import capo_ec2.types.reserved_instances_id_string_list
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.reserved_instances_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesId"
+                child_reserved_instances_ids
             )
         )
     child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("ReservedInstancesConfigurationSetItemType") is not None:
+    child_target_configurations = el.find("ReservedInstancesConfigurationSetItemType")
+    if child_target_configurations is not None:
         import capo_ec2.types.reserved_instances_configuration_list
 
         out["target_configurations"] = (
             capo_ec2.types.reserved_instances_configuration_list.deserialize_ec2_query(
-                el, "ReservedInstancesConfigurationSetItemType"
+                child_target_configurations
             )
         )
     return out

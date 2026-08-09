@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> TrafficMirrorFilterSet:
+def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterSet:
+    import capo_ec2.types.traffic_mirror_filter
+
+    out: TrafficMirrorFilterSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.traffic_mirror_filter.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> TrafficMirrorFilterSet:
     import capo_ec2.types.traffic_mirror_filter
 
     out: TrafficMirrorFilterSet = []

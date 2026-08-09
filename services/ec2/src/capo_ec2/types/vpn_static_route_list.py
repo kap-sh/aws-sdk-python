@@ -22,7 +22,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> VpnStaticRouteList:
+def deserialize_ec2_query(el: Element) -> VpnStaticRouteList:
+    import capo_ec2.types.vpn_static_route
+
+    out: VpnStaticRouteList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.vpn_static_route.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> VpnStaticRouteList:
     import capo_ec2.types.vpn_static_route
 
     out: VpnStaticRouteList = []

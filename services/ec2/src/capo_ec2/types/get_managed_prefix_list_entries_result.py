@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetManagedPrefixListEntriesResult:
     out: GetManagedPrefixListEntriesResult = {}  # type: ignore[typeddict-item]
-    if el.find("entrySet") is not None:
+    child_entries = el.find("entrySet")
+    if child_entries is not None:
         import capo_ec2.types.prefix_list_entry_set
 
         out["entries"] = capo_ec2.types.prefix_list_entry_set.deserialize_ec2_query(
-            el, "entrySet"
+            child_entries
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

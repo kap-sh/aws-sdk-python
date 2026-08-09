@@ -55,11 +55,12 @@ def deserialize_ec2_query(el: Element) -> UnassignPrivateNatGatewayAddressReques
     child_nat_gateway_id = el.find("NatGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("PrivateIpAddress") is not None:
+    child_private_ip_addresses = el.find("PrivateIpAddress")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.ip_list
 
         out["private_ip_addresses"] = capo_ec2.types.ip_list.deserialize_ec2_query(
-            el, "PrivateIpAddress"
+            child_private_ip_addresses
         )
     child_max_drain_duration_seconds = el.find("MaxDrainDurationSeconds")
     if child_max_drain_duration_seconds is not None:

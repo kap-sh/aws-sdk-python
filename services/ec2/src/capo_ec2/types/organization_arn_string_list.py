@@ -18,7 +18,14 @@ def serialize_ec2_query(
         pairs.append((f"{prefix}.{n}", str(item)))
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> OrganizationArnStringList:
+def deserialize_ec2_query(el: Element) -> OrganizationArnStringList:
+    out: OrganizationArnStringList = []
+    for child in el.findall("OrganizationArn"):
+        out.append(str(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> OrganizationArnStringList:
     out: OrganizationArnStringList = []
     for child in parent.findall(tag):
         out.append(str(child.text or ""))

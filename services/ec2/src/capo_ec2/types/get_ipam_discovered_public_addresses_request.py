@@ -75,10 +75,11 @@ def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredPublicAddressesReques
     child_address_region = el.find("AddressRegion")
     if child_address_region is not None:
         out["address_region"] = str(child_address_region.text or "")
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

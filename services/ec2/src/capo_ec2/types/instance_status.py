@@ -120,11 +120,12 @@ def deserialize_ec2_query(el: Element) -> InstanceStatus:
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    if el.find("eventsSet") is not None:
+    child_events = el.find("eventsSet")
+    if child_events is not None:
         import capo_ec2.types.instance_status_event_list
 
         out["events"] = capo_ec2.types.instance_status_event_list.deserialize_ec2_query(
-            el, "eventsSet"
+            child_events
         )
     child_instance_id = el.find("instanceId")
     if child_instance_id is not None:

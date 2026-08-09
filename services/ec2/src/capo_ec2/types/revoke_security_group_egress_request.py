@@ -87,12 +87,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupEgressRequest:
     out: RevokeSecurityGroupEgressRequest = {}  # type: ignore[typeddict-item]
-    if el.find("SecurityGroupRuleId") is not None:
+    child_security_group_rule_ids = el.find("SecurityGroupRuleId")
+    if child_security_group_rule_ids is not None:
         import capo_ec2.types.security_group_rule_id_list
 
         out["security_group_rule_ids"] = (
             capo_ec2.types.security_group_rule_id_list.deserialize_ec2_query(
-                el, "SecurityGroupRuleId"
+                child_security_group_rule_ids
             )
         )
     child_dry_run = el.find("dryRun")
@@ -123,10 +124,11 @@ def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupEgressRequest:
     child_cidr_ip = el.find("cidrIp")
     if child_cidr_ip is not None:
         out["cidr_ip"] = str(child_cidr_ip.text or "")
-    if el.find("ipPermissions") is not None:
+    child_ip_permissions = el.find("ipPermissions")
+    if child_ip_permissions is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-            el, "ipPermissions"
+            child_ip_permissions
         )
     return out

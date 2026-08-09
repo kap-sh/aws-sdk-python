@@ -44,12 +44,15 @@ def deserialize_ec2_query(el: Element) -> DisableFastSnapshotRestoreErrorItem:
     child_snapshot_id = el.find("snapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    if el.find("fastSnapshotRestoreStateErrorSet") is not None:
+    child_fast_snapshot_restore_state_errors = el.find(
+        "fastSnapshotRestoreStateErrorSet"
+    )
+    if child_fast_snapshot_restore_state_errors is not None:
         import capo_ec2.types.disable_fast_snapshot_restore_state_error_set
 
         out["fast_snapshot_restore_state_errors"] = (
             capo_ec2.types.disable_fast_snapshot_restore_state_error_set.deserialize_ec2_query(
-                el, "fastSnapshotRestoreStateErrorSet"
+                child_fast_snapshot_restore_state_errors
             )
         )
     return out

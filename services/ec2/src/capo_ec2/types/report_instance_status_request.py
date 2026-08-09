@@ -82,11 +82,12 @@ def deserialize_ec2_query(el: Element) -> ReportInstanceStatusRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("instanceId") is not None:
+    child_instances = el.find("instanceId")
+    if child_instances is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instances"] = capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-            el, "instanceId"
+            child_instances
         )
     child_status = el.find("status")
     if child_status is not None:
@@ -107,11 +108,12 @@ def deserialize_ec2_query(el: Element) -> ReportInstanceStatusRequest:
         import capo_ec2.types.date_time
 
         out["end_time"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end_time)
-    if el.find("reasonCode") is not None:
+    child_reason_codes = el.find("reasonCode")
+    if child_reason_codes is not None:
         import capo_ec2.types.reason_codes_list
 
         out["reason_codes"] = capo_ec2.types.reason_codes_list.deserialize_ec2_query(
-            el, "reasonCode"
+            child_reason_codes
         )
     child_description = el.find("description")
     if child_description is not None:

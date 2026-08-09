@@ -82,30 +82,36 @@ def deserialize_ec2_query(el: Element) -> IpPermission:
     child_to_port = el.find("toPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
-    if el.find("groups") is not None:
+    child_user_id_group_pairs = el.find("groups")
+    if child_user_id_group_pairs is not None:
         import capo_ec2.types.user_id_group_pair_list
 
         out["user_id_group_pairs"] = (
-            capo_ec2.types.user_id_group_pair_list.deserialize_ec2_query(el, "groups")
+            capo_ec2.types.user_id_group_pair_list.deserialize_ec2_query(
+                child_user_id_group_pairs
+            )
         )
-    if el.find("ipRanges") is not None:
+    child_ip_ranges = el.find("ipRanges")
+    if child_ip_ranges is not None:
         import capo_ec2.types.ip_range_list
 
         out["ip_ranges"] = capo_ec2.types.ip_range_list.deserialize_ec2_query(
-            el, "ipRanges"
+            child_ip_ranges
         )
-    if el.find("ipv6Ranges") is not None:
+    child_ipv6_ranges = el.find("ipv6Ranges")
+    if child_ipv6_ranges is not None:
         import capo_ec2.types.ipv6_range_list
 
         out["ipv6_ranges"] = capo_ec2.types.ipv6_range_list.deserialize_ec2_query(
-            el, "ipv6Ranges"
+            child_ipv6_ranges
         )
-    if el.find("prefixListIds") is not None:
+    child_prefix_list_ids = el.find("prefixListIds")
+    if child_prefix_list_ids is not None:
         import capo_ec2.types.prefix_list_id_list
 
         out["prefix_list_ids"] = (
             capo_ec2.types.prefix_list_id_list.deserialize_ec2_query(
-                el, "prefixListIds"
+                child_prefix_list_ids
             )
         )
     return out

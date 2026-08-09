@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> DeleteVpcEndpointServiceConfigurations
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ServiceId") is not None:
+    child_service_ids = el.find("ServiceId")
+    if child_service_ids is not None:
         import capo_ec2.types.vpc_endpoint_service_id_list
 
         out["service_ids"] = (
             capo_ec2.types.vpc_endpoint_service_id_list.deserialize_ec2_query(
-                el, "ServiceId"
+                child_service_ids
             )
         )
     return out

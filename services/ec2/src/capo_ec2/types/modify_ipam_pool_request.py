@@ -146,20 +146,22 @@ def deserialize_ec2_query(el: Element) -> ModifyIpamPoolRequest:
         out["clear_allocation_default_netmask_length"] = (
             child_clear_allocation_default_netmask_length.text or ""
         ).lower() == "true"
-    if el.find("AddAllocationResourceTag") is not None:
+    child_add_allocation_resource_tags = el.find("AddAllocationResourceTag")
+    if child_add_allocation_resource_tags is not None:
         import capo_ec2.types.request_ipam_resource_tag_list
 
         out["add_allocation_resource_tags"] = (
             capo_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
-                el, "AddAllocationResourceTag"
+                child_add_allocation_resource_tags
             )
         )
-    if el.find("RemoveAllocationResourceTag") is not None:
+    child_remove_allocation_resource_tags = el.find("RemoveAllocationResourceTag")
+    if child_remove_allocation_resource_tags is not None:
         import capo_ec2.types.request_ipam_resource_tag_list
 
         out["remove_allocation_resource_tags"] = (
             capo_ec2.types.request_ipam_resource_tag_list.deserialize_ec2_query(
-                el, "RemoveAllocationResourceTag"
+                child_remove_allocation_resource_tags
             )
         )
     return out

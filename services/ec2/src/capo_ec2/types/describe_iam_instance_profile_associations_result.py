@@ -41,12 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIamInstanceProfileAssociationsResult:
     out: DescribeIamInstanceProfileAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("iamInstanceProfileAssociationSet") is not None:
+    child_iam_instance_profile_associations = el.find(
+        "iamInstanceProfileAssociationSet"
+    )
+    if child_iam_instance_profile_associations is not None:
         import capo_ec2.types.iam_instance_profile_association_set
 
         out["iam_instance_profile_associations"] = (
             capo_ec2.types.iam_instance_profile_association_set.deserialize_ec2_query(
-                el, "iamInstanceProfileAssociationSet"
+                child_iam_instance_profile_associations
             )
         )
     child_next_token = el.find("nextToken")

@@ -299,11 +299,12 @@ def deserialize_ec2_query(el: Element) -> NetworkInterface:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
     child_interface_type = el.find("interfaceType")
     if child_interface_type is not None:
@@ -314,12 +315,13 @@ def deserialize_ec2_query(el: Element) -> NetworkInterface:
                 child_interface_type
             )
         )
-    if el.find("ipv6AddressesSet") is not None:
+    child_ipv6_addresses = el.find("ipv6AddressesSet")
+    if child_ipv6_addresses is not None:
         import capo_ec2.types.network_interface_ipv6_addresses_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.network_interface_ipv6_addresses_list.deserialize_ec2_query(
-                el, "ipv6AddressesSet"
+                child_ipv6_addresses
             )
         )
     child_mac_address = el.find("macAddress")
@@ -352,25 +354,28 @@ def deserialize_ec2_query(el: Element) -> NetworkInterface:
     child_private_ip_address = el.find("privateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("privateIpAddressesSet") is not None:
+    child_private_ip_addresses = el.find("privateIpAddressesSet")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.network_interface_private_ip_address_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.network_interface_private_ip_address_list.deserialize_ec2_query(
-                el, "privateIpAddressesSet"
+                child_private_ip_addresses
             )
         )
-    if el.find("ipv4PrefixSet") is not None:
+    child_ipv4_prefixes = el.find("ipv4PrefixSet")
+    if child_ipv4_prefixes is not None:
         import capo_ec2.types.ipv4_prefixes_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ipv4_prefixes_list.deserialize_ec2_query(
-            el, "ipv4PrefixSet"
+            child_ipv4_prefixes
         )
-    if el.find("ipv6PrefixSet") is not None:
+    child_ipv6_prefixes = el.find("ipv6PrefixSet")
+    if child_ipv6_prefixes is not None:
         import capo_ec2.types.ipv6_prefixes_list
 
         out["ipv6_prefixes"] = capo_ec2.types.ipv6_prefixes_list.deserialize_ec2_query(
-            el, "ipv6PrefixSet"
+            child_ipv6_prefixes
         )
     child_requester_id = el.find("requesterId")
     if child_requester_id is not None:
@@ -395,10 +400,11 @@ def deserialize_ec2_query(el: Element) -> NetworkInterface:
     child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tag_set = el.find("tagSet")
+    if child_tag_set is not None:
         import capo_ec2.types.tag_list
 
-        out["tag_set"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tag_set"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tag_set)
     child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
@@ -420,12 +426,13 @@ def deserialize_ec2_query(el: Element) -> NetworkInterface:
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
-    if el.find("associatedSubnetSet") is not None:
+    child_associated_subnets = el.find("associatedSubnetSet")
+    if child_associated_subnets is not None:
         import capo_ec2.types.associated_subnet_list
 
         out["associated_subnets"] = (
             capo_ec2.types.associated_subnet_list.deserialize_ec2_query(
-                el, "associatedSubnetSet"
+                child_associated_subnets
             )
         )
     child_availability_zone_id = el.find("availabilityZoneId")

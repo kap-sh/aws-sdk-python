@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceGenerationSet:
+def deserialize_ec2_query(el: Element) -> InstanceGenerationSet:
+    import capo_ec2.types.instance_generation
+
+    out: InstanceGenerationSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.instance_generation.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> InstanceGenerationSet:
     import capo_ec2.types.instance_generation
 
     out: InstanceGenerationSet = []

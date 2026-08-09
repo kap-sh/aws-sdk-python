@@ -74,12 +74,13 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointEniOptions:
     child_port = el.find("port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    if el.find("portRangeSet") is not None:
+    child_port_ranges = el.find("portRangeSet")
+    if child_port_ranges is not None:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "portRangeSet"
+                child_port_ranges
             )
         )
     return out

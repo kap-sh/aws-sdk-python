@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.port_range.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PortRangeList:
+def deserialize_ec2_query(el: Element) -> PortRangeList:
+    import capo_ec2.types.port_range
+
+    out: PortRangeList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.port_range.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PortRangeList:
     import capo_ec2.types.port_range
 
     out: PortRangeList = []

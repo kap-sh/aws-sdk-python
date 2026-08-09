@@ -71,16 +71,18 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceConnectEndpointsReques
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("InstanceConnectEndpointId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_instance_connect_endpoint_ids = el.find("InstanceConnectEndpointId")
+    if child_instance_connect_endpoint_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["instance_connect_endpoint_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "InstanceConnectEndpointId"
+                child_instance_connect_endpoint_ids
             )
         )
     return out

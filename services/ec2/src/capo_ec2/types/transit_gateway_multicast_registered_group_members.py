@@ -57,12 +57,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastRegisteredGroup
         out["transit_gateway_multicast_domain_id"] = str(
             child_transit_gateway_multicast_domain_id.text or ""
         )
-    if el.find("registeredNetworkInterfaceIds") is not None:
+    child_registered_network_interface_ids = el.find("registeredNetworkInterfaceIds")
+    if child_registered_network_interface_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["registered_network_interface_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "registeredNetworkInterfaceIds"
+                child_registered_network_interface_ids
             )
         )
     child_group_ip_address = el.find("groupIpAddress")

@@ -273,12 +273,13 @@ def deserialize_ec2_query(el: Element) -> FleetData:
         out["fulfilled_on_demand_capacity"] = float(
             child_fulfilled_on_demand_capacity.text or ""
         )
-    if el.find("launchTemplateConfigs") is not None:
+    child_launch_template_configs = el.find("launchTemplateConfigs")
+    if child_launch_template_configs is not None:
         import capo_ec2.types.fleet_launch_template_config_list
 
         out["launch_template_configs"] = (
             capo_ec2.types.fleet_launch_template_config_list.deserialize_ec2_query(
-                el, "launchTemplateConfigs"
+                child_launch_template_configs
             )
         )
     child_target_capacity_specification = el.find("targetCapacitySpecification")
@@ -346,22 +347,25 @@ def deserialize_ec2_query(el: Element) -> FleetData:
                 child_reserved_capacity_options
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("errorSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_errors = el.find("errorSet")
+    if child_errors is not None:
         import capo_ec2.types.describe_fleets_error_set
 
         out["errors"] = capo_ec2.types.describe_fleets_error_set.deserialize_ec2_query(
-            el, "errorSet"
+            child_errors
         )
-    if el.find("fleetInstanceSet") is not None:
+    child_instances = el.find("fleetInstanceSet")
+    if child_instances is not None:
         import capo_ec2.types.describe_fleets_instances_set
 
         out["instances"] = (
             capo_ec2.types.describe_fleets_instances_set.deserialize_ec2_query(
-                el, "fleetInstanceSet"
+                child_instances
             )
         )
     child_context = el.find("context")

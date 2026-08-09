@@ -106,12 +106,13 @@ def deserialize_ec2_query(el: Element) -> CreateVpnConnectionRequest:
     child_vpn_concentrator_id = el.find("VpnConcentratorId")
     if child_vpn_concentrator_id is not None:
         out["vpn_concentrator_id"] = str(child_vpn_concentrator_id.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_pre_shared_key_storage = el.find("PreSharedKeyStorage")

@@ -195,25 +195,28 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsAnalysis:
     child_network_insights_path_id = el.find("networkInsightsPathId")
     if child_network_insights_path_id is not None:
         out["network_insights_path_id"] = str(child_network_insights_path_id.text or "")
-    if el.find("additionalAccountSet") is not None:
+    child_additional_accounts = el.find("additionalAccountSet")
+    if child_additional_accounts is not None:
         import capo_ec2.types.value_string_list
 
         out["additional_accounts"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "additionalAccountSet"
+                child_additional_accounts
             )
         )
-    if el.find("filterInArnSet") is not None:
+    child_filter_in_arns = el.find("filterInArnSet")
+    if child_filter_in_arns is not None:
         import capo_ec2.types.arn_list
 
         out["filter_in_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "filterInArnSet"
+            child_filter_in_arns
         )
-    if el.find("filterOutArnSet") is not None:
+    child_filter_out_arns = el.find("filterOutArnSet")
+    if child_filter_out_arns is not None:
         import capo_ec2.types.arn_list
 
         out["filter_out_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "filterOutArnSet"
+            child_filter_out_arns
         )
     child_start_date = el.find("startDate")
     if child_start_date is not None:
@@ -240,46 +243,52 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsAnalysis:
         out["network_path_found"] = (
             child_network_path_found.text or ""
         ).lower() == "true"
-    if el.find("forwardPathComponentSet") is not None:
+    child_forward_path_components = el.find("forwardPathComponentSet")
+    if child_forward_path_components is not None:
         import capo_ec2.types.path_component_list
 
         out["forward_path_components"] = (
             capo_ec2.types.path_component_list.deserialize_ec2_query(
-                el, "forwardPathComponentSet"
+                child_forward_path_components
             )
         )
-    if el.find("returnPathComponentSet") is not None:
+    child_return_path_components = el.find("returnPathComponentSet")
+    if child_return_path_components is not None:
         import capo_ec2.types.path_component_list
 
         out["return_path_components"] = (
             capo_ec2.types.path_component_list.deserialize_ec2_query(
-                el, "returnPathComponentSet"
+                child_return_path_components
             )
         )
-    if el.find("explanationSet") is not None:
+    child_explanations = el.find("explanationSet")
+    if child_explanations is not None:
         import capo_ec2.types.explanation_list
 
         out["explanations"] = capo_ec2.types.explanation_list.deserialize_ec2_query(
-            el, "explanationSet"
+            child_explanations
         )
-    if el.find("alternatePathHintSet") is not None:
+    child_alternate_path_hints = el.find("alternatePathHintSet")
+    if child_alternate_path_hints is not None:
         import capo_ec2.types.alternate_path_hint_list
 
         out["alternate_path_hints"] = (
             capo_ec2.types.alternate_path_hint_list.deserialize_ec2_query(
-                el, "alternatePathHintSet"
+                child_alternate_path_hints
             )
         )
-    if el.find("suggestedAccountSet") is not None:
+    child_suggested_accounts = el.find("suggestedAccountSet")
+    if child_suggested_accounts is not None:
         import capo_ec2.types.value_string_list
 
         out["suggested_accounts"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "suggestedAccountSet"
+                child_suggested_accounts
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

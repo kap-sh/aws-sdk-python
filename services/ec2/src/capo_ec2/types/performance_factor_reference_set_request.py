@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> PerformanceFactorReferenceSetRequest:
+    import capo_ec2.types.performance_factor_reference_request
+
+    out: PerformanceFactorReferenceSetRequest = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.performance_factor_reference_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> PerformanceFactorReferenceSetRequest:
     import capo_ec2.types.performance_factor_reference_request

@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> IpamOrganizationalUnitExclusionSet:
+    import capo_ec2.types.ipam_organizational_unit_exclusion
+
+    out: IpamOrganizationalUnitExclusionSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.ipam_organizational_unit_exclusion.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> IpamOrganizationalUnitExclusionSet:
     import capo_ec2.types.ipam_organizational_unit_exclusion

@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.instance_usage.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceUsageSet:
+def deserialize_ec2_query(el: Element) -> InstanceUsageSet:
+    import capo_ec2.types.instance_usage
+
+    out: InstanceUsageSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.instance_usage.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> InstanceUsageSet:
     import capo_ec2.types.instance_usage
 
     out: InstanceUsageSet = []

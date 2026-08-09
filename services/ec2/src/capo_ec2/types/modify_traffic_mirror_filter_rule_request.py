@@ -172,12 +172,13 @@ def deserialize_ec2_query(el: Element) -> ModifyTrafficMirrorFilterRuleRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("RemoveField") is not None:
+    child_remove_fields = el.find("RemoveField")
+    if child_remove_fields is not None:
         import capo_ec2.types.traffic_mirror_filter_rule_field_list
 
         out["remove_fields"] = (
             capo_ec2.types.traffic_mirror_filter_rule_field_list.deserialize_ec2_query(
-                el, "RemoveField"
+                child_remove_fields
             )
         )
     child_dry_run = el.find("DryRun")

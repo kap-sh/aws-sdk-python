@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> CapacityBlockOfferingSet:
+def deserialize_ec2_query(el: Element) -> CapacityBlockOfferingSet:
+    import capo_ec2.types.capacity_block_offering
+
+    out: CapacityBlockOfferingSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.capacity_block_offering.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> CapacityBlockOfferingSet:
     import capo_ec2.types.capacity_block_offering
 
     out: CapacityBlockOfferingSet = []

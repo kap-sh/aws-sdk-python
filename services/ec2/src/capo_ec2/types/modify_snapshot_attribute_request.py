@@ -100,11 +100,14 @@ def deserialize_ec2_query(el: Element) -> ModifySnapshotAttributeRequest:
                 child_create_volume_permission
             )
         )
-    if el.find("UserGroup") is not None:
+    child_group_names = el.find("UserGroup")
+    if child_group_names is not None:
         import capo_ec2.types.group_name_string_list
 
         out["group_names"] = (
-            capo_ec2.types.group_name_string_list.deserialize_ec2_query(el, "UserGroup")
+            capo_ec2.types.group_name_string_list.deserialize_ec2_query(
+                child_group_names
+            )
         )
     child_operation_type = el.find("OperationType")
     if child_operation_type is not None:
@@ -116,11 +119,12 @@ def deserialize_ec2_query(el: Element) -> ModifySnapshotAttributeRequest:
     child_snapshot_id = el.find("SnapshotId")
     if child_snapshot_id is not None:
         out["snapshot_id"] = str(child_snapshot_id.text or "")
-    if el.find("UserId") is not None:
+    child_user_ids = el.find("UserId")
+    if child_user_ids is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserId"
+            child_user_ids
         )
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:

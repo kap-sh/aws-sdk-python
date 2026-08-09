@@ -38,12 +38,13 @@ def deserialize_ec2_query(el: Element) -> DescribeVolumeStatusResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("volumeStatusSet") is not None:
+    child_volume_statuses = el.find("volumeStatusSet")
+    if child_volume_statuses is not None:
         import capo_ec2.types.volume_status_list
 
         out["volume_statuses"] = (
             capo_ec2.types.volume_status_list.deserialize_ec2_query(
-                el, "volumeStatusSet"
+                child_volume_statuses
             )
         )
     return out

@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeClassicLinkInstancesResult:
     out: DescribeClassicLinkInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("instancesSet") is not None:
+    child_instances = el.find("instancesSet")
+    if child_instances is not None:
         import capo_ec2.types.classic_link_instance_list
 
         out["instances"] = (
             capo_ec2.types.classic_link_instance_list.deserialize_ec2_query(
-                el, "instancesSet"
+                child_instances
             )
         )
     child_next_token = el.find("nextToken")

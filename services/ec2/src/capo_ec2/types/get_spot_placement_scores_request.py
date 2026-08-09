@@ -98,11 +98,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
     out: GetSpotPlacementScoresRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceType") is not None:
+    child_instance_types = el.find("InstanceType")
+    if child_instance_types is not None:
         import capo_ec2.types.instance_types
 
         out["instance_types"] = capo_ec2.types.instance_types.deserialize_ec2_query(
-            el, "InstanceType"
+            child_instance_types
         )
     child_target_capacity = el.find("TargetCapacity")
     if child_target_capacity is not None:
@@ -121,11 +122,12 @@ def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
         out["single_availability_zone"] = (
             child_single_availability_zone.text or ""
         ).lower() == "true"
-    if el.find("RegionName") is not None:
+    child_region_names = el.find("RegionName")
+    if child_region_names is not None:
         import capo_ec2.types.region_names
 
         out["region_names"] = capo_ec2.types.region_names.deserialize_ec2_query(
-            el, "RegionName"
+            child_region_names
         )
     child_instance_requirements_with_metadata = el.find(
         "InstanceRequirementsWithMetadata"

@@ -35,12 +35,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DnsServersOptionsModifyStructure:
     out: DnsServersOptionsModifyStructure = {}  # type: ignore[typeddict-item]
-    if el.find("CustomDnsServers") is not None:
+    child_custom_dns_servers = el.find("CustomDnsServers")
+    if child_custom_dns_servers is not None:
         import capo_ec2.types.value_string_list
 
         out["custom_dns_servers"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "CustomDnsServers"
+                child_custom_dns_servers
             )
         )
     child_enabled = el.find("Enabled")

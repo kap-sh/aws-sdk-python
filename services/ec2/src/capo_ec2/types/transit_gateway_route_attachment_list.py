@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> TransitGatewayRouteAttachmentList:
+    import capo_ec2.types.transit_gateway_route_attachment
+
+    out: TransitGatewayRouteAttachmentList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.transit_gateway_route_attachment.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> TransitGatewayRouteAttachmentList:
     import capo_ec2.types.transit_gateway_route_attachment

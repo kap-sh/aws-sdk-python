@@ -49,18 +49,20 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsResult:
     child_client_token = el.find("clientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("flowLogIdSet") is not None:
+    child_flow_log_ids = el.find("flowLogIdSet")
+    if child_flow_log_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["flow_log_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "flowLogIdSet"
+            child_flow_log_ids
         )
-    if el.find("unsuccessful") is not None:
+    child_unsuccessful = el.find("unsuccessful")
+    if child_unsuccessful is not None:
         import capo_ec2.types.unsuccessful_item_set
 
         out["unsuccessful"] = (
             capo_ec2.types.unsuccessful_item_set.deserialize_ec2_query(
-                el, "unsuccessful"
+                child_unsuccessful
             )
         )
     return out

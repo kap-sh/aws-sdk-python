@@ -189,20 +189,22 @@ def deserialize_ec2_query(el: Element) -> ReservedInstancesOffering:
                 child_offering_type
             )
         )
-    if el.find("pricingDetailsSet") is not None:
+    child_pricing_details = el.find("pricingDetailsSet")
+    if child_pricing_details is not None:
         import capo_ec2.types.pricing_details_list
 
         out["pricing_details"] = (
             capo_ec2.types.pricing_details_list.deserialize_ec2_query(
-                el, "pricingDetailsSet"
+                child_pricing_details
             )
         )
-    if el.find("recurringCharges") is not None:
+    child_recurring_charges = el.find("recurringCharges")
+    if child_recurring_charges is not None:
         import capo_ec2.types.recurring_charges_list
 
         out["recurring_charges"] = (
             capo_ec2.types.recurring_charges_list.deserialize_ec2_query(
-                el, "recurringCharges"
+                child_recurring_charges
             )
         )
     child_scope = el.find("scope")

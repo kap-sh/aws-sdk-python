@@ -138,12 +138,13 @@ def deserialize_ec2_query(el: Element) -> VpnConnectionOptionsSpecification:
                 child_tunnel_inside_ip_version
             )
         )
-    if el.find("TunnelOptions") is not None:
+    child_tunnel_options = el.find("TunnelOptions")
+    if child_tunnel_options is not None:
         import capo_ec2.types.vpn_tunnel_options_specifications_list
 
         out["tunnel_options"] = (
             capo_ec2.types.vpn_tunnel_options_specifications_list.deserialize_ec2_query(
-                el, "TunnelOptions"
+                child_tunnel_options
             )
         )
     child_local_ipv4_network_cidr = el.find("LocalIpv4NetworkCidr")

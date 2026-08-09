@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceIpv6AddressListRequest:
+def deserialize_ec2_query(el: Element) -> InstanceIpv6AddressListRequest:
+    import capo_ec2.types.instance_ipv6_address_request
+
+    out: InstanceIpv6AddressListRequest = []
+    for child in el.findall("InstanceIpv6Address"):
+        out.append(
+            capo_ec2.types.instance_ipv6_address_request.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> InstanceIpv6AddressListRequest:
     import capo_ec2.types.instance_ipv6_address_request
 
     out: InstanceIpv6AddressListRequest = []

@@ -114,37 +114,41 @@ def deserialize_ec2_query(el: Element) -> AdditionalDetail:
                 child_vpc_endpoint_service
             )
         )
-    if el.find("ruleOptionSet") is not None:
+    child_rule_options = el.find("ruleOptionSet")
+    if child_rule_options is not None:
         import capo_ec2.types.rule_option_list
 
         out["rule_options"] = capo_ec2.types.rule_option_list.deserialize_ec2_query(
-            el, "ruleOptionSet"
+            child_rule_options
         )
-    if el.find("ruleGroupTypePairSet") is not None:
+    child_rule_group_type_pairs = el.find("ruleGroupTypePairSet")
+    if child_rule_group_type_pairs is not None:
         import capo_ec2.types.rule_group_type_pair_list
 
         out["rule_group_type_pairs"] = (
             capo_ec2.types.rule_group_type_pair_list.deserialize_ec2_query(
-                el, "ruleGroupTypePairSet"
+                child_rule_group_type_pairs
             )
         )
-    if el.find("ruleGroupRuleOptionsPairSet") is not None:
+    child_rule_group_rule_options_pairs = el.find("ruleGroupRuleOptionsPairSet")
+    if child_rule_group_rule_options_pairs is not None:
         import capo_ec2.types.rule_group_rule_options_pair_list
 
         out["rule_group_rule_options_pairs"] = (
             capo_ec2.types.rule_group_rule_options_pair_list.deserialize_ec2_query(
-                el, "ruleGroupRuleOptionsPairSet"
+                child_rule_group_rule_options_pairs
             )
         )
     child_service_name = el.find("serviceName")
     if child_service_name is not None:
         out["service_name"] = str(child_service_name.text or "")
-    if el.find("loadBalancerSet") is not None:
+    child_load_balancers = el.find("loadBalancerSet")
+    if child_load_balancers is not None:
         import capo_ec2.types.analysis_component_list
 
         out["load_balancers"] = (
             capo_ec2.types.analysis_component_list.deserialize_ec2_query(
-                el, "loadBalancerSet"
+                child_load_balancers
             )
         )
     return out

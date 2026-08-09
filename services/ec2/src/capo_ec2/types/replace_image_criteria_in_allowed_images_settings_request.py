@@ -41,12 +41,13 @@ def deserialize_ec2_query(
     el: Element,
 ) -> ReplaceImageCriteriaInAllowedImagesSettingsRequest:
     out: ReplaceImageCriteriaInAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ImageCriterion") is not None:
+    child_image_criteria = el.find("ImageCriterion")
+    if child_image_criteria is not None:
         import capo_ec2.types.image_criterion_request_list
 
         out["image_criteria"] = (
             capo_ec2.types.image_criterion_request_list.deserialize_ec2_query(
-                el, "ImageCriterion"
+                child_image_criteria
             )
         )
     child_dry_run = el.find("DryRun")

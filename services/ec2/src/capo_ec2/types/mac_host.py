@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> MacHost:
     child_host_id = el.find("hostId")
     if child_host_id is not None:
         out["host_id"] = str(child_host_id.text or "")
-    if el.find("macOSLatestSupportedVersionSet") is not None:
+    child_mac_os_latest_supported_versions = el.find("macOSLatestSupportedVersionSet")
+    if child_mac_os_latest_supported_versions is not None:
         import capo_ec2.types.mac_os_version_string_list
 
         out["mac_os_latest_supported_versions"] = (
             capo_ec2.types.mac_os_version_string_list.deserialize_ec2_query(
-                el, "macOSLatestSupportedVersionSet"
+                child_mac_os_latest_supported_versions
             )
         )
     return out

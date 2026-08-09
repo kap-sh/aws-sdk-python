@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.price_schedule.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PriceScheduleList:
+def deserialize_ec2_query(el: Element) -> PriceScheduleList:
+    import capo_ec2.types.price_schedule
+
+    out: PriceScheduleList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.price_schedule.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PriceScheduleList:
     import capo_ec2.types.price_schedule
 
     out: PriceScheduleList = []

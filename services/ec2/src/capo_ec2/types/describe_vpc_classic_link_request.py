@@ -47,14 +47,16 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("VpcId") is not None:
+    child_vpc_ids = el.find("VpcId")
+    if child_vpc_ids is not None:
         import capo_ec2.types.vpc_classic_link_id_list
 
         out["vpc_ids"] = capo_ec2.types.vpc_classic_link_id_list.deserialize_ec2_query(
-            el, "VpcId"
+            child_vpc_ids
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

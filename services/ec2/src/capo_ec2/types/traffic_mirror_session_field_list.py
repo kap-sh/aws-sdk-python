@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> TrafficMirrorSessionFieldList:
+def deserialize_ec2_query(el: Element) -> TrafficMirrorSessionFieldList:
+    import capo_ec2.types.traffic_mirror_session_field
+
+    out: TrafficMirrorSessionFieldList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.traffic_mirror_session_field.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> TrafficMirrorSessionFieldList:
     import capo_ec2.types.traffic_mirror_session_field
 
     out: TrafficMirrorSessionFieldList = []

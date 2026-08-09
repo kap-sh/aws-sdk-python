@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFlowLogsResult:
     out: DescribeFlowLogsResult = {}  # type: ignore[typeddict-item]
-    if el.find("flowLogSet") is not None:
+    child_flow_logs = el.find("flowLogSet")
+    if child_flow_logs is not None:
         import capo_ec2.types.flow_log_set
 
         out["flow_logs"] = capo_ec2.types.flow_log_set.deserialize_ec2_query(
-            el, "flowLogSet"
+            child_flow_logs
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

@@ -208,11 +208,12 @@ def deserialize_ec2_query(el: Element) -> Host:
     child_host_reservation_id = el.find("hostReservationId")
     if child_host_reservation_id is not None:
         out["host_reservation_id"] = str(child_host_reservation_id.text or "")
-    if el.find("instances") is not None:
+    child_instances = el.find("instances")
+    if child_instances is not None:
         import capo_ec2.types.host_instance_list
 
         out["instances"] = capo_ec2.types.host_instance_list.deserialize_ec2_query(
-            el, "instances"
+            child_instances
         )
     child_state = el.find("state")
     if child_state is not None:
@@ -235,10 +236,11 @@ def deserialize_ec2_query(el: Element) -> Host:
         out["release_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_release_time
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_host_recovery = el.find("hostRecovery")
     if child_host_recovery is not None:
         import capo_ec2.types.host_recovery

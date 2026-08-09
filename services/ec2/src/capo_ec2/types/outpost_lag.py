@@ -86,24 +86,31 @@ def deserialize_ec2_query(el: Element) -> OutpostLag:
     child_outpost_lag_id = el.find("outpostLagId")
     if child_outpost_lag_id is not None:
         out["outpost_lag_id"] = str(child_outpost_lag_id.text or "")
-    if el.find("localGatewayVirtualInterfaceIdSet") is not None:
+    child_local_gateway_virtual_interface_ids = el.find(
+        "localGatewayVirtualInterfaceIdSet"
+    )
+    if child_local_gateway_virtual_interface_ids is not None:
         import capo_ec2.types.local_gateway_virtual_interface_id_set
 
         out["local_gateway_virtual_interface_ids"] = (
             capo_ec2.types.local_gateway_virtual_interface_id_set.deserialize_ec2_query(
-                el, "localGatewayVirtualInterfaceIdSet"
+                child_local_gateway_virtual_interface_ids
             )
         )
-    if el.find("serviceLinkVirtualInterfaceIdSet") is not None:
+    child_service_link_virtual_interface_ids = el.find(
+        "serviceLinkVirtualInterfaceIdSet"
+    )
+    if child_service_link_virtual_interface_ids is not None:
         import capo_ec2.types.service_link_virtual_interface_id_set
 
         out["service_link_virtual_interface_ids"] = (
             capo_ec2.types.service_link_virtual_interface_id_set.deserialize_ec2_query(
-                el, "serviceLinkVirtualInterfaceIdSet"
+                child_service_link_virtual_interface_ids
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

@@ -70,20 +70,22 @@ def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayMeteringPolicyRequ
         out["transit_gateway_metering_policy_id"] = str(
             child_transit_gateway_metering_policy_id.text or ""
         )
-    if el.find("AddMiddleboxAttachmentId") is not None:
+    child_add_middlebox_attachment_ids = el.find("AddMiddleboxAttachmentId")
+    if child_add_middlebox_attachment_ids is not None:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
 
         out["add_middlebox_attachment_ids"] = (
             capo_ec2.types.transit_gateway_attachment_id_string_list.deserialize_ec2_query(
-                el, "AddMiddleboxAttachmentId"
+                child_add_middlebox_attachment_ids
             )
         )
-    if el.find("RemoveMiddleboxAttachmentId") is not None:
+    child_remove_middlebox_attachment_ids = el.find("RemoveMiddleboxAttachmentId")
+    if child_remove_middlebox_attachment_ids is not None:
         import capo_ec2.types.transit_gateway_attachment_id_string_list
 
         out["remove_middlebox_attachment_ids"] = (
             capo_ec2.types.transit_gateway_attachment_id_string_list.deserialize_ec2_query(
-                el, "RemoveMiddleboxAttachmentId"
+                child_remove_middlebox_attachment_ids
             )
         )
     child_dry_run = el.find("DryRun")

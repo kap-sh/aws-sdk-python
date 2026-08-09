@@ -67,16 +67,18 @@ def deserialize_ec2_query(el: Element) -> DescribeRouteTablesRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("RouteTableId") is not None:
+    child_route_table_ids = el.find("RouteTableId")
+    if child_route_table_ids is not None:
         import capo_ec2.types.route_table_id_string_list
 
         out["route_table_ids"] = (
             capo_ec2.types.route_table_id_string_list.deserialize_ec2_query(
-                el, "RouteTableId"
+                child_route_table_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

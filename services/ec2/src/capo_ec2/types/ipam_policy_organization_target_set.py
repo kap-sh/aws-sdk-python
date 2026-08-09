@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> IpamPolicyOrganizationTargetSet:
+def deserialize_ec2_query(el: Element) -> IpamPolicyOrganizationTargetSet:
+    import capo_ec2.types.ipam_policy_organization_target
+
+    out: IpamPolicyOrganizationTargetSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.ipam_policy_organization_target.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> IpamPolicyOrganizationTargetSet:
     import capo_ec2.types.ipam_policy_organization_target
 
     out: IpamPolicyOrganizationTargetSet = []

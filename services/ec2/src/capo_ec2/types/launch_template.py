@@ -103,10 +103,11 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplate:
     child_latest_version_number = el.find("latestVersionNumber")
     if child_latest_version_number is not None:
         out["latest_version_number"] = int(child_latest_version_number.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_operator = el.find("operator")
     if child_operator is not None:
         import capo_ec2.types.operator_response

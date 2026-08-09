@@ -112,12 +112,13 @@ def deserialize_ec2_query(el: Element) -> ConnectionNotification:
         out["connection_notification_arn"] = str(
             child_connection_notification_arn.text or ""
         )
-    if el.find("connectionEvents") is not None:
+    child_connection_events = el.find("connectionEvents")
+    if child_connection_events is not None:
         import capo_ec2.types.value_string_list
 
         out["connection_events"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "connectionEvents"
+                child_connection_events
             )
         )
     child_connection_notification_state = el.find("connectionNotificationState")

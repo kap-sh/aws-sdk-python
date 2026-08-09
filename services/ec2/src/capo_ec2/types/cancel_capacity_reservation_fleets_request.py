@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> CancelCapacityReservationFleetsRequest
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("CapacityReservationFleetId") is not None:
+    child_capacity_reservation_fleet_ids = el.find("CapacityReservationFleetId")
+    if child_capacity_reservation_fleet_ids is not None:
         import capo_ec2.types.capacity_reservation_fleet_id_set
 
         out["capacity_reservation_fleet_ids"] = (
             capo_ec2.types.capacity_reservation_fleet_id_set.deserialize_ec2_query(
-                el, "CapacityReservationFleetId"
+                child_capacity_reservation_fleet_ids
             )
         )
     return out

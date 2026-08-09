@@ -63,20 +63,22 @@ def deserialize_ec2_query(el: Element) -> CreateIpamResourceDiscoveryRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("OperatingRegion") is not None:
+    child_operating_regions = el.find("OperatingRegion")
+    if child_operating_regions is not None:
         import capo_ec2.types.add_ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.add_ipam_operating_region_set.deserialize_ec2_query(
-                el, "OperatingRegion"
+                child_operating_regions
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_client_token = el.find("ClientToken")

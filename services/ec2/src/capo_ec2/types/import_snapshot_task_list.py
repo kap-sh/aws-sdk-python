@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ImportSnapshotTaskList:
+def deserialize_ec2_query(el: Element) -> ImportSnapshotTaskList:
+    import capo_ec2.types.import_snapshot_task
+
+    out: ImportSnapshotTaskList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.import_snapshot_task.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ImportSnapshotTaskList:
     import capo_ec2.types.import_snapshot_task
 
     out: ImportSnapshotTaskList = []

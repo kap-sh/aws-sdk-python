@@ -159,52 +159,58 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointRequest:
     child_policy_document = el.find("PolicyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("AddRouteTableId") is not None:
+    child_add_route_table_ids = el.find("AddRouteTableId")
+    if child_add_route_table_ids is not None:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         out["add_route_table_ids"] = (
             capo_ec2.types.vpc_endpoint_route_table_id_list.deserialize_ec2_query(
-                el, "AddRouteTableId"
+                child_add_route_table_ids
             )
         )
-    if el.find("RemoveRouteTableId") is not None:
+    child_remove_route_table_ids = el.find("RemoveRouteTableId")
+    if child_remove_route_table_ids is not None:
         import capo_ec2.types.vpc_endpoint_route_table_id_list
 
         out["remove_route_table_ids"] = (
             capo_ec2.types.vpc_endpoint_route_table_id_list.deserialize_ec2_query(
-                el, "RemoveRouteTableId"
+                child_remove_route_table_ids
             )
         )
-    if el.find("AddSubnetId") is not None:
+    child_add_subnet_ids = el.find("AddSubnetId")
+    if child_add_subnet_ids is not None:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         out["add_subnet_ids"] = (
             capo_ec2.types.vpc_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "AddSubnetId"
+                child_add_subnet_ids
             )
         )
-    if el.find("RemoveSubnetId") is not None:
+    child_remove_subnet_ids = el.find("RemoveSubnetId")
+    if child_remove_subnet_ids is not None:
         import capo_ec2.types.vpc_endpoint_subnet_id_list
 
         out["remove_subnet_ids"] = (
             capo_ec2.types.vpc_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "RemoveSubnetId"
+                child_remove_subnet_ids
             )
         )
-    if el.find("AddSecurityGroupId") is not None:
+    child_add_security_group_ids = el.find("AddSecurityGroupId")
+    if child_add_security_group_ids is not None:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
 
         out["add_security_group_ids"] = (
             capo_ec2.types.vpc_endpoint_security_group_id_list.deserialize_ec2_query(
-                el, "AddSecurityGroupId"
+                child_add_security_group_ids
             )
         )
-    if el.find("RemoveSecurityGroupId") is not None:
+    child_remove_security_group_ids = el.find("RemoveSecurityGroupId")
+    if child_remove_security_group_ids is not None:
         import capo_ec2.types.vpc_endpoint_security_group_id_list
 
         out["remove_security_group_ids"] = (
             capo_ec2.types.vpc_endpoint_security_group_id_list.deserialize_ec2_query(
-                el, "RemoveSecurityGroupId"
+                child_remove_security_group_ids
             )
         )
     child_ip_address_type = el.find("IpAddressType")
@@ -228,12 +234,13 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointRequest:
         out["private_dns_enabled"] = (
             child_private_dns_enabled.text or ""
         ).lower() == "true"
-    if el.find("SubnetConfiguration") is not None:
+    child_subnet_configurations = el.find("SubnetConfiguration")
+    if child_subnet_configurations is not None:
         import capo_ec2.types.subnet_configurations_list
 
         out["subnet_configurations"] = (
             capo_ec2.types.subnet_configurations_list.deserialize_ec2_query(
-                el, "SubnetConfiguration"
+                child_subnet_configurations
             )
         )
     return out

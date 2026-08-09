@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> TargetConfigurationRequestSet:
+def deserialize_ec2_query(el: Element) -> TargetConfigurationRequestSet:
+    import capo_ec2.types.target_configuration_request
+
+    out: TargetConfigurationRequestSet = []
+    for child in el.findall("TargetConfigurationRequest"):
+        out.append(
+            capo_ec2.types.target_configuration_request.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> TargetConfigurationRequestSet:
     import capo_ec2.types.target_configuration_request
 
     out: TargetConfigurationRequestSet = []

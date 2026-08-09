@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ScheduledInstancesBlockDeviceMappingSet:
+    import capo_ec2.types.scheduled_instances_block_device_mapping
+
+    out: ScheduledInstancesBlockDeviceMappingSet = []
+    for child in el.findall("BlockDeviceMapping"):
+        out.append(
+            capo_ec2.types.scheduled_instances_block_device_mapping.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ScheduledInstancesBlockDeviceMappingSet:
     import capo_ec2.types.scheduled_instances_block_device_mapping

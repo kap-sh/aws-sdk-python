@@ -141,12 +141,13 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverrides:
     child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")
-    if el.find("blockDeviceMappingSet") is not None:
+    child_block_device_mappings = el.find("blockDeviceMappingSet")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_response_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_response_list.deserialize_ec2_query(
-                el, "blockDeviceMappingSet"
+                child_block_device_mappings
             )
         )
     child_availability_zone_id = el.find("availabilityZoneId")

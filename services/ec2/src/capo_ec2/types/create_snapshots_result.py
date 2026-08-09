@@ -30,10 +30,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateSnapshotsResult:
     out: CreateSnapshotsResult = {}  # type: ignore[typeddict-item]
-    if el.find("snapshotSet") is not None:
+    child_snapshots = el.find("snapshotSet")
+    if child_snapshots is not None:
         import capo_ec2.types.snapshot_set
 
         out["snapshots"] = capo_ec2.types.snapshot_set.deserialize_ec2_query(
-            el, "snapshotSet"
+            child_snapshots
         )
     return out

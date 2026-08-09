@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAvailabilityZonesResult:
     out: DescribeAvailabilityZonesResult = {}  # type: ignore[typeddict-item]
-    if el.find("availabilityZoneInfo") is not None:
+    child_availability_zones = el.find("availabilityZoneInfo")
+    if child_availability_zones is not None:
         import capo_ec2.types.availability_zone_list
 
         out["availability_zones"] = (
             capo_ec2.types.availability_zone_list.deserialize_ec2_query(
-                el, "availabilityZoneInfo"
+                child_availability_zones
             )
         )
     return out

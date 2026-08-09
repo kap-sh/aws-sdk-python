@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> InstanceTypeInfoFromInstanceRequirementsSet:
+    import capo_ec2.types.instance_type_info_from_instance_requirements
+
+    out: InstanceTypeInfoFromInstanceRequirementsSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.instance_type_info_from_instance_requirements.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> InstanceTypeInfoFromInstanceRequirementsSet:
     import capo_ec2.types.instance_type_info_from_instance_requirements

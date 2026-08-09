@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ElasticGpuSpecificationList:
+def deserialize_ec2_query(el: Element) -> ElasticGpuSpecificationList:
+    import capo_ec2.types.elastic_gpu_specification
+
+    out: ElasticGpuSpecificationList = []
+    for child in el.findall("ElasticGpuSpecification"):
+        out.append(
+            capo_ec2.types.elastic_gpu_specification.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> ElasticGpuSpecificationList:
     import capo_ec2.types.elastic_gpu_specification
 
     out: ElasticGpuSpecificationList = []

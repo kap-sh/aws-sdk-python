@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> DescribeSpotPriceHistoryResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("spotPriceHistorySet") is not None:
+    child_spot_price_history = el.find("spotPriceHistorySet")
+    if child_spot_price_history is not None:
         import capo_ec2.types.spot_price_history_list
 
         out["spot_price_history"] = (
             capo_ec2.types.spot_price_history_list.deserialize_ec2_query(
-                el, "spotPriceHistorySet"
+                child_spot_price_history
             )
         )
     return out

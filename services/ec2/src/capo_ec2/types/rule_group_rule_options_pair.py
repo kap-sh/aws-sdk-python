@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> RuleGroupRuleOptionsPair:
     child_rule_group_arn = el.find("ruleGroupArn")
     if child_rule_group_arn is not None:
         out["rule_group_arn"] = str(child_rule_group_arn.text or "")
-    if el.find("ruleOptionSet") is not None:
+    child_rule_options = el.find("ruleOptionSet")
+    if child_rule_options is not None:
         import capo_ec2.types.rule_option_list
 
         out["rule_options"] = capo_ec2.types.rule_option_list.deserialize_ec2_query(
-            el, "ruleOptionSet"
+            child_rule_options
         )
     return out

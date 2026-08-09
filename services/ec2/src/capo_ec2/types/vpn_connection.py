@@ -181,21 +181,24 @@ def deserialize_ec2_query(el: Element) -> VpnConnection:
         out["options"] = capo_ec2.types.vpn_connection_options.deserialize_ec2_query(
             child_options
         )
-    if el.find("routes") is not None:
+    child_routes = el.find("routes")
+    if child_routes is not None:
         import capo_ec2.types.vpn_static_route_list
 
         out["routes"] = capo_ec2.types.vpn_static_route_list.deserialize_ec2_query(
-            el, "routes"
+            child_routes
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("vgwTelemetry") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_vgw_telemetry = el.find("vgwTelemetry")
+    if child_vgw_telemetry is not None:
         import capo_ec2.types.vgw_telemetry_list
 
         out["vgw_telemetry"] = capo_ec2.types.vgw_telemetry_list.deserialize_ec2_query(
-            el, "vgwTelemetry"
+            child_vgw_telemetry
         )
     child_pre_shared_key_arn = el.find("preSharedKeyArn")
     if child_pre_shared_key_arn is not None:

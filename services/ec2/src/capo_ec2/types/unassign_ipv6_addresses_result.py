@@ -55,20 +55,22 @@ def deserialize_ec2_query(el: Element) -> UnassignIpv6AddressesResult:
     child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("unassignedIpv6Addresses") is not None:
+    child_unassigned_ipv6_addresses = el.find("unassignedIpv6Addresses")
+    if child_unassigned_ipv6_addresses is not None:
         import capo_ec2.types.ipv6_address_list
 
         out["unassigned_ipv6_addresses"] = (
             capo_ec2.types.ipv6_address_list.deserialize_ec2_query(
-                el, "unassignedIpv6Addresses"
+                child_unassigned_ipv6_addresses
             )
         )
-    if el.find("unassignedIpv6PrefixSet") is not None:
+    child_unassigned_ipv6_prefixes = el.find("unassignedIpv6PrefixSet")
+    if child_unassigned_ipv6_prefixes is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["unassigned_ipv6_prefixes"] = (
             capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-                el, "unassignedIpv6PrefixSet"
+                child_unassigned_ipv6_prefixes
             )
         )
     return out

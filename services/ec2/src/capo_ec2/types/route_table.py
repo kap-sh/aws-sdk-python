@@ -74,33 +74,37 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RouteTable:
     out: RouteTable = {}  # type: ignore[typeddict-item]
-    if el.find("associationSet") is not None:
+    child_associations = el.find("associationSet")
+    if child_associations is not None:
         import capo_ec2.types.route_table_association_list
 
         out["associations"] = (
             capo_ec2.types.route_table_association_list.deserialize_ec2_query(
-                el, "associationSet"
+                child_associations
             )
         )
-    if el.find("propagatingVgwSet") is not None:
+    child_propagating_vgws = el.find("propagatingVgwSet")
+    if child_propagating_vgws is not None:
         import capo_ec2.types.propagating_vgw_list
 
         out["propagating_vgws"] = (
             capo_ec2.types.propagating_vgw_list.deserialize_ec2_query(
-                el, "propagatingVgwSet"
+                child_propagating_vgws
             )
         )
     child_route_table_id = el.find("routeTableId")
     if child_route_table_id is not None:
         out["route_table_id"] = str(child_route_table_id.text or "")
-    if el.find("routeSet") is not None:
+    child_routes = el.find("routeSet")
+    if child_routes is not None:
         import capo_ec2.types.route_list
 
-        out["routes"] = capo_ec2.types.route_list.deserialize_ec2_query(el, "routeSet")
-    if el.find("tagSet") is not None:
+        out["routes"] = capo_ec2.types.route_list.deserialize_ec2_query(child_routes)
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")

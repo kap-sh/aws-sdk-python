@@ -63,14 +63,16 @@ def deserialize_ec2_query(el: Element) -> DescribeFleetsRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("FleetId") is not None:
+    child_fleet_ids = el.find("FleetId")
+    if child_fleet_ids is not None:
         import capo_ec2.types.fleet_id_set
 
         out["fleet_ids"] = capo_ec2.types.fleet_id_set.deserialize_ec2_query(
-            el, "FleetId"
+            child_fleet_ids
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

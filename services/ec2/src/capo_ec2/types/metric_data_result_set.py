@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> MetricDataResultSet:
+def deserialize_ec2_query(el: Element) -> MetricDataResultSet:
+    import capo_ec2.types.metric_data_result
+
+    out: MetricDataResultSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.metric_data_result.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> MetricDataResultSet:
     import capo_ec2.types.metric_data_result
 
     out: MetricDataResultSet = []

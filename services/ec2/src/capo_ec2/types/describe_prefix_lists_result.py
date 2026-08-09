@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> DescribePrefixListsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("prefixListSet") is not None:
+    child_prefix_lists = el.find("prefixListSet")
+    if child_prefix_lists is not None:
         import capo_ec2.types.prefix_list_set
 
         out["prefix_lists"] = capo_ec2.types.prefix_list_set.deserialize_ec2_query(
-            el, "prefixListSet"
+            child_prefix_lists
         )
     return out

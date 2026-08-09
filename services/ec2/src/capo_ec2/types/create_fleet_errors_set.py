@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> CreateFleetErrorsSet:
+def deserialize_ec2_query(el: Element) -> CreateFleetErrorsSet:
+    import capo_ec2.types.create_fleet_error
+
+    out: CreateFleetErrorsSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.create_fleet_error.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> CreateFleetErrorsSet:
     import capo_ec2.types.create_fleet_error
 
     out: CreateFleetErrorsSet = []

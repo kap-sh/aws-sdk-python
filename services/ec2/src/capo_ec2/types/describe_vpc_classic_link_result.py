@@ -30,10 +30,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkResult:
     out: DescribeVpcClassicLinkResult = {}  # type: ignore[typeddict-item]
-    if el.find("vpcSet") is not None:
+    child_vpcs = el.find("vpcSet")
+    if child_vpcs is not None:
         import capo_ec2.types.vpc_classic_link_list
 
         out["vpcs"] = capo_ec2.types.vpc_classic_link_list.deserialize_ec2_query(
-            el, "vpcSet"
+            child_vpcs
         )
     return out

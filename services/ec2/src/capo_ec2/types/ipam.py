@@ -183,12 +183,13 @@ def deserialize_ec2_query(el: Element) -> Ipam:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("operatingRegionSet") is not None:
+    child_operating_regions = el.find("operatingRegionSet")
+    if child_operating_regions is not None:
         import capo_ec2.types.ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.ipam_operating_region_set.deserialize_ec2_query(
-                el, "operatingRegionSet"
+                child_operating_regions
             )
         )
     child_state = el.find("state")
@@ -196,10 +197,11 @@ def deserialize_ec2_query(el: Element) -> Ipam:
         import capo_ec2.types.ipam_state
 
         out["state"] = capo_ec2.types.ipam_state.deserialize_ec2_query(child_state)
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_default_resource_discovery_id = el.find("defaultResourceDiscoveryId")
     if child_default_resource_discovery_id is not None:
         out["default_resource_discovery_id"] = str(

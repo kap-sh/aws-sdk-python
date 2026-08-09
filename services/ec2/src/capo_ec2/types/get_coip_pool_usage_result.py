@@ -53,12 +53,13 @@ def deserialize_ec2_query(el: Element) -> GetCoipPoolUsageResult:
     child_coip_pool_id = el.find("coipPoolId")
     if child_coip_pool_id is not None:
         out["coip_pool_id"] = str(child_coip_pool_id.text or "")
-    if el.find("coipAddressUsageSet") is not None:
+    child_coip_address_usages = el.find("coipAddressUsageSet")
+    if child_coip_address_usages is not None:
         import capo_ec2.types.coip_address_usage_set
 
         out["coip_address_usages"] = (
             capo_ec2.types.coip_address_usage_set.deserialize_ec2_query(
-                el, "coipAddressUsageSet"
+                child_coip_address_usages
             )
         )
     child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")

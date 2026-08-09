@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredAccountsResult:
     out: GetIpamDiscoveredAccountsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ipamDiscoveredAccountSet") is not None:
+    child_ipam_discovered_accounts = el.find("ipamDiscoveredAccountSet")
+    if child_ipam_discovered_accounts is not None:
         import capo_ec2.types.ipam_discovered_account_set
 
         out["ipam_discovered_accounts"] = (
             capo_ec2.types.ipam_discovered_account_set.deserialize_ec2_query(
-                el, "ipamDiscoveredAccountSet"
+                child_ipam_discovered_accounts
             )
         )
     child_next_token = el.find("nextToken")

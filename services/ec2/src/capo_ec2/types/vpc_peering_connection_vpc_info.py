@@ -72,19 +72,21 @@ def deserialize_ec2_query(el: Element) -> VpcPeeringConnectionVpcInfo:
     child_cidr_block = el.find("cidrBlock")
     if child_cidr_block is not None:
         out["cidr_block"] = str(child_cidr_block.text or "")
-    if el.find("ipv6CidrBlockSet") is not None:
+    child_ipv6_cidr_block_set = el.find("ipv6CidrBlockSet")
+    if child_ipv6_cidr_block_set is not None:
         import capo_ec2.types.ipv6_cidr_block_set
 
         out["ipv6_cidr_block_set"] = (
             capo_ec2.types.ipv6_cidr_block_set.deserialize_ec2_query(
-                el, "ipv6CidrBlockSet"
+                child_ipv6_cidr_block_set
             )
         )
-    if el.find("cidrBlockSet") is not None:
+    child_cidr_block_set = el.find("cidrBlockSet")
+    if child_cidr_block_set is not None:
         import capo_ec2.types.cidr_block_set
 
         out["cidr_block_set"] = capo_ec2.types.cidr_block_set.deserialize_ec2_query(
-            el, "cidrBlockSet"
+            child_cidr_block_set
         )
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:

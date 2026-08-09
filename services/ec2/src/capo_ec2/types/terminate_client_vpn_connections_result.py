@@ -51,12 +51,13 @@ def deserialize_ec2_query(el: Element) -> TerminateClientVpnConnectionsResult:
     child_username = el.find("username")
     if child_username is not None:
         out["username"] = str(child_username.text or "")
-    if el.find("connectionStatuses") is not None:
+    child_connection_statuses = el.find("connectionStatuses")
+    if child_connection_statuses is not None:
         import capo_ec2.types.terminate_connection_status_set
 
         out["connection_statuses"] = (
             capo_ec2.types.terminate_connection_status_set.deserialize_ec2_query(
-                el, "connectionStatuses"
+                child_connection_statuses
             )
         )
     return out

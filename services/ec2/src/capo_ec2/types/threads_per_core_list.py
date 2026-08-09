@@ -18,7 +18,14 @@ def serialize_ec2_query(
         pairs.append((f"{prefix}.{n}", str(item)))
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ThreadsPerCoreList:
+def deserialize_ec2_query(el: Element) -> ThreadsPerCoreList:
+    out: ThreadsPerCoreList = []
+    for child in el.findall("item"):
+        out.append(int(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ThreadsPerCoreList:
     out: ThreadsPerCoreList = []
     for child in parent.findall(tag):
         out.append(int(child.text or ""))

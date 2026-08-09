@@ -149,31 +149,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> RequestSpotLaunchSpecification:
     out: RequestSpotLaunchSpecification = {}  # type: ignore[typeddict-item]
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.request_spot_launch_specification_security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.request_spot_launch_specification_security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
-    if el.find("SecurityGroup") is not None:
+    child_security_groups = el.find("SecurityGroup")
+    if child_security_groups is not None:
         import capo_ec2.types.request_spot_launch_specification_security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.request_spot_launch_specification_security_group_list.deserialize_ec2_query(
-                el, "SecurityGroup"
+                child_security_groups
             )
         )
     child_addressing_type = el.find("addressingType")
     if child_addressing_type is not None:
         out["addressing_type"] = str(child_addressing_type.text or "")
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_ebs_optimized = el.find("ebsOptimized")
@@ -213,12 +216,13 @@ def deserialize_ec2_query(el: Element) -> RequestSpotLaunchSpecification:
                 child_monitoring
             )
         )
-    if el.find("NetworkInterface") is not None:
+    child_network_interfaces = el.find("NetworkInterface")
+    if child_network_interfaces is not None:
         import capo_ec2.types.instance_network_interface_specification_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_specification_list.deserialize_ec2_query(
-                el, "NetworkInterface"
+                child_network_interfaces
             )
         )
     child_placement = el.find("placement")

@@ -130,12 +130,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
     out: ScheduledInstancesLaunchSpecification = {}  # type: ignore[typeddict-item]
-    if el.find("BlockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("BlockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.scheduled_instances_block_device_mapping_set
 
         out["block_device_mappings"] = (
             capo_ec2.types.scheduled_instances_block_device_mapping_set.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_ebs_optimized = el.find("EbsOptimized")
@@ -171,12 +172,13 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
                 child_monitoring
             )
         )
-    if el.find("NetworkInterface") is not None:
+    child_network_interfaces = el.find("NetworkInterface")
+    if child_network_interfaces is not None:
         import capo_ec2.types.scheduled_instances_network_interface_set
 
         out["network_interfaces"] = (
             capo_ec2.types.scheduled_instances_network_interface_set.deserialize_ec2_query(
-                el, "NetworkInterface"
+                child_network_interfaces
             )
         )
     child_placement = el.find("Placement")
@@ -191,12 +193,13 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesLaunchSpecification:
     child_ramdisk_id = el.find("RamdiskId")
     if child_ramdisk_id is not None:
         out["ramdisk_id"] = str(child_ramdisk_id.text or "")
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.scheduled_instances_security_group_id_set.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
     child_subnet_id = el.find("SubnetId")

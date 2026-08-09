@@ -94,12 +94,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicy:
     child_transit_gateway_id = el.find("transitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    if el.find("middleboxAttachmentIdSet") is not None:
+    child_middlebox_attachment_ids = el.find("middleboxAttachmentIdSet")
+    if child_middlebox_attachment_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["middlebox_attachment_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "middleboxAttachmentIdSet"
+                child_middlebox_attachment_ids
             )
         )
     child_state = el.find("state")
@@ -120,8 +121,9 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMeteringPolicy:
                 child_update_effective_at
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

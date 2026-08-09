@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterfaceSet:
+    import capo_ec2.types.scheduled_instances_network_interface
+
+    out: ScheduledInstancesNetworkInterfaceSet = []
+    for child in el.findall("NetworkInterface"):
+        out.append(
+            capo_ec2.types.scheduled_instances_network_interface.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ScheduledInstancesNetworkInterfaceSet:
     import capo_ec2.types.scheduled_instances_network_interface

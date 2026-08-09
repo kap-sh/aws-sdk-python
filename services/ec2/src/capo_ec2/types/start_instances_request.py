@@ -42,12 +42,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StartInstancesRequest:
     out: StartInstancesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceId") is not None:
+    child_instance_ids = el.find("InstanceId")
+    if child_instance_ids is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-                el, "InstanceId"
+                child_instance_ids
             )
         )
     child_additional_info = el.find("additionalInfo")

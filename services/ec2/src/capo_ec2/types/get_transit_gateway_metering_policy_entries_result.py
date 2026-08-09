@@ -41,12 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetTransitGatewayMeteringPolicyEntriesResult:
     out: GetTransitGatewayMeteringPolicyEntriesResult = {}  # type: ignore[typeddict-item]
-    if el.find("transitGatewayMeteringPolicyEntries") is not None:
+    child_transit_gateway_metering_policy_entries = el.find(
+        "transitGatewayMeteringPolicyEntries"
+    )
+    if child_transit_gateway_metering_policy_entries is not None:
         import capo_ec2.types.transit_gateway_metering_policy_entry_list
 
         out["transit_gateway_metering_policy_entries"] = (
             capo_ec2.types.transit_gateway_metering_policy_entry_list.deserialize_ec2_query(
-                el, "transitGatewayMeteringPolicyEntries"
+                child_transit_gateway_metering_policy_entries
             )
         )
     child_next_token = el.find("nextToken")

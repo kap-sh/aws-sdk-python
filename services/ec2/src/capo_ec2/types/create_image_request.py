@@ -82,12 +82,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateImageRequest:
     out: CreateImageRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_snapshot_location = el.find("SnapshotLocation")
@@ -114,12 +115,13 @@ def deserialize_ec2_query(el: Element) -> CreateImageRequest:
     child_no_reboot = el.find("noReboot")
     if child_no_reboot is not None:
         out["no_reboot"] = (child_no_reboot.text or "").lower() == "true"
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     return out

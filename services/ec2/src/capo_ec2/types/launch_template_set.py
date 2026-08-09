@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.launch_template.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> LaunchTemplateSet:
+def deserialize_ec2_query(el: Element) -> LaunchTemplateSet:
+    import capo_ec2.types.launch_template
+
+    out: LaunchTemplateSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.launch_template.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> LaunchTemplateSet:
     import capo_ec2.types.launch_template
 
     out: LaunchTemplateSet = []

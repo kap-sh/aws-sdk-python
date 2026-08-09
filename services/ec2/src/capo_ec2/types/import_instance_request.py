@@ -75,11 +75,12 @@ def deserialize_ec2_query(el: Element) -> ImportInstanceRequest:
                 child_launch_specification
             )
         )
-    if el.find("diskImage") is not None:
+    child_disk_images = el.find("diskImage")
+    if child_disk_images is not None:
         import capo_ec2.types.disk_image_list
 
         out["disk_images"] = capo_ec2.types.disk_image_list.deserialize_ec2_query(
-            el, "diskImage"
+            child_disk_images
         )
     child_platform = el.find("platform")
     if child_platform is not None:

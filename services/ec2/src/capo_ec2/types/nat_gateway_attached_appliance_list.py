@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> NatGatewayAttachedApplianceList:
+def deserialize_ec2_query(el: Element) -> NatGatewayAttachedApplianceList:
+    import capo_ec2.types.nat_gateway_attached_appliance
+
+    out: NatGatewayAttachedApplianceList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.nat_gateway_attached_appliance.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> NatGatewayAttachedApplianceList:
     import capo_ec2.types.nat_gateway_attached_appliance
 
     out: NatGatewayAttachedApplianceList = []

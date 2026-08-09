@@ -36,12 +36,13 @@ def deserialize_ec2_query(
     el: Element,
 ) -> ApplySecurityGroupsToClientVpnTargetNetworkResult:
     out: ApplySecurityGroupsToClientVpnTargetNetworkResult = {}  # type: ignore[typeddict-item]
-    if el.find("securityGroupIds") is not None:
+    child_security_group_ids = el.find("securityGroupIds")
+    if child_security_group_ids is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "securityGroupIds"
+                child_security_group_ids
             )
         )
     return out

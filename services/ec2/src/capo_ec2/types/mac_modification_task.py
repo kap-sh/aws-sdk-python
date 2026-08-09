@@ -115,10 +115,11 @@ def deserialize_ec2_query(el: Element) -> MacModificationTask:
         out["start_time"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_start_time
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_task_state = el.find("taskState")
     if child_task_state is not None:
         import capo_ec2.types.mac_modification_task_state

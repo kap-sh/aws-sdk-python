@@ -43,12 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeTransitGatewayPeeringAttachmentsResult:
     out: DescribeTransitGatewayPeeringAttachmentsResult = {}  # type: ignore[typeddict-item]
-    if el.find("transitGatewayPeeringAttachments") is not None:
+    child_transit_gateway_peering_attachments = el.find(
+        "transitGatewayPeeringAttachments"
+    )
+    if child_transit_gateway_peering_attachments is not None:
         import capo_ec2.types.transit_gateway_peering_attachment_list
 
         out["transit_gateway_peering_attachments"] = (
             capo_ec2.types.transit_gateway_peering_attachment_list.deserialize_ec2_query(
-                el, "transitGatewayPeeringAttachments"
+                child_transit_gateway_peering_attachments
             )
         )
     child_next_token = el.find("nextToken")

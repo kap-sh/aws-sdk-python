@@ -148,26 +148,29 @@ def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:
                 child_creation_timestamp
             )
         )
-    if el.find("dnsEntrySet") is not None:
+    child_dns_entries = el.find("dnsEntrySet")
+    if child_dns_entries is not None:
         import capo_ec2.types.dns_entry_set
 
         out["dns_entries"] = capo_ec2.types.dns_entry_set.deserialize_ec2_query(
-            el, "dnsEntrySet"
+            child_dns_entries
         )
-    if el.find("networkLoadBalancerArnSet") is not None:
+    child_network_load_balancer_arns = el.find("networkLoadBalancerArnSet")
+    if child_network_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "networkLoadBalancerArnSet"
+                child_network_load_balancer_arns
             )
         )
-    if el.find("gatewayLoadBalancerArnSet") is not None:
+    child_gateway_load_balancer_arns = el.find("gatewayLoadBalancerArnSet")
+    if child_gateway_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "gatewayLoadBalancerArnSet"
+                child_gateway_load_balancer_arns
             )
         )
     child_ip_address_type = el.find("ipAddressType")
@@ -182,10 +185,11 @@ def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:
         out["vpc_endpoint_connection_id"] = str(
             child_vpc_endpoint_connection_id.text or ""
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_vpc_endpoint_region = el.find("vpcEndpointRegion")
     if child_vpc_endpoint_region is not None:
         out["vpc_endpoint_region"] = str(child_vpc_endpoint_region.text or "")

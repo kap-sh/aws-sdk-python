@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointServicePermissionsResult:
     out: ModifyVpcEndpointServicePermissionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("addedPrincipalSet") is not None:
+    child_added_principals = el.find("addedPrincipalSet")
+    if child_added_principals is not None:
         import capo_ec2.types.added_principal_set
 
         out["added_principals"] = (
             capo_ec2.types.added_principal_set.deserialize_ec2_query(
-                el, "addedPrincipalSet"
+                child_added_principals
             )
         )
     child_return_value = el.find("return")

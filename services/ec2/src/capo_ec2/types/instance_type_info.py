@@ -380,28 +380,31 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
         out["free_tier_eligible"] = (
             child_free_tier_eligible.text or ""
         ).lower() == "true"
-    if el.find("supportedUsageClasses") is not None:
+    child_supported_usage_classes = el.find("supportedUsageClasses")
+    if child_supported_usage_classes is not None:
         import capo_ec2.types.usage_class_type_list
 
         out["supported_usage_classes"] = (
             capo_ec2.types.usage_class_type_list.deserialize_ec2_query(
-                el, "supportedUsageClasses"
+                child_supported_usage_classes
             )
         )
-    if el.find("supportedRootDeviceTypes") is not None:
+    child_supported_root_device_types = el.find("supportedRootDeviceTypes")
+    if child_supported_root_device_types is not None:
         import capo_ec2.types.root_device_type_list
 
         out["supported_root_device_types"] = (
             capo_ec2.types.root_device_type_list.deserialize_ec2_query(
-                el, "supportedRootDeviceTypes"
+                child_supported_root_device_types
             )
         )
-    if el.find("supportedVirtualizationTypes") is not None:
+    child_supported_virtualization_types = el.find("supportedVirtualizationTypes")
+    if child_supported_virtualization_types is not None:
         import capo_ec2.types.virtualization_type_list
 
         out["supported_virtualization_types"] = (
             capo_ec2.types.virtualization_type_list.deserialize_ec2_query(
-                el, "supportedVirtualizationTypes"
+                child_supported_virtualization_types
             )
         )
     child_bare_metal = el.find("bareMetal")
@@ -513,12 +516,13 @@ def deserialize_ec2_query(el: Element) -> InstanceTypeInfo:
         out["auto_recovery_supported"] = (
             child_auto_recovery_supported.text or ""
         ).lower() == "true"
-    if el.find("supportedBootModes") is not None:
+    child_supported_boot_modes = el.find("supportedBootModes")
+    if child_supported_boot_modes is not None:
         import capo_ec2.types.boot_mode_type_list
 
         out["supported_boot_modes"] = (
             capo_ec2.types.boot_mode_type_list.deserialize_ec2_query(
-                el, "supportedBootModes"
+                child_supported_boot_modes
             )
         )
     child_nitro_enclaves_support = el.find("nitroEnclavesSupport")

@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> MovingAddressStatusSet:
+def deserialize_ec2_query(el: Element) -> MovingAddressStatusSet:
+    import capo_ec2.types.moving_address_status
+
+    out: MovingAddressStatusSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.moving_address_status.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> MovingAddressStatusSet:
     import capo_ec2.types.moving_address_status
 
     out: MovingAddressStatusSet = []

@@ -50,19 +50,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesModificationsRequest:
     out: DescribeReservedInstancesModificationsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ReservedInstancesModificationId") is not None:
+    child_reserved_instances_modification_ids = el.find(
+        "ReservedInstancesModificationId"
+    )
+    if child_reserved_instances_modification_ids is not None:
         import capo_ec2.types.reserved_instances_modification_id_string_list
 
         out["reserved_instances_modification_ids"] = (
             capo_ec2.types.reserved_instances_modification_id_string_list.deserialize_ec2_query(
-                el, "ReservedInstancesModificationId"
+                child_reserved_instances_modification_ids
             )
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

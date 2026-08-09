@@ -49,12 +49,13 @@ def deserialize_ec2_query(el: Element) -> GetAllowedImagesSettingsResult:
     child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    if el.find("imageCriterionSet") is not None:
+    child_image_criteria = el.find("imageCriterionSet")
+    if child_image_criteria is not None:
         import capo_ec2.types.image_criterion_list
 
         out["image_criteria"] = (
             capo_ec2.types.image_criterion_list.deserialize_ec2_query(
-                el, "imageCriterionSet"
+                child_image_criteria
             )
         )
     child_managed_by = el.find("managedBy")

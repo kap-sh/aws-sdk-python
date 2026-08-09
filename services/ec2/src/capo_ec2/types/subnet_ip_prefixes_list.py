@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> SubnetIpPrefixesList:
+def deserialize_ec2_query(el: Element) -> SubnetIpPrefixesList:
+    import capo_ec2.types.subnet_ip_prefixes
+
+    out: SubnetIpPrefixesList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.subnet_ip_prefixes.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> SubnetIpPrefixesList:
     import capo_ec2.types.subnet_ip_prefixes
 
     out: SubnetIpPrefixesList = []

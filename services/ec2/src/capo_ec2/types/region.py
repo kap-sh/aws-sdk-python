@@ -46,11 +46,12 @@ def deserialize_ec2_query(el: Element) -> Region:
     child_opt_in_status = el.find("optInStatus")
     if child_opt_in_status is not None:
         out["opt_in_status"] = str(child_opt_in_status.text or "")
-    if el.find("geographySet") is not None:
+    child_geography = el.find("geographySet")
+    if child_geography is not None:
         import capo_ec2.types.region_geography_list
 
         out["geography"] = capo_ec2.types.region_geography_list.deserialize_ec2_query(
-            el, "geographySet"
+            child_geography
         )
     child_region_name = el.find("regionName")
     if child_region_name is not None:

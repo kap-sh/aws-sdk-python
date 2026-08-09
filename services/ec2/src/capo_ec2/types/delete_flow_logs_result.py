@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteFlowLogsResult:
     out: DeleteFlowLogsResult = {}  # type: ignore[typeddict-item]
-    if el.find("unsuccessful") is not None:
+    child_unsuccessful = el.find("unsuccessful")
+    if child_unsuccessful is not None:
         import capo_ec2.types.unsuccessful_item_set
 
         out["unsuccessful"] = (
             capo_ec2.types.unsuccessful_item_set.deserialize_ec2_query(
-                el, "unsuccessful"
+                child_unsuccessful
             )
         )
     return out

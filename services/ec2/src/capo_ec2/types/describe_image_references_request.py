@@ -69,12 +69,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImageReferencesRequest:
     out: DescribeImageReferencesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ImageId") is not None:
+    child_image_ids = el.find("ImageId")
+    if child_image_ids is not None:
         import capo_ec2.types.describe_image_references_image_id_string_list
 
         out["image_ids"] = (
             capo_ec2.types.describe_image_references_image_id_string_list.deserialize_ec2_query(
-                el, "ImageId"
+                child_image_ids
             )
         )
     child_include_all_resource_types = el.find("IncludeAllResourceTypes")
@@ -82,12 +83,13 @@ def deserialize_ec2_query(el: Element) -> DescribeImageReferencesRequest:
         out["include_all_resource_types"] = (
             child_include_all_resource_types.text or ""
         ).lower() == "true"
-    if el.find("ResourceType") is not None:
+    child_resource_types = el.find("ResourceType")
+    if child_resource_types is not None:
         import capo_ec2.types.resource_type_request_list
 
         out["resource_types"] = (
             capo_ec2.types.resource_type_request_list.deserialize_ec2_query(
-                el, "ResourceType"
+                child_resource_types
             )
         )
     child_next_token = el.find("NextToken")

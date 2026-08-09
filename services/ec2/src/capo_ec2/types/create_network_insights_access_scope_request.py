@@ -65,31 +65,34 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CreateNetworkInsightsAccessScopeRequest:
     out: CreateNetworkInsightsAccessScopeRequest = {}  # type: ignore[typeddict-item]
-    if el.find("MatchPath") is not None:
+    child_match_paths = el.find("MatchPath")
+    if child_match_paths is not None:
         import capo_ec2.types.access_scope_path_list_request
 
         out["match_paths"] = (
             capo_ec2.types.access_scope_path_list_request.deserialize_ec2_query(
-                el, "MatchPath"
+                child_match_paths
             )
         )
-    if el.find("ExcludePath") is not None:
+    child_exclude_paths = el.find("ExcludePath")
+    if child_exclude_paths is not None:
         import capo_ec2.types.access_scope_path_list_request
 
         out["exclude_paths"] = (
             capo_ec2.types.access_scope_path_list_request.deserialize_ec2_query(
-                el, "ExcludePath"
+                child_exclude_paths
             )
         )
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

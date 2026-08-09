@@ -27,6 +27,21 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> InstanceSecondaryInterfaceSpecificationListRequest:
+    import capo_ec2.types.instance_secondary_interface_specification_request
+
+    out: InstanceSecondaryInterfaceSpecificationListRequest = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.instance_secondary_interface_specification_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> InstanceSecondaryInterfaceSpecificationListRequest:
     import capo_ec2.types.instance_secondary_interface_specification_request

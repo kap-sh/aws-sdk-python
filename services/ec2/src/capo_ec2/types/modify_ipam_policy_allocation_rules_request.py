@@ -78,12 +78,13 @@ def deserialize_ec2_query(el: Element) -> ModifyIpamPolicyAllocationRulesRequest
                 child_resource_type
             )
         )
-    if el.find("AllocationRule") is not None:
+    child_allocation_rules = el.find("AllocationRule")
+    if child_allocation_rules is not None:
         import capo_ec2.types.ipam_policy_allocation_rule_list_request
 
         out["allocation_rules"] = (
             capo_ec2.types.ipam_policy_allocation_rule_list_request.deserialize_ec2_query(
-                el, "AllocationRule"
+                child_allocation_rules
             )
         )
     return out

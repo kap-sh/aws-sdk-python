@@ -55,20 +55,22 @@ def deserialize_ec2_query(el: Element) -> AssignPrivateIpAddressesResult:
     child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("assignedPrivateIpAddressesSet") is not None:
+    child_assigned_private_ip_addresses = el.find("assignedPrivateIpAddressesSet")
+    if child_assigned_private_ip_addresses is not None:
         import capo_ec2.types.assigned_private_ip_address_list
 
         out["assigned_private_ip_addresses"] = (
             capo_ec2.types.assigned_private_ip_address_list.deserialize_ec2_query(
-                el, "assignedPrivateIpAddressesSet"
+                child_assigned_private_ip_addresses
             )
         )
-    if el.find("assignedIpv4PrefixSet") is not None:
+    child_assigned_ipv4_prefixes = el.find("assignedIpv4PrefixSet")
+    if child_assigned_ipv4_prefixes is not None:
         import capo_ec2.types.ipv4_prefixes_list
 
         out["assigned_ipv4_prefixes"] = (
             capo_ec2.types.ipv4_prefixes_list.deserialize_ec2_query(
-                el, "assignedIpv4PrefixSet"
+                child_assigned_ipv4_prefixes
             )
         )
     return out

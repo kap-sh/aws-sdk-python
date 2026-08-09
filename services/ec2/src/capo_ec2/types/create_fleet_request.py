@@ -204,12 +204,13 @@ def deserialize_ec2_query(el: Element) -> CreateFleetRequest:
                 child_excess_capacity_termination_policy
             )
         )
-    if el.find("LaunchTemplateConfigs") is not None:
+    child_launch_template_configs = el.find("LaunchTemplateConfigs")
+    if child_launch_template_configs is not None:
         import capo_ec2.types.fleet_launch_template_config_list_request
 
         out["launch_template_configs"] = (
             capo_ec2.types.fleet_launch_template_config_list_request.deserialize_ec2_query(
-                el, "LaunchTemplateConfigs"
+                child_launch_template_configs
             )
         )
     child_target_capacity_specification = el.find("TargetCapacitySpecification")
@@ -252,12 +253,13 @@ def deserialize_ec2_query(el: Element) -> CreateFleetRequest:
         out["replace_unhealthy_instances"] = (
             child_replace_unhealthy_instances.text or ""
         ).lower() == "true"
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_context = el.find("Context")

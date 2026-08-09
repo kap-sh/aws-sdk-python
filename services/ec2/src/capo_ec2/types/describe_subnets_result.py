@@ -38,10 +38,9 @@ def deserialize_ec2_query(el: Element) -> DescribeSubnetsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("subnetSet") is not None:
+    child_subnets = el.find("subnetSet")
+    if child_subnets is not None:
         import capo_ec2.types.subnet_list
 
-        out["subnets"] = capo_ec2.types.subnet_list.deserialize_ec2_query(
-            el, "subnetSet"
-        )
+        out["subnets"] = capo_ec2.types.subnet_list.deserialize_ec2_query(child_subnets)
     return out

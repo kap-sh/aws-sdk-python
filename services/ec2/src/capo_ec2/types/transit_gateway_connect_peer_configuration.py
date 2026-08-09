@@ -74,12 +74,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayConnectPeerConfiguration
     child_peer_address = el.find("peerAddress")
     if child_peer_address is not None:
         out["peer_address"] = str(child_peer_address.text or "")
-    if el.find("insideCidrBlocks") is not None:
+    child_inside_cidr_blocks = el.find("insideCidrBlocks")
+    if child_inside_cidr_blocks is not None:
         import capo_ec2.types.inside_cidr_blocks_string_list
 
         out["inside_cidr_blocks"] = (
             capo_ec2.types.inside_cidr_blocks_string_list.deserialize_ec2_query(
-                el, "insideCidrBlocks"
+                child_inside_cidr_blocks
             )
         )
     child_protocol = el.find("protocol")
@@ -89,12 +90,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayConnectPeerConfiguration
         out["protocol"] = capo_ec2.types.protocol_value.deserialize_ec2_query(
             child_protocol
         )
-    if el.find("bgpConfigurations") is not None:
+    child_bgp_configurations = el.find("bgpConfigurations")
+    if child_bgp_configurations is not None:
         import capo_ec2.types.transit_gateway_attachment_bgp_configuration_list
 
         out["bgp_configurations"] = (
             capo_ec2.types.transit_gateway_attachment_bgp_configuration_list.deserialize_ec2_query(
-                el, "bgpConfigurations"
+                child_bgp_configurations
             )
         )
     return out

@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> NatGatewayAddressList:
+def deserialize_ec2_query(el: Element) -> NatGatewayAddressList:
+    import capo_ec2.types.nat_gateway_address
+
+    out: NatGatewayAddressList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.nat_gateway_address.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> NatGatewayAddressList:
     import capo_ec2.types.nat_gateway_address
 
     out: NatGatewayAddressList = []

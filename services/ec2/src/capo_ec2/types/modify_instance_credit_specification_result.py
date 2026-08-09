@@ -49,20 +49,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyInstanceCreditSpecificationResult:
     out: ModifyInstanceCreditSpecificationResult = {}  # type: ignore[typeddict-item]
-    if el.find("successfulInstanceCreditSpecificationSet") is not None:
+    child_successful_instance_credit_specifications = el.find(
+        "successfulInstanceCreditSpecificationSet"
+    )
+    if child_successful_instance_credit_specifications is not None:
         import capo_ec2.types.successful_instance_credit_specification_set
 
         out["successful_instance_credit_specifications"] = (
             capo_ec2.types.successful_instance_credit_specification_set.deserialize_ec2_query(
-                el, "successfulInstanceCreditSpecificationSet"
+                child_successful_instance_credit_specifications
             )
         )
-    if el.find("unsuccessfulInstanceCreditSpecificationSet") is not None:
+    child_unsuccessful_instance_credit_specifications = el.find(
+        "unsuccessfulInstanceCreditSpecificationSet"
+    )
+    if child_unsuccessful_instance_credit_specifications is not None:
         import capo_ec2.types.unsuccessful_instance_credit_specification_set
 
         out["unsuccessful_instance_credit_specifications"] = (
             capo_ec2.types.unsuccessful_instance_credit_specification_set.deserialize_ec2_query(
-                el, "unsuccessfulInstanceCreditSpecificationSet"
+                child_unsuccessful_instance_credit_specifications
             )
         )
     return out

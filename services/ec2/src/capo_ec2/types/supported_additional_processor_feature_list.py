@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SupportedAdditionalProcessorFeatureList:
+    import capo_ec2.types.supported_additional_processor_feature
+
+    out: SupportedAdditionalProcessorFeatureList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.supported_additional_processor_feature.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SupportedAdditionalProcessorFeatureList:
     import capo_ec2.types.supported_additional_processor_feature

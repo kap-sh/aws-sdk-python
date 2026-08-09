@@ -94,12 +94,13 @@ def deserialize_ec2_query(
     child_device_index = el.find("deviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("privateIpAddressesSet") is not None:
+    child_private_ip_addresses = el.find("privateIpAddressesSet")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.secondary_interface_private_ip_address_specification_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.secondary_interface_private_ip_address_specification_list.deserialize_ec2_query(
-                el, "privateIpAddressesSet"
+                child_private_ip_addresses
             )
         )
     child_private_ip_address_count = el.find("privateIpAddressCount")

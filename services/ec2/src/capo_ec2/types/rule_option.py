@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> RuleOption:
     child_keyword = el.find("keyword")
     if child_keyword is not None:
         out["keyword"] = str(child_keyword.text or "")
-    if el.find("settingSet") is not None:
+    child_settings = el.find("settingSet")
+    if child_settings is not None:
         import capo_ec2.types.string_list
 
         out["settings"] = capo_ec2.types.string_list.deserialize_ec2_query(
-            el, "settingSet"
+            child_settings
         )
     return out

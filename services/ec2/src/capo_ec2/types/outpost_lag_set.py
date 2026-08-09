@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.outpost_lag.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> OutpostLagSet:
+def deserialize_ec2_query(el: Element) -> OutpostLagSet:
+    import capo_ec2.types.outpost_lag
+
+    out: OutpostLagSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.outpost_lag.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> OutpostLagSet:
     import capo_ec2.types.outpost_lag
 
     out: OutpostLagSet = []

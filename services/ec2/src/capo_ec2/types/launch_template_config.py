@@ -54,12 +54,13 @@ def deserialize_ec2_query(el: Element) -> LaunchTemplateConfig:
                 child_launch_template_specification
             )
         )
-    if el.find("overrides") is not None:
+    child_overrides = el.find("overrides")
+    if child_overrides is not None:
         import capo_ec2.types.launch_template_overrides_list
 
         out["overrides"] = (
             capo_ec2.types.launch_template_overrides_list.deserialize_ec2_query(
-                el, "overrides"
+                child_overrides
             )
         )
     return out

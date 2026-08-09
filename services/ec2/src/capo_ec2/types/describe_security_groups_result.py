@@ -38,12 +38,13 @@ def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("securityGroupInfo") is not None:
+    child_security_groups = el.find("securityGroupInfo")
+    if child_security_groups is not None:
         import capo_ec2.types.security_group_list
 
         out["security_groups"] = (
             capo_ec2.types.security_group_list.deserialize_ec2_query(
-                el, "securityGroupInfo"
+                child_security_groups
             )
         )
     return out

@@ -68,22 +68,25 @@ def deserialize_ec2_query(el: Element) -> DescribeFpgaImagesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("FpgaImageId") is not None:
+    child_fpga_image_ids = el.find("FpgaImageId")
+    if child_fpga_image_ids is not None:
         import capo_ec2.types.fpga_image_id_list
 
         out["fpga_image_ids"] = capo_ec2.types.fpga_image_id_list.deserialize_ec2_query(
-            el, "FpgaImageId"
+            child_fpga_image_ids
         )
-    if el.find("Owner") is not None:
+    child_owners = el.find("Owner")
+    if child_owners is not None:
         import capo_ec2.types.owner_string_list
 
         out["owners"] = capo_ec2.types.owner_string_list.deserialize_ec2_query(
-            el, "Owner"
+            child_owners
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

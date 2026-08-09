@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> LaunchSpecsList:
+def deserialize_ec2_query(el: Element) -> LaunchSpecsList:
+    import capo_ec2.types.spot_fleet_launch_specification
+
+    out: LaunchSpecsList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.spot_fleet_launch_specification.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> LaunchSpecsList:
     import capo_ec2.types.spot_fleet_launch_specification
 
     out: LaunchSpecsList = []

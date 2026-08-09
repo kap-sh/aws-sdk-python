@@ -117,11 +117,12 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachment:
                 child_state
             )
         )
-    if el.find("subnetIds") is not None:
+    child_subnet_ids = el.find("subnetIds")
+    if child_subnet_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["subnet_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "subnetIds"
+            child_subnet_ids
         )
     child_creation_time = el.find("creationTime")
     if child_creation_time is not None:
@@ -139,8 +140,9 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayVpcAttachment:
                 child_options
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

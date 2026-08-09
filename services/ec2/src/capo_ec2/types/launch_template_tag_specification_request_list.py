@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> LaunchTemplateTagSpecificationRequestList:
+    import capo_ec2.types.launch_template_tag_specification_request
+
+    out: LaunchTemplateTagSpecificationRequestList = []
+    for child in el.findall("LaunchTemplateTagSpecificationRequest"):
+        out.append(
+            capo_ec2.types.launch_template_tag_specification_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> LaunchTemplateTagSpecificationRequestList:
     import capo_ec2.types.launch_template_tag_specification_request

@@ -46,8 +46,9 @@ def deserialize_ec2_query(el: Element) -> SpotFleetTagSpecification:
         out["resource_type"] = capo_ec2.types.resource_type.deserialize_ec2_query(
             child_resource_type
         )
-    if el.find("tag") is not None:
+    child_tags = el.find("tag")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tag")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

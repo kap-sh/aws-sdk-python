@@ -77,12 +77,13 @@ def deserialize_ec2_query(
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    if el.find("SubnetIds") is not None:
+    child_subnet_ids = el.find("SubnetIds")
+    if child_subnet_ids is not None:
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.transit_gateway_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIds"
+                child_subnet_ids
             )
         )
     child_dry_run = el.find("DryRun")

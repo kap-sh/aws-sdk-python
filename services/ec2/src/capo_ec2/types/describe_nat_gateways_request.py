@@ -61,19 +61,21 @@ def deserialize_ec2_query(el: Element) -> DescribeNatGatewaysRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filter = el.find("Filter")
+    if child_filter is not None:
         import capo_ec2.types.filter_list
 
-        out["filter"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filter"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filter)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("NatGatewayId") is not None:
+    child_nat_gateway_ids = el.find("NatGatewayId")
+    if child_nat_gateway_ids is not None:
         import capo_ec2.types.nat_gateway_id_string_list
 
         out["nat_gateway_ids"] = (
             capo_ec2.types.nat_gateway_id_string_list.deserialize_ec2_query(
-                el, "NatGatewayId"
+                child_nat_gateway_ids
             )
         )
     child_next_token = el.find("NextToken")

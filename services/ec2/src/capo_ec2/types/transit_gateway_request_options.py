@@ -188,12 +188,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayRequestOptions:
                 child_multicast_support
             )
         )
-    if el.find("TransitGatewayCidrBlocks") is not None:
+    child_transit_gateway_cidr_blocks = el.find("TransitGatewayCidrBlocks")
+    if child_transit_gateway_cidr_blocks is not None:
         import capo_ec2.types.transit_gateway_cidr_block_string_list
 
         out["transit_gateway_cidr_blocks"] = (
             capo_ec2.types.transit_gateway_cidr_block_string_list.deserialize_ec2_query(
-                el, "TransitGatewayCidrBlocks"
+                child_transit_gateway_cidr_blocks
             )
         )
     return out

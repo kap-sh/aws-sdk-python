@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> UnassignPrivateNatGatewayAddressResult
     child_nat_gateway_id = el.find("natGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("natGatewayAddressSet") is not None:
+    child_nat_gateway_addresses = el.find("natGatewayAddressSet")
+    if child_nat_gateway_addresses is not None:
         import capo_ec2.types.nat_gateway_address_list
 
         out["nat_gateway_addresses"] = (
             capo_ec2.types.nat_gateway_address_list.deserialize_ec2_query(
-                el, "natGatewayAddressSet"
+                child_nat_gateway_addresses
             )
         )
     return out

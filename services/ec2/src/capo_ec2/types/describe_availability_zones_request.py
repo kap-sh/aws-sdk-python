@@ -62,17 +62,19 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAvailabilityZonesRequest:
     out: DescribeAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ZoneName") is not None:
+    child_zone_names = el.find("ZoneName")
+    if child_zone_names is not None:
         import capo_ec2.types.zone_name_string_list
 
         out["zone_names"] = capo_ec2.types.zone_name_string_list.deserialize_ec2_query(
-            el, "ZoneName"
+            child_zone_names
         )
-    if el.find("ZoneId") is not None:
+    child_zone_ids = el.find("ZoneId")
+    if child_zone_ids is not None:
         import capo_ec2.types.zone_id_string_list
 
         out["zone_ids"] = capo_ec2.types.zone_id_string_list.deserialize_ec2_query(
-            el, "ZoneId"
+            child_zone_ids
         )
     child_all_availability_zones = el.find("AllAvailabilityZones")
     if child_all_availability_zones is not None:
@@ -82,8 +84,9 @@ def deserialize_ec2_query(el: Element) -> DescribeAvailabilityZonesRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

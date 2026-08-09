@@ -129,12 +129,13 @@ def deserialize_ec2_query(el: Element) -> GetCapacityReservationUsageResult:
         out["state"] = capo_ec2.types.capacity_reservation_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("instanceUsageSet") is not None:
+    child_instance_usages = el.find("instanceUsageSet")
+    if child_instance_usages is not None:
         import capo_ec2.types.instance_usage_set
 
         out["instance_usages"] = (
             capo_ec2.types.instance_usage_set.deserialize_ec2_query(
-                el, "instanceUsageSet"
+                child_instance_usages
             )
         )
     child_interruptible = el.find("interruptible")

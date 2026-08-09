@@ -57,15 +57,17 @@ def deserialize_ec2_query(el: Element) -> DescribeFlowLogsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filter = el.find("Filter")
+    if child_filter is not None:
         import capo_ec2.types.filter_list
 
-        out["filter"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("FlowLogId") is not None:
+        out["filter"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filter)
+    child_flow_log_ids = el.find("FlowLogId")
+    if child_flow_log_ids is not None:
         import capo_ec2.types.flow_log_id_list
 
         out["flow_log_ids"] = capo_ec2.types.flow_log_id_list.deserialize_ec2_query(
-            el, "FlowLogId"
+            child_flow_log_ids
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

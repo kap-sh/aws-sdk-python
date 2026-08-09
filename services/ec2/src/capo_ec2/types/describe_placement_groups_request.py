@@ -57,27 +57,30 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribePlacementGroupsRequest:
     out: DescribePlacementGroupsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("GroupId") is not None:
+    child_group_ids = el.find("GroupId")
+    if child_group_ids is not None:
         import capo_ec2.types.placement_group_id_string_list
 
         out["group_ids"] = (
             capo_ec2.types.placement_group_id_string_list.deserialize_ec2_query(
-                el, "GroupId"
+                child_group_ids
             )
         )
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("groupName") is not None:
+    child_group_names = el.find("groupName")
+    if child_group_names is not None:
         import capo_ec2.types.placement_group_string_list
 
         out["group_names"] = (
             capo_ec2.types.placement_group_string_list.deserialize_ec2_query(
-                el, "groupName"
+                child_group_names
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

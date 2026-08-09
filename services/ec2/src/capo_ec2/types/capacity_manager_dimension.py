@@ -266,12 +266,13 @@ def deserialize_ec2_query(el: Element) -> CapacityManagerDimension:
         out["reservation_unused_financial_owner"] = str(
             child_reservation_unused_financial_owner.text or ""
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.capacity_manager_tag_dimension_set
 
         out["tags"] = (
             capo_ec2.types.capacity_manager_tag_dimension_set.deserialize_ec2_query(
-                el, "tagSet"
+                child_tags
             )
         )
     return out

@@ -55,11 +55,12 @@ def deserialize_ec2_query(el: Element) -> DescribeVolumeAttributeResult:
                 child_auto_enable_io
             )
         )
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
     child_volume_id = el.find("volumeId")
     if child_volume_id is not None:

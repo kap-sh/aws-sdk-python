@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredResourceCidrsResult:
     out: GetIpamDiscoveredResourceCidrsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ipamDiscoveredResourceCidrSet") is not None:
+    child_ipam_discovered_resource_cidrs = el.find("ipamDiscoveredResourceCidrSet")
+    if child_ipam_discovered_resource_cidrs is not None:
         import capo_ec2.types.ipam_discovered_resource_cidr_set
 
         out["ipam_discovered_resource_cidrs"] = (
             capo_ec2.types.ipam_discovered_resource_cidr_set.deserialize_ec2_query(
-                el, "ipamDiscoveredResourceCidrSet"
+                child_ipam_discovered_resource_cidrs
             )
         )
     child_next_token = el.find("nextToken")

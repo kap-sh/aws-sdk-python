@@ -89,11 +89,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDataRequest:
     out: GetCapacityManagerMetricDataRequest = {}  # type: ignore[typeddict-item]
-    if el.find("MetricName") is not None:
+    child_metric_names = el.find("MetricName")
+    if child_metric_names is not None:
         import capo_ec2.types.metric_set
 
         out["metric_names"] = capo_ec2.types.metric_set.deserialize_ec2_query(
-            el, "MetricName"
+            child_metric_names
         )
     child_start_time = el.find("StartTime")
     if child_start_time is not None:
@@ -112,18 +113,20 @@ def deserialize_ec2_query(el: Element) -> GetCapacityManagerMetricDataRequest:
     child_period = el.find("Period")
     if child_period is not None:
         out["period"] = int(child_period.text or "")
-    if el.find("GroupBy") is not None:
+    child_group_by = el.find("GroupBy")
+    if child_group_by is not None:
         import capo_ec2.types.group_by_set
 
         out["group_by"] = capo_ec2.types.group_by_set.deserialize_ec2_query(
-            el, "GroupBy"
+            child_group_by
         )
-    if el.find("FilterBy") is not None:
+    child_filter_by = el.find("FilterBy")
+    if child_filter_by is not None:
         import capo_ec2.types.capacity_manager_condition_set
 
         out["filter_by"] = (
             capo_ec2.types.capacity_manager_condition_set.deserialize_ec2_query(
-                el, "FilterBy"
+                child_filter_by
             )
         )
     child_max_results = el.find("MaxResults")

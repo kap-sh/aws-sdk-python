@@ -58,22 +58,24 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeLockedSnapshotsRequest:
     out: DescribeLockedSnapshotsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("SnapshotId") is not None:
+    child_snapshot_ids = el.find("SnapshotId")
+    if child_snapshot_ids is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SnapshotId"
+                child_snapshot_ids
             )
         )
     child_dry_run = el.find("DryRun")

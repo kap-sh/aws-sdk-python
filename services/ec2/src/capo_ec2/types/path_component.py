@@ -297,12 +297,13 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
         import capo_ec2.types.analysis_component
 
         out["vpc"] = capo_ec2.types.analysis_component.deserialize_ec2_query(child_vpc)
-    if el.find("additionalDetailSet") is not None:
+    child_additional_details = el.find("additionalDetailSet")
+    if child_additional_details is not None:
         import capo_ec2.types.additional_detail_list
 
         out["additional_details"] = (
             capo_ec2.types.additional_detail_list.deserialize_ec2_query(
-                el, "additionalDetailSet"
+                child_additional_details
             )
         )
     child_transit_gateway = el.find("transitGateway")
@@ -323,11 +324,12 @@ def deserialize_ec2_query(el: Element) -> PathComponent:
                 child_transit_gateway_route_table_route
             )
         )
-    if el.find("explanationSet") is not None:
+    child_explanations = el.find("explanationSet")
+    if child_explanations is not None:
         import capo_ec2.types.explanation_list
 
         out["explanations"] = capo_ec2.types.explanation_list.deserialize_ec2_query(
-            el, "explanationSet"
+            child_explanations
         )
     child_elastic_load_balancer_listener = el.find("elasticLoadBalancerListener")
     if child_elastic_load_balancer_listener is not None:

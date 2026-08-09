@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> TargetReservationValueSet:
+def deserialize_ec2_query(el: Element) -> TargetReservationValueSet:
+    import capo_ec2.types.target_reservation_value
+
+    out: TargetReservationValueSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.target_reservation_value.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> TargetReservationValueSet:
     import capo_ec2.types.target_reservation_value
 
     out: TargetReservationValueSet = []

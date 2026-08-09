@@ -64,21 +64,23 @@ def deserialize_ec2_query(el: Element) -> CoipPool:
     child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    if el.find("poolCidrSet") is not None:
+    child_pool_cidrs = el.find("poolCidrSet")
+    if child_pool_cidrs is not None:
         import capo_ec2.types.value_string_list
 
         out["pool_cidrs"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "poolCidrSet"
+            child_pool_cidrs
         )
     child_local_gateway_route_table_id = el.find("localGatewayRouteTableId")
     if child_local_gateway_route_table_id is not None:
         out["local_gateway_route_table_id"] = str(
             child_local_gateway_route_table_id.text or ""
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_pool_arn = el.find("poolArn")
     if child_pool_arn is not None:
         out["pool_arn"] = str(child_pool_arn.text or "")

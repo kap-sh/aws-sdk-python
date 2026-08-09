@@ -47,20 +47,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelSpotFleetRequestsResponse:
     out: CancelSpotFleetRequestsResponse = {}  # type: ignore[typeddict-item]
-    if el.find("successfulFleetRequestSet") is not None:
+    child_successful_fleet_requests = el.find("successfulFleetRequestSet")
+    if child_successful_fleet_requests is not None:
         import capo_ec2.types.cancel_spot_fleet_requests_success_set
 
         out["successful_fleet_requests"] = (
             capo_ec2.types.cancel_spot_fleet_requests_success_set.deserialize_ec2_query(
-                el, "successfulFleetRequestSet"
+                child_successful_fleet_requests
             )
         )
-    if el.find("unsuccessfulFleetRequestSet") is not None:
+    child_unsuccessful_fleet_requests = el.find("unsuccessfulFleetRequestSet")
+    if child_unsuccessful_fleet_requests is not None:
         import capo_ec2.types.cancel_spot_fleet_requests_error_set
 
         out["unsuccessful_fleet_requests"] = (
             capo_ec2.types.cancel_spot_fleet_requests_error_set.deserialize_ec2_query(
-                el, "unsuccessfulFleetRequestSet"
+                child_unsuccessful_fleet_requests
             )
         )
     return out

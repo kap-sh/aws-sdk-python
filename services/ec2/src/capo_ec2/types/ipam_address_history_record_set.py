@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> IpamAddressHistoryRecordSet:
+def deserialize_ec2_query(el: Element) -> IpamAddressHistoryRecordSet:
+    import capo_ec2.types.ipam_address_history_record
+
+    out: IpamAddressHistoryRecordSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.ipam_address_history_record.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> IpamAddressHistoryRecordSet:
     import capo_ec2.types.ipam_address_history_record
 
     out: IpamAddressHistoryRecordSet = []

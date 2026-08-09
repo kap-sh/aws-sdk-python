@@ -202,16 +202,18 @@ def deserialize_ec2_query(el: Element) -> CapacityReservationFleet:
     child_allocation_strategy = el.find("allocationStrategy")
     if child_allocation_strategy is not None:
         out["allocation_strategy"] = str(child_allocation_strategy.text or "")
-    if el.find("instanceTypeSpecificationSet") is not None:
+    child_instance_type_specifications = el.find("instanceTypeSpecificationSet")
+    if child_instance_type_specifications is not None:
         import capo_ec2.types.fleet_capacity_reservation_set
 
         out["instance_type_specifications"] = (
             capo_ec2.types.fleet_capacity_reservation_set.deserialize_ec2_query(
-                el, "instanceTypeSpecificationSet"
+                child_instance_type_specifications
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

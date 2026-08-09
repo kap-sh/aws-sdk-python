@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterfaceGroupSet:
+    import capo_ec2.types.local_gateway_virtual_interface_group
+
+    out: LocalGatewayVirtualInterfaceGroupSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.local_gateway_virtual_interface_group.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> LocalGatewayVirtualInterfaceGroupSet:
     import capo_ec2.types.local_gateway_virtual_interface_group

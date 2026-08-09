@@ -63,12 +63,13 @@ def deserialize_ec2_query(el: Element) -> ImportInstanceTaskDetails:
         out["platform"] = capo_ec2.types.platform_values.deserialize_ec2_query(
             child_platform
         )
-    if el.find("volumes") is not None:
+    child_volumes = el.find("volumes")
+    if child_volumes is not None:
         import capo_ec2.types.import_instance_volume_detail_set
 
         out["volumes"] = (
             capo_ec2.types.import_instance_volume_detail_set.deserialize_ec2_query(
-                el, "volumes"
+                child_volumes
             )
         )
     return out

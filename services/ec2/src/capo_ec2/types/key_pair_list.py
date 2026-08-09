@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.key_pair_info.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> KeyPairList:
+def deserialize_ec2_query(el: Element) -> KeyPairList:
+    import capo_ec2.types.key_pair_info
+
+    out: KeyPairList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.key_pair_info.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> KeyPairList:
     import capo_ec2.types.key_pair_info
 
     out: KeyPairList = []

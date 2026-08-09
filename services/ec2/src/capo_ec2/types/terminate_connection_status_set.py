@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> TerminateConnectionStatusSet:
+def deserialize_ec2_query(el: Element) -> TerminateConnectionStatusSet:
+    import capo_ec2.types.terminate_connection_status
+
+    out: TerminateConnectionStatusSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.terminate_connection_status.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> TerminateConnectionStatusSet:
     import capo_ec2.types.terminate_connection_status
 
     out: TerminateConnectionStatusSet = []

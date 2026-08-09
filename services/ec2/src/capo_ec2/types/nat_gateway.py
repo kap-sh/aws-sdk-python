@@ -174,12 +174,13 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
     child_failure_message = el.find("failureMessage")
     if child_failure_message is not None:
         out["failure_message"] = str(child_failure_message.text or "")
-    if el.find("natGatewayAddressSet") is not None:
+    child_nat_gateway_addresses = el.find("natGatewayAddressSet")
+    if child_nat_gateway_addresses is not None:
         import capo_ec2.types.nat_gateway_address_list
 
         out["nat_gateway_addresses"] = (
             capo_ec2.types.nat_gateway_address_list.deserialize_ec2_query(
-                el, "natGatewayAddressSet"
+                child_nat_gateway_addresses
             )
         )
     child_nat_gateway_id = el.find("natGatewayId")
@@ -207,10 +208,11 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
     child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_connectivity_type = el.find("connectivityType")
     if child_connectivity_type is not None:
         import capo_ec2.types.connectivity_type
@@ -247,12 +249,13 @@ def deserialize_ec2_query(el: Element) -> NatGateway:
                 child_auto_provision_zones
             )
         )
-    if el.find("attachedApplianceSet") is not None:
+    child_attached_appliances = el.find("attachedApplianceSet")
+    if child_attached_appliances is not None:
         import capo_ec2.types.nat_gateway_attached_appliance_list
 
         out["attached_appliances"] = (
             capo_ec2.types.nat_gateway_attached_appliance_list.deserialize_ec2_query(
-                el, "attachedApplianceSet"
+                child_attached_appliances
             )
         )
     child_route_table_id = el.find("routeTableId")

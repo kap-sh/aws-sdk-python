@@ -62,10 +62,11 @@ def deserialize_ec2_query(el: Element) -> DimensionCondition:
         out["comparison"] = capo_ec2.types.comparison.deserialize_ec2_query(
             child_comparison
         )
-    if el.find("Value") is not None:
+    child_values = el.find("Value")
+    if child_values is not None:
         import capo_ec2.types.condition_value_list
 
         out["values"] = capo_ec2.types.condition_value_list.deserialize_ec2_query(
-            el, "Value"
+            child_values
         )
     return out

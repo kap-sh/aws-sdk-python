@@ -62,37 +62,41 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AnalysisPacketHeader:
     out: AnalysisPacketHeader = {}  # type: ignore[typeddict-item]
-    if el.find("destinationAddressSet") is not None:
+    child_destination_addresses = el.find("destinationAddressSet")
+    if child_destination_addresses is not None:
         import capo_ec2.types.ip_address_list
 
         out["destination_addresses"] = (
             capo_ec2.types.ip_address_list.deserialize_ec2_query(
-                el, "destinationAddressSet"
+                child_destination_addresses
             )
         )
-    if el.find("destinationPortRangeSet") is not None:
+    child_destination_port_ranges = el.find("destinationPortRangeSet")
+    if child_destination_port_ranges is not None:
         import capo_ec2.types.port_range_list
 
         out["destination_port_ranges"] = (
             capo_ec2.types.port_range_list.deserialize_ec2_query(
-                el, "destinationPortRangeSet"
+                child_destination_port_ranges
             )
         )
     child_protocol = el.find("protocol")
     if child_protocol is not None:
         out["protocol"] = str(child_protocol.text or "")
-    if el.find("sourceAddressSet") is not None:
+    child_source_addresses = el.find("sourceAddressSet")
+    if child_source_addresses is not None:
         import capo_ec2.types.ip_address_list
 
         out["source_addresses"] = capo_ec2.types.ip_address_list.deserialize_ec2_query(
-            el, "sourceAddressSet"
+            child_source_addresses
         )
-    if el.find("sourcePortRangeSet") is not None:
+    child_source_port_ranges = el.find("sourcePortRangeSet")
+    if child_source_port_ranges is not None:
         import capo_ec2.types.port_range_list
 
         out["source_port_ranges"] = (
             capo_ec2.types.port_range_list.deserialize_ec2_query(
-                el, "sourcePortRangeSet"
+                child_source_port_ranges
             )
         )
     return out

@@ -65,16 +65,18 @@ def deserialize_ec2_query(el: Element) -> DescribeMacModificationTasksRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("MacModificationTaskId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_mac_modification_task_ids = el.find("MacModificationTaskId")
+    if child_mac_modification_task_ids is not None:
         import capo_ec2.types.mac_modification_task_id_list
 
         out["mac_modification_task_ids"] = (
             capo_ec2.types.mac_modification_task_id_list.deserialize_ec2_query(
-                el, "MacModificationTaskId"
+                child_mac_modification_task_ids
             )
         )
     child_max_results = el.find("MaxResults")

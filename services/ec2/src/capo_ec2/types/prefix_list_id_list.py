@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.prefix_list_id.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PrefixListIdList:
+def deserialize_ec2_query(el: Element) -> PrefixListIdList:
+    import capo_ec2.types.prefix_list_id
+
+    out: PrefixListIdList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.prefix_list_id.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PrefixListIdList:
     import capo_ec2.types.prefix_list_id
 
     out: PrefixListIdList = []

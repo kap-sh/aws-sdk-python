@@ -68,12 +68,13 @@ def deserialize_ec2_query(el: Element) -> CreateKeyPairRequest:
         import capo_ec2.types.key_type
 
         out["key_type"] = capo_ec2.types.key_type.deserialize_ec2_query(child_key_type)
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_key_format = el.find("KeyFormat")

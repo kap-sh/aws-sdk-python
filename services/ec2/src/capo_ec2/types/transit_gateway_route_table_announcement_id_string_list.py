@@ -23,6 +23,15 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> TransitGatewayRouteTableAnnouncementIdStringList:
+    out: TransitGatewayRouteTableAnnouncementIdStringList = []
+    for child in el.findall("item"):
+        out.append(str(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> TransitGatewayRouteTableAnnouncementIdStringList:
     out: TransitGatewayRouteTableAnnouncementIdStringList = []

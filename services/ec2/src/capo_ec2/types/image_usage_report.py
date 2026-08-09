@@ -99,19 +99,21 @@ def deserialize_ec2_query(el: Element) -> ImageUsageReport:
     child_report_id = el.find("reportId")
     if child_report_id is not None:
         out["report_id"] = str(child_report_id.text or "")
-    if el.find("resourceTypeSet") is not None:
+    child_resource_types = el.find("resourceTypeSet")
+    if child_resource_types is not None:
         import capo_ec2.types.image_usage_resource_type_list
 
         out["resource_types"] = (
             capo_ec2.types.image_usage_resource_type_list.deserialize_ec2_query(
-                el, "resourceTypeSet"
+                child_resource_types
             )
         )
-    if el.find("accountIdSet") is not None:
+    child_account_ids = el.find("accountIdSet")
+    if child_account_ids is not None:
         import capo_ec2.types.user_id_list
 
         out["account_ids"] = capo_ec2.types.user_id_list.deserialize_ec2_query(
-            el, "accountIdSet"
+            child_account_ids
         )
     child_state = el.find("state")
     if child_state is not None:
@@ -137,8 +139,9 @@ def deserialize_ec2_query(el: Element) -> ImageUsageReport:
                 child_expiration_time
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

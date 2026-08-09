@@ -82,33 +82,37 @@ def deserialize_ec2_query(el: Element) -> DescribeSnapshotsRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("Owner") is not None:
+    child_owner_ids = el.find("Owner")
+    if child_owner_ids is not None:
         import capo_ec2.types.owner_string_list
 
         out["owner_ids"] = capo_ec2.types.owner_string_list.deserialize_ec2_query(
-            el, "Owner"
+            child_owner_ids
         )
-    if el.find("RestorableBy") is not None:
+    child_restorable_by_user_ids = el.find("RestorableBy")
+    if child_restorable_by_user_ids is not None:
         import capo_ec2.types.restorable_by_string_list
 
         out["restorable_by_user_ids"] = (
             capo_ec2.types.restorable_by_string_list.deserialize_ec2_query(
-                el, "RestorableBy"
+                child_restorable_by_user_ids
             )
         )
-    if el.find("SnapshotId") is not None:
+    child_snapshot_ids = el.find("SnapshotId")
+    if child_snapshot_ids is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SnapshotId"
+                child_snapshot_ids
             )
         )
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

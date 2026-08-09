@@ -54,11 +54,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIpv6PoolsRequest:
     out: DescribeIpv6PoolsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("PoolId") is not None:
+    child_pool_ids = el.find("PoolId")
+    if child_pool_ids is not None:
         import capo_ec2.types.ipv6_pool_id_list
 
         out["pool_ids"] = capo_ec2.types.ipv6_pool_id_list.deserialize_ec2_query(
-            el, "PoolId"
+            child_pool_ids
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
@@ -69,8 +70,9 @@ def deserialize_ec2_query(el: Element) -> DescribeIpv6PoolsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

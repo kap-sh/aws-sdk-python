@@ -72,12 +72,13 @@ def deserialize_ec2_query(el: Element) -> ByoipCidr:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("asnAssociationSet") is not None:
+    child_asn_associations = el.find("asnAssociationSet")
+    if child_asn_associations is not None:
         import capo_ec2.types.asn_association_set
 
         out["asn_associations"] = (
             capo_ec2.types.asn_association_set.deserialize_ec2_query(
-                el, "asnAssociationSet"
+                child_asn_associations
             )
         )
     child_status_message = el.find("statusMessage")

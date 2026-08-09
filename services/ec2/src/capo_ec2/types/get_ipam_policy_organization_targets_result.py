@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamPolicyOrganizationTargetsResult:
     out: GetIpamPolicyOrganizationTargetsResult = {}  # type: ignore[typeddict-item]
-    if el.find("organizationTargetSet") is not None:
+    child_organization_targets = el.find("organizationTargetSet")
+    if child_organization_targets is not None:
         import capo_ec2.types.ipam_policy_organization_target_set
 
         out["organization_targets"] = (
             capo_ec2.types.ipam_policy_organization_target_set.deserialize_ec2_query(
-                el, "organizationTargetSet"
+                child_organization_targets
             )
         )
     child_next_token = el.find("nextToken")

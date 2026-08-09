@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ImageUsageReportEntryList:
+def deserialize_ec2_query(el: Element) -> ImageUsageReportEntryList:
+    import capo_ec2.types.image_usage_report_entry
+
+    out: ImageUsageReportEntryList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.image_usage_report_entry.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ImageUsageReportEntryList:
     import capo_ec2.types.image_usage_report_entry
 
     out: ImageUsageReportEntryList = []

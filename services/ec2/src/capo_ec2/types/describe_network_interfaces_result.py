@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfacesResult:
     out: DescribeNetworkInterfacesResult = {}  # type: ignore[typeddict-item]
-    if el.find("networkInterfaceSet") is not None:
+    child_network_interfaces = el.find("networkInterfaceSet")
+    if child_network_interfaces is not None:
         import capo_ec2.types.network_interface_list
 
         out["network_interfaces"] = (
             capo_ec2.types.network_interface_list.deserialize_ec2_query(
-                el, "networkInterfaceSet"
+                child_network_interfaces
             )
         )
     child_next_token = el.find("nextToken")

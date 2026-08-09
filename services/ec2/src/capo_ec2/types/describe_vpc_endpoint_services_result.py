@@ -44,18 +44,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcEndpointServicesResult:
     out: DescribeVpcEndpointServicesResult = {}  # type: ignore[typeddict-item]
-    if el.find("serviceNameSet") is not None:
+    child_service_names = el.find("serviceNameSet")
+    if child_service_names is not None:
         import capo_ec2.types.value_string_list
 
         out["service_names"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "serviceNameSet"
+            child_service_names
         )
-    if el.find("serviceDetailSet") is not None:
+    child_service_details = el.find("serviceDetailSet")
+    if child_service_details is not None:
         import capo_ec2.types.service_detail_set
 
         out["service_details"] = (
             capo_ec2.types.service_detail_set.deserialize_ec2_query(
-                el, "serviceDetailSet"
+                child_service_details
             )
         )
     child_next_token = el.find("nextToken")

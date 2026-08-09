@@ -45,12 +45,13 @@ def deserialize_ec2_query(el: Element) -> ModifySecurityGroupRulesRequest:
     child_group_id = el.find("GroupId")
     if child_group_id is not None:
         out["group_id"] = str(child_group_id.text or "")
-    if el.find("SecurityGroupRule") is not None:
+    child_security_group_rules = el.find("SecurityGroupRule")
+    if child_security_group_rules is not None:
         import capo_ec2.types.security_group_rule_update_list
 
         out["security_group_rules"] = (
             capo_ec2.types.security_group_rule_update_list.deserialize_ec2_query(
-                el, "SecurityGroupRule"
+                child_security_group_rules
             )
         )
     child_dry_run = el.find("DryRun")

@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresResult:
     out: GetSpotPlacementScoresResult = {}  # type: ignore[typeddict-item]
-    if el.find("spotPlacementScoreSet") is not None:
+    child_spot_placement_scores = el.find("spotPlacementScoreSet")
+    if child_spot_placement_scores is not None:
         import capo_ec2.types.spot_placement_scores
 
         out["spot_placement_scores"] = (
             capo_ec2.types.spot_placement_scores.deserialize_ec2_query(
-                el, "spotPlacementScoreSet"
+                child_spot_placement_scores
             )
         )
     child_next_token = el.find("nextToken")

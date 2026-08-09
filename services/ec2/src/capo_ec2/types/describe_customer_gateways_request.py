@@ -46,18 +46,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCustomerGatewaysRequest:
     out: DescribeCustomerGatewaysRequest = {}  # type: ignore[typeddict-item]
-    if el.find("CustomerGatewayId") is not None:
+    child_customer_gateway_ids = el.find("CustomerGatewayId")
+    if child_customer_gateway_ids is not None:
         import capo_ec2.types.customer_gateway_id_string_list
 
         out["customer_gateway_ids"] = (
             capo_ec2.types.customer_gateway_id_string_list.deserialize_ec2_query(
-                el, "CustomerGatewayId"
+                child_customer_gateway_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

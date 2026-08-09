@@ -58,12 +58,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceSqlHaStatesRequest:
     out: DescribeInstanceSqlHaStatesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("InstanceId") is not None:
+    child_instance_ids = el.find("InstanceId")
+    if child_instance_ids is not None:
         import capo_ec2.types.instance_id_string_list
 
         out["instance_ids"] = (
             capo_ec2.types.instance_id_string_list.deserialize_ec2_query(
-                el, "InstanceId"
+                child_instance_ids
             )
         )
     child_next_token = el.find("NextToken")
@@ -72,10 +73,11 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceSqlHaStatesRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

@@ -124,24 +124,29 @@ def deserialize_ec2_query(el: Element) -> ModifyFpgaImageAttributeRequest:
         out["operation_type"] = capo_ec2.types.operation_type.deserialize_ec2_query(
             child_operation_type
         )
-    if el.find("UserId") is not None:
+    child_user_ids = el.find("UserId")
+    if child_user_ids is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserId"
+            child_user_ids
         )
-    if el.find("UserGroup") is not None:
+    child_user_groups = el.find("UserGroup")
+    if child_user_groups is not None:
         import capo_ec2.types.user_group_string_list
 
         out["user_groups"] = (
-            capo_ec2.types.user_group_string_list.deserialize_ec2_query(el, "UserGroup")
+            capo_ec2.types.user_group_string_list.deserialize_ec2_query(
+                child_user_groups
+            )
         )
-    if el.find("ProductCode") is not None:
+    child_product_codes = el.find("ProductCode")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_string_list
 
         out["product_codes"] = (
             capo_ec2.types.product_code_string_list.deserialize_ec2_query(
-                el, "ProductCode"
+                child_product_codes
             )
         )
     child_load_permission = el.find("LoadPermission")

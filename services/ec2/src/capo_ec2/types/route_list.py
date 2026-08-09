@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.route.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> RouteList:
+def deserialize_ec2_query(el: Element) -> RouteList:
+    import capo_ec2.types.route
+
+    out: RouteList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.route.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> RouteList:
     import capo_ec2.types.route
 
     out: RouteList = []

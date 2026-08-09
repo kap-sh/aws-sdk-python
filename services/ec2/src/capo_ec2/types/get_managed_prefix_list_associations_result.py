@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetManagedPrefixListAssociationsResult:
     out: GetManagedPrefixListAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("prefixListAssociationSet") is not None:
+    child_prefix_list_associations = el.find("prefixListAssociationSet")
+    if child_prefix_list_associations is not None:
         import capo_ec2.types.prefix_list_association_set
 
         out["prefix_list_associations"] = (
             capo_ec2.types.prefix_list_association_set.deserialize_ec2_query(
-                el, "prefixListAssociationSet"
+                child_prefix_list_associations
             )
         )
     child_next_token = el.find("nextToken")

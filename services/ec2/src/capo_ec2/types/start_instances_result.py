@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> StartInstancesResult:
     out: StartInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("instancesSet") is not None:
+    child_starting_instances = el.find("instancesSet")
+    if child_starting_instances is not None:
         import capo_ec2.types.instance_state_change_list
 
         out["starting_instances"] = (
             capo_ec2.types.instance_state_change_list.deserialize_ec2_query(
-                el, "instancesSet"
+                child_starting_instances
             )
         )
     return out

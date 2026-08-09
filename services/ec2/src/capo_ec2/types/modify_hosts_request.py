@@ -86,11 +86,12 @@ def deserialize_ec2_query(el: Element) -> ModifyHostsRequest:
         out["host_maintenance"] = capo_ec2.types.host_maintenance.deserialize_ec2_query(
             child_host_maintenance
         )
-    if el.find("hostId") is not None:
+    child_host_ids = el.find("hostId")
+    if child_host_ids is not None:
         import capo_ec2.types.request_host_id_list
 
         out["host_ids"] = capo_ec2.types.request_host_id_list.deserialize_ec2_query(
-            el, "hostId"
+            child_host_ids
         )
     child_auto_placement = el.find("autoPlacement")
     if child_auto_placement is not None:

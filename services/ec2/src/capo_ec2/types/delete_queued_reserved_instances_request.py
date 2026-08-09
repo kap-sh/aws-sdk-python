@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> DeleteQueuedReservedInstancesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ReservedInstancesId") is not None:
+    child_reserved_instances_ids = el.find("ReservedInstancesId")
+    if child_reserved_instances_ids is not None:
         import capo_ec2.types.delete_queued_reserved_instances_id_list
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.delete_queued_reserved_instances_id_list.deserialize_ec2_query(
-                el, "ReservedInstancesId"
+                child_reserved_instances_ids
             )
         )
     return out

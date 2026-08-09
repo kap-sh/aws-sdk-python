@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> Phase1EncryptionAlgorithmsRequestList:
+    import capo_ec2.types.phase1_encryption_algorithms_request_list_value
+
+    out: Phase1EncryptionAlgorithmsRequestList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.phase1_encryption_algorithms_request_list_value.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> Phase1EncryptionAlgorithmsRequestList:
     import capo_ec2.types.phase1_encryption_algorithms_request_list_value

@@ -47,11 +47,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAddressTransfersRequest:
     out: DescribeAddressTransfersRequest = {}  # type: ignore[typeddict-item]
-    if el.find("AllocationId") is not None:
+    child_allocation_ids = el.find("AllocationId")
+    if child_allocation_ids is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationId"
+            child_allocation_ids
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:

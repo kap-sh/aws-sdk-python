@@ -61,16 +61,18 @@ def deserialize_ec2_query(el: Element) -> DescribeExportImageTasksRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("ExportImageTaskId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_export_image_task_ids = el.find("ExportImageTaskId")
+    if child_export_image_task_ids is not None:
         import capo_ec2.types.export_image_task_id_list
 
         out["export_image_task_ids"] = (
             capo_ec2.types.export_image_task_id_list.deserialize_ec2_query(
-                el, "ExportImageTaskId"
+                child_export_image_task_ids
             )
         )
     child_max_results = el.find("MaxResults")

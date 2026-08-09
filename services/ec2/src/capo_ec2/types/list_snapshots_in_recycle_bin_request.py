@@ -55,12 +55,13 @@ def deserialize_ec2_query(el: Element) -> ListSnapshotsInRecycleBinRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("SnapshotId") is not None:
+    child_snapshot_ids = el.find("SnapshotId")
+    if child_snapshot_ids is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SnapshotId"
+                child_snapshot_ids
             )
         )
     child_dry_run = el.find("DryRun")

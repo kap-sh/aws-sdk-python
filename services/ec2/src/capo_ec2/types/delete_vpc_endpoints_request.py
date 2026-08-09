@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> DeleteVpcEndpointsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("VpcEndpointId") is not None:
+    child_vpc_endpoint_ids = el.find("VpcEndpointId")
+    if child_vpc_endpoint_ids is not None:
         import capo_ec2.types.vpc_endpoint_id_list
 
         out["vpc_endpoint_ids"] = (
             capo_ec2.types.vpc_endpoint_id_list.deserialize_ec2_query(
-                el, "VpcEndpointId"
+                child_vpc_endpoint_ids
             )
         )
     return out

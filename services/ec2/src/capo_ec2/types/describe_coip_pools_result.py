@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCoipPoolsResult:
     out: DescribeCoipPoolsResult = {}  # type: ignore[typeddict-item]
-    if el.find("coipPoolSet") is not None:
+    child_coip_pools = el.find("coipPoolSet")
+    if child_coip_pools is not None:
         import capo_ec2.types.coip_pool_set
 
         out["coip_pools"] = capo_ec2.types.coip_pool_set.deserialize_ec2_query(
-            el, "coipPoolSet"
+            child_coip_pools
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

@@ -179,12 +179,13 @@ def deserialize_ec2_query(el: Element) -> SecondaryInterface:
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("privateIpv4AddressSet") is not None:
+    child_private_ipv4_addresses = el.find("privateIpv4AddressSet")
+    if child_private_ipv4_addresses is not None:
         import capo_ec2.types.secondary_interface_ipv4_address_list
 
         out["private_ipv4_addresses"] = (
             capo_ec2.types.secondary_interface_ipv4_address_list.deserialize_ec2_query(
-                el, "privateIpv4AddressSet"
+                child_private_ipv4_addresses
             )
         )
     child_secondary_interface_id = el.find("secondaryInterfaceId")
@@ -229,8 +230,9 @@ def deserialize_ec2_query(el: Element) -> SecondaryInterface:
         out["status"] = capo_ec2.types.secondary_interface_status.deserialize_ec2_query(
             child_status
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

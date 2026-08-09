@@ -41,12 +41,15 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVpcBlockPublicAccessExclusionsResult:
     out: DescribeVpcBlockPublicAccessExclusionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("vpcBlockPublicAccessExclusionSet") is not None:
+    child_vpc_block_public_access_exclusions = el.find(
+        "vpcBlockPublicAccessExclusionSet"
+    )
+    if child_vpc_block_public_access_exclusions is not None:
         import capo_ec2.types.vpc_block_public_access_exclusion_list
 
         out["vpc_block_public_access_exclusions"] = (
             capo_ec2.types.vpc_block_public_access_exclusion_list.deserialize_ec2_query(
-                el, "vpcBlockPublicAccessExclusionSet"
+                child_vpc_block_public_access_exclusions
             )
         )
     child_next_token = el.find("nextToken")

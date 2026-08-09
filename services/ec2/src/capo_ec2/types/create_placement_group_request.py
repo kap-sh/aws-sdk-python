@@ -82,12 +82,13 @@ def deserialize_ec2_query(el: Element) -> CreatePlacementGroupRequest:
     child_partition_count = el.find("PartitionCount")
     if child_partition_count is not None:
         out["partition_count"] = int(child_partition_count.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_spread_level = el.find("SpreadLevel")

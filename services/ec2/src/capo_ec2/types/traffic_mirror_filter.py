@@ -79,35 +79,39 @@ def deserialize_ec2_query(el: Element) -> TrafficMirrorFilter:
     child_traffic_mirror_filter_id = el.find("trafficMirrorFilterId")
     if child_traffic_mirror_filter_id is not None:
         out["traffic_mirror_filter_id"] = str(child_traffic_mirror_filter_id.text or "")
-    if el.find("ingressFilterRuleSet") is not None:
+    child_ingress_filter_rules = el.find("ingressFilterRuleSet")
+    if child_ingress_filter_rules is not None:
         import capo_ec2.types.traffic_mirror_filter_rule_list
 
         out["ingress_filter_rules"] = (
             capo_ec2.types.traffic_mirror_filter_rule_list.deserialize_ec2_query(
-                el, "ingressFilterRuleSet"
+                child_ingress_filter_rules
             )
         )
-    if el.find("egressFilterRuleSet") is not None:
+    child_egress_filter_rules = el.find("egressFilterRuleSet")
+    if child_egress_filter_rules is not None:
         import capo_ec2.types.traffic_mirror_filter_rule_list
 
         out["egress_filter_rules"] = (
             capo_ec2.types.traffic_mirror_filter_rule_list.deserialize_ec2_query(
-                el, "egressFilterRuleSet"
+                child_egress_filter_rules
             )
         )
-    if el.find("networkServiceSet") is not None:
+    child_network_services = el.find("networkServiceSet")
+    if child_network_services is not None:
         import capo_ec2.types.traffic_mirror_network_service_list
 
         out["network_services"] = (
             capo_ec2.types.traffic_mirror_network_service_list.deserialize_ec2_query(
-                el, "networkServiceSet"
+                child_network_services
             )
         )
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

@@ -197,12 +197,13 @@ def deserialize_ec2_query(el: Element) -> Ec2InstanceConnectEndpoint:
     child_fips_dns_name = el.find("fipsDnsName")
     if child_fips_dns_name is not None:
         out["fips_dns_name"] = str(child_fips_dns_name.text or "")
-    if el.find("networkInterfaceIdSet") is not None:
+    child_network_interface_ids = el.find("networkInterfaceIdSet")
+    if child_network_interface_ids is not None:
         import capo_ec2.types.network_interface_id_set
 
         out["network_interface_ids"] = (
             capo_ec2.types.network_interface_id_set.deserialize_ec2_query(
-                el, "networkInterfaceIdSet"
+                child_network_interface_ids
             )
         )
     child_vpc_id = el.find("vpcId")
@@ -226,18 +227,20 @@ def deserialize_ec2_query(el: Element) -> Ec2InstanceConnectEndpoint:
         out["preserve_client_ip"] = (
             child_preserve_client_ip.text or ""
         ).lower() == "true"
-    if el.find("securityGroupIdSet") is not None:
+    child_security_group_ids = el.find("securityGroupIdSet")
+    if child_security_group_ids is not None:
         import capo_ec2.types.security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_set.deserialize_ec2_query(
-                el, "securityGroupIdSet"
+                child_security_group_ids
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_ip_address_type = el.find("ipAddressType")
     if child_ip_address_type is not None:
         import capo_ec2.types.ip_address_type

@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.added_principal.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AddedPrincipalSet:
+def deserialize_ec2_query(el: Element) -> AddedPrincipalSet:
+    import capo_ec2.types.added_principal
+
+    out: AddedPrincipalSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.added_principal.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AddedPrincipalSet:
     import capo_ec2.types.added_principal
 
     out: AddedPrincipalSet = []

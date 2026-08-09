@@ -104,11 +104,12 @@ def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupIngressRequest:
     child_group_name = el.find("GroupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("IpPermissions") is not None:
+    child_ip_permissions = el.find("IpPermissions")
+    if child_ip_permissions is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-            el, "IpPermissions"
+            child_ip_permissions
         )
     child_ip_protocol = el.find("IpProtocol")
     if child_ip_protocol is not None:
@@ -126,12 +127,13 @@ def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupIngressRequest:
     child_to_port = el.find("ToPort")
     if child_to_port is not None:
         out["to_port"] = int(child_to_port.text or "")
-    if el.find("SecurityGroupRuleId") is not None:
+    child_security_group_rule_ids = el.find("SecurityGroupRuleId")
+    if child_security_group_rule_ids is not None:
         import capo_ec2.types.security_group_rule_id_list
 
         out["security_group_rule_ids"] = (
             capo_ec2.types.security_group_rule_id_list.deserialize_ec2_query(
-                el, "SecurityGroupRuleId"
+                child_security_group_rule_ids
             )
         )
     child_dry_run = el.find("dryRun")

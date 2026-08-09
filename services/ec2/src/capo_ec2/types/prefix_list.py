@@ -39,11 +39,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PrefixList:
     out: PrefixList = {}  # type: ignore[typeddict-item]
-    if el.find("cidrSet") is not None:
+    child_cidrs = el.find("cidrSet")
+    if child_cidrs is not None:
         import capo_ec2.types.value_string_list
 
         out["cidrs"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "cidrSet"
+            child_cidrs
         )
     child_prefix_list_id = el.find("prefixListId")
     if child_prefix_list_id is not None:

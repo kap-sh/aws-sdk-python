@@ -57,20 +57,22 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayConfigurationInputStruct
     child_transit_gateway_id = el.find("TransitGatewayId")
     if child_transit_gateway_id is not None:
         out["transit_gateway_id"] = str(child_transit_gateway_id.text or "")
-    if el.find("AvailabilityZone") is not None:
+    child_availability_zones = el.find("AvailabilityZone")
+    if child_availability_zones is not None:
         import capo_ec2.types.client_vpn_availability_zone_set
 
         out["availability_zones"] = (
             capo_ec2.types.client_vpn_availability_zone_set.deserialize_ec2_query(
-                el, "AvailabilityZone"
+                child_availability_zones
             )
         )
-    if el.find("AvailabilityZoneId") is not None:
+    child_availability_zone_ids = el.find("AvailabilityZoneId")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.client_vpn_availability_zone_id_set
 
         out["availability_zone_ids"] = (
             capo_ec2.types.client_vpn_availability_zone_id_set.deserialize_ec2_query(
-                el, "AvailabilityZoneId"
+                child_availability_zone_ids
             )
         )
     return out

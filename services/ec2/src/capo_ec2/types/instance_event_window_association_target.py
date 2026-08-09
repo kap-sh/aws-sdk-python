@@ -52,22 +52,25 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceEventWindowAssociationTarget:
     out: InstanceEventWindowAssociationTarget = {}  # type: ignore[typeddict-item]
-    if el.find("instanceIdSet") is not None:
+    child_instance_ids = el.find("instanceIdSet")
+    if child_instance_ids is not None:
         import capo_ec2.types.instance_id_list
 
         out["instance_ids"] = capo_ec2.types.instance_id_list.deserialize_ec2_query(
-            el, "instanceIdSet"
+            child_instance_ids
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("dedicatedHostIdSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_dedicated_host_ids = el.find("dedicatedHostIdSet")
+    if child_dedicated_host_ids is not None:
         import capo_ec2.types.dedicated_host_id_list
 
         out["dedicated_host_ids"] = (
             capo_ec2.types.dedicated_host_id_list.deserialize_ec2_query(
-                el, "dedicatedHostIdSet"
+                child_dedicated_host_ids
             )
         )
     return out

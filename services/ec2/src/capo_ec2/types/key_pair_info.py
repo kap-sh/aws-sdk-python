@@ -73,10 +73,11 @@ def deserialize_ec2_query(el: Element) -> KeyPairInfo:
         import capo_ec2.types.key_type
 
         out["key_type"] = capo_ec2.types.key_type.deserialize_ec2_query(child_key_type)
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_public_key = el.find("publicKey")
     if child_public_key is not None:
         out["public_key"] = str(child_public_key.text or "")

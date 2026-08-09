@@ -80,20 +80,22 @@ def deserialize_ec2_query(
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ArchitectureType") is not None:
+    child_architecture_types = el.find("ArchitectureType")
+    if child_architecture_types is not None:
         import capo_ec2.types.architecture_type_set
 
         out["architecture_types"] = (
             capo_ec2.types.architecture_type_set.deserialize_ec2_query(
-                el, "ArchitectureType"
+                child_architecture_types
             )
         )
-    if el.find("VirtualizationType") is not None:
+    child_virtualization_types = el.find("VirtualizationType")
+    if child_virtualization_types is not None:
         import capo_ec2.types.virtualization_type_set
 
         out["virtualization_types"] = (
             capo_ec2.types.virtualization_type_set.deserialize_ec2_query(
-                el, "VirtualizationType"
+                child_virtualization_types
             )
         )
     child_instance_requirements = el.find("InstanceRequirements")

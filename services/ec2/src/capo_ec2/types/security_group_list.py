@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.security_group.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> SecurityGroupList:
+def deserialize_ec2_query(el: Element) -> SecurityGroupList:
+    import capo_ec2.types.security_group
+
+    out: SecurityGroupList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.security_group.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> SecurityGroupList:
     import capo_ec2.types.security_group
 
     out: SecurityGroupList = []

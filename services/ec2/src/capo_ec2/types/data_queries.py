@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.data_query.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DataQueries:
+def deserialize_ec2_query(el: Element) -> DataQueries:
+    import capo_ec2.types.data_query
+
+    out: DataQueries = []
+    for child in el.findall("member"):
+        out.append(capo_ec2.types.data_query.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> DataQueries:
     import capo_ec2.types.data_query
 
     out: DataQueries = []

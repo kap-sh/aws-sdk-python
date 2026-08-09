@@ -74,11 +74,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> AssignPrivateIpAddressesRequest:
     out: AssignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Ipv4Prefix") is not None:
+    child_ipv4_prefixes = el.find("Ipv4Prefix")
+    if child_ipv4_prefixes is not None:
         import capo_ec2.types.ip_prefix_list
 
         out["ipv4_prefixes"] = capo_ec2.types.ip_prefix_list.deserialize_ec2_query(
-            el, "Ipv4Prefix"
+            child_ipv4_prefixes
         )
     child_ipv4_prefix_count = el.find("Ipv4PrefixCount")
     if child_ipv4_prefix_count is not None:
@@ -86,12 +87,13 @@ def deserialize_ec2_query(el: Element) -> AssignPrivateIpAddressesRequest:
     child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:
         out["network_interface_id"] = str(child_network_interface_id.text or "")
-    if el.find("privateIpAddress") is not None:
+    child_private_ip_addresses = el.find("privateIpAddress")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.private_ip_address_string_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.private_ip_address_string_list.deserialize_ec2_query(
-                el, "privateIpAddress"
+                child_private_ip_addresses
             )
         )
     child_secondary_private_ip_address_count = el.find("secondaryPrivateIpAddressCount")

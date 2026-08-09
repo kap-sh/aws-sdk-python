@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> InstanceEventWindowTimeRangeRequestSet:
+    import capo_ec2.types.instance_event_window_time_range_request
+
+    out: InstanceEventWindowTimeRangeRequestSet = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.instance_event_window_time_range_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> InstanceEventWindowTimeRangeRequestSet:
     import capo_ec2.types.instance_event_window_time_range_request

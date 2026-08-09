@@ -52,12 +52,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InternetGateway:
     out: InternetGateway = {}  # type: ignore[typeddict-item]
-    if el.find("attachmentSet") is not None:
+    child_attachments = el.find("attachmentSet")
+    if child_attachments is not None:
         import capo_ec2.types.internet_gateway_attachment_list
 
         out["attachments"] = (
             capo_ec2.types.internet_gateway_attachment_list.deserialize_ec2_query(
-                el, "attachmentSet"
+                child_attachments
             )
         )
     child_internet_gateway_id = el.find("internetGatewayId")
@@ -66,8 +67,9 @@ def deserialize_ec2_query(el: Element) -> InternetGateway:
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

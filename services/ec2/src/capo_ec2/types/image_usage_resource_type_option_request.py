@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> ImageUsageResourceTypeOptionRequest:
     child_option_name = el.find("OptionName")
     if child_option_name is not None:
         out["option_name"] = str(child_option_name.text or "")
-    if el.find("OptionValue") is not None:
+    child_option_values = el.find("OptionValue")
+    if child_option_values is not None:
         import capo_ec2.types.image_usage_resource_type_option_values_list
 
         out["option_values"] = (
             capo_ec2.types.image_usage_resource_type_option_values_list.deserialize_ec2_query(
-                el, "OptionValue"
+                child_option_values
             )
         )
     return out

@@ -52,12 +52,13 @@ def deserialize_ec2_query(el: Element) -> ResourceTypeRequest:
                 child_resource_type
             )
         )
-    if el.find("ResourceTypeOption") is not None:
+    child_resource_type_options = el.find("ResourceTypeOption")
+    if child_resource_type_options is not None:
         import capo_ec2.types.resource_type_option_list
 
         out["resource_type_options"] = (
             capo_ec2.types.resource_type_option_list.deserialize_ec2_query(
-                el, "ResourceTypeOption"
+                child_resource_type_options
             )
         )
     return out

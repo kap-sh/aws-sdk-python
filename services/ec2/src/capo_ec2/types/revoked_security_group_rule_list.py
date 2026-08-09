@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> RevokedSecurityGroupRuleList:
+def deserialize_ec2_query(el: Element) -> RevokedSecurityGroupRuleList:
+    import capo_ec2.types.revoked_security_group_rule
+
+    out: RevokedSecurityGroupRuleList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.revoked_security_group_rule.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> RevokedSecurityGroupRuleList:
     import capo_ec2.types.revoked_security_group_rule
 
     out: RevokedSecurityGroupRuleList = []

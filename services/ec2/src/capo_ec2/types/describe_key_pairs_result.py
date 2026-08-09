@@ -30,10 +30,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeKeyPairsResult:
     out: DescribeKeyPairsResult = {}  # type: ignore[typeddict-item]
-    if el.find("keySet") is not None:
+    child_key_pairs = el.find("keySet")
+    if child_key_pairs is not None:
         import capo_ec2.types.key_pair_list
 
         out["key_pairs"] = capo_ec2.types.key_pair_list.deserialize_ec2_query(
-            el, "keySet"
+            child_key_pairs
         )
     return out

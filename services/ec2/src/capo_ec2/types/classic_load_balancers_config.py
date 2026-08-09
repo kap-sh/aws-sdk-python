@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClassicLoadBalancersConfig:
     out: ClassicLoadBalancersConfig = {}  # type: ignore[typeddict-item]
-    if el.find("classicLoadBalancers") is not None:
+    child_classic_load_balancers = el.find("classicLoadBalancers")
+    if child_classic_load_balancers is not None:
         import capo_ec2.types.classic_load_balancers
 
         out["classic_load_balancers"] = (
             capo_ec2.types.classic_load_balancers.deserialize_ec2_query(
-                el, "classicLoadBalancers"
+                child_classic_load_balancers
             )
         )
     return out

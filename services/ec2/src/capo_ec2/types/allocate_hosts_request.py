@@ -109,12 +109,13 @@ def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
     child_instance_family = el.find("InstanceFamily")
     if child_instance_family is not None:
         out["instance_family"] = str(child_instance_family.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_host_recovery = el.find("HostRecovery")
@@ -134,11 +135,12 @@ def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
         out["host_maintenance"] = capo_ec2.types.host_maintenance.deserialize_ec2_query(
             child_host_maintenance
         )
-    if el.find("AssetId") is not None:
+    child_asset_ids = el.find("AssetId")
+    if child_asset_ids is not None:
         import capo_ec2.types.asset_id_list
 
         out["asset_ids"] = capo_ec2.types.asset_id_list.deserialize_ec2_query(
-            el, "AssetId"
+            child_asset_ids
         )
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:

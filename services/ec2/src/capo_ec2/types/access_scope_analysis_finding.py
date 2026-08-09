@@ -76,12 +76,13 @@ def deserialize_ec2_query(el: Element) -> AccessScopeAnalysisFinding:
     child_finding_id = el.find("findingId")
     if child_finding_id is not None:
         out["finding_id"] = str(child_finding_id.text or "")
-    if el.find("findingComponentSet") is not None:
+    child_finding_components = el.find("findingComponentSet")
+    if child_finding_components is not None:
         import capo_ec2.types.path_component_list
 
         out["finding_components"] = (
             capo_ec2.types.path_component_list.deserialize_ec2_query(
-                el, "findingComponentSet"
+                child_finding_components
             )
         )
     return out

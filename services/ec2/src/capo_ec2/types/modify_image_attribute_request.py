@@ -161,43 +161,50 @@ def deserialize_ec2_query(el: Element) -> ModifyImageAttributeRequest:
         out["operation_type"] = capo_ec2.types.operation_type.deserialize_ec2_query(
             child_operation_type
         )
-    if el.find("ProductCode") is not None:
+    child_product_codes = el.find("ProductCode")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_string_list
 
         out["product_codes"] = (
             capo_ec2.types.product_code_string_list.deserialize_ec2_query(
-                el, "ProductCode"
+                child_product_codes
             )
         )
-    if el.find("UserGroup") is not None:
+    child_user_groups = el.find("UserGroup")
+    if child_user_groups is not None:
         import capo_ec2.types.user_group_string_list
 
         out["user_groups"] = (
-            capo_ec2.types.user_group_string_list.deserialize_ec2_query(el, "UserGroup")
+            capo_ec2.types.user_group_string_list.deserialize_ec2_query(
+                child_user_groups
+            )
         )
-    if el.find("UserId") is not None:
+    child_user_ids = el.find("UserId")
+    if child_user_ids is not None:
         import capo_ec2.types.user_id_string_list
 
         out["user_ids"] = capo_ec2.types.user_id_string_list.deserialize_ec2_query(
-            el, "UserId"
+            child_user_ids
         )
     child_value = el.find("Value")
     if child_value is not None:
         out["value"] = str(child_value.text or "")
-    if el.find("OrganizationArn") is not None:
+    child_organization_arns = el.find("OrganizationArn")
+    if child_organization_arns is not None:
         import capo_ec2.types.organization_arn_string_list
 
         out["organization_arns"] = (
             capo_ec2.types.organization_arn_string_list.deserialize_ec2_query(
-                el, "OrganizationArn"
+                child_organization_arns
             )
         )
-    if el.find("OrganizationalUnitArn") is not None:
+    child_organizational_unit_arns = el.find("OrganizationalUnitArn")
+    if child_organizational_unit_arns is not None:
         import capo_ec2.types.organizational_unit_arn_string_list
 
         out["organizational_unit_arns"] = (
             capo_ec2.types.organizational_unit_arn_string_list.deserialize_ec2_query(
-                el, "OrganizationalUnitArn"
+                child_organizational_unit_arns
             )
         )
     child_imds_support = el.find("ImdsSupport")

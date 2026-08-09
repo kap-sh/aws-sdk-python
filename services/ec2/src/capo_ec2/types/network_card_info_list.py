@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> NetworkCardInfoList:
+def deserialize_ec2_query(el: Element) -> NetworkCardInfoList:
+    import capo_ec2.types.network_card_info
+
+    out: NetworkCardInfoList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.network_card_info.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> NetworkCardInfoList:
     import capo_ec2.types.network_card_info
 
     out: NetworkCardInfoList = []

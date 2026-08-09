@@ -129,20 +129,22 @@ def deserialize_ec2_query(el: Element) -> Vpc:
         out["instance_tenancy"] = capo_ec2.types.tenancy.deserialize_ec2_query(
             child_instance_tenancy
         )
-    if el.find("ipv6CidrBlockAssociationSet") is not None:
+    child_ipv6_cidr_block_association_set = el.find("ipv6CidrBlockAssociationSet")
+    if child_ipv6_cidr_block_association_set is not None:
         import capo_ec2.types.vpc_ipv6_cidr_block_association_set
 
         out["ipv6_cidr_block_association_set"] = (
             capo_ec2.types.vpc_ipv6_cidr_block_association_set.deserialize_ec2_query(
-                el, "ipv6CidrBlockAssociationSet"
+                child_ipv6_cidr_block_association_set
             )
         )
-    if el.find("cidrBlockAssociationSet") is not None:
+    child_cidr_block_association_set = el.find("cidrBlockAssociationSet")
+    if child_cidr_block_association_set is not None:
         import capo_ec2.types.vpc_cidr_block_association_set
 
         out["cidr_block_association_set"] = (
             capo_ec2.types.vpc_cidr_block_association_set.deserialize_ec2_query(
-                el, "cidrBlockAssociationSet"
+                child_cidr_block_association_set
             )
         )
     child_is_default = el.find("isDefault")
@@ -157,10 +159,11 @@ def deserialize_ec2_query(el: Element) -> Vpc:
                 child_encryption_control
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_block_public_access_states = el.find("blockPublicAccessStates")
     if child_block_public_access_states is not None:
         import capo_ec2.types.block_public_access_states

@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceCreditSpecificationsResult:
     out: DescribeInstanceCreditSpecificationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("instanceCreditSpecificationSet") is not None:
+    child_instance_credit_specifications = el.find("instanceCreditSpecificationSet")
+    if child_instance_credit_specifications is not None:
         import capo_ec2.types.instance_credit_specification_list
 
         out["instance_credit_specifications"] = (
             capo_ec2.types.instance_credit_specification_list.deserialize_ec2_query(
-                el, "instanceCreditSpecificationSet"
+                child_instance_credit_specifications
             )
         )
     child_next_token = el.find("nextToken")

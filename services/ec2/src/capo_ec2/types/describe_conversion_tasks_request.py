@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> DescribeConversionTasksRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("conversionTaskId") is not None:
+    child_conversion_task_ids = el.find("conversionTaskId")
+    if child_conversion_task_ids is not None:
         import capo_ec2.types.conversion_id_string_list
 
         out["conversion_task_ids"] = (
             capo_ec2.types.conversion_id_string_list.deserialize_ec2_query(
-                el, "conversionTaskId"
+                child_conversion_task_ids
             )
         )
     return out

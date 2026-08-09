@@ -276,18 +276,20 @@ def deserialize_ec2_query(el: Element) -> IpamPool:
         out["allocation_default_netmask_length"] = int(
             child_allocation_default_netmask_length.text or ""
         )
-    if el.find("allocationResourceTagSet") is not None:
+    child_allocation_resource_tags = el.find("allocationResourceTagSet")
+    if child_allocation_resource_tags is not None:
         import capo_ec2.types.ipam_resource_tag_list
 
         out["allocation_resource_tags"] = (
             capo_ec2.types.ipam_resource_tag_list.deserialize_ec2_query(
-                el, "allocationResourceTagSet"
+                child_allocation_resource_tags
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_aws_service = el.find("awsService")
     if child_aws_service is not None:
         import capo_ec2.types.ipam_pool_aws_service

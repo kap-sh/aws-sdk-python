@@ -52,10 +52,11 @@ def deserialize_ec2_query(el: Element) -> AvailabilityZoneAddress:
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
-    if el.find("AllocationId") is not None:
+    child_allocation_ids = el.find("AllocationId")
+    if child_allocation_ids is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationId"
+            child_allocation_ids
         )
     return out

@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> PrincipalIdFormat:
     child_arn = el.find("arn")
     if child_arn is not None:
         out["arn"] = str(child_arn.text or "")
-    if el.find("statusSet") is not None:
+    child_statuses = el.find("statusSet")
+    if child_statuses is not None:
         import capo_ec2.types.id_format_list
 
         out["statuses"] = capo_ec2.types.id_format_list.deserialize_ec2_query(
-            el, "statusSet"
+            child_statuses
         )
     return out

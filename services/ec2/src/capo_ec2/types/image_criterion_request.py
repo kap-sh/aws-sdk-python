@@ -82,28 +82,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ImageCriterionRequest:
     out: ImageCriterionRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ImageProvider") is not None:
+    child_image_providers = el.find("ImageProvider")
+    if child_image_providers is not None:
         import capo_ec2.types.image_provider_request_list
 
         out["image_providers"] = (
             capo_ec2.types.image_provider_request_list.deserialize_ec2_query(
-                el, "ImageProvider"
+                child_image_providers
             )
         )
-    if el.find("MarketplaceProductCode") is not None:
+    child_marketplace_product_codes = el.find("MarketplaceProductCode")
+    if child_marketplace_product_codes is not None:
         import capo_ec2.types.marketplace_product_code_request_list
 
         out["marketplace_product_codes"] = (
             capo_ec2.types.marketplace_product_code_request_list.deserialize_ec2_query(
-                el, "MarketplaceProductCode"
+                child_marketplace_product_codes
             )
         )
-    if el.find("ImageName") is not None:
+    child_image_names = el.find("ImageName")
+    if child_image_names is not None:
         import capo_ec2.types.image_name_criteria_request_list
 
         out["image_names"] = (
             capo_ec2.types.image_name_criteria_request_list.deserialize_ec2_query(
-                el, "ImageName"
+                child_image_names
             )
         )
     child_deprecation_time_condition = el.find("DeprecationTimeCondition")

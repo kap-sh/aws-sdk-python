@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInstanceEventWindowsResult:
     out: DescribeInstanceEventWindowsResult = {}  # type: ignore[typeddict-item]
-    if el.find("instanceEventWindowSet") is not None:
+    child_instance_event_windows = el.find("instanceEventWindowSet")
+    if child_instance_event_windows is not None:
         import capo_ec2.types.instance_event_window_set
 
         out["instance_event_windows"] = (
             capo_ec2.types.instance_event_window_set.deserialize_ec2_query(
-                el, "instanceEventWindowSet"
+                child_instance_event_windows
             )
         )
     child_next_token = el.find("nextToken")

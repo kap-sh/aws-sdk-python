@@ -53,20 +53,22 @@ def deserialize_ec2_query(el: Element) -> AcceptReservedInstancesExchangeQuoteRe
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ReservedInstanceId") is not None:
+    child_reserved_instance_ids = el.find("ReservedInstanceId")
+    if child_reserved_instance_ids is not None:
         import capo_ec2.types.reserved_instance_id_set
 
         out["reserved_instance_ids"] = (
             capo_ec2.types.reserved_instance_id_set.deserialize_ec2_query(
-                el, "ReservedInstanceId"
+                child_reserved_instance_ids
             )
         )
-    if el.find("TargetConfiguration") is not None:
+    child_target_configurations = el.find("TargetConfiguration")
+    if child_target_configurations is not None:
         import capo_ec2.types.target_configuration_request_set
 
         out["target_configurations"] = (
             capo_ec2.types.target_configuration_request_set.deserialize_ec2_query(
-                el, "TargetConfiguration"
+                child_target_configurations
             )
         )
     return out

@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> GetIpamResourceCidrsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamResourceCidrSet") is not None:
+    child_ipam_resource_cidrs = el.find("ipamResourceCidrSet")
+    if child_ipam_resource_cidrs is not None:
         import capo_ec2.types.ipam_resource_cidr_set
 
         out["ipam_resource_cidrs"] = (
             capo_ec2.types.ipam_resource_cidr_set.deserialize_ec2_query(
-                el, "ipamResourceCidrSet"
+                child_ipam_resource_cidrs
             )
         )
     return out

@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.placement_group.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PlacementGroupList:
+def deserialize_ec2_query(el: Element) -> PlacementGroupList:
+    import capo_ec2.types.placement_group
+
+    out: PlacementGroupList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.placement_group.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PlacementGroupList:
     import capo_ec2.types.placement_group
 
     out: PlacementGroupList = []

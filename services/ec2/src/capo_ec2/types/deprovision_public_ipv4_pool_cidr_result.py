@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> DeprovisionPublicIpv4PoolCidrResult:
     child_pool_id = el.find("poolId")
     if child_pool_id is not None:
         out["pool_id"] = str(child_pool_id.text or "")
-    if el.find("deprovisionedAddressSet") is not None:
+    child_deprovisioned_addresses = el.find("deprovisionedAddressSet")
+    if child_deprovisioned_addresses is not None:
         import capo_ec2.types.deprovisioned_address_set
 
         out["deprovisioned_addresses"] = (
             capo_ec2.types.deprovisioned_address_set.deserialize_ec2_query(
-                el, "deprovisionedAddressSet"
+                child_deprovisioned_addresses
             )
         )
     return out

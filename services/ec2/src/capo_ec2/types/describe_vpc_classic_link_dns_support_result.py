@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcClassicLinkDnsSupportResult
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("vpcs") is not None:
+    child_vpcs = el.find("vpcs")
+    if child_vpcs is not None:
         import capo_ec2.types.classic_link_dns_support_list
 
         out["vpcs"] = (
             capo_ec2.types.classic_link_dns_support_list.deserialize_ec2_query(
-                el, "vpcs"
+                child_vpcs
             )
         )
     return out

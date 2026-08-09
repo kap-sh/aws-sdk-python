@@ -48,19 +48,21 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ClassicLinkInstance:
     out: ClassicLinkInstance = {}  # type: ignore[typeddict-item]
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
     child_instance_id = el.find("instanceId")
     if child_instance_id is not None:
         out["instance_id"] = str(child_instance_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")

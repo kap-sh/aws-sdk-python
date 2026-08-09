@@ -163,10 +163,11 @@ def deserialize_ec2_query(el: Element) -> NetworkInsightsPath:
     child_destination_port = el.find("destinationPort")
     if child_destination_port is not None:
         out["destination_port"] = int(child_destination_port.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_filter_at_source = el.find("filterAtSource")
     if child_filter_at_source is not None:
         import capo_ec2.types.path_filter

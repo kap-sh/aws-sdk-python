@@ -106,12 +106,15 @@ def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterfaceGroup:
         out["local_gateway_virtual_interface_group_id"] = str(
             child_local_gateway_virtual_interface_group_id.text or ""
         )
-    if el.find("localGatewayVirtualInterfaceIdSet") is not None:
+    child_local_gateway_virtual_interface_ids = el.find(
+        "localGatewayVirtualInterfaceIdSet"
+    )
+    if child_local_gateway_virtual_interface_ids is not None:
         import capo_ec2.types.local_gateway_virtual_interface_id_set
 
         out["local_gateway_virtual_interface_ids"] = (
             capo_ec2.types.local_gateway_virtual_interface_id_set.deserialize_ec2_query(
-                el, "localGatewayVirtualInterfaceIdSet"
+                child_local_gateway_virtual_interface_ids
             )
         )
     child_local_gateway_id = el.find("localGatewayId")
@@ -133,10 +136,11 @@ def deserialize_ec2_query(el: Element) -> LocalGatewayVirtualInterfaceGroup:
         out["local_gateway_virtual_interface_group_arn"] = str(
             child_local_gateway_virtual_interface_group_arn.text or ""
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_configuration_state = el.find("configurationState")
     if child_configuration_state is not None:
         import capo_ec2.types.local_gateway_virtual_interface_group_configuration_state

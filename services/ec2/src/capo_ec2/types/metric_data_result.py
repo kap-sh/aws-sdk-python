@@ -66,10 +66,11 @@ def deserialize_ec2_query(el: Element) -> MetricDataResult:
         out["timestamp"] = capo_ec2.types.millisecond_date_time.deserialize_ec2_query(
             child_timestamp
         )
-    if el.find("metricValueSet") is not None:
+    child_metric_values = el.find("metricValueSet")
+    if child_metric_values is not None:
         import capo_ec2.types.metric_value_set
 
         out["metric_values"] = capo_ec2.types.metric_value_set.deserialize_ec2_query(
-            el, "metricValueSet"
+            child_metric_values
         )
     return out

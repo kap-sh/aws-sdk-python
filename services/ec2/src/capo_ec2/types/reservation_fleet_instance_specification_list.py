@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ReservationFleetInstanceSpecificationList:
+    import capo_ec2.types.reservation_fleet_instance_specification
+
+    out: ReservationFleetInstanceSpecificationList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.reservation_fleet_instance_specification.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ReservationFleetInstanceSpecificationList:
     import capo_ec2.types.reservation_fleet_instance_specification

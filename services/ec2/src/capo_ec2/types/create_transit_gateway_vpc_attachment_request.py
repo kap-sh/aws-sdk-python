@@ -81,12 +81,13 @@ def deserialize_ec2_query(el: Element) -> CreateTransitGatewayVpcAttachmentReque
     child_vpc_id = el.find("VpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("SubnetIds") is not None:
+    child_subnet_ids = el.find("SubnetIds")
+    if child_subnet_ids is not None:
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.transit_gateway_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetIds"
+                child_subnet_ids
             )
         )
     child_options = el.find("Options")
@@ -98,12 +99,13 @@ def deserialize_ec2_query(el: Element) -> CreateTransitGatewayVpcAttachmentReque
                 child_options
             )
         )
-    if el.find("TagSpecifications") is not None:
+    child_tag_specifications = el.find("TagSpecifications")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

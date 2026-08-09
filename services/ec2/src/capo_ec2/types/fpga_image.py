@@ -175,16 +175,18 @@ def deserialize_ec2_query(el: Element) -> FpgaImage:
     child_owner_alias = el.find("ownerAlias")
     if child_owner_alias is not None:
         out["owner_alias"] = str(child_owner_alias.text or "")
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
-    if el.find("tags") is not None:
+    child_tags = el.find("tags")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tags")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_public = el.find("public")
     if child_public is not None:
         out["public"] = (child_public.text or "").lower() == "true"
@@ -193,12 +195,13 @@ def deserialize_ec2_query(el: Element) -> FpgaImage:
         out["data_retention_support"] = (
             child_data_retention_support.text or ""
         ).lower() == "true"
-    if el.find("instanceTypes") is not None:
+    child_instance_types = el.find("instanceTypes")
+    if child_instance_types is not None:
         import capo_ec2.types.instance_types_list
 
         out["instance_types"] = (
             capo_ec2.types.instance_types_list.deserialize_ec2_query(
-                el, "instanceTypes"
+                child_instance_types
             )
         )
     return out

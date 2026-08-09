@@ -70,12 +70,13 @@ def deserialize_ec2_query(el: Element) -> ModifyInstanceEventWindowRequest:
     child_instance_event_window_id = el.find("InstanceEventWindowId")
     if child_instance_event_window_id is not None:
         out["instance_event_window_id"] = str(child_instance_event_window_id.text or "")
-    if el.find("TimeRange") is not None:
+    child_time_ranges = el.find("TimeRange")
+    if child_time_ranges is not None:
         import capo_ec2.types.instance_event_window_time_range_request_set
 
         out["time_ranges"] = (
             capo_ec2.types.instance_event_window_time_range_request_set.deserialize_ec2_query(
-                el, "TimeRange"
+                child_time_ranges
             )
         )
     child_cron_expression = el.find("CronExpression")

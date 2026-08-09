@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> IpamExternalResourceVerificationTokenSet:
+    import capo_ec2.types.ipam_external_resource_verification_token
+
+    out: IpamExternalResourceVerificationTokenSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.ipam_external_resource_verification_token.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> IpamExternalResourceVerificationTokenSet:
     import capo_ec2.types.ipam_external_resource_verification_token

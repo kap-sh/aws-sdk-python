@@ -64,18 +64,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeKeyPairsRequest:
     out: DescribeKeyPairsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("KeyName") is not None:
+    child_key_names = el.find("KeyName")
+    if child_key_names is not None:
         import capo_ec2.types.key_name_string_list
 
         out["key_names"] = capo_ec2.types.key_name_string_list.deserialize_ec2_query(
-            el, "KeyName"
+            child_key_names
         )
-    if el.find("KeyPairId") is not None:
+    child_key_pair_ids = el.find("KeyPairId")
+    if child_key_pair_ids is not None:
         import capo_ec2.types.key_pair_id_string_list
 
         out["key_pair_ids"] = (
             capo_ec2.types.key_pair_id_string_list.deserialize_ec2_query(
-                el, "KeyPairId"
+                child_key_pair_ids
             )
         )
     child_include_public_key = el.find("IncludePublicKey")
@@ -86,8 +88,9 @@ def deserialize_ec2_query(el: Element) -> DescribeKeyPairsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

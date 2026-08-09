@@ -100,12 +100,13 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRdsOptions
     child_rds_endpoint = el.find("RdsEndpoint")
     if child_rds_endpoint is not None:
         out["rds_endpoint"] = str(child_rds_endpoint.text or "")
-    if el.find("SubnetId") is not None:
+    child_subnet_ids = el.find("SubnetId")
+    if child_subnet_ids is not None:
         import capo_ec2.types.create_verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.create_verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetId"
+                child_subnet_ids
             )
         )
     return out

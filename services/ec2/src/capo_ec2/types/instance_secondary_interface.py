@@ -129,12 +129,13 @@ def deserialize_ec2_query(el: Element) -> InstanceSecondaryInterface:
     child_owner_id = el.find("ownerId")
     if child_owner_id is not None:
         out["owner_id"] = str(child_owner_id.text or "")
-    if el.find("privateIpAddressSet") is not None:
+    child_private_ip_addresses = el.find("privateIpAddressSet")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.instance_secondary_interface_private_ip_address_list
 
         out["private_ip_addresses"] = (
             capo_ec2.types.instance_secondary_interface_private_ip_address_list.deserialize_ec2_query(
-                el, "privateIpAddressSet"
+                child_private_ip_addresses
             )
         )
     child_source_dest_check = el.find("sourceDestCheck")

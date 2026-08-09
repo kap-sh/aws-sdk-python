@@ -132,12 +132,13 @@ def deserialize_ec2_query(el: Element) -> IpamResourceDiscovery:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("operatingRegionSet") is not None:
+    child_operating_regions = el.find("operatingRegionSet")
+    if child_operating_regions is not None:
         import capo_ec2.types.ipam_operating_region_set
 
         out["operating_regions"] = (
             capo_ec2.types.ipam_operating_region_set.deserialize_ec2_query(
-                el, "operatingRegionSet"
+                child_operating_regions
             )
         )
     child_is_default = el.find("isDefault")
@@ -152,16 +153,18 @@ def deserialize_ec2_query(el: Element) -> IpamResourceDiscovery:
                 child_state
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("organizationalUnitExclusionSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_organizational_unit_exclusions = el.find("organizationalUnitExclusionSet")
+    if child_organizational_unit_exclusions is not None:
         import capo_ec2.types.ipam_organizational_unit_exclusion_set
 
         out["organizational_unit_exclusions"] = (
             capo_ec2.types.ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "organizationalUnitExclusionSet"
+                child_organizational_unit_exclusions
             )
         )
     return out

@@ -136,23 +136,25 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterface:
     child_device_index = el.find("DeviceIndex")
     if child_device_index is not None:
         out["device_index"] = int(child_device_index.text or "")
-    if el.find("Group") is not None:
+    child_groups = el.find("Group")
+    if child_groups is not None:
         import capo_ec2.types.scheduled_instances_security_group_id_set
 
         out["groups"] = (
             capo_ec2.types.scheduled_instances_security_group_id_set.deserialize_ec2_query(
-                el, "Group"
+                child_groups
             )
         )
     child_ipv6_address_count = el.find("Ipv6AddressCount")
     if child_ipv6_address_count is not None:
         out["ipv6_address_count"] = int(child_ipv6_address_count.text or "")
-    if el.find("Ipv6Address") is not None:
+    child_ipv6_addresses = el.find("Ipv6Address")
+    if child_ipv6_addresses is not None:
         import capo_ec2.types.scheduled_instances_ipv6_address_list
 
         out["ipv6_addresses"] = (
             capo_ec2.types.scheduled_instances_ipv6_address_list.deserialize_ec2_query(
-                el, "Ipv6Address"
+                child_ipv6_addresses
             )
         )
     child_network_interface_id = el.find("NetworkInterfaceId")
@@ -161,12 +163,13 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstancesNetworkInterface:
     child_private_ip_address = el.find("PrivateIpAddress")
     if child_private_ip_address is not None:
         out["private_ip_address"] = str(child_private_ip_address.text or "")
-    if el.find("PrivateIpAddressConfig") is not None:
+    child_private_ip_address_configs = el.find("PrivateIpAddressConfig")
+    if child_private_ip_address_configs is not None:
         import capo_ec2.types.private_ip_address_config_set
 
         out["private_ip_address_configs"] = (
             capo_ec2.types.private_ip_address_config_set.deserialize_ec2_query(
-                el, "PrivateIpAddressConfig"
+                child_private_ip_address_configs
             )
         )
     child_secondary_private_ip_address_count = el.find("SecondaryPrivateIpAddressCount")

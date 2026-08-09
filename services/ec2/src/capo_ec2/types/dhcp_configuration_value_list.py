@@ -22,7 +22,16 @@ def serialize_ec2_query(
         capo_ec2.types.attribute_value.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DhcpConfigurationValueList:
+def deserialize_ec2_query(el: Element) -> DhcpConfigurationValueList:
+    import capo_ec2.types.attribute_value
+
+    out: DhcpConfigurationValueList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.attribute_value.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> DhcpConfigurationValueList:
     import capo_ec2.types.attribute_value
 
     out: DhcpConfigurationValueList = []

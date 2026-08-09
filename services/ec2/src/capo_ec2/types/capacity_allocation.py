@@ -56,12 +56,13 @@ def deserialize_ec2_query(el: Element) -> CapacityAllocation:
     child_count = el.find("count")
     if child_count is not None:
         out["count"] = int(child_count.text or "")
-    if el.find("allocationMetadataList") is not None:
+    child_allocation_metadata = el.find("allocationMetadataList")
+    if child_allocation_metadata is not None:
         import capo_ec2.types.capacity_allocation_metadata_list
 
         out["allocation_metadata"] = (
             capo_ec2.types.capacity_allocation_metadata_list.deserialize_ec2_query(
-                el, "allocationMetadataList"
+                child_allocation_metadata
             )
         )
     return out

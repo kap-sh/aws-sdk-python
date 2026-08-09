@@ -43,12 +43,13 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeVerifiedAccessInstanceLoggingConfigurationsResult:
     out: DescribeVerifiedAccessInstanceLoggingConfigurationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("loggingConfigurationSet") is not None:
+    child_logging_configurations = el.find("loggingConfigurationSet")
+    if child_logging_configurations is not None:
         import capo_ec2.types.verified_access_instance_logging_configuration_list
 
         out["logging_configurations"] = (
             capo_ec2.types.verified_access_instance_logging_configuration_list.deserialize_ec2_query(
-                el, "loggingConfigurationSet"
+                child_logging_configurations
             )
         )
     child_next_token = el.find("nextToken")

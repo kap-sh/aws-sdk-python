@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> DeleteLaunchTemplateVersionsResponseErrorSet:
+    import capo_ec2.types.delete_launch_template_versions_response_error_item
+
+    out: DeleteLaunchTemplateVersionsResponseErrorSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.delete_launch_template_versions_response_error_item.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> DeleteLaunchTemplateVersionsResponseErrorSet:
     import capo_ec2.types.delete_launch_template_versions_response_error_item

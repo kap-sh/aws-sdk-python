@@ -244,12 +244,13 @@ def deserialize_ec2_query(el: Element) -> NetworkInfo:
         out["default_network_card_index"] = int(
             child_default_network_card_index.text or ""
         )
-    if el.find("networkCards") is not None:
+    child_network_cards = el.find("networkCards")
+    if child_network_cards is not None:
         import capo_ec2.types.network_card_info_list
 
         out["network_cards"] = (
             capo_ec2.types.network_card_info_list.deserialize_ec2_query(
-                el, "networkCards"
+                child_network_cards
             )
         )
     child_ipv4_addresses_per_interface = el.find("ipv4AddressesPerInterface")
@@ -290,12 +291,13 @@ def deserialize_ec2_query(el: Element) -> NetworkInfo:
         out["ena_srd_supported"] = (
             child_ena_srd_supported.text or ""
         ).lower() == "true"
-    if el.find("bandwidthWeightings") is not None:
+    child_bandwidth_weightings = el.find("bandwidthWeightings")
+    if child_bandwidth_weightings is not None:
         import capo_ec2.types.bandwidth_weighting_type_list
 
         out["bandwidth_weightings"] = (
             capo_ec2.types.bandwidth_weighting_type_list.deserialize_ec2_query(
-                el, "bandwidthWeightings"
+                child_bandwidth_weightings
             )
         )
     child_flexible_ena_queues_support = el.find("flexibleEnaQueuesSupport")

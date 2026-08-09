@@ -311,20 +311,22 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
     child_iam_fleet_role = el.find("iamFleetRole")
     if child_iam_fleet_role is not None:
         out["iam_fleet_role"] = str(child_iam_fleet_role.text or "")
-    if el.find("launchSpecifications") is not None:
+    child_launch_specifications = el.find("launchSpecifications")
+    if child_launch_specifications is not None:
         import capo_ec2.types.launch_specs_list
 
         out["launch_specifications"] = (
             capo_ec2.types.launch_specs_list.deserialize_ec2_query(
-                el, "launchSpecifications"
+                child_launch_specifications
             )
         )
-    if el.find("launchTemplateConfigs") is not None:
+    child_launch_template_configs = el.find("launchTemplateConfigs")
+    if child_launch_template_configs is not None:
         import capo_ec2.types.launch_template_config_list
 
         out["launch_template_configs"] = (
             capo_ec2.types.launch_template_config_list.deserialize_ec2_query(
-                el, "launchTemplateConfigs"
+                child_launch_template_configs
             )
         )
     child_spot_price = el.find("spotPrice")
@@ -412,12 +414,13 @@ def deserialize_ec2_query(el: Element) -> SpotFleetRequestConfigData:
                 child_target_capacity_unit_type
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

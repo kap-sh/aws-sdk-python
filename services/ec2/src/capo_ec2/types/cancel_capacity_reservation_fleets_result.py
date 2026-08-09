@@ -49,20 +49,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CancelCapacityReservationFleetsResult:
     out: CancelCapacityReservationFleetsResult = {}  # type: ignore[typeddict-item]
-    if el.find("successfulFleetCancellationSet") is not None:
+    child_successful_fleet_cancellations = el.find("successfulFleetCancellationSet")
+    if child_successful_fleet_cancellations is not None:
         import capo_ec2.types.capacity_reservation_fleet_cancellation_state_set
 
         out["successful_fleet_cancellations"] = (
             capo_ec2.types.capacity_reservation_fleet_cancellation_state_set.deserialize_ec2_query(
-                el, "successfulFleetCancellationSet"
+                child_successful_fleet_cancellations
             )
         )
-    if el.find("failedFleetCancellationSet") is not None:
+    child_failed_fleet_cancellations = el.find("failedFleetCancellationSet")
+    if child_failed_fleet_cancellations is not None:
         import capo_ec2.types.failed_capacity_reservation_fleet_cancellation_result_set
 
         out["failed_fleet_cancellations"] = (
             capo_ec2.types.failed_capacity_reservation_fleet_cancellation_result_set.deserialize_ec2_query(
-                el, "failedFleetCancellationSet"
+                child_failed_fleet_cancellations
             )
         )
     return out

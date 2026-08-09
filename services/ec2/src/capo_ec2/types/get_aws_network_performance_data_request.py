@@ -64,11 +64,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetAwsNetworkPerformanceDataRequest:
     out: GetAwsNetworkPerformanceDataRequest = {}  # type: ignore[typeddict-item]
-    if el.find("DataQuery") is not None:
+    child_data_queries = el.find("DataQuery")
+    if child_data_queries is not None:
         import capo_ec2.types.data_queries
 
         out["data_queries"] = capo_ec2.types.data_queries.deserialize_ec2_query(
-            el, "DataQuery"
+            child_data_queries
         )
     child_start_time = el.find("StartTime")
     if child_start_time is not None:

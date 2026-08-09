@@ -22,7 +22,16 @@ def serialize_ec2_query(
         capo_ec2.types.conversion_task.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DescribeConversionTaskList:
+def deserialize_ec2_query(el: Element) -> DescribeConversionTaskList:
+    import capo_ec2.types.conversion_task
+
+    out: DescribeConversionTaskList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.conversion_task.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> DescribeConversionTaskList:
     import capo_ec2.types.conversion_task
 
     out: DescribeConversionTaskList = []

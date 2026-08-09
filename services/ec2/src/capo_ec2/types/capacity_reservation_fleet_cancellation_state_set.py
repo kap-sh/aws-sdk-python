@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> CapacityReservationFleetCancellationStateSet:
+    import capo_ec2.types.capacity_reservation_fleet_cancellation_state
+
+    out: CapacityReservationFleetCancellationStateSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.capacity_reservation_fleet_cancellation_state.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> CapacityReservationFleetCancellationStateSet:
     import capo_ec2.types.capacity_reservation_fleet_cancellation_state

@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ReservedInstancesOfferingList:
+def deserialize_ec2_query(el: Element) -> ReservedInstancesOfferingList:
+    import capo_ec2.types.reserved_instances_offering
+
+    out: ReservedInstancesOfferingList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.reserved_instances_offering.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> ReservedInstancesOfferingList:
     import capo_ec2.types.reserved_instances_offering
 
     out: ReservedInstancesOfferingList = []

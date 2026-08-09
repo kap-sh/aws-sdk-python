@@ -24,7 +24,22 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> Phase1DHGroupNumbersRequestList:
+def deserialize_ec2_query(el: Element) -> Phase1DHGroupNumbersRequestList:
+    import capo_ec2.types.phase1_dh_group_numbers_request_list_value
+
+    out: Phase1DHGroupNumbersRequestList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.phase1_dh_group_numbers_request_list_value.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> Phase1DHGroupNumbersRequestList:
     import capo_ec2.types.phase1_dh_group_numbers_request_list_value
 
     out: Phase1DHGroupNumbersRequestList = []

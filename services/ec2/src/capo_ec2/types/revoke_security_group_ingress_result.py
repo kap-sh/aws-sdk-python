@@ -56,20 +56,22 @@ def deserialize_ec2_query(el: Element) -> RevokeSecurityGroupIngressResult:
     child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    if el.find("unknownIpPermissionSet") is not None:
+    child_unknown_ip_permissions = el.find("unknownIpPermissionSet")
+    if child_unknown_ip_permissions is not None:
         import capo_ec2.types.ip_permission_list
 
         out["unknown_ip_permissions"] = (
             capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-                el, "unknownIpPermissionSet"
+                child_unknown_ip_permissions
             )
         )
-    if el.find("revokedSecurityGroupRuleSet") is not None:
+    child_revoked_security_group_rules = el.find("revokedSecurityGroupRuleSet")
+    if child_revoked_security_group_rules is not None:
         import capo_ec2.types.revoked_security_group_rule_list
 
         out["revoked_security_group_rules"] = (
             capo_ec2.types.revoked_security_group_rule_list.deserialize_ec2_query(
-                el, "revokedSecurityGroupRuleSet"
+                child_revoked_security_group_rules
             )
         )
     return out

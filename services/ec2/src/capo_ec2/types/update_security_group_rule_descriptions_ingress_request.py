@@ -71,18 +71,20 @@ def deserialize_ec2_query(
     child_group_name = el.find("GroupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("IpPermissions") is not None:
+    child_ip_permissions = el.find("IpPermissions")
+    if child_ip_permissions is not None:
         import capo_ec2.types.ip_permission_list
 
         out["ip_permissions"] = capo_ec2.types.ip_permission_list.deserialize_ec2_query(
-            el, "IpPermissions"
+            child_ip_permissions
         )
-    if el.find("SecurityGroupRuleDescription") is not None:
+    child_security_group_rule_descriptions = el.find("SecurityGroupRuleDescription")
+    if child_security_group_rule_descriptions is not None:
         import capo_ec2.types.security_group_rule_description_list
 
         out["security_group_rule_descriptions"] = (
             capo_ec2.types.security_group_rule_description_list.deserialize_ec2_query(
-                el, "SecurityGroupRuleDescription"
+                child_security_group_rule_descriptions
             )
         )
     return out

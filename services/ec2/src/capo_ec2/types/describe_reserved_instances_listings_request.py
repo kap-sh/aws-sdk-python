@@ -59,8 +59,9 @@ def deserialize_ec2_query(el: Element) -> DescribeReservedInstancesListingsReque
         out["reserved_instances_listing_id"] = str(
             child_reserved_instances_listing_id.text or ""
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

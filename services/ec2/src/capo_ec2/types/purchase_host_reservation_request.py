@@ -76,11 +76,12 @@ def deserialize_ec2_query(el: Element) -> PurchaseHostReservationRequest:
                 child_currency_code
             )
         )
-    if el.find("HostIdSet") is not None:
+    child_host_id_set = el.find("HostIdSet")
+    if child_host_id_set is not None:
         import capo_ec2.types.request_host_id_set
 
         out["host_id_set"] = capo_ec2.types.request_host_id_set.deserialize_ec2_query(
-            el, "HostIdSet"
+            child_host_id_set
         )
     child_limit_price = el.find("LimitPrice")
     if child_limit_price is not None:
@@ -88,12 +89,13 @@ def deserialize_ec2_query(el: Element) -> PurchaseHostReservationRequest:
     child_offering_id = el.find("OfferingId")
     if child_offering_id is not None:
         out["offering_id"] = str(child_offering_id.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

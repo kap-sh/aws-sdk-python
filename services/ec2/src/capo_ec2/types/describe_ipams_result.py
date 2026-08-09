@@ -38,8 +38,9 @@ def deserialize_ec2_query(el: Element) -> DescribeIpamsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamSet") is not None:
+    child_ipams = el.find("ipamSet")
+    if child_ipams is not None:
         import capo_ec2.types.ipam_set
 
-        out["ipams"] = capo_ec2.types.ipam_set.deserialize_ec2_query(el, "ipamSet")
+        out["ipams"] = capo_ec2.types.ipam_set.deserialize_ec2_query(child_ipams)
     return out

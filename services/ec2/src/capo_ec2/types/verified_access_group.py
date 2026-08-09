@@ -117,10 +117,11 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessGroup:
     child_deletion_time = el.find("deletionTime")
     if child_deletion_time is not None:
         out["deletion_time"] = str(child_deletion_time.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_sse_specification = el.find("sseSpecification")
     if child_sse_specification is not None:
         import capo_ec2.types.verified_access_sse_specification_response

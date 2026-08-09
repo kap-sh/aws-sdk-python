@@ -111,16 +111,18 @@ def deserialize_ec2_query(el: Element) -> SecondaryNetwork:
     child_state_reason = el.find("stateReason")
     if child_state_reason is not None:
         out["state_reason"] = str(child_state_reason.text or "")
-    if el.find("ipv4CidrBlockAssociationSet") is not None:
+    child_ipv4_cidr_block_associations = el.find("ipv4CidrBlockAssociationSet")
+    if child_ipv4_cidr_block_associations is not None:
         import capo_ec2.types.secondary_network_ipv4_cidr_block_association_list
 
         out["ipv4_cidr_block_associations"] = (
             capo_ec2.types.secondary_network_ipv4_cidr_block_association_list.deserialize_ec2_query(
-                el, "ipv4CidrBlockAssociationSet"
+                child_ipv4_cidr_block_associations
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

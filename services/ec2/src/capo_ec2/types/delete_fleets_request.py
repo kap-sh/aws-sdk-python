@@ -47,11 +47,12 @@ def deserialize_ec2_query(el: Element) -> DeleteFleetsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("FleetId") is not None:
+    child_fleet_ids = el.find("FleetId")
+    if child_fleet_ids is not None:
         import capo_ec2.types.fleet_id_set
 
         out["fleet_ids"] = capo_ec2.types.fleet_id_set.deserialize_ec2_query(
-            el, "FleetId"
+            child_fleet_ids
         )
     child_terminate_instances = el.find("TerminateInstances")
     if child_terminate_instances is not None:

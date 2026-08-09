@@ -74,23 +74,26 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcEncryptionControlsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("VpcEncryptionControlId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_vpc_encryption_control_ids = el.find("VpcEncryptionControlId")
+    if child_vpc_encryption_control_ids is not None:
         import capo_ec2.types.vpc_encryption_control_id_list
 
         out["vpc_encryption_control_ids"] = (
             capo_ec2.types.vpc_encryption_control_id_list.deserialize_ec2_query(
-                el, "VpcEncryptionControlId"
+                child_vpc_encryption_control_ids
             )
         )
-    if el.find("VpcId") is not None:
+    child_vpc_ids = el.find("VpcId")
+    if child_vpc_ids is not None:
         import capo_ec2.types.vpc_id_string_list
 
         out["vpc_ids"] = capo_ec2.types.vpc_id_string_list.deserialize_ec2_query(
-            el, "VpcId"
+            child_vpc_ids
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:

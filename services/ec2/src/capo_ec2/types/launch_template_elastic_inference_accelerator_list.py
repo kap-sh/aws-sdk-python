@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> LaunchTemplateElasticInferenceAcceleratorList:
+    import capo_ec2.types.launch_template_elastic_inference_accelerator
+
+    out: LaunchTemplateElasticInferenceAcceleratorList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.launch_template_elastic_inference_accelerator.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> LaunchTemplateElasticInferenceAcceleratorList:
     import capo_ec2.types.launch_template_elastic_inference_accelerator

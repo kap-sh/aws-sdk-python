@@ -50,11 +50,12 @@ def deserialize_ec2_query(el: Element) -> DescribePrincipalIdFormatRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Resource") is not None:
+    child_resources = el.find("Resource")
+    if child_resources is not None:
         import capo_ec2.types.resource_list
 
         out["resources"] = capo_ec2.types.resource_list.deserialize_ec2_query(
-            el, "Resource"
+            child_resources
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

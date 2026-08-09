@@ -18,7 +18,14 @@ def serialize_ec2_query(
         pairs.append((f"{prefix}.{n}", str(item)))
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> OccurrenceDayRequestSet:
+def deserialize_ec2_query(el: Element) -> OccurrenceDayRequestSet:
+    out: OccurrenceDayRequestSet = []
+    for child in el.findall("OccurenceDay"):
+        out.append(int(child.text or ""))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> OccurrenceDayRequestSet:
     out: OccurrenceDayRequestSet = []
     for child in parent.findall(tag):
         out.append(int(child.text or ""))

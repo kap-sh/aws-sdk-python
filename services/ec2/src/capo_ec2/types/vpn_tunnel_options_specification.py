@@ -233,60 +233,67 @@ def deserialize_ec2_query(el: Element) -> VpnTunnelOptionsSpecification:
     child_dpd_timeout_action = el.find("DPDTimeoutAction")
     if child_dpd_timeout_action is not None:
         out["dpd_timeout_action"] = str(child_dpd_timeout_action.text or "")
-    if el.find("Phase1EncryptionAlgorithm") is not None:
+    child_phase1_encryption_algorithms = el.find("Phase1EncryptionAlgorithm")
+    if child_phase1_encryption_algorithms is not None:
         import capo_ec2.types.phase1_encryption_algorithms_request_list
 
         out["phase1_encryption_algorithms"] = (
             capo_ec2.types.phase1_encryption_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase1EncryptionAlgorithm"
+                child_phase1_encryption_algorithms
             )
         )
-    if el.find("Phase2EncryptionAlgorithm") is not None:
+    child_phase2_encryption_algorithms = el.find("Phase2EncryptionAlgorithm")
+    if child_phase2_encryption_algorithms is not None:
         import capo_ec2.types.phase2_encryption_algorithms_request_list
 
         out["phase2_encryption_algorithms"] = (
             capo_ec2.types.phase2_encryption_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase2EncryptionAlgorithm"
+                child_phase2_encryption_algorithms
             )
         )
-    if el.find("Phase1IntegrityAlgorithm") is not None:
+    child_phase1_integrity_algorithms = el.find("Phase1IntegrityAlgorithm")
+    if child_phase1_integrity_algorithms is not None:
         import capo_ec2.types.phase1_integrity_algorithms_request_list
 
         out["phase1_integrity_algorithms"] = (
             capo_ec2.types.phase1_integrity_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase1IntegrityAlgorithm"
+                child_phase1_integrity_algorithms
             )
         )
-    if el.find("Phase2IntegrityAlgorithm") is not None:
+    child_phase2_integrity_algorithms = el.find("Phase2IntegrityAlgorithm")
+    if child_phase2_integrity_algorithms is not None:
         import capo_ec2.types.phase2_integrity_algorithms_request_list
 
         out["phase2_integrity_algorithms"] = (
             capo_ec2.types.phase2_integrity_algorithms_request_list.deserialize_ec2_query(
-                el, "Phase2IntegrityAlgorithm"
+                child_phase2_integrity_algorithms
             )
         )
-    if el.find("Phase1DHGroupNumber") is not None:
+    child_phase1_dh_group_numbers = el.find("Phase1DHGroupNumber")
+    if child_phase1_dh_group_numbers is not None:
         import capo_ec2.types.phase1_dh_group_numbers_request_list
 
         out["phase1_dh_group_numbers"] = (
             capo_ec2.types.phase1_dh_group_numbers_request_list.deserialize_ec2_query(
-                el, "Phase1DHGroupNumber"
+                child_phase1_dh_group_numbers
             )
         )
-    if el.find("Phase2DHGroupNumber") is not None:
+    child_phase2_dh_group_numbers = el.find("Phase2DHGroupNumber")
+    if child_phase2_dh_group_numbers is not None:
         import capo_ec2.types.phase2_dh_group_numbers_request_list
 
         out["phase2_dh_group_numbers"] = (
             capo_ec2.types.phase2_dh_group_numbers_request_list.deserialize_ec2_query(
-                el, "Phase2DHGroupNumber"
+                child_phase2_dh_group_numbers
             )
         )
-    if el.find("IKEVersion") is not None:
+    child_ike_versions = el.find("IKEVersion")
+    if child_ike_versions is not None:
         import capo_ec2.types.ike_versions_request_list
 
         out["ike_versions"] = (
             capo_ec2.types.ike_versions_request_list.deserialize_ec2_query(
-                el, "IKEVersion"
+                child_ike_versions
             )
         )
     child_startup_action = el.find("StartupAction")

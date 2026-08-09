@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFpgaImagesResult:
     out: DescribeFpgaImagesResult = {}  # type: ignore[typeddict-item]
-    if el.find("fpgaImageSet") is not None:
+    child_fpga_images = el.find("fpgaImageSet")
+    if child_fpga_images is not None:
         import capo_ec2.types.fpga_image_list
 
         out["fpga_images"] = capo_ec2.types.fpga_image_list.deserialize_ec2_query(
-            el, "fpgaImageSet"
+            child_fpga_images
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

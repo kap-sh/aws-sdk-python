@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> FleetLaunchTemplateConfigList:
+def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateConfigList:
+    import capo_ec2.types.fleet_launch_template_config
+
+    out: FleetLaunchTemplateConfigList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.fleet_launch_template_config.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> FleetLaunchTemplateConfigList:
     import capo_ec2.types.fleet_launch_template_config
 
     out: FleetLaunchTemplateConfigList = []

@@ -136,12 +136,13 @@ def deserialize_ec2_query(el: Element) -> LaunchSpecification:
     child_addressing_type = el.find("addressingType")
     if child_addressing_type is not None:
         out["addressing_type"] = str(child_addressing_type.text or "")
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_ebs_optimized = el.find("ebsOptimized")
@@ -172,12 +173,13 @@ def deserialize_ec2_query(el: Element) -> LaunchSpecification:
     child_key_name = el.find("keyName")
     if child_key_name is not None:
         out["key_name"] = str(child_key_name.text or "")
-    if el.find("networkInterfaceSet") is not None:
+    child_network_interfaces = el.find("networkInterfaceSet")
+    if child_network_interfaces is not None:
         import capo_ec2.types.instance_network_interface_specification_list
 
         out["network_interfaces"] = (
             capo_ec2.types.instance_network_interface_specification_list.deserialize_ec2_query(
-                el, "networkInterfaceSet"
+                child_network_interfaces
             )
         )
     child_placement = el.find("placement")
@@ -193,11 +195,14 @@ def deserialize_ec2_query(el: Element) -> LaunchSpecification:
     child_subnet_id = el.find("subnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("groupSet") is not None:
+    child_security_groups = el.find("groupSet")
+    if child_security_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["security_groups"] = (
-            capo_ec2.types.group_identifier_list.deserialize_ec2_query(el, "groupSet")
+            capo_ec2.types.group_identifier_list.deserialize_ec2_query(
+                child_security_groups
+            )
         )
     child_monitoring = el.find("monitoring")
     if child_monitoring is not None:

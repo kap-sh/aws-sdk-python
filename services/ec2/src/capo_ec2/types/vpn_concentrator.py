@@ -77,8 +77,9 @@ def deserialize_ec2_query(el: Element) -> VpnConcentrator:
     child_type = el.find("type")
     if child_type is not None:
         out["type"] = str(child_type.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

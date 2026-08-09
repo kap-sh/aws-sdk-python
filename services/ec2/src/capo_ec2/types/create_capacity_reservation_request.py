@@ -240,12 +240,13 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationRequest:
                 child_instance_match_criteria
             )
         )
-    if el.find("TagSpecifications") is not None:
+    child_tag_specifications = el.find("TagSpecifications")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecifications"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

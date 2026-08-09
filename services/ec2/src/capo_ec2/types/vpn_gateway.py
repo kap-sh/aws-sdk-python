@@ -74,10 +74,11 @@ def deserialize_ec2_query(el: Element) -> VpnGateway:
     child_amazon_side_asn = el.find("amazonSideAsn")
     if child_amazon_side_asn is not None:
         out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_vpn_gateway_id = el.find("vpnGatewayId")
     if child_vpn_gateway_id is not None:
         out["vpn_gateway_id"] = str(child_vpn_gateway_id.text or "")
@@ -94,10 +95,13 @@ def deserialize_ec2_query(el: Element) -> VpnGateway:
     child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")
-    if el.find("attachments") is not None:
+    child_vpc_attachments = el.find("attachments")
+    if child_vpc_attachments is not None:
         import capo_ec2.types.vpc_attachment_list
 
         out["vpc_attachments"] = (
-            capo_ec2.types.vpc_attachment_list.deserialize_ec2_query(el, "attachments")
+            capo_ec2.types.vpc_attachment_list.deserialize_ec2_query(
+                child_vpc_attachments
+            )
         )
     return out

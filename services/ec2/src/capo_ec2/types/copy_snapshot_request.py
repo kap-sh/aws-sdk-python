@@ -130,12 +130,13 @@ def deserialize_ec2_query(el: Element) -> CopySnapshotRequest:
     child_source_snapshot_id = el.find("SourceSnapshotId")
     if child_source_snapshot_id is not None:
         out["source_snapshot_id"] = str(child_source_snapshot_id.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_completion_duration_minutes = el.find("CompletionDurationMinutes")

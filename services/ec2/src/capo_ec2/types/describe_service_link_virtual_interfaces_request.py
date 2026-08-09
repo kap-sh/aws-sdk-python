@@ -62,18 +62,20 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeServiceLinkVirtualInterfacesRequest:
     out: DescribeServiceLinkVirtualInterfacesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ServiceLinkVirtualInterfaceId") is not None:
+    child_service_link_virtual_interface_ids = el.find("ServiceLinkVirtualInterfaceId")
+    if child_service_link_virtual_interface_ids is not None:
         import capo_ec2.types.service_link_virtual_interface_id_set
 
         out["service_link_virtual_interface_ids"] = (
             capo_ec2.types.service_link_virtual_interface_id_set.deserialize_ec2_query(
-                el, "ServiceLinkVirtualInterfaceId"
+                child_service_link_virtual_interface_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

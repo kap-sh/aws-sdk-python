@@ -58,10 +58,11 @@ def deserialize_ec2_query(el: Element) -> DescribeDeclarativePoliciesReportsRequ
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("ReportId") is not None:
+    child_report_ids = el.find("ReportId")
+    if child_report_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["report_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ReportId"
+            child_report_ids
         )
     return out

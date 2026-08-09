@@ -68,12 +68,13 @@ def deserialize_ec2_query(
     child_group_ip_address = el.find("GroupIpAddress")
     if child_group_ip_address is not None:
         out["group_ip_address"] = str(child_group_ip_address.text or "")
-    if el.find("NetworkInterfaceIds") is not None:
+    child_network_interface_ids = el.find("NetworkInterfaceIds")
+    if child_network_interface_ids is not None:
         import capo_ec2.types.transit_gateway_network_interface_id_list
 
         out["network_interface_ids"] = (
             capo_ec2.types.transit_gateway_network_interface_id_list.deserialize_ec2_query(
-                el, "NetworkInterfaceIds"
+                child_network_interface_ids
             )
         )
     child_dry_run = el.find("DryRun")

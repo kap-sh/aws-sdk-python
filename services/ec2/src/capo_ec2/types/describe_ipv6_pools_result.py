@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeIpv6PoolsResult:
     out: DescribeIpv6PoolsResult = {}  # type: ignore[typeddict-item]
-    if el.find("ipv6PoolSet") is not None:
+    child_ipv6_pools = el.find("ipv6PoolSet")
+    if child_ipv6_pools is not None:
         import capo_ec2.types.ipv6_pool_set
 
         out["ipv6_pools"] = capo_ec2.types.ipv6_pool_set.deserialize_ec2_query(
-            el, "ipv6PoolSet"
+            child_ipv6_pools
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

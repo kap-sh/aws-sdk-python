@@ -51,15 +51,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeMacHostsRequest:
     out: DescribeMacHostsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("HostId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_host_ids = el.find("HostId")
+    if child_host_ids is not None:
         import capo_ec2.types.request_host_id_list
 
         out["host_ids"] = capo_ec2.types.request_host_id_list.deserialize_ec2_query(
-            el, "HostId"
+            child_host_ids
         )
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:

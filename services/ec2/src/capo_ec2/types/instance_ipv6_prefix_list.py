@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceIpv6PrefixList:
+def deserialize_ec2_query(el: Element) -> InstanceIpv6PrefixList:
+    import capo_ec2.types.instance_ipv6_prefix
+
+    out: InstanceIpv6PrefixList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.instance_ipv6_prefix.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> InstanceIpv6PrefixList:
     import capo_ec2.types.instance_ipv6_prefix
 
     out: InstanceIpv6PrefixList = []

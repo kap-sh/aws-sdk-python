@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AvailableInstanceCapacityList:
+def deserialize_ec2_query(el: Element) -> AvailableInstanceCapacityList:
+    import capo_ec2.types.instance_capacity
+
+    out: AvailableInstanceCapacityList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.instance_capacity.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> AvailableInstanceCapacityList:
     import capo_ec2.types.instance_capacity
 
     out: AvailableInstanceCapacityList = []

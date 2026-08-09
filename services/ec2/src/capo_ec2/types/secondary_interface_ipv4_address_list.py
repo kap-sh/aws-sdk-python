@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SecondaryInterfaceIpv4AddressList:
+    import capo_ec2.types.secondary_interface_ipv4_address
+
+    out: SecondaryInterfaceIpv4AddressList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.secondary_interface_ipv4_address.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SecondaryInterfaceIpv4AddressList:
     import capo_ec2.types.secondary_interface_ipv4_address

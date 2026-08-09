@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetVpnConnectionDeviceTypesResult:
     out: GetVpnConnectionDeviceTypesResult = {}  # type: ignore[typeddict-item]
-    if el.find("vpnConnectionDeviceTypeSet") is not None:
+    child_vpn_connection_device_types = el.find("vpnConnectionDeviceTypeSet")
+    if child_vpn_connection_device_types is not None:
         import capo_ec2.types.vpn_connection_device_type_list
 
         out["vpn_connection_device_types"] = (
             capo_ec2.types.vpn_connection_device_type_list.deserialize_ec2_query(
-                el, "vpnConnectionDeviceTypeSet"
+                child_vpn_connection_device_types
             )
         )
     child_next_token = el.find("nextToken")

@@ -64,11 +64,12 @@ def deserialize_ec2_query(el: Element) -> InstanceTopology:
     child_group_name = el.find("groupName")
     if child_group_name is not None:
         out["group_name"] = str(child_group_name.text or "")
-    if el.find("networkNodeSet") is not None:
+    child_network_nodes = el.find("networkNodeSet")
+    if child_network_nodes is not None:
         import capo_ec2.types.network_nodes_list
 
         out["network_nodes"] = capo_ec2.types.network_nodes_list.deserialize_ec2_query(
-            el, "networkNodeSet"
+            child_network_nodes
         )
     child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:

@@ -78,12 +78,13 @@ def deserialize_ec2_query(el: Element) -> PublicIpv4Pool:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("poolAddressRangeSet") is not None:
+    child_pool_address_ranges = el.find("poolAddressRangeSet")
+    if child_pool_address_ranges is not None:
         import capo_ec2.types.public_ipv4_pool_range_set
 
         out["pool_address_ranges"] = (
             capo_ec2.types.public_ipv4_pool_range_set.deserialize_ec2_query(
-                el, "poolAddressRangeSet"
+                child_pool_address_ranges
             )
         )
     child_total_address_count = el.find("totalAddressCount")
@@ -97,8 +98,9 @@ def deserialize_ec2_query(el: Element) -> PublicIpv4Pool:
     child_network_border_group = el.find("networkBorderGroup")
     if child_network_border_group is not None:
         out["network_border_group"] = str(child_network_border_group.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

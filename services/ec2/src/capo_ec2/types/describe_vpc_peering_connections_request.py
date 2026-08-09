@@ -71,16 +71,18 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcPeeringConnectionsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("VpcPeeringConnectionId") is not None:
+    child_vpc_peering_connection_ids = el.find("VpcPeeringConnectionId")
+    if child_vpc_peering_connection_ids is not None:
         import capo_ec2.types.vpc_peering_connection_id_list
 
         out["vpc_peering_connection_ids"] = (
             capo_ec2.types.vpc_peering_connection_id_list.deserialize_ec2_query(
-                el, "VpcPeeringConnectionId"
+                child_vpc_peering_connection_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

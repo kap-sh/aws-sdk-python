@@ -56,15 +56,17 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSubnetsRequest:
     out: DescribeSubnetsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("SubnetId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_subnet_ids = el.find("SubnetId")
+    if child_subnet_ids is not None:
         import capo_ec2.types.subnet_id_string_list
 
         out["subnet_ids"] = capo_ec2.types.subnet_id_string_list.deserialize_ec2_query(
-            el, "SubnetId"
+            child_subnet_ids
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:

@@ -42,10 +42,11 @@ def deserialize_ec2_query(
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("subscriptionSet") is not None:
+    child_subscriptions = el.find("subscriptionSet")
+    if child_subscriptions is not None:
         import capo_ec2.types.subscription_list
 
         out["subscriptions"] = capo_ec2.types.subscription_list.deserialize_ec2_query(
-            el, "subscriptionSet"
+            child_subscriptions
         )
     return out

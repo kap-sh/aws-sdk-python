@@ -99,12 +99,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeNetworkInsightsAccessScopeAnalysesRequest:
     out: DescribeNetworkInsightsAccessScopeAnalysesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("NetworkInsightsAccessScopeAnalysisId") is not None:
+    child_network_insights_access_scope_analysis_ids = el.find(
+        "NetworkInsightsAccessScopeAnalysisId"
+    )
+    if child_network_insights_access_scope_analysis_ids is not None:
         import capo_ec2.types.network_insights_access_scope_analysis_id_list
 
         out["network_insights_access_scope_analysis_ids"] = (
             capo_ec2.types.network_insights_access_scope_analysis_id_list.deserialize_ec2_query(
-                el, "NetworkInsightsAccessScopeAnalysisId"
+                child_network_insights_access_scope_analysis_ids
             )
         )
     child_network_insights_access_scope_id = el.find("NetworkInsightsAccessScopeId")
@@ -130,10 +133,11 @@ def deserialize_ec2_query(
                 child_analysis_start_time_end
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

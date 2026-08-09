@@ -155,12 +155,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayOptions:
     child_amazon_side_asn = el.find("amazonSideAsn")
     if child_amazon_side_asn is not None:
         out["amazon_side_asn"] = int(child_amazon_side_asn.text or "")
-    if el.find("transitGatewayCidrBlocks") is not None:
+    child_transit_gateway_cidr_blocks = el.find("transitGatewayCidrBlocks")
+    if child_transit_gateway_cidr_blocks is not None:
         import capo_ec2.types.value_string_list
 
         out["transit_gateway_cidr_blocks"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "transitGatewayCidrBlocks"
+                child_transit_gateway_cidr_blocks
             )
         )
     child_auto_accept_shared_attachments = el.find("autoAcceptSharedAttachments")

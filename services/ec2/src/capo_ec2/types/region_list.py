@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.region.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> RegionList:
+def deserialize_ec2_query(el: Element) -> RegionList:
+    import capo_ec2.types.region
+
+    out: RegionList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.region.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> RegionList:
     import capo_ec2.types.region
 
     out: RegionList = []

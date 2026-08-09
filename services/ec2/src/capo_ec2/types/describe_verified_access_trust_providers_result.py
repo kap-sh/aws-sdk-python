@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeVerifiedAccessTrustProvidersResult:
     out: DescribeVerifiedAccessTrustProvidersResult = {}  # type: ignore[typeddict-item]
-    if el.find("verifiedAccessTrustProviderSet") is not None:
+    child_verified_access_trust_providers = el.find("verifiedAccessTrustProviderSet")
+    if child_verified_access_trust_providers is not None:
         import capo_ec2.types.verified_access_trust_provider_list
 
         out["verified_access_trust_providers"] = (
             capo_ec2.types.verified_access_trust_provider_list.deserialize_ec2_query(
-                el, "verifiedAccessTrustProviderSet"
+                child_verified_access_trust_providers
             )
         )
     child_next_token = el.find("nextToken")

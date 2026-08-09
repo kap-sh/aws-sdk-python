@@ -152,11 +152,14 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
     child_log_group_name = el.find("LogGroupName")
     if child_log_group_name is not None:
         out["log_group_name"] = str(child_log_group_name.text or "")
-    if el.find("ResourceId") is not None:
+    child_resource_ids = el.find("ResourceId")
+    if child_resource_ids is not None:
         import capo_ec2.types.flow_log_resource_ids
 
         out["resource_ids"] = (
-            capo_ec2.types.flow_log_resource_ids.deserialize_ec2_query(el, "ResourceId")
+            capo_ec2.types.flow_log_resource_ids.deserialize_ec2_query(
+                child_resource_ids
+            )
         )
     child_resource_type = el.find("ResourceType")
     if child_resource_type is not None:
@@ -189,12 +192,13 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
     child_log_format = el.find("LogFormat")
     if child_log_format is not None:
         out["log_format"] = str(child_log_format.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_max_aggregation_interval = el.find("MaxAggregationInterval")

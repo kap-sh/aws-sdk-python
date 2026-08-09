@@ -39,11 +39,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> EbsStatusSummary:
     out: EbsStatusSummary = {}  # type: ignore[typeddict-item]
-    if el.find("details") is not None:
+    child_details = el.find("details")
+    if child_details is not None:
         import capo_ec2.types.ebs_status_details_list
 
         out["details"] = capo_ec2.types.ebs_status_details_list.deserialize_ec2_query(
-            el, "details"
+            child_details
         )
     child_status = el.find("status")
     if child_status is not None:

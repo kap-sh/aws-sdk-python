@@ -107,20 +107,22 @@ def deserialize_ec2_query(el: Element) -> ReservedInstancesModification:
         out["effective_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_effective_date
         )
-    if el.find("modificationResultSet") is not None:
+    child_modification_results = el.find("modificationResultSet")
+    if child_modification_results is not None:
         import capo_ec2.types.reserved_instances_modification_result_list
 
         out["modification_results"] = (
             capo_ec2.types.reserved_instances_modification_result_list.deserialize_ec2_query(
-                el, "modificationResultSet"
+                child_modification_results
             )
         )
-    if el.find("reservedInstancesSet") is not None:
+    child_reserved_instances_ids = el.find("reservedInstancesSet")
+    if child_reserved_instances_ids is not None:
         import capo_ec2.types.reserved_intances_ids
 
         out["reserved_instances_ids"] = (
             capo_ec2.types.reserved_intances_ids.deserialize_ec2_query(
-                el, "reservedInstancesSet"
+                child_reserved_instances_ids
             )
         )
     child_reserved_instances_modification_id = el.find(

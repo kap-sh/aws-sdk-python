@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.vpc_attachment.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> VpcAttachmentList:
+def deserialize_ec2_query(el: Element) -> VpcAttachmentList:
+    import capo_ec2.types.vpc_attachment
+
+    out: VpcAttachmentList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.vpc_attachment.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> VpcAttachmentList:
     import capo_ec2.types.vpc_attachment
 
     out: VpcAttachmentList = []

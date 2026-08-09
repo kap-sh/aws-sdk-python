@@ -77,20 +77,22 @@ def deserialize_ec2_query(el: Element) -> ModifyTransitGatewayVpcAttachmentReque
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    if el.find("AddSubnetIds") is not None:
+    child_add_subnet_ids = el.find("AddSubnetIds")
+    if child_add_subnet_ids is not None:
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         out["add_subnet_ids"] = (
             capo_ec2.types.transit_gateway_subnet_id_list.deserialize_ec2_query(
-                el, "AddSubnetIds"
+                child_add_subnet_ids
             )
         )
-    if el.find("RemoveSubnetIds") is not None:
+    child_remove_subnet_ids = el.find("RemoveSubnetIds")
+    if child_remove_subnet_ids is not None:
         import capo_ec2.types.transit_gateway_subnet_id_list
 
         out["remove_subnet_ids"] = (
             capo_ec2.types.transit_gateway_subnet_id_list.deserialize_ec2_query(
-                el, "RemoveSubnetIds"
+                child_remove_subnet_ids
             )
         )
     child_options = el.find("Options")

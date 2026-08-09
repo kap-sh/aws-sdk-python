@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecondaryInterfacesResult:
     out: DescribeSecondaryInterfacesResult = {}  # type: ignore[typeddict-item]
-    if el.find("secondaryInterfaceSet") is not None:
+    child_secondary_interfaces = el.find("secondaryInterfaceSet")
+    if child_secondary_interfaces is not None:
         import capo_ec2.types.secondary_interface_list
 
         out["secondary_interfaces"] = (
             capo_ec2.types.secondary_interface_list.deserialize_ec2_query(
-                el, "secondaryInterfaceSet"
+                child_secondary_interfaces
             )
         )
     child_next_token = el.find("nextToken")

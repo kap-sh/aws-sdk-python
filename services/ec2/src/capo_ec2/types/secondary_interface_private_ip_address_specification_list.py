@@ -27,6 +27,21 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> SecondaryInterfacePrivateIpAddressSpecificationList:
+    import capo_ec2.types.secondary_interface_private_ip_address_specification
+
+    out: SecondaryInterfacePrivateIpAddressSpecificationList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.secondary_interface_private_ip_address_specification.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SecondaryInterfacePrivateIpAddressSpecificationList:
     import capo_ec2.types.secondary_interface_private_ip_address_specification

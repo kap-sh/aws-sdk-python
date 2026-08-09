@@ -76,12 +76,13 @@ def deserialize_ec2_query(
         out["analysis_status"] = capo_ec2.types.analysis_status.deserialize_ec2_query(
             child_analysis_status
         )
-    if el.find("analysisFindingSet") is not None:
+    child_analysis_findings = el.find("analysisFindingSet")
+    if child_analysis_findings is not None:
         import capo_ec2.types.access_scope_analysis_finding_list
 
         out["analysis_findings"] = (
             capo_ec2.types.access_scope_analysis_finding_list.deserialize_ec2_query(
-                el, "analysisFindingSet"
+                child_analysis_findings
             )
         )
     child_next_token = el.find("nextToken")

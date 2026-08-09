@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ImportImageLicenseSpecificationListRequest:
+    import capo_ec2.types.import_image_license_configuration_request
+
+    out: ImportImageLicenseSpecificationListRequest = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.import_image_license_configuration_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ImportImageLicenseSpecificationListRequest:
     import capo_ec2.types.import_image_license_configuration_request

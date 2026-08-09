@@ -71,12 +71,13 @@ def deserialize_ec2_query(el: Element) -> CreateTransitGatewayMulticastDomainReq
                 child_options
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

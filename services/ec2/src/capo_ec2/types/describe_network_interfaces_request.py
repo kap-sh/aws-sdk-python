@@ -81,16 +81,18 @@ def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfacesRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("NetworkInterfaceId") is not None:
+    child_network_interface_ids = el.find("NetworkInterfaceId")
+    if child_network_interface_ids is not None:
         import capo_ec2.types.network_interface_id_list
 
         out["network_interface_ids"] = (
             capo_ec2.types.network_interface_id_list.deserialize_ec2_query(
-                el, "NetworkInterfaceId"
+                child_network_interface_ids
             )
         )
-    if el.find("filter") is not None:
+    child_filters = el.find("filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

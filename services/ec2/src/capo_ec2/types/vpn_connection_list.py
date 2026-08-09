@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.vpn_connection.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> VpnConnectionList:
+def deserialize_ec2_query(el: Element) -> VpnConnectionList:
+    import capo_ec2.types.vpn_connection
+
+    out: VpnConnectionList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.vpn_connection.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> VpnConnectionList:
     import capo_ec2.types.vpn_connection
 
     out: VpnConnectionList = []

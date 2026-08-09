@@ -139,11 +139,12 @@ def deserialize_ec2_query(el: Element) -> HostReservation:
         import capo_ec2.types.date_time
 
         out["end"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end)
-    if el.find("hostIdSet") is not None:
+    child_host_id_set = el.find("hostIdSet")
+    if child_host_id_set is not None:
         import capo_ec2.types.response_host_id_set
 
         out["host_id_set"] = capo_ec2.types.response_host_id_set.deserialize_ec2_query(
-            el, "hostIdSet"
+            child_host_id_set
         )
     child_host_reservation_id = el.find("hostReservationId")
     if child_host_reservation_id is not None:
@@ -179,8 +180,9 @@ def deserialize_ec2_query(el: Element) -> HostReservation:
     child_upfront_price = el.find("upfrontPrice")
     if child_upfront_price is not None:
         out["upfront_price"] = str(child_upfront_price.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     return out

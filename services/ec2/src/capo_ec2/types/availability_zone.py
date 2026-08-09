@@ -122,12 +122,13 @@ def deserialize_ec2_query(el: Element) -> AvailabilityZone:
                 child_opt_in_status
             )
         )
-    if el.find("messageSet") is not None:
+    child_messages = el.find("messageSet")
+    if child_messages is not None:
         import capo_ec2.types.availability_zone_message_list
 
         out["messages"] = (
             capo_ec2.types.availability_zone_message_list.deserialize_ec2_query(
-                el, "messageSet"
+                child_messages
             )
         )
     child_region_name = el.find("regionName")
@@ -157,20 +158,22 @@ def deserialize_ec2_query(el: Element) -> AvailabilityZone:
     child_group_long_name = el.find("groupLongName")
     if child_group_long_name is not None:
         out["group_long_name"] = str(child_group_long_name.text or "")
-    if el.find("geographySet") is not None:
+    child_geography = el.find("geographySet")
+    if child_geography is not None:
         import capo_ec2.types.availability_zone_geography_list
 
         out["geography"] = (
             capo_ec2.types.availability_zone_geography_list.deserialize_ec2_query(
-                el, "geographySet"
+                child_geography
             )
         )
-    if el.find("subGeographySet") is not None:
+    child_sub_geography = el.find("subGeographySet")
+    if child_sub_geography is not None:
         import capo_ec2.types.availability_zone_sub_geography_list
 
         out["sub_geography"] = (
             capo_ec2.types.availability_zone_sub_geography_list.deserialize_ec2_query(
-                el, "subGeographySet"
+                child_sub_geography
             )
         )
     child_state = el.find("zoneState")

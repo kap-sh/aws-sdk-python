@@ -34,12 +34,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ModifyVerifiedAccessEndpointCidrOptions:
     out: ModifyVerifiedAccessEndpointCidrOptions = {}  # type: ignore[typeddict-item]
-    if el.find("PortRange") is not None:
+    child_port_ranges = el.find("PortRange")
+    if child_port_ranges is not None:
         import capo_ec2.types.modify_verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.modify_verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRange"
+                child_port_ranges
             )
         )
     return out

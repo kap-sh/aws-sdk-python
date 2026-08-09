@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeReplaceRootVolumeTasksResult:
     out: DescribeReplaceRootVolumeTasksResult = {}  # type: ignore[typeddict-item]
-    if el.find("replaceRootVolumeTaskSet") is not None:
+    child_replace_root_volume_tasks = el.find("replaceRootVolumeTaskSet")
+    if child_replace_root_volume_tasks is not None:
         import capo_ec2.types.replace_root_volume_tasks
 
         out["replace_root_volume_tasks"] = (
             capo_ec2.types.replace_root_volume_tasks.deserialize_ec2_query(
-                el, "replaceRootVolumeTaskSet"
+                child_replace_root_volume_tasks
             )
         )
     child_next_token = el.find("nextToken")

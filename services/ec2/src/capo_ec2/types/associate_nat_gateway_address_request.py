@@ -68,17 +68,19 @@ def deserialize_ec2_query(el: Element) -> AssociateNatGatewayAddressRequest:
     child_nat_gateway_id = el.find("NatGatewayId")
     if child_nat_gateway_id is not None:
         out["nat_gateway_id"] = str(child_nat_gateway_id.text or "")
-    if el.find("AllocationId") is not None:
+    child_allocation_ids = el.find("AllocationId")
+    if child_allocation_ids is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationId"
+            child_allocation_ids
         )
-    if el.find("PrivateIpAddress") is not None:
+    child_private_ip_addresses = el.find("PrivateIpAddress")
+    if child_private_ip_addresses is not None:
         import capo_ec2.types.ip_list
 
         out["private_ip_addresses"] = capo_ec2.types.ip_list.deserialize_ec2_query(
-            el, "PrivateIpAddress"
+            child_private_ip_addresses
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:

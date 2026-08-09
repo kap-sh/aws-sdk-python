@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> DescribeIpamPrefixListResolverTargetsR
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamPrefixListResolverTargetSet") is not None:
+    child_ipam_prefix_list_resolver_targets = el.find("ipamPrefixListResolverTargetSet")
+    if child_ipam_prefix_list_resolver_targets is not None:
         import capo_ec2.types.ipam_prefix_list_resolver_target_set
 
         out["ipam_prefix_list_resolver_targets"] = (
             capo_ec2.types.ipam_prefix_list_resolver_target_set.deserialize_ec2_query(
-                el, "ipamPrefixListResolverTargetSet"
+                child_ipam_prefix_list_resolver_targets
             )
         )
     return out

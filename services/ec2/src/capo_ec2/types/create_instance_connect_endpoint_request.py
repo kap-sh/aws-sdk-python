@@ -84,12 +84,13 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointRequest:
     child_subnet_id = el.find("SubnetId")
     if child_subnet_id is not None:
         out["subnet_id"] = str(child_subnet_id.text or "")
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.security_group_id_string_list_request
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_string_list_request.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
     child_preserve_client_ip = el.find("PreserveClientIp")
@@ -100,12 +101,13 @@ def deserialize_ec2_query(el: Element) -> CreateInstanceConnectEndpointRequest:
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_ip_address_type = el.find("IpAddressType")

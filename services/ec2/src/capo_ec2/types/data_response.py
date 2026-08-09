@@ -96,10 +96,11 @@ def deserialize_ec2_query(el: Element) -> DataResponse:
         import capo_ec2.types.period_type
 
         out["period"] = capo_ec2.types.period_type.deserialize_ec2_query(child_period)
-    if el.find("metricPointSet") is not None:
+    child_metric_points = el.find("metricPointSet")
+    if child_metric_points is not None:
         import capo_ec2.types.metric_points
 
         out["metric_points"] = capo_ec2.types.metric_points.deserialize_ec2_query(
-            el, "metricPointSet"
+            child_metric_points
         )
     return out

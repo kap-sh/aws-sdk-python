@@ -53,23 +53,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeAddressesRequest:
     out: DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("PublicIp") is not None:
+    child_public_ips = el.find("PublicIp")
+    if child_public_ips is not None:
         import capo_ec2.types.public_ip_string_list
 
         out["public_ips"] = capo_ec2.types.public_ip_string_list.deserialize_ec2_query(
-            el, "PublicIp"
+            child_public_ips
         )
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("AllocationId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_allocation_ids = el.find("AllocationId")
+    if child_allocation_ids is not None:
         import capo_ec2.types.allocation_id_list
 
         out["allocation_ids"] = capo_ec2.types.allocation_id_list.deserialize_ec2_query(
-            el, "AllocationId"
+            child_allocation_ids
         )
     return out

@@ -138,10 +138,11 @@ def deserialize_ec2_query(el: Element) -> IpamScope:
         out["state"] = capo_ec2.types.ipam_scope_state.deserialize_ec2_query(
             child_state
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_external_authority_configuration = el.find("externalAuthorityConfiguration")
     if child_external_authority_configuration is not None:
         import capo_ec2.types.ipam_scope_external_authority_configuration

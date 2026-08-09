@@ -41,16 +41,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeExportTasksRequest:
     out: DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
-    if el.find("exportTaskId") is not None:
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
+    child_export_task_ids = el.find("exportTaskId")
+    if child_export_task_ids is not None:
         import capo_ec2.types.export_task_id_string_list
 
         out["export_task_ids"] = (
             capo_ec2.types.export_task_id_string_list.deserialize_ec2_query(
-                el, "exportTaskId"
+                child_export_task_ids
             )
         )
     return out

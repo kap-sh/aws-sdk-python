@@ -149,12 +149,13 @@ def deserialize_ec2_query(el: Element) -> CopyImageRequest:
     child_copy_image_tags = el.find("CopyImageTags")
     if child_copy_image_tags is not None:
         out["copy_image_tags"] = (child_copy_image_tags.text or "").lower() == "true"
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_snapshot_copy_completion_duration_minutes = el.find(

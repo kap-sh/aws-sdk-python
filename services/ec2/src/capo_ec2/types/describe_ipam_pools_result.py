@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> DescribeIpamPoolsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamPoolSet") is not None:
+    child_ipam_pools = el.find("ipamPoolSet")
+    if child_ipam_pools is not None:
         import capo_ec2.types.ipam_pool_set
 
         out["ipam_pools"] = capo_ec2.types.ipam_pool_set.deserialize_ec2_query(
-            el, "ipamPoolSet"
+            child_ipam_pools
         )
     return out

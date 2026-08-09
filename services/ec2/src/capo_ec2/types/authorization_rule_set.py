@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AuthorizationRuleSet:
+def deserialize_ec2_query(el: Element) -> AuthorizationRuleSet:
+    import capo_ec2.types.authorization_rule
+
+    out: AuthorizationRuleSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.authorization_rule.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AuthorizationRuleSet:
     import capo_ec2.types.authorization_rule
 
     out: AuthorizationRuleSet = []

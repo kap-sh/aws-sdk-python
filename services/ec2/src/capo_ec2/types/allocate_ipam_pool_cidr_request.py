@@ -114,28 +114,31 @@ def deserialize_ec2_query(el: Element) -> AllocateIpamPoolCidrRequest:
         out["preview_next_cidr"] = (
             child_preview_next_cidr.text or ""
         ).lower() == "true"
-    if el.find("AllowedCidr") is not None:
+    child_allowed_cidrs = el.find("AllowedCidr")
+    if child_allowed_cidrs is not None:
         import capo_ec2.types.ipam_pool_allocation_allowed_cidrs
 
         out["allowed_cidrs"] = (
             capo_ec2.types.ipam_pool_allocation_allowed_cidrs.deserialize_ec2_query(
-                el, "AllowedCidr"
+                child_allowed_cidrs
             )
         )
-    if el.find("DisallowedCidr") is not None:
+    child_disallowed_cidrs = el.find("DisallowedCidr")
+    if child_disallowed_cidrs is not None:
         import capo_ec2.types.ipam_pool_allocation_disallowed_cidrs
 
         out["disallowed_cidrs"] = (
             capo_ec2.types.ipam_pool_allocation_disallowed_cidrs.deserialize_ec2_query(
-                el, "DisallowedCidr"
+                child_disallowed_cidrs
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

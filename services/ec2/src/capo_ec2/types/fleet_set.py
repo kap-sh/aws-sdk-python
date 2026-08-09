@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.fleet_data.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> FleetSet:
+def deserialize_ec2_query(el: Element) -> FleetSet:
+    import capo_ec2.types.fleet_data
+
+    out: FleetSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.fleet_data.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> FleetSet:
     import capo_ec2.types.fleet_data
 
     out: FleetSet = []

@@ -92,25 +92,28 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeImagesRequest:
     out: DescribeImagesRequest = {}  # type: ignore[typeddict-item]
-    if el.find("ExecutableBy") is not None:
+    child_executable_users = el.find("ExecutableBy")
+    if child_executable_users is not None:
         import capo_ec2.types.executable_by_string_list
 
         out["executable_users"] = (
             capo_ec2.types.executable_by_string_list.deserialize_ec2_query(
-                el, "ExecutableBy"
+                child_executable_users
             )
         )
-    if el.find("ImageId") is not None:
+    child_image_ids = el.find("ImageId")
+    if child_image_ids is not None:
         import capo_ec2.types.image_id_string_list
 
         out["image_ids"] = capo_ec2.types.image_id_string_list.deserialize_ec2_query(
-            el, "ImageId"
+            child_image_ids
         )
-    if el.find("Owner") is not None:
+    child_owners = el.find("Owner")
+    if child_owners is not None:
         import capo_ec2.types.owner_string_list
 
         out["owners"] = capo_ec2.types.owner_string_list.deserialize_ec2_query(
-            el, "Owner"
+            child_owners
         )
     child_include_deprecated = el.find("IncludeDeprecated")
     if child_include_deprecated is not None:
@@ -129,8 +132,9 @@ def deserialize_ec2_query(el: Element) -> DescribeImagesRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

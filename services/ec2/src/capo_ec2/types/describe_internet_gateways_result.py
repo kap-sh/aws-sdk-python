@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeInternetGatewaysResult:
     out: DescribeInternetGatewaysResult = {}  # type: ignore[typeddict-item]
-    if el.find("internetGatewaySet") is not None:
+    child_internet_gateways = el.find("internetGatewaySet")
+    if child_internet_gateways is not None:
         import capo_ec2.types.internet_gateway_list
 
         out["internet_gateways"] = (
             capo_ec2.types.internet_gateway_list.deserialize_ec2_query(
-                el, "internetGatewaySet"
+                child_internet_gateways
             )
         )
     child_next_token = el.find("nextToken")

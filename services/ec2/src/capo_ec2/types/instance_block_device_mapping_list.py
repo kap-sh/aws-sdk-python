@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InstanceBlockDeviceMappingList:
+def deserialize_ec2_query(el: Element) -> InstanceBlockDeviceMappingList:
+    import capo_ec2.types.instance_block_device_mapping
+
+    out: InstanceBlockDeviceMappingList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.instance_block_device_mapping.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> InstanceBlockDeviceMappingList:
     import capo_ec2.types.instance_block_device_mapping
 
     out: InstanceBlockDeviceMappingList = []

@@ -173,10 +173,11 @@ def deserialize_ec2_query(el: Element) -> Volume:
     child_iops = el.find("iops")
     if child_iops is not None:
         out["iops"] = int(child_iops.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_volume_type = el.find("volumeType")
     if child_volume_type is not None:
         import capo_ec2.types.volume_type
@@ -236,12 +237,13 @@ def deserialize_ec2_query(el: Element) -> Volume:
         out["create_time"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_time
         )
-    if el.find("attachmentSet") is not None:
+    child_attachments = el.find("attachmentSet")
+    if child_attachments is not None:
         import capo_ec2.types.volume_attachment_list
 
         out["attachments"] = (
             capo_ec2.types.volume_attachment_list.deserialize_ec2_query(
-                el, "attachmentSet"
+                child_attachments
             )
         )
     child_encrypted = el.find("encrypted")

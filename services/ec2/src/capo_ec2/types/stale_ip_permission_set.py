@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> StaleIpPermissionSet:
+def deserialize_ec2_query(el: Element) -> StaleIpPermissionSet:
+    import capo_ec2.types.stale_ip_permission
+
+    out: StaleIpPermissionSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.stale_ip_permission.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> StaleIpPermissionSet:
     import capo_ec2.types.stale_ip_permission
 
     out: StaleIpPermissionSet = []

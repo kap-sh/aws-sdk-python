@@ -62,21 +62,23 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeTrafficMirrorFiltersRequest:
     out: DescribeTrafficMirrorFiltersRequest = {}  # type: ignore[typeddict-item]
-    if el.find("TrafficMirrorFilterId") is not None:
+    child_traffic_mirror_filter_ids = el.find("TrafficMirrorFilterId")
+    if child_traffic_mirror_filter_ids is not None:
         import capo_ec2.types.traffic_mirror_filter_id_list
 
         out["traffic_mirror_filter_ids"] = (
             capo_ec2.types.traffic_mirror_filter_id_list.deserialize_ec2_query(
-                el, "TrafficMirrorFilterId"
+                child_traffic_mirror_filter_ids
             )
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")

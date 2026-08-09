@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> DescribeScheduledInstancesResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("scheduledInstanceSet") is not None:
+    child_scheduled_instance_set = el.find("scheduledInstanceSet")
+    if child_scheduled_instance_set is not None:
         import capo_ec2.types.scheduled_instance_set
 
         out["scheduled_instance_set"] = (
             capo_ec2.types.scheduled_instance_set.deserialize_ec2_query(
-                el, "scheduledInstanceSet"
+                child_scheduled_instance_set
             )
         )
     return out

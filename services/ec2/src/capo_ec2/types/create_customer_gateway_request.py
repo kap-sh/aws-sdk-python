@@ -87,12 +87,13 @@ def deserialize_ec2_query(el: Element) -> CreateCustomerGatewayRequest:
         import capo_ec2.types.gateway_type
 
         out["type"] = capo_ec2.types.gateway_type.deserialize_ec2_query(child_type)
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_device_name = el.find("DeviceName")

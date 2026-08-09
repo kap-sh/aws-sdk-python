@@ -115,12 +115,13 @@ def deserialize_ec2_query(el: Element) -> ImportSnapshotRequest:
     child_role_name = el.find("RoleName")
     if child_role_name is not None:
         out["role_name"] = str(child_role_name.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

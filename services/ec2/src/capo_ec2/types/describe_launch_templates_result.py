@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplatesResult:
     out: DescribeLaunchTemplatesResult = {}  # type: ignore[typeddict-item]
-    if el.find("launchTemplates") is not None:
+    child_launch_templates = el.find("launchTemplates")
+    if child_launch_templates is not None:
         import capo_ec2.types.launch_template_set
 
         out["launch_templates"] = (
             capo_ec2.types.launch_template_set.deserialize_ec2_query(
-                el, "launchTemplates"
+                child_launch_templates
             )
         )
     child_next_token = el.find("nextToken")

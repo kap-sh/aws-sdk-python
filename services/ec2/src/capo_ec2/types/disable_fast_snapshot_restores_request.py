@@ -59,28 +59,31 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DisableFastSnapshotRestoresRequest:
     out: DisableFastSnapshotRestoresRequest = {}  # type: ignore[typeddict-item]
-    if el.find("AvailabilityZone") is not None:
+    child_availability_zones = el.find("AvailabilityZone")
+    if child_availability_zones is not None:
         import capo_ec2.types.availability_zone_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.availability_zone_string_list.deserialize_ec2_query(
-                el, "AvailabilityZone"
+                child_availability_zones
             )
         )
-    if el.find("AvailabilityZoneId") is not None:
+    child_availability_zone_ids = el.find("AvailabilityZoneId")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.availability_zone_id_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.availability_zone_id_string_list.deserialize_ec2_query(
-                el, "AvailabilityZoneId"
+                child_availability_zone_ids
             )
         )
-    if el.find("SourceSnapshotId") is not None:
+    child_source_snapshot_ids = el.find("SourceSnapshotId")
+    if child_source_snapshot_ids is not None:
         import capo_ec2.types.snapshot_id_string_list
 
         out["source_snapshot_ids"] = (
             capo_ec2.types.snapshot_id_string_list.deserialize_ec2_query(
-                el, "SourceSnapshotId"
+                child_source_snapshot_ids
             )
         )
     child_dry_run = el.find("DryRun")

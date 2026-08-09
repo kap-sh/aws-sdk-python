@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupRulesResult:
     out: DescribeSecurityGroupRulesResult = {}  # type: ignore[typeddict-item]
-    if el.find("securityGroupRuleSet") is not None:
+    child_security_group_rules = el.find("securityGroupRuleSet")
+    if child_security_group_rules is not None:
         import capo_ec2.types.security_group_rule_list
 
         out["security_group_rules"] = (
             capo_ec2.types.security_group_rule_list.deserialize_ec2_query(
-                el, "securityGroupRuleSet"
+                child_security_group_rules
             )
         )
     child_next_token = el.find("nextToken")

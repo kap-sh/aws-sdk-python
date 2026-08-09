@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PublicIpv4PoolRangeSet:
+def deserialize_ec2_query(el: Element) -> PublicIpv4PoolRangeSet:
+    import capo_ec2.types.public_ipv4_pool_range
+
+    out: PublicIpv4PoolRangeSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.public_ipv4_pool_range.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PublicIpv4PoolRangeSet:
     import capo_ec2.types.public_ipv4_pool_range
 
     out: PublicIpv4PoolRangeSet = []

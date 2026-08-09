@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ImageUsageResourceTypeRequestList:
+    import capo_ec2.types.image_usage_resource_type_request
+
+    out: ImageUsageResourceTypeRequestList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.image_usage_resource_type_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ImageUsageResourceTypeRequestList:
     import capo_ec2.types.image_usage_resource_type_request

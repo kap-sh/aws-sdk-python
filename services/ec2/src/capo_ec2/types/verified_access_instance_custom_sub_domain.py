@@ -40,10 +40,11 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessInstanceCustomSubDomain:
     child_sub_domain = el.find("subDomain")
     if child_sub_domain is not None:
         out["sub_domain"] = str(child_sub_domain.text or "")
-    if el.find("nameserverSet") is not None:
+    child_nameservers = el.find("nameserverSet")
+    if child_nameservers is not None:
         import capo_ec2.types.value_string_list
 
         out["nameservers"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "nameserverSet"
+            child_nameservers
         )
     return out

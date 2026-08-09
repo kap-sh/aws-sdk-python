@@ -103,12 +103,13 @@ def deserialize_ec2_query(el: Element) -> CreateLocalGatewayVirtualInterfaceRequ
     child_peer_bgp_asn = el.find("PeerBgpAsn")
     if child_peer_bgp_asn is not None:
         out["peer_bgp_asn"] = int(child_peer_bgp_asn.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

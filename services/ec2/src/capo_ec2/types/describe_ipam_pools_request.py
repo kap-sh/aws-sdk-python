@@ -57,20 +57,22 @@ def deserialize_ec2_query(el: Element) -> DescribeIpamPoolsRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("IpamPoolId") is not None:
+    child_ipam_pool_ids = el.find("IpamPoolId")
+    if child_ipam_pool_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["ipam_pool_ids"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "IpamPoolId"
+            child_ipam_pool_ids
         )
     return out

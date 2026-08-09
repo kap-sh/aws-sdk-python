@@ -202,12 +202,13 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
                 child_offering_type
             )
         )
-    if el.find("recurringCharges") is not None:
+    child_recurring_charges = el.find("recurringCharges")
+    if child_recurring_charges is not None:
         import capo_ec2.types.recurring_charges_list
 
         out["recurring_charges"] = (
             capo_ec2.types.recurring_charges_list.deserialize_ec2_query(
-                el, "recurringCharges"
+                child_recurring_charges
             )
         )
     child_scope = el.find("scope")
@@ -215,10 +216,11 @@ def deserialize_ec2_query(el: Element) -> ReservedInstances:
         import capo_ec2.types.scope
 
         out["scope"] = capo_ec2.types.scope.deserialize_ec2_query(child_scope)
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_availability_zone_id = el.find("availabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")

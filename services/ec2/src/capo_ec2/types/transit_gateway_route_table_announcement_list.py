@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> TransitGatewayRouteTableAnnouncementList:
+    import capo_ec2.types.transit_gateway_route_table_announcement
+
+    out: TransitGatewayRouteTableAnnouncementList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.transit_gateway_route_table_announcement.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> TransitGatewayRouteTableAnnouncementList:
     import capo_ec2.types.transit_gateway_route_table_announcement

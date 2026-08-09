@@ -135,10 +135,11 @@ def deserialize_ec2_query(el: Element) -> ServiceLinkVirtualInterface:
     child_outpost_lag_id = el.find("outpostLagId")
     if child_outpost_lag_id is not None:
         out["outpost_lag_id"] = str(child_outpost_lag_id.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_configuration_state = el.find("configurationState")
     if child_configuration_state is not None:
         import capo_ec2.types.service_link_virtual_interface_configuration_state

@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SecurityGroupRuleDescriptionList:
+    import capo_ec2.types.security_group_rule_description
+
+    out: SecurityGroupRuleDescriptionList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.security_group_rule_description.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SecurityGroupRuleDescriptionList:
     import capo_ec2.types.security_group_rule_description

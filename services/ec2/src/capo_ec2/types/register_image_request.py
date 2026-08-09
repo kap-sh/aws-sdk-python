@@ -152,12 +152,13 @@ def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
     child_image_location = el.find("ImageLocation")
     if child_image_location is not None:
         out["image_location"] = str(child_image_location.text or "")
-    if el.find("BillingProduct") is not None:
+    child_billing_products = el.find("BillingProduct")
+    if child_billing_products is not None:
         import capo_ec2.types.billing_product_list
 
         out["billing_products"] = (
             capo_ec2.types.billing_product_list.deserialize_ec2_query(
-                el, "BillingProduct"
+                child_billing_products
             )
         )
     child_boot_mode = el.find("BootMode")
@@ -184,12 +185,13 @@ def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
         out["imds_support"] = capo_ec2.types.imds_support_values.deserialize_ec2_query(
             child_imds_support
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("dryRun")
@@ -217,12 +219,13 @@ def deserialize_ec2_query(el: Element) -> RegisterImageRequest:
     child_root_device_name = el.find("rootDeviceName")
     if child_root_device_name is not None:
         out["root_device_name"] = str(child_root_device_name.text or "")
-    if el.find("BlockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("BlockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.block_device_mapping_request_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.block_device_mapping_request_list.deserialize_ec2_query(
-                el, "BlockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_virtualization_type = el.find("virtualizationType")

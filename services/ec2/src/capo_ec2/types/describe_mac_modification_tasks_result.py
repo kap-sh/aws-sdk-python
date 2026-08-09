@@ -39,12 +39,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeMacModificationTasksResult:
     out: DescribeMacModificationTasksResult = {}  # type: ignore[typeddict-item]
-    if el.find("macModificationTaskSet") is not None:
+    child_mac_modification_tasks = el.find("macModificationTaskSet")
+    if child_mac_modification_tasks is not None:
         import capo_ec2.types.mac_modification_task_list
 
         out["mac_modification_tasks"] = (
             capo_ec2.types.mac_modification_task_list.deserialize_ec2_query(
-                el, "macModificationTaskSet"
+                child_mac_modification_tasks
             )
         )
     child_next_token = el.find("nextToken")

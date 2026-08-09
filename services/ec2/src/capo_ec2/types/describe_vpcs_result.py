@@ -38,8 +38,9 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("vpcSet") is not None:
+    child_vpcs = el.find("vpcSet")
+    if child_vpcs is not None:
         import capo_ec2.types.vpc_list
 
-        out["vpcs"] = capo_ec2.types.vpc_list.deserialize_ec2_query(el, "vpcSet")
+        out["vpcs"] = capo_ec2.types.vpc_list.deserialize_ec2_query(child_vpcs)
     return out

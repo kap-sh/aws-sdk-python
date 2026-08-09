@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> DeregisterImageResult:
     child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    if el.find("deleteSnapshotResultSet") is not None:
+    child_delete_snapshot_results = el.find("deleteSnapshotResultSet")
+    if child_delete_snapshot_results is not None:
         import capo_ec2.types.delete_snapshot_result_set
 
         out["delete_snapshot_results"] = (
             capo_ec2.types.delete_snapshot_result_set.deserialize_ec2_query(
-                el, "deleteSnapshotResultSet"
+                child_delete_snapshot_results
             )
         )
     return out

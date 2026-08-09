@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AccountAttributeNameStringList:
+def deserialize_ec2_query(el: Element) -> AccountAttributeNameStringList:
+    import capo_ec2.types.account_attribute_name
+
+    out: AccountAttributeNameStringList = []
+    for child in el.findall("attributeName"):
+        out.append(capo_ec2.types.account_attribute_name.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> AccountAttributeNameStringList:
     import capo_ec2.types.account_attribute_name
 
     out: AccountAttributeNameStringList = []

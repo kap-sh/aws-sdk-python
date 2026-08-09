@@ -38,8 +38,9 @@ def deserialize_ec2_query(el: Element) -> DescribeImagesResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("imagesSet") is not None:
+    child_images = el.find("imagesSet")
+    if child_images is not None:
         import capo_ec2.types.image_list
 
-        out["images"] = capo_ec2.types.image_list.deserialize_ec2_query(el, "imagesSet")
+        out["images"] = capo_ec2.types.image_list.deserialize_ec2_query(child_images)
     return out

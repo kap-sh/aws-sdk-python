@@ -44,12 +44,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> MediaAcceleratorInfo:
     out: MediaAcceleratorInfo = {}  # type: ignore[typeddict-item]
-    if el.find("accelerators") is not None:
+    child_accelerators = el.find("accelerators")
+    if child_accelerators is not None:
         import capo_ec2.types.media_device_info_list
 
         out["accelerators"] = (
             capo_ec2.types.media_device_info_list.deserialize_ec2_query(
-                el, "accelerators"
+                child_accelerators
             )
         )
     child_total_media_memory_in_mi_b = el.find("totalMediaMemoryInMiB")

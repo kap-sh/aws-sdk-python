@@ -44,12 +44,13 @@ def deserialize_ec2_query(el: Element) -> GetGroupsForCapacityReservationResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("capacityReservationGroupSet") is not None:
+    child_capacity_reservation_groups = el.find("capacityReservationGroupSet")
+    if child_capacity_reservation_groups is not None:
         import capo_ec2.types.capacity_reservation_group_set
 
         out["capacity_reservation_groups"] = (
             capo_ec2.types.capacity_reservation_group_set.deserialize_ec2_query(
-                el, "capacityReservationGroupSet"
+                child_capacity_reservation_groups
             )
         )
     return out

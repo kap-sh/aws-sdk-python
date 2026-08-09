@@ -65,26 +65,29 @@ def deserialize_ec2_query(el: Element) -> DescribeVpcEndpointServicesRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("ServiceName") is not None:
+    child_service_names = el.find("ServiceName")
+    if child_service_names is not None:
         import capo_ec2.types.value_string_list
 
         out["service_names"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ServiceName"
+            child_service_names
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ServiceRegion") is not None:
+    child_service_regions = el.find("ServiceRegion")
+    if child_service_regions is not None:
         import capo_ec2.types.value_string_list
 
         out["service_regions"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ServiceRegion"
+            child_service_regions
         )
     return out

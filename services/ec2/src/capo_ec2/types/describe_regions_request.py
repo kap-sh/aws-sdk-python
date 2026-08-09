@@ -52,12 +52,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeRegionsRequest:
     out: DescribeRegionsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("RegionName") is not None:
+    child_region_names = el.find("RegionName")
+    if child_region_names is not None:
         import capo_ec2.types.region_name_string_list
 
         out["region_names"] = (
             capo_ec2.types.region_name_string_list.deserialize_ec2_query(
-                el, "RegionName"
+                child_region_names
             )
         )
     child_all_regions = el.find("AllRegions")
@@ -66,8 +67,9 @@ def deserialize_ec2_query(el: Element) -> DescribeRegionsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

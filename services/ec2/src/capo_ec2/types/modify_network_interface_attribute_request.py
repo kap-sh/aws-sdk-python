@@ -158,12 +158,13 @@ def deserialize_ec2_query(el: Element) -> ModifyNetworkInterfaceAttributeRequest
         out["associate_public_ip_address"] = (
             child_associate_public_ip_address.text or ""
         ).lower() == "true"
-    if el.find("AssociatedSubnetId") is not None:
+    child_associated_subnet_ids = el.find("AssociatedSubnetId")
+    if child_associated_subnet_ids is not None:
         import capo_ec2.types.subnet_id_list
 
         out["associated_subnet_ids"] = (
             capo_ec2.types.subnet_id_list.deserialize_ec2_query(
-                el, "AssociatedSubnetId"
+                child_associated_subnet_ids
             )
         )
     child_dry_run = el.find("dryRun")
@@ -188,12 +189,13 @@ def deserialize_ec2_query(el: Element) -> ModifyNetworkInterfaceAttributeRequest
                 child_source_dest_check
             )
         )
-    if el.find("SecurityGroupId") is not None:
+    child_groups = el.find("SecurityGroupId")
+    if child_groups is not None:
         import capo_ec2.types.security_group_id_string_list
 
         out["groups"] = (
             capo_ec2.types.security_group_id_string_list.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_groups
             )
         )
     child_attachment = el.find("attachment")

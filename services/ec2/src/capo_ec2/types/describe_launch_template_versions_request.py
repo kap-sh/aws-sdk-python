@@ -106,11 +106,12 @@ def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplateVersionsRequest:
     child_launch_template_name = el.find("LaunchTemplateName")
     if child_launch_template_name is not None:
         out["launch_template_name"] = str(child_launch_template_name.text or "")
-    if el.find("LaunchTemplateVersion") is not None:
+    child_versions = el.find("LaunchTemplateVersion")
+    if child_versions is not None:
         import capo_ec2.types.version_string_list
 
         out["versions"] = capo_ec2.types.version_string_list.deserialize_ec2_query(
-            el, "LaunchTemplateVersion"
+            child_versions
         )
     child_min_version = el.find("MinVersion")
     if child_min_version is not None:
@@ -124,10 +125,11 @@ def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplateVersionsRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_resolve_alias = el.find("ResolveAlias")
     if child_resolve_alias is not None:
         out["resolve_alias"] = (child_resolve_alias.text or "").lower() == "true"

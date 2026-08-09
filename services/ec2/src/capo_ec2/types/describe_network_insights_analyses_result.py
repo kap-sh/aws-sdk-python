@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeNetworkInsightsAnalysesResult:
     out: DescribeNetworkInsightsAnalysesResult = {}  # type: ignore[typeddict-item]
-    if el.find("networkInsightsAnalysisSet") is not None:
+    child_network_insights_analyses = el.find("networkInsightsAnalysisSet")
+    if child_network_insights_analyses is not None:
         import capo_ec2.types.network_insights_analysis_list
 
         out["network_insights_analyses"] = (
             capo_ec2.types.network_insights_analysis_list.deserialize_ec2_query(
-                el, "networkInsightsAnalysisSet"
+                child_network_insights_analyses
             )
         )
     child_next_token = el.find("nextToken")

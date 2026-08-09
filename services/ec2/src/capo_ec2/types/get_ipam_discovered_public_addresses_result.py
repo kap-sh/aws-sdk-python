@@ -52,12 +52,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> GetIpamDiscoveredPublicAddressesResult:
     out: GetIpamDiscoveredPublicAddressesResult = {}  # type: ignore[typeddict-item]
-    if el.find("ipamDiscoveredPublicAddressSet") is not None:
+    child_ipam_discovered_public_addresses = el.find("ipamDiscoveredPublicAddressSet")
+    if child_ipam_discovered_public_addresses is not None:
         import capo_ec2.types.ipam_discovered_public_address_set
 
         out["ipam_discovered_public_addresses"] = (
             capo_ec2.types.ipam_discovered_public_address_set.deserialize_ec2_query(
-                el, "ipamDiscoveredPublicAddressSet"
+                child_ipam_discovered_public_addresses
             )
         )
     child_oldest_sample_time = el.find("oldestSampleTime")

@@ -22,7 +22,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PurchaseRequestSet:
+def deserialize_ec2_query(el: Element) -> PurchaseRequestSet:
+    import capo_ec2.types.purchase_request
+
+    out: PurchaseRequestSet = []
+    for child in el.findall("PurchaseRequest"):
+        out.append(capo_ec2.types.purchase_request.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PurchaseRequestSet:
     import capo_ec2.types.purchase_request
 
     out: PurchaseRequestSet = []

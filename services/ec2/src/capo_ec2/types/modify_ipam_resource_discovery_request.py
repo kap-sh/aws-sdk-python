@@ -104,36 +104,42 @@ def deserialize_ec2_query(el: Element) -> ModifyIpamResourceDiscoveryRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("AddOperatingRegion") is not None:
+    child_add_operating_regions = el.find("AddOperatingRegion")
+    if child_add_operating_regions is not None:
         import capo_ec2.types.add_ipam_operating_region_set
 
         out["add_operating_regions"] = (
             capo_ec2.types.add_ipam_operating_region_set.deserialize_ec2_query(
-                el, "AddOperatingRegion"
+                child_add_operating_regions
             )
         )
-    if el.find("RemoveOperatingRegion") is not None:
+    child_remove_operating_regions = el.find("RemoveOperatingRegion")
+    if child_remove_operating_regions is not None:
         import capo_ec2.types.remove_ipam_operating_region_set
 
         out["remove_operating_regions"] = (
             capo_ec2.types.remove_ipam_operating_region_set.deserialize_ec2_query(
-                el, "RemoveOperatingRegion"
+                child_remove_operating_regions
             )
         )
-    if el.find("AddOrganizationalUnitExclusion") is not None:
+    child_add_organizational_unit_exclusions = el.find("AddOrganizationalUnitExclusion")
+    if child_add_organizational_unit_exclusions is not None:
         import capo_ec2.types.add_ipam_organizational_unit_exclusion_set
 
         out["add_organizational_unit_exclusions"] = (
             capo_ec2.types.add_ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "AddOrganizationalUnitExclusion"
+                child_add_organizational_unit_exclusions
             )
         )
-    if el.find("RemoveOrganizationalUnitExclusion") is not None:
+    child_remove_organizational_unit_exclusions = el.find(
+        "RemoveOrganizationalUnitExclusion"
+    )
+    if child_remove_organizational_unit_exclusions is not None:
         import capo_ec2.types.remove_ipam_organizational_unit_exclusion_set
 
         out["remove_organizational_unit_exclusions"] = (
             capo_ec2.types.remove_ipam_organizational_unit_exclusion_set.deserialize_ec2_query(
-                el, "RemoveOrganizationalUnitExclusion"
+                child_remove_organizational_unit_exclusions
             )
         )
     return out

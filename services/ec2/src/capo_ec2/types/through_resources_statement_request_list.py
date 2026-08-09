@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ThroughResourcesStatementRequestList:
+    import capo_ec2.types.through_resources_statement_request
+
+    out: ThroughResourcesStatementRequestList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.through_resources_statement_request.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ThroughResourcesStatementRequestList:
     import capo_ec2.types.through_resources_statement_request

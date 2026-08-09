@@ -43,12 +43,15 @@ def deserialize_ec2_query(
     el: Element,
 ) -> DescribeLocalGatewayRouteTableVpcAssociationsResult:
     out: DescribeLocalGatewayRouteTableVpcAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("localGatewayRouteTableVpcAssociationSet") is not None:
+    child_local_gateway_route_table_vpc_associations = el.find(
+        "localGatewayRouteTableVpcAssociationSet"
+    )
+    if child_local_gateway_route_table_vpc_associations is not None:
         import capo_ec2.types.local_gateway_route_table_vpc_association_set
 
         out["local_gateway_route_table_vpc_associations"] = (
             capo_ec2.types.local_gateway_route_table_vpc_association_set.deserialize_ec2_query(
-                el, "localGatewayRouteTableVpcAssociationSet"
+                child_local_gateway_route_table_vpc_associations
             )
         )
     child_next_token = el.find("nextToken")

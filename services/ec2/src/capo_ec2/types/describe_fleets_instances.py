@@ -86,11 +86,12 @@ def deserialize_ec2_query(el: Element) -> DescribeFleetsInstances:
         out["lifecycle"] = capo_ec2.types.instance_lifecycle.deserialize_ec2_query(
             child_lifecycle
         )
-    if el.find("instanceIds") is not None:
+    child_instance_ids = el.find("instanceIds")
+    if child_instance_ids is not None:
         import capo_ec2.types.instance_ids_set
 
         out["instance_ids"] = capo_ec2.types.instance_ids_set.deserialize_ec2_query(
-            el, "instanceIds"
+            child_instance_ids
         )
     child_instance_type = el.find("instanceType")
     if child_instance_type is not None:

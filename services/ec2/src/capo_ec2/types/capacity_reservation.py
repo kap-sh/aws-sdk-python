@@ -388,10 +388,11 @@ def deserialize_ec2_query(el: Element) -> CapacityReservation:
         out["create_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_date
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_outpost_arn = el.find("outpostArn")
     if child_outpost_arn is not None:
         out["outpost_arn"] = str(child_outpost_arn.text or "")
@@ -403,12 +404,13 @@ def deserialize_ec2_query(el: Element) -> CapacityReservation:
     child_placement_group_arn = el.find("placementGroupArn")
     if child_placement_group_arn is not None:
         out["placement_group_arn"] = str(child_placement_group_arn.text or "")
-    if el.find("capacityAllocationSet") is not None:
+    child_capacity_allocations = el.find("capacityAllocationSet")
+    if child_capacity_allocations is not None:
         import capo_ec2.types.capacity_allocations
 
         out["capacity_allocations"] = (
             capo_ec2.types.capacity_allocations.deserialize_ec2_query(
-                el, "capacityAllocationSet"
+                child_capacity_allocations
             )
         )
     child_reservation_type = el.find("reservationType")

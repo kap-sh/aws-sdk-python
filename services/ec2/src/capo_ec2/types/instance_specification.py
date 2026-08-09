@@ -57,12 +57,13 @@ def deserialize_ec2_query(el: Element) -> InstanceSpecification:
         out["exclude_boot_volume"] = (
             child_exclude_boot_volume.text or ""
         ).lower() == "true"
-    if el.find("ExcludeDataVolumeId") is not None:
+    child_exclude_data_volume_ids = el.find("ExcludeDataVolumeId")
+    if child_exclude_data_volume_ids is not None:
         import capo_ec2.types.volume_id_string_list
 
         out["exclude_data_volume_ids"] = (
             capo_ec2.types.volume_id_string_list.deserialize_ec2_query(
-                el, "ExcludeDataVolumeId"
+                child_exclude_data_volume_ids
             )
         )
     return out

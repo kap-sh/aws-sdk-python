@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.ipam.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> IpamSet:
+def deserialize_ec2_query(el: Element) -> IpamSet:
+    import capo_ec2.types.ipam
+
+    out: IpamSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.ipam.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> IpamSet:
     import capo_ec2.types.ipam
 
     out: IpamSet = []

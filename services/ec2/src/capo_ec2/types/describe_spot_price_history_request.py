@@ -113,24 +113,27 @@ def deserialize_ec2_query(el: Element) -> DescribeSpotPriceHistoryRequest:
         import capo_ec2.types.date_time
 
         out["end_time"] = capo_ec2.types.date_time.deserialize_ec2_query(child_end_time)
-    if el.find("InstanceType") is not None:
+    child_instance_types = el.find("InstanceType")
+    if child_instance_types is not None:
         import capo_ec2.types.instance_type_list
 
         out["instance_types"] = capo_ec2.types.instance_type_list.deserialize_ec2_query(
-            el, "InstanceType"
+            child_instance_types
         )
-    if el.find("ProductDescription") is not None:
+    child_product_descriptions = el.find("ProductDescription")
+    if child_product_descriptions is not None:
         import capo_ec2.types.product_description_list
 
         out["product_descriptions"] = (
             capo_ec2.types.product_description_list.deserialize_ec2_query(
-                el, "ProductDescription"
+                child_product_descriptions
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_availability_zone = el.find("availabilityZone")
     if child_availability_zone is not None:
         out["availability_zone"] = str(child_availability_zone.text or "")

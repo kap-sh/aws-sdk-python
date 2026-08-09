@@ -203,12 +203,13 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRequest:
     child_endpoint_domain_prefix = el.find("EndpointDomainPrefix")
     if child_endpoint_domain_prefix is not None:
         out["endpoint_domain_prefix"] = str(child_endpoint_domain_prefix.text or "")
-    if el.find("SecurityGroupId") is not None:
+    child_security_group_ids = el.find("SecurityGroupId")
+    if child_security_group_ids is not None:
         import capo_ec2.types.security_group_id_list
 
         out["security_group_ids"] = (
             capo_ec2.types.security_group_id_list.deserialize_ec2_query(
-                el, "SecurityGroupId"
+                child_security_group_ids
             )
         )
     child_load_balancer_options = el.find("LoadBalancerOptions")
@@ -235,12 +236,13 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointRequest:
     child_policy_document = el.find("PolicyDocument")
     if child_policy_document is not None:
         out["policy_document"] = str(child_policy_document.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_client_token = el.find("ClientToken")

@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeLaunchTemplateVersionsResult:
     out: DescribeLaunchTemplateVersionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("launchTemplateVersionSet") is not None:
+    child_launch_template_versions = el.find("launchTemplateVersionSet")
+    if child_launch_template_versions is not None:
         import capo_ec2.types.launch_template_version_set
 
         out["launch_template_versions"] = (
             capo_ec2.types.launch_template_version_set.deserialize_ec2_query(
-                el, "launchTemplateVersionSet"
+                child_launch_template_versions
             )
         )
     child_next_token = el.find("nextToken")

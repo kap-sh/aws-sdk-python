@@ -52,12 +52,13 @@ def deserialize_ec2_query(el: Element) -> AcceptVpcEndpointConnectionsRequest:
     child_service_id = el.find("ServiceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    if el.find("VpcEndpointId") is not None:
+    child_vpc_endpoint_ids = el.find("VpcEndpointId")
+    if child_vpc_endpoint_ids is not None:
         import capo_ec2.types.vpc_endpoint_id_list
 
         out["vpc_endpoint_ids"] = (
             capo_ec2.types.vpc_endpoint_id_list.deserialize_ec2_query(
-                el, "VpcEndpointId"
+                child_vpc_endpoint_ids
             )
         )
     return out

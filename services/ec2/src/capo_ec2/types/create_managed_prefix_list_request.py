@@ -70,21 +70,23 @@ def deserialize_ec2_query(el: Element) -> CreateManagedPrefixListRequest:
     child_prefix_list_name = el.find("PrefixListName")
     if child_prefix_list_name is not None:
         out["prefix_list_name"] = str(child_prefix_list_name.text or "")
-    if el.find("Entry") is not None:
+    child_entries = el.find("Entry")
+    if child_entries is not None:
         import capo_ec2.types.add_prefix_list_entries
 
         out["entries"] = capo_ec2.types.add_prefix_list_entries.deserialize_ec2_query(
-            el, "Entry"
+            child_entries
         )
     child_max_entries = el.find("MaxEntries")
     if child_max_entries is not None:
         out["max_entries"] = int(child_max_entries.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_address_family = el.find("AddressFamily")

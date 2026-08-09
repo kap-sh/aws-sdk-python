@@ -172,68 +172,76 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointServiceConfigurationR
         out["acceptance_required"] = (
             child_acceptance_required.text or ""
         ).lower() == "true"
-    if el.find("AddNetworkLoadBalancerArn") is not None:
+    child_add_network_load_balancer_arns = el.find("AddNetworkLoadBalancerArn")
+    if child_add_network_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["add_network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddNetworkLoadBalancerArn"
+                child_add_network_load_balancer_arns
             )
         )
-    if el.find("RemoveNetworkLoadBalancerArn") is not None:
+    child_remove_network_load_balancer_arns = el.find("RemoveNetworkLoadBalancerArn")
+    if child_remove_network_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveNetworkLoadBalancerArn"
+                child_remove_network_load_balancer_arns
             )
         )
-    if el.find("AddGatewayLoadBalancerArn") is not None:
+    child_add_gateway_load_balancer_arns = el.find("AddGatewayLoadBalancerArn")
+    if child_add_gateway_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["add_gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddGatewayLoadBalancerArn"
+                child_add_gateway_load_balancer_arns
             )
         )
-    if el.find("RemoveGatewayLoadBalancerArn") is not None:
+    child_remove_gateway_load_balancer_arns = el.find("RemoveGatewayLoadBalancerArn")
+    if child_remove_gateway_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveGatewayLoadBalancerArn"
+                child_remove_gateway_load_balancer_arns
             )
         )
-    if el.find("AddSupportedIpAddressType") is not None:
+    child_add_supported_ip_address_types = el.find("AddSupportedIpAddressType")
+    if child_add_supported_ip_address_types is not None:
         import capo_ec2.types.value_string_list
 
         out["add_supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddSupportedIpAddressType"
+                child_add_supported_ip_address_types
             )
         )
-    if el.find("RemoveSupportedIpAddressType") is not None:
+    child_remove_supported_ip_address_types = el.find("RemoveSupportedIpAddressType")
+    if child_remove_supported_ip_address_types is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_supported_ip_address_types"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveSupportedIpAddressType"
+                child_remove_supported_ip_address_types
             )
         )
-    if el.find("AddSupportedRegion") is not None:
+    child_add_supported_regions = el.find("AddSupportedRegion")
+    if child_add_supported_regions is not None:
         import capo_ec2.types.value_string_list
 
         out["add_supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddSupportedRegion"
+                child_add_supported_regions
             )
         )
-    if el.find("RemoveSupportedRegion") is not None:
+    child_remove_supported_regions = el.find("RemoveSupportedRegion")
+    if child_remove_supported_regions is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_supported_regions"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveSupportedRegion"
+                child_remove_supported_regions
             )
         )
     return out

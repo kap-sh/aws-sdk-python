@@ -47,20 +47,26 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteLaunchTemplateVersionsResult:
     out: DeleteLaunchTemplateVersionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("successfullyDeletedLaunchTemplateVersionSet") is not None:
+    child_successfully_deleted_launch_template_versions = el.find(
+        "successfullyDeletedLaunchTemplateVersionSet"
+    )
+    if child_successfully_deleted_launch_template_versions is not None:
         import capo_ec2.types.delete_launch_template_versions_response_success_set
 
         out["successfully_deleted_launch_template_versions"] = (
             capo_ec2.types.delete_launch_template_versions_response_success_set.deserialize_ec2_query(
-                el, "successfullyDeletedLaunchTemplateVersionSet"
+                child_successfully_deleted_launch_template_versions
             )
         )
-    if el.find("unsuccessfullyDeletedLaunchTemplateVersionSet") is not None:
+    child_unsuccessfully_deleted_launch_template_versions = el.find(
+        "unsuccessfullyDeletedLaunchTemplateVersionSet"
+    )
+    if child_unsuccessfully_deleted_launch_template_versions is not None:
         import capo_ec2.types.delete_launch_template_versions_response_error_set
 
         out["unsuccessfully_deleted_launch_template_versions"] = (
             capo_ec2.types.delete_launch_template_versions_response_error_set.deserialize_ec2_query(
-                el, "unsuccessfullyDeletedLaunchTemplateVersionSet"
+                child_unsuccessfully_deleted_launch_template_versions
             )
         )
     return out

@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSecurityGroupVpcAssociationsResult:
     out: DescribeSecurityGroupVpcAssociationsResult = {}  # type: ignore[typeddict-item]
-    if el.find("securityGroupVpcAssociationSet") is not None:
+    child_security_group_vpc_associations = el.find("securityGroupVpcAssociationSet")
+    if child_security_group_vpc_associations is not None:
         import capo_ec2.types.security_group_vpc_association_list
 
         out["security_group_vpc_associations"] = (
             capo_ec2.types.security_group_vpc_association_list.deserialize_ec2_query(
-                el, "securityGroupVpcAssociationSet"
+                child_security_group_vpc_associations
             )
         )
     child_next_token = el.find("nextToken")

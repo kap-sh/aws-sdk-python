@@ -64,20 +64,22 @@ def deserialize_ec2_query(el: Element) -> ModifyVpcEndpointServicePermissionsReq
     child_service_id = el.find("ServiceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    if el.find("AddAllowedPrincipals") is not None:
+    child_add_allowed_principals = el.find("AddAllowedPrincipals")
+    if child_add_allowed_principals is not None:
         import capo_ec2.types.value_string_list
 
         out["add_allowed_principals"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AddAllowedPrincipals"
+                child_add_allowed_principals
             )
         )
-    if el.find("RemoveAllowedPrincipals") is not None:
+    child_remove_allowed_principals = el.find("RemoveAllowedPrincipals")
+    if child_remove_allowed_principals is not None:
         import capo_ec2.types.value_string_list
 
         out["remove_allowed_principals"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "RemoveAllowedPrincipals"
+                child_remove_allowed_principals
             )
         )
     return out

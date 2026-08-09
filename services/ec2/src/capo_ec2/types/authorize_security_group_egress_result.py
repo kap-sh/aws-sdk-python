@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> AuthorizeSecurityGroupEgressResult:
     child_return = el.find("return")
     if child_return is not None:
         out["return"] = (child_return.text or "").lower() == "true"
-    if el.find("securityGroupRuleSet") is not None:
+    child_security_group_rules = el.find("securityGroupRuleSet")
+    if child_security_group_rules is not None:
         import capo_ec2.types.security_group_rule_list
 
         out["security_group_rules"] = (
             capo_ec2.types.security_group_rule_list.deserialize_ec2_query(
-                el, "securityGroupRuleSet"
+                child_security_group_rules
             )
         )
     return out

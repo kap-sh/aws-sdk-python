@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> PrivateIpAddressConfigSet:
+def deserialize_ec2_query(el: Element) -> PrivateIpAddressConfigSet:
+    import capo_ec2.types.scheduled_instances_private_ip_address_config
+
+    out: PrivateIpAddressConfigSet = []
+    for child in el.findall("PrivateIpAddressConfigSet"):
+        out.append(
+            capo_ec2.types.scheduled_instances_private_ip_address_config.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> PrivateIpAddressConfigSet:
     import capo_ec2.types.scheduled_instances_private_ip_address_config
 
     out: PrivateIpAddressConfigSet = []

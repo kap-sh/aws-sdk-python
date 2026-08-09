@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.dns_entry.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> DnsEntrySet:
+def deserialize_ec2_query(el: Element) -> DnsEntrySet:
+    import capo_ec2.types.dns_entry
+
+    out: DnsEntrySet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.dns_entry.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> DnsEntrySet:
     import capo_ec2.types.dns_entry
 
     out: DnsEntrySet = []

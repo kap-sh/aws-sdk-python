@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AvailabilityZoneMessageList:
+def deserialize_ec2_query(el: Element) -> AvailabilityZoneMessageList:
+    import capo_ec2.types.availability_zone_message
+
+    out: AvailabilityZoneMessageList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.availability_zone_message.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> AvailabilityZoneMessageList:
     import capo_ec2.types.availability_zone_message
 
     out: AvailabilityZoneMessageList = []

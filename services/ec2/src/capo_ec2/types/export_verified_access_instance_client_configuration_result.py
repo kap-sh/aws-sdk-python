@@ -91,12 +91,13 @@ def deserialize_ec2_query(
     child_region = el.find("region")
     if child_region is not None:
         out["region"] = str(child_region.text or "")
-    if el.find("deviceTrustProviderSet") is not None:
+    child_device_trust_providers = el.find("deviceTrustProviderSet")
+    if child_device_trust_providers is not None:
         import capo_ec2.types.device_trust_provider_type_list
 
         out["device_trust_providers"] = (
             capo_ec2.types.device_trust_provider_type_list.deserialize_ec2_query(
-                el, "deviceTrustProviderSet"
+                child_device_trust_providers
             )
         )
     child_user_trust_provider = el.find("userTrustProvider")
@@ -108,12 +109,13 @@ def deserialize_ec2_query(
                 child_user_trust_provider
             )
         )
-    if el.find("openVpnConfigurationSet") is not None:
+    child_open_vpn_configurations = el.find("openVpnConfigurationSet")
+    if child_open_vpn_configurations is not None:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list
 
         out["open_vpn_configurations"] = (
             capo_ec2.types.verified_access_instance_open_vpn_client_configuration_list.deserialize_ec2_query(
-                el, "openVpnConfigurationSet"
+                child_open_vpn_configurations
             )
         )
     return out

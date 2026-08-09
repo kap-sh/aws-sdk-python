@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> ReservedInstanceReservationValueSet:
+    import capo_ec2.types.reserved_instance_reservation_value
+
+    out: ReservedInstanceReservationValueSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.reserved_instance_reservation_value.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> ReservedInstanceReservationValueSet:
     import capo_ec2.types.reserved_instance_reservation_value

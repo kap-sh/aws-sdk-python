@@ -107,20 +107,22 @@ def deserialize_ec2_query(el: Element) -> CreateTransitGatewayConnectPeerRequest
                 child_bgp_options
             )
         )
-    if el.find("InsideCidrBlocks") is not None:
+    child_inside_cidr_blocks = el.find("InsideCidrBlocks")
+    if child_inside_cidr_blocks is not None:
         import capo_ec2.types.inside_cidr_blocks_string_list
 
         out["inside_cidr_blocks"] = (
             capo_ec2.types.inside_cidr_blocks_string_list.deserialize_ec2_query(
-                el, "InsideCidrBlocks"
+                child_inside_cidr_blocks
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

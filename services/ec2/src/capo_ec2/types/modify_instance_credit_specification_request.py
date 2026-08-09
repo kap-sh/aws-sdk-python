@@ -52,12 +52,13 @@ def deserialize_ec2_query(el: Element) -> ModifyInstanceCreditSpecificationReque
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("InstanceCreditSpecification") is not None:
+    child_instance_credit_specifications = el.find("InstanceCreditSpecification")
+    if child_instance_credit_specifications is not None:
         import capo_ec2.types.instance_credit_specification_list_request
 
         out["instance_credit_specifications"] = (
             capo_ec2.types.instance_credit_specification_list_request.deserialize_ec2_query(
-                el, "InstanceCreditSpecification"
+                child_instance_credit_specifications
             )
         )
     return out

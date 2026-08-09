@@ -26,7 +26,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointPortRangeList:
+    import capo_ec2.types.verified_access_endpoint_port_range
+
+    out: VerifiedAccessEndpointPortRangeList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.verified_access_endpoint_port_range.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> VerifiedAccessEndpointPortRangeList:
     import capo_ec2.types.verified_access_endpoint_port_range

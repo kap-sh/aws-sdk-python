@@ -97,10 +97,11 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayMulticastDomainAssociati
     child_resource_owner_id = el.find("resourceOwnerId")
     if child_resource_owner_id is not None:
         out["resource_owner_id"] = str(child_resource_owner_id.text or "")
-    if el.find("subnets") is not None:
+    child_subnets = el.find("subnets")
+    if child_subnets is not None:
         import capo_ec2.types.subnet_association_list
 
         out["subnets"] = capo_ec2.types.subnet_association_list.deserialize_ec2_query(
-            el, "subnets"
+            child_subnets
         )
     return out

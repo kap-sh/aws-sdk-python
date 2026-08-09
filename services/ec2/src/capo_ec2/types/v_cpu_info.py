@@ -72,18 +72,20 @@ def deserialize_ec2_query(el: Element) -> VCpuInfo:
     child_default_threads_per_core = el.find("defaultThreadsPerCore")
     if child_default_threads_per_core is not None:
         out["default_threads_per_core"] = int(child_default_threads_per_core.text or "")
-    if el.find("validCores") is not None:
+    child_valid_cores = el.find("validCores")
+    if child_valid_cores is not None:
         import capo_ec2.types.core_count_list
 
         out["valid_cores"] = capo_ec2.types.core_count_list.deserialize_ec2_query(
-            el, "validCores"
+            child_valid_cores
         )
-    if el.find("validThreadsPerCore") is not None:
+    child_valid_threads_per_core = el.find("validThreadsPerCore")
+    if child_valid_threads_per_core is not None:
         import capo_ec2.types.threads_per_core_list
 
         out["valid_threads_per_core"] = (
             capo_ec2.types.threads_per_core_list.deserialize_ec2_query(
-                el, "validThreadsPerCore"
+                child_valid_threads_per_core
             )
         )
     return out

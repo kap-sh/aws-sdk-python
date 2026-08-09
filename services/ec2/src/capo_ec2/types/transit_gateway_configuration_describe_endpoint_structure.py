@@ -76,20 +76,22 @@ def deserialize_ec2_query(
         out["transit_gateway_attachment_id"] = str(
             child_transit_gateway_attachment_id.text or ""
         )
-    if el.find("availabilityZoneSet") is not None:
+    child_availability_zones = el.find("availabilityZoneSet")
+    if child_availability_zones is not None:
         import capo_ec2.types.client_vpn_availability_zone_set
 
         out["availability_zones"] = (
             capo_ec2.types.client_vpn_availability_zone_set.deserialize_ec2_query(
-                el, "availabilityZoneSet"
+                child_availability_zones
             )
         )
-    if el.find("availabilityZoneIdSet") is not None:
+    child_availability_zone_ids = el.find("availabilityZoneIdSet")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.client_vpn_availability_zone_id_set
 
         out["availability_zone_ids"] = (
             capo_ec2.types.client_vpn_availability_zone_id_set.deserialize_ec2_query(
-                el, "availabilityZoneIdSet"
+                child_availability_zone_ids
             )
         )
     return out

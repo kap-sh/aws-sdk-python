@@ -27,6 +27,21 @@ def serialize_ec2_query(
 
 
 def deserialize_ec2_query(
+    el: Element,
+) -> VerifiedAccessInstanceOpenVpnClientConfigurationRouteList:
+    import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route
+
+    out: VerifiedAccessInstanceOpenVpnClientConfigurationRouteList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> VerifiedAccessInstanceOpenVpnClientConfigurationRouteList:
     import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route

@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverridesList:
+    import capo_ec2.types.fleet_launch_template_overrides
+
+    out: FleetLaunchTemplateOverridesList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.fleet_launch_template_overrides.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> FleetLaunchTemplateOverridesList:
     import capo_ec2.types.fleet_launch_template_overrides

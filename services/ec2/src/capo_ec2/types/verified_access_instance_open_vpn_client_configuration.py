@@ -44,12 +44,13 @@ def deserialize_ec2_query(
     child_config = el.find("config")
     if child_config is not None:
         out["config"] = str(child_config.text or "")
-    if el.find("routeSet") is not None:
+    child_routes = el.find("routeSet")
+    if child_routes is not None:
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list
 
         out["routes"] = (
             capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list.deserialize_ec2_query(
-                el, "routeSet"
+                child_routes
             )
         )
     return out

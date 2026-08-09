@@ -40,10 +40,11 @@ def deserialize_ec2_query(el: Element) -> DescribeHostReservationOfferingsResult
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("offeringSet") is not None:
+    child_offering_set = el.find("offeringSet")
+    if child_offering_set is not None:
         import capo_ec2.types.host_offering_set
 
         out["offering_set"] = capo_ec2.types.host_offering_set.deserialize_ec2_query(
-            el, "offeringSet"
+            child_offering_set
         )
     return out

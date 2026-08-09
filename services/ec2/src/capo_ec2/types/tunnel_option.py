@@ -244,59 +244,66 @@ def deserialize_ec2_query(el: Element) -> TunnelOption:
     child_dpd_timeout_action = el.find("dpdTimeoutAction")
     if child_dpd_timeout_action is not None:
         out["dpd_timeout_action"] = str(child_dpd_timeout_action.text or "")
-    if el.find("phase1EncryptionAlgorithmSet") is not None:
+    child_phase1_encryption_algorithms = el.find("phase1EncryptionAlgorithmSet")
+    if child_phase1_encryption_algorithms is not None:
         import capo_ec2.types.phase1_encryption_algorithms_list
 
         out["phase1_encryption_algorithms"] = (
             capo_ec2.types.phase1_encryption_algorithms_list.deserialize_ec2_query(
-                el, "phase1EncryptionAlgorithmSet"
+                child_phase1_encryption_algorithms
             )
         )
-    if el.find("phase2EncryptionAlgorithmSet") is not None:
+    child_phase2_encryption_algorithms = el.find("phase2EncryptionAlgorithmSet")
+    if child_phase2_encryption_algorithms is not None:
         import capo_ec2.types.phase2_encryption_algorithms_list
 
         out["phase2_encryption_algorithms"] = (
             capo_ec2.types.phase2_encryption_algorithms_list.deserialize_ec2_query(
-                el, "phase2EncryptionAlgorithmSet"
+                child_phase2_encryption_algorithms
             )
         )
-    if el.find("phase1IntegrityAlgorithmSet") is not None:
+    child_phase1_integrity_algorithms = el.find("phase1IntegrityAlgorithmSet")
+    if child_phase1_integrity_algorithms is not None:
         import capo_ec2.types.phase1_integrity_algorithms_list
 
         out["phase1_integrity_algorithms"] = (
             capo_ec2.types.phase1_integrity_algorithms_list.deserialize_ec2_query(
-                el, "phase1IntegrityAlgorithmSet"
+                child_phase1_integrity_algorithms
             )
         )
-    if el.find("phase2IntegrityAlgorithmSet") is not None:
+    child_phase2_integrity_algorithms = el.find("phase2IntegrityAlgorithmSet")
+    if child_phase2_integrity_algorithms is not None:
         import capo_ec2.types.phase2_integrity_algorithms_list
 
         out["phase2_integrity_algorithms"] = (
             capo_ec2.types.phase2_integrity_algorithms_list.deserialize_ec2_query(
-                el, "phase2IntegrityAlgorithmSet"
+                child_phase2_integrity_algorithms
             )
         )
-    if el.find("phase1DHGroupNumberSet") is not None:
+    child_phase1_dh_group_numbers = el.find("phase1DHGroupNumberSet")
+    if child_phase1_dh_group_numbers is not None:
         import capo_ec2.types.phase1_dh_group_numbers_list
 
         out["phase1_dh_group_numbers"] = (
             capo_ec2.types.phase1_dh_group_numbers_list.deserialize_ec2_query(
-                el, "phase1DHGroupNumberSet"
+                child_phase1_dh_group_numbers
             )
         )
-    if el.find("phase2DHGroupNumberSet") is not None:
+    child_phase2_dh_group_numbers = el.find("phase2DHGroupNumberSet")
+    if child_phase2_dh_group_numbers is not None:
         import capo_ec2.types.phase2_dh_group_numbers_list
 
         out["phase2_dh_group_numbers"] = (
             capo_ec2.types.phase2_dh_group_numbers_list.deserialize_ec2_query(
-                el, "phase2DHGroupNumberSet"
+                child_phase2_dh_group_numbers
             )
         )
-    if el.find("ikeVersionSet") is not None:
+    child_ike_versions = el.find("ikeVersionSet")
+    if child_ike_versions is not None:
         import capo_ec2.types.ike_versions_list
 
         out["ike_versions"] = capo_ec2.types.ike_versions_list.deserialize_ec2_query(
-            el, "ikeVersionSet"
+            child_ike_versions
         )
     child_startup_action = el.find("startupAction")
     if child_startup_action is not None:

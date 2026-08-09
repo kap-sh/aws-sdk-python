@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.product_code.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ProductCodeList:
+def deserialize_ec2_query(el: Element) -> ProductCodeList:
+    import capo_ec2.types.product_code
+
+    out: ProductCodeList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.product_code.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ProductCodeList:
     import capo_ec2.types.product_code
 
     out: ProductCodeList = []

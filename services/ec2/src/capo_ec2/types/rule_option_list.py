@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.rule_option.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> RuleOptionList:
+def deserialize_ec2_query(el: Element) -> RuleOptionList:
+    import capo_ec2.types.rule_option
+
+    out: RuleOptionList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.rule_option.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> RuleOptionList:
     import capo_ec2.types.rule_option
 
     out: RuleOptionList = []

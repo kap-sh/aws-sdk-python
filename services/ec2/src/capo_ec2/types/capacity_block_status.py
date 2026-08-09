@@ -96,12 +96,13 @@ def deserialize_ec2_query(el: Element) -> CapacityBlockStatus:
         out["total_unavailable_capacity"] = int(
             child_total_unavailable_capacity.text or ""
         )
-    if el.find("capacityReservationStatusSet") is not None:
+    child_capacity_reservation_statuses = el.find("capacityReservationStatusSet")
+    if child_capacity_reservation_statuses is not None:
         import capo_ec2.types.capacity_reservation_status_set
 
         out["capacity_reservation_statuses"] = (
             capo_ec2.types.capacity_reservation_status_set.deserialize_ec2_query(
-                el, "capacityReservationStatusSet"
+                child_capacity_reservation_statuses
             )
         )
     return out

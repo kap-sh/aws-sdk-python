@@ -95,10 +95,11 @@ def deserialize_ec2_query(el: Element) -> DescribeScheduledInstanceAvailabilityR
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     child_first_slot_start_time_range = el.find("FirstSlotStartTimeRange")
     if child_first_slot_start_time_range is not None:
         import capo_ec2.types.slot_date_time_range_request

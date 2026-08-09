@@ -85,54 +85,63 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> PacketHeaderStatementRequest:
     out: PacketHeaderStatementRequest = {}  # type: ignore[typeddict-item]
-    if el.find("SourceAddress") is not None:
+    child_source_addresses = el.find("SourceAddress")
+    if child_source_addresses is not None:
         import capo_ec2.types.value_string_list
 
         out["source_addresses"] = (
-            capo_ec2.types.value_string_list.deserialize_ec2_query(el, "SourceAddress")
+            capo_ec2.types.value_string_list.deserialize_ec2_query(
+                child_source_addresses
+            )
         )
-    if el.find("DestinationAddress") is not None:
+    child_destination_addresses = el.find("DestinationAddress")
+    if child_destination_addresses is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_addresses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationAddress"
+                child_destination_addresses
             )
         )
-    if el.find("SourcePort") is not None:
+    child_source_ports = el.find("SourcePort")
+    if child_source_ports is not None:
         import capo_ec2.types.value_string_list
 
         out["source_ports"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "SourcePort"
+            child_source_ports
         )
-    if el.find("DestinationPort") is not None:
+    child_destination_ports = el.find("DestinationPort")
+    if child_destination_ports is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_ports"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPort"
+                child_destination_ports
             )
         )
-    if el.find("SourcePrefixList") is not None:
+    child_source_prefix_lists = el.find("SourcePrefixList")
+    if child_source_prefix_lists is not None:
         import capo_ec2.types.value_string_list
 
         out["source_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "SourcePrefixList"
+                child_source_prefix_lists
             )
         )
-    if el.find("DestinationPrefixList") is not None:
+    child_destination_prefix_lists = el.find("DestinationPrefixList")
+    if child_destination_prefix_lists is not None:
         import capo_ec2.types.value_string_list
 
         out["destination_prefix_lists"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "DestinationPrefixList"
+                child_destination_prefix_lists
             )
         )
-    if el.find("Protocol") is not None:
+    child_protocols = el.find("Protocol")
+    if child_protocols is not None:
         import capo_ec2.types.protocol_list
 
         out["protocols"] = capo_ec2.types.protocol_list.deserialize_ec2_query(
-            el, "Protocol"
+            child_protocols
         )
     return out

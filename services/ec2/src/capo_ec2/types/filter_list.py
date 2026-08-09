@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.filter.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> FilterList:
+def deserialize_ec2_query(el: Element) -> FilterList:
+    import capo_ec2.types.filter
+
+    out: FilterList = []
+    for child in el.findall("Filter"):
+        out.append(capo_ec2.types.filter.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> FilterList:
     import capo_ec2.types.filter
 
     out: FilterList = []

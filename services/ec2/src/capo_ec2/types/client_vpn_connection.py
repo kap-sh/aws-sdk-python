@@ -159,12 +159,13 @@ def deserialize_ec2_query(el: Element) -> ClientVpnConnection:
     child_connection_end_time = el.find("connectionEndTime")
     if child_connection_end_time is not None:
         out["connection_end_time"] = str(child_connection_end_time.text or "")
-    if el.find("postureComplianceStatusSet") is not None:
+    child_posture_compliance_statuses = el.find("postureComplianceStatusSet")
+    if child_posture_compliance_statuses is not None:
         import capo_ec2.types.value_string_list
 
         out["posture_compliance_statuses"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "postureComplianceStatusSet"
+                child_posture_compliance_statuses
             )
         )
     return out

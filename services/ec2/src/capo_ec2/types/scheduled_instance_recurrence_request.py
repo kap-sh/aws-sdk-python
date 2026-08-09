@@ -62,12 +62,13 @@ def deserialize_ec2_query(el: Element) -> ScheduledInstanceRecurrenceRequest:
     child_interval = el.find("Interval")
     if child_interval is not None:
         out["interval"] = int(child_interval.text or "")
-    if el.find("OccurrenceDay") is not None:
+    child_occurrence_days = el.find("OccurrenceDay")
+    if child_occurrence_days is not None:
         import capo_ec2.types.occurrence_day_request_set
 
         out["occurrence_days"] = (
             capo_ec2.types.occurrence_day_request_set.deserialize_ec2_query(
-                el, "OccurrenceDay"
+                child_occurrence_days
             )
         )
     child_occurrence_relative_to_end = el.find("OccurrenceRelativeToEnd")

@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> CapacityManagerMonitoredTagKeyList:
+    import capo_ec2.types.capacity_manager_monitored_tag_key
+
+    out: CapacityManagerMonitoredTagKeyList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.capacity_manager_monitored_tag_key.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> CapacityManagerMonitoredTagKeyList:
     import capo_ec2.types.capacity_manager_monitored_tag_key

@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.bundle_task.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> BundleTaskList:
+def deserialize_ec2_query(el: Element) -> BundleTaskList:
+    import capo_ec2.types.bundle_task
+
+    out: BundleTaskList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.bundle_task.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> BundleTaskList:
     import capo_ec2.types.bundle_task
 
     out: BundleTaskList = []

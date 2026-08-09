@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.reservation.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ReservationList:
+def deserialize_ec2_query(el: Element) -> ReservationList:
+    import capo_ec2.types.reservation
+
+    out: ReservationList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.reservation.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ReservationList:
     import capo_ec2.types.reservation
 
     out: ReservationList = []

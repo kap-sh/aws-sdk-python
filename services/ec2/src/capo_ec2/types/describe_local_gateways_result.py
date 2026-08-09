@@ -35,11 +35,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeLocalGatewaysResult:
     out: DescribeLocalGatewaysResult = {}  # type: ignore[typeddict-item]
-    if el.find("localGatewaySet") is not None:
+    child_local_gateways = el.find("localGatewaySet")
+    if child_local_gateways is not None:
         import capo_ec2.types.local_gateway_set
 
         out["local_gateways"] = capo_ec2.types.local_gateway_set.deserialize_ec2_query(
-            el, "localGatewaySet"
+            child_local_gateways
         )
     child_next_token = el.find("nextToken")
     if child_next_token is not None:

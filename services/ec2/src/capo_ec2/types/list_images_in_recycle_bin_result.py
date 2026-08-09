@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ListImagesInRecycleBinResult:
     out: ListImagesInRecycleBinResult = {}  # type: ignore[typeddict-item]
-    if el.find("imageSet") is not None:
+    child_images = el.find("imageSet")
+    if child_images is not None:
         import capo_ec2.types.image_recycle_bin_info_list
 
         out["images"] = (
             capo_ec2.types.image_recycle_bin_info_list.deserialize_ec2_query(
-                el, "imageSet"
+                child_images
             )
         )
     child_next_token = el.find("nextToken")

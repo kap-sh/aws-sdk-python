@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> IpamPublicAddressTagList:
+def deserialize_ec2_query(el: Element) -> IpamPublicAddressTagList:
+    import capo_ec2.types.ipam_public_address_tag
+
+    out: IpamPublicAddressTagList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.ipam_public_address_tag.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> IpamPublicAddressTagList:
     import capo_ec2.types.ipam_public_address_tag
 
     out: IpamPublicAddressTagList = []

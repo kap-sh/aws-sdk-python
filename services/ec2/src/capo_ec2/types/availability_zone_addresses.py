@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AvailabilityZoneAddresses:
+def deserialize_ec2_query(el: Element) -> AvailabilityZoneAddresses:
+    import capo_ec2.types.availability_zone_address
+
+    out: AvailabilityZoneAddresses = []
+    for child in el.findall("AvailabilityZoneAddress"):
+        out.append(
+            capo_ec2.types.availability_zone_address.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AvailabilityZoneAddresses:
     import capo_ec2.types.availability_zone_address
 
     out: AvailabilityZoneAddresses = []

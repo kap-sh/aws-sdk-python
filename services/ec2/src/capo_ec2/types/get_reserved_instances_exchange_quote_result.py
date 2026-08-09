@@ -146,12 +146,13 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResul
                 child_reserved_instance_value_rollup
             )
         )
-    if el.find("reservedInstanceValueSet") is not None:
+    child_reserved_instance_value_set = el.find("reservedInstanceValueSet")
+    if child_reserved_instance_value_set is not None:
         import capo_ec2.types.reserved_instance_reservation_value_set
 
         out["reserved_instance_value_set"] = (
             capo_ec2.types.reserved_instance_reservation_value_set.deserialize_ec2_query(
-                el, "reservedInstanceValueSet"
+                child_reserved_instance_value_set
             )
         )
     child_target_configuration_value_rollup = el.find("targetConfigurationValueRollup")
@@ -163,12 +164,13 @@ def deserialize_ec2_query(el: Element) -> GetReservedInstancesExchangeQuoteResul
                 child_target_configuration_value_rollup
             )
         )
-    if el.find("targetConfigurationValueSet") is not None:
+    child_target_configuration_value_set = el.find("targetConfigurationValueSet")
+    if child_target_configuration_value_set is not None:
         import capo_ec2.types.target_reservation_value_set
 
         out["target_configuration_value_set"] = (
             capo_ec2.types.target_reservation_value_set.deserialize_ec2_query(
-                el, "targetConfigurationValueSet"
+                child_target_configuration_value_set
             )
         )
     child_validation_failure_reason = el.find("validationFailureReason")

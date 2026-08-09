@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeTransitGatewayConnectsResult:
     out: DescribeTransitGatewayConnectsResult = {}  # type: ignore[typeddict-item]
-    if el.find("transitGatewayConnectSet") is not None:
+    child_transit_gateway_connects = el.find("transitGatewayConnectSet")
+    if child_transit_gateway_connects is not None:
         import capo_ec2.types.transit_gateway_connect_list
 
         out["transit_gateway_connects"] = (
             capo_ec2.types.transit_gateway_connect_list.deserialize_ec2_query(
-                el, "transitGatewayConnectSet"
+                child_transit_gateway_connects
             )
         )
     child_next_token = el.find("nextToken")

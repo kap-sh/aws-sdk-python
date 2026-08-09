@@ -35,10 +35,11 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeHostsResult:
     out: DescribeHostsResult = {}  # type: ignore[typeddict-item]
-    if el.find("hostSet") is not None:
+    child_hosts = el.find("hostSet")
+    if child_hosts is not None:
         import capo_ec2.types.host_list
 
-        out["hosts"] = capo_ec2.types.host_list.deserialize_ec2_query(el, "hostSet")
+        out["hosts"] = capo_ec2.types.host_list.deserialize_ec2_query(child_hosts)
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

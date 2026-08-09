@@ -38,16 +38,18 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ResourceStatementRequest:
     out: ResourceStatementRequest = {}  # type: ignore[typeddict-item]
-    if el.find("Resource") is not None:
+    child_resources = el.find("Resource")
+    if child_resources is not None:
         import capo_ec2.types.value_string_list
 
         out["resources"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "Resource"
+            child_resources
         )
-    if el.find("ResourceType") is not None:
+    child_resource_types = el.find("ResourceType")
+    if child_resource_types is not None:
         import capo_ec2.types.value_string_list
 
         out["resource_types"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "ResourceType"
+            child_resource_types
         )
     return out

@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InferenceDeviceInfoList:
+def deserialize_ec2_query(el: Element) -> InferenceDeviceInfoList:
+    import capo_ec2.types.inference_device_info
+
+    out: InferenceDeviceInfoList = []
+    for child in el.findall("member"):
+        out.append(capo_ec2.types.inference_device_info.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> InferenceDeviceInfoList:
     import capo_ec2.types.inference_device_info
 
     out: InferenceDeviceInfoList = []

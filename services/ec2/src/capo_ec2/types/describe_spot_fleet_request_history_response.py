@@ -60,11 +60,12 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeSpotFleetRequestHistoryResponse:
     out: DescribeSpotFleetRequestHistoryResponse = {}  # type: ignore[typeddict-item]
-    if el.find("historyRecordSet") is not None:
+    child_history_records = el.find("historyRecordSet")
+    if child_history_records is not None:
         import capo_ec2.types.history_records
 
         out["history_records"] = capo_ec2.types.history_records.deserialize_ec2_query(
-            el, "historyRecordSet"
+            child_history_records
         )
     child_last_evaluated_time = el.find("lastEvaluatedTime")
     if child_last_evaluated_time is not None:

@@ -87,11 +87,12 @@ def deserialize_ec2_query(el: Element) -> GpuDeviceInfo:
     child_gpu_partition_size = el.find("gpuPartitionSize")
     if child_gpu_partition_size is not None:
         out["gpu_partition_size"] = float(child_gpu_partition_size.text or "")
-    if el.find("workloadSet") is not None:
+    child_workloads = el.find("workloadSet")
+    if child_workloads is not None:
         import capo_ec2.types.workloads_list
 
         out["workloads"] = capo_ec2.types.workloads_list.deserialize_ec2_query(
-            el, "workloadSet"
+            child_workloads
         )
     child_memory_info = el.find("memoryInfo")
     if child_memory_info is not None:

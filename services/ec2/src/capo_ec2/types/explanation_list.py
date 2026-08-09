@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.explanation.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> ExplanationList:
+def deserialize_ec2_query(el: Element) -> ExplanationList:
+    import capo_ec2.types.explanation
+
+    out: ExplanationList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.explanation.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> ExplanationList:
     import capo_ec2.types.explanation
 
     out: ExplanationList = []

@@ -40,12 +40,13 @@ def deserialize_ec2_query(el: Element) -> DhcpConfiguration:
     child_key = el.find("key")
     if child_key is not None:
         out["key"] = str(child_key.text or "")
-    if el.find("valueSet") is not None:
+    child_values = el.find("valueSet")
+    if child_values is not None:
         import capo_ec2.types.dhcp_configuration_value_list
 
         out["values"] = (
             capo_ec2.types.dhcp_configuration_value_list.deserialize_ec2_query(
-                el, "valueSet"
+                child_values
             )
         )
     return out

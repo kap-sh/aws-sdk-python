@@ -54,10 +54,11 @@ def deserialize_ec2_query(el: Element) -> AttachClassicLinkVpcRequest:
     child_vpc_id = el.find("vpcId")
     if child_vpc_id is not None:
         out["vpc_id"] = str(child_vpc_id.text or "")
-    if el.find("SecurityGroupId") is not None:
+    child_groups = el.find("SecurityGroupId")
+    if child_groups is not None:
         import capo_ec2.types.group_id_string_list
 
         out["groups"] = capo_ec2.types.group_id_string_list.deserialize_ec2_query(
-            el, "SecurityGroupId"
+            child_groups
         )
     return out

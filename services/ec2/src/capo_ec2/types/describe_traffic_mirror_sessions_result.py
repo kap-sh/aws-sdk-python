@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeTrafficMirrorSessionsResult:
     out: DescribeTrafficMirrorSessionsResult = {}  # type: ignore[typeddict-item]
-    if el.find("trafficMirrorSessionSet") is not None:
+    child_traffic_mirror_sessions = el.find("trafficMirrorSessionSet")
+    if child_traffic_mirror_sessions is not None:
         import capo_ec2.types.traffic_mirror_session_set
 
         out["traffic_mirror_sessions"] = (
             capo_ec2.types.traffic_mirror_session_set.deserialize_ec2_query(
-                el, "trafficMirrorSessionSet"
+                child_traffic_mirror_sessions
             )
         )
     child_next_token = el.find("nextToken")

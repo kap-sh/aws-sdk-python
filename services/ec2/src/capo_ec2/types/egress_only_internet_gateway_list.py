@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> EgressOnlyInternetGatewayList:
+def deserialize_ec2_query(el: Element) -> EgressOnlyInternetGatewayList:
+    import capo_ec2.types.egress_only_internet_gateway
+
+    out: EgressOnlyInternetGatewayList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.egress_only_internet_gateway.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> EgressOnlyInternetGatewayList:
     import capo_ec2.types.egress_only_internet_gateway
 
     out: EgressOnlyInternetGatewayList = []

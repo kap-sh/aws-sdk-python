@@ -96,11 +96,12 @@ def deserialize_ec2_query(el: Element) -> DescribeNetworkInterfaceAttributeResul
         out["description"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_description
         )
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
     child_network_interface_id = el.find("networkInterfaceId")
     if child_network_interface_id is not None:

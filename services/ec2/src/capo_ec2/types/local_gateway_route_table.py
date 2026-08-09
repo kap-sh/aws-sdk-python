@@ -111,10 +111,11 @@ def deserialize_ec2_query(el: Element) -> LocalGatewayRouteTable:
     child_state = el.find("state")
     if child_state is not None:
         out["state"] = str(child_state.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_mode = el.find("mode")
     if child_mode is not None:
         import capo_ec2.types.local_gateway_route_table_mode

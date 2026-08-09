@@ -78,24 +78,27 @@ def deserialize_ec2_query(el: Element) -> DescribeInstanceTopologyRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("InstanceId") is not None:
+    child_instance_ids = el.find("InstanceId")
+    if child_instance_ids is not None:
         import capo_ec2.types.describe_instance_topology_instance_id_set
 
         out["instance_ids"] = (
             capo_ec2.types.describe_instance_topology_instance_id_set.deserialize_ec2_query(
-                el, "InstanceId"
+                child_instance_ids
             )
         )
-    if el.find("GroupName") is not None:
+    child_group_names = el.find("GroupName")
+    if child_group_names is not None:
         import capo_ec2.types.describe_instance_topology_group_name_set
 
         out["group_names"] = (
             capo_ec2.types.describe_instance_topology_group_name_set.deserialize_ec2_query(
-                el, "GroupName"
+                child_group_names
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

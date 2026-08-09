@@ -68,12 +68,13 @@ def deserialize_ec2_query(el: Element) -> CreateDelegateMacVolumeOwnershipTaskRe
     child_mac_credentials = el.find("MacCredentials")
     if child_mac_credentials is not None:
         out["mac_credentials"] = str(child_mac_credentials.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

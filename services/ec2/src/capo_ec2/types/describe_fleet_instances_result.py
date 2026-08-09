@@ -42,12 +42,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeFleetInstancesResult:
     out: DescribeFleetInstancesResult = {}  # type: ignore[typeddict-item]
-    if el.find("activeInstanceSet") is not None:
+    child_active_instances = el.find("activeInstanceSet")
+    if child_active_instances is not None:
         import capo_ec2.types.active_instance_set
 
         out["active_instances"] = (
             capo_ec2.types.active_instance_set.deserialize_ec2_query(
-                el, "activeInstanceSet"
+                child_active_instances
             )
         )
     child_next_token = el.find("nextToken")

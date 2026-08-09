@@ -63,18 +63,20 @@ def deserialize_ec2_query(el: Element) -> FpgaImageAttribute:
     child_description = el.find("description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("loadPermissions") is not None:
+    child_load_permissions = el.find("loadPermissions")
+    if child_load_permissions is not None:
         import capo_ec2.types.load_permission_list
 
         out["load_permissions"] = (
             capo_ec2.types.load_permission_list.deserialize_ec2_query(
-                el, "loadPermissions"
+                child_load_permissions
             )
         )
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
     return out

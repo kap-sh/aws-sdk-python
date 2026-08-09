@@ -137,12 +137,13 @@ def deserialize_ec2_query(el: Element) -> ImportImageRequest:
     child_description = el.find("Description")
     if child_description is not None:
         out["description"] = str(child_description.text or "")
-    if el.find("DiskContainer") is not None:
+    child_disk_containers = el.find("DiskContainer")
+    if child_disk_containers is not None:
         import capo_ec2.types.image_disk_container_list
 
         out["disk_containers"] = (
             capo_ec2.types.image_disk_container_list.deserialize_ec2_query(
-                el, "DiskContainer"
+                child_disk_containers
             )
         )
     child_dry_run = el.find("DryRun")
@@ -166,20 +167,22 @@ def deserialize_ec2_query(el: Element) -> ImportImageRequest:
     child_role_name = el.find("RoleName")
     if child_role_name is not None:
         out["role_name"] = str(child_role_name.text or "")
-    if el.find("LicenseSpecifications") is not None:
+    child_license_specifications = el.find("LicenseSpecifications")
+    if child_license_specifications is not None:
         import capo_ec2.types.import_image_license_specification_list_request
 
         out["license_specifications"] = (
             capo_ec2.types.import_image_license_specification_list_request.deserialize_ec2_query(
-                el, "LicenseSpecifications"
+                child_license_specifications
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_usage_operation = el.find("UsageOperation")

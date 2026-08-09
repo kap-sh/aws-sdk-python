@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> VolumeStatusDetailsList:
+def deserialize_ec2_query(el: Element) -> VolumeStatusDetailsList:
+    import capo_ec2.types.volume_status_details
+
+    out: VolumeStatusDetailsList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.volume_status_details.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> VolumeStatusDetailsList:
     import capo_ec2.types.volume_status_details
 
     out: VolumeStatusDetailsList = []

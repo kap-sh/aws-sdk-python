@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> SubnetIpv6CidrBlockAssociationSet:
+    import capo_ec2.types.subnet_ipv6_cidr_block_association
+
+    out: SubnetIpv6CidrBlockAssociationSet = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.subnet_ipv6_cidr_block_association.deserialize_ec2_query(
+                child
+            )
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> SubnetIpv6CidrBlockAssociationSet:
     import capo_ec2.types.subnet_ipv6_cidr_block_association

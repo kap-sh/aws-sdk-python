@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(
+def deserialize_ec2_query(el: Element) -> TrafficMirrorFilterRuleFieldList:
+    import capo_ec2.types.traffic_mirror_filter_rule_field
+
+    out: TrafficMirrorFilterRuleFieldList = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.traffic_mirror_filter_rule_field.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
     parent: Element, tag: str
 ) -> TrafficMirrorFilterRuleFieldList:
     import capo_ec2.types.traffic_mirror_filter_rule_field

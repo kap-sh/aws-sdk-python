@@ -85,35 +85,39 @@ def deserialize_ec2_query(el: Element) -> StartNetworkInsightsAnalysisRequest:
     child_network_insights_path_id = el.find("NetworkInsightsPathId")
     if child_network_insights_path_id is not None:
         out["network_insights_path_id"] = str(child_network_insights_path_id.text or "")
-    if el.find("AdditionalAccount") is not None:
+    child_additional_accounts = el.find("AdditionalAccount")
+    if child_additional_accounts is not None:
         import capo_ec2.types.value_string_list
 
         out["additional_accounts"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "AdditionalAccount"
+                child_additional_accounts
             )
         )
-    if el.find("FilterInArn") is not None:
+    child_filter_in_arns = el.find("FilterInArn")
+    if child_filter_in_arns is not None:
         import capo_ec2.types.arn_list
 
         out["filter_in_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "FilterInArn"
+            child_filter_in_arns
         )
-    if el.find("FilterOutArn") is not None:
+    child_filter_out_arns = el.find("FilterOutArn")
+    if child_filter_out_arns is not None:
         import capo_ec2.types.arn_list
 
         out["filter_out_arns"] = capo_ec2.types.arn_list.deserialize_ec2_query(
-            el, "FilterOutArn"
+            child_filter_out_arns
         )
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_client_token = el.find("ClientToken")

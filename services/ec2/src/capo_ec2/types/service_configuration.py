@@ -194,12 +194,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
     out: ServiceConfiguration = {}  # type: ignore[typeddict-item]
-    if el.find("serviceType") is not None:
+    child_service_type = el.find("serviceType")
+    if child_service_type is not None:
         import capo_ec2.types.service_type_detail_set
 
         out["service_type"] = (
             capo_ec2.types.service_type_detail_set.deserialize_ec2_query(
-                el, "serviceType"
+                child_service_type
             )
         )
     child_service_id = el.find("serviceId")
@@ -215,20 +216,22 @@ def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
         out["service_state"] = capo_ec2.types.service_state.deserialize_ec2_query(
             child_service_state
         )
-    if el.find("availabilityZoneIdSet") is not None:
+    child_availability_zone_ids = el.find("availabilityZoneIdSet")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneIdSet"
+                child_availability_zone_ids
             )
         )
-    if el.find("availabilityZoneSet") is not None:
+    child_availability_zones = el.find("availabilityZoneSet")
+    if child_availability_zones is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneSet"
+                child_availability_zones
             )
         )
     child_acceptance_required = el.find("acceptanceRequired")
@@ -241,36 +244,40 @@ def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
         out["manages_vpc_endpoints"] = (
             child_manages_vpc_endpoints.text or ""
         ).lower() == "true"
-    if el.find("networkLoadBalancerArnSet") is not None:
+    child_network_load_balancer_arns = el.find("networkLoadBalancerArnSet")
+    if child_network_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["network_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "networkLoadBalancerArnSet"
+                child_network_load_balancer_arns
             )
         )
-    if el.find("gatewayLoadBalancerArnSet") is not None:
+    child_gateway_load_balancer_arns = el.find("gatewayLoadBalancerArnSet")
+    if child_gateway_load_balancer_arns is not None:
         import capo_ec2.types.value_string_list
 
         out["gateway_load_balancer_arns"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "gatewayLoadBalancerArnSet"
+                child_gateway_load_balancer_arns
             )
         )
-    if el.find("supportedIpAddressTypeSet") is not None:
+    child_supported_ip_address_types = el.find("supportedIpAddressTypeSet")
+    if child_supported_ip_address_types is not None:
         import capo_ec2.types.supported_ip_address_types
 
         out["supported_ip_address_types"] = (
             capo_ec2.types.supported_ip_address_types.deserialize_ec2_query(
-                el, "supportedIpAddressTypeSet"
+                child_supported_ip_address_types
             )
         )
-    if el.find("baseEndpointDnsNameSet") is not None:
+    child_base_endpoint_dns_names = el.find("baseEndpointDnsNameSet")
+    if child_base_endpoint_dns_names is not None:
         import capo_ec2.types.value_string_list
 
         out["base_endpoint_dns_names"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "baseEndpointDnsNameSet"
+                child_base_endpoint_dns_names
             )
         )
     child_private_dns_name = el.find("privateDnsName")
@@ -294,16 +301,18 @@ def deserialize_ec2_query(el: Element) -> ServiceConfiguration:
                 child_payer_responsibility
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("supportedRegionSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_supported_regions = el.find("supportedRegionSet")
+    if child_supported_regions is not None:
         import capo_ec2.types.supported_region_set
 
         out["supported_regions"] = (
             capo_ec2.types.supported_region_set.deserialize_ec2_query(
-                el, "supportedRegionSet"
+                child_supported_regions
             )
         )
     child_remote_access_enabled = el.find("remoteAccessEnabled")

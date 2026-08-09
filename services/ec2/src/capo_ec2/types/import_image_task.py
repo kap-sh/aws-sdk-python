@@ -147,12 +147,13 @@ def deserialize_ec2_query(el: Element) -> ImportImageTask:
     child_progress = el.find("progress")
     if child_progress is not None:
         out["progress"] = str(child_progress.text or "")
-    if el.find("snapshotDetailSet") is not None:
+    child_snapshot_details = el.find("snapshotDetailSet")
+    if child_snapshot_details is not None:
         import capo_ec2.types.snapshot_detail_list
 
         out["snapshot_details"] = (
             capo_ec2.types.snapshot_detail_list.deserialize_ec2_query(
-                el, "snapshotDetailSet"
+                child_snapshot_details
             )
         )
     child_status = el.find("status")
@@ -161,16 +162,18 @@ def deserialize_ec2_query(el: Element) -> ImportImageTask:
     child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("licenseSpecifications") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_license_specifications = el.find("licenseSpecifications")
+    if child_license_specifications is not None:
         import capo_ec2.types.import_image_license_specification_list_response
 
         out["license_specifications"] = (
             capo_ec2.types.import_image_license_specification_list_response.deserialize_ec2_query(
-                el, "licenseSpecifications"
+                child_license_specifications
             )
         )
     child_usage_operation = el.find("usageOperation")

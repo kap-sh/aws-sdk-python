@@ -58,12 +58,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeDhcpOptionsRequest:
     out: DescribeDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
-    if el.find("DhcpOptionsId") is not None:
+    child_dhcp_options_ids = el.find("DhcpOptionsId")
+    if child_dhcp_options_ids is not None:
         import capo_ec2.types.dhcp_options_id_string_list
 
         out["dhcp_options_ids"] = (
             capo_ec2.types.dhcp_options_id_string_list.deserialize_ec2_query(
-                el, "DhcpOptionsId"
+                child_dhcp_options_ids
             )
         )
     child_next_token = el.find("NextToken")
@@ -75,8 +76,9 @@ def deserialize_ec2_query(el: Element) -> DescribeDhcpOptionsRequest:
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

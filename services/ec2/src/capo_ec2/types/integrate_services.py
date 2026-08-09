@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IntegrateServices:
     out: IntegrateServices = {}  # type: ignore[typeddict-item]
-    if el.find("AthenaIntegration") is not None:
+    child_athena_integrations = el.find("AthenaIntegration")
+    if child_athena_integrations is not None:
         import capo_ec2.types.athena_integrations_set
 
         out["athena_integrations"] = (
             capo_ec2.types.athena_integrations_set.deserialize_ec2_query(
-                el, "AthenaIntegration"
+                child_athena_integrations
             )
         )
     return out

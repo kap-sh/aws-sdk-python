@@ -64,12 +64,13 @@ def deserialize_ec2_query(el: Element) -> StartDeclarativePoliciesReportRequest:
     child_target_id = el.find("TargetId")
     if child_target_id is not None:
         out["target_id"] = str(child_target_id.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     return out

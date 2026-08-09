@@ -108,20 +108,22 @@ def deserialize_ec2_query(el: Element) -> ReservedInstancesListing:
         out["create_date"] = capo_ec2.types.date_time.deserialize_ec2_query(
             child_create_date
         )
-    if el.find("instanceCounts") is not None:
+    child_instance_counts = el.find("instanceCounts")
+    if child_instance_counts is not None:
         import capo_ec2.types.instance_count_list
 
         out["instance_counts"] = (
             capo_ec2.types.instance_count_list.deserialize_ec2_query(
-                el, "instanceCounts"
+                child_instance_counts
             )
         )
-    if el.find("priceSchedules") is not None:
+    child_price_schedules = el.find("priceSchedules")
+    if child_price_schedules is not None:
         import capo_ec2.types.price_schedule_list
 
         out["price_schedules"] = (
             capo_ec2.types.price_schedule_list.deserialize_ec2_query(
-                el, "priceSchedules"
+                child_price_schedules
             )
         )
     child_reserved_instances_id = el.find("reservedInstancesId")
@@ -142,10 +144,11 @@ def deserialize_ec2_query(el: Element) -> ReservedInstancesListing:
     child_status_message = el.find("statusMessage")
     if child_status_message is not None:
         out["status_message"] = str(child_status_message.text or "")
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_update_date = el.find("updateDate")
     if child_update_date is not None:
         import capo_ec2.types.date_time

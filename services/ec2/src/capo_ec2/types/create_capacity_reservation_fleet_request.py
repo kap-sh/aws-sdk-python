@@ -109,12 +109,13 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:
     child_client_token = el.find("ClientToken")
     if child_client_token is not None:
         out["client_token"] = str(child_client_token.text or "")
-    if el.find("InstanceTypeSpecification") is not None:
+    child_instance_type_specifications = el.find("InstanceTypeSpecification")
+    if child_instance_type_specifications is not None:
         import capo_ec2.types.reservation_fleet_instance_specification_list
 
         out["instance_type_specifications"] = (
             capo_ec2.types.reservation_fleet_instance_specification_list.deserialize_ec2_query(
-                el, "InstanceTypeSpecification"
+                child_instance_type_specifications
             )
         )
     child_tenancy = el.find("Tenancy")
@@ -145,12 +146,13 @@ def deserialize_ec2_query(el: Element) -> CreateCapacityReservationFleetRequest:
                 child_instance_match_criteria
             )
         )
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_dry_run = el.find("DryRun")

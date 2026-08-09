@@ -47,20 +47,22 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DeleteFleetsResult:
     out: DeleteFleetsResult = {}  # type: ignore[typeddict-item]
-    if el.find("successfulFleetDeletionSet") is not None:
+    child_successful_fleet_deletions = el.find("successfulFleetDeletionSet")
+    if child_successful_fleet_deletions is not None:
         import capo_ec2.types.delete_fleet_success_set
 
         out["successful_fleet_deletions"] = (
             capo_ec2.types.delete_fleet_success_set.deserialize_ec2_query(
-                el, "successfulFleetDeletionSet"
+                child_successful_fleet_deletions
             )
         )
-    if el.find("unsuccessfulFleetDeletionSet") is not None:
+    child_unsuccessful_fleet_deletions = el.find("unsuccessfulFleetDeletionSet")
+    if child_unsuccessful_fleet_deletions is not None:
         import capo_ec2.types.delete_fleet_error_set
 
         out["unsuccessful_fleet_deletions"] = (
             capo_ec2.types.delete_fleet_error_set.deserialize_ec2_query(
-                el, "unsuccessfulFleetDeletionSet"
+                child_unsuccessful_fleet_deletions
             )
         )
     return out

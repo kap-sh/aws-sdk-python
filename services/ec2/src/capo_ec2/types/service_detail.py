@@ -175,53 +175,58 @@ def deserialize_ec2_query(el: Element) -> ServiceDetail:
     child_service_id = el.find("serviceId")
     if child_service_id is not None:
         out["service_id"] = str(child_service_id.text or "")
-    if el.find("serviceType") is not None:
+    child_service_type = el.find("serviceType")
+    if child_service_type is not None:
         import capo_ec2.types.service_type_detail_set
 
         out["service_type"] = (
             capo_ec2.types.service_type_detail_set.deserialize_ec2_query(
-                el, "serviceType"
+                child_service_type
             )
         )
     child_service_region = el.find("serviceRegion")
     if child_service_region is not None:
         out["service_region"] = str(child_service_region.text or "")
-    if el.find("availabilityZoneIdSet") is not None:
+    child_availability_zone_ids = el.find("availabilityZoneIdSet")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneIdSet"
+                child_availability_zone_ids
             )
         )
-    if el.find("availabilityZoneSet") is not None:
+    child_availability_zones = el.find("availabilityZoneSet")
+    if child_availability_zones is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneSet"
+                child_availability_zones
             )
         )
     child_owner = el.find("owner")
     if child_owner is not None:
         out["owner"] = str(child_owner.text or "")
-    if el.find("baseEndpointDnsNameSet") is not None:
+    child_base_endpoint_dns_names = el.find("baseEndpointDnsNameSet")
+    if child_base_endpoint_dns_names is not None:
         import capo_ec2.types.value_string_list
 
         out["base_endpoint_dns_names"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "baseEndpointDnsNameSet"
+                child_base_endpoint_dns_names
             )
         )
     child_private_dns_name = el.find("privateDnsName")
     if child_private_dns_name is not None:
         out["private_dns_name"] = str(child_private_dns_name.text or "")
-    if el.find("privateDnsNameSet") is not None:
+    child_private_dns_names = el.find("privateDnsNameSet")
+    if child_private_dns_names is not None:
         import capo_ec2.types.private_dns_details_set
 
         out["private_dns_names"] = (
             capo_ec2.types.private_dns_details_set.deserialize_ec2_query(
-                el, "privateDnsNameSet"
+                child_private_dns_names
             )
         )
     child_vpc_endpoint_policy_supported = el.find("vpcEndpointPolicySupported")
@@ -248,10 +253,11 @@ def deserialize_ec2_query(el: Element) -> ServiceDetail:
                 child_payer_responsibility
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
     child_private_dns_name_verification_state = el.find(
         "privateDnsNameVerificationState"
     )
@@ -263,12 +269,13 @@ def deserialize_ec2_query(el: Element) -> ServiceDetail:
                 child_private_dns_name_verification_state
             )
         )
-    if el.find("supportedIpAddressTypeSet") is not None:
+    child_supported_ip_address_types = el.find("supportedIpAddressTypeSet")
+    if child_supported_ip_address_types is not None:
         import capo_ec2.types.supported_ip_address_types
 
         out["supported_ip_address_types"] = (
             capo_ec2.types.supported_ip_address_types.deserialize_ec2_query(
-                el, "supportedIpAddressTypeSet"
+                child_supported_ip_address_types
             )
         )
     return out

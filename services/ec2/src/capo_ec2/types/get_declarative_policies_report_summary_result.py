@@ -118,12 +118,13 @@ def deserialize_ec2_query(el: Element) -> GetDeclarativePoliciesReportSummaryRes
         out["number_of_failed_accounts"] = int(
             child_number_of_failed_accounts.text or ""
         )
-    if el.find("attributeSummarySet") is not None:
+    child_attribute_summaries = el.find("attributeSummarySet")
+    if child_attribute_summaries is not None:
         import capo_ec2.types.attribute_summary_list
 
         out["attribute_summaries"] = (
             capo_ec2.types.attribute_summary_list.deserialize_ec2_query(
-                el, "attributeSummarySet"
+                child_attribute_summaries
             )
         )
     return out

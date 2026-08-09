@@ -70,23 +70,25 @@ def deserialize_ec2_query(el: Element) -> CreateVerifiedAccessEndpointCidrOption
                 child_protocol
             )
         )
-    if el.find("SubnetId") is not None:
+    child_subnet_ids = el.find("SubnetId")
+    if child_subnet_ids is not None:
         import capo_ec2.types.create_verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.create_verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "SubnetId"
+                child_subnet_ids
             )
         )
     child_cidr = el.find("Cidr")
     if child_cidr is not None:
         out["cidr"] = str(child_cidr.text or "")
-    if el.find("PortRange") is not None:
+    child_port_ranges = el.find("PortRange")
+    if child_port_ranges is not None:
         import capo_ec2.types.create_verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.create_verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "PortRange"
+                child_port_ranges
             )
         )
     return out

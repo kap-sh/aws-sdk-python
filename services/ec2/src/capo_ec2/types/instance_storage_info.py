@@ -60,10 +60,11 @@ def deserialize_ec2_query(el: Element) -> InstanceStorageInfo:
     child_total_size_in_gb = el.find("totalSizeInGB")
     if child_total_size_in_gb is not None:
         out["total_size_in_gb"] = int(child_total_size_in_gb.text or "")
-    if el.find("disks") is not None:
+    child_disks = el.find("disks")
+    if child_disks is not None:
         import capo_ec2.types.disk_info_list
 
-        out["disks"] = capo_ec2.types.disk_info_list.deserialize_ec2_query(el, "disks")
+        out["disks"] = capo_ec2.types.disk_info_list.deserialize_ec2_query(child_disks)
     child_nvme_support = el.find("nvmeSupport")
     if child_nvme_support is not None:
         import capo_ec2.types.ephemeral_nvme_support

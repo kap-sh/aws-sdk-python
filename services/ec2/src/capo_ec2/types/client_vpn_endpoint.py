@@ -286,11 +286,12 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
     child_client_cidr_block = el.find("clientCidrBlock")
     if child_client_cidr_block is not None:
         out["client_cidr_block"] = str(child_client_cidr_block.text or "")
-    if el.find("dnsServer") is not None:
+    child_dns_servers = el.find("dnsServer")
+    if child_dns_servers is not None:
         import capo_ec2.types.value_string_list
 
         out["dns_servers"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "dnsServer"
+            child_dns_servers
         )
     child_split_tunnel = el.find("splitTunnel")
     if child_split_tunnel is not None:
@@ -314,23 +315,25 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
     child_vpn_port = el.find("vpnPort")
     if child_vpn_port is not None:
         out["vpn_port"] = int(child_vpn_port.text or "")
-    if el.find("associatedTargetNetwork") is not None:
+    child_associated_target_networks = el.find("associatedTargetNetwork")
+    if child_associated_target_networks is not None:
         import capo_ec2.types.associated_target_network_set
 
         out["associated_target_networks"] = (
             capo_ec2.types.associated_target_network_set.deserialize_ec2_query(
-                el, "associatedTargetNetwork"
+                child_associated_target_networks
             )
         )
     child_server_certificate_arn = el.find("serverCertificateArn")
     if child_server_certificate_arn is not None:
         out["server_certificate_arn"] = str(child_server_certificate_arn.text or "")
-    if el.find("authenticationOptions") is not None:
+    child_authentication_options = el.find("authenticationOptions")
+    if child_authentication_options is not None:
         import capo_ec2.types.client_vpn_authentication_list
 
         out["authentication_options"] = (
             capo_ec2.types.client_vpn_authentication_list.deserialize_ec2_query(
-                el, "authenticationOptions"
+                child_authentication_options
             )
         )
     child_connection_log_options = el.find("connectionLogOptions")
@@ -342,16 +345,18 @@ def deserialize_ec2_query(el: Element) -> ClientVpnEndpoint:
                 child_connection_log_options
             )
         )
-    if el.find("tagSet") is not None:
+    child_tags = el.find("tagSet")
+    if child_tags is not None:
         import capo_ec2.types.tag_list
 
-        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(el, "tagSet")
-    if el.find("securityGroupIdSet") is not None:
+        out["tags"] = capo_ec2.types.tag_list.deserialize_ec2_query(child_tags)
+    child_security_group_ids = el.find("securityGroupIdSet")
+    if child_security_group_ids is not None:
         import capo_ec2.types.client_vpn_security_group_id_set
 
         out["security_group_ids"] = (
             capo_ec2.types.client_vpn_security_group_id_set.deserialize_ec2_query(
-                el, "securityGroupIdSet"
+                child_security_group_ids
             )
         )
     child_vpc_id = el.find("vpcId")

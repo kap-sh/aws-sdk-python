@@ -30,10 +30,9 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> CopyVolumesResult:
     out: CopyVolumesResult = {}  # type: ignore[typeddict-item]
-    if el.find("volumeSet") is not None:
+    child_volumes = el.find("volumeSet")
+    if child_volumes is not None:
         import capo_ec2.types.volume_list
 
-        out["volumes"] = capo_ec2.types.volume_list.deserialize_ec2_query(
-            el, "volumeSet"
-        )
+        out["volumes"] = capo_ec2.types.volume_list.deserialize_ec2_query(child_volumes)
     return out

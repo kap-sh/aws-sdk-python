@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> InternetGatewayAttachmentList:
+def deserialize_ec2_query(el: Element) -> InternetGatewayAttachmentList:
+    import capo_ec2.types.internet_gateway_attachment
+
+    out: InternetGatewayAttachmentList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.internet_gateway_attachment.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> InternetGatewayAttachmentList:
     import capo_ec2.types.internet_gateway_attachment
 
     out: InternetGatewayAttachmentList = []

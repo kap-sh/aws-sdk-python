@@ -38,10 +38,11 @@ def deserialize_ec2_query(el: Element) -> DescribeSnapshotsResult:
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("snapshotSet") is not None:
+    child_snapshots = el.find("snapshotSet")
+    if child_snapshots is not None:
         import capo_ec2.types.snapshot_list
 
         out["snapshots"] = capo_ec2.types.snapshot_list.deserialize_ec2_query(
-            el, "snapshotSet"
+            child_snapshots
         )
     return out

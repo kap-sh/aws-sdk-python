@@ -178,12 +178,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> InstanceAttribute:
     out: InstanceAttribute = {}  # type: ignore[typeddict-item]
-    if el.find("blockDeviceMapping") is not None:
+    child_block_device_mappings = el.find("blockDeviceMapping")
+    if child_block_device_mappings is not None:
         import capo_ec2.types.instance_block_device_mapping_list
 
         out["block_device_mappings"] = (
             capo_ec2.types.instance_block_device_mapping_list.deserialize_ec2_query(
-                el, "blockDeviceMapping"
+                child_block_device_mappings
             )
         )
     child_disable_api_termination = el.find("disableApiTermination")
@@ -248,11 +249,12 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
         out["kernel_id"] = capo_ec2.types.attribute_value.deserialize_ec2_query(
             child_kernel_id
         )
-    if el.find("productCodes") is not None:
+    child_product_codes = el.find("productCodes")
+    if child_product_codes is not None:
         import capo_ec2.types.product_code_list
 
         out["product_codes"] = capo_ec2.types.product_code_list.deserialize_ec2_query(
-            el, "productCodes"
+            child_product_codes
         )
     child_ramdisk_id = el.find("ramdisk")
     if child_ramdisk_id is not None:
@@ -300,10 +302,11 @@ def deserialize_ec2_query(el: Element) -> InstanceAttribute:
                 child_disable_api_stop
             )
         )
-    if el.find("groupSet") is not None:
+    child_groups = el.find("groupSet")
+    if child_groups is not None:
         import capo_ec2.types.group_identifier_list
 
         out["groups"] = capo_ec2.types.group_identifier_list.deserialize_ec2_query(
-            el, "groupSet"
+            child_groups
         )
     return out

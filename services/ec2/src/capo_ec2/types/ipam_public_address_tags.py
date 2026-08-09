@@ -32,12 +32,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> IpamPublicAddressTags:
     out: IpamPublicAddressTags = {}  # type: ignore[typeddict-item]
-    if el.find("eipTagSet") is not None:
+    child_eip_tags = el.find("eipTagSet")
+    if child_eip_tags is not None:
         import capo_ec2.types.ipam_public_address_tag_list
 
         out["eip_tags"] = (
             capo_ec2.types.ipam_public_address_tag_list.deserialize_ec2_query(
-                el, "eipTagSet"
+                child_eip_tags
             )
         )
     return out

@@ -103,12 +103,13 @@ def deserialize_ec2_query(el: Element) -> ProvisionByoipCidrRequest:
     child_dry_run = el.find("DryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"
-    if el.find("PoolTagSpecification") is not None:
+    child_pool_tag_specifications = el.find("PoolTagSpecification")
+    if child_pool_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["pool_tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "PoolTagSpecification"
+                child_pool_tag_specifications
             )
         )
     child_multi_region = el.find("MultiRegion")

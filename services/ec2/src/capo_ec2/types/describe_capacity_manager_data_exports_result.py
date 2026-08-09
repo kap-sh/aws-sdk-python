@@ -41,12 +41,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribeCapacityManagerDataExportsResult:
     out: DescribeCapacityManagerDataExportsResult = {}  # type: ignore[typeddict-item]
-    if el.find("capacityManagerDataExportSet") is not None:
+    child_capacity_manager_data_exports = el.find("capacityManagerDataExportSet")
+    if child_capacity_manager_data_exports is not None:
         import capo_ec2.types.capacity_manager_data_export_response_set
 
         out["capacity_manager_data_exports"] = (
             capo_ec2.types.capacity_manager_data_export_response_set.deserialize_ec2_query(
-                el, "capacityManagerDataExportSet"
+                child_capacity_manager_data_exports
             )
         )
     child_next_token = el.find("nextToken")

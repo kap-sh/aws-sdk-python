@@ -50,12 +50,13 @@ def deserialize_ec2_query(el: Element) -> PurchaseCapacityBlockResult:
                 child_capacity_reservation
             )
         )
-    if el.find("capacityBlockSet") is not None:
+    child_capacity_blocks = el.find("capacityBlockSet")
+    if child_capacity_blocks is not None:
         import capo_ec2.types.capacity_block_set
 
         out["capacity_blocks"] = (
             capo_ec2.types.capacity_block_set.deserialize_ec2_query(
-                el, "capacityBlockSet"
+                child_capacity_blocks
             )
         )
     return out

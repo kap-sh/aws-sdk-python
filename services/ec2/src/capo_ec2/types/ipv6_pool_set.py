@@ -20,7 +20,16 @@ def serialize_ec2_query(
         capo_ec2.types.ipv6_pool.serialize_ec2_query(item, pairs, f"{prefix}.{n}")
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> Ipv6PoolSet:
+def deserialize_ec2_query(el: Element) -> Ipv6PoolSet:
+    import capo_ec2.types.ipv6_pool
+
+    out: Ipv6PoolSet = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.ipv6_pool.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> Ipv6PoolSet:
     import capo_ec2.types.ipv6_pool
 
     out: Ipv6PoolSet = []

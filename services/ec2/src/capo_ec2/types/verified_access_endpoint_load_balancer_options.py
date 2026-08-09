@@ -83,20 +83,22 @@ def deserialize_ec2_query(el: Element) -> VerifiedAccessEndpointLoadBalancerOpti
     child_load_balancer_arn = el.find("loadBalancerArn")
     if child_load_balancer_arn is not None:
         out["load_balancer_arn"] = str(child_load_balancer_arn.text or "")
-    if el.find("subnetIdSet") is not None:
+    child_subnet_ids = el.find("subnetIdSet")
+    if child_subnet_ids is not None:
         import capo_ec2.types.verified_access_endpoint_subnet_id_list
 
         out["subnet_ids"] = (
             capo_ec2.types.verified_access_endpoint_subnet_id_list.deserialize_ec2_query(
-                el, "subnetIdSet"
+                child_subnet_ids
             )
         )
-    if el.find("portRangeSet") is not None:
+    child_port_ranges = el.find("portRangeSet")
+    if child_port_ranges is not None:
         import capo_ec2.types.verified_access_endpoint_port_range_list
 
         out["port_ranges"] = (
             capo_ec2.types.verified_access_endpoint_port_range_list.deserialize_ec2_query(
-                el, "portRangeSet"
+                child_port_ranges
             )
         )
     return out

@@ -24,7 +24,18 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> AddIpamOperatingRegionSet:
+def deserialize_ec2_query(el: Element) -> AddIpamOperatingRegionSet:
+    import capo_ec2.types.add_ipam_operating_region
+
+    out: AddIpamOperatingRegionSet = []
+    for child in el.findall("member"):
+        out.append(
+            capo_ec2.types.add_ipam_operating_region.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> AddIpamOperatingRegionSet:
     import capo_ec2.types.add_ipam_operating_region
 
     out: AddIpamOperatingRegionSet = []

@@ -37,12 +37,13 @@ def serialize_ec2_query(
 
 def deserialize_ec2_query(el: Element) -> DescribePrincipalIdFormatResult:
     out: DescribePrincipalIdFormatResult = {}  # type: ignore[typeddict-item]
-    if el.find("principalSet") is not None:
+    child_principals = el.find("principalSet")
+    if child_principals is not None:
         import capo_ec2.types.principal_id_format_list
 
         out["principals"] = (
             capo_ec2.types.principal_id_format_list.deserialize_ec2_query(
-                el, "principalSet"
+                child_principals
             )
         )
     child_next_token = el.find("nextToken")

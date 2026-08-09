@@ -24,7 +24,20 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> NetworkInterfacePermissionList:
+def deserialize_ec2_query(el: Element) -> NetworkInterfacePermissionList:
+    import capo_ec2.types.network_interface_permission
+
+    out: NetworkInterfacePermissionList = []
+    for child in el.findall("item"):
+        out.append(
+            capo_ec2.types.network_interface_permission.deserialize_ec2_query(child)
+        )
+    return out
+
+
+def deserialize_ec2_query_flat(
+    parent: Element, tag: str
+) -> NetworkInterfacePermissionList:
     import capo_ec2.types.network_interface_permission
 
     out: NetworkInterfacePermissionList = []

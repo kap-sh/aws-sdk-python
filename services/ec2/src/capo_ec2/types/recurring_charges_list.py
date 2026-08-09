@@ -24,7 +24,16 @@ def serialize_ec2_query(
         )
 
 
-def deserialize_ec2_query(parent: Element, tag: str) -> RecurringChargesList:
+def deserialize_ec2_query(el: Element) -> RecurringChargesList:
+    import capo_ec2.types.recurring_charge
+
+    out: RecurringChargesList = []
+    for child in el.findall("item"):
+        out.append(capo_ec2.types.recurring_charge.deserialize_ec2_query(child))
+    return out
+
+
+def deserialize_ec2_query_flat(parent: Element, tag: str) -> RecurringChargesList:
     import capo_ec2.types.recurring_charge
 
     out: RecurringChargesList = []

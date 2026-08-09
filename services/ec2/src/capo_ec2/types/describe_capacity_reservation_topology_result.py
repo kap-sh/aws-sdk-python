@@ -42,12 +42,13 @@ def deserialize_ec2_query(el: Element) -> DescribeCapacityReservationTopologyRes
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("capacityReservationSet") is not None:
+    child_capacity_reservations = el.find("capacityReservationSet")
+    if child_capacity_reservations is not None:
         import capo_ec2.types.capacity_reservation_topology_set
 
         out["capacity_reservations"] = (
             capo_ec2.types.capacity_reservation_topology_set.deserialize_ec2_query(
-                el, "capacityReservationSet"
+                child_capacity_reservations
             )
         )
     return out

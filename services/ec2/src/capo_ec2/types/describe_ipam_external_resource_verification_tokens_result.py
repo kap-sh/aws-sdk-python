@@ -46,12 +46,15 @@ def deserialize_ec2_query(
     child_next_token = el.find("nextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
-    if el.find("ipamExternalResourceVerificationTokenSet") is not None:
+    child_ipam_external_resource_verification_tokens = el.find(
+        "ipamExternalResourceVerificationTokenSet"
+    )
+    if child_ipam_external_resource_verification_tokens is not None:
         import capo_ec2.types.ipam_external_resource_verification_token_set
 
         out["ipam_external_resource_verification_tokens"] = (
             capo_ec2.types.ipam_external_resource_verification_token_set.deserialize_ec2_query(
-                el, "ipamExternalResourceVerificationTokenSet"
+                child_ipam_external_resource_verification_tokens
             )
         )
     return out

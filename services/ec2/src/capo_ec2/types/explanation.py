@@ -502,11 +502,12 @@ def deserialize_ec2_query(el: Element) -> Explanation:
     child_address = el.find("address")
     if child_address is not None:
         out["address"] = str(child_address.text or "")
-    if el.find("addressSet") is not None:
+    child_addresses = el.find("addressSet")
+    if child_addresses is not None:
         import capo_ec2.types.ip_address_list
 
         out["addresses"] = capo_ec2.types.ip_address_list.deserialize_ec2_query(
-            el, "addressSet"
+            child_addresses
         )
     child_attached_to = el.find("attachedTo")
     if child_attached_to is not None:
@@ -515,27 +516,30 @@ def deserialize_ec2_query(el: Element) -> Explanation:
         out["attached_to"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_attached_to
         )
-    if el.find("availabilityZoneSet") is not None:
+    child_availability_zones = el.find("availabilityZoneSet")
+    if child_availability_zones is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zones"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneSet"
+                child_availability_zones
             )
         )
-    if el.find("availabilityZoneIdSet") is not None:
+    child_availability_zone_ids = el.find("availabilityZoneIdSet")
+    if child_availability_zone_ids is not None:
         import capo_ec2.types.value_string_list
 
         out["availability_zone_ids"] = (
             capo_ec2.types.value_string_list.deserialize_ec2_query(
-                el, "availabilityZoneIdSet"
+                child_availability_zone_ids
             )
         )
-    if el.find("cidrSet") is not None:
+    child_cidrs = el.find("cidrSet")
+    if child_cidrs is not None:
         import capo_ec2.types.value_string_list
 
         out["cidrs"] = capo_ec2.types.value_string_list.deserialize_ec2_query(
-            el, "cidrSet"
+            child_cidrs
         )
     child_component = el.find("component")
     if child_component is not None:
@@ -628,12 +632,13 @@ def deserialize_ec2_query(el: Element) -> Explanation:
                 child_load_balancer_target_group
             )
         )
-    if el.find("loadBalancerTargetGroupSet") is not None:
+    child_load_balancer_target_groups = el.find("loadBalancerTargetGroupSet")
+    if child_load_balancer_target_groups is not None:
         import capo_ec2.types.analysis_component_list
 
         out["load_balancer_target_groups"] = (
             capo_ec2.types.analysis_component_list.deserialize_ec2_query(
-                el, "loadBalancerTargetGroupSet"
+                child_load_balancer_target_groups
             )
         )
     child_load_balancer_target_port = el.find("loadBalancerTargetPort")
@@ -684,11 +689,12 @@ def deserialize_ec2_query(el: Element) -> Explanation:
     child_port = el.find("port")
     if child_port is not None:
         out["port"] = int(child_port.text or "")
-    if el.find("portRangeSet") is not None:
+    child_port_ranges = el.find("portRangeSet")
+    if child_port_ranges is not None:
         import capo_ec2.types.port_range_list
 
         out["port_ranges"] = capo_ec2.types.port_range_list.deserialize_ec2_query(
-            el, "portRangeSet"
+            child_port_ranges
         )
     child_prefix_list = el.find("prefixList")
     if child_prefix_list is not None:
@@ -697,11 +703,12 @@ def deserialize_ec2_query(el: Element) -> Explanation:
         out["prefix_list"] = capo_ec2.types.analysis_component.deserialize_ec2_query(
             child_prefix_list
         )
-    if el.find("protocolSet") is not None:
+    child_protocols = el.find("protocolSet")
+    if child_protocols is not None:
         import capo_ec2.types.string_list
 
         out["protocols"] = capo_ec2.types.string_list.deserialize_ec2_query(
-            el, "protocolSet"
+            child_protocols
         )
     child_route_table_route = el.find("routeTableRoute")
     if child_route_table_route is not None:
@@ -735,12 +742,13 @@ def deserialize_ec2_query(el: Element) -> Explanation:
                 child_security_group_rule
             )
         )
-    if el.find("securityGroupSet") is not None:
+    child_security_groups = el.find("securityGroupSet")
+    if child_security_groups is not None:
         import capo_ec2.types.analysis_component_list
 
         out["security_groups"] = (
             capo_ec2.types.analysis_component_list.deserialize_ec2_query(
-                el, "securityGroupSet"
+                child_security_groups
             )
         )
     child_source_vpc = el.find("sourceVpc")

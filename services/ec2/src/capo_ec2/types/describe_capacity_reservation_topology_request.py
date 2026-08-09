@@ -71,16 +71,18 @@ def deserialize_ec2_query(el: Element) -> DescribeCapacityReservationTopologyReq
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
-    if el.find("CapacityReservationId") is not None:
+    child_capacity_reservation_ids = el.find("CapacityReservationId")
+    if child_capacity_reservation_ids is not None:
         import capo_ec2.types.capacity_reservation_id_set
 
         out["capacity_reservation_ids"] = (
             capo_ec2.types.capacity_reservation_id_set.deserialize_ec2_query(
-                el, "CapacityReservationId"
+                child_capacity_reservation_ids
             )
         )
-    if el.find("Filter") is not None:
+    child_filters = el.find("Filter")
+    if child_filters is not None:
         import capo_ec2.types.filter_list
 
-        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(el, "Filter")
+        out["filters"] = capo_ec2.types.filter_list.deserialize_ec2_query(child_filters)
     return out

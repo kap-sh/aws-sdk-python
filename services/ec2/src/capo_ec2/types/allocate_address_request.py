@@ -94,12 +94,13 @@ def deserialize_ec2_query(el: Element) -> AllocateAddressRequest:
     child_customer_owned_ipv4_pool = el.find("CustomerOwnedIpv4Pool")
     if child_customer_owned_ipv4_pool is not None:
         out["customer_owned_ipv4_pool"] = str(child_customer_owned_ipv4_pool.text or "")
-    if el.find("TagSpecification") is not None:
+    child_tag_specifications = el.find("TagSpecification")
+    if child_tag_specifications is not None:
         import capo_ec2.types.tag_specification_list
 
         out["tag_specifications"] = (
             capo_ec2.types.tag_specification_list.deserialize_ec2_query(
-                el, "TagSpecification"
+                child_tag_specifications
             )
         )
     child_ipam_pool_id = el.find("IpamPoolId")
