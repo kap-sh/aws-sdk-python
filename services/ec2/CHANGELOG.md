@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.9.0
+
+### Minor Changes
+
+- 7c4f436: fix ec2 list deserialization
+
 ## 0.8.0
 
 ### Minor Changes
