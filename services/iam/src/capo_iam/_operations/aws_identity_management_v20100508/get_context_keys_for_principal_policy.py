@@ -16,7 +16,7 @@ import capo_iam.types.context_key_names_result_list_type
 import capo_iam.types.get_context_keys_for_policy_response
 import capo_iam.types.get_context_keys_for_principal_policy_request
 import capo_iam.types.simulation_policy_list_type
-from capo_iam._protocol.errors import parse_error_metadata
+from capo_iam._protocol.errors import find_error_element, parse_error_metadata
 from capo_iam._protocol.xml import fromstring
 from capo_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_iam._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -26,14 +26,15 @@ from capo_iam.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "InvalidInputException":
+        case "InvalidInput":
             raise capo_iam.errors.invalid_input_exception.InvalidInputException.from_query(
-                root
+                error_el, message
             )
-        case "NoSuchEntityException":
+        case "NoSuchEntity":
             raise capo_iam.errors.no_such_entity_exception.NoSuchEntityException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -97,7 +98,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetContextKeysForPrincipalPolicy"))
@@ -109,7 +110,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

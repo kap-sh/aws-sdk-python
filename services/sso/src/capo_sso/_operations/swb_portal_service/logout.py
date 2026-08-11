@@ -26,15 +26,15 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InvalidRequestException":
             raise capo_sso.errors.invalid_request_exception.InvalidRequestException.from_json(
-                data
+                data, message
             )
         case "TooManyRequestsException":
             raise capo_sso.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case "UnauthorizedException":
             raise capo_sso.errors.unauthorized_exception.UnauthorizedException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -74,14 +74,15 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/logout"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "access_token" in input_:
-        headers["x-amz-sso_bearer_token"] = str(input_["access_token"])
+        headers["x-amz-sso_bearer_token"] = input_["access_token"]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

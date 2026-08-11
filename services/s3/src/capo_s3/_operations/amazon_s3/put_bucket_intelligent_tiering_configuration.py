@@ -73,27 +73,25 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}?intelligent-tiering"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     if "id" in input_:
-        params["id"] = str(input_["id"])
+        params.append(("id", input_["id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
-    if "intelligent_tiering_configuration" in input_:
-        payload_root = Element("_")
-        capo_s3.types.intelligent_tiering_configuration.serialize_xml(
-            input_["intelligent_tiering_configuration"],
-            payload_root,
-            "IntelligentTieringConfiguration",
-        )
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
+    payload_root = Element("_")
+    capo_s3.types.intelligent_tiering_configuration.serialize_xml(
+        input_["intelligent_tiering_configuration"],
+        payload_root,
+        "IntelligentTieringConfiguration",
+    )
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

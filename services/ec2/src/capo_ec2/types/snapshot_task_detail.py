@@ -47,7 +47,20 @@ def serialize_ec2_query(
     if "description" in value:
         pairs.append((f"{key_prefix}Description", str(value["description"])))
     if "disk_image_size" in value:
-        pairs.append((f"{key_prefix}DiskImageSize", str(value["disk_image_size"])))
+        pairs.append(
+            (
+                f"{key_prefix}DiskImageSize",
+                (
+                    "NaN"
+                    if value["disk_image_size"] != value["disk_image_size"]
+                    else "Infinity"
+                    if value["disk_image_size"] == float("inf")
+                    else "-Infinity"
+                    if value["disk_image_size"] == float("-inf")
+                    else str(value["disk_image_size"])
+                ),
+            )
+        )
     if "encrypted" in value:
         pairs.append(
             (f"{key_prefix}Encrypted", "true" if value["encrypted"] else "false")

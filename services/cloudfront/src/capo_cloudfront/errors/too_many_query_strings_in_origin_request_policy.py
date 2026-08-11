@@ -37,15 +37,22 @@ class TooManyQueryStringsInOriginRequestPolicy(ServiceError):
 
     code: str | None = "TooManyQueryStringsInOriginRequestPolicy"
 
-    def __init__(self, data: TooManyQueryStringsInOriginRequestPolicy_):
+    def __init__(
+        self,
+        data: TooManyQueryStringsInOriginRequestPolicy_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyQueryStringsInOriginRequestPolicy",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyQueryStringsInOriginRequestPolicy":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyQueryStringsInOriginRequestPolicy":
+        return cls(deserialize_xml(el), message)

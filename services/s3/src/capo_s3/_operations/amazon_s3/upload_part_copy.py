@@ -44,9 +44,7 @@ def handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "x-amz-copy-source-version-id" in response.headers:
-        out["copy_source_version_id"] = str(
-            response.headers["x-amz-copy-source-version-id"]
-        )
+        out["copy_source_version_id"] = response.headers["x-amz-copy-source-version-id"]
     if "x-amz-server-side-encryption" in response.headers:
         out["server_side_encryption"] = (
             capo_s3.types.server_side_encryption.from_xml_text(
@@ -54,17 +52,17 @@ def handle_response(
             )
         )
     if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
-        out["sse_customer_algorithm"] = str(
-            response.headers["x-amz-server-side-encryption-customer-algorithm"]
-        )
+        out["sse_customer_algorithm"] = response.headers[
+            "x-amz-server-side-encryption-customer-algorithm"
+        ]
     if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
-        out["sse_customer_key_md5"] = str(
-            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
-        )
+        out["sse_customer_key_md5"] = response.headers[
+            "x-amz-server-side-encryption-customer-key-MD5"
+        ]
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -86,9 +84,7 @@ async def async_handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "x-amz-copy-source-version-id" in response.headers:
-        out["copy_source_version_id"] = str(
-            response.headers["x-amz-copy-source-version-id"]
-        )
+        out["copy_source_version_id"] = response.headers["x-amz-copy-source-version-id"]
     if "x-amz-server-side-encryption" in response.headers:
         out["server_side_encryption"] = (
             capo_s3.types.server_side_encryption.from_xml_text(
@@ -96,17 +92,17 @@ async def async_handle_response(
             )
         )
     if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
-        out["sse_customer_algorithm"] = str(
-            response.headers["x-amz-server-side-encryption-customer-algorithm"]
-        )
+        out["sse_customer_algorithm"] = response.headers[
+            "x-amz-server-side-encryption-customer-algorithm"
+        ]
     if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
-        out["sse_customer_key_md5"] = str(
-            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
-        )
+        out["sse_customer_key_md5"] = response.headers[
+            "x-amz-server-side-encryption-customer-key-MD5"
+        ]
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -163,69 +159,77 @@ def build_request(
             DisableS3ExpressSessionAuth=True,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=UploadPartCopy"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     if "part_number" in input_:
-        params["partNumber"] = str(input_["part_number"])
+        params.append(("partNumber", str(input_["part_number"])))
     if "upload_id" in input_:
-        params["uploadId"] = str(input_["upload_id"])
+        params.append(("uploadId", input_["upload_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "copy_source" in input_:
-        headers["x-amz-copy-source"] = str(input_["copy_source"])
+        headers["x-amz-copy-source"] = input_["copy_source"]
     if "copy_source_if_match" in input_:
-        headers["x-amz-copy-source-if-match"] = str(input_["copy_source_if_match"])
+        headers["x-amz-copy-source-if-match"] = input_["copy_source_if_match"]
     if "copy_source_if_modified_since" in input_:
-        headers["x-amz-copy-source-if-modified-since"] = str(
-            input_["copy_source_if_modified_since"]
+        headers["x-amz-copy-source-if-modified-since"] = (
+            capo_s3._protocol.serialize.fmt_http_date(
+                input_["copy_source_if_modified_since"]
+            )
         )
     if "copy_source_if_none_match" in input_:
-        headers["x-amz-copy-source-if-none-match"] = str(
-            input_["copy_source_if_none_match"]
-        )
+        headers["x-amz-copy-source-if-none-match"] = input_["copy_source_if_none_match"]
     if "copy_source_if_unmodified_since" in input_:
-        headers["x-amz-copy-source-if-unmodified-since"] = str(
-            input_["copy_source_if_unmodified_since"]
+        headers["x-amz-copy-source-if-unmodified-since"] = (
+            capo_s3._protocol.serialize.fmt_http_date(
+                input_["copy_source_if_unmodified_since"]
+            )
         )
     if "copy_source_range" in input_:
-        headers["x-amz-copy-source-range"] = str(input_["copy_source_range"])
+        headers["x-amz-copy-source-range"] = input_["copy_source_range"]
     if "sse_customer_algorithm" in input_:
-        headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input_["sse_customer_algorithm"]
-        )
+        headers["x-amz-server-side-encryption-customer-algorithm"] = input_[
+            "sse_customer_algorithm"
+        ]
     if "sse_customer_key" in input_:
-        headers["x-amz-server-side-encryption-customer-key"] = str(
-            input_["sse_customer_key"]
-        )
+        headers["x-amz-server-side-encryption-customer-key"] = input_[
+            "sse_customer_key"
+        ]
     if "sse_customer_key_md5" in input_:
-        headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input_["sse_customer_key_md5"]
-        )
+        headers["x-amz-server-side-encryption-customer-key-MD5"] = input_[
+            "sse_customer_key_md5"
+        ]
     if "copy_source_sse_customer_algorithm" in input_:
-        headers["x-amz-copy-source-server-side-encryption-customer-algorithm"] = str(
-            input_["copy_source_sse_customer_algorithm"]
-        )
+        headers["x-amz-copy-source-server-side-encryption-customer-algorithm"] = input_[
+            "copy_source_sse_customer_algorithm"
+        ]
     if "copy_source_sse_customer_key" in input_:
-        headers["x-amz-copy-source-server-side-encryption-customer-key"] = str(
-            input_["copy_source_sse_customer_key"]
-        )
+        headers["x-amz-copy-source-server-side-encryption-customer-key"] = input_[
+            "copy_source_sse_customer_key"
+        ]
     if "copy_source_sse_customer_key_md5" in input_:
-        headers["x-amz-copy-source-server-side-encryption-customer-key-MD5"] = str(
-            input_["copy_source_sse_customer_key_md5"]
-        )
+        headers["x-amz-copy-source-server-side-encryption-customer-key-MD5"] = input_[
+            "copy_source_sse_customer_key_md5"
+        ]
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
-    if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
-    if "expected_source_bucket_owner" in input_:
-        headers["x-amz-source-expected-bucket-owner"] = str(
-            input_["expected_source_bucket_owner"]
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
         )
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
+    if "expected_source_bucket_owner" in input_:
+        headers["x-amz-source-expected-bucket-owner"] = input_[
+            "expected_source_bucket_owner"
+        ]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

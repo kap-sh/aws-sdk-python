@@ -37,15 +37,18 @@ class TooManyOriginRequestPolicies(ServiceError):
 
     code: str | None = "TooManyOriginRequestPolicies"
 
-    def __init__(self, data: TooManyOriginRequestPolicies_):
+    def __init__(self, data: TooManyOriginRequestPolicies_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyOriginRequestPolicies",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyOriginRequestPolicies":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyOriginRequestPolicies":
+        return cls(deserialize_xml(el), message)

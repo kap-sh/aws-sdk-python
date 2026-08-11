@@ -36,15 +36,16 @@ class LimitsExceeded(ServiceError):
 
     code: str | None = "LimitsExceeded"
 
-    def __init__(self, data: LimitsExceeded_):
+    def __init__(self, data: LimitsExceeded_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="LimitsExceeded",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "LimitsExceeded":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "LimitsExceeded":
+        return cls(deserialize_xml(el), message)

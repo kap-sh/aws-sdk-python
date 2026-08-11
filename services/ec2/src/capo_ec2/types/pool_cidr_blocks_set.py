@@ -14,6 +14,9 @@ PoolCidrBlocksSet: TypeAlias = list["capo_ec2.types.pool_cidr_block.PoolCidrBloc
 def serialize_ec2_query(
     value: PoolCidrBlocksSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.pool_cidr_block
 

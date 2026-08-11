@@ -39,7 +39,7 @@ def handle_response(
     if "x-amz-delete-marker" in response.headers:
         out["delete_marker"] = response.headers["x-amz-delete-marker"].lower() == "true"
     if "x-amz-version-id" in response.headers:
-        out["version_id"] = str(response.headers["x-amz-version-id"])
+        out["version_id"] = response.headers["x-amz-version-id"]
     if "x-amz-request-charged" in response.headers:
         out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
@@ -54,7 +54,7 @@ async def async_handle_response(
     if "x-amz-delete-marker" in response.headers:
         out["delete_marker"] = response.headers["x-amz-delete-marker"].lower() == "true"
     if "x-amz-version-id" in response.headers:
-        out["version_id"] = str(response.headers["x-amz-version-id"])
+        out["version_id"] = response.headers["x-amz-version-id"]
     if "x-amz-request-charged" in response.headers:
         out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
@@ -106,35 +106,43 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=DeleteObject"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     if "version_id" in input_:
-        params["versionId"] = str(input_["version_id"])
+        params.append(("versionId", input_["version_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "mfa" in input_:
-        headers["x-amz-mfa"] = str(input_["mfa"])
+        headers["x-amz-mfa"] = input_["mfa"]
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "bypass_governance_retention" in input_:
-        headers["x-amz-bypass-governance-retention"] = str(
-            input_["bypass_governance_retention"]
+        headers["x-amz-bypass-governance-retention"] = (
+            "true" if input_["bypass_governance_retention"] else "false"
         )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "if_match" in input_:
-        headers["If-Match"] = str(input_["if_match"])
+        headers["If-Match"] = input_["if_match"]
     if "if_match_last_modified_time" in input_:
-        headers["x-amz-if-match-last-modified-time"] = str(
-            input_["if_match_last_modified_time"]
+        headers["x-amz-if-match-last-modified-time"] = (
+            capo_s3._protocol.serialize.fmt_http_date(
+                input_["if_match_last_modified_time"]
+            )
         )
     if "if_match_size" in input_:
         headers["x-amz-if-match-size"] = str(input_["if_match_size"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

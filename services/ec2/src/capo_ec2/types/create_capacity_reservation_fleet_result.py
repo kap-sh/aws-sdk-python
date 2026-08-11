@@ -82,7 +82,16 @@ def serialize_ec2_query(
         pairs.append(
             (
                 f"{key_prefix}TotalFulfilledCapacity",
-                str(value["total_fulfilled_capacity"]),
+                (
+                    "NaN"
+                    if value["total_fulfilled_capacity"]
+                    != value["total_fulfilled_capacity"]
+                    else "Infinity"
+                    if value["total_fulfilled_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["total_fulfilled_capacity"] == float("-inf")
+                    else str(value["total_fulfilled_capacity"])
+                ),
             )
         )
     if "instance_match_criteria" in value:

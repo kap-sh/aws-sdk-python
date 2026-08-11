@@ -37,15 +37,18 @@ class DeleteConflictException(ServiceError):
 
     code: str | None = "DeleteConflictException"
 
-    def __init__(self, data: DeleteConflictException_):
+    def __init__(self, data: DeleteConflictException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DeleteConflictException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DeleteConflictException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DeleteConflictException":
+        return cls(deserialize_query(el), message)

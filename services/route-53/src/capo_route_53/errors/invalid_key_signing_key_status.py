@@ -37,15 +37,18 @@ class InvalidKeySigningKeyStatus(ServiceError):
 
     code: str | None = "InvalidKeySigningKeyStatus"
 
-    def __init__(self, data: InvalidKeySigningKeyStatus_):
+    def __init__(self, data: InvalidKeySigningKeyStatus_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidKeySigningKeyStatus",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidKeySigningKeyStatus":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidKeySigningKeyStatus":
+        return cls(deserialize_xml(el), message)

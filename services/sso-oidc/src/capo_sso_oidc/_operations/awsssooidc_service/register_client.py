@@ -34,31 +34,31 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InternalServerException":
             raise capo_sso_oidc.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "InvalidClientMetadataException":
             raise capo_sso_oidc.errors.invalid_client_metadata_exception.InvalidClientMetadataException.from_json(
-                data
+                data, message
             )
         case "InvalidRedirectUriException":
             raise capo_sso_oidc.errors.invalid_redirect_uri_exception.InvalidRedirectUriException.from_json(
-                data
+                data, message
             )
         case "InvalidRequestException":
             raise capo_sso_oidc.errors.invalid_request_exception.InvalidRequestException.from_json(
-                data
+                data, message
             )
         case "InvalidScopeException":
             raise capo_sso_oidc.errors.invalid_scope_exception.InvalidScopeException.from_json(
-                data
+                data, message
             )
         case "SlowDownException":
             raise capo_sso_oidc.errors.slow_down_exception.SlowDownException.from_json(
-                data
+                data, message
             )
         case "UnsupportedGrantTypeException":
             raise capo_sso_oidc.errors.unsupported_grant_type_exception.UnsupportedGrantTypeException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -120,7 +120,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/client/register"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = json.dumps(
         capo_sso_oidc.types.register_client_request.serialize_json(input_)
@@ -128,7 +128,8 @@ def build_request(
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

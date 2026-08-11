@@ -40,15 +40,22 @@ class SerializedRequestEntityTooLargeException(ServiceError):
 
     code: str | None = "SerializedRequestEntityTooLargeException"
 
-    def __init__(self, data: SerializedRequestEntityTooLargeException_):
+    def __init__(
+        self,
+        data: SerializedRequestEntityTooLargeException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SerializedRequestEntityTooLargeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "SerializedRequestEntityTooLargeException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "SerializedRequestEntityTooLargeException":
+        return cls(deserialize_json(data), message)

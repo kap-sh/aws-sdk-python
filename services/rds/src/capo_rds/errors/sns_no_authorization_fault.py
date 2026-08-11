@@ -37,15 +37,18 @@ class SNSNoAuthorizationFault(ServiceError):
 
     code: str | None = "SNSNoAuthorizationFault"
 
-    def __init__(self, data: SNSNoAuthorizationFault_):
+    def __init__(self, data: SNSNoAuthorizationFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SNSNoAuthorizationFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "SNSNoAuthorizationFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "SNSNoAuthorizationFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class InvalidVPCNetworkStateFault(ServiceError):
 
     code: str | None = "InvalidVPCNetworkStateFault"
 
-    def __init__(self, data: InvalidVPCNetworkStateFault_):
+    def __init__(self, data: InvalidVPCNetworkStateFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidVPCNetworkStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidVPCNetworkStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidVPCNetworkStateFault":
+        return cls(deserialize_query(el), message)

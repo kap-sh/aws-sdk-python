@@ -38,7 +38,20 @@ def serialize_ec2_query(
             value["currency_code"], pairs, f"{key_prefix}CurrencyCode"
         )
     if "price" in value:
-        pairs.append((f"{key_prefix}Price", str(value["price"])))
+        pairs.append(
+            (
+                f"{key_prefix}Price",
+                (
+                    "NaN"
+                    if value["price"] != value["price"]
+                    else "Infinity"
+                    if value["price"] == float("inf")
+                    else "-Infinity"
+                    if value["price"] == float("-inf")
+                    else str(value["price"])
+                ),
+            )
+        )
     if "term" in value:
         pairs.append((f"{key_prefix}Term", str(value["term"])))
 

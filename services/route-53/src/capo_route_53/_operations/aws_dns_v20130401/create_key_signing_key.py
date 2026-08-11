@@ -23,7 +23,7 @@ import capo_route_53.types.change_info
 import capo_route_53.types.create_key_signing_key_request
 import capo_route_53.types.create_key_signing_key_response
 import capo_route_53.types.key_signing_key
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -33,40 +33,47 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "ConcurrentModification":
             raise capo_route_53.errors.concurrent_modification.ConcurrentModification.from_xml(
-                root
+                error_el, message
             )
         case "InvalidArgument":
-            raise capo_route_53.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_route_53.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "InvalidKeySigningKeyName":
             raise capo_route_53.errors.invalid_key_signing_key_name.InvalidKeySigningKeyName.from_xml(
-                root
+                error_el, message
             )
         case "InvalidKeySigningKeyStatus":
             raise capo_route_53.errors.invalid_key_signing_key_status.InvalidKeySigningKeyStatus.from_xml(
-                root
+                error_el, message
             )
         case "InvalidKMSArn":
-            raise capo_route_53.errors.invalid_kms_arn.InvalidKMSArn.from_xml(root)
+            raise capo_route_53.errors.invalid_kms_arn.InvalidKMSArn.from_xml(
+                error_el, message
+            )
         case "InvalidSigningStatus":
             raise capo_route_53.errors.invalid_signing_status.InvalidSigningStatus.from_xml(
-                root
+                error_el, message
             )
         case "KeySigningKeyAlreadyExists":
             raise capo_route_53.errors.key_signing_key_already_exists.KeySigningKeyAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchHostedZone":
             raise capo_route_53.errors.no_such_hosted_zone.NoSuchHostedZone.from_xml(
-                root
+                error_el, message
             )
         case "TooManyKeySigningKeys":
             raise capo_route_53.errors.too_many_key_signing_keys.TooManyKeySigningKeys.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -78,7 +85,7 @@ def handle_response(
     out: capo_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse = capo_route_53.types.create_key_signing_key_response.deserialize_xml(
         fromstring(response.read())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -88,7 +95,7 @@ async def async_handle_response(
     out: capo_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse = capo_route_53.types.create_key_signing_key_response.deserialize_xml(
         fromstring(await response.aread())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -126,26 +133,27 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/keysigningkey"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateKeySigningKeyRequest")
     if "caller_reference" in input_:
-        SubElement(root, "CallerReference").text = str(input_["caller_reference"])
+        SubElement(root, "CallerReference").text = input_["caller_reference"]
     if "hosted_zone_id" in input_:
-        SubElement(root, "HostedZoneId").text = str(input_["hosted_zone_id"])
+        SubElement(root, "HostedZoneId").text = input_["hosted_zone_id"]
     if "key_management_service_arn" in input_:
-        SubElement(root, "KeyManagementServiceArn").text = str(
-            input_["key_management_service_arn"]
-        )
+        SubElement(root, "KeyManagementServiceArn").text = input_[
+            "key_management_service_arn"
+        ]
     if "name" in input_:
-        SubElement(root, "Name").text = str(input_["name"])
+        SubElement(root, "Name").text = input_["name"]
     if "status" in input_:
-        SubElement(root, "Status").text = str(input_["status"])
+        SubElement(root, "Status").text = input_["status"]
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

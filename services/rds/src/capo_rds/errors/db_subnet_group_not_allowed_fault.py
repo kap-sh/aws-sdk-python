@@ -37,15 +37,18 @@ class DBSubnetGroupNotAllowedFault(ServiceError):
 
     code: str | None = "DBSubnetGroupNotAllowedFault"
 
-    def __init__(self, data: DBSubnetGroupNotAllowedFault_):
+    def __init__(self, data: DBSubnetGroupNotAllowedFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBSubnetGroupNotAllowedFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBSubnetGroupNotAllowedFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBSubnetGroupNotAllowedFault":
+        return cls(deserialize_query(el), message)

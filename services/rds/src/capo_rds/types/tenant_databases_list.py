@@ -16,6 +16,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.tenant_database
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.tenant_database.serialize_query(
             item, pairs, f"{prefix}.TenantDatabase.{n}"
@@ -36,6 +39,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.tenant_database
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.tenant_database.serialize_query(item, pairs, f"{prefix}.{n}")
 

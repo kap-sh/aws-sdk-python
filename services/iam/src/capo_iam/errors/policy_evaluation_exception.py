@@ -39,15 +39,18 @@ class PolicyEvaluationException(ServiceError):
 
     code: str | None = "PolicyEvaluationException"
 
-    def __init__(self, data: PolicyEvaluationException_):
+    def __init__(self, data: PolicyEvaluationException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="PolicyEvaluationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "PolicyEvaluationException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "PolicyEvaluationException":
+        return cls(deserialize_query(el), message)

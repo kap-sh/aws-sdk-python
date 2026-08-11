@@ -34,37 +34,39 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "EmptyUploadException":
             raise capo_ecr.errors.empty_upload_exception.EmptyUploadException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidLayerException":
             raise capo_ecr.errors.invalid_layer_exception.InvalidLayerException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidParameterException":
             raise capo_ecr.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "KmsException":
-            raise capo_ecr.errors.kms_exception.KmsException.from_aws_json_1_1(data)
+            raise capo_ecr.errors.kms_exception.KmsException.from_aws_json_1_1(
+                data, message
+            )
         case "LayerAlreadyExistsException":
             raise capo_ecr.errors.layer_already_exists_exception.LayerAlreadyExistsException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "LayerPartTooSmallException":
             raise capo_ecr.errors.layer_part_too_small_exception.LayerPartTooSmallException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "RepositoryNotFoundException":
             raise capo_ecr.errors.repository_not_found_exception.RepositoryNotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "ServerException":
             raise capo_ecr.errors.server_exception.ServerException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "UploadNotFoundException":
             raise capo_ecr.errors.upload_not_found_exception.UploadNotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -124,7 +126,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload"
     body: bytes | None = json.dumps(
@@ -133,7 +135,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

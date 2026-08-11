@@ -39,15 +39,22 @@ class DBInstanceAutomatedBackupQuotaExceededFault(ServiceError):
 
     code: str | None = "DBInstanceAutomatedBackupQuotaExceededFault"
 
-    def __init__(self, data: DBInstanceAutomatedBackupQuotaExceededFault_):
+    def __init__(
+        self,
+        data: DBInstanceAutomatedBackupQuotaExceededFault_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBInstanceAutomatedBackupQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBInstanceAutomatedBackupQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBInstanceAutomatedBackupQuotaExceededFault":
+        return cls(deserialize_query(el), message)

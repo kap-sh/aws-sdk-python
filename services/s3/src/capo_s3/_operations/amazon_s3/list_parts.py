@@ -48,7 +48,7 @@ def handle_response(
     if "x-amz-abort-date" in response.headers:
         out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
     if "x-amz-abort-rule-id" in response.headers:
-        out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
+        out["abort_rule_id"] = response.headers["x-amz-abort-rule-id"]
     if "x-amz-request-charged" in response.headers:
         out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
@@ -67,7 +67,7 @@ async def async_handle_response(
     if "x-amz-abort-date" in response.headers:
         out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
     if "x-amz-abort-rule-id" in response.headers:
-        out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
+        out["abort_rule_id"] = response.headers["x-amz-abort-rule-id"]
     if "x-amz-request-charged" in response.headers:
         out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
@@ -119,37 +119,42 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=ListParts"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     if "max_parts" in input_:
-        params["max-parts"] = str(input_["max_parts"])
+        params.append(("max-parts", str(input_["max_parts"])))
     if "part_number_marker" in input_:
-        params["part-number-marker"] = str(input_["part_number_marker"])
+        params.append(("part-number-marker", input_["part_number_marker"]))
     if "upload_id" in input_:
-        params["uploadId"] = str(input_["upload_id"])
+        params.append(("uploadId", input_["upload_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "sse_customer_algorithm" in input_:
-        headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input_["sse_customer_algorithm"]
-        )
+        headers["x-amz-server-side-encryption-customer-algorithm"] = input_[
+            "sse_customer_algorithm"
+        ]
     if "sse_customer_key" in input_:
-        headers["x-amz-server-side-encryption-customer-key"] = str(
-            input_["sse_customer_key"]
-        )
+        headers["x-amz-server-side-encryption-customer-key"] = input_[
+            "sse_customer_key"
+        ]
     if "sse_customer_key_md5" in input_:
-        headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input_["sse_customer_key_md5"]
-        )
+        headers["x-amz-server-side-encryption-customer-key-MD5"] = input_[
+            "sse_customer_key_md5"
+        ]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

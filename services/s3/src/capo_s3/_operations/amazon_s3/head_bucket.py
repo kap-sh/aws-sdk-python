@@ -14,7 +14,7 @@ import capo_s3.errors.not_found
 import capo_s3.types.head_bucket_output
 import capo_s3.types.head_bucket_request
 import capo_s3.types.location_type
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -25,9 +25,10 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "NotFound":
-            raise capo_s3.errors.not_found.NotFound.from_xml(root)
+            raise capo_s3.errors.not_found.NotFound.from_xml(error_el, message)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -37,17 +38,15 @@ def handle_response(
 ) -> capo_s3.types.head_bucket_output.HeadBucketOutput:
     out: capo_s3.types.head_bucket_output.HeadBucketOutput = {}  # type: ignore[typeddict-item]
     if "x-amz-bucket-arn" in response.headers:
-        out["bucket_arn"] = str(response.headers["x-amz-bucket-arn"])
+        out["bucket_arn"] = response.headers["x-amz-bucket-arn"]
     if "x-amz-bucket-location-type" in response.headers:
         out["bucket_location_type"] = capo_s3.types.location_type.from_xml_text(
             response.headers["x-amz-bucket-location-type"]
         )
     if "x-amz-bucket-location-name" in response.headers:
-        out["bucket_location_name"] = str(
-            response.headers["x-amz-bucket-location-name"]
-        )
+        out["bucket_location_name"] = response.headers["x-amz-bucket-location-name"]
     if "x-amz-bucket-region" in response.headers:
-        out["bucket_region"] = str(response.headers["x-amz-bucket-region"])
+        out["bucket_region"] = response.headers["x-amz-bucket-region"]
     if "x-amz-access-point-alias" in response.headers:
         out["access_point_alias"] = (
             response.headers["x-amz-access-point-alias"].lower() == "true"
@@ -60,17 +59,15 @@ async def async_handle_response(
 ) -> capo_s3.types.head_bucket_output.HeadBucketOutput:
     out: capo_s3.types.head_bucket_output.HeadBucketOutput = {}  # type: ignore[typeddict-item]
     if "x-amz-bucket-arn" in response.headers:
-        out["bucket_arn"] = str(response.headers["x-amz-bucket-arn"])
+        out["bucket_arn"] = response.headers["x-amz-bucket-arn"]
     if "x-amz-bucket-location-type" in response.headers:
         out["bucket_location_type"] = capo_s3.types.location_type.from_xml_text(
             response.headers["x-amz-bucket-location-type"]
         )
     if "x-amz-bucket-location-name" in response.headers:
-        out["bucket_location_name"] = str(
-            response.headers["x-amz-bucket-location-name"]
-        )
+        out["bucket_location_name"] = response.headers["x-amz-bucket-location-name"]
     if "x-amz-bucket-region" in response.headers:
-        out["bucket_region"] = str(response.headers["x-amz-bucket-region"])
+        out["bucket_region"] = response.headers["x-amz-bucket-region"]
     if "x-amz-access-point-alias" in response.headers:
         out["access_point_alias"] = (
             response.headers["x-amz-access-point-alias"].lower() == "true"
@@ -123,15 +120,16 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "HEAD", headers=headers, body=body, context={"signer": signer}
     )

@@ -39,15 +39,20 @@ class InvalidBlueGreenDeploymentStateFault(ServiceError):
 
     code: str | None = "InvalidBlueGreenDeploymentStateFault"
 
-    def __init__(self, data: InvalidBlueGreenDeploymentStateFault_):
+    def __init__(
+        self, data: InvalidBlueGreenDeploymentStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidBlueGreenDeploymentStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidBlueGreenDeploymentStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidBlueGreenDeploymentStateFault":
+        return cls(deserialize_query(el), message)

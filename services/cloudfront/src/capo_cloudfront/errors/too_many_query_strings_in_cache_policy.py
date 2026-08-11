@@ -37,15 +37,20 @@ class TooManyQueryStringsInCachePolicy(ServiceError):
 
     code: str | None = "TooManyQueryStringsInCachePolicy"
 
-    def __init__(self, data: TooManyQueryStringsInCachePolicy_):
+    def __init__(
+        self, data: TooManyQueryStringsInCachePolicy_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyQueryStringsInCachePolicy",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyQueryStringsInCachePolicy":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyQueryStringsInCachePolicy":
+        return cls(deserialize_xml(el), message)

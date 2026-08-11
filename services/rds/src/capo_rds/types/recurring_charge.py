@@ -27,7 +27,16 @@ def serialize_query(
         pairs.append(
             (
                 f"{key_prefix}RecurringChargeAmount",
-                str(value["recurring_charge_amount"]),
+                (
+                    "NaN"
+                    if value["recurring_charge_amount"]
+                    != value["recurring_charge_amount"]
+                    else "Infinity"
+                    if value["recurring_charge_amount"] == float("inf")
+                    else "-Infinity"
+                    if value["recurring_charge_amount"] == float("-inf")
+                    else str(value["recurring_charge_amount"])
+                ),
             )
         )
     if "recurring_charge_frequency" in value:

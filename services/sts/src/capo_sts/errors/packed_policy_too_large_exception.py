@@ -39,15 +39,20 @@ class PackedPolicyTooLargeException(ServiceError):
 
     code: str | None = "PackedPolicyTooLargeException"
 
-    def __init__(self, data: PackedPolicyTooLargeException_):
+    def __init__(
+        self, data: PackedPolicyTooLargeException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="PackedPolicyTooLargeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "PackedPolicyTooLargeException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "PackedPolicyTooLargeException":
+        return cls(deserialize_query(el), message)

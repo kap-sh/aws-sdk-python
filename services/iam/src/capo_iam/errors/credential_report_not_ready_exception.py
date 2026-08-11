@@ -39,15 +39,20 @@ class CredentialReportNotReadyException(ServiceError):
 
     code: str | None = "CredentialReportNotReadyException"
 
-    def __init__(self, data: CredentialReportNotReadyException_):
+    def __init__(
+        self, data: CredentialReportNotReadyException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CredentialReportNotReadyException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "CredentialReportNotReadyException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "CredentialReportNotReadyException":
+        return cls(deserialize_query(el), message)

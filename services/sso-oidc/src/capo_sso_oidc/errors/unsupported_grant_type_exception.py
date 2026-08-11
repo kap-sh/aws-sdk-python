@@ -44,15 +44,20 @@ class UnsupportedGrantTypeException(ServiceError):
 
     code: str | None = "UnsupportedGrantTypeException"
 
-    def __init__(self, data: UnsupportedGrantTypeException_):
+    def __init__(
+        self, data: UnsupportedGrantTypeException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedGrantTypeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "UnsupportedGrantTypeException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedGrantTypeException":
+        return cls(deserialize_json(data), message)

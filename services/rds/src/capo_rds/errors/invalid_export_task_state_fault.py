@@ -37,15 +37,18 @@ class InvalidExportTaskStateFault(ServiceError):
 
     code: str | None = "InvalidExportTaskStateFault"
 
-    def __init__(self, data: InvalidExportTaskStateFault_):
+    def __init__(self, data: InvalidExportTaskStateFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidExportTaskStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidExportTaskStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidExportTaskStateFault":
+        return cls(deserialize_query(el), message)

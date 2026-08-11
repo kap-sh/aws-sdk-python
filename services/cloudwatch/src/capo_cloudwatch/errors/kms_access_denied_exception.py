@@ -52,19 +52,24 @@ class KmsAccessDeniedException(ServiceError):
 
     code: str | None = "KmsAccessDeniedException"
 
-    def __init__(self, data: KmsAccessDeniedException_):
+    def __init__(self, data: KmsAccessDeniedException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KmsAccessDeniedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "KmsAccessDeniedException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "KmsAccessDeniedException":
+        return cls(deserialize_aws_json_1_0(data), message)
 
     @classmethod
-    def from_query(cls, el: Element) -> "KmsAccessDeniedException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "KmsAccessDeniedException":
+        return cls(deserialize_query(el), message)

@@ -17,7 +17,7 @@ import capo_cloudfront.errors.unsupported_operation
 import capo_cloudfront.types.create_monitoring_subscription_request
 import capo_cloudfront.types.create_monitoring_subscription_result
 import capo_cloudfront.types.monitoring_subscription
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import Element, fromstring, tostring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -27,20 +27,23 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "MonitoringSubscriptionAlreadyExists":
             raise capo_cloudfront.errors.monitoring_subscription_already_exists.MonitoringSubscriptionAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchDistribution":
             raise capo_cloudfront.errors.no_such_distribution.NoSuchDistribution.from_xml(
-                root
+                error_el, message
             )
         case "UnsupportedOperation":
             raise capo_cloudfront.errors.unsupported_operation.UnsupportedOperation.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -105,23 +108,19 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/2020-05-31/distributions/{DistributionId}/monitoring-subscription"
     )
-    url = url.replace(
-        "{DistributionId}", quote(str(input_["distribution_id"]), safe="")
-    )
-    params: dict[str, str] = {}
+    url = url.replace("{DistributionId}", quote(input_["distribution_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "monitoring_subscription" in input_:
-        payload_root = Element("_")
-        capo_cloudfront.types.monitoring_subscription.serialize_xml(
-            input_["monitoring_subscription"], payload_root, "MonitoringSubscription"
-        )
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+    payload_root = Element("_")
+    capo_cloudfront.types.monitoring_subscription.serialize_xml(
+        input_["monitoring_subscription"], payload_root, "MonitoringSubscription"
+    )
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -80,133 +80,146 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+    import capo_s3.types.object_lock_legal_hold_status
+    import capo_s3.types.object_lock_mode
+    import capo_s3.types.replication_status
+    import capo_s3.types.request_charged
+    import capo_s3.types.server_side_encryption
+    import capo_s3.types.storage_class
+
     url = endpoint.url.rstrip("/") + "/WriteGetObjectResponse"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "request_route" in input_:
-        headers["x-amz-request-route"] = str(input_["request_route"])
+        headers["x-amz-request-route"] = input_["request_route"]
     if "request_token" in input_:
-        headers["x-amz-request-token"] = str(input_["request_token"])
+        headers["x-amz-request-token"] = input_["request_token"]
     if "status_code" in input_:
         headers["x-amz-fwd-status"] = str(input_["status_code"])
     if "error_code" in input_:
-        headers["x-amz-fwd-error-code"] = str(input_["error_code"])
+        headers["x-amz-fwd-error-code"] = input_["error_code"]
     if "error_message" in input_:
-        headers["x-amz-fwd-error-message"] = str(input_["error_message"])
+        headers["x-amz-fwd-error-message"] = input_["error_message"]
     if "accept_ranges" in input_:
-        headers["x-amz-fwd-header-accept-ranges"] = str(input_["accept_ranges"])
+        headers["x-amz-fwd-header-accept-ranges"] = input_["accept_ranges"]
     if "cache_control" in input_:
-        headers["x-amz-fwd-header-Cache-Control"] = str(input_["cache_control"])
+        headers["x-amz-fwd-header-Cache-Control"] = input_["cache_control"]
     if "content_disposition" in input_:
-        headers["x-amz-fwd-header-Content-Disposition"] = str(
-            input_["content_disposition"]
-        )
+        headers["x-amz-fwd-header-Content-Disposition"] = input_["content_disposition"]
     if "content_encoding" in input_:
-        headers["x-amz-fwd-header-Content-Encoding"] = str(input_["content_encoding"])
+        headers["x-amz-fwd-header-Content-Encoding"] = input_["content_encoding"]
     if "content_language" in input_:
-        headers["x-amz-fwd-header-Content-Language"] = str(input_["content_language"])
+        headers["x-amz-fwd-header-Content-Language"] = input_["content_language"]
     if "content_length" in input_:
         headers["Content-Length"] = str(input_["content_length"])
     if "content_range" in input_:
-        headers["x-amz-fwd-header-Content-Range"] = str(input_["content_range"])
+        headers["x-amz-fwd-header-Content-Range"] = input_["content_range"]
     if "content_type" in input_:
-        headers["x-amz-fwd-header-Content-Type"] = str(input_["content_type"])
+        headers["x-amz-fwd-header-Content-Type"] = input_["content_type"]
     if "checksum_crc32" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-crc32"] = str(input_["checksum_crc32"])
+        headers["x-amz-fwd-header-x-amz-checksum-crc32"] = input_["checksum_crc32"]
     if "checksum_crc32_c" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-crc32c"] = str(
-            input_["checksum_crc32_c"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-crc32c"] = input_["checksum_crc32_c"]
     if "checksum_crc64_nvme" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-crc64nvme"] = str(
-            input_["checksum_crc64_nvme"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-crc64nvme"] = input_[
+            "checksum_crc64_nvme"
+        ]
     if "checksum_sha1" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-sha1"] = str(input_["checksum_sha1"])
+        headers["x-amz-fwd-header-x-amz-checksum-sha1"] = input_["checksum_sha1"]
     if "checksum_sha256" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-sha256"] = str(
-            input_["checksum_sha256"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-sha256"] = input_["checksum_sha256"]
     if "checksum_sha512" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-sha512"] = str(
-            input_["checksum_sha512"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-sha512"] = input_["checksum_sha512"]
     if "checksum_md5" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-md5"] = str(input_["checksum_md5"])
+        headers["x-amz-fwd-header-x-amz-checksum-md5"] = input_["checksum_md5"]
     if "checksum_xxhash64" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-xxhash64"] = str(
-            input_["checksum_xxhash64"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-xxhash64"] = input_[
+            "checksum_xxhash64"
+        ]
     if "checksum_xxhash3" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-xxhash3"] = str(
-            input_["checksum_xxhash3"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-xxhash3"] = input_["checksum_xxhash3"]
     if "checksum_xxhash128" in input_:
-        headers["x-amz-fwd-header-x-amz-checksum-xxhash128"] = str(
-            input_["checksum_xxhash128"]
-        )
+        headers["x-amz-fwd-header-x-amz-checksum-xxhash128"] = input_[
+            "checksum_xxhash128"
+        ]
     if "delete_marker" in input_:
-        headers["x-amz-fwd-header-x-amz-delete-marker"] = str(input_["delete_marker"])
+        headers["x-amz-fwd-header-x-amz-delete-marker"] = (
+            "true" if input_["delete_marker"] else "false"
+        )
     if "e_tag" in input_:
-        headers["x-amz-fwd-header-ETag"] = str(input_["e_tag"])
+        headers["x-amz-fwd-header-ETag"] = input_["e_tag"]
     if "expires" in input_:
-        headers["x-amz-fwd-header-Expires"] = str(input_["expires"])
+        headers["x-amz-fwd-header-Expires"] = input_["expires"]
     if "expiration" in input_:
-        headers["x-amz-fwd-header-x-amz-expiration"] = str(input_["expiration"])
+        headers["x-amz-fwd-header-x-amz-expiration"] = input_["expiration"]
     if "last_modified" in input_:
-        headers["x-amz-fwd-header-Last-Modified"] = str(input_["last_modified"])
+        headers["x-amz-fwd-header-Last-Modified"] = (
+            capo_s3._protocol.serialize.fmt_http_date(input_["last_modified"])
+        )
     if "missing_meta" in input_:
         headers["x-amz-fwd-header-x-amz-missing-meta"] = str(input_["missing_meta"])
     if "object_lock_mode" in input_:
-        headers["x-amz-fwd-header-x-amz-object-lock-mode"] = str(
-            input_["object_lock_mode"]
+        headers["x-amz-fwd-header-x-amz-object-lock-mode"] = (
+            capo_s3.types.object_lock_mode.to_xml_text(input_["object_lock_mode"])
         )
     if "object_lock_legal_hold_status" in input_:
-        headers["x-amz-fwd-header-x-amz-object-lock-legal-hold"] = str(
-            input_["object_lock_legal_hold_status"]
+        headers["x-amz-fwd-header-x-amz-object-lock-legal-hold"] = (
+            capo_s3.types.object_lock_legal_hold_status.to_xml_text(
+                input_["object_lock_legal_hold_status"]
+            )
         )
     if "object_lock_retain_until_date" in input_:
-        headers["x-amz-fwd-header-x-amz-object-lock-retain-until-date"] = str(
-            input_["object_lock_retain_until_date"]
+        headers["x-amz-fwd-header-x-amz-object-lock-retain-until-date"] = (
+            capo_s3._protocol.serialize.fmt_date_time(
+                input_["object_lock_retain_until_date"]
+            )
         )
     if "parts_count" in input_:
         headers["x-amz-fwd-header-x-amz-mp-parts-count"] = str(input_["parts_count"])
     if "replication_status" in input_:
-        headers["x-amz-fwd-header-x-amz-replication-status"] = str(
-            input_["replication_status"]
+        headers["x-amz-fwd-header-x-amz-replication-status"] = (
+            capo_s3.types.replication_status.to_xml_text(input_["replication_status"])
         )
     if "request_charged" in input_:
-        headers["x-amz-fwd-header-x-amz-request-charged"] = str(
-            input_["request_charged"]
+        headers["x-amz-fwd-header-x-amz-request-charged"] = (
+            capo_s3.types.request_charged.to_xml_text(input_["request_charged"])
         )
     if "restore" in input_:
-        headers["x-amz-fwd-header-x-amz-restore"] = str(input_["restore"])
+        headers["x-amz-fwd-header-x-amz-restore"] = input_["restore"]
     if "server_side_encryption" in input_:
-        headers["x-amz-fwd-header-x-amz-server-side-encryption"] = str(
-            input_["server_side_encryption"]
+        headers["x-amz-fwd-header-x-amz-server-side-encryption"] = (
+            capo_s3.types.server_side_encryption.to_xml_text(
+                input_["server_side_encryption"]
+            )
         )
     if "sse_customer_algorithm" in input_:
         headers["x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"] = (
-            str(input_["sse_customer_algorithm"])
+            input_["sse_customer_algorithm"]
         )
     if "ssekms_key_id" in input_:
-        headers["x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"] = str(
+        headers["x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"] = (
             input_["ssekms_key_id"]
         )
     if "sse_customer_key_md5" in input_:
-        headers["x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"] = str(
+        headers["x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"] = (
             input_["sse_customer_key_md5"]
         )
     if "storage_class" in input_:
-        headers["x-amz-fwd-header-x-amz-storage-class"] = str(input_["storage_class"])
+        headers["x-amz-fwd-header-x-amz-storage-class"] = (
+            capo_s3.types.storage_class.to_xml_text(input_["storage_class"])
+        )
     if "tag_count" in input_:
         headers["x-amz-fwd-header-x-amz-tagging-count"] = str(input_["tag_count"])
     if "version_id" in input_:
-        headers["x-amz-fwd-header-x-amz-version-id"] = str(input_["version_id"])
+        headers["x-amz-fwd-header-x-amz-version-id"] = input_["version_id"]
     if "bucket_key_enabled" in input_:
         headers["x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"] = (
-            str(input_["bucket_key_enabled"])
+            "true" if input_["bucket_key_enabled"] else "false"
         )
+    if "metadata" in input_:
+        for k, v in input_["metadata"].items():
+            headers["x-amz-meta-" + k] = v
     body = input_["body"]
     if isinstance(body, capo_s3._iter.StaticAnyIterator):
         body = cast(bytes, body.content)
@@ -216,7 +229,8 @@ def build_request(
         raise ValueError("Content-Length is required for streaming input")
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

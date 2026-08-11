@@ -56,7 +56,20 @@ def serialize_ec2_query(
             value["instance_platform"], pairs, f"{key_prefix}InstancePlatform"
         )
     if "weight" in value:
-        pairs.append((f"{key_prefix}Weight", str(value["weight"])))
+        pairs.append(
+            (
+                f"{key_prefix}Weight",
+                (
+                    "NaN"
+                    if value["weight"] != value["weight"]
+                    else "Infinity"
+                    if value["weight"] == float("inf")
+                    else "-Infinity"
+                    if value["weight"] == float("-inf")
+                    else str(value["weight"])
+                ),
+            )
+        )
     if "availability_zone" in value:
         pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "availability_zone_id" in value:

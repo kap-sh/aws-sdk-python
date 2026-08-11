@@ -20,6 +20,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.minimum_engine_version_per_allowed_value
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.minimum_engine_version_per_allowed_value.serialize_query(
             item, pairs, f"{prefix}.MinimumEngineVersionPerAllowedValue.{n}"
@@ -46,6 +49,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.minimum_engine_version_per_allowed_value
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.minimum_engine_version_per_allowed_value.serialize_query(
             item, pairs, f"{prefix}.{n}"

@@ -37,15 +37,20 @@ class DBClusterRoleAlreadyExistsFault(ServiceError):
 
     code: str | None = "DBClusterRoleAlreadyExistsFault"
 
-    def __init__(self, data: DBClusterRoleAlreadyExistsFault_):
+    def __init__(
+        self, data: DBClusterRoleAlreadyExistsFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterRoleAlreadyExistsFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterRoleAlreadyExistsFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterRoleAlreadyExistsFault":
+        return cls(deserialize_query(el), message)

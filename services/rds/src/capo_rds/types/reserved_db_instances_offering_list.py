@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.reserved_db_instances_offering
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.reserved_db_instances_offering.serialize_query(
             item, pairs, f"{prefix}.ReservedDBInstancesOffering.{n}"
@@ -40,6 +43,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.reserved_db_instances_offering
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.reserved_db_instances_offering.serialize_query(
             item, pairs, f"{prefix}.{n}"

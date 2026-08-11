@@ -35,15 +35,18 @@ class CachePolicyAlreadyExists(ServiceError):
 
     code: str | None = "CachePolicyAlreadyExists"
 
-    def __init__(self, data: CachePolicyAlreadyExists_):
+    def __init__(self, data: CachePolicyAlreadyExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CachePolicyAlreadyExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "CachePolicyAlreadyExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "CachePolicyAlreadyExists":
+        return cls(deserialize_xml(el), message)

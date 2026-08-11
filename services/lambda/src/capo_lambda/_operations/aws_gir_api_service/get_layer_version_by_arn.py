@@ -31,17 +31,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -103,14 +105,15 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2018-10-31/layers?find=LayerVersion"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "arn" in input_:
-        params["Arn"] = str(input_["arn"])
+        params.append(("Arn", input_["arn"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

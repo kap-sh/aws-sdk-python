@@ -36,15 +36,16 @@ class DelegationSetInUse(ServiceError):
 
     code: str | None = "DelegationSetInUse"
 
-    def __init__(self, data: DelegationSetInUse_):
+    def __init__(self, data: DelegationSetInUse_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DelegationSetInUse",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "DelegationSetInUse":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "DelegationSetInUse":
+        return cls(deserialize_xml(el), message)

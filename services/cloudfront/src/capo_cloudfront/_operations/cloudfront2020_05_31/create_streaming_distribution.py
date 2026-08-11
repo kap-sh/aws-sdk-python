@@ -26,7 +26,7 @@ import capo_cloudfront.types.create_streaming_distribution_request
 import capo_cloudfront.types.create_streaming_distribution_result
 import capo_cloudfront.types.streaming_distribution
 import capo_cloudfront.types.streaming_distribution_config
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import Element, fromstring, tostring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -36,50 +36,59 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "CNAMEAlreadyExists":
             raise capo_cloudfront.errors.cname_already_exists.CNAMEAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "InconsistentQuantities":
             raise capo_cloudfront.errors.inconsistent_quantities.InconsistentQuantities.from_xml(
-                root
+                error_el, message
             )
         case "InvalidArgument":
-            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "InvalidOrigin":
-            raise capo_cloudfront.errors.invalid_origin.InvalidOrigin.from_xml(root)
+            raise capo_cloudfront.errors.invalid_origin.InvalidOrigin.from_xml(
+                error_el, message
+            )
         case "InvalidOriginAccessControl":
             raise capo_cloudfront.errors.invalid_origin_access_control.InvalidOriginAccessControl.from_xml(
-                root
+                error_el, message
             )
         case "InvalidOriginAccessIdentity":
             raise capo_cloudfront.errors.invalid_origin_access_identity.InvalidOriginAccessIdentity.from_xml(
-                root
+                error_el, message
             )
         case "MissingBody":
-            raise capo_cloudfront.errors.missing_body.MissingBody.from_xml(root)
+            raise capo_cloudfront.errors.missing_body.MissingBody.from_xml(
+                error_el, message
+            )
         case "StreamingDistributionAlreadyExists":
             raise capo_cloudfront.errors.streaming_distribution_already_exists.StreamingDistributionAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "TooManyStreamingDistributionCNAMEs":
             raise capo_cloudfront.errors.too_many_streaming_distribution_cnam_es.TooManyStreamingDistributionCNAMEs.from_xml(
-                root
+                error_el, message
             )
         case "TooManyStreamingDistributions":
             raise capo_cloudfront.errors.too_many_streaming_distributions.TooManyStreamingDistributions.from_xml(
-                root
+                error_el, message
             )
         case "TooManyTrustedSigners":
             raise capo_cloudfront.errors.too_many_trusted_signers.TooManyTrustedSigners.from_xml(
-                root
+                error_el, message
             )
         case "TrustedSignerDoesNotExist":
             raise capo_cloudfront.errors.trusted_signer_does_not_exist.TrustedSignerDoesNotExist.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -94,9 +103,9 @@ def handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
-        out["location"] = str(response.headers["Location"])
+        out["location"] = response.headers["Location"]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -109,9 +118,9 @@ async def async_handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
-        out["location"] = str(response.headers["Location"])
+        out["location"] = response.headers["Location"]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -149,22 +158,20 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/streaming-distribution"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "streaming_distribution_config" in input_:
-        payload_root = Element("_")
-        capo_cloudfront.types.streaming_distribution_config.serialize_xml(
-            input_["streaming_distribution_config"],
-            payload_root,
-            "StreamingDistributionConfig",
-        )
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+    payload_root = Element("_")
+    capo_cloudfront.types.streaming_distribution_config.serialize_xml(
+        input_["streaming_distribution_config"],
+        payload_root,
+        "StreamingDistributionConfig",
+    )
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

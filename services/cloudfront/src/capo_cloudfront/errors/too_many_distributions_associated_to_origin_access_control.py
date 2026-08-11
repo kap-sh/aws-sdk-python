@@ -41,17 +41,22 @@ class TooManyDistributionsAssociatedToOriginAccessControl(ServiceError):
 
     code: str | None = "TooManyDistributionsAssociatedToOriginAccessControl"
 
-    def __init__(self, data: TooManyDistributionsAssociatedToOriginAccessControl_):
+    def __init__(
+        self,
+        data: TooManyDistributionsAssociatedToOriginAccessControl_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyDistributionsAssociatedToOriginAccessControl",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_xml(
-        cls, el: Element
+        cls, el: Element, message: str | None = None
     ) -> "TooManyDistributionsAssociatedToOriginAccessControl":
-        return cls(deserialize_xml(el))
+        return cls(deserialize_xml(el), message)

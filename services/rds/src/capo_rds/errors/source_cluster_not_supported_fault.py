@@ -37,15 +37,20 @@ class SourceClusterNotSupportedFault(ServiceError):
 
     code: str | None = "SourceClusterNotSupportedFault"
 
-    def __init__(self, data: SourceClusterNotSupportedFault_):
+    def __init__(
+        self, data: SourceClusterNotSupportedFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SourceClusterNotSupportedFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "SourceClusterNotSupportedFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "SourceClusterNotSupportedFault":
+        return cls(deserialize_query(el), message)

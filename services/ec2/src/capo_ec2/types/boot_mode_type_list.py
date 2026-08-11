@@ -14,6 +14,9 @@ BootModeTypeList: TypeAlias = list["capo_ec2.types.boot_mode_type.BootModeType"]
 def serialize_ec2_query(
     value: BootModeTypeList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.boot_mode_type
 

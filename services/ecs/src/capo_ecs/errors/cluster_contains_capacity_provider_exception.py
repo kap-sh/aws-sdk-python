@@ -35,17 +35,22 @@ class ClusterContainsCapacityProviderException(ServiceError):
 
     code: str | None = "ClusterContainsCapacityProviderException"
 
-    def __init__(self, data: ClusterContainsCapacityProviderException_):
+    def __init__(
+        self,
+        data: ClusterContainsCapacityProviderException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ClusterContainsCapacityProviderException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_aws_json_1_1(
-        cls, data: dict
+        cls, data: dict, message: str | None = None
     ) -> "ClusterContainsCapacityProviderException":
-        return cls(deserialize_aws_json_1_1(data))
+        return cls(deserialize_aws_json_1_1(data), message)

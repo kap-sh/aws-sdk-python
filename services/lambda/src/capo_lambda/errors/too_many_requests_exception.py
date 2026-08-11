@@ -55,15 +55,18 @@ class TooManyRequestsException(ServiceError):
 
     code: str | None = "TooManyRequestsException"
 
-    def __init__(self, data: TooManyRequestsException_):
+    def __init__(self, data: TooManyRequestsException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyRequestsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "TooManyRequestsException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "TooManyRequestsException":
+        return cls(deserialize_json(data), message)

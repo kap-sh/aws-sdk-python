@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.domain_membership
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.domain_membership.serialize_query(
             item, pairs, f"{prefix}.DomainMembership.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.domain_membership
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.domain_membership.serialize_query(item, pairs, f"{prefix}.{n}")
 

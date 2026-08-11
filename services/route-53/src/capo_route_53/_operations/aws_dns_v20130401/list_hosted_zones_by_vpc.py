@@ -15,7 +15,7 @@ import capo_route_53.types.hosted_zone_summaries
 import capo_route_53.types.list_hosted_zones_by_vpc_request
 import capo_route_53.types.list_hosted_zones_by_vpc_response
 import capo_route_53.types.vpc_region
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -25,12 +25,15 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "InvalidPaginationToken":
             raise capo_route_53.errors.invalid_pagination_token.InvalidPaginationToken.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -87,21 +90,29 @@ def build_request(
             Region=options.region,
         )
     )  # noqa: F841
+    import capo_route_53.types.vpc_region
+
     url = endpoint.url.rstrip("/") + "/2013-04-01/hostedzonesbyvpc"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "vpc_id" in input_:
-        params["vpcid"] = str(input_["vpc_id"])
+        params.append(("vpcid", input_["vpc_id"]))
     if "vpc_region" in input_:
-        params["vpcregion"] = str(input_["vpc_region"])
+        params.append(
+            (
+                "vpcregion",
+                capo_route_53.types.vpc_region.to_xml_text(input_["vpc_region"]),
+            )
+        )
     if "max_items" in input_:
-        params["maxitems"] = str(input_["max_items"])
+        params.append(("maxitems", str(input_["max_items"])))
     if "next_token" in input_:
-        params["nexttoken"] = str(input_["next_token"])
+        params.append(("nexttoken", input_["next_token"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

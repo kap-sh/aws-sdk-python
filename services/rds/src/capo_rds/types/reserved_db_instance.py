@@ -79,9 +79,35 @@ def serialize_query(
     if "duration" in value:
         pairs.append((f"{key_prefix}Duration", str(value["duration"])))
     if "fixed_price" in value:
-        pairs.append((f"{key_prefix}FixedPrice", str(value["fixed_price"])))
+        pairs.append(
+            (
+                f"{key_prefix}FixedPrice",
+                (
+                    "NaN"
+                    if value["fixed_price"] != value["fixed_price"]
+                    else "Infinity"
+                    if value["fixed_price"] == float("inf")
+                    else "-Infinity"
+                    if value["fixed_price"] == float("-inf")
+                    else str(value["fixed_price"])
+                ),
+            )
+        )
     if "usage_price" in value:
-        pairs.append((f"{key_prefix}UsagePrice", str(value["usage_price"])))
+        pairs.append(
+            (
+                f"{key_prefix}UsagePrice",
+                (
+                    "NaN"
+                    if value["usage_price"] != value["usage_price"]
+                    else "Infinity"
+                    if value["usage_price"] == float("inf")
+                    else "-Infinity"
+                    if value["usage_price"] == float("-inf")
+                    else str(value["usage_price"])
+                ),
+            )
+        )
     if "currency_code" in value:
         pairs.append((f"{key_prefix}CurrencyCode", str(value["currency_code"])))
     if "db_instance_count" in value:

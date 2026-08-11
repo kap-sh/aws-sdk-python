@@ -27,15 +27,18 @@ class ObjectNotInActiveTierError(ServiceError):
 
     code: str | None = "ObjectNotInActiveTierError"
 
-    def __init__(self, data: ObjectNotInActiveTierError_):
+    def __init__(self, data: ObjectNotInActiveTierError_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ObjectNotInActiveTierError",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "ObjectNotInActiveTierError":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "ObjectNotInActiveTierError":
+        return cls(deserialize_xml(el), message)

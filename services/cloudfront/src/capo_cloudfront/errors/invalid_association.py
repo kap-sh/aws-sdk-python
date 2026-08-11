@@ -35,15 +35,16 @@ class InvalidAssociation(ServiceError):
 
     code: str | None = "InvalidAssociation"
 
-    def __init__(self, data: InvalidAssociation_):
+    def __init__(self, data: InvalidAssociation_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidAssociation",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidAssociation":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "InvalidAssociation":
+        return cls(deserialize_xml(el), message)

@@ -49,7 +49,16 @@ def serialize_ec2_query(
         pairs.append(
             (
                 f"{key_prefix}SustainedClockSpeedInGhz",
-                str(value["sustained_clock_speed_in_ghz"]),
+                (
+                    "NaN"
+                    if value["sustained_clock_speed_in_ghz"]
+                    != value["sustained_clock_speed_in_ghz"]
+                    else "Infinity"
+                    if value["sustained_clock_speed_in_ghz"] == float("inf")
+                    else "-Infinity"
+                    if value["sustained_clock_speed_in_ghz"] == float("-inf")
+                    else str(value["sustained_clock_speed_in_ghz"])
+                ),
             )
         )
     if "supported_features" in value:

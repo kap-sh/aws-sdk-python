@@ -39,15 +39,20 @@ class InvalidSecurityGroupIDException(ServiceError):
 
     code: str | None = "InvalidSecurityGroupIDException"
 
-    def __init__(self, data: InvalidSecurityGroupIDException_):
+    def __init__(
+        self, data: InvalidSecurityGroupIDException_, message: str | None = None
+    ):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidSecurityGroupIDException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidSecurityGroupIDException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidSecurityGroupIDException":
+        return cls(deserialize_json(data), message)

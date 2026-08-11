@@ -37,15 +37,20 @@ class TooManyResponseHeadersPolicies(ServiceError):
 
     code: str | None = "TooManyResponseHeadersPolicies"
 
-    def __init__(self, data: TooManyResponseHeadersPolicies_):
+    def __init__(
+        self, data: TooManyResponseHeadersPolicies_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyResponseHeadersPolicies",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyResponseHeadersPolicies":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyResponseHeadersPolicies":
+        return cls(deserialize_xml(el), message)

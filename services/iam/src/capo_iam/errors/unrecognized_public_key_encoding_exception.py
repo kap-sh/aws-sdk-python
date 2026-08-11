@@ -41,15 +41,20 @@ class UnrecognizedPublicKeyEncodingException(ServiceError):
 
     code: str | None = "UnrecognizedPublicKeyEncodingException"
 
-    def __init__(self, data: UnrecognizedPublicKeyEncodingException_):
+    def __init__(
+        self, data: UnrecognizedPublicKeyEncodingException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnrecognizedPublicKeyEncodingException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "UnrecognizedPublicKeyEncodingException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "UnrecognizedPublicKeyEncodingException":
+        return cls(deserialize_query(el), message)

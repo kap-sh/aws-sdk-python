@@ -65,9 +65,35 @@ def serialize_query(
             (f"{key_prefix}DBClusterIdentifier", str(value["db_cluster_identifier"]))
         )
     if "max_acu" in value:
-        pairs.append((f"{key_prefix}MaxACU", str(value["max_acu"])))
+        pairs.append(
+            (
+                f"{key_prefix}MaxACU",
+                (
+                    "NaN"
+                    if value["max_acu"] != value["max_acu"]
+                    else "Infinity"
+                    if value["max_acu"] == float("inf")
+                    else "-Infinity"
+                    if value["max_acu"] == float("-inf")
+                    else str(value["max_acu"])
+                ),
+            )
+        )
     if "min_acu" in value:
-        pairs.append((f"{key_prefix}MinACU", str(value["min_acu"])))
+        pairs.append(
+            (
+                f"{key_prefix}MinACU",
+                (
+                    "NaN"
+                    if value["min_acu"] != value["min_acu"]
+                    else "Infinity"
+                    if value["min_acu"] == float("inf")
+                    else "-Infinity"
+                    if value["min_acu"] == float("-inf")
+                    else str(value["min_acu"])
+                ),
+            )
+        )
     if "compute_redundancy" in value:
         pairs.append(
             (f"{key_prefix}ComputeRedundancy", str(value["compute_redundancy"]))

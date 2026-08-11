@@ -106,32 +106,37 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.checksum_algorithm
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}?delete"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "mfa" in input_:
-        headers["x-amz-mfa"] = str(input_["mfa"])
+        headers["x-amz-mfa"] = input_["mfa"]
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "bypass_governance_retention" in input_:
-        headers["x-amz-bypass-governance-retention"] = str(
-            input_["bypass_governance_retention"]
+        headers["x-amz-bypass-governance-retention"] = (
+            "true" if input_["bypass_governance_retention"] else "false"
         )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "checksum_algorithm" in input_:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
-    if "delete" in input_:
-        payload_root = Element("_")
-        capo_s3.types.delete.serialize_xml(input_["delete"], payload_root, "Delete")
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+        headers["x-amz-sdk-checksum-algorithm"] = (
+            capo_s3.types.checksum_algorithm.to_xml_text(input_["checksum_algorithm"])
+        )
+    payload_root = Element("_")
+    capo_s3.types.delete.serialize_xml(input_["delete"], payload_root, "Delete")
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

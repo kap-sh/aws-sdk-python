@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_cloudwatch.types.insight_rule_metric_datapoint
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_cloudwatch.types.insight_rule_metric_datapoint.serialize_query(
             item, pairs, f"{prefix}.member.{n}"
@@ -40,6 +43,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_cloudwatch.types.insight_rule_metric_datapoint
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_cloudwatch.types.insight_rule_metric_datapoint.serialize_query(
             item, pairs, f"{prefix}.{n}"

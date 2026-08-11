@@ -53,19 +53,24 @@ class InvalidFormatFault(ServiceError):
 
     code: str | None = "InvalidFormatFault"
 
-    def __init__(self, data: InvalidFormatFault_):
+    def __init__(self, data: InvalidFormatFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidFormatFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidFormatFault":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidFormatFault":
+        return cls(deserialize_aws_json_1_0(data), message)
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidFormatFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidFormatFault":
+        return cls(deserialize_query(el), message)

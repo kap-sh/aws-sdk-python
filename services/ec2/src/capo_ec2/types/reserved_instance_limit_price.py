@@ -24,7 +24,20 @@ def serialize_ec2_query(
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
     if "amount" in value:
-        pairs.append((f"{key_prefix}Amount", str(value["amount"])))
+        pairs.append(
+            (
+                f"{key_prefix}Amount",
+                (
+                    "NaN"
+                    if value["amount"] != value["amount"]
+                    else "Infinity"
+                    if value["amount"] == float("inf")
+                    else "-Infinity"
+                    if value["amount"] == float("-inf")
+                    else str(value["amount"])
+                ),
+            )
+        )
     if "currency_code" in value:
         import capo_ec2.types.currency_code_values
 

@@ -37,15 +37,22 @@ class InsufficientCloudWatchLogsResourcePolicy(ServiceError):
 
     code: str | None = "InsufficientCloudWatchLogsResourcePolicy"
 
-    def __init__(self, data: InsufficientCloudWatchLogsResourcePolicy_):
+    def __init__(
+        self,
+        data: InsufficientCloudWatchLogsResourcePolicy_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InsufficientCloudWatchLogsResourcePolicy",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InsufficientCloudWatchLogsResourcePolicy":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InsufficientCloudWatchLogsResourcePolicy":
+        return cls(deserialize_xml(el), message)

@@ -16,7 +16,7 @@ import capo_s3.types.create_session_request
 import capo_s3.types.server_side_encryption
 import capo_s3.types.session_credentials
 import capo_s3.types.session_mode
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -27,9 +27,10 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "NoSuchBucket":
-            raise capo_s3.errors.no_such_bucket.NoSuchBucket.from_xml(root)
+            raise capo_s3.errors.no_such_bucket.NoSuchBucket.from_xml(error_el, message)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -47,13 +48,13 @@ def handle_response(
             )
         )
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-context" in response.headers:
-        out["ssekms_encryption_context"] = str(
-            response.headers["x-amz-server-side-encryption-context"]
-        )
+        out["ssekms_encryption_context"] = response.headers[
+            "x-amz-server-side-encryption-context"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -77,13 +78,13 @@ async def async_handle_response(
             )
         )
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-context" in response.headers:
-        out["ssekms_encryption_context"] = str(
-            response.headers["x-amz-server-side-encryption-context"]
-        )
+        out["ssekms_encryption_context"] = response.headers[
+            "x-amz-server-side-encryption-context"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -136,30 +137,38 @@ def build_request(
             DisableS3ExpressSessionAuth=True,
         )
     )  # noqa: F841
+    import capo_s3.types.server_side_encryption
+    import capo_s3.types.session_mode
+
     url = endpoint.url.rstrip("/") + "/{Bucket}?session"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "session_mode" in input_:
-        headers["x-amz-create-session-mode"] = str(input_["session_mode"])
+        headers["x-amz-create-session-mode"] = capo_s3.types.session_mode.to_xml_text(
+            input_["session_mode"]
+        )
     if "server_side_encryption" in input_:
-        headers["x-amz-server-side-encryption"] = str(input_["server_side_encryption"])
+        headers["x-amz-server-side-encryption"] = (
+            capo_s3.types.server_side_encryption.to_xml_text(
+                input_["server_side_encryption"]
+            )
+        )
     if "ssekms_key_id" in input_:
-        headers["x-amz-server-side-encryption-aws-kms-key-id"] = str(
-            input_["ssekms_key_id"]
-        )
+        headers["x-amz-server-side-encryption-aws-kms-key-id"] = input_["ssekms_key_id"]
     if "ssekms_encryption_context" in input_:
-        headers["x-amz-server-side-encryption-context"] = str(
-            input_["ssekms_encryption_context"]
-        )
+        headers["x-amz-server-side-encryption-context"] = input_[
+            "ssekms_encryption_context"
+        ]
     if "bucket_key_enabled" in input_:
-        headers["x-amz-server-side-encryption-bucket-key-enabled"] = str(
-            input_["bucket_key_enabled"]
+        headers["x-amz-server-side-encryption-bucket-key-enabled"] = (
+            "true" if input_["bucket_key_enabled"] else "false"
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

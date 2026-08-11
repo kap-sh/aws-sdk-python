@@ -37,15 +37,18 @@ class DBSubnetQuotaExceededFault(ServiceError):
 
     code: str | None = "DBSubnetQuotaExceededFault"
 
-    def __init__(self, data: DBSubnetQuotaExceededFault_):
+    def __init__(self, data: DBSubnetQuotaExceededFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBSubnetQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBSubnetQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBSubnetQuotaExceededFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class OptionGroupNotFoundFault(ServiceError):
 
     code: str | None = "OptionGroupNotFoundFault"
 
-    def __init__(self, data: OptionGroupNotFoundFault_):
+    def __init__(self, data: OptionGroupNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OptionGroupNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "OptionGroupNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "OptionGroupNotFoundFault":
+        return cls(deserialize_query(el), message)

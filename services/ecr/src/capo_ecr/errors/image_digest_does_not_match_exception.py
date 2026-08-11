@@ -34,15 +34,20 @@ class ImageDigestDoesNotMatchException(ServiceError):
 
     code: str | None = "ImageDigestDoesNotMatchException"
 
-    def __init__(self, data: ImageDigestDoesNotMatchException_):
+    def __init__(
+        self, data: ImageDigestDoesNotMatchException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ImageDigestDoesNotMatchException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ImageDigestDoesNotMatchException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ImageDigestDoesNotMatchException":
+        return cls(deserialize_aws_json_1_1(data), message)

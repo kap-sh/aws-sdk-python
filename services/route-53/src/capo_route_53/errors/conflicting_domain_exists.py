@@ -35,15 +35,18 @@ class ConflictingDomainExists(ServiceError):
 
     code: str | None = "ConflictingDomainExists"
 
-    def __init__(self, data: ConflictingDomainExists_):
+    def __init__(self, data: ConflictingDomainExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ConflictingDomainExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "ConflictingDomainExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "ConflictingDomainExists":
+        return cls(deserialize_xml(el), message)

@@ -37,15 +37,22 @@ class TooManyDistributionsWithSingleFunctionARN(ServiceError):
 
     code: str | None = "TooManyDistributionsWithSingleFunctionARN"
 
-    def __init__(self, data: TooManyDistributionsWithSingleFunctionARN_):
+    def __init__(
+        self,
+        data: TooManyDistributionsWithSingleFunctionARN_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyDistributionsWithSingleFunctionARN",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyDistributionsWithSingleFunctionARN":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyDistributionsWithSingleFunctionARN":
+        return cls(deserialize_xml(el), message)

@@ -31,23 +31,23 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "ConflictException":
             raise capo_scheduler.errors.conflict_exception.ConflictException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_scheduler.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_scheduler.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_scheduler.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_scheduler.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -101,8 +101,8 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/tags/{ResourceArn}"
-    url = url.replace("{ResourceArn}", quote(str(input_["resource_arn"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{ResourceArn}", quote(input_["resource_arn"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = json.dumps(
         capo_scheduler.types.tag_resource_input.serialize_json(input_)
@@ -110,7 +110,8 @@ def build_request(
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

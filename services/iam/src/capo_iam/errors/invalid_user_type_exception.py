@@ -39,15 +39,18 @@ class InvalidUserTypeException(ServiceError):
 
     code: str | None = "InvalidUserTypeException"
 
-    def __init__(self, data: InvalidUserTypeException_):
+    def __init__(self, data: InvalidUserTypeException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidUserTypeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidUserTypeException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidUserTypeException":
+        return cls(deserialize_query(el), message)

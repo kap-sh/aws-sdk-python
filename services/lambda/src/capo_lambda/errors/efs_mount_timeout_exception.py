@@ -39,15 +39,18 @@ class EFSMountTimeoutException(ServiceError):
 
     code: str | None = "EFSMountTimeoutException"
 
-    def __init__(self, data: EFSMountTimeoutException_):
+    def __init__(self, data: EFSMountTimeoutException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EFSMountTimeoutException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "EFSMountTimeoutException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "EFSMountTimeoutException":
+        return cls(deserialize_json(data), message)

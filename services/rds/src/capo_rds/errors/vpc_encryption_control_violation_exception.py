@@ -39,15 +39,20 @@ class VpcEncryptionControlViolationException(ServiceError):
 
     code: str | None = "VpcEncryptionControlViolationException"
 
-    def __init__(self, data: VpcEncryptionControlViolationException_):
+    def __init__(
+        self, data: VpcEncryptionControlViolationException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="VpcEncryptionControlViolationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "VpcEncryptionControlViolationException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "VpcEncryptionControlViolationException":
+        return cls(deserialize_query(el), message)

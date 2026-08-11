@@ -53,7 +53,7 @@ def handle_response(
     if "x-amz-abort-date" in response.headers:
         out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
     if "x-amz-abort-rule-id" in response.headers:
-        out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
+        out["abort_rule_id"] = response.headers["x-amz-abort-rule-id"]
     if "x-amz-server-side-encryption" in response.headers:
         out["server_side_encryption"] = (
             capo_s3.types.server_side_encryption.from_xml_text(
@@ -61,21 +61,21 @@ def handle_response(
             )
         )
     if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
-        out["sse_customer_algorithm"] = str(
-            response.headers["x-amz-server-side-encryption-customer-algorithm"]
-        )
+        out["sse_customer_algorithm"] = response.headers[
+            "x-amz-server-side-encryption-customer-algorithm"
+        ]
     if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
-        out["sse_customer_key_md5"] = str(
-            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
-        )
+        out["sse_customer_key_md5"] = response.headers[
+            "x-amz-server-side-encryption-customer-key-MD5"
+        ]
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-context" in response.headers:
-        out["ssekms_encryption_context"] = str(
-            response.headers["x-amz-server-side-encryption-context"]
-        )
+        out["ssekms_encryption_context"] = response.headers[
+            "x-amz-server-side-encryption-context"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -107,7 +107,7 @@ async def async_handle_response(
     if "x-amz-abort-date" in response.headers:
         out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
     if "x-amz-abort-rule-id" in response.headers:
-        out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
+        out["abort_rule_id"] = response.headers["x-amz-abort-rule-id"]
     if "x-amz-server-side-encryption" in response.headers:
         out["server_side_encryption"] = (
             capo_s3.types.server_side_encryption.from_xml_text(
@@ -115,21 +115,21 @@ async def async_handle_response(
             )
         )
     if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
-        out["sse_customer_algorithm"] = str(
-            response.headers["x-amz-server-side-encryption-customer-algorithm"]
-        )
+        out["sse_customer_algorithm"] = response.headers[
+            "x-amz-server-side-encryption-customer-algorithm"
+        ]
     if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
-        out["sse_customer_key_md5"] = str(
-            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
-        )
+        out["sse_customer_key_md5"] = response.headers[
+            "x-amz-server-side-encryption-customer-key-MD5"
+        ]
     if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
-        out["ssekms_key_id"] = str(
-            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
-        )
+        out["ssekms_key_id"] = response.headers[
+            "x-amz-server-side-encryption-aws-kms-key-id"
+        ]
     if "x-amz-server-side-encryption-context" in response.headers:
-        out["ssekms_encryption_context"] = str(
-            response.headers["x-amz-server-side-encryption-context"]
-        )
+        out["ssekms_encryption_context"] = response.headers[
+            "x-amz-server-side-encryption-context"
+        ]
     if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
         out["bucket_key_enabled"] = (
             response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
@@ -194,89 +194,119 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+    import capo_s3.types.checksum_algorithm
+    import capo_s3.types.checksum_type
+    import capo_s3.types.object_canned_acl
+    import capo_s3.types.object_lock_legal_hold_status
+    import capo_s3.types.object_lock_mode
+    import capo_s3.types.request_payer
+    import capo_s3.types.server_side_encryption
+    import capo_s3.types.storage_class
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?uploads"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "acl" in input_:
-        headers["x-amz-acl"] = str(input_["acl"])
+        headers["x-amz-acl"] = capo_s3.types.object_canned_acl.to_xml_text(
+            input_["acl"]
+        )
     if "cache_control" in input_:
-        headers["Cache-Control"] = str(input_["cache_control"])
+        headers["Cache-Control"] = input_["cache_control"]
     if "content_disposition" in input_:
-        headers["Content-Disposition"] = str(input_["content_disposition"])
+        headers["Content-Disposition"] = input_["content_disposition"]
     if "content_encoding" in input_:
-        headers["Content-Encoding"] = str(input_["content_encoding"])
+        headers["Content-Encoding"] = input_["content_encoding"]
     if "content_language" in input_:
-        headers["Content-Language"] = str(input_["content_language"])
+        headers["Content-Language"] = input_["content_language"]
     if "content_type" in input_:
-        headers["Content-Type"] = str(input_["content_type"])
+        headers["Content-Type"] = input_["content_type"]
     if "expires" in input_:
-        headers["Expires"] = str(input_["expires"])
+        headers["Expires"] = input_["expires"]
     if "grant_full_control" in input_:
-        headers["x-amz-grant-full-control"] = str(input_["grant_full_control"])
+        headers["x-amz-grant-full-control"] = input_["grant_full_control"]
     if "grant_read" in input_:
-        headers["x-amz-grant-read"] = str(input_["grant_read"])
+        headers["x-amz-grant-read"] = input_["grant_read"]
     if "grant_read_acp" in input_:
-        headers["x-amz-grant-read-acp"] = str(input_["grant_read_acp"])
+        headers["x-amz-grant-read-acp"] = input_["grant_read_acp"]
     if "grant_write_acp" in input_:
-        headers["x-amz-grant-write-acp"] = str(input_["grant_write_acp"])
+        headers["x-amz-grant-write-acp"] = input_["grant_write_acp"]
     if "server_side_encryption" in input_:
-        headers["x-amz-server-side-encryption"] = str(input_["server_side_encryption"])
+        headers["x-amz-server-side-encryption"] = (
+            capo_s3.types.server_side_encryption.to_xml_text(
+                input_["server_side_encryption"]
+            )
+        )
     if "storage_class" in input_:
-        headers["x-amz-storage-class"] = str(input_["storage_class"])
+        headers["x-amz-storage-class"] = capo_s3.types.storage_class.to_xml_text(
+            input_["storage_class"]
+        )
     if "website_redirect_location" in input_:
-        headers["x-amz-website-redirect-location"] = str(
-            input_["website_redirect_location"]
-        )
+        headers["x-amz-website-redirect-location"] = input_["website_redirect_location"]
     if "sse_customer_algorithm" in input_:
-        headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input_["sse_customer_algorithm"]
-        )
+        headers["x-amz-server-side-encryption-customer-algorithm"] = input_[
+            "sse_customer_algorithm"
+        ]
     if "sse_customer_key" in input_:
-        headers["x-amz-server-side-encryption-customer-key"] = str(
-            input_["sse_customer_key"]
-        )
+        headers["x-amz-server-side-encryption-customer-key"] = input_[
+            "sse_customer_key"
+        ]
     if "sse_customer_key_md5" in input_:
-        headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input_["sse_customer_key_md5"]
-        )
+        headers["x-amz-server-side-encryption-customer-key-MD5"] = input_[
+            "sse_customer_key_md5"
+        ]
     if "ssekms_key_id" in input_:
-        headers["x-amz-server-side-encryption-aws-kms-key-id"] = str(
-            input_["ssekms_key_id"]
-        )
+        headers["x-amz-server-side-encryption-aws-kms-key-id"] = input_["ssekms_key_id"]
     if "ssekms_encryption_context" in input_:
-        headers["x-amz-server-side-encryption-context"] = str(
-            input_["ssekms_encryption_context"]
-        )
+        headers["x-amz-server-side-encryption-context"] = input_[
+            "ssekms_encryption_context"
+        ]
     if "bucket_key_enabled" in input_:
-        headers["x-amz-server-side-encryption-bucket-key-enabled"] = str(
-            input_["bucket_key_enabled"]
+        headers["x-amz-server-side-encryption-bucket-key-enabled"] = (
+            "true" if input_["bucket_key_enabled"] else "false"
         )
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "tagging" in input_:
-        headers["x-amz-tagging"] = str(input_["tagging"])
+        headers["x-amz-tagging"] = input_["tagging"]
     if "object_lock_mode" in input_:
-        headers["x-amz-object-lock-mode"] = str(input_["object_lock_mode"])
+        headers["x-amz-object-lock-mode"] = capo_s3.types.object_lock_mode.to_xml_text(
+            input_["object_lock_mode"]
+        )
     if "object_lock_retain_until_date" in input_:
-        headers["x-amz-object-lock-retain-until-date"] = str(
-            input_["object_lock_retain_until_date"]
+        headers["x-amz-object-lock-retain-until-date"] = (
+            capo_s3._protocol.serialize.fmt_date_time(
+                input_["object_lock_retain_until_date"]
+            )
         )
     if "object_lock_legal_hold_status" in input_:
-        headers["x-amz-object-lock-legal-hold"] = str(
-            input_["object_lock_legal_hold_status"]
+        headers["x-amz-object-lock-legal-hold"] = (
+            capo_s3.types.object_lock_legal_hold_status.to_xml_text(
+                input_["object_lock_legal_hold_status"]
+            )
         )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "checksum_algorithm" in input_:
-        headers["x-amz-checksum-algorithm"] = str(input_["checksum_algorithm"])
+        headers["x-amz-checksum-algorithm"] = (
+            capo_s3.types.checksum_algorithm.to_xml_text(input_["checksum_algorithm"])
+        )
     if "checksum_type" in input_:
-        headers["x-amz-checksum-type"] = str(input_["checksum_type"])
+        headers["x-amz-checksum-type"] = capo_s3.types.checksum_type.to_xml_text(
+            input_["checksum_type"]
+        )
+    if "metadata" in input_:
+        for k, v in input_["metadata"].items():
+            headers["x-amz-meta-" + k] = v
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

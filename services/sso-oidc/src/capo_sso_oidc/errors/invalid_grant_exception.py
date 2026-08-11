@@ -44,15 +44,18 @@ class InvalidGrantException(ServiceError):
 
     code: str | None = "InvalidGrantException"
 
-    def __init__(self, data: InvalidGrantException_):
+    def __init__(self, data: InvalidGrantException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidGrantException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidGrantException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidGrantException":
+        return cls(deserialize_json(data), message)

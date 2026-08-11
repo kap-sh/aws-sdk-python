@@ -17,7 +17,7 @@ import capo_s3.types.abort_multipart_upload_request
 import capo_s3.types.if_match_initiated_time
 import capo_s3.types.request_charged
 import capo_s3.types.request_payer
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -28,9 +28,10 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "NoSuchUpload":
-            raise capo_s3.errors.no_such_upload.NoSuchUpload.from_xml(root)
+            raise capo_s3.errors.no_such_upload.NoSuchUpload.from_xml(error_el, message)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -101,25 +102,31 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=AbortMultipartUpload"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     if "upload_id" in input_:
-        params["uploadId"] = str(input_["upload_id"])
+        params.append(("uploadId", input_["upload_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "if_match_initiated_time" in input_:
-        headers["x-amz-if-match-initiated-time"] = str(
-            input_["if_match_initiated_time"]
+        headers["x-amz-if-match-initiated-time"] = (
+            capo_s3._protocol.serialize.fmt_http_date(input_["if_match_initiated_time"])
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

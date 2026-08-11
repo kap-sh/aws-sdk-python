@@ -35,15 +35,20 @@ class RepositoryPolicyNotFoundException(ServiceError):
 
     code: str | None = "RepositoryPolicyNotFoundException"
 
-    def __init__(self, data: RepositoryPolicyNotFoundException_):
+    def __init__(
+        self, data: RepositoryPolicyNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="RepositoryPolicyNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "RepositoryPolicyNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "RepositoryPolicyNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

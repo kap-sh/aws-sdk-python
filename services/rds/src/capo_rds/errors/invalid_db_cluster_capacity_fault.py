@@ -37,15 +37,20 @@ class InvalidDBClusterCapacityFault(ServiceError):
 
     code: str | None = "InvalidDBClusterCapacityFault"
 
-    def __init__(self, data: InvalidDBClusterCapacityFault_):
+    def __init__(
+        self, data: InvalidDBClusterCapacityFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBClusterCapacityFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBClusterCapacityFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBClusterCapacityFault":
+        return cls(deserialize_query(el), message)

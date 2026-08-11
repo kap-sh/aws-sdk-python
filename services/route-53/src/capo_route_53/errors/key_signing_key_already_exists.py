@@ -37,15 +37,18 @@ class KeySigningKeyAlreadyExists(ServiceError):
 
     code: str | None = "KeySigningKeyAlreadyExists"
 
-    def __init__(self, data: KeySigningKeyAlreadyExists_):
+    def __init__(self, data: KeySigningKeyAlreadyExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KeySigningKeyAlreadyExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "KeySigningKeyAlreadyExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "KeySigningKeyAlreadyExists":
+        return cls(deserialize_xml(el), message)

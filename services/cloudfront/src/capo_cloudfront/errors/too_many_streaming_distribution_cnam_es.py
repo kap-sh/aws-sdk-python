@@ -37,15 +37,20 @@ class TooManyStreamingDistributionCNAMEs(ServiceError):
 
     code: str | None = "TooManyStreamingDistributionCNAMEs"
 
-    def __init__(self, data: TooManyStreamingDistributionCNAMEs_):
+    def __init__(
+        self, data: TooManyStreamingDistributionCNAMEs_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyStreamingDistributionCNAMEs",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyStreamingDistributionCNAMEs":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyStreamingDistributionCNAMEs":
+        return cls(deserialize_xml(el), message)

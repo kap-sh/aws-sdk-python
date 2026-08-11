@@ -39,15 +39,18 @@ class TooManyAccessPointsException(ServiceError):
 
     code: str | None = "TooManyAccessPointsException"
 
-    def __init__(self, data: TooManyAccessPointsException_):
+    def __init__(self, data: TooManyAccessPointsException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyAccessPointsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "TooManyAccessPointsException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyAccessPointsException":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class DBProxyTargetNotFoundFault(ServiceError):
 
     code: str | None = "DBProxyTargetNotFoundFault"
 
-    def __init__(self, data: DBProxyTargetNotFoundFault_):
+    def __init__(self, data: DBProxyTargetNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBProxyTargetNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBProxyTargetNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBProxyTargetNotFoundFault":
+        return cls(deserialize_query(el), message)

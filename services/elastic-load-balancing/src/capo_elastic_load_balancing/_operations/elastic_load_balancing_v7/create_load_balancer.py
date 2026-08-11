@@ -29,7 +29,10 @@ import capo_elastic_load_balancing.types.listeners
 import capo_elastic_load_balancing.types.security_groups
 import capo_elastic_load_balancing.types.subnets
 import capo_elastic_load_balancing.types.tag_list
-from capo_elastic_load_balancing._protocol.errors import parse_error_metadata
+from capo_elastic_load_balancing._protocol.errors import (
+    find_error_element,
+    parse_error_metadata,
+)
 from capo_elastic_load_balancing._protocol.xml import (
     fromstring,
 )
@@ -47,54 +50,55 @@ from capo_elastic_load_balancing.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "CertificateNotFoundException":
+        case "CertificateNotFound":
             raise capo_elastic_load_balancing.errors.certificate_not_found_exception.CertificateNotFoundException.from_query(
-                root
+                error_el, message
             )
-        case "DuplicateAccessPointNameException":
+        case "DuplicateLoadBalancerName":
             raise capo_elastic_load_balancing.errors.duplicate_access_point_name_exception.DuplicateAccessPointNameException.from_query(
-                root
+                error_el, message
             )
-        case "DuplicateTagKeysException":
+        case "DuplicateTagKeys":
             raise capo_elastic_load_balancing.errors.duplicate_tag_keys_exception.DuplicateTagKeysException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidConfigurationRequestException":
+        case "InvalidConfigurationRequest":
             raise capo_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSchemeException":
+        case "InvalidScheme":
             raise capo_elastic_load_balancing.errors.invalid_scheme_exception.InvalidSchemeException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSecurityGroupException":
+        case "InvalidSecurityGroup":
             raise capo_elastic_load_balancing.errors.invalid_security_group_exception.InvalidSecurityGroupException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSubnetException":
+        case "InvalidSubnet":
             raise capo_elastic_load_balancing.errors.invalid_subnet_exception.InvalidSubnetException.from_query(
-                root
+                error_el, message
             )
-        case "OperationNotPermittedException":
+        case "OperationNotPermitted":
             raise capo_elastic_load_balancing.errors.operation_not_permitted_exception.OperationNotPermittedException.from_query(
-                root
+                error_el, message
             )
-        case "SubnetNotFoundException":
+        case "SubnetNotFound":
             raise capo_elastic_load_balancing.errors.subnet_not_found_exception.SubnetNotFoundException.from_query(
-                root
+                error_el, message
             )
-        case "TooManyAccessPointsException":
+        case "TooManyLoadBalancers":
             raise capo_elastic_load_balancing.errors.too_many_access_points_exception.TooManyAccessPointsException.from_query(
-                root
+                error_el, message
             )
-        case "TooManyTagsException":
+        case "TooManyTags":
             raise capo_elastic_load_balancing.errors.too_many_tags_exception.TooManyTagsException.from_query(
-                root
+                error_el, message
             )
-        case "UnsupportedProtocolException":
+        case "UnsupportedProtocol":
             raise capo_elastic_load_balancing.errors.unsupported_protocol_exception.UnsupportedProtocolException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -160,7 +164,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateLoadBalancer"))
@@ -172,7 +176,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -41,15 +41,20 @@ class InvalidRequestContentException(ServiceError):
 
     code: str | None = "InvalidRequestContentException"
 
-    def __init__(self, data: InvalidRequestContentException_):
+    def __init__(
+        self, data: InvalidRequestContentException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidRequestContentException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidRequestContentException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidRequestContentException":
+        return cls(deserialize_json(data), message)

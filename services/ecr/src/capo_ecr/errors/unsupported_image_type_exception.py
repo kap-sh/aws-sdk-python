@@ -34,15 +34,20 @@ class UnsupportedImageTypeException(ServiceError):
 
     code: str | None = "UnsupportedImageTypeException"
 
-    def __init__(self, data: UnsupportedImageTypeException_):
+    def __init__(
+        self, data: UnsupportedImageTypeException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedImageTypeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "UnsupportedImageTypeException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedImageTypeException":
+        return cls(deserialize_aws_json_1_1(data), message)

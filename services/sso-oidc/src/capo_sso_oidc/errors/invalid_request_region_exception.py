@@ -58,15 +58,20 @@ class InvalidRequestRegionException(ServiceError):
 
     code: str | None = "InvalidRequestRegionException"
 
-    def __init__(self, data: InvalidRequestRegionException_):
+    def __init__(
+        self, data: InvalidRequestRegionException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidRequestRegionException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidRequestRegionException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidRequestRegionException":
+        return cls(deserialize_json(data), message)

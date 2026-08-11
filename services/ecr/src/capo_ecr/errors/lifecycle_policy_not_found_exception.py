@@ -34,15 +34,20 @@ class LifecyclePolicyNotFoundException(ServiceError):
 
     code: str | None = "LifecyclePolicyNotFoundException"
 
-    def __init__(self, data: LifecyclePolicyNotFoundException_):
+    def __init__(
+        self, data: LifecyclePolicyNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="LifecyclePolicyNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "LifecyclePolicyNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "LifecyclePolicyNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

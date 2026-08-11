@@ -43,7 +43,15 @@ def serialize_xml(
 ) -> None:
     el = SubElement(parent, tag)
     SubElement(el, "EvaluationPeriods").text = str(value["evaluation_periods"])
-    SubElement(el, "Threshold").text = str(value["threshold"])
+    SubElement(el, "Threshold").text = (
+        "NaN"
+        if value["threshold"] != value["threshold"]
+        else "Infinity"
+        if value["threshold"] == float("inf")
+        else "-Infinity"
+        if value["threshold"] == float("-inf")
+        else str(value["threshold"])
+    )
     import capo_route_53.types.comparison_operator
 
     capo_route_53.types.comparison_operator.serialize_xml(

@@ -16,7 +16,7 @@ import capo_cloudfront.types.create_public_key_request
 import capo_cloudfront.types.create_public_key_result
 import capo_cloudfront.types.public_key
 import capo_cloudfront.types.public_key_config
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import Element, fromstring, tostring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -26,16 +26,19 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidArgument":
-            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "PublicKeyAlreadyExists":
             raise capo_cloudfront.errors.public_key_already_exists.PublicKeyAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "TooManyPublicKeys":
             raise capo_cloudfront.errors.too_many_public_keys.TooManyPublicKeys.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -50,9 +53,9 @@ def handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
-        out["location"] = str(response.headers["Location"])
+        out["location"] = response.headers["Location"]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -65,9 +68,9 @@ async def async_handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
-        out["location"] = str(response.headers["Location"])
+        out["location"] = response.headers["Location"]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -105,20 +108,18 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/public-key"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "public_key_config" in input_:
-        payload_root = Element("_")
-        capo_cloudfront.types.public_key_config.serialize_xml(
-            input_["public_key_config"], payload_root, "PublicKeyConfig"
-        )
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+    payload_root = Element("_")
+    capo_cloudfront.types.public_key_config.serialize_xml(
+        input_["public_key_config"], payload_root, "PublicKeyConfig"
+    )
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

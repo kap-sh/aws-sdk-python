@@ -26,7 +26,7 @@ import capo_rds.errors.invalid_db_instance_state_fault
 import capo_rds.errors.tenant_database_not_found_fault
 import capo_rds.types.key_list
 import capo_rds.types.remove_tags_from_resource_message
-from capo_rds._protocol.errors import parse_error_metadata
+from capo_rds._protocol.errors import find_error_element, parse_error_metadata
 from capo_rds._protocol.xml import fromstring
 from capo_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_rds._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -36,62 +36,63 @@ from capo_rds.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "BlueGreenDeploymentNotFoundFault":
             raise capo_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBClusterNotFoundFault":
             raise capo_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBInstanceNotFoundFault":
+        case "DBInstanceNotFound":
             raise capo_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBProxyEndpointNotFoundFault":
             raise capo_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBProxyNotFoundFault":
             raise capo_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBProxyTargetGroupNotFoundFault":
             raise capo_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBShardGroupNotFoundFault":
+        case "DBShardGroupNotFound":
             raise capo_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBSnapshotNotFoundFault":
+        case "DBSnapshotNotFound":
             raise capo_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBSnapshotTenantDatabaseNotFoundFault":
             raise capo_rds.errors.db_snapshot_tenant_database_not_found_fault.DBSnapshotTenantDatabaseNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "IntegrationNotFoundFault":
             raise capo_rds.errors.integration_not_found_fault.IntegrationNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidDBClusterEndpointStateFault":
             raise capo_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidDBClusterStateFault":
             raise capo_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
-                root
+                error_el, message
             )
-        case "InvalidDBInstanceStateFault":
+        case "InvalidDBInstanceState":
             raise capo_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
-                root
+                error_el, message
             )
-        case "TenantDatabaseNotFoundFault":
+        case "TenantDatabaseNotFound":
             raise capo_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -129,7 +130,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RemoveTagsFromResource"))
@@ -139,7 +140,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

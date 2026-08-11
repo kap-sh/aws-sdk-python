@@ -39,15 +39,20 @@ class CredentialReportExpiredException(ServiceError):
 
     code: str | None = "CredentialReportExpiredException"
 
-    def __init__(self, data: CredentialReportExpiredException_):
+    def __init__(
+        self, data: CredentialReportExpiredException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CredentialReportExpiredException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "CredentialReportExpiredException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "CredentialReportExpiredException":
+        return cls(deserialize_query(el), message)

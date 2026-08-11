@@ -37,15 +37,20 @@ class DBSecurityGroupQuotaExceededFault(ServiceError):
 
     code: str | None = "DBSecurityGroupQuotaExceededFault"
 
-    def __init__(self, data: DBSecurityGroupQuotaExceededFault_):
+    def __init__(
+        self, data: DBSecurityGroupQuotaExceededFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBSecurityGroupQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBSecurityGroupQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBSecurityGroupQuotaExceededFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class InvalidDBSubnetStateFault(ServiceError):
 
     code: str | None = "InvalidDBSubnetStateFault"
 
-    def __init__(self, data: InvalidDBSubnetStateFault_):
+    def __init__(self, data: InvalidDBSubnetStateFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBSubnetStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBSubnetStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBSubnetStateFault":
+        return cls(deserialize_query(el), message)

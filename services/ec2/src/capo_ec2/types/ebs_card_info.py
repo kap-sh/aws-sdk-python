@@ -59,7 +59,16 @@ def serialize_ec2_query(
         pairs.append(
             (
                 f"{key_prefix}BaselineThroughputInMBps",
-                str(value["baseline_throughput_in_m_bps"]),
+                (
+                    "NaN"
+                    if value["baseline_throughput_in_m_bps"]
+                    != value["baseline_throughput_in_m_bps"]
+                    else "Infinity"
+                    if value["baseline_throughput_in_m_bps"] == float("inf")
+                    else "-Infinity"
+                    if value["baseline_throughput_in_m_bps"] == float("-inf")
+                    else str(value["baseline_throughput_in_m_bps"])
+                ),
             )
         )
     if "baseline_iops" in value:
@@ -75,7 +84,16 @@ def serialize_ec2_query(
         pairs.append(
             (
                 f"{key_prefix}MaximumThroughputInMBps",
-                str(value["maximum_throughput_in_m_bps"]),
+                (
+                    "NaN"
+                    if value["maximum_throughput_in_m_bps"]
+                    != value["maximum_throughput_in_m_bps"]
+                    else "Infinity"
+                    if value["maximum_throughput_in_m_bps"] == float("inf")
+                    else "-Infinity"
+                    if value["maximum_throughput_in_m_bps"] == float("-inf")
+                    else str(value["maximum_throughput_in_m_bps"])
+                ),
             )
         )
     if "maximum_iops" in value:

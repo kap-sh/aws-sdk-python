@@ -32,7 +32,20 @@ def serialize_query(
             value["status"], pairs, f"{key_prefix}Status"
         )
     if "min_required_acu" in value:
-        pairs.append((f"{key_prefix}MinRequiredACU", str(value["min_required_acu"])))
+        pairs.append(
+            (
+                f"{key_prefix}MinRequiredACU",
+                (
+                    "NaN"
+                    if value["min_required_acu"] != value["min_required_acu"]
+                    else "Infinity"
+                    if value["min_required_acu"] == float("inf")
+                    else "-Infinity"
+                    if value["min_required_acu"] == float("-inf")
+                    else str(value["min_required_acu"])
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> LimitlessDatabase:

@@ -46,7 +46,20 @@ def serialize_ec2_query(
     if "device_name" in value:
         pairs.append((f"{key_prefix}DeviceName", str(value["device_name"])))
     if "disk_image_size" in value:
-        pairs.append((f"{key_prefix}DiskImageSize", str(value["disk_image_size"])))
+        pairs.append(
+            (
+                f"{key_prefix}DiskImageSize",
+                (
+                    "NaN"
+                    if value["disk_image_size"] != value["disk_image_size"]
+                    else "Infinity"
+                    if value["disk_image_size"] == float("inf")
+                    else "-Infinity"
+                    if value["disk_image_size"] == float("-inf")
+                    else str(value["disk_image_size"])
+                ),
+            )
+        )
     if "format" in value:
         pairs.append((f"{key_prefix}Format", str(value["format"])))
     if "progress" in value:

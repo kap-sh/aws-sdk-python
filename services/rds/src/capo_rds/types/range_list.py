@@ -16,6 +16,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.range
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.range.serialize_query(item, pairs, f"{prefix}.Range.{n}")
 
@@ -34,6 +37,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.range
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.range.serialize_query(item, pairs, f"{prefix}.{n}")
 

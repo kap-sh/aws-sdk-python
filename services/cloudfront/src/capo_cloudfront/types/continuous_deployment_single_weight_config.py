@@ -25,7 +25,15 @@ def serialize_xml(
     value: ContinuousDeploymentSingleWeightConfig, parent: Element, tag: str
 ) -> None:
     el = SubElement(parent, tag)
-    SubElement(el, "Weight").text = str(value["weight"])
+    SubElement(el, "Weight").text = (
+        "NaN"
+        if value["weight"] != value["weight"]
+        else "Infinity"
+        if value["weight"] == float("inf")
+        else "-Infinity"
+        if value["weight"] == float("-inf")
+        else str(value["weight"])
+    )
     if "session_stickiness_config" in value:
         import capo_cloudfront.types.session_stickiness_config
 

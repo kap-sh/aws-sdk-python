@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.db_engine_version
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.db_engine_version.serialize_query(
             item, pairs, f"{prefix}.DBEngineVersion.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.db_engine_version
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.db_engine_version.serialize_query(item, pairs, f"{prefix}.{n}")
 

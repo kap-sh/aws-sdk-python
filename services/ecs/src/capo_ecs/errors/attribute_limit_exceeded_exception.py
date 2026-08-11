@@ -35,15 +35,20 @@ class AttributeLimitExceededException(ServiceError):
 
     code: str | None = "AttributeLimitExceededException"
 
-    def __init__(self, data: AttributeLimitExceededException_):
+    def __init__(
+        self, data: AttributeLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AttributeLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "AttributeLimitExceededException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "AttributeLimitExceededException":
+        return cls(deserialize_aws_json_1_1(data), message)

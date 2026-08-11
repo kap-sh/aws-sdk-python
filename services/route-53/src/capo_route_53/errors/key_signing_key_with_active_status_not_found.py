@@ -37,15 +37,20 @@ class KeySigningKeyWithActiveStatusNotFound(ServiceError):
 
     code: str | None = "KeySigningKeyWithActiveStatusNotFound"
 
-    def __init__(self, data: KeySigningKeyWithActiveStatusNotFound_):
+    def __init__(
+        self, data: KeySigningKeyWithActiveStatusNotFound_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KeySigningKeyWithActiveStatusNotFound",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "KeySigningKeyWithActiveStatusNotFound":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "KeySigningKeyWithActiveStatusNotFound":
+        return cls(deserialize_xml(el), message)

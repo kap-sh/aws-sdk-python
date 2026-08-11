@@ -37,15 +37,18 @@ class ExportTaskNotFoundFault(ServiceError):
 
     code: str | None = "ExportTaskNotFoundFault"
 
-    def __init__(self, data: ExportTaskNotFoundFault_):
+    def __init__(self, data: ExportTaskNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ExportTaskNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ExportTaskNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ExportTaskNotFoundFault":
+        return cls(deserialize_query(el), message)

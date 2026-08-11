@@ -37,15 +37,18 @@ class CannotUpdateEntityWhileInUse(ServiceError):
 
     code: str | None = "CannotUpdateEntityWhileInUse"
 
-    def __init__(self, data: CannotUpdateEntityWhileInUse_):
+    def __init__(self, data: CannotUpdateEntityWhileInUse_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CannotUpdateEntityWhileInUse",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "CannotUpdateEntityWhileInUse":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "CannotUpdateEntityWhileInUse":
+        return cls(deserialize_xml(el), message)

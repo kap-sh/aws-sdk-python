@@ -37,15 +37,18 @@ class InvalidDBSnapshotStateFault(ServiceError):
 
     code: str | None = "InvalidDBSnapshotStateFault"
 
-    def __init__(self, data: InvalidDBSnapshotStateFault_):
+    def __init__(self, data: InvalidDBSnapshotStateFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBSnapshotStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBSnapshotStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBSnapshotStateFault":
+        return cls(deserialize_query(el), message)

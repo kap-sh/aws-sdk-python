@@ -35,15 +35,18 @@ class LayersNotFoundException(ServiceError):
 
     code: str | None = "LayersNotFoundException"
 
-    def __init__(self, data: LayersNotFoundException_):
+    def __init__(self, data: LayersNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="LayersNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "LayersNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "LayersNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

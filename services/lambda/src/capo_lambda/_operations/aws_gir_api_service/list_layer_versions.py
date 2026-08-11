@@ -32,17 +32,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -103,22 +105,38 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_lambda.types.architecture
+    import capo_lambda.types.runtime
+
     url = endpoint.url.rstrip("/") + "/2018-10-31/layers/{LayerName}/versions"
-    url = url.replace("{LayerName}", quote(str(input_["layer_name"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{LayerName}", quote(input_["layer_name"], safe=""))
+    params: list[tuple[str, str]] = []
     if "compatible_runtime" in input_:
-        params["CompatibleRuntime"] = str(input_["compatible_runtime"])
+        params.append(
+            (
+                "CompatibleRuntime",
+                capo_lambda.types.runtime.serialize_json(input_["compatible_runtime"]),
+            )
+        )
     if "marker" in input_:
-        params["Marker"] = str(input_["marker"])
+        params.append(("Marker", input_["marker"]))
     if "max_items" in input_:
-        params["MaxItems"] = str(input_["max_items"])
+        params.append(("MaxItems", str(input_["max_items"])))
     if "compatible_architecture" in input_:
-        params["CompatibleArchitecture"] = str(input_["compatible_architecture"])
+        params.append(
+            (
+                "CompatibleArchitecture",
+                capo_lambda.types.architecture.serialize_json(
+                    input_["compatible_architecture"]
+                ),
+            )
+        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

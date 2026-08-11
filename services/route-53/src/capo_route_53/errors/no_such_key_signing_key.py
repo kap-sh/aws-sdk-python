@@ -35,15 +35,16 @@ class NoSuchKeySigningKey(ServiceError):
 
     code: str | None = "NoSuchKeySigningKey"
 
-    def __init__(self, data: NoSuchKeySigningKey_):
+    def __init__(self, data: NoSuchKeySigningKey_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="NoSuchKeySigningKey",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NoSuchKeySigningKey":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "NoSuchKeySigningKey":
+        return cls(deserialize_xml(el), message)

@@ -26,7 +26,20 @@ def serialize_ec2_query(
     if "count" in value:
         pairs.append((f"{key_prefix}Count", str(value["count"])))
     if "price" in value:
-        pairs.append((f"{key_prefix}Price", str(value["price"])))
+        pairs.append(
+            (
+                f"{key_prefix}Price",
+                (
+                    "NaN"
+                    if value["price"] != value["price"]
+                    else "Infinity"
+                    if value["price"] == float("inf")
+                    else "-Infinity"
+                    if value["price"] == float("-inf")
+                    else str(value["price"])
+                ),
+            )
+        )
 
 
 def deserialize_ec2_query(el: Element) -> PricingDetail:

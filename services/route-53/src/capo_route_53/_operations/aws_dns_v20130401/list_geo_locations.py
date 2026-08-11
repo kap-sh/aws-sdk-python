@@ -13,7 +13,7 @@ import capo_route_53.errors.invalid_input
 import capo_route_53.types.geo_location_details_list
 import capo_route_53.types.list_geo_locations_request
 import capo_route_53.types.list_geo_locations_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -23,9 +23,12 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -86,20 +89,21 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/geolocations"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "start_continent_code" in input_:
-        params["startcontinentcode"] = str(input_["start_continent_code"])
+        params.append(("startcontinentcode", input_["start_continent_code"]))
     if "start_country_code" in input_:
-        params["startcountrycode"] = str(input_["start_country_code"])
+        params.append(("startcountrycode", input_["start_country_code"]))
     if "start_subdivision_code" in input_:
-        params["startsubdivisioncode"] = str(input_["start_subdivision_code"])
+        params.append(("startsubdivisioncode", input_["start_subdivision_code"]))
     if "max_items" in input_:
-        params["maxitems"] = str(input_["max_items"])
+        params.append(("maxitems", str(input_["max_items"])))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

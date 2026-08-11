@@ -39,15 +39,20 @@ class DBClusterEndpointQuotaExceededFault(ServiceError):
 
     code: str | None = "DBClusterEndpointQuotaExceededFault"
 
-    def __init__(self, data: DBClusterEndpointQuotaExceededFault_):
+    def __init__(
+        self, data: DBClusterEndpointQuotaExceededFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterEndpointQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterEndpointQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterEndpointQuotaExceededFault":
+        return cls(deserialize_query(el), message)

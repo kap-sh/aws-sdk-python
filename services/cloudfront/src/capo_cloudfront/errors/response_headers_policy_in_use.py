@@ -37,15 +37,18 @@ class ResponseHeadersPolicyInUse(ServiceError):
 
     code: str | None = "ResponseHeadersPolicyInUse"
 
-    def __init__(self, data: ResponseHeadersPolicyInUse_):
+    def __init__(self, data: ResponseHeadersPolicyInUse_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResponseHeadersPolicyInUse",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "ResponseHeadersPolicyInUse":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "ResponseHeadersPolicyInUse":
+        return cls(deserialize_xml(el), message)

@@ -37,15 +37,20 @@ class DBClusterEndpointNotFoundFault(ServiceError):
 
     code: str | None = "DBClusterEndpointNotFoundFault"
 
-    def __init__(self, data: DBClusterEndpointNotFoundFault_):
+    def __init__(
+        self, data: DBClusterEndpointNotFoundFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterEndpointNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterEndpointNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterEndpointNotFoundFault":
+        return cls(deserialize_query(el), message)

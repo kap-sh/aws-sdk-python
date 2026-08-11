@@ -41,15 +41,20 @@ class ReportGenerationLimitExceededException(ServiceError):
 
     code: str | None = "ReportGenerationLimitExceededException"
 
-    def __init__(self, data: ReportGenerationLimitExceededException_):
+    def __init__(
+        self, data: ReportGenerationLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ReportGenerationLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ReportGenerationLimitExceededException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ReportGenerationLimitExceededException":
+        return cls(deserialize_query(el), message)

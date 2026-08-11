@@ -231,9 +231,35 @@ def serialize_query(
             )
         )
     if "min_iops_per_gib" in value:
-        pairs.append((f"{key_prefix}MinIopsPerGib", str(value["min_iops_per_gib"])))
+        pairs.append(
+            (
+                f"{key_prefix}MinIopsPerGib",
+                (
+                    "NaN"
+                    if value["min_iops_per_gib"] != value["min_iops_per_gib"]
+                    else "Infinity"
+                    if value["min_iops_per_gib"] == float("inf")
+                    else "-Infinity"
+                    if value["min_iops_per_gib"] == float("-inf")
+                    else str(value["min_iops_per_gib"])
+                ),
+            )
+        )
     if "max_iops_per_gib" in value:
-        pairs.append((f"{key_prefix}MaxIopsPerGib", str(value["max_iops_per_gib"])))
+        pairs.append(
+            (
+                f"{key_prefix}MaxIopsPerGib",
+                (
+                    "NaN"
+                    if value["max_iops_per_gib"] != value["max_iops_per_gib"]
+                    else "Infinity"
+                    if value["max_iops_per_gib"] == float("inf")
+                    else "-Infinity"
+                    if value["max_iops_per_gib"] == float("-inf")
+                    else str(value["max_iops_per_gib"])
+                ),
+            )
+        )
     if "min_storage_throughput_per_db_instance" in value:
         pairs.append(
             (
@@ -252,14 +278,32 @@ def serialize_query(
         pairs.append(
             (
                 f"{key_prefix}MinStorageThroughputPerIops",
-                str(value["min_storage_throughput_per_iops"]),
+                (
+                    "NaN"
+                    if value["min_storage_throughput_per_iops"]
+                    != value["min_storage_throughput_per_iops"]
+                    else "Infinity"
+                    if value["min_storage_throughput_per_iops"] == float("inf")
+                    else "-Infinity"
+                    if value["min_storage_throughput_per_iops"] == float("-inf")
+                    else str(value["min_storage_throughput_per_iops"])
+                ),
             )
         )
     if "max_storage_throughput_per_iops" in value:
         pairs.append(
             (
                 f"{key_prefix}MaxStorageThroughputPerIops",
-                str(value["max_storage_throughput_per_iops"]),
+                (
+                    "NaN"
+                    if value["max_storage_throughput_per_iops"]
+                    != value["max_storage_throughput_per_iops"]
+                    else "Infinity"
+                    if value["max_storage_throughput_per_iops"] == float("inf")
+                    else "-Infinity"
+                    if value["max_storage_throughput_per_iops"] == float("-inf")
+                    else str(value["max_storage_throughput_per_iops"])
+                ),
             )
         )
     if "available_processor_features" in value:

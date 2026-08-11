@@ -54,13 +54,65 @@ def serialize_query(
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
     if "sample_count" in value:
-        pairs.append((f"{key_prefix}SampleCount", str(value["sample_count"])))
+        pairs.append(
+            (
+                f"{key_prefix}SampleCount",
+                (
+                    "NaN"
+                    if value["sample_count"] != value["sample_count"]
+                    else "Infinity"
+                    if value["sample_count"] == float("inf")
+                    else "-Infinity"
+                    if value["sample_count"] == float("-inf")
+                    else str(value["sample_count"])
+                ),
+            )
+        )
     if "sum" in value:
-        pairs.append((f"{key_prefix}Sum", str(value["sum"])))
+        pairs.append(
+            (
+                f"{key_prefix}Sum",
+                (
+                    "NaN"
+                    if value["sum"] != value["sum"]
+                    else "Infinity"
+                    if value["sum"] == float("inf")
+                    else "-Infinity"
+                    if value["sum"] == float("-inf")
+                    else str(value["sum"])
+                ),
+            )
+        )
     if "minimum" in value:
-        pairs.append((f"{key_prefix}Minimum", str(value["minimum"])))
+        pairs.append(
+            (
+                f"{key_prefix}Minimum",
+                (
+                    "NaN"
+                    if value["minimum"] != value["minimum"]
+                    else "Infinity"
+                    if value["minimum"] == float("inf")
+                    else "-Infinity"
+                    if value["minimum"] == float("-inf")
+                    else str(value["minimum"])
+                ),
+            )
+        )
     if "maximum" in value:
-        pairs.append((f"{key_prefix}Maximum", str(value["maximum"])))
+        pairs.append(
+            (
+                f"{key_prefix}Maximum",
+                (
+                    "NaN"
+                    if value["maximum"] != value["maximum"]
+                    else "Infinity"
+                    if value["maximum"] == float("inf")
+                    else "-Infinity"
+                    if value["maximum"] == float("-inf")
+                    else str(value["maximum"])
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> StatisticSet:

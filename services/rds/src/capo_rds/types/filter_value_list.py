@@ -14,6 +14,9 @@ FilterValueList: TypeAlias = list["capo_rds.types.string.String"]
 def serialize_query(
     value: FilterValueList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.Value.{n}", str(item)))
 
@@ -28,6 +31,9 @@ def deserialize_query(el: Element) -> FilterValueList:
 def serialize_query_flat(
     value: FilterValueList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

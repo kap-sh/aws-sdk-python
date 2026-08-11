@@ -18,7 +18,7 @@ import capo_route_53.errors.query_logging_config_already_exists
 import capo_route_53.types.create_query_logging_config_request
 import capo_route_53.types.create_query_logging_config_response
 import capo_route_53.types.query_logging_config
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -28,28 +28,31 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "ConcurrentModification":
             raise capo_route_53.errors.concurrent_modification.ConcurrentModification.from_xml(
-                root
+                error_el, message
             )
         case "InsufficientCloudWatchLogsResourcePolicy":
             raise capo_route_53.errors.insufficient_cloud_watch_logs_resource_policy.InsufficientCloudWatchLogsResourcePolicy.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchCloudWatchLogsLogGroup":
             raise capo_route_53.errors.no_such_cloud_watch_logs_log_group.NoSuchCloudWatchLogsLogGroup.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchHostedZone":
             raise capo_route_53.errors.no_such_hosted_zone.NoSuchHostedZone.from_xml(
-                root
+                error_el, message
             )
         case "QueryLoggingConfigAlreadyExists":
             raise capo_route_53.errors.query_logging_config_already_exists.QueryLoggingConfigAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -61,7 +64,7 @@ def handle_response(
     out: capo_route_53.types.create_query_logging_config_response.CreateQueryLoggingConfigResponse = capo_route_53.types.create_query_logging_config_response.deserialize_xml(
         fromstring(response.read())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -71,7 +74,7 @@ async def async_handle_response(
     out: capo_route_53.types.create_query_logging_config_response.CreateQueryLoggingConfigResponse = capo_route_53.types.create_query_logging_config_response.deserialize_xml(
         fromstring(await response.aread())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -109,20 +112,21 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/queryloggingconfig"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateQueryLoggingConfigRequest")
     if "hosted_zone_id" in input_:
-        SubElement(root, "HostedZoneId").text = str(input_["hosted_zone_id"])
+        SubElement(root, "HostedZoneId").text = input_["hosted_zone_id"]
     if "cloud_watch_logs_log_group_arn" in input_:
-        SubElement(root, "CloudWatchLogsLogGroupArn").text = str(
-            input_["cloud_watch_logs_log_group_arn"]
-        )
+        SubElement(root, "CloudWatchLogsLogGroupArn").text = input_[
+            "cloud_watch_logs_log_group_arn"
+        ]
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

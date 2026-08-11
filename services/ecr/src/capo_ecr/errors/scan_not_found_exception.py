@@ -34,15 +34,18 @@ class ScanNotFoundException(ServiceError):
 
     code: str | None = "ScanNotFoundException"
 
-    def __init__(self, data: ScanNotFoundException_):
+    def __init__(self, data: ScanNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ScanNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ScanNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ScanNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

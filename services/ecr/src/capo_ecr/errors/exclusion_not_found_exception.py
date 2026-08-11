@@ -34,15 +34,18 @@ class ExclusionNotFoundException(ServiceError):
 
     code: str | None = "ExclusionNotFoundException"
 
-    def __init__(self, data: ExclusionNotFoundException_):
+    def __init__(self, data: ExclusionNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ExclusionNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ExclusionNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ExclusionNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

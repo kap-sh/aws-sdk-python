@@ -39,15 +39,18 @@ class InvalidCertificateException(ServiceError):
 
     code: str | None = "InvalidCertificateException"
 
-    def __init__(self, data: InvalidCertificateException_):
+    def __init__(self, data: InvalidCertificateException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidCertificateException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidCertificateException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidCertificateException":
+        return cls(deserialize_query(el), message)

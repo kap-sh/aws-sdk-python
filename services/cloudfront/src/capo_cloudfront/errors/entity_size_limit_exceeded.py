@@ -35,15 +35,18 @@ class EntitySizeLimitExceeded(ServiceError):
 
     code: str | None = "EntitySizeLimitExceeded"
 
-    def __init__(self, data: EntitySizeLimitExceeded_):
+    def __init__(self, data: EntitySizeLimitExceeded_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EntitySizeLimitExceeded",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "EntitySizeLimitExceeded":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "EntitySizeLimitExceeded":
+        return cls(deserialize_xml(el), message)

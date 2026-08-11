@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.resource_pending_maintenance_actions
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.resource_pending_maintenance_actions.serialize_query(
             item, pairs, f"{prefix}.ResourcePendingMaintenanceActions.{n}"
@@ -40,6 +43,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.resource_pending_maintenance_actions
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.resource_pending_maintenance_actions.serialize_query(
             item, pairs, f"{prefix}.{n}"

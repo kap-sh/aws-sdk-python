@@ -39,15 +39,20 @@ class InvalidCodeSignatureException(ServiceError):
 
     code: str | None = "InvalidCodeSignatureException"
 
-    def __init__(self, data: InvalidCodeSignatureException_):
+    def __init__(
+        self, data: InvalidCodeSignatureException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidCodeSignatureException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidCodeSignatureException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidCodeSignatureException":
+        return cls(deserialize_json(data), message)

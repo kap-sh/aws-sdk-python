@@ -39,15 +39,20 @@ class InvalidDBClusterSnapshotStateFault(ServiceError):
 
     code: str | None = "InvalidDBClusterSnapshotStateFault"
 
-    def __init__(self, data: InvalidDBClusterSnapshotStateFault_):
+    def __init__(
+        self, data: InvalidDBClusterSnapshotStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBClusterSnapshotStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBClusterSnapshotStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBClusterSnapshotStateFault":
+        return cls(deserialize_query(el), message)

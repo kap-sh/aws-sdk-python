@@ -39,15 +39,20 @@ class InvalidDBClusterEndpointStateFault(ServiceError):
 
     code: str | None = "InvalidDBClusterEndpointStateFault"
 
-    def __init__(self, data: InvalidDBClusterEndpointStateFault_):
+    def __init__(
+        self, data: InvalidDBClusterEndpointStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBClusterEndpointStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBClusterEndpointStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBClusterEndpointStateFault":
+        return cls(deserialize_query(el), message)

@@ -41,15 +41,20 @@ class EntityTemporarilyUnmodifiableException(ServiceError):
 
     code: str | None = "EntityTemporarilyUnmodifiableException"
 
-    def __init__(self, data: EntityTemporarilyUnmodifiableException_):
+    def __init__(
+        self, data: EntityTemporarilyUnmodifiableException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EntityTemporarilyUnmodifiableException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "EntityTemporarilyUnmodifiableException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "EntityTemporarilyUnmodifiableException":
+        return cls(deserialize_query(el), message)

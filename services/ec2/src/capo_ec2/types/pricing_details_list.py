@@ -14,6 +14,9 @@ PricingDetailsList: TypeAlias = list["capo_ec2.types.pricing_detail.PricingDetai
 def serialize_ec2_query(
     value: PricingDetailsList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.pricing_detail
 

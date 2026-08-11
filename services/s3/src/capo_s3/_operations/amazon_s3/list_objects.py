@@ -19,7 +19,7 @@ import capo_s3.types.object_list
 import capo_s3.types.optional_object_attributes_list
 import capo_s3.types.request_charged
 import capo_s3.types.request_payer
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -30,9 +30,10 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "NoSuchBucket":
-            raise capo_s3.errors.no_such_bucket.NoSuchBucket.from_xml(root)
+            raise capo_s3.errors.no_such_bucket.NoSuchBucket.from_xml(error_el, message)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -109,32 +110,45 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.encoding_type
+    import capo_s3.types.optional_object_attributes
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     if "delimiter" in input_:
-        params["delimiter"] = str(input_["delimiter"])
+        params.append(("delimiter", input_["delimiter"]))
     if "encoding_type" in input_:
-        params["encoding-type"] = str(input_["encoding_type"])
+        params.append(
+            (
+                "encoding-type",
+                capo_s3.types.encoding_type.to_xml_text(input_["encoding_type"]),
+            )
+        )
     if "marker" in input_:
-        params["marker"] = str(input_["marker"])
+        params.append(("marker", input_["marker"]))
     if "max_keys" in input_:
-        params["max-keys"] = str(input_["max_keys"])
+        params.append(("max-keys", str(input_["max_keys"])))
     if "prefix" in input_:
-        params["prefix"] = str(input_["prefix"])
+        params.append(("prefix", input_["prefix"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "optional_object_attributes" in input_:
-        headers["x-amz-optional-object-attributes"] = str(
-            input_["optional_object_attributes"]
+        headers["x-amz-optional-object-attributes"] = ", ".join(
+            capo_s3.types.optional_object_attributes.to_xml_text(item)
+            for item in input_["optional_object_attributes"]
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

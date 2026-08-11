@@ -124,13 +124,33 @@ def serialize_ec2_query(
         )
     if "fulfilled_capacity" in value:
         pairs.append(
-            (f"{key_prefix}FulfilledCapacity", str(value["fulfilled_capacity"]))
+            (
+                f"{key_prefix}FulfilledCapacity",
+                (
+                    "NaN"
+                    if value["fulfilled_capacity"] != value["fulfilled_capacity"]
+                    else "Infinity"
+                    if value["fulfilled_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["fulfilled_capacity"] == float("-inf")
+                    else str(value["fulfilled_capacity"])
+                ),
+            )
         )
     if "fulfilled_on_demand_capacity" in value:
         pairs.append(
             (
                 f"{key_prefix}FulfilledOnDemandCapacity",
-                str(value["fulfilled_on_demand_capacity"]),
+                (
+                    "NaN"
+                    if value["fulfilled_on_demand_capacity"]
+                    != value["fulfilled_on_demand_capacity"]
+                    else "Infinity"
+                    if value["fulfilled_on_demand_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["fulfilled_on_demand_capacity"] == float("-inf")
+                    else str(value["fulfilled_on_demand_capacity"])
+                ),
             )
         )
     if "launch_template_configs" in value:

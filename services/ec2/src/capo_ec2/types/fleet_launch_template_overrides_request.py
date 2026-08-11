@@ -71,9 +71,35 @@ def serialize_ec2_query(
     if "availability_zone" in value:
         pairs.append((f"{key_prefix}AvailabilityZone", str(value["availability_zone"])))
     if "weighted_capacity" in value:
-        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append(
+            (
+                f"{key_prefix}WeightedCapacity",
+                (
+                    "NaN"
+                    if value["weighted_capacity"] != value["weighted_capacity"]
+                    else "Infinity"
+                    if value["weighted_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["weighted_capacity"] == float("-inf")
+                    else str(value["weighted_capacity"])
+                ),
+            )
+        )
     if "priority" in value:
-        pairs.append((f"{key_prefix}Priority", str(value["priority"])))
+        pairs.append(
+            (
+                f"{key_prefix}Priority",
+                (
+                    "NaN"
+                    if value["priority"] != value["priority"]
+                    else "Infinity"
+                    if value["priority"] == float("inf")
+                    else "-Infinity"
+                    if value["priority"] == float("-inf")
+                    else str(value["priority"])
+                ),
+            )
+        )
     if "placement" in value:
         import capo_ec2.types.placement
 

@@ -55,33 +55,35 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "CodeStorageExceededException":
             raise capo_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException.from_json(
-                data
+                data, message
             )
         case "FunctionVersionsPerCapacityProviderLimitExceededException":
             raise capo_lambda.errors.function_versions_per_capacity_provider_limit_exceeded_exception.FunctionVersionsPerCapacityProviderLimitExceededException.from_json(
-                data
+                data, message
             )
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
-                data
+                data, message
             )
         case "PreconditionFailedException":
             raise capo_lambda.errors.precondition_failed_exception.PreconditionFailedException.from_json(
-                data
+                data, message
             )
         case "ResourceConflictException":
             raise capo_lambda.errors.resource_conflict_exception.ResourceConflictException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -143,8 +145,8 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2015-03-31/functions/{FunctionName}/versions"
-    url = url.replace("{FunctionName}", quote(str(input_["function_name"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{FunctionName}", quote(input_["function_name"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = json.dumps(
         capo_lambda.types.publish_version_request.serialize_json(input_)
@@ -152,7 +154,8 @@ def build_request(
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

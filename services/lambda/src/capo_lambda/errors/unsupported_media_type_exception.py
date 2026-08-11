@@ -39,15 +39,20 @@ class UnsupportedMediaTypeException(ServiceError):
 
     code: str | None = "UnsupportedMediaTypeException"
 
-    def __init__(self, data: UnsupportedMediaTypeException_):
+    def __init__(
+        self, data: UnsupportedMediaTypeException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedMediaTypeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "UnsupportedMediaTypeException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedMediaTypeException":
+        return cls(deserialize_json(data), message)

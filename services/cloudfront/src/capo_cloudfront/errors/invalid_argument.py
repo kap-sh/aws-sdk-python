@@ -35,15 +35,16 @@ class InvalidArgument(ServiceError):
 
     code: str | None = "InvalidArgument"
 
-    def __init__(self, data: InvalidArgument_):
+    def __init__(self, data: InvalidArgument_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidArgument",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidArgument":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "InvalidArgument":
+        return cls(deserialize_xml(el), message)

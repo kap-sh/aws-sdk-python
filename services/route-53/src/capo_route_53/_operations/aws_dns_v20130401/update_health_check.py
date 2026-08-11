@@ -21,7 +21,7 @@ import capo_route_53.types.insufficient_data_health_status
 import capo_route_53.types.resettable_element_name_list
 import capo_route_53.types.update_health_check_request
 import capo_route_53.types.update_health_check_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -31,16 +31,19 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "HealthCheckVersionMismatch":
             raise capo_route_53.errors.health_check_version_mismatch.HealthCheckVersionMismatch.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchHealthCheck":
             raise capo_route_53.errors.no_such_health_check.NoSuchHealthCheck.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -102,32 +105,38 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/healthcheck/{HealthCheckId}"
-    url = url.replace("{HealthCheckId}", quote(str(input_["health_check_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{HealthCheckId}", quote(input_["health_check_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    import capo_route_53.types.alarm_identifier
+    import capo_route_53.types.child_health_check_list
+    import capo_route_53.types.health_check_region_list
+    import capo_route_53.types.insufficient_data_health_status
+    import capo_route_53.types.resettable_element_name_list
+
     root = Element("UpdateHealthCheckRequest")
     if "health_check_version" in input_:
         SubElement(root, "HealthCheckVersion").text = str(
             input_["health_check_version"]
         )
     if "ip_address" in input_:
-        SubElement(root, "IPAddress").text = str(input_["ip_address"])
+        SubElement(root, "IPAddress").text = input_["ip_address"]
     if "port" in input_:
         SubElement(root, "Port").text = str(input_["port"])
     if "resource_path" in input_:
-        SubElement(root, "ResourcePath").text = str(input_["resource_path"])
+        SubElement(root, "ResourcePath").text = input_["resource_path"]
     if "fully_qualified_domain_name" in input_:
-        SubElement(root, "FullyQualifiedDomainName").text = str(
-            input_["fully_qualified_domain_name"]
-        )
+        SubElement(root, "FullyQualifiedDomainName").text = input_[
+            "fully_qualified_domain_name"
+        ]
     if "search_string" in input_:
-        SubElement(root, "SearchString").text = str(input_["search_string"])
+        SubElement(root, "SearchString").text = input_["search_string"]
     if "failure_threshold" in input_:
         SubElement(root, "FailureThreshold").text = str(input_["failure_threshold"])
     if "inverted" in input_:
-        SubElement(root, "Inverted").text = str(input_["inverted"])
+        SubElement(root, "Inverted").text = "true" if input_["inverted"] else "false"
     if "disabled" in input_:
-        SubElement(root, "Disabled").text = str(input_["disabled"])
+        SubElement(root, "Disabled").text = "true" if input_["disabled"] else "false"
     if "health_threshold" in input_:
         SubElement(root, "HealthThreshold").text = str(input_["health_threshold"])
     if "child_health_checks" in input_:
@@ -135,7 +144,7 @@ def build_request(
             input_["child_health_checks"], root, "ChildHealthChecks"
         )
     if "enable_sni" in input_:
-        SubElement(root, "EnableSNI").text = str(input_["enable_sni"])
+        SubElement(root, "EnableSNI").text = "true" if input_["enable_sni"] else "false"
     if "regions" in input_:
         capo_route_53.types.health_check_region_list.serialize_xml(
             input_["regions"], root, "Regions"
@@ -158,7 +167,8 @@ def build_request(
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

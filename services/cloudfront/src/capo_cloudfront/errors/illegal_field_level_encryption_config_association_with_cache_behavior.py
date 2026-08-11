@@ -44,18 +44,21 @@ class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior(ServiceError
     code: str | None = "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
 
     def __init__(
-        self, data: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior_
+        self,
+        data: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior_,
+        message: str | None = None,
     ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_xml(
-        cls, el: Element
+        cls, el: Element, message: str | None = None
     ) -> "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
-        return cls(deserialize_xml(el))
+        return cls(deserialize_xml(el), message)

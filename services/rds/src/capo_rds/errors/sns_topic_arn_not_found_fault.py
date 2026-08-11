@@ -37,15 +37,18 @@ class SNSTopicArnNotFoundFault(ServiceError):
 
     code: str | None = "SNSTopicArnNotFoundFault"
 
-    def __init__(self, data: SNSTopicArnNotFoundFault_):
+    def __init__(self, data: SNSTopicArnNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SNSTopicArnNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "SNSTopicArnNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "SNSTopicArnNotFoundFault":
+        return cls(deserialize_query(el), message)

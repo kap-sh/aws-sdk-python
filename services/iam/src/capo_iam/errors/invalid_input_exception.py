@@ -37,15 +37,18 @@ class InvalidInputException(ServiceError):
 
     code: str | None = "InvalidInputException"
 
-    def __init__(self, data: InvalidInputException_):
+    def __init__(self, data: InvalidInputException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidInputException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidInputException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidInputException":
+        return cls(deserialize_query(el), message)

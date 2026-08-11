@@ -18,7 +18,7 @@ import capo_cloudfront.types.connection_function_summary
 import capo_cloudfront.types.describe_connection_function_request
 import capo_cloudfront.types.describe_connection_function_result
 import capo_cloudfront.types.function_stage
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import fromstring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -28,16 +28,23 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "EntityNotFound":
-            raise capo_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(root)
+            raise capo_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(
+                error_el, message
+            )
         case "InvalidArgument":
-            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "UnsupportedOperation":
             raise capo_cloudfront.errors.unsupported_operation.UnsupportedOperation.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -52,7 +59,7 @@ def handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -65,7 +72,7 @@ async def async_handle_response(
         )
     }  # type: ignore[typeddict-item]
     if "ETag" in response.headers:
-        out["e_tag"] = str(response.headers["ETag"])
+        out["e_tag"] = response.headers["ETag"]
     return out
 
 
@@ -102,19 +109,24 @@ def build_request(
             Region=options.region,
         )
     )  # noqa: F841
+    import capo_cloudfront.types.function_stage
+
     url = (
         endpoint.url.rstrip("/")
         + "/2020-05-31/connection-function/{Identifier}/describe"
     )
-    url = url.replace("{Identifier}", quote(str(input_["identifier"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{Identifier}", quote(input_["identifier"], safe=""))
+    params: list[tuple[str, str]] = []
     if "stage" in input_:
-        params["Stage"] = str(input_["stage"])
+        params.append(
+            ("Stage", capo_cloudfront.types.function_stage.to_xml_text(input_["stage"]))
+        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

@@ -35,15 +35,18 @@ class KeyGroupAlreadyExists(ServiceError):
 
     code: str | None = "KeyGroupAlreadyExists"
 
-    def __init__(self, data: KeyGroupAlreadyExists_):
+    def __init__(self, data: KeyGroupAlreadyExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KeyGroupAlreadyExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "KeyGroupAlreadyExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "KeyGroupAlreadyExists":
+        return cls(deserialize_xml(el), message)

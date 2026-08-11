@@ -18,7 +18,7 @@ import capo_s3.types.rename_object_output
 import capo_s3.types.rename_object_request
 import capo_s3.types.rename_source_if_modified_since
 import capo_s3.types.rename_source_if_unmodified_since
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -29,10 +29,11 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "IdempotencyParameterMismatch":
             raise capo_s3.errors.idempotency_parameter_mismatch.IdempotencyParameterMismatch.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -96,41 +97,50 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3._protocol.serialize
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?renameObject"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "rename_source" in input_:
-        headers["x-amz-rename-source"] = str(input_["rename_source"])
+        headers["x-amz-rename-source"] = input_["rename_source"]
     if "destination_if_match" in input_:
-        headers["If-Match"] = str(input_["destination_if_match"])
+        headers["If-Match"] = input_["destination_if_match"]
     if "destination_if_none_match" in input_:
-        headers["If-None-Match"] = str(input_["destination_if_none_match"])
+        headers["If-None-Match"] = input_["destination_if_none_match"]
     if "destination_if_modified_since" in input_:
-        headers["If-Modified-Since"] = str(input_["destination_if_modified_since"])
-    if "destination_if_unmodified_since" in input_:
-        headers["If-Unmodified-Since"] = str(input_["destination_if_unmodified_since"])
-    if "source_if_match" in input_:
-        headers["x-amz-rename-source-if-match"] = str(input_["source_if_match"])
-    if "source_if_none_match" in input_:
-        headers["x-amz-rename-source-if-none-match"] = str(
-            input_["source_if_none_match"]
+        headers["If-Modified-Since"] = capo_s3._protocol.serialize.fmt_http_date(
+            input_["destination_if_modified_since"]
         )
+    if "destination_if_unmodified_since" in input_:
+        headers["If-Unmodified-Since"] = capo_s3._protocol.serialize.fmt_http_date(
+            input_["destination_if_unmodified_since"]
+        )
+    if "source_if_match" in input_:
+        headers["x-amz-rename-source-if-match"] = input_["source_if_match"]
+    if "source_if_none_match" in input_:
+        headers["x-amz-rename-source-if-none-match"] = input_["source_if_none_match"]
     if "source_if_modified_since" in input_:
-        headers["x-amz-rename-source-if-modified-since"] = str(
-            input_["source_if_modified_since"]
+        headers["x-amz-rename-source-if-modified-since"] = (
+            capo_s3._protocol.serialize.fmt_http_date(
+                input_["source_if_modified_since"]
+            )
         )
     if "source_if_unmodified_since" in input_:
-        headers["x-amz-rename-source-if-unmodified-since"] = str(
-            input_["source_if_unmodified_since"]
+        headers["x-amz-rename-source-if-unmodified-since"] = (
+            capo_s3._protocol.serialize.fmt_http_date(
+                input_["source_if_unmodified_since"]
+            )
         )
     if "client_token" in input_:
-        headers["x-amz-client-token"] = str(input_["client_token"])
+        headers["x-amz-client-token"] = input_["client_token"]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

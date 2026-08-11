@@ -86,7 +86,18 @@ def serialize_ec2_query(
         )
     if "fulfilled_capacity" in value:
         pairs.append(
-            (f"{key_prefix}FulfilledCapacity", str(value["fulfilled_capacity"]))
+            (
+                f"{key_prefix}FulfilledCapacity",
+                (
+                    "NaN"
+                    if value["fulfilled_capacity"] != value["fulfilled_capacity"]
+                    else "Infinity"
+                    if value["fulfilled_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["fulfilled_capacity"] == float("-inf")
+                    else str(value["fulfilled_capacity"])
+                ),
+            )
         )
     if "ebs_optimized" in value:
         pairs.append(
@@ -99,7 +110,20 @@ def serialize_ec2_query(
             value["create_date"], pairs, f"{key_prefix}CreateDate"
         )
     if "weight" in value:
-        pairs.append((f"{key_prefix}Weight", str(value["weight"])))
+        pairs.append(
+            (
+                f"{key_prefix}Weight",
+                (
+                    "NaN"
+                    if value["weight"] != value["weight"]
+                    else "Infinity"
+                    if value["weight"] == float("inf")
+                    else "-Infinity"
+                    if value["weight"] == float("-inf")
+                    else str(value["weight"])
+                ),
+            )
+        )
     if "priority" in value:
         pairs.append((f"{key_prefix}Priority", str(value["priority"])))
 

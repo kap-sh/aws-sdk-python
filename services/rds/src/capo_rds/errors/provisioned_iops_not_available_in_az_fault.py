@@ -39,15 +39,20 @@ class ProvisionedIopsNotAvailableInAZFault(ServiceError):
 
     code: str | None = "ProvisionedIopsNotAvailableInAZFault"
 
-    def __init__(self, data: ProvisionedIopsNotAvailableInAZFault_):
+    def __init__(
+        self, data: ProvisionedIopsNotAvailableInAZFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ProvisionedIopsNotAvailableInAZFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ProvisionedIopsNotAvailableInAZFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ProvisionedIopsNotAvailableInAZFault":
+        return cls(deserialize_query(el), message)

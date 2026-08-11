@@ -35,15 +35,16 @@ class TooManyPublicKeys(ServiceError):
 
     code: str | None = "TooManyPublicKeys"
 
-    def __init__(self, data: TooManyPublicKeys_):
+    def __init__(self, data: TooManyPublicKeys_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyPublicKeys",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyPublicKeys":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "TooManyPublicKeys":
+        return cls(deserialize_xml(el), message)

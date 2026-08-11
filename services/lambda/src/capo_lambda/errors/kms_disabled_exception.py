@@ -39,15 +39,18 @@ class KMSDisabledException(ServiceError):
 
     code: str | None = "KMSDisabledException"
 
-    def __init__(self, data: KMSDisabledException_):
+    def __init__(self, data: KMSDisabledException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="KMSDisabledException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "KMSDisabledException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "KMSDisabledException":
+        return cls(deserialize_json(data), message)

@@ -36,15 +36,16 @@ class InvalidDomainName(ServiceError):
 
     code: str | None = "InvalidDomainName"
 
-    def __init__(self, data: InvalidDomainName_):
+    def __init__(self, data: InvalidDomainName_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDomainName",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidDomainName":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "InvalidDomainName":
+        return cls(deserialize_xml(el), message)

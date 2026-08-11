@@ -39,15 +39,18 @@ class EntityAlreadyExistsException(ServiceError):
 
     code: str | None = "EntityAlreadyExistsException"
 
-    def __init__(self, data: EntityAlreadyExistsException_):
+    def __init__(self, data: EntityAlreadyExistsException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EntityAlreadyExistsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "EntityAlreadyExistsException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "EntityAlreadyExistsException":
+        return cls(deserialize_query(el), message)

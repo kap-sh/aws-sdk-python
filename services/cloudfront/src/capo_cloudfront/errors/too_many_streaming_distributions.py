@@ -37,15 +37,20 @@ class TooManyStreamingDistributions(ServiceError):
 
     code: str | None = "TooManyStreamingDistributions"
 
-    def __init__(self, data: TooManyStreamingDistributions_):
+    def __init__(
+        self, data: TooManyStreamingDistributions_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyStreamingDistributions",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyStreamingDistributions":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyStreamingDistributions":
+        return cls(deserialize_xml(el), message)

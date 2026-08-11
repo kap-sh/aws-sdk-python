@@ -44,15 +44,18 @@ class EC2UnexpectedException(ServiceError):
 
     code: str | None = "EC2UnexpectedException"
 
-    def __init__(self, data: EC2UnexpectedException_):
+    def __init__(self, data: EC2UnexpectedException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="EC2UnexpectedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "EC2UnexpectedException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "EC2UnexpectedException":
+        return cls(deserialize_json(data), message)

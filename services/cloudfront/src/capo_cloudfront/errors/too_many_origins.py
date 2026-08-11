@@ -35,15 +35,16 @@ class TooManyOrigins(ServiceError):
 
     code: str | None = "TooManyOrigins"
 
-    def __init__(self, data: TooManyOrigins_):
+    def __init__(self, data: TooManyOrigins_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyOrigins",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyOrigins":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "TooManyOrigins":
+        return cls(deserialize_xml(el), message)

@@ -95,7 +95,20 @@ def serialize_ec2_query(
             value["resource_tags"], pairs, f"{key_prefix}ResourceTagSet"
         )
     if "ip_usage" in value:
-        pairs.append((f"{key_prefix}IpUsage", str(value["ip_usage"])))
+        pairs.append(
+            (
+                f"{key_prefix}IpUsage",
+                (
+                    "NaN"
+                    if value["ip_usage"] != value["ip_usage"]
+                    else "Infinity"
+                    if value["ip_usage"] == float("inf")
+                    else "-Infinity"
+                    if value["ip_usage"] == float("-inf")
+                    else str(value["ip_usage"])
+                ),
+            )
+        )
     if "vpc_id" in value:
         pairs.append((f"{key_prefix}VpcId", str(value["vpc_id"])))
     if "subnet_id" in value:

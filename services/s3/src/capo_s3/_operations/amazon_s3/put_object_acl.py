@@ -19,7 +19,7 @@ import capo_s3.types.put_object_acl_output
 import capo_s3.types.put_object_acl_request
 import capo_s3.types.request_charged
 import capo_s3.types.request_payer
-from capo_s3._protocol.errors import parse_error_metadata
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
 from capo_s3._protocol.xml import Element, fromstring, tostring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
@@ -30,9 +30,10 @@ from capo_s3.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "NoSuchKey":
-            raise capo_s3.errors.no_such_key.NoSuchKey.from_xml(root)
+            raise capo_s3.errors.no_such_key.NoSuchKey.from_xml(error_el, message)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -103,33 +104,43 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.checksum_algorithm
+    import capo_s3.types.object_canned_acl
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?acl"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
     if "version_id" in input_:
-        params["versionId"] = str(input_["version_id"])
+        params.append(("versionId", input_["version_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "acl" in input_:
-        headers["x-amz-acl"] = str(input_["acl"])
+        headers["x-amz-acl"] = capo_s3.types.object_canned_acl.to_xml_text(
+            input_["acl"]
+        )
     if "content_md5" in input_:
-        headers["Content-MD5"] = str(input_["content_md5"])
+        headers["Content-MD5"] = input_["content_md5"]
     if "checksum_algorithm" in input_:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+        headers["x-amz-sdk-checksum-algorithm"] = (
+            capo_s3.types.checksum_algorithm.to_xml_text(input_["checksum_algorithm"])
+        )
     if "grant_full_control" in input_:
-        headers["x-amz-grant-full-control"] = str(input_["grant_full_control"])
+        headers["x-amz-grant-full-control"] = input_["grant_full_control"]
     if "grant_read" in input_:
-        headers["x-amz-grant-read"] = str(input_["grant_read"])
+        headers["x-amz-grant-read"] = input_["grant_read"]
     if "grant_read_acp" in input_:
-        headers["x-amz-grant-read-acp"] = str(input_["grant_read_acp"])
+        headers["x-amz-grant-read-acp"] = input_["grant_read_acp"]
     if "grant_write" in input_:
-        headers["x-amz-grant-write"] = str(input_["grant_write"])
+        headers["x-amz-grant-write"] = input_["grant_write"]
     if "grant_write_acp" in input_:
-        headers["x-amz-grant-write-acp"] = str(input_["grant_write_acp"])
+        headers["x-amz-grant-write-acp"] = input_["grant_write_acp"]
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "access_control_policy" in input_:
         payload_root = Element("_")
         capo_s3.types.access_control_policy.serialize_xml(
@@ -141,7 +152,8 @@ def build_request(
         body = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

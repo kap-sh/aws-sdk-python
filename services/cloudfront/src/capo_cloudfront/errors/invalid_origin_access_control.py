@@ -37,15 +37,18 @@ class InvalidOriginAccessControl(ServiceError):
 
     code: str | None = "InvalidOriginAccessControl"
 
-    def __init__(self, data: InvalidOriginAccessControl_):
+    def __init__(self, data: InvalidOriginAccessControl_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidOriginAccessControl",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidOriginAccessControl":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidOriginAccessControl":
+        return cls(deserialize_xml(el), message)

@@ -129,7 +129,20 @@ def serialize_query(
             (f"{key_prefix}AggregationStatistic", str(value["aggregation_statistic"]))
         )
     if "aggregate_value" in value:
-        pairs.append((f"{key_prefix}AggregateValue", str(value["aggregate_value"])))
+        pairs.append(
+            (
+                f"{key_prefix}AggregateValue",
+                (
+                    "NaN"
+                    if value["aggregate_value"] != value["aggregate_value"]
+                    else "Infinity"
+                    if value["aggregate_value"] == float("inf")
+                    else "-Infinity"
+                    if value["aggregate_value"] == float("-inf")
+                    else str(value["aggregate_value"])
+                ),
+            )
+        )
     if "approximate_unique_count" in value:
         pairs.append(
             (

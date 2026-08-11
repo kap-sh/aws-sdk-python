@@ -37,15 +37,20 @@ class DBProxyEndpointQuotaExceededFault(ServiceError):
 
     code: str | None = "DBProxyEndpointQuotaExceededFault"
 
-    def __init__(self, data: DBProxyEndpointQuotaExceededFault_):
+    def __init__(
+        self, data: DBProxyEndpointQuotaExceededFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBProxyEndpointQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBProxyEndpointQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBProxyEndpointQuotaExceededFault":
+        return cls(deserialize_query(el), message)

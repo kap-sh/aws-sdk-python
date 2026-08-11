@@ -41,15 +41,20 @@ class CredentialReportNotPresentException(ServiceError):
 
     code: str | None = "CredentialReportNotPresentException"
 
-    def __init__(self, data: CredentialReportNotPresentException_):
+    def __init__(
+        self, data: CredentialReportNotPresentException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CredentialReportNotPresentException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "CredentialReportNotPresentException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "CredentialReportNotPresentException":
+        return cls(deserialize_query(el), message)

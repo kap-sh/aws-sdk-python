@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_iam.types.saml_provider_list_entry
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_iam.types.saml_provider_list_entry.serialize_query(
             item, pairs, f"{prefix}.member.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_iam.types.saml_provider_list_entry
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_iam.types.saml_provider_list_entry.serialize_query(
             item, pairs, f"{prefix}.{n}"

@@ -39,15 +39,18 @@ class ServiceNotSupportedException(ServiceError):
 
     code: str | None = "ServiceNotSupportedException"
 
-    def __init__(self, data: ServiceNotSupportedException_):
+    def __init__(self, data: ServiceNotSupportedException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ServiceNotSupportedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ServiceNotSupportedException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ServiceNotSupportedException":
+        return cls(deserialize_query(el), message)

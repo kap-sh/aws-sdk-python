@@ -25,12 +25,16 @@ class NotFound(ServiceError):
 
     code: str | None = "NotFound"
 
-    def __init__(self, data: NotFound_):
+    def __init__(self, data: NotFound_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="NotFound"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="NotFound",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NotFound":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "NotFound":
+        return cls(deserialize_xml(el), message)

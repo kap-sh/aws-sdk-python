@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.orderable_db_instance_option
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.orderable_db_instance_option.serialize_query(
             item, pairs, f"{prefix}.OrderableDBInstanceOption.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.orderable_db_instance_option
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.orderable_db_instance_option.serialize_query(
             item, pairs, f"{prefix}.{n}"

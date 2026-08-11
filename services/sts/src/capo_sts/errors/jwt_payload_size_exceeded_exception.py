@@ -39,15 +39,20 @@ class JWTPayloadSizeExceededException(ServiceError):
 
     code: str | None = "JWTPayloadSizeExceededException"
 
-    def __init__(self, data: JWTPayloadSizeExceededException_):
+    def __init__(
+        self, data: JWTPayloadSizeExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="JWTPayloadSizeExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "JWTPayloadSizeExceededException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "JWTPayloadSizeExceededException":
+        return cls(deserialize_query(el), message)

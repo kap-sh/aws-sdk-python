@@ -41,7 +41,7 @@ import capo_rds.types.restore_db_instance_from_s3_result
 import capo_rds.types.tag_list
 import capo_rds.types.tag_specification_list
 import capo_rds.types.vpc_security_group_id_list
-from capo_rds._protocol.errors import parse_error_metadata
+from capo_rds._protocol.errors import find_error_element, parse_error_metadata
 from capo_rds._protocol.xml import fromstring
 from capo_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_rds._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -51,84 +51,87 @@ from capo_rds.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "AuthorizationNotFoundFault":
+        case "AuthorizationNotFound":
             raise capo_rds.errors.authorization_not_found_fault.AuthorizationNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "BackupPolicyNotFoundFault":
             raise capo_rds.errors.backup_policy_not_found_fault.BackupPolicyNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "CertificateNotFoundFault":
+        case "CertificateNotFound":
             raise capo_rds.errors.certificate_not_found_fault.CertificateNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBInstanceAlreadyExistsFault":
+        case "DBInstanceAlreadyExists":
             raise capo_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault.from_query(
-                root
+                error_el, message
             )
-        case "DBParameterGroupNotFoundFault":
+        case "DBParameterGroupNotFound":
             raise capo_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBSecurityGroupNotFoundFault":
+        case "DBSecurityGroupNotFound":
             raise capo_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBSubnetGroupDoesNotCoverEnoughAZs":
             raise capo_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs.from_query(
-                root
+                error_el, message
             )
         case "DBSubnetGroupNotFoundFault":
             raise capo_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "InstanceQuotaExceededFault":
+        case "InstanceQuotaExceeded":
             raise capo_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault.from_query(
-                root
+                error_el, message
             )
-        case "InsufficientDBInstanceCapacityFault":
+        case "InsufficientDBInstanceCapacity":
             raise capo_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidS3BucketFault":
             raise capo_rds.errors.invalid_s3_bucket_fault.InvalidS3BucketFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidSubnet":
-            raise capo_rds.errors.invalid_subnet.InvalidSubnet.from_query(root)
+            raise capo_rds.errors.invalid_subnet.InvalidSubnet.from_query(
+                error_el, message
+            )
         case "InvalidVPCNetworkStateFault":
             raise capo_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
-                root
+                error_el, message
             )
         case "KMSKeyNotAccessibleFault":
             raise capo_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
-                root
+                error_el, message
             )
         case "NetworkTypeNotSupported":
             raise capo_rds.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
-                root
+                error_el, message
             )
         case "OptionGroupNotFoundFault":
             raise capo_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "ProvisionedIopsNotAvailableInAZFault":
             raise capo_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault.from_query(
-                root
+                error_el, message
             )
-        case "StorageQuotaExceededFault":
+        case "StorageQuotaExceeded":
             raise capo_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
-                root
+                error_el, message
             )
-        case "StorageTypeNotSupportedFault":
+        case "StorageTypeNotSupported":
             raise capo_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault.from_query(
-                root
+                error_el, message
             )
         case "VpcEncryptionControlViolationException":
             raise capo_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -188,7 +191,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RestoreDBInstanceFromS3"))
@@ -200,7 +203,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

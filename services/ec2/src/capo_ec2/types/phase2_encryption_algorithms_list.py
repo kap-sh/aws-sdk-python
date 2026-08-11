@@ -16,6 +16,9 @@ Phase2EncryptionAlgorithmsList: TypeAlias = list[
 def serialize_ec2_query(
     value: Phase2EncryptionAlgorithmsList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.phase2_encryption_algorithms_list_value
 

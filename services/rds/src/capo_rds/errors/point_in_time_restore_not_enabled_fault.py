@@ -37,15 +37,20 @@ class PointInTimeRestoreNotEnabledFault(ServiceError):
 
     code: str | None = "PointInTimeRestoreNotEnabledFault"
 
-    def __init__(self, data: PointInTimeRestoreNotEnabledFault_):
+    def __init__(
+        self, data: PointInTimeRestoreNotEnabledFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="PointInTimeRestoreNotEnabledFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "PointInTimeRestoreNotEnabledFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "PointInTimeRestoreNotEnabledFault":
+        return cls(deserialize_query(el), message)

@@ -140,7 +140,20 @@ def serialize_ec2_query(
     if "user_data" in value:
         pairs.append((f"{key_prefix}UserData", str(value["user_data"])))
     if "weighted_capacity" in value:
-        pairs.append((f"{key_prefix}WeightedCapacity", str(value["weighted_capacity"])))
+        pairs.append(
+            (
+                f"{key_prefix}WeightedCapacity",
+                (
+                    "NaN"
+                    if value["weighted_capacity"] != value["weighted_capacity"]
+                    else "Infinity"
+                    if value["weighted_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["weighted_capacity"] == float("-inf")
+                    else str(value["weighted_capacity"])
+                ),
+            )
+        )
     if "tag_specifications" in value:
         import capo_ec2.types.spot_fleet_tag_specification_list
 

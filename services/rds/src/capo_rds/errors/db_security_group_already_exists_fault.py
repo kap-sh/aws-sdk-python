@@ -37,15 +37,20 @@ class DBSecurityGroupAlreadyExistsFault(ServiceError):
 
     code: str | None = "DBSecurityGroupAlreadyExistsFault"
 
-    def __init__(self, data: DBSecurityGroupAlreadyExistsFault_):
+    def __init__(
+        self, data: DBSecurityGroupAlreadyExistsFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBSecurityGroupAlreadyExistsFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBSecurityGroupAlreadyExistsFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBSecurityGroupAlreadyExistsFault":
+        return cls(deserialize_query(el), message)

@@ -41,15 +41,18 @@ class ResourceConflictException(ServiceError):
 
     code: str | None = "ResourceConflictException"
 
-    def __init__(self, data: ResourceConflictException_):
+    def __init__(self, data: ResourceConflictException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResourceConflictException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ResourceConflictException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourceConflictException":
+        return cls(deserialize_json(data), message)

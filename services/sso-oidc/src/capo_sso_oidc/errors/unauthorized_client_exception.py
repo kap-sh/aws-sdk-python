@@ -44,15 +44,18 @@ class UnauthorizedClientException(ServiceError):
 
     code: str | None = "UnauthorizedClientException"
 
-    def __init__(self, data: UnauthorizedClientException_):
+    def __init__(self, data: UnauthorizedClientException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnauthorizedClientException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "UnauthorizedClientException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "UnauthorizedClientException":
+        return cls(deserialize_json(data), message)

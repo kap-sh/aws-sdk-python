@@ -38,15 +38,18 @@ class TrafficPolicyAlreadyExists(ServiceError):
 
     code: str | None = "TrafficPolicyAlreadyExists"
 
-    def __init__(self, data: TrafficPolicyAlreadyExists_):
+    def __init__(self, data: TrafficPolicyAlreadyExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TrafficPolicyAlreadyExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TrafficPolicyAlreadyExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TrafficPolicyAlreadyExists":
+        return cls(deserialize_xml(el), message)

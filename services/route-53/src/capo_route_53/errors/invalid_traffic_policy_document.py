@@ -38,15 +38,18 @@ class InvalidTrafficPolicyDocument(ServiceError):
 
     code: str | None = "InvalidTrafficPolicyDocument"
 
-    def __init__(self, data: InvalidTrafficPolicyDocument_):
+    def __init__(self, data: InvalidTrafficPolicyDocument_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidTrafficPolicyDocument",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidTrafficPolicyDocument":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidTrafficPolicyDocument":
+        return cls(deserialize_xml(el), message)

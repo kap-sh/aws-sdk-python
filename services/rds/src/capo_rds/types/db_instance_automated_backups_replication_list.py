@@ -20,6 +20,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.db_instance_automated_backups_replication
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.db_instance_automated_backups_replication.serialize_query(
             item, pairs, f"{prefix}.DBInstanceAutomatedBackupsReplication.{n}"
@@ -46,6 +49,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.db_instance_automated_backups_replication
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.db_instance_automated_backups_replication.serialize_query(
             item, pairs, f"{prefix}.{n}"

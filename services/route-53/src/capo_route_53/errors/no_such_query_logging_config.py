@@ -35,15 +35,18 @@ class NoSuchQueryLoggingConfig(ServiceError):
 
     code: str | None = "NoSuchQueryLoggingConfig"
 
-    def __init__(self, data: NoSuchQueryLoggingConfig_):
+    def __init__(self, data: NoSuchQueryLoggingConfig_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="NoSuchQueryLoggingConfig",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NoSuchQueryLoggingConfig":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "NoSuchQueryLoggingConfig":
+        return cls(deserialize_xml(el), message)

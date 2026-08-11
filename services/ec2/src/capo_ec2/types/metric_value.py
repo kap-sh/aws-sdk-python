@@ -30,7 +30,20 @@ def serialize_ec2_query(
             value["metric"], pairs, f"{key_prefix}Metric"
         )
     if "value" in value:
-        pairs.append((f"{key_prefix}Value", str(value["value"])))
+        pairs.append(
+            (
+                f"{key_prefix}Value",
+                (
+                    "NaN"
+                    if value["value"] != value["value"]
+                    else "Infinity"
+                    if value["value"] == float("inf")
+                    else "-Infinity"
+                    if value["value"] == float("-inf")
+                    else str(value["value"])
+                ),
+            )
+        )
 
 
 def deserialize_ec2_query(el: Element) -> MetricValue:

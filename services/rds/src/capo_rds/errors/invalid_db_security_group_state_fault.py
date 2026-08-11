@@ -37,15 +37,20 @@ class InvalidDBSecurityGroupStateFault(ServiceError):
 
     code: str | None = "InvalidDBSecurityGroupStateFault"
 
-    def __init__(self, data: InvalidDBSecurityGroupStateFault_):
+    def __init__(
+        self, data: InvalidDBSecurityGroupStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBSecurityGroupStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBSecurityGroupStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBSecurityGroupStateFault":
+        return cls(deserialize_query(el), message)

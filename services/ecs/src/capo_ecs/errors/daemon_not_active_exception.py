@@ -35,15 +35,18 @@ class DaemonNotActiveException(ServiceError):
 
     code: str | None = "DaemonNotActiveException"
 
-    def __init__(self, data: DaemonNotActiveException_):
+    def __init__(self, data: DaemonNotActiveException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DaemonNotActiveException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "DaemonNotActiveException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "DaemonNotActiveException":
+        return cls(deserialize_aws_json_1_1(data), message)

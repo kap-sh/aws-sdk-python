@@ -25,15 +25,18 @@ class EncryptionTypeMismatch(ServiceError):
 
     code: str | None = "EncryptionTypeMismatch"
 
-    def __init__(self, data: EncryptionTypeMismatch_):
+    def __init__(self, data: EncryptionTypeMismatch_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EncryptionTypeMismatch",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "EncryptionTypeMismatch":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "EncryptionTypeMismatch":
+        return cls(deserialize_xml(el), message)

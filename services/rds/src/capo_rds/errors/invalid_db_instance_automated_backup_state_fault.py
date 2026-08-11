@@ -39,15 +39,22 @@ class InvalidDBInstanceAutomatedBackupStateFault(ServiceError):
 
     code: str | None = "InvalidDBInstanceAutomatedBackupStateFault"
 
-    def __init__(self, data: InvalidDBInstanceAutomatedBackupStateFault_):
+    def __init__(
+        self,
+        data: InvalidDBInstanceAutomatedBackupStateFault_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBInstanceAutomatedBackupStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBInstanceAutomatedBackupStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBInstanceAutomatedBackupStateFault":
+        return cls(deserialize_query(el), message)

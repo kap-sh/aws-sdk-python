@@ -37,15 +37,18 @@ class TooManyOriginAccessControls(ServiceError):
 
     code: str | None = "TooManyOriginAccessControls"
 
-    def __init__(self, data: TooManyOriginAccessControls_):
+    def __init__(self, data: TooManyOriginAccessControls_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyOriginAccessControls",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyOriginAccessControls":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyOriginAccessControls":
+        return cls(deserialize_xml(el), message)

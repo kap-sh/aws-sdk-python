@@ -39,15 +39,20 @@ class DBParameterGroupAlreadyExistsFault(ServiceError):
 
     code: str | None = "DBParameterGroupAlreadyExistsFault"
 
-    def __init__(self, data: DBParameterGroupAlreadyExistsFault_):
+    def __init__(
+        self, data: DBParameterGroupAlreadyExistsFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBParameterGroupAlreadyExistsFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBParameterGroupAlreadyExistsFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBParameterGroupAlreadyExistsFault":
+        return cls(deserialize_query(el), message)

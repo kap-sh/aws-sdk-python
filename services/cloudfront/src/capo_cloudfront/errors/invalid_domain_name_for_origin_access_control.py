@@ -37,15 +37,20 @@ class InvalidDomainNameForOriginAccessControl(ServiceError):
 
     code: str | None = "InvalidDomainNameForOriginAccessControl"
 
-    def __init__(self, data: InvalidDomainNameForOriginAccessControl_):
+    def __init__(
+        self, data: InvalidDomainNameForOriginAccessControl_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDomainNameForOriginAccessControl",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidDomainNameForOriginAccessControl":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDomainNameForOriginAccessControl":
+        return cls(deserialize_xml(el), message)

@@ -107,30 +107,41 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.encoding_type
+    import capo_s3.types.request_payer
+
     url = endpoint.url.rstrip("/") + "/{Bucket}?uploads"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     if "delimiter" in input_:
-        params["delimiter"] = str(input_["delimiter"])
+        params.append(("delimiter", input_["delimiter"]))
     if "encoding_type" in input_:
-        params["encoding-type"] = str(input_["encoding_type"])
+        params.append(
+            (
+                "encoding-type",
+                capo_s3.types.encoding_type.to_xml_text(input_["encoding_type"]),
+            )
+        )
     if "key_marker" in input_:
-        params["key-marker"] = str(input_["key_marker"])
+        params.append(("key-marker", input_["key_marker"]))
     if "max_uploads" in input_:
-        params["max-uploads"] = str(input_["max_uploads"])
+        params.append(("max-uploads", str(input_["max_uploads"])))
     if "prefix" in input_:
-        params["prefix"] = str(input_["prefix"])
+        params.append(("prefix", input_["prefix"]))
     if "upload_id_marker" in input_:
-        params["upload-id-marker"] = str(input_["upload_id_marker"])
+        params.append(("upload-id-marker", input_["upload_id_marker"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "request_payer" in input_:
-        headers["x-amz-request-payer"] = str(input_["request_payer"])
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

@@ -25,12 +25,16 @@ class NoSuchKey(ServiceError):
 
     code: str | None = "NoSuchKey"
 
-    def __init__(self, data: NoSuchKey_):
+    def __init__(self, data: NoSuchKey_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="NoSuchKey"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="NoSuchKey",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NoSuchKey":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "NoSuchKey":
+        return cls(deserialize_xml(el), message)

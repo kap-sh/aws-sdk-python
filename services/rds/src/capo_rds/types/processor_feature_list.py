@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.processor_feature
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.processor_feature.serialize_query(
             item, pairs, f"{prefix}.ProcessorFeature.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.processor_feature
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.processor_feature.serialize_query(item, pairs, f"{prefix}.{n}")
 

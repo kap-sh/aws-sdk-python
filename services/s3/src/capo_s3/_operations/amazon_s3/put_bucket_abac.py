@@ -73,28 +73,30 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.checksum_algorithm
+
     url = endpoint.url.rstrip("/") + "/{Bucket}?abac"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "content_md5" in input_:
-        headers["Content-MD5"] = str(input_["content_md5"])
+        headers["Content-MD5"] = input_["content_md5"]
     if "checksum_algorithm" in input_:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
-    if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
-    if "abac_status" in input_:
-        payload_root = Element("_")
-        capo_s3.types.abac_status.serialize_xml(
-            input_["abac_status"], payload_root, "AbacStatus"
+        headers["x-amz-sdk-checksum-algorithm"] = (
+            capo_s3.types.checksum_algorithm.to_xml_text(input_["checksum_algorithm"])
         )
-        body: bytes | None = tostring(payload_root[0])
-        headers["content-type"] = "application/xml"
-    else:
-        body = b""
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
+    payload_root = Element("_")
+    capo_s3.types.abac_status.serialize_xml(
+        input_["abac_status"], payload_root, "AbacStatus"
+    )
+    body: bytes | None = tostring(payload_root[0])
+    headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

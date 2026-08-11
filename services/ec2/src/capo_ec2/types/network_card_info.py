@@ -88,12 +88,33 @@ def serialize_ec2_query(
         pairs.append(
             (
                 f"{key_prefix}BaselineBandwidthInGbps",
-                str(value["baseline_bandwidth_in_gbps"]),
+                (
+                    "NaN"
+                    if value["baseline_bandwidth_in_gbps"]
+                    != value["baseline_bandwidth_in_gbps"]
+                    else "Infinity"
+                    if value["baseline_bandwidth_in_gbps"] == float("inf")
+                    else "-Infinity"
+                    if value["baseline_bandwidth_in_gbps"] == float("-inf")
+                    else str(value["baseline_bandwidth_in_gbps"])
+                ),
             )
         )
     if "peak_bandwidth_in_gbps" in value:
         pairs.append(
-            (f"{key_prefix}PeakBandwidthInGbps", str(value["peak_bandwidth_in_gbps"]))
+            (
+                f"{key_prefix}PeakBandwidthInGbps",
+                (
+                    "NaN"
+                    if value["peak_bandwidth_in_gbps"]
+                    != value["peak_bandwidth_in_gbps"]
+                    else "Infinity"
+                    if value["peak_bandwidth_in_gbps"] == float("inf")
+                    else "-Infinity"
+                    if value["peak_bandwidth_in_gbps"] == float("-inf")
+                    else str(value["peak_bandwidth_in_gbps"])
+                ),
+            )
         )
     if "default_ena_queue_count_per_interface" in value:
         pairs.append(

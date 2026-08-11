@@ -35,15 +35,18 @@ class UploadNotFoundException(ServiceError):
 
     code: str | None = "UploadNotFoundException"
 
-    def __init__(self, data: UploadNotFoundException_):
+    def __init__(self, data: UploadNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UploadNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "UploadNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "UploadNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

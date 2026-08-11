@@ -36,15 +36,18 @@ class PublicZoneVPCAssociation(ServiceError):
 
     code: str | None = "PublicZoneVPCAssociation"
 
-    def __init__(self, data: PublicZoneVPCAssociation_):
+    def __init__(self, data: PublicZoneVPCAssociation_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="PublicZoneVPCAssociation",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "PublicZoneVPCAssociation":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "PublicZoneVPCAssociation":
+        return cls(deserialize_xml(el), message)

@@ -54,7 +54,18 @@ def serialize_ec2_query(
         pairs.append((f"{key_prefix}LogicalGpuCount", str(value["logical_gpu_count"])))
     if "gpu_partition_size" in value:
         pairs.append(
-            (f"{key_prefix}GpuPartitionSize", str(value["gpu_partition_size"]))
+            (
+                f"{key_prefix}GpuPartitionSize",
+                (
+                    "NaN"
+                    if value["gpu_partition_size"] != value["gpu_partition_size"]
+                    else "Infinity"
+                    if value["gpu_partition_size"] == float("inf")
+                    else "-Infinity"
+                    if value["gpu_partition_size"] == float("-inf")
+                    else str(value["gpu_partition_size"])
+                ),
+            )
         )
     if "workloads" in value:
         import capo_ec2.types.workloads_list

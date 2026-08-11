@@ -16,7 +16,7 @@ import capo_route_53.errors.no_such_cidr_location_exception
 import capo_route_53.types.cidr_block_summaries
 import capo_route_53.types.list_cidr_blocks_request
 import capo_route_53.types.list_cidr_blocks_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -26,16 +26,19 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchCidrCollectionException":
             raise capo_route_53.errors.no_such_cidr_collection_exception.NoSuchCidrCollectionException.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchCidrLocationException":
             raise capo_route_53.errors.no_such_cidr_location_exception.NoSuchCidrLocationException.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -100,19 +103,20 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/2013-04-01/cidrcollection/{CollectionId}/cidrblocks"
     )
-    url = url.replace("{CollectionId}", quote(str(input_["collection_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{CollectionId}", quote(input_["collection_id"], safe=""))
+    params: list[tuple[str, str]] = []
     if "location_name" in input_:
-        params["location"] = str(input_["location_name"])
+        params.append(("location", input_["location_name"]))
     if "next_token" in input_:
-        params["nexttoken"] = str(input_["next_token"])
+        params.append(("nexttoken", input_["next_token"]))
     if "max_results" in input_:
-        params["maxresults"] = str(input_["max_results"])
+        params.append(("maxresults", str(input_["max_results"])))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

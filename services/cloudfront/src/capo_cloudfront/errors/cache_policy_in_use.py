@@ -35,15 +35,16 @@ class CachePolicyInUse(ServiceError):
 
     code: str | None = "CachePolicyInUse"
 
-    def __init__(self, data: CachePolicyInUse_):
+    def __init__(self, data: CachePolicyInUse_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CachePolicyInUse",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "CachePolicyInUse":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "CachePolicyInUse":
+        return cls(deserialize_xml(el), message)

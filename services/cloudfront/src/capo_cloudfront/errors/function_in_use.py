@@ -35,15 +35,16 @@ class FunctionInUse(ServiceError):
 
     code: str | None = "FunctionInUse"
 
-    def __init__(self, data: FunctionInUse_):
+    def __init__(self, data: FunctionInUse_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="FunctionInUse",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "FunctionInUse":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "FunctionInUse":
+        return cls(deserialize_xml(el), message)

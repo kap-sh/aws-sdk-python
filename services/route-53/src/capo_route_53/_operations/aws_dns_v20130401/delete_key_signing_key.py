@@ -19,7 +19,7 @@ import capo_route_53.errors.no_such_key_signing_key
 import capo_route_53.types.change_info
 import capo_route_53.types.delete_key_signing_key_request
 import capo_route_53.types.delete_key_signing_key_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -29,26 +29,31 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "ConcurrentModification":
             raise capo_route_53.errors.concurrent_modification.ConcurrentModification.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "InvalidKeySigningKeyStatus":
             raise capo_route_53.errors.invalid_key_signing_key_status.InvalidKeySigningKeyStatus.from_xml(
-                root
+                error_el, message
             )
         case "InvalidKMSArn":
-            raise capo_route_53.errors.invalid_kms_arn.InvalidKMSArn.from_xml(root)
+            raise capo_route_53.errors.invalid_kms_arn.InvalidKMSArn.from_xml(
+                error_el, message
+            )
         case "InvalidSigningStatus":
             raise capo_route_53.errors.invalid_signing_status.InvalidSigningStatus.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchKeySigningKey":
             raise capo_route_53.errors.no_such_key_signing_key.NoSuchKeySigningKey.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -106,14 +111,15 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}"
-    url = url.replace("{HostedZoneId}", quote(str(input_["hosted_zone_id"]), safe=""))
-    url = url.replace("{Name}", quote(str(input_["name"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{HostedZoneId}", quote(input_["hosted_zone_id"], safe=""))
+    url = url.replace("{Name}", quote(input_["name"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

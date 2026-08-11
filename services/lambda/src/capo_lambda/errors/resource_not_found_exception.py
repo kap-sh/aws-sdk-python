@@ -39,15 +39,18 @@ class ResourceNotFoundException(ServiceError):
 
     code: str | None = "ResourceNotFoundException"
 
-    def __init__(self, data: ResourceNotFoundException_):
+    def __init__(self, data: ResourceNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResourceNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ResourceNotFoundException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourceNotFoundException":
+        return cls(deserialize_json(data), message)

@@ -35,15 +35,20 @@ class SigningConfigurationNotFoundException(ServiceError):
 
     code: str | None = "SigningConfigurationNotFoundException"
 
-    def __init__(self, data: SigningConfigurationNotFoundException_):
+    def __init__(
+        self, data: SigningConfigurationNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SigningConfigurationNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "SigningConfigurationNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "SigningConfigurationNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

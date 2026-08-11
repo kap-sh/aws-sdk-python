@@ -25,7 +25,7 @@ import capo_route_53.types.delegation_set
 import capo_route_53.types.hosted_zone
 import capo_route_53.types.hosted_zone_config
 import capo_route_53.types.vpc
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -35,38 +35,43 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "ConflictingDomainExists":
             raise capo_route_53.errors.conflicting_domain_exists.ConflictingDomainExists.from_xml(
-                root
+                error_el, message
             )
         case "DelegationSetNotAvailable":
             raise capo_route_53.errors.delegation_set_not_available.DelegationSetNotAvailable.from_xml(
-                root
+                error_el, message
             )
         case "DelegationSetNotReusable":
             raise capo_route_53.errors.delegation_set_not_reusable.DelegationSetNotReusable.from_xml(
-                root
+                error_el, message
             )
         case "HostedZoneAlreadyExists":
             raise capo_route_53.errors.hosted_zone_already_exists.HostedZoneAlreadyExists.from_xml(
-                root
+                error_el, message
             )
         case "InvalidDomainName":
             raise capo_route_53.errors.invalid_domain_name.InvalidDomainName.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "InvalidVPCId":
-            raise capo_route_53.errors.invalid_vpc_id.InvalidVPCId.from_xml(root)
+            raise capo_route_53.errors.invalid_vpc_id.InvalidVPCId.from_xml(
+                error_el, message
+            )
         case "NoSuchDelegationSet":
             raise capo_route_53.errors.no_such_delegation_set.NoSuchDelegationSet.from_xml(
-                root
+                error_el, message
             )
         case "TooManyHostedZones":
             raise capo_route_53.errors.too_many_hosted_zones.TooManyHostedZones.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -80,7 +85,7 @@ def handle_response(
             fromstring(response.read())
         )
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -92,7 +97,7 @@ async def async_handle_response(
             fromstring(await response.aread())
         )
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -130,26 +135,30 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/hostedzone"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    import capo_route_53.types.hosted_zone_config
+    import capo_route_53.types.vpc
+
     root = Element("CreateHostedZoneRequest")
     if "name" in input_:
-        SubElement(root, "Name").text = str(input_["name"])
+        SubElement(root, "Name").text = input_["name"]
     if "vpc" in input_:
         capo_route_53.types.vpc.serialize_xml(input_["vpc"], root, "VPC")
     if "caller_reference" in input_:
-        SubElement(root, "CallerReference").text = str(input_["caller_reference"])
+        SubElement(root, "CallerReference").text = input_["caller_reference"]
     if "hosted_zone_config" in input_:
         capo_route_53.types.hosted_zone_config.serialize_xml(
             input_["hosted_zone_config"], root, "HostedZoneConfig"
         )
     if "delegation_set_id" in input_:
-        SubElement(root, "DelegationSetId").text = str(input_["delegation_set_id"])
+        SubElement(root, "DelegationSetId").text = input_["delegation_set_id"]
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -29,17 +29,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "CallbackTimeoutException":
             raise capo_lambda.errors.callback_timeout_exception.CallbackTimeoutException.from_json(
-                data
+                data, message
             )
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -96,13 +98,14 @@ def build_request(
         endpoint.url.rstrip("/")
         + "/2025-12-01/durable-execution-callbacks/{CallbackId}/heartbeat"
     )
-    url = url.replace("{CallbackId}", quote(str(input_["callback_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{CallbackId}", quote(input_["callback_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

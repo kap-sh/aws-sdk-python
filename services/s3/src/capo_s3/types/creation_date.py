@@ -10,7 +10,12 @@ CreationDate: TypeAlias = datetime.datetime
 
 # --- restXml ser/de ---
 def to_xml_text(value: CreationDate) -> str:
-    return value.isoformat()
+    value = (
+        value.astimezone(datetime.timezone.utc)
+        if value.tzinfo
+        else value.replace(tzinfo=datetime.timezone.utc)
+    )
+    return value.isoformat().replace("+00:00", "Z")
 
 
 def from_xml_text(text: str) -> CreationDate:

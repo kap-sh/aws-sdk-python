@@ -41,15 +41,20 @@ class InvalidConfigurationRequestException(ServiceError):
 
     code: str | None = "InvalidConfigurationRequestException"
 
-    def __init__(self, data: InvalidConfigurationRequestException_):
+    def __init__(
+        self, data: InvalidConfigurationRequestException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidConfigurationRequestException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidConfigurationRequestException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidConfigurationRequestException":
+        return cls(deserialize_query(el), message)

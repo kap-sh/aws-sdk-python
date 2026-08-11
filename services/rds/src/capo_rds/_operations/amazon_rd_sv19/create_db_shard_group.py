@@ -20,7 +20,7 @@ import capo_rds.errors.unsupported_db_engine_version_fault
 import capo_rds.types.create_db_shard_group_message
 import capo_rds.types.db_shard_group
 import capo_rds.types.tag_list
-from capo_rds._protocol.errors import parse_error_metadata
+from capo_rds._protocol.errors import find_error_element, parse_error_metadata
 from capo_rds._protocol.xml import fromstring
 from capo_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_rds._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -30,34 +30,35 @@ from capo_rds.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "DBClusterNotFoundFault":
             raise capo_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBShardGroupAlreadyExistsFault":
+        case "DBShardGroupAlreadyExists":
             raise capo_rds.errors.db_shard_group_already_exists_fault.DBShardGroupAlreadyExistsFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidDBClusterStateFault":
             raise capo_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidVPCNetworkStateFault":
             raise capo_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
-                root
+                error_el, message
             )
         case "MaxDBShardGroupLimitReached":
             raise capo_rds.errors.max_db_shard_group_limit_reached.MaxDBShardGroupLimitReached.from_query(
-                root
+                error_el, message
             )
         case "NetworkTypeNotSupported":
             raise capo_rds.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
-                root
+                error_el, message
             )
-        case "UnsupportedDBEngineVersionFault":
+        case "UnsupportedDBEngineVersion":
             raise capo_rds.errors.unsupported_db_engine_version_fault.UnsupportedDBEngineVersionFault.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -121,7 +122,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateDBShardGroup"))
@@ -131,7 +132,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

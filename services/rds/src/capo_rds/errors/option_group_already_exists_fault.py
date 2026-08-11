@@ -37,15 +37,20 @@ class OptionGroupAlreadyExistsFault(ServiceError):
 
     code: str | None = "OptionGroupAlreadyExistsFault"
 
-    def __init__(self, data: OptionGroupAlreadyExistsFault_):
+    def __init__(
+        self, data: OptionGroupAlreadyExistsFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OptionGroupAlreadyExistsFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "OptionGroupAlreadyExistsFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "OptionGroupAlreadyExistsFault":
+        return cls(deserialize_query(el), message)

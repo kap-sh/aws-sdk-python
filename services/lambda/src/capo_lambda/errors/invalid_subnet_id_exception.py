@@ -39,15 +39,18 @@ class InvalidSubnetIDException(ServiceError):
 
     code: str | None = "InvalidSubnetIDException"
 
-    def __init__(self, data: InvalidSubnetIDException_):
+    def __init__(self, data: InvalidSubnetIDException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidSubnetIDException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidSubnetIDException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidSubnetIDException":
+        return cls(deserialize_json(data), message)

@@ -16,7 +16,7 @@ import capo_cloudfront.errors.no_such_response_headers_policy
 import capo_cloudfront.types.distribution_id_list
 import capo_cloudfront.types.list_distributions_by_response_headers_policy_id_request
 import capo_cloudfront.types.list_distributions_by_response_headers_policy_id_result
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import fromstring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -26,14 +26,19 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "InvalidArgument":
-            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "NoSuchResponseHeadersPolicy":
             raise capo_cloudfront.errors.no_such_response_headers_policy.NoSuchResponseHeadersPolicy.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -100,18 +105,19 @@ def build_request(
     )
     url = url.replace(
         "{ResponseHeadersPolicyId}",
-        quote(str(input_["response_headers_policy_id"]), safe=""),
+        quote(input_["response_headers_policy_id"], safe=""),
     )
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "marker" in input_:
-        params["Marker"] = str(input_["marker"])
+        params.append(("Marker", input_["marker"]))
     if "max_items" in input_:
-        params["MaxItems"] = str(input_["max_items"])
+        params.append(("MaxItems", str(input_["max_items"])))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

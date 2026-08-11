@@ -37,15 +37,20 @@ class InvalidGeoRestrictionParameter(ServiceError):
 
     code: str | None = "InvalidGeoRestrictionParameter"
 
-    def __init__(self, data: InvalidGeoRestrictionParameter_):
+    def __init__(
+        self, data: InvalidGeoRestrictionParameter_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidGeoRestrictionParameter",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidGeoRestrictionParameter":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidGeoRestrictionParameter":
+        return cls(deserialize_xml(el), message)

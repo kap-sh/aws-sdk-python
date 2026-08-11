@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.vpc_security_group_membership
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.vpc_security_group_membership.serialize_query(
             item, pairs, f"{prefix}.VpcSecurityGroupMembership.{n}"
@@ -40,6 +43,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.vpc_security_group_membership
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.vpc_security_group_membership.serialize_query(
             item, pairs, f"{prefix}.{n}"

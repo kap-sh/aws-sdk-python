@@ -89,7 +89,16 @@ def serialize_query(
         pairs.append(
             (
                 f"{key_prefix}ApproximateAggregateValue",
-                str(value["approximate_aggregate_value"]),
+                (
+                    "NaN"
+                    if value["approximate_aggregate_value"]
+                    != value["approximate_aggregate_value"]
+                    else "Infinity"
+                    if value["approximate_aggregate_value"] == float("inf")
+                    else "-Infinity"
+                    if value["approximate_aggregate_value"] == float("-inf")
+                    else str(value["approximate_aggregate_value"])
+                ),
             )
         )
     if "datapoints" in value:

@@ -35,15 +35,16 @@ class InvalidErrorCode(ServiceError):
 
     code: str | None = "InvalidErrorCode"
 
-    def __init__(self, data: InvalidErrorCode_):
+    def __init__(self, data: InvalidErrorCode_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidErrorCode",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidErrorCode":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "InvalidErrorCode":
+        return cls(deserialize_xml(el), message)

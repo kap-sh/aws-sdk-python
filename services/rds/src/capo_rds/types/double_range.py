@@ -25,9 +25,35 @@ def serialize_query(
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
     if "from" in value:
-        pairs.append((f"{key_prefix}From", str(value["from"])))
+        pairs.append(
+            (
+                f"{key_prefix}From",
+                (
+                    "NaN"
+                    if value["from"] != value["from"]
+                    else "Infinity"
+                    if value["from"] == float("inf")
+                    else "-Infinity"
+                    if value["from"] == float("-inf")
+                    else str(value["from"])
+                ),
+            )
+        )
     if "to" in value:
-        pairs.append((f"{key_prefix}To", str(value["to"])))
+        pairs.append(
+            (
+                f"{key_prefix}To",
+                (
+                    "NaN"
+                    if value["to"] != value["to"]
+                    else "Infinity"
+                    if value["to"] == float("inf")
+                    else "-Infinity"
+                    if value["to"] == float("-inf")
+                    else str(value["to"])
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> DoubleRange:

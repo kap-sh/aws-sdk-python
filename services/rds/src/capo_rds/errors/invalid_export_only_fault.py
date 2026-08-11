@@ -37,15 +37,18 @@ class InvalidExportOnlyFault(ServiceError):
 
     code: str | None = "InvalidExportOnlyFault"
 
-    def __init__(self, data: InvalidExportOnlyFault_):
+    def __init__(self, data: InvalidExportOnlyFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidExportOnlyFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidExportOnlyFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidExportOnlyFault":
+        return cls(deserialize_query(el), message)

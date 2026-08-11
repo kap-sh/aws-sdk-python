@@ -35,15 +35,16 @@ class IllegalDelete(ServiceError):
 
     code: str | None = "IllegalDelete"
 
-    def __init__(self, data: IllegalDelete_):
+    def __init__(self, data: IllegalDelete_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="IllegalDelete",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "IllegalDelete":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "IllegalDelete":
+        return cls(deserialize_xml(el), message)

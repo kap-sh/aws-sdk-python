@@ -37,15 +37,20 @@ class CidrCollectionVersionMismatchException(ServiceError):
 
     code: str | None = "CidrCollectionVersionMismatchException"
 
-    def __init__(self, data: CidrCollectionVersionMismatchException_):
+    def __init__(
+        self, data: CidrCollectionVersionMismatchException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CidrCollectionVersionMismatchException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "CidrCollectionVersionMismatchException":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "CidrCollectionVersionMismatchException":
+        return cls(deserialize_xml(el), message)

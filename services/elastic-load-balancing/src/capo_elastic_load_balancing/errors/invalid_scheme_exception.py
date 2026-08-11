@@ -39,15 +39,18 @@ class InvalidSchemeException(ServiceError):
 
     code: str | None = "InvalidSchemeException"
 
-    def __init__(self, data: InvalidSchemeException_):
+    def __init__(self, data: InvalidSchemeException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidSchemeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidSchemeException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidSchemeException":
+        return cls(deserialize_query(el), message)

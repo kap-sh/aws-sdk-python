@@ -37,15 +37,20 @@ class DBClusterRoleQuotaExceededFault(ServiceError):
 
     code: str | None = "DBClusterRoleQuotaExceededFault"
 
-    def __init__(self, data: DBClusterRoleQuotaExceededFault_):
+    def __init__(
+        self, data: DBClusterRoleQuotaExceededFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterRoleQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterRoleQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterRoleQuotaExceededFault":
+        return cls(deserialize_query(el), message)

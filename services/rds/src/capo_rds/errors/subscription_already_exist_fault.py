@@ -37,15 +37,20 @@ class SubscriptionAlreadyExistFault(ServiceError):
 
     code: str | None = "SubscriptionAlreadyExistFault"
 
-    def __init__(self, data: SubscriptionAlreadyExistFault_):
+    def __init__(
+        self, data: SubscriptionAlreadyExistFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SubscriptionAlreadyExistFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "SubscriptionAlreadyExistFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "SubscriptionAlreadyExistFault":
+        return cls(deserialize_query(el), message)

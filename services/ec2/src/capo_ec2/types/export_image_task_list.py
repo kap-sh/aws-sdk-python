@@ -16,6 +16,9 @@ ExportImageTaskList: TypeAlias = list[
 def serialize_ec2_query(
     value: ExportImageTaskList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.export_image_task
 

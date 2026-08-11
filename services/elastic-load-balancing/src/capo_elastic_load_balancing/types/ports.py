@@ -14,6 +14,9 @@ Ports: TypeAlias = list[
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Ports, pairs: list[tuple[str, str]], prefix: str) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.member.{n}", str(item)))
 
@@ -28,6 +31,9 @@ def deserialize_query(el: Element) -> Ports:
 def serialize_query_flat(
     value: Ports, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

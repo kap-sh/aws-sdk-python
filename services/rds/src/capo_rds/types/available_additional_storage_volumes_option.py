@@ -80,9 +80,35 @@ def serialize_query(
     if "max_iops" in value:
         pairs.append((f"{key_prefix}MaxIops", str(value["max_iops"])))
     if "min_iops_per_gib" in value:
-        pairs.append((f"{key_prefix}MinIopsPerGib", str(value["min_iops_per_gib"])))
+        pairs.append(
+            (
+                f"{key_prefix}MinIopsPerGib",
+                (
+                    "NaN"
+                    if value["min_iops_per_gib"] != value["min_iops_per_gib"]
+                    else "Infinity"
+                    if value["min_iops_per_gib"] == float("inf")
+                    else "-Infinity"
+                    if value["min_iops_per_gib"] == float("-inf")
+                    else str(value["min_iops_per_gib"])
+                ),
+            )
+        )
     if "max_iops_per_gib" in value:
-        pairs.append((f"{key_prefix}MaxIopsPerGib", str(value["max_iops_per_gib"])))
+        pairs.append(
+            (
+                f"{key_prefix}MaxIopsPerGib",
+                (
+                    "NaN"
+                    if value["max_iops_per_gib"] != value["max_iops_per_gib"]
+                    else "Infinity"
+                    if value["max_iops_per_gib"] == float("inf")
+                    else "-Infinity"
+                    if value["max_iops_per_gib"] == float("-inf")
+                    else str(value["max_iops_per_gib"])
+                ),
+            )
+        )
     if "min_storage_throughput" in value:
         pairs.append(
             (f"{key_prefix}MinStorageThroughput", str(value["min_storage_throughput"]))

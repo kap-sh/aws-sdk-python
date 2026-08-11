@@ -15,7 +15,7 @@ import capo_route_53.types.record_data
 import capo_route_53.types.rr_type
 import capo_route_53.types.test_dns_answer_request
 import capo_route_53.types.test_dns_answer_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -25,12 +25,15 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchHostedZone":
             raise capo_route_53.errors.no_such_hosted_zone.NoSuchHostedZone.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -91,25 +94,33 @@ def build_request(
             Region=options.region,
         )
     )  # noqa: F841
+    import capo_route_53.types.rr_type
+
     url = endpoint.url.rstrip("/") + "/2013-04-01/testdnsanswer"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "hosted_zone_id" in input_:
-        params["hostedzoneid"] = str(input_["hosted_zone_id"])
+        params.append(("hostedzoneid", input_["hosted_zone_id"]))
     if "record_name" in input_:
-        params["recordname"] = str(input_["record_name"])
+        params.append(("recordname", input_["record_name"]))
     if "record_type" in input_:
-        params["recordtype"] = str(input_["record_type"])
+        params.append(
+            (
+                "recordtype",
+                capo_route_53.types.rr_type.to_xml_text(input_["record_type"]),
+            )
+        )
     if "resolver_ip" in input_:
-        params["resolverip"] = str(input_["resolver_ip"])
+        params.append(("resolverip", input_["resolver_ip"]))
     if "edns0_client_subnet_ip" in input_:
-        params["edns0clientsubnetip"] = str(input_["edns0_client_subnet_ip"])
+        params.append(("edns0clientsubnetip", input_["edns0_client_subnet_ip"]))
     if "edns0_client_subnet_mask" in input_:
-        params["edns0clientsubnetmask"] = str(input_["edns0_client_subnet_mask"])
+        params.append(("edns0clientsubnetmask", input_["edns0_client_subnet_mask"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

@@ -14,6 +14,9 @@ PublicIpStringList: TypeAlias = list["capo_ec2.types.string.String"]
 def serialize_ec2_query(
     value: PublicIpStringList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

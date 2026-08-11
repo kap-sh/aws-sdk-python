@@ -37,15 +37,20 @@ class StreamingDistributionNotDisabled(ServiceError):
 
     code: str | None = "StreamingDistributionNotDisabled"
 
-    def __init__(self, data: StreamingDistributionNotDisabled_):
+    def __init__(
+        self, data: StreamingDistributionNotDisabled_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="StreamingDistributionNotDisabled",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "StreamingDistributionNotDisabled":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "StreamingDistributionNotDisabled":
+        return cls(deserialize_xml(el), message)

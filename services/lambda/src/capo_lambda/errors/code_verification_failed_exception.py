@@ -39,15 +39,20 @@ class CodeVerificationFailedException(ServiceError):
 
     code: str | None = "CodeVerificationFailedException"
 
-    def __init__(self, data: CodeVerificationFailedException_):
+    def __init__(
+        self, data: CodeVerificationFailedException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CodeVerificationFailedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "CodeVerificationFailedException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "CodeVerificationFailedException":
+        return cls(deserialize_json(data), message)

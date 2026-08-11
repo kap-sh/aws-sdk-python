@@ -44,15 +44,16 @@ class SlowDownException(ServiceError):
 
     code: str | None = "SlowDownException"
 
-    def __init__(self, data: SlowDownException_):
+    def __init__(self, data: SlowDownException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SlowDownException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "SlowDownException":
-        return cls(deserialize_json(data))
+    def from_json(cls, data: dict, message: str | None = None) -> "SlowDownException":
+        return cls(deserialize_json(data), message)

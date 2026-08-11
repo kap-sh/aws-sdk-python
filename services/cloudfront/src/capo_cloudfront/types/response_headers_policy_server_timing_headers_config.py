@@ -26,7 +26,15 @@ def serialize_xml(
     el = SubElement(parent, tag)
     SubElement(el, "Enabled").text = "true" if value["enabled"] else "false"
     if "sampling_rate" in value:
-        SubElement(el, "SamplingRate").text = str(value["sampling_rate"])
+        SubElement(el, "SamplingRate").text = (
+            "NaN"
+            if value["sampling_rate"] != value["sampling_rate"]
+            else "Infinity"
+            if value["sampling_rate"] == float("inf")
+            else "-Infinity"
+            if value["sampling_rate"] == float("-inf")
+            else str(value["sampling_rate"])
+        )
 
 
 def deserialize_xml(el: Element) -> ResponseHeadersPolicyServerTimingHeadersConfig:

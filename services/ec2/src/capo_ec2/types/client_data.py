@@ -37,7 +37,20 @@ def serialize_ec2_query(
             value["upload_end"], pairs, f"{key_prefix}UploadEnd"
         )
     if "upload_size" in value:
-        pairs.append((f"{key_prefix}UploadSize", str(value["upload_size"])))
+        pairs.append(
+            (
+                f"{key_prefix}UploadSize",
+                (
+                    "NaN"
+                    if value["upload_size"] != value["upload_size"]
+                    else "Infinity"
+                    if value["upload_size"] == float("inf")
+                    else "-Infinity"
+                    if value["upload_size"] == float("-inf")
+                    else str(value["upload_size"])
+                ),
+            )
+        )
     if "upload_start" in value:
         import capo_ec2.types.date_time
 

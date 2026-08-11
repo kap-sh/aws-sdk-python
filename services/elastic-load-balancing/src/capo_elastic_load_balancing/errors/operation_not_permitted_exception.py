@@ -39,15 +39,20 @@ class OperationNotPermittedException(ServiceError):
 
     code: str | None = "OperationNotPermittedException"
 
-    def __init__(self, data: OperationNotPermittedException_):
+    def __init__(
+        self, data: OperationNotPermittedException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OperationNotPermittedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "OperationNotPermittedException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "OperationNotPermittedException":
+        return cls(deserialize_query(el), message)

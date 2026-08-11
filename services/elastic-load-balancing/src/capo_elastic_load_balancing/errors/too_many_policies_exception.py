@@ -39,15 +39,18 @@ class TooManyPoliciesException(ServiceError):
 
     code: str | None = "TooManyPoliciesException"
 
-    def __init__(self, data: TooManyPoliciesException_):
+    def __init__(self, data: TooManyPoliciesException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyPoliciesException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "TooManyPoliciesException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyPoliciesException":
+        return cls(deserialize_query(el), message)

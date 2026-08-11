@@ -35,15 +35,20 @@ class RepositoryAlreadyExistsException(ServiceError):
 
     code: str | None = "RepositoryAlreadyExistsException"
 
-    def __init__(self, data: RepositoryAlreadyExistsException_):
+    def __init__(
+        self, data: RepositoryAlreadyExistsException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="RepositoryAlreadyExistsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "RepositoryAlreadyExistsException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "RepositoryAlreadyExistsException":
+        return cls(deserialize_aws_json_1_1(data), message)

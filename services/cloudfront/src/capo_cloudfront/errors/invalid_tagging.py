@@ -35,15 +35,16 @@ class InvalidTagging(ServiceError):
 
     code: str | None = "InvalidTagging"
 
-    def __init__(self, data: InvalidTagging_):
+    def __init__(self, data: InvalidTagging_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidTagging",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidTagging":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "InvalidTagging":
+        return cls(deserialize_xml(el), message)

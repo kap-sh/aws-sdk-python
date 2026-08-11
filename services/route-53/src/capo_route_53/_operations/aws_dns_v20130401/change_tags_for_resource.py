@@ -20,7 +20,7 @@ import capo_route_53.types.change_tags_for_resource_response
 import capo_route_53.types.tag_key_list
 import capo_route_53.types.tag_list
 import capo_route_53.types.tag_resource_type
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -30,24 +30,27 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchHealthCheck":
             raise capo_route_53.errors.no_such_health_check.NoSuchHealthCheck.from_xml(
-                root
+                error_el, message
             )
         case "NoSuchHostedZone":
             raise capo_route_53.errors.no_such_hosted_zone.NoSuchHostedZone.from_xml(
-                root
+                error_el, message
             )
         case "PriorRequestNotComplete":
             raise capo_route_53.errors.prior_request_not_complete.PriorRequestNotComplete.from_xml(
-                root
+                error_el, message
             )
         case "ThrottlingException":
             raise capo_route_53.errors.throttling_exception.ThrottlingException.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -104,11 +107,22 @@ def build_request(
             Region=options.region,
         )
     )  # noqa: F841
+    import capo_route_53.types.tag_resource_type
+
     url = endpoint.url.rstrip("/") + "/2013-04-01/tags/{ResourceType}/{ResourceId}"
-    url = url.replace("{ResourceType}", quote(str(input_["resource_type"]), safe=""))
-    url = url.replace("{ResourceId}", quote(str(input_["resource_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace(
+        "{ResourceType}",
+        quote(
+            capo_route_53.types.tag_resource_type.to_xml_text(input_["resource_type"]),
+            safe="",
+        ),
+    )
+    url = url.replace("{ResourceId}", quote(input_["resource_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    import capo_route_53.types.tag_key_list
+    import capo_route_53.types.tag_list
+
     root = Element("ChangeTagsForResourceRequest")
     if "add_tags" in input_:
         capo_route_53.types.tag_list.serialize_xml(input_["add_tags"], root, "AddTags")
@@ -120,7 +134,8 @@ def build_request(
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

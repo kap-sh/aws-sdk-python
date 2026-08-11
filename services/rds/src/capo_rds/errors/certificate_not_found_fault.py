@@ -37,15 +37,18 @@ class CertificateNotFoundFault(ServiceError):
 
     code: str | None = "CertificateNotFoundFault"
 
-    def __init__(self, data: CertificateNotFoundFault_):
+    def __init__(self, data: CertificateNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CertificateNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "CertificateNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "CertificateNotFoundFault":
+        return cls(deserialize_query(el), message)

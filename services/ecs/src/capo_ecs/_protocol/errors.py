@@ -14,16 +14,31 @@ if TYPE_CHECKING:
     from xml.etree.ElementTree import Element
 
 
-def parse_error_metadata(root: Element) -> tuple[str | None, str | None]:
-    """Return ``(code, message)`` from a restXml error envelope.
+def find_error_element(root: Element) -> Element:
+    """Return the element holding the error structure's members.
 
-    Accepts either an ``<Error>`` element directly or an
-    ``<ErrorResponse>`` wrapper whose first ``<Error>`` child holds the
-    metadata. Missing children yield ``None``.
+    Handles the three XML error envelopes: a bare ``<Error>`` root
+    (restXml with ``noErrorWrapping``), an ``<ErrorResponse><Error>``
+    wrapper (restXml/awsQuery), and the ec2Query
+    ``<Response><Errors><Error>`` envelope. Falls back to ``root``
+    when no ``<Error>`` element is found.
     """
-    err = root if root.tag.endswith("Error") else root.find("Error")
-    if err is None:
-        return None, None
+    if root.tag.endswith("Error"):
+        return root
+    for path in ("Error", "Errors/Error"):
+        err = root.find(path)
+        if err is not None:
+            return err
+    return root
+
+
+def parse_error_metadata(root: Element) -> tuple[str | None, str | None]:
+    """Return ``(code, message)`` from an XML error envelope.
+
+    Accepts any envelope understood by :func:`find_error_element`.
+    Missing children yield ``None``.
+    """
+    err = find_error_element(root)
     code_el = err.find("Code")
     msg_el = err.find("Message")
     code = code_el.text if code_el is not None else None
@@ -38,9 +53,10 @@ def parse_error_metadata_json(
 
     Code precedence: the ``X-Amzn-Errortype`` response header, then the
     ``__type`` body field, then ``code``. The raw value is normalized by
-    dropping a ``prefix#`` namespace and a trailing ``:uri`` suffix.
-    Message comes from ``message`` or ``Message``. Missing values yield
-    ``None``.
+    dropping a trailing ``:uri`` suffix first, then a ``prefix#``
+    namespace — in that order, so a ``#`` inside the uri suffix cannot
+    hijack the code. Message comes from ``message`` or ``Message``.
+    Missing values yield ``None``.
     """
     code = (
         response.headers.get("X-Amzn-Errortype")
@@ -48,12 +64,13 @@ def parse_error_metadata_json(
         or data.get("code")
     )
     if code is not None:
-        code = code.rsplit("#", 1)[-1].split(":", 1)[0]
+        code = code.split(":", 1)[0].rsplit("#", 1)[-1]
     message = data.get("message") or data.get("Message")
     return code, message
 
 
 __all__ = [
+    "find_error_element",
     "parse_error_metadata",
     "parse_error_metadata_json",
 ]

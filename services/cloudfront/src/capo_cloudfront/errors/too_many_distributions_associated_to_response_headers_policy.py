@@ -41,17 +41,22 @@ class TooManyDistributionsAssociatedToResponseHeadersPolicy(ServiceError):
 
     code: str | None = "TooManyDistributionsAssociatedToResponseHeadersPolicy"
 
-    def __init__(self, data: TooManyDistributionsAssociatedToResponseHeadersPolicy_):
+    def __init__(
+        self,
+        data: TooManyDistributionsAssociatedToResponseHeadersPolicy_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyDistributionsAssociatedToResponseHeadersPolicy",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_xml(
-        cls, el: Element
+        cls, el: Element, message: str | None = None
     ) -> "TooManyDistributionsAssociatedToResponseHeadersPolicy":
-        return cls(deserialize_xml(el))
+        return cls(deserialize_xml(el), message)

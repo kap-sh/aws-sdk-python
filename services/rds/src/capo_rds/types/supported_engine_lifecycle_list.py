@@ -18,6 +18,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.supported_engine_lifecycle
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.supported_engine_lifecycle.serialize_query(
             item, pairs, f"{prefix}.SupportedEngineLifecycle.{n}"
@@ -38,6 +41,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.supported_engine_lifecycle
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.supported_engine_lifecycle.serialize_query(
             item, pairs, f"{prefix}.{n}"

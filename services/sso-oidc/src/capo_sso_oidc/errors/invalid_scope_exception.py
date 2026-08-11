@@ -44,15 +44,18 @@ class InvalidScopeException(ServiceError):
 
     code: str | None = "InvalidScopeException"
 
-    def __init__(self, data: InvalidScopeException_):
+    def __init__(self, data: InvalidScopeException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidScopeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidScopeException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidScopeException":
+        return cls(deserialize_json(data), message)

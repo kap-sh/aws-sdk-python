@@ -37,15 +37,18 @@ class AuthorizationNotFoundFault(ServiceError):
 
     code: str | None = "AuthorizationNotFoundFault"
 
-    def __init__(self, data: AuthorizationNotFoundFault_):
+    def __init__(self, data: AuthorizationNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AuthorizationNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "AuthorizationNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "AuthorizationNotFoundFault":
+        return cls(deserialize_query(el), message)

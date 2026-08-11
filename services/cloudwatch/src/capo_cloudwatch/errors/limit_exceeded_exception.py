@@ -52,19 +52,24 @@ class LimitExceededException(ServiceError):
 
     code: str | None = "LimitExceededException"
 
-    def __init__(self, data: LimitExceededException_):
+    def __init__(self, data: LimitExceededException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="LimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "LimitExceededException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "LimitExceededException":
+        return cls(deserialize_aws_json_1_0(data), message)
 
     @classmethod
-    def from_query(cls, el: Element) -> "LimitExceededException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "LimitExceededException":
+        return cls(deserialize_query(el), message)

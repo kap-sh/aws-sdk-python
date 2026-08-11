@@ -39,15 +39,20 @@ class Ec2ImagePropertiesNotSupportedFault(ServiceError):
 
     code: str | None = "Ec2ImagePropertiesNotSupportedFault"
 
-    def __init__(self, data: Ec2ImagePropertiesNotSupportedFault_):
+    def __init__(
+        self, data: Ec2ImagePropertiesNotSupportedFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="Ec2ImagePropertiesNotSupportedFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "Ec2ImagePropertiesNotSupportedFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "Ec2ImagePropertiesNotSupportedFault":
+        return cls(deserialize_query(el), message)

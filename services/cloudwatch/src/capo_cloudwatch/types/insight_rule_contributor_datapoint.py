@@ -59,7 +59,20 @@ def serialize_query(
             value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "approximate_value" in value:
-        pairs.append((f"{key_prefix}ApproximateValue", str(value["approximate_value"])))
+        pairs.append(
+            (
+                f"{key_prefix}ApproximateValue",
+                (
+                    "NaN"
+                    if value["approximate_value"] != value["approximate_value"]
+                    else "Infinity"
+                    if value["approximate_value"] == float("inf")
+                    else "-Infinity"
+                    if value["approximate_value"] == float("-inf")
+                    else str(value["approximate_value"])
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> InsightRuleContributorDatapoint:

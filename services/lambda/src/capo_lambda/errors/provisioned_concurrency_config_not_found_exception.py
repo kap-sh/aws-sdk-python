@@ -39,15 +39,22 @@ class ProvisionedConcurrencyConfigNotFoundException(ServiceError):
 
     code: str | None = "ProvisionedConcurrencyConfigNotFoundException"
 
-    def __init__(self, data: ProvisionedConcurrencyConfigNotFoundException_):
+    def __init__(
+        self,
+        data: ProvisionedConcurrencyConfigNotFoundException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ProvisionedConcurrencyConfigNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ProvisionedConcurrencyConfigNotFoundException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ProvisionedConcurrencyConfigNotFoundException":
+        return cls(deserialize_json(data), message)

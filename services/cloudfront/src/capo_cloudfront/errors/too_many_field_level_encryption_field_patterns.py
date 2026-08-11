@@ -37,15 +37,22 @@ class TooManyFieldLevelEncryptionFieldPatterns(ServiceError):
 
     code: str | None = "TooManyFieldLevelEncryptionFieldPatterns"
 
-    def __init__(self, data: TooManyFieldLevelEncryptionFieldPatterns_):
+    def __init__(
+        self,
+        data: TooManyFieldLevelEncryptionFieldPatterns_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyFieldLevelEncryptionFieldPatterns",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyFieldLevelEncryptionFieldPatterns":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooManyFieldLevelEncryptionFieldPatterns":
+        return cls(deserialize_xml(el), message)

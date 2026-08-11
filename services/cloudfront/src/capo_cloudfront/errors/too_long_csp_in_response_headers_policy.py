@@ -37,15 +37,20 @@ class TooLongCSPInResponseHeadersPolicy(ServiceError):
 
     code: str | None = "TooLongCSPInResponseHeadersPolicy"
 
-    def __init__(self, data: TooLongCSPInResponseHeadersPolicy_):
+    def __init__(
+        self, data: TooLongCSPInResponseHeadersPolicy_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooLongCSPInResponseHeadersPolicy",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooLongCSPInResponseHeadersPolicy":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "TooLongCSPInResponseHeadersPolicy":
+        return cls(deserialize_xml(el), message)

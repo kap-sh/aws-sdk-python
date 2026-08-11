@@ -35,15 +35,18 @@ class InvalidHeadersForS3Origin(ServiceError):
 
     code: str | None = "InvalidHeadersForS3Origin"
 
-    def __init__(self, data: InvalidHeadersForS3Origin_):
+    def __init__(self, data: InvalidHeadersForS3Origin_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidHeadersForS3Origin",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidHeadersForS3Origin":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidHeadersForS3Origin":
+        return cls(deserialize_xml(el), message)

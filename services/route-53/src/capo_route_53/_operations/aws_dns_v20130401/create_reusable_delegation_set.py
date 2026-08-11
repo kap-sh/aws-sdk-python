@@ -19,7 +19,7 @@ import capo_route_53.errors.limits_exceeded
 import capo_route_53.types.create_reusable_delegation_set_request
 import capo_route_53.types.create_reusable_delegation_set_response
 import capo_route_53.types.delegation_set
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -29,29 +29,36 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "DelegationSetAlreadyCreated":
             raise capo_route_53.errors.delegation_set_already_created.DelegationSetAlreadyCreated.from_xml(
-                root
+                error_el, message
             )
         case "DelegationSetAlreadyReusable":
             raise capo_route_53.errors.delegation_set_already_reusable.DelegationSetAlreadyReusable.from_xml(
-                root
+                error_el, message
             )
         case "DelegationSetNotAvailable":
             raise capo_route_53.errors.delegation_set_not_available.DelegationSetNotAvailable.from_xml(
-                root
+                error_el, message
             )
         case "HostedZoneNotFound":
             raise capo_route_53.errors.hosted_zone_not_found.HostedZoneNotFound.from_xml(
-                root
+                error_el, message
             )
         case "InvalidArgument":
-            raise capo_route_53.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_route_53.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "LimitsExceeded":
-            raise capo_route_53.errors.limits_exceeded.LimitsExceeded.from_xml(root)
+            raise capo_route_53.errors.limits_exceeded.LimitsExceeded.from_xml(
+                error_el, message
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -62,7 +69,7 @@ def handle_response(
     out: capo_route_53.types.create_reusable_delegation_set_response.CreateReusableDelegationSetResponse = capo_route_53.types.create_reusable_delegation_set_response.deserialize_xml(
         fromstring(response.read())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -72,7 +79,7 @@ async def async_handle_response(
     out: capo_route_53.types.create_reusable_delegation_set_response.CreateReusableDelegationSetResponse = capo_route_53.types.create_reusable_delegation_set_response.deserialize_xml(
         fromstring(await response.aread())
     )
-    out["location"] = str(response.headers["Location"])
+    out["location"] = response.headers["Location"]
     return out
 
 
@@ -110,18 +117,19 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/delegationset"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateReusableDelegationSetRequest")
     if "caller_reference" in input_:
-        SubElement(root, "CallerReference").text = str(input_["caller_reference"])
+        SubElement(root, "CallerReference").text = input_["caller_reference"]
     if "hosted_zone_id" in input_:
-        SubElement(root, "HostedZoneId").text = str(input_["hosted_zone_id"])
+        SubElement(root, "HostedZoneId").text = input_["hosted_zone_id"]
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -35,15 +35,18 @@ class InvalidKeySigningKeyName(ServiceError):
 
     code: str | None = "InvalidKeySigningKeyName"
 
-    def __init__(self, data: InvalidKeySigningKeyName_):
+    def __init__(self, data: InvalidKeySigningKeyName_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidKeySigningKeyName",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "InvalidKeySigningKeyName":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidKeySigningKeyName":
+        return cls(deserialize_xml(el), message)

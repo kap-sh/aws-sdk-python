@@ -40,15 +40,18 @@ class NoPublishedVersionException(ServiceError):
 
     code: str | None = "NoPublishedVersionException"
 
-    def __init__(self, data: NoPublishedVersionException_):
+    def __init__(self, data: NoPublishedVersionException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="NoPublishedVersionException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "NoPublishedVersionException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "NoPublishedVersionException":
+        return cls(deserialize_json(data), message)

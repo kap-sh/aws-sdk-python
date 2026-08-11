@@ -37,15 +37,20 @@ class UnsupportedDBEngineVersionFault(ServiceError):
 
     code: str | None = "UnsupportedDBEngineVersionFault"
 
-    def __init__(self, data: UnsupportedDBEngineVersionFault_):
+    def __init__(
+        self, data: UnsupportedDBEngineVersionFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedDBEngineVersionFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "UnsupportedDBEngineVersionFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "UnsupportedDBEngineVersionFault":
+        return cls(deserialize_query(el), message)

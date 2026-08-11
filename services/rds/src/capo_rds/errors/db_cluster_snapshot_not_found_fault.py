@@ -37,15 +37,20 @@ class DBClusterSnapshotNotFoundFault(ServiceError):
 
     code: str | None = "DBClusterSnapshotNotFoundFault"
 
-    def __init__(self, data: DBClusterSnapshotNotFoundFault_):
+    def __init__(
+        self, data: DBClusterSnapshotNotFoundFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterSnapshotNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterSnapshotNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterSnapshotNotFoundFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class DBShardGroupNotFoundFault(ServiceError):
 
     code: str | None = "DBShardGroupNotFoundFault"
 
-    def __init__(self, data: DBShardGroupNotFoundFault_):
+    def __init__(self, data: DBShardGroupNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBShardGroupNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBShardGroupNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBShardGroupNotFoundFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,20 @@ class OrganizationNotFoundException(ServiceError):
 
     code: str | None = "OrganizationNotFoundException"
 
-    def __init__(self, data: OrganizationNotFoundException_):
+    def __init__(
+        self, data: OrganizationNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OrganizationNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "OrganizationNotFoundException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "OrganizationNotFoundException":
+        return cls(deserialize_query(el), message)

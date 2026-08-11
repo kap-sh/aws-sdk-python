@@ -16,6 +16,9 @@ Phase2DHGroupNumbersList: TypeAlias = list[
 def serialize_ec2_query(
     value: Phase2DHGroupNumbersList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.phase2_dh_group_numbers_list_value
 

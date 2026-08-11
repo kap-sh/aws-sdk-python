@@ -44,7 +44,7 @@ import capo_rds.types.serverless_v2_scaling_configuration
 import capo_rds.types.tag_list
 import capo_rds.types.tag_specification_list
 import capo_rds.types.vpc_security_group_id_list
-from capo_rds._protocol.errors import parse_error_metadata
+from capo_rds._protocol.errors import find_error_element, parse_error_metadata
 from capo_rds._protocol.xml import fromstring
 from capo_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_rds._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -54,96 +54,99 @@ from capo_rds.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "DBClusterAlreadyExistsFault":
             raise capo_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault.from_query(
-                root
+                error_el, message
             )
-        case "DBClusterParameterGroupNotFoundFault":
+        case "DBClusterParameterGroupNotFound":
             raise capo_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBClusterQuotaExceededFault":
             raise capo_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
-                root
+                error_el, message
             )
         case "DBClusterSnapshotNotFoundFault":
             raise capo_rds.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "DBSnapshotNotFoundFault":
+        case "DBSnapshotNotFound":
             raise capo_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DBSubnetGroupDoesNotCoverEnoughAZs":
             raise capo_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs.from_query(
-                root
+                error_el, message
             )
         case "DBSubnetGroupNotFoundFault":
             raise capo_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "DomainNotFoundFault":
             raise capo_rds.errors.domain_not_found_fault.DomainNotFoundFault.from_query(
-                root
+                error_el, message
             )
         case "InsufficientDBClusterCapacityFault":
             raise capo_rds.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault.from_query(
-                root
+                error_el, message
             )
-        case "InsufficientDBInstanceCapacityFault":
+        case "InsufficientDBInstanceCapacity":
             raise capo_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault.from_query(
-                root
+                error_el, message
             )
-        case "InsufficientStorageClusterCapacityFault":
+        case "InsufficientStorageClusterCapacity":
             raise capo_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidDBClusterSnapshotStateFault":
             raise capo_rds.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault.from_query(
-                root
+                error_el, message
             )
-        case "InvalidDBInstanceStateFault":
+        case "InvalidDBInstanceState":
             raise capo_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
-                root
+                error_el, message
             )
-        case "InvalidDBSnapshotStateFault":
+        case "InvalidDBSnapshotState":
             raise capo_rds.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidRestoreFault":
             raise capo_rds.errors.invalid_restore_fault.InvalidRestoreFault.from_query(
-                root
+                error_el, message
             )
         case "InvalidSubnet":
-            raise capo_rds.errors.invalid_subnet.InvalidSubnet.from_query(root)
+            raise capo_rds.errors.invalid_subnet.InvalidSubnet.from_query(
+                error_el, message
+            )
         case "InvalidVPCNetworkStateFault":
             raise capo_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
-                root
+                error_el, message
             )
         case "KMSKeyNotAccessibleFault":
             raise capo_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
-                root
+                error_el, message
             )
         case "NetworkTypeNotSupported":
             raise capo_rds.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
-                root
+                error_el, message
             )
         case "OptionGroupNotFoundFault":
             raise capo_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault.from_query(
-                root
+                error_el, message
             )
-        case "StorageQuotaExceededFault":
+        case "StorageQuotaExceeded":
             raise capo_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
-                root
+                error_el, message
             )
-        case "StorageTypeNotSupportedFault":
+        case "StorageTypeNotSupported":
             raise capo_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault.from_query(
-                root
+                error_el, message
             )
         case "VpcEncryptionControlViolationException":
             raise capo_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -203,7 +206,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RestoreDBClusterFromSnapshot"))
@@ -215,7 +218,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

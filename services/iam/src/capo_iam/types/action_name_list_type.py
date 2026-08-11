@@ -14,6 +14,9 @@ ActionNameListType: TypeAlias = list["capo_iam.types.action_name_type.ActionName
 def serialize_query(
     value: ActionNameListType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.member.{n}", str(item)))
 
@@ -28,6 +31,9 @@ def deserialize_query(el: Element) -> ActionNameListType:
 def serialize_query_flat(
     value: ActionNameListType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

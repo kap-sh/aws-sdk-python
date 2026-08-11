@@ -25,12 +25,16 @@ class NoSuchBucket(ServiceError):
 
     code: str | None = "NoSuchBucket"
 
-    def __init__(self, data: NoSuchBucket_):
+    def __init__(self, data: NoSuchBucket_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="NoSuchBucket"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="NoSuchBucket",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NoSuchBucket":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "NoSuchBucket":
+        return cls(deserialize_xml(el), message)

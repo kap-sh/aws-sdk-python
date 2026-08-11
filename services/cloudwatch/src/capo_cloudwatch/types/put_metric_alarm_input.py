@@ -388,7 +388,20 @@ def serialize_query(
             (f"{key_prefix}DatapointsToAlarm", str(value["datapoints_to_alarm"]))
         )
     if "threshold" in value:
-        pairs.append((f"{key_prefix}Threshold", str(value["threshold"])))
+        pairs.append(
+            (
+                f"{key_prefix}Threshold",
+                (
+                    "NaN"
+                    if value["threshold"] != value["threshold"]
+                    else "Infinity"
+                    if value["threshold"] == float("inf")
+                    else "-Infinity"
+                    if value["threshold"] == float("-inf")
+                    else str(value["threshold"])
+                ),
+            )
+        )
     if "comparison_operator" in value:
         import capo_cloudwatch.types.comparison_operator
 

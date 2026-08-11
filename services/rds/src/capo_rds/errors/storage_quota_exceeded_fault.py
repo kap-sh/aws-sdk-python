@@ -37,15 +37,18 @@ class StorageQuotaExceededFault(ServiceError):
 
     code: str | None = "StorageQuotaExceededFault"
 
-    def __init__(self, data: StorageQuotaExceededFault_):
+    def __init__(self, data: StorageQuotaExceededFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="StorageQuotaExceededFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "StorageQuotaExceededFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "StorageQuotaExceededFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,20 @@ class InvalidExportSourceStateFault(ServiceError):
 
     code: str | None = "InvalidExportSourceStateFault"
 
-    def __init__(self, data: InvalidExportSourceStateFault_):
+    def __init__(
+        self, data: InvalidExportSourceStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidExportSourceStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidExportSourceStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidExportSourceStateFault":
+        return cls(deserialize_query(el), message)

@@ -37,15 +37,18 @@ class DomainNotFoundFault(ServiceError):
 
     code: str | None = "DomainNotFoundFault"
 
-    def __init__(self, data: DomainNotFoundFault_):
+    def __init__(self, data: DomainNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DomainNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DomainNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DomainNotFoundFault":
+        return cls(deserialize_query(el), message)

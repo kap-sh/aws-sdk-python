@@ -17,7 +17,7 @@ import capo_cloudfront.errors.invalid_if_match_version
 import capo_cloudfront.errors.precondition_failed
 import capo_cloudfront.errors.unsupported_operation
 import capo_cloudfront.types.delete_key_value_store_request
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import fromstring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -27,26 +27,31 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "CannotDeleteEntityWhileInUse":
             raise capo_cloudfront.errors.cannot_delete_entity_while_in_use.CannotDeleteEntityWhileInUse.from_xml(
-                root
+                error_el, message
             )
         case "EntityNotFound":
-            raise capo_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(root)
+            raise capo_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(
+                error_el, message
+            )
         case "InvalidIfMatchVersion":
             raise capo_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion.from_xml(
-                root
+                error_el, message
             )
         case "PreconditionFailed":
             raise capo_cloudfront.errors.precondition_failed.PreconditionFailed.from_xml(
-                root
+                error_el, message
             )
         case "UnsupportedOperation":
             raise capo_cloudfront.errors.unsupported_operation.UnsupportedOperation.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -86,15 +91,16 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/key-value-store/{Name}"
-    url = url.replace("{Name}", quote(str(input_["name"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{Name}", quote(input_["name"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "if_match" in input_:
-        headers["If-Match"] = str(input_["if_match"])
+        headers["If-Match"] = input_["if_match"]
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

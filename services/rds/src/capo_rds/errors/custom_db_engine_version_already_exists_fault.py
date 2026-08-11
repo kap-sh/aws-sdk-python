@@ -39,15 +39,20 @@ class CustomDBEngineVersionAlreadyExistsFault(ServiceError):
 
     code: str | None = "CustomDBEngineVersionAlreadyExistsFault"
 
-    def __init__(self, data: CustomDBEngineVersionAlreadyExistsFault_):
+    def __init__(
+        self, data: CustomDBEngineVersionAlreadyExistsFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CustomDBEngineVersionAlreadyExistsFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "CustomDBEngineVersionAlreadyExistsFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "CustomDBEngineVersionAlreadyExistsFault":
+        return cls(deserialize_query(el), message)

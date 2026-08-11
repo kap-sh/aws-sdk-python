@@ -35,15 +35,18 @@ class TargetNotConnectedException(ServiceError):
 
     code: str | None = "TargetNotConnectedException"
 
-    def __init__(self, data: TargetNotConnectedException_):
+    def __init__(self, data: TargetNotConnectedException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TargetNotConnectedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "TargetNotConnectedException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "TargetNotConnectedException":
+        return cls(deserialize_aws_json_1_1(data), message)

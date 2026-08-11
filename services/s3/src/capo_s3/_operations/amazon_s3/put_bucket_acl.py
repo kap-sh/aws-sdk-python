@@ -74,28 +74,35 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
+    import capo_s3.types.bucket_canned_acl
+    import capo_s3.types.checksum_algorithm
+
     url = endpoint.url.rstrip("/") + "/{Bucket}?acl"
-    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
-    params: dict[str, str] = {}
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "acl" in input_:
-        headers["x-amz-acl"] = str(input_["acl"])
+        headers["x-amz-acl"] = capo_s3.types.bucket_canned_acl.to_xml_text(
+            input_["acl"]
+        )
     if "content_md5" in input_:
-        headers["Content-MD5"] = str(input_["content_md5"])
+        headers["Content-MD5"] = input_["content_md5"]
     if "checksum_algorithm" in input_:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+        headers["x-amz-sdk-checksum-algorithm"] = (
+            capo_s3.types.checksum_algorithm.to_xml_text(input_["checksum_algorithm"])
+        )
     if "grant_full_control" in input_:
-        headers["x-amz-grant-full-control"] = str(input_["grant_full_control"])
+        headers["x-amz-grant-full-control"] = input_["grant_full_control"]
     if "grant_read" in input_:
-        headers["x-amz-grant-read"] = str(input_["grant_read"])
+        headers["x-amz-grant-read"] = input_["grant_read"]
     if "grant_read_acp" in input_:
-        headers["x-amz-grant-read-acp"] = str(input_["grant_read_acp"])
+        headers["x-amz-grant-read-acp"] = input_["grant_read_acp"]
     if "grant_write" in input_:
-        headers["x-amz-grant-write"] = str(input_["grant_write"])
+        headers["x-amz-grant-write"] = input_["grant_write"]
     if "grant_write_acp" in input_:
-        headers["x-amz-grant-write-acp"] = str(input_["grant_write_acp"])
+        headers["x-amz-grant-write-acp"] = input_["grant_write_acp"]
     if "expected_bucket_owner" in input_:
-        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     if "access_control_policy" in input_:
         payload_root = Element("_")
         capo_s3.types.access_control_policy.serialize_xml(
@@ -107,7 +114,8 @@ def build_request(
         body = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )

@@ -37,15 +37,18 @@ class StorageTypeNotAvailableFault(ServiceError):
 
     code: str | None = "StorageTypeNotAvailableFault"
 
-    def __init__(self, data: StorageTypeNotAvailableFault_):
+    def __init__(self, data: StorageTypeNotAvailableFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="StorageTypeNotAvailableFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "StorageTypeNotAvailableFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "StorageTypeNotAvailableFault":
+        return cls(deserialize_query(el), message)

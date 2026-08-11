@@ -16,7 +16,7 @@ import capo_cloudfront.errors.no_such_resource
 import capo_cloudfront.types.list_tags_for_resource_request
 import capo_cloudfront.types.list_tags_for_resource_result
 import capo_cloudfront.types.tags
-from capo_cloudfront._protocol.errors import parse_error_metadata
+from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
 from capo_cloudfront._protocol.xml import fromstring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -26,15 +26,24 @@ from capo_cloudfront.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "AccessDenied":
-            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
+            raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(
+                error_el, message
+            )
         case "InvalidArgument":
-            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(root)
+            raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
+                error_el, message
+            )
         case "InvalidTagging":
-            raise capo_cloudfront.errors.invalid_tagging.InvalidTagging.from_xml(root)
+            raise capo_cloudfront.errors.invalid_tagging.InvalidTagging.from_xml(
+                error_el, message
+            )
         case "NoSuchResource":
-            raise capo_cloudfront.errors.no_such_resource.NoSuchResource.from_xml(root)
+            raise capo_cloudfront.errors.no_such_resource.NoSuchResource.from_xml(
+                error_el, message
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -93,14 +102,15 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/tagging"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "resource" in input_:
-        params["Resource"] = str(input_["resource"])
+        params.append(("Resource", input_["resource"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

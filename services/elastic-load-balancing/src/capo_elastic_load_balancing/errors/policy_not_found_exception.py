@@ -39,15 +39,18 @@ class PolicyNotFoundException(ServiceError):
 
     code: str | None = "PolicyNotFoundException"
 
-    def __init__(self, data: PolicyNotFoundException_):
+    def __init__(self, data: PolicyNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="PolicyNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "PolicyNotFoundException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "PolicyNotFoundException":
+        return cls(deserialize_query(el), message)

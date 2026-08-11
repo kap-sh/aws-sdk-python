@@ -40,7 +40,20 @@ def serialize_ec2_query(
             value["end_date"], pairs, f"{key_prefix}EndDate"
         )
     if "value" in value:
-        pairs.append((f"{key_prefix}Value", str(value["value"])))
+        pairs.append(
+            (
+                f"{key_prefix}Value",
+                (
+                    "NaN"
+                    if value["value"] != value["value"]
+                    else "Infinity"
+                    if value["value"] == float("inf")
+                    else "-Infinity"
+                    if value["value"] == float("-inf")
+                    else str(value["value"])
+                ),
+            )
+        )
     if "status" in value:
         pairs.append((f"{key_prefix}Status", str(value["status"])))
 

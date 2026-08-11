@@ -37,15 +37,18 @@ class InvalidDBInstanceStateFault(ServiceError):
 
     code: str | None = "InvalidDBInstanceStateFault"
 
-    def __init__(self, data: InvalidDBInstanceStateFault_):
+    def __init__(self, data: InvalidDBInstanceStateFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBInstanceStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBInstanceStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBInstanceStateFault":
+        return cls(deserialize_query(el), message)

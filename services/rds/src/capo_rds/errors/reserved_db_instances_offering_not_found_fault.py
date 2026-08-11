@@ -39,15 +39,22 @@ class ReservedDBInstancesOfferingNotFoundFault(ServiceError):
 
     code: str | None = "ReservedDBInstancesOfferingNotFoundFault"
 
-    def __init__(self, data: ReservedDBInstancesOfferingNotFoundFault_):
+    def __init__(
+        self,
+        data: ReservedDBInstancesOfferingNotFoundFault_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ReservedDBInstancesOfferingNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ReservedDBInstancesOfferingNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ReservedDBInstancesOfferingNotFoundFault":
+        return cls(deserialize_query(el), message)

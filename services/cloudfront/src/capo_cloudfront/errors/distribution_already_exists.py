@@ -35,15 +35,18 @@ class DistributionAlreadyExists(ServiceError):
 
     code: str | None = "DistributionAlreadyExists"
 
-    def __init__(self, data: DistributionAlreadyExists_):
+    def __init__(self, data: DistributionAlreadyExists_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DistributionAlreadyExists",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "DistributionAlreadyExists":
-        return cls(deserialize_xml(el))
+    def from_xml(
+        cls, el: Element, message: str | None = None
+    ) -> "DistributionAlreadyExists":
+        return cls(deserialize_xml(el), message)

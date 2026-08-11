@@ -35,7 +35,20 @@ def serialize_query(
 ) -> None:
     for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append((f"{prefix}.entry.{n}.key", str(key)))
-        pairs.append((f"{prefix}.entry.{n}.value", str(value)))
+        pairs.append(
+            (
+                f"{prefix}.entry.{n}.value",
+                (
+                    "NaN"
+                    if value != value
+                    else "Infinity"
+                    if value == float("inf")
+                    else "-Infinity"
+                    if value == float("-inf")
+                    else str(value)
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> DatapointValueMap:
@@ -56,7 +69,20 @@ def serialize_query_flat(
 ) -> None:
     for n, (key, value) in enumerate(input_to_serialize.items(), 1):
         pairs.append((f"{prefix}.{n}.key", str(key)))
-        pairs.append((f"{prefix}.{n}.value", str(value)))
+        pairs.append(
+            (
+                f"{prefix}.{n}.value",
+                (
+                    "NaN"
+                    if value != value
+                    else "Infinity"
+                    if value == float("inf")
+                    else "-Infinity"
+                    if value == float("-inf")
+                    else str(value)
+                ),
+            )
+        )
 
 
 def deserialize_query_flat(parent: Element, tag: str) -> DatapointValueMap:

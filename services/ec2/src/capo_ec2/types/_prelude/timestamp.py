@@ -7,7 +7,12 @@ from capo_ec2._protocol.xml import Element
 
 # --- ec2Query ser/de ---
 def to_ec2_query_text(value: datetime.datetime) -> str:
-    return value.isoformat()
+    value = (
+        value.astimezone(datetime.timezone.utc)
+        if value.tzinfo
+        else value.replace(tzinfo=datetime.timezone.utc)
+    )
+    return value.isoformat().replace("+00:00", "Z")
 
 
 def from_ec2_query_text(text: str) -> datetime.datetime:

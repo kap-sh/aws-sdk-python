@@ -12,8 +12,24 @@ Values: TypeAlias = list["capo_cloudwatch.types.datapoint_value.DatapointValue"]
 
 # --- awsQuery ser/de ---
 def serialize_query(value: Values, pairs: list[tuple[str, str]], prefix: str) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
-        pairs.append((f"{prefix}.member.{n}", str(item)))
+        pairs.append(
+            (
+                f"{prefix}.member.{n}",
+                (
+                    "NaN"
+                    if item != item
+                    else "Infinity"
+                    if item == float("inf")
+                    else "-Infinity"
+                    if item == float("-inf")
+                    else str(item)
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> Values:
@@ -26,8 +42,24 @@ def deserialize_query(el: Element) -> Values:
 def serialize_query_flat(
     value: Values, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
-        pairs.append((f"{prefix}.{n}", str(item)))
+        pairs.append(
+            (
+                f"{prefix}.{n}",
+                (
+                    "NaN"
+                    if item != item
+                    else "Infinity"
+                    if item == float("inf")
+                    else "-Infinity"
+                    if item == float("-inf")
+                    else str(item)
+                ),
+            )
+        )
 
 
 def deserialize_query_flat(parent: Element, tag: str) -> Values:

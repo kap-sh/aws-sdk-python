@@ -39,15 +39,18 @@ class ServiceFailureException(ServiceError):
 
     code: str | None = "ServiceFailureException"
 
-    def __init__(self, data: ServiceFailureException_):
+    def __init__(self, data: ServiceFailureException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="ServiceFailureException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ServiceFailureException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ServiceFailureException":
+        return cls(deserialize_query(el), message)

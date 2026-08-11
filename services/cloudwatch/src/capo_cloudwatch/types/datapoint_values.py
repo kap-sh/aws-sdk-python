@@ -16,8 +16,24 @@ DatapointValues: TypeAlias = list[
 def serialize_query(
     value: DatapointValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
-        pairs.append((f"{prefix}.member.{n}", str(item)))
+        pairs.append(
+            (
+                f"{prefix}.member.{n}",
+                (
+                    "NaN"
+                    if item != item
+                    else "Infinity"
+                    if item == float("inf")
+                    else "-Infinity"
+                    if item == float("-inf")
+                    else str(item)
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> DatapointValues:
@@ -30,8 +46,24 @@ def deserialize_query(el: Element) -> DatapointValues:
 def serialize_query_flat(
     value: DatapointValues, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
-        pairs.append((f"{prefix}.{n}", str(item)))
+        pairs.append(
+            (
+                f"{prefix}.{n}",
+                (
+                    "NaN"
+                    if item != item
+                    else "Infinity"
+                    if item == float("inf")
+                    else "-Infinity"
+                    if item == float("-inf")
+                    else str(item)
+                ),
+            )
+        )
 
 
 def deserialize_query_flat(parent: Element, tag: str) -> DatapointValues:

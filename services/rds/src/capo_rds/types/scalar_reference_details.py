@@ -21,7 +21,20 @@ def serialize_query(
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
     if "value" in value:
-        pairs.append((f"{key_prefix}Value", str(value["value"])))
+        pairs.append(
+            (
+                f"{key_prefix}Value",
+                (
+                    "NaN"
+                    if value["value"] != value["value"]
+                    else "Infinity"
+                    if value["value"] == float("inf")
+                    else "-Infinity"
+                    if value["value"] == float("-inf")
+                    else str(value["value"])
+                ),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> ScalarReferenceDetails:

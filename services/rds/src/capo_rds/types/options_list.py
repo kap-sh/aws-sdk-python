@@ -16,6 +16,9 @@ def serialize_query(
 ) -> None:
     import capo_rds.types.option
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.option.serialize_query(item, pairs, f"{prefix}.Option.{n}")
 
@@ -34,6 +37,9 @@ def serialize_query_flat(
 ) -> None:
     import capo_rds.types.option
 
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         capo_rds.types.option.serialize_query(item, pairs, f"{prefix}.{n}")
 

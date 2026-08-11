@@ -19,7 +19,7 @@ import capo_route_53.errors.no_such_cidr_collection_exception
 import capo_route_53.types.change_cidr_collection_request
 import capo_route_53.types.change_cidr_collection_response
 import capo_route_53.types.cidr_collection_changes
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -29,26 +29,31 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "CidrBlockInUseException":
             raise capo_route_53.errors.cidr_block_in_use_exception.CidrBlockInUseException.from_xml(
-                root
+                error_el, message
             )
         case "CidrCollectionVersionMismatchException":
             raise capo_route_53.errors.cidr_collection_version_mismatch_exception.CidrCollectionVersionMismatchException.from_xml(
-                root
+                error_el, message
             )
         case "ConcurrentModification":
             raise capo_route_53.errors.concurrent_modification.ConcurrentModification.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "LimitsExceeded":
-            raise capo_route_53.errors.limits_exceeded.LimitsExceeded.from_xml(root)
+            raise capo_route_53.errors.limits_exceeded.LimitsExceeded.from_xml(
+                error_el, message
+            )
         case "NoSuchCidrCollectionException":
             raise capo_route_53.errors.no_such_cidr_collection_exception.NoSuchCidrCollectionException.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -106,9 +111,11 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/cidrcollection/{Id}"
-    url = url.replace("{Id}", quote(str(input_["id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{Id}", quote(input_["id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    import capo_route_53.types.cidr_collection_changes
+
     root = Element("ChangeCidrCollectionRequest")
     if "collection_version" in input_:
         SubElement(root, "CollectionVersion").text = str(input_["collection_version"])
@@ -120,7 +127,8 @@ def build_request(
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

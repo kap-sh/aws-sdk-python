@@ -39,15 +39,20 @@ class DBClusterAutomatedBackupNotFoundFault(ServiceError):
 
     code: str | None = "DBClusterAutomatedBackupNotFoundFault"
 
-    def __init__(self, data: DBClusterAutomatedBackupNotFoundFault_):
+    def __init__(
+        self, data: DBClusterAutomatedBackupNotFoundFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBClusterAutomatedBackupNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBClusterAutomatedBackupNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBClusterAutomatedBackupNotFoundFault":
+        return cls(deserialize_query(el), message)

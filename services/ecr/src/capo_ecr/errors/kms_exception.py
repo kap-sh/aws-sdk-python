@@ -41,12 +41,18 @@ class KmsException(ServiceError):
 
     code: str | None = "KmsException"
 
-    def __init__(self, data: KmsException_):
+    def __init__(self, data: KmsException_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="KmsException"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="KmsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "KmsException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "KmsException":
+        return cls(deserialize_aws_json_1_1(data), message)

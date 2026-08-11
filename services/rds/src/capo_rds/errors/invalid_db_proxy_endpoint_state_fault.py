@@ -37,15 +37,20 @@ class InvalidDBProxyEndpointStateFault(ServiceError):
 
     code: str | None = "InvalidDBProxyEndpointStateFault"
 
-    def __init__(self, data: InvalidDBProxyEndpointStateFault_):
+    def __init__(
+        self, data: InvalidDBProxyEndpointStateFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDBProxyEndpointStateFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidDBProxyEndpointStateFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidDBProxyEndpointStateFault":
+        return cls(deserialize_query(el), message)

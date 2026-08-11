@@ -160,7 +160,20 @@ def serialize_query(
             value["timestamp"], pairs, f"{key_prefix}Timestamp"
         )
     if "value" in value:
-        pairs.append((f"{key_prefix}Value", str(value["value"])))
+        pairs.append(
+            (
+                f"{key_prefix}Value",
+                (
+                    "NaN"
+                    if value["value"] != value["value"]
+                    else "Infinity"
+                    if value["value"] == float("inf")
+                    else "-Infinity"
+                    if value["value"] == float("-inf")
+                    else str(value["value"])
+                ),
+            )
+        )
     if "statistic_values" in value:
         import capo_cloudwatch.types.statistic_set
 

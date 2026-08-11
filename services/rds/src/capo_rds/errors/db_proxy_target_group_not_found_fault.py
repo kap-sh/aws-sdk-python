@@ -37,15 +37,20 @@ class DBProxyTargetGroupNotFoundFault(ServiceError):
 
     code: str | None = "DBProxyTargetGroupNotFoundFault"
 
-    def __init__(self, data: DBProxyTargetGroupNotFoundFault_):
+    def __init__(
+        self, data: DBProxyTargetGroupNotFoundFault_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBProxyTargetGroupNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBProxyTargetGroupNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBProxyTargetGroupNotFoundFault":
+        return cls(deserialize_query(el), message)

@@ -16,6 +16,9 @@ ResourceNameListType: TypeAlias = list[
 def serialize_query(
     value: ResourceNameListType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.member.{n}", str(item)))
 
@@ -30,6 +33,9 @@ def deserialize_query(el: Element) -> ResourceNameListType:
 def serialize_query_flat(
     value: ResourceNameListType, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

@@ -15,7 +15,7 @@ import capo_route_53.errors.invalid_input
 import capo_route_53.errors.no_such_health_check
 import capo_route_53.types.delete_health_check_request
 import capo_route_53.types.delete_health_check_response
-from capo_route_53._protocol.errors import parse_error_metadata
+from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
 from capo_route_53._protocol.xml import fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -25,16 +25,19 @@ from capo_route_53.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
         case "HealthCheckInUse":
             raise capo_route_53.errors.health_check_in_use.HealthCheckInUse.from_xml(
-                root
+                error_el, message
             )
         case "InvalidInput":
-            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(root)
+            raise capo_route_53.errors.invalid_input.InvalidInput.from_xml(
+                error_el, message
+            )
         case "NoSuchHealthCheck":
             raise capo_route_53.errors.no_such_health_check.NoSuchHealthCheck.from_xml(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -88,13 +91,14 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/healthcheck/{HealthCheckId}"
-    url = url.replace("{HealthCheckId}", quote(str(input_["health_check_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{HealthCheckId}", quote(input_["health_check_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

@@ -27,10 +27,12 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -92,12 +94,13 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2016-08-19/account-settings"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

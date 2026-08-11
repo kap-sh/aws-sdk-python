@@ -53,19 +53,22 @@ class InvalidNextToken(ServiceError):
 
     code: str | None = "InvalidNextToken"
 
-    def __init__(self, data: InvalidNextToken_):
+    def __init__(self, data: InvalidNextToken_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidNextToken",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidNextToken":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidNextToken":
+        return cls(deserialize_aws_json_1_0(data), message)
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidNextToken":
-        return cls(deserialize_query(el))
+    def from_query(cls, el: Element, message: str | None = None) -> "InvalidNextToken":
+        return cls(deserialize_query(el), message)

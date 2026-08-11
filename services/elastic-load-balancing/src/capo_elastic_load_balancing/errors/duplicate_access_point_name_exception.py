@@ -39,15 +39,20 @@ class DuplicateAccessPointNameException(ServiceError):
 
     code: str | None = "DuplicateAccessPointNameException"
 
-    def __init__(self, data: DuplicateAccessPointNameException_):
+    def __init__(
+        self, data: DuplicateAccessPointNameException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DuplicateAccessPointNameException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DuplicateAccessPointNameException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DuplicateAccessPointNameException":
+        return cls(deserialize_query(el), message)

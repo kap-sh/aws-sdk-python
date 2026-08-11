@@ -28,9 +28,35 @@ def serialize_query(
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
     if "min_capacity" in value:
-        pairs.append((f"{key_prefix}MinCapacity", str(value["min_capacity"])))
+        pairs.append(
+            (
+                f"{key_prefix}MinCapacity",
+                (
+                    "NaN"
+                    if value["min_capacity"] != value["min_capacity"]
+                    else "Infinity"
+                    if value["min_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["min_capacity"] == float("-inf")
+                    else str(value["min_capacity"])
+                ),
+            )
+        )
     if "max_capacity" in value:
-        pairs.append((f"{key_prefix}MaxCapacity", str(value["max_capacity"])))
+        pairs.append(
+            (
+                f"{key_prefix}MaxCapacity",
+                (
+                    "NaN"
+                    if value["max_capacity"] != value["max_capacity"]
+                    else "Infinity"
+                    if value["max_capacity"] == float("inf")
+                    else "-Infinity"
+                    if value["max_capacity"] == float("-inf")
+                    else str(value["max_capacity"])
+                ),
+            )
+        )
     if "seconds_until_auto_pause" in value:
         pairs.append(
             (

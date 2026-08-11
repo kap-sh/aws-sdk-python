@@ -35,15 +35,16 @@ class NoSuchResource(ServiceError):
 
     code: str | None = "NoSuchResource"
 
-    def __init__(self, data: NoSuchResource_):
+    def __init__(self, data: NoSuchResource_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="NoSuchResource",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "NoSuchResource":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "NoSuchResource":
+        return cls(deserialize_xml(el), message)

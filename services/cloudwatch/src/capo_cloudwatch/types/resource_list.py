@@ -14,6 +14,9 @@ ResourceList: TypeAlias = list["capo_cloudwatch.types.resource_name.ResourceName
 def serialize_query(
     value: ResourceList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.member.{n}", str(item)))
 
@@ -28,6 +31,9 @@ def deserialize_query(el: Element) -> ResourceList:
 def serialize_query_flat(
     value: ResourceList, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
+    if not value:
+        pairs.append((prefix, ""))
+        return
     for n, item in enumerate(value, 1):
         pairs.append((f"{prefix}.{n}", str(item)))
 

@@ -30,17 +30,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
-            raise capo_lambda.errors.service_exception.ServiceException.from_json(data)
+            raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
         case "TooManyRequestsException":
             raise capo_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -102,21 +104,27 @@ def build_request(
         + "/2025-12-01/durable-executions/{DurableExecutionArn}/history"
     )
     url = url.replace(
-        "{DurableExecutionArn}", quote(str(input_["durable_execution_arn"]), safe="")
+        "{DurableExecutionArn}", quote(input_["durable_execution_arn"], safe="")
     )
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "include_execution_data" in input_:
-        params["IncludeExecutionData"] = str(input_["include_execution_data"])
-    params["MaxItems"] = str(input_.get("max_items", 0))
+        params.append(
+            (
+                "IncludeExecutionData",
+                "true" if input_["include_execution_data"] else "false",
+            )
+        )
+    params.append(("MaxItems", str(input_.get("max_items", 0))))
     if "marker" in input_:
-        params["Marker"] = str(input_["marker"])
+        params.append(("Marker", input_["marker"]))
     if "reverse_order" in input_:
-        params["ReverseOrder"] = str(input_["reverse_order"])
+        params.append(("ReverseOrder", "true" if input_["reverse_order"] else "false"))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

@@ -37,15 +37,18 @@ class DBLogFileNotFoundFault(ServiceError):
 
     code: str | None = "DBLogFileNotFoundFault"
 
-    def __init__(self, data: DBLogFileNotFoundFault_):
+    def __init__(self, data: DBLogFileNotFoundFault_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DBLogFileNotFoundFault",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "DBLogFileNotFoundFault":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "DBLogFileNotFoundFault":
+        return cls(deserialize_query(el), message)

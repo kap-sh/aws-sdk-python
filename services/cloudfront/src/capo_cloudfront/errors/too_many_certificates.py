@@ -35,15 +35,16 @@ class TooManyCertificates(ServiceError):
 
     code: str | None = "TooManyCertificates"
 
-    def __init__(self, data: TooManyCertificates_):
+    def __init__(self, data: TooManyCertificates_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyCertificates",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_xml(cls, el: Element) -> "TooManyCertificates":
-        return cls(deserialize_xml(el))
+    def from_xml(cls, el: Element, message: str | None = None) -> "TooManyCertificates":
+        return cls(deserialize_xml(el), message)
