@@ -1,5 +1,11 @@
 # aws-sdk-lambda
 
+## 0.6.0
+
+### Minor Changes
+
+- 314162f: fix error handling
+
 ## 0.5.0
 
 ### Minor Changes

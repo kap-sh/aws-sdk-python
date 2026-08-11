@@ -1,5 +1,11 @@
 # aws-sdk-s3
 
+## 0.8.0
+
+### Minor Changes
+
+- 314162f: fix error handling
+
 ## 0.7.0
 
 ### Minor Changes
