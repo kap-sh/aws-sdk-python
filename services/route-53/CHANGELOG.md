@@ -1,5 +1,11 @@
 # aws-sdk-route-53
 
+## 0.4.0
+
+### Minor Changes
+
+- 314162f: fix error handling
+
 ## 0.3.0
 
 ### Minor Changes

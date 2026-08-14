@@ -1,5 +1,11 @@
 # aws-sdk-ecr
 
+## 0.3.0
+
+### Minor Changes
+
+- 314162f: fix error handling
+
 ## 0.2.0
 
 ### Minor Changes

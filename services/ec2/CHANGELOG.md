@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.10.0
+
+### Minor Changes
+
+- 314162f: fix error handling
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,5 +1,23 @@
 # AWS SDK for Python - Releases
 
+## 2026-08-11
+
+- [aws-sdk-cloudfront v0.4.0](services/cloudfront/CHANGELOG.md)
+- [aws-sdk-cloudwatch v0.5.0](services/cloudwatch/CHANGELOG.md)
+- [aws-sdk-ec2 v0.10.0](services/ec2/CHANGELOG.md)
+- [aws-sdk-ecr v0.3.0](services/ecr/CHANGELOG.md)
+- [aws-sdk-ecs v0.7.0](services/ecs/CHANGELOG.md)
+- [aws-sdk-elastic-load-balancing v0.4.0](services/elastic-load-balancing/CHANGELOG.md)
+- [aws-sdk-iam v0.7.0](services/iam/CHANGELOG.md)
+- [aws-sdk-lambda v0.6.0](services/lambda/CHANGELOG.md)
+- [aws-sdk-rds v0.5.0](services/rds/CHANGELOG.md)
+- [aws-sdk-route-53 v0.4.0](services/route-53/CHANGELOG.md)
+- [aws-sdk-s3 v0.8.0](services/s3/CHANGELOG.md)
+- [aws-sdk-scheduler v0.3.0](services/scheduler/CHANGELOG.md)
+- [aws-sdk-sso v0.3.0](services/sso/CHANGELOG.md)
+- [aws-sdk-sso-oidc v0.3.0](services/sso-oidc/CHANGELOG.md)
+- [aws-sdk-sts v0.4.0](services/sts/CHANGELOG.md)
+
 ## 2026-08-09
 
 - [aws-sdk-ec2 v0.9.0](services/ec2/CHANGELOG.md)
