@@ -64,6 +64,25 @@ jobs:
           print("services=" + " ".join(services))
           EOF
 
+      - name: Create GitHub release
+        if: steps.changed.outputs.services != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          date=$(python3 scripts/release_notes.py "$RUNNER_TEMP/notes.md")
+          tag="release-$date"
+          # Same-day re-releases get a numeric suffix (tags fetched via fetch-depth 0).
+          n=1
+          while git rev-parse -q --verify "refs/tags/$tag" >/dev/null; do
+            n=$((n + 1))
+            tag="release-$date.$n"
+          done
+          gh release create "$tag" \
+            --target "$GITHUB_SHA" \
+            --title "Release $date" \
+            --notes-file "$RUNNER_TEMP/notes.md"
+
       - name: Dispatch publish workflow
         if: steps.changed.outputs.services != ''
         env:
