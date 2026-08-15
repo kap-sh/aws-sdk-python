@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#AmazonS3``."""
 
 import time
+import uuid
 import warnings
 from collections.abc import AsyncGenerator, AsyncIterator
 from contextlib import asynccontextmanager
@@ -8029,8 +8030,9 @@ class AsyncS3Client:
             input_["source_if_modified_since"] = source_if_modified_since
         if source_if_unmodified_since is not None:
             input_["source_if_unmodified_since"] = source_if_unmodified_since
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

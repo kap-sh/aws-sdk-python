@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 from capo_ecs._services._pipeline import (
@@ -286,8 +287,9 @@ class TaskResource:
         if tags is not None:
             input_["tags"] = tags
         input_["task_definition"] = task_definition
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if volume_configurations is not None:
             input_["volume_configurations"] = volume_configurations
 
@@ -778,8 +780,9 @@ class AsyncTaskResource:
         if tags is not None:
             input_["tags"] = tags
         input_["task_definition"] = task_definition
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if volume_configurations is not None:
             input_["volume_configurations"] = volume_configurations
 

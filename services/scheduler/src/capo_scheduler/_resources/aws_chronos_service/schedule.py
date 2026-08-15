@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_scheduler._auth._signers
@@ -140,8 +141,9 @@ class Schedule:
             input_["kms_key_arn"] = kms_key_arn
         input_["target"] = target
         input_["flexible_time_window"] = flexible_time_window
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if action_after_completion is not None:
             input_["action_after_completion"] = action_after_completion
 
@@ -286,8 +288,9 @@ class Schedule:
             input_["kms_key_arn"] = kms_key_arn
         input_["target"] = target
         input_["flexible_time_window"] = flexible_time_window
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if action_after_completion is not None:
             input_["action_after_completion"] = action_after_completion
 
@@ -343,8 +346,9 @@ class Schedule:
         input_["name"] = name
         if group_name is not None:
             input_["group_name"] = group_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -507,8 +511,9 @@ class AsyncSchedule:
             input_["kms_key_arn"] = kms_key_arn
         input_["target"] = target
         input_["flexible_time_window"] = flexible_time_window
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if action_after_completion is not None:
             input_["action_after_completion"] = action_after_completion
 
@@ -655,8 +660,9 @@ class AsyncSchedule:
             input_["kms_key_arn"] = kms_key_arn
         input_["target"] = target
         input_["flexible_time_window"] = flexible_time_window
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if action_after_completion is not None:
             input_["action_after_completion"] = action_after_completion
 
@@ -713,8 +719,9 @@ class AsyncSchedule:
         input_["name"] = name
         if group_name is not None:
             input_["group_name"] = group_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AmazonEC2``."""
 
 import time
+import uuid
 import warnings
 from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -3250,8 +3251,9 @@ class EC2Client:
             input_["cidr"] = cidr
         if netmask_length is not None:
             input_["netmask_length"] = netmask_length
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if preview_next_cidr is not None:
@@ -3707,8 +3709,9 @@ class EC2Client:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if availability_zone is not None:
@@ -4037,8 +4040,9 @@ class EC2Client:
             input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4556,8 +4560,9 @@ class EC2Client:
             input_["vlan_id"] = vlan_id
         if gre_key is not None:
             input_["gre_key"] = gre_key
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -4887,8 +4892,9 @@ class EC2Client:
             input_["verified_access_trust_provider_id"] = (
                 verified_access_trust_provider_id
             )
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -5064,8 +5070,9 @@ class EC2Client:
             input_["authorize_all_groups"] = authorize_all_groups
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -6031,8 +6038,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.copy_image_request.CopyImageRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if encrypted is not None:
@@ -6231,8 +6239,9 @@ class EC2Client:
             input_["multi_attach_enabled"] = multi_attach_enabled
         if throughput is not None:
             input_["throughput"] = throughput
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6294,8 +6303,9 @@ class EC2Client:
             input_["schedule"] = schedule
         if output_format is not None:
             input_["output_format"] = output_format
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -6486,8 +6496,9 @@ class EC2Client:
         input_: capo_ec2.types.create_capacity_reservation_by_splitting_request.CreateCapacityReservationBySplittingRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if source_capacity_reservation_id is not None:
             input_["source_capacity_reservation_id"] = source_capacity_reservation_id
         if instance_count is not None:
@@ -6561,8 +6572,9 @@ class EC2Client:
         input_: capo_ec2.types.create_capacity_reservation_fleet_request.CreateCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
         if allocation_strategy is not None:
             input_["allocation_strategy"] = allocation_strategy
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if instance_type_specifications is not None:
             input_["instance_type_specifications"] = instance_type_specifications
         if tenancy is not None:
@@ -6630,8 +6642,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6765,8 +6778,9 @@ class EC2Client:
             input_["split_tunnel"] = split_tunnel
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if security_group_ids is not None:
@@ -6852,8 +6866,9 @@ class EC2Client:
             input_["target_vpc_subnet_id"] = target_vpc_subnet_id
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -7190,8 +7205,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_delegate_mac_volume_ownership_task_request.CreateDelegateMacVolumeOwnershipTaskRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -7397,8 +7413,9 @@ class EC2Client:
         input_: capo_ec2.types.create_fleet_request.CreateFleetRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if spot_options is not None:
             input_["spot_options"] = spot_options
         if on_demand_options is not None:
@@ -7743,8 +7760,9 @@ class EC2Client:
             input_["resource_types"] = resource_types
         if account_ids is not None:
             input_["account_ids"] = account_ids
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -7812,8 +7830,9 @@ class EC2Client:
             input_["security_group_ids"] = security_group_ids
         if preserve_client_ip is not None:
             input_["preserve_client_ip"] = preserve_client_ip
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if ip_address_type is not None:
@@ -8052,8 +8071,9 @@ class EC2Client:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if instance_count is not None:
             input_["instance_count"] = instance_count
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -8123,8 +8143,9 @@ class EC2Client:
             input_["operating_regions"] = operating_regions
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tier is not None:
             input_["tier"] = tier
         if enable_private_gua is not None:
@@ -8184,8 +8205,9 @@ class EC2Client:
             input_["ipam_id"] = ipam_id
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8237,8 +8259,9 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if ipam_id is not None:
             input_["ipam_id"] = ipam_id
 
@@ -8356,8 +8379,9 @@ class EC2Client:
             input_["allocation_resource_tags"] = allocation_resource_tags
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if aws_service is not None:
             input_["aws_service"] = aws_service
         if public_ip_source is not None:
@@ -8431,8 +8455,9 @@ class EC2Client:
             input_["rules"] = rules
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8504,8 +8529,9 @@ class EC2Client:
             input_["track_latest_version"] = track_latest_version
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8565,8 +8591,9 @@ class EC2Client:
             input_["operating_regions"] = operating_regions
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8628,8 +8655,9 @@ class EC2Client:
             input_["description"] = description
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if external_authority_configuration is not None:
             input_["external_authority_configuration"] = (
                 external_authority_configuration
@@ -8762,8 +8790,9 @@ class EC2Client:
         input_: capo_ec2.types.create_launch_template_request.CreateLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if launch_template_name is not None:
             input_["launch_template_name"] = launch_template_name
         if version_description is not None:
@@ -8843,8 +8872,9 @@ class EC2Client:
         input_: capo_ec2.types.create_launch_template_version_request.CreateLaunchTemplateVersionRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if launch_template_id is not None:
             input_["launch_template_id"] = launch_template_id
         if launch_template_name is not None:
@@ -9306,8 +9336,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_mac_system_integrity_protection_modification_task_request.CreateMacSystemIntegrityProtectionModificationTaskRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -9393,8 +9424,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if address_family is not None:
             input_["address_family"] = address_family
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9482,8 +9514,9 @@ class EC2Client:
             input_["availability_mode"] = availability_mode
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if subnet_id is not None:
@@ -9561,8 +9594,9 @@ class EC2Client:
         input_: capo_ec2.types.create_network_acl_request.CreateNetworkAclRequest = {}  # type: ignore[typeddict-item]
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_id is not None:
@@ -9705,8 +9739,9 @@ class EC2Client:
             input_["match_paths"] = match_paths
         if exclude_paths is not None:
             input_["exclude_paths"] = exclude_paths
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -9796,8 +9831,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if filter_at_source is not None:
             input_["filter_at_source"] = filter_at_source
         if filter_at_destination is not None:
@@ -9907,8 +9943,9 @@ class EC2Client:
             input_["interface_type"] = interface_type
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if enable_primary_ipv6 is not None:
             input_["enable_primary_ipv6"] = enable_primary_ipv6
         if connection_tracking_specification is not None:
@@ -10189,8 +10226,9 @@ class EC2Client:
             input_["instance_id"] = instance_id
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -10503,8 +10541,9 @@ class EC2Client:
         input_: capo_ec2.types.create_route_server_request.CreateRouteServerRequest = {}  # type: ignore[typeddict-item]
         if amazon_side_asn is not None:
             input_["amazon_side_asn"] = amazon_side_asn
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if persist_routes is not None:
@@ -10570,8 +10609,9 @@ class EC2Client:
             input_["route_server_id"] = route_server_id
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -10694,8 +10734,9 @@ class EC2Client:
         input_: capo_ec2.types.create_route_table_request.CreateRouteTableRequest = {}  # type: ignore[typeddict-item]
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_id is not None:
@@ -10757,8 +10798,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_secondary_network_request.CreateSecondaryNetworkRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipv4_cidr_block is not None:
@@ -10832,8 +10874,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.create_secondary_subnet_request.CreateSecondarySubnetRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
@@ -11435,8 +11478,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11534,8 +11578,9 @@ class EC2Client:
             input_["description"] = description
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
 
@@ -11621,8 +11666,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -11690,8 +11736,9 @@ class EC2Client:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if gateway_load_balancer_endpoint_id is not None:
             input_["gateway_load_balancer_endpoint_id"] = (
                 gateway_load_balancer_endpoint_id
@@ -12664,8 +12711,9 @@ class EC2Client:
             input_["policy_document"] = policy_document
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if sse_specification is not None:
@@ -12739,8 +12787,9 @@ class EC2Client:
             input_["policy_document"] = policy_document
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if sse_specification is not None:
@@ -12802,8 +12851,9 @@ class EC2Client:
             input_["description"] = description
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fips_enabled is not None:
@@ -12905,8 +12955,9 @@ class EC2Client:
             input_["description"] = description
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if sse_specification is not None:
@@ -13020,8 +13071,9 @@ class EC2Client:
             input_["multi_attach_enabled"] = multi_attach_enabled
         if throughput is not None:
             input_["throughput"] = throughput
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if volume_initialization_rate is not None:
             input_["volume_initialization_rate"] = volume_initialization_rate
         if operator is not None:
@@ -16424,8 +16476,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_secondary_network_request.DeleteSecondaryNetworkRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if secondary_network_id is not None:
@@ -16481,8 +16534,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.delete_secondary_subnet_request.DeleteSecondarySubnetRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if secondary_subnet_id is not None:
@@ -17702,8 +17756,9 @@ class EC2Client:
         input_: capo_ec2.types.delete_verified_access_endpoint_request.DeleteVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17753,8 +17808,9 @@ class EC2Client:
         input_: capo_ec2.types.delete_verified_access_group_request.DeleteVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17806,8 +17862,9 @@ class EC2Client:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -17859,8 +17916,9 @@ class EC2Client:
             )
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -34973,8 +35031,9 @@ class EC2Client:
             input_["verified_access_trust_provider_id"] = (
                 verified_access_trust_provider_id
             )
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35275,8 +35334,9 @@ class EC2Client:
         input_: capo_ec2.types.disable_capacity_manager_request.DisableCapacityManagerRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -36959,8 +37019,9 @@ class EC2Client:
         input_: capo_ec2.types.disassociate_trunk_interface_request.DisassociateTrunkInterfaceRequest = {}  # type: ignore[typeddict-item]
         if association_id is not None:
             input_["association_id"] = association_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37206,8 +37267,9 @@ class EC2Client:
             input_["organizations_access"] = organizations_access
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -38288,8 +38350,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.export_image_request.ExportImageRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if disk_image_format is not None:
@@ -45991,8 +46054,9 @@ class EC2Client:
             input_["desired_version"] = desired_version
         if track_latest_version is not None:
             input_["track_latest_version"] = track_latest_version
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -46265,8 +46329,9 @@ class EC2Client:
         input_: capo_ec2.types.modify_launch_template_request.ModifyLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if launch_template_id is not None:
             input_["launch_template_id"] = launch_template_id
         if launch_template_name is not None:
@@ -47750,8 +47815,9 @@ class EC2Client:
             input_["network_interface_options"] = network_interface_options
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if rds_options is not None:
@@ -47817,8 +47883,9 @@ class EC2Client:
             input_["policy_enabled"] = policy_enabled
         if policy_document is not None:
             input_["policy_document"] = policy_document
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if sse_specification is not None:
@@ -47880,8 +47947,9 @@ class EC2Client:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -47943,8 +48011,9 @@ class EC2Client:
             input_["policy_enabled"] = policy_enabled
         if policy_document is not None:
             input_["policy_document"] = policy_document
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if sse_specification is not None:
@@ -48006,8 +48075,9 @@ class EC2Client:
             input_["description"] = description
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if cidr_endpoints_custom_sub_domain is not None:
             input_["cidr_endpoints_custom_sub_domain"] = (
                 cidr_endpoints_custom_sub_domain
@@ -48067,8 +48137,9 @@ class EC2Client:
             input_["access_logs"] = access_logs
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -48144,8 +48215,9 @@ class EC2Client:
             input_["description"] = description
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if sse_specification is not None:
             input_["sse_specification"] = sse_specification
         if native_application_oidc_options is not None:
@@ -49503,8 +49575,9 @@ class EC2Client:
         input_: capo_ec2.types.move_capacity_reservation_instances_request.MoveCapacityReservationInstancesRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if source_capacity_reservation_id is not None:
             input_["source_capacity_reservation_id"] = source_capacity_reservation_id
         if destination_capacity_reservation_id is not None:
@@ -49710,8 +49783,9 @@ class EC2Client:
             input_["cidr_authorization_context"] = cidr_authorization_context
         if netmask_length is not None:
             input_["netmask_length"] = netmask_length
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if verification_method is not None:
             input_["verification_method"] = verification_method
         if ipam_external_resource_verification_token_id is not None:
@@ -50064,8 +50138,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.purchase_scheduled_instances_request.PurchaseScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if purchase_requests is not None:
@@ -52831,8 +52906,9 @@ class EC2Client:
             )
         if private_ip_address is not None:
             input_["private_ip_address"] = private_ip_address
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if additional_info is not None:
             input_["additional_info"] = additional_info
         if network_interfaces is not None:
@@ -52892,8 +52968,9 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.run_scheduled_instances_request.RunScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_count is not None:
@@ -53392,8 +53469,9 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -53463,8 +53541,9 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -54005,8 +54084,9 @@ class EC2Client:
             input_["deactivate_tag_keys"] = deactivate_tag_keys
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -54056,8 +54136,9 @@ class EC2Client:
             input_["organizations_access"] = organizations_access
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

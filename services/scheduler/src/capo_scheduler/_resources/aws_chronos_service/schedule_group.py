@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_scheduler._auth._signers
@@ -86,8 +87,9 @@ class ScheduleGroup:
         input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -179,8 +181,9 @@ class ScheduleGroup:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
         input_["name"] = name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -292,8 +295,9 @@ class AsyncScheduleGroup:
         input_["name"] = name
         if tags is not None:
             input_["tags"] = tags
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -387,8 +391,9 @@ class AsyncScheduleGroup:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
         input_["name"] = name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

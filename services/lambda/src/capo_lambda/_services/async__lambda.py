@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AWSGirApiService``."""
 
+import uuid
 import warnings
 from collections.abc import AsyncIterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -266,8 +267,9 @@ class AsyncLambdaClient:
         input_["checkpoint_token"] = checkpoint_token
         if updates is not None:
             input_["updates"] = updates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
