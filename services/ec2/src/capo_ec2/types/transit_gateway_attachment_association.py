@@ -14,6 +14,8 @@ if TYPE_CHECKING:
 class TransitGatewayAttachmentAssociation(TypedDict, closed=True):
     transit_gateway_route_table_id: NotRequired["capo_ec2.types.string.String"]
     """<p>The ID of the route table for the transit gateway.</p>"""
+    transit_gateway_policy_table_id: NotRequired["capo_ec2.types.string.String"]
+    """<p>The ID of the transit gateway policy table associated with the attachment.</p>"""
     state: NotRequired[
         "capo_ec2.types.transit_gateway_association_state.TransitGatewayAssociationState"
     ]
@@ -34,6 +36,13 @@ def serialize_ec2_query(
                 str(value["transit_gateway_route_table_id"]),
             )
         )
+    if "transit_gateway_policy_table_id" in value:
+        pairs.append(
+            (
+                f"{key_prefix}TransitGatewayPolicyTableId",
+                str(value["transit_gateway_policy_table_id"]),
+            )
+        )
     if "state" in value:
         import capo_ec2.types.transit_gateway_association_state
 
@@ -48,6 +57,11 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayAttachmentAssociation:
     if child_transit_gateway_route_table_id is not None:
         out["transit_gateway_route_table_id"] = str(
             child_transit_gateway_route_table_id.text or ""
+        )
+    child_transit_gateway_policy_table_id = el.find("transitGatewayPolicyTableId")
+    if child_transit_gateway_policy_table_id is not None:
+        out["transit_gateway_policy_table_id"] = str(
+            child_transit_gateway_policy_table_id.text or ""
         )
     child_state = el.find("state")
     if child_state is not None:

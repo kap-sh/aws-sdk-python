@@ -16,6 +16,7 @@ import capo_iam.errors.policy_evaluation_exception
 import capo_iam.types.action_name_list_type
 import capo_iam.types.context_entry_list_type
 import capo_iam.types.evaluation_results_list_type
+import capo_iam.types.policy_exclusions_list_type
 import capo_iam.types.resource_name_list_type
 import capo_iam.types.simulate_policy_response
 import capo_iam.types.simulate_principal_policy_request

@@ -52,6 +52,7 @@ from .limit_exceeded_fault import LimitExceededFault as LimitExceededFault
 from .missing_required_parameter_exception import (
     MissingRequiredParameterException as MissingRequiredParameterException,
 )
+from .resource_conflict import ResourceConflict as ResourceConflict
 from .resource_not_found import ResourceNotFound as ResourceNotFound
 from .resource_not_found_exception import (
     ResourceNotFoundException as ResourceNotFoundException,

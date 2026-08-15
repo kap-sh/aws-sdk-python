@@ -6,6 +6,8 @@ from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import capo_ecs.types.daemon_container_definition_list
+    import capo_ecs.types.daemon_ipc_mode
+    import capo_ecs.types.daemon_pid_mode
     import capo_ecs.types.daemon_task_definition_status
     import capo_ecs.types.daemon_volume_list
     import capo_ecs.types.integer
@@ -44,6 +46,10 @@ class DaemonTaskDefinition(TypedDict, closed=True):
     """<p>The Unix timestamp for the time when the daemon task definition delete was requested.</p>"""
     registered_by: NotRequired["capo_ecs.types.string.String"]
     """<p>The principal that registered the daemon task definition.</p>"""
+    pid_mode: NotRequired["capo_ecs.types.daemon_pid_mode.DaemonPidMode"]
+    r"""<p>The PID namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use <code>pidMode: \"host\"</code> or other daemons that use <code>pidMode: \"shared\"</code>.</p>"""
+    ipc_mode: NotRequired["capo_ecs.types.daemon_ipc_mode.DaemonIpcMode"]
+    r"""<p>The IPC namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use <code>ipcMode: \"host\"</code> or other daemons that use <code>ipcMode: \"shared\"</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---
@@ -98,6 +104,18 @@ def serialize_aws_json_1_1(value: DaemonTaskDefinition) -> dict:
         )
     if "registered_by" in value:
         out["registeredBy"] = value["registered_by"]
+    if "pid_mode" in value:
+        import capo_ecs.types.daemon_pid_mode
+
+        out["pidMode"] = capo_ecs.types.daemon_pid_mode.serialize_aws_json_1_1(
+            value["pid_mode"]
+        )
+    if "ipc_mode" in value:
+        import capo_ecs.types.daemon_ipc_mode
+
+        out["ipcMode"] = capo_ecs.types.daemon_ipc_mode.serialize_aws_json_1_1(
+            value["ipc_mode"]
+        )
     return out
 
 
@@ -155,4 +173,16 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonTaskDefinition:
         )
     if "registeredBy" in data:
         out["registered_by"] = data["registeredBy"]
+    if "pidMode" in data:
+        import capo_ecs.types.daemon_pid_mode
+
+        out["pid_mode"] = capo_ecs.types.daemon_pid_mode.deserialize_aws_json_1_1(
+            data["pidMode"]
+        )
+    if "ipcMode" in data:
+        import capo_ecs.types.daemon_ipc_mode
+
+        out["ipc_mode"] = capo_ecs.types.daemon_ipc_mode.deserialize_aws_json_1_1(
+            data["ipcMode"]
+        )
     return out

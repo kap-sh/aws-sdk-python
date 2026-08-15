@@ -9,6 +9,7 @@ TaskStopCode: TypeAlias = Literal[
     "ServiceSchedulerInitiated",
     "SpotInterruption",
     "TerminationNotice",
+    "InfrastructureHealth",
 ]
 
 

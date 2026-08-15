@@ -32,6 +32,14 @@ class AddPermissionRequest(TypedDict, closed=True):
     """<p>The Amazon Web Services service, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>"""
     source_arn: NotRequired["capo_lambda.types.arn.Arn"]
     """<p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p> <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>"""
+    function_url_auth_type: NotRequired[
+        "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
+    ]
+    r"""<p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>"""
+    invoked_via_function_url: NotRequired[
+        "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
+    ]
+    """<p>Indicates whether the permission applies when the function is invoked through a function URL. </p>"""
     source_account: NotRequired["capo_lambda.types.source_owner.SourceOwner"]
     """<p>For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>"""
     event_source_token: NotRequired[
@@ -46,14 +54,6 @@ class AddPermissionRequest(TypedDict, closed=True):
     """<p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>"""
     principal_org_id: NotRequired["capo_lambda.types.principal_org_id.PrincipalOrgID"]
     """<p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.</p>"""
-    function_url_auth_type: NotRequired[
-        "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
-    ]
-    r"""<p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>"""
-    invoked_via_function_url: NotRequired[
-        "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
-    ]
-    """<p>Indicates whether the permission applies when the function is invoked through a function URL. </p>"""
 
 
 # --- restJson1 ser/de ---
@@ -64,14 +64,6 @@ def serialize_json(value: AddPermissionRequest) -> dict:
     out["Principal"] = value["principal"]
     if "source_arn" in value:
         out["SourceArn"] = value["source_arn"]
-    if "source_account" in value:
-        out["SourceAccount"] = value["source_account"]
-    if "event_source_token" in value:
-        out["EventSourceToken"] = value["event_source_token"]
-    if "revision_id" in value:
-        out["RevisionId"] = value["revision_id"]
-    if "principal_org_id" in value:
-        out["PrincipalOrgID"] = value["principal_org_id"]
     if "function_url_auth_type" in value:
         import capo_lambda.types.function_url_auth_type
 
@@ -82,6 +74,14 @@ def serialize_json(value: AddPermissionRequest) -> dict:
         )
     if "invoked_via_function_url" in value:
         out["InvokedViaFunctionUrl"] = value["invoked_via_function_url"]
+    if "source_account" in value:
+        out["SourceAccount"] = value["source_account"]
+    if "event_source_token" in value:
+        out["EventSourceToken"] = value["event_source_token"]
+    if "revision_id" in value:
+        out["RevisionId"] = value["revision_id"]
+    if "principal_org_id" in value:
+        out["PrincipalOrgID"] = value["principal_org_id"]
     return out
 
 
@@ -101,14 +101,6 @@ def deserialize_json(data: dict) -> AddPermissionRequest:
         raise DeserializationError("AddPermissionRequest.principal required")
     if "SourceArn" in data:
         out["source_arn"] = data["SourceArn"]
-    if "SourceAccount" in data:
-        out["source_account"] = data["SourceAccount"]
-    if "EventSourceToken" in data:
-        out["event_source_token"] = data["EventSourceToken"]
-    if "RevisionId" in data:
-        out["revision_id"] = data["RevisionId"]
-    if "PrincipalOrgID" in data:
-        out["principal_org_id"] = data["PrincipalOrgID"]
     if "FunctionUrlAuthType" in data:
         import capo_lambda.types.function_url_auth_type
 
@@ -119,4 +111,12 @@ def deserialize_json(data: dict) -> AddPermissionRequest:
         )
     if "InvokedViaFunctionUrl" in data:
         out["invoked_via_function_url"] = data["InvokedViaFunctionUrl"]
+    if "SourceAccount" in data:
+        out["source_account"] = data["SourceAccount"]
+    if "EventSourceToken" in data:
+        out["event_source_token"] = data["EventSourceToken"]
+    if "RevisionId" in data:
+        out["revision_id"] = data["RevisionId"]
+    if "PrincipalOrgID" in data:
+        out["principal_org_id"] = data["PrincipalOrgID"]
     return out

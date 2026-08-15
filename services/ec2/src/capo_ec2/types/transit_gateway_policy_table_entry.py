@@ -9,6 +9,7 @@ from capo_ec2._protocol.xml import Element
 if TYPE_CHECKING:
     import capo_ec2.types.string
     import capo_ec2.types.transit_gateway_policy_rule
+    import capo_ec2.types.transit_gateway_policy_table_entry_state
     import capo_ec2.types.transit_gateway_route_table_id
 
 
@@ -23,6 +24,10 @@ class TransitGatewayPolicyTableEntry(TypedDict, closed=True):
         "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
     ]
     """<p>The ID of the target route table.</p>"""
+    state: NotRequired[
+        "capo_ec2.types.transit_gateway_policy_table_entry_state.TransitGatewayPolicyTableEntryState"
+    ]
+    """<p>The state of the transit gateway policy table entry.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -44,6 +49,12 @@ def serialize_ec2_query(
         pairs.append(
             (f"{key_prefix}TargetRouteTableId", str(value["target_route_table_id"]))
         )
+    if "state" in value:
+        import capo_ec2.types.transit_gateway_policy_table_entry_state
+
+        capo_ec2.types.transit_gateway_policy_table_entry_state.serialize_ec2_query(
+            value["state"], pairs, f"{key_prefix}State"
+        )
 
 
 def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyTableEntry:
@@ -63,4 +74,13 @@ def deserialize_ec2_query(el: Element) -> TransitGatewayPolicyTableEntry:
     child_target_route_table_id = el.find("targetRouteTableId")
     if child_target_route_table_id is not None:
         out["target_route_table_id"] = str(child_target_route_table_id.text or "")
+    child_state = el.find("state")
+    if child_state is not None:
+        import capo_ec2.types.transit_gateway_policy_table_entry_state
+
+        out["state"] = (
+            capo_ec2.types.transit_gateway_policy_table_entry_state.deserialize_ec2_query(
+                child_state
+            )
+        )
     return out

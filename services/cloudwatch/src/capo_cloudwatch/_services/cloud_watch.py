@@ -32,6 +32,8 @@ from capo_cloudwatch.errors import ServiceError, WaiterTimeoutError
 
 if TYPE_CHECKING:
     import capo_cloudwatch.types.account_id
+    import capo_cloudwatch.types.action_log_line_count
+    import capo_cloudwatch.types.action_log_line_role_arn
     import capo_cloudwatch.types.action_prefix
     import capo_cloudwatch.types.actions_enabled
     import capo_cloudwatch.types.alarm_arn
@@ -47,6 +49,8 @@ if TYPE_CHECKING:
     import capo_cloudwatch.types.amazon_resource_name
     import capo_cloudwatch.types.anomaly_detector
     import capo_cloudwatch.types.anomaly_detector_configuration
+    import capo_cloudwatch.types.anomaly_detector_id
+    import capo_cloudwatch.types.anomaly_detector_ids
     import capo_cloudwatch.types.anomaly_detector_metric_stat
     import capo_cloudwatch.types.anomaly_detector_types
     import capo_cloudwatch.types.associate_dataset_kms_key_input
@@ -97,6 +101,7 @@ if TYPE_CHECKING:
     import capo_cloudwatch.types.evaluation_criteria
     import capo_cloudwatch.types.evaluation_interval
     import capo_cloudwatch.types.evaluation_periods
+    import capo_cloudwatch.types.evaluation_window
     import capo_cloudwatch.types.extended_statistic
     import capo_cloudwatch.types.extended_statistics
     import capo_cloudwatch.types.get_alarm_mute_rule_input
@@ -174,16 +179,20 @@ if TYPE_CHECKING:
     import capo_cloudwatch.types.put_dashboard_output
     import capo_cloudwatch.types.put_insight_rule_input
     import capo_cloudwatch.types.put_insight_rule_output
+    import capo_cloudwatch.types.put_log_alarm_input
     import capo_cloudwatch.types.put_managed_insight_rules_input
     import capo_cloudwatch.types.put_managed_insight_rules_output
     import capo_cloudwatch.types.put_metric_alarm_input
     import capo_cloudwatch.types.put_metric_data_input
     import capo_cloudwatch.types.put_metric_stream_input
     import capo_cloudwatch.types.put_metric_stream_output
+    import capo_cloudwatch.types.query_results_to_alarm
+    import capo_cloudwatch.types.query_results_to_evaluate
     import capo_cloudwatch.types.recently_active
     import capo_cloudwatch.types.resource_list
     import capo_cloudwatch.types.rule
     import capo_cloudwatch.types.scan_by
+    import capo_cloudwatch.types.scheduled_query_configuration
     import capo_cloudwatch.types.set_alarm_state_input
     import capo_cloudwatch.types.single_metric_anomaly_detector
     import capo_cloudwatch.types.standard_unit
@@ -403,12 +412,13 @@ class CloudWatchClient:
         config_overrides: Optional[CloudWatchClientConfig] = None,
         alarm_names: Optional["capo_cloudwatch.types.alarm_names.AlarmNames"] = None,
     ) -> None:
-        r"""<p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't delete two composite alarms with one operation.</p> <p> If you specify any incorrect alarm names, the alarms you specify with correct names are still deleted. Other syntax errors might result in no alarms being deleted. To confirm that alarms were deleted successfully, you can use the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html\">DescribeAlarms</a> operation after using <code>DeleteAlarms</code>.</p> <note> <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete.</p> <p>To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p> <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path. </p> </note>
+        r"""<p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't delete two composite alarms with one operation. Log alarms cannot be batch deleted.</p> <p> If you specify any incorrect alarm names, the alarms you specify with correct names are still deleted. Other syntax errors might result in no alarms being deleted. To confirm that alarms were deleted successfully, you can use the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html\">DescribeAlarms</a> operation after using <code>DeleteAlarms</code>.</p> <note> <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete.</p> <p>To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p> <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path. </p> </note>
 
         Args:
             alarm_names: <p>The alarms to be deleted. Do not enclose the alarm names in quote marks.</p>
 
         Raises:
+            capo_cloudwatch.errors.resource_conflict.ResourceConflict: <p>The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.</p>
             capo_cloudwatch.errors.resource_not_found.ResourceNotFound: <p>The named resource does not exist.</p>
             capo_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
         """
@@ -441,6 +451,9 @@ class CloudWatchClient:
         self,
         *,
         config_overrides: Optional[CloudWatchClientConfig] = None,
+        anomaly_detector_id: Optional[
+            "capo_cloudwatch.types.anomaly_detector_id.AnomalyDetectorId"
+        ] = None,
         namespace: Optional["capo_cloudwatch.types.namespace.Namespace"] = None,
         metric_name: Optional["capo_cloudwatch.types.metric_name.MetricName"] = None,
         dimensions: Optional["capo_cloudwatch.types.dimensions.Dimensions"] = None,
@@ -457,6 +470,7 @@ class CloudWatchClient:
         r"""<p> Deletes the specified anomaly detection model from your account. For more information about how to delete an anomaly detection model, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model\">Deleting an anomaly detection model</a> in the <i>CloudWatch User Guide</i>. </p>
 
         Args:
+            anomaly_detector_id: <p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>
             namespace: <p>The namespace associated with the anomaly detection model to delete.</p>
             metric_name: <p>The metric name associated with the anomaly detection model to delete.</p>
             dimensions: <p>The metric dimensions associated with the anomaly detection model to delete.</p>
@@ -489,6 +503,8 @@ class CloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.delete_anomaly_detector_input.DeleteAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
+        if anomaly_detector_id is not None:
+            input_["anomaly_detector_id"] = anomaly_detector_id
         if namespace is not None:
             input_["namespace"] = namespace
         if metric_name is not None:
@@ -718,7 +734,7 @@ class CloudWatchClient:
         Args:
             alarm_name: <p>The name of the alarm.</p>
             alarm_contributor_id: <p>The unique identifier of a specific alarm contributor to filter the alarm history results.</p>
-            alarm_types: <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.</p>
+            alarm_types: <p>Use this parameter to specify whether you want the operation to return metric alarms, composite alarms, or log alarms. If you omit this parameter, only metric alarms are returned.</p>
             history_item_type: <p>The type of alarm histories to retrieve.</p>
             start_date: <p>The starting date to retrieve alarm history.</p>
             end_date: <p>The ending date to retrieve alarm history.</p>
@@ -839,7 +855,7 @@ class CloudWatchClient:
         Args:
             alarm_names: <p>The names of the alarms to retrieve information about.</p>
             alarm_name_prefix: <p>An alarm name prefix. If you specify this parameter, you receive information about all alarms that have names that start with this prefix.</p> <p>If this parameter is specified, you cannot specify <code>AlarmNames</code>.</p>
-            alarm_types: <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned, even if composite alarms exist in the account.</p> <p>For example, if you omit this parameter or specify <code>MetricAlarms</code>, the operation returns only a list of metric alarms. It does not return any composite alarms, even if composite alarms exist in the account.</p> <p>If you specify <code>CompositeAlarms</code>, the operation returns only a list of composite alarms, and does not return any metric alarms.</p>
+            alarm_types: <p>Use this parameter to specify whether you want the operation to return metric alarms, composite alarms, or log alarms. If you omit this parameter, only metric alarms are returned, even if composite alarms or log alarms exist in the account.</p> <p>For example, if you omit this parameter or specify <code>MetricAlarms</code>, the operation returns only a list of metric alarms. It does not return any composite alarms or log alarms, even if they exist in the account.</p> <p>If you specify <code>CompositeAlarms</code>, the operation returns only a list of composite alarms, and does not return any metric alarms or log alarms.</p> <p>If you specify <code>LogAlarms</code>, the operation returns only a list of log alarms, and does not return any metric alarms or composite alarms.</p>
             children_of_alarm_name: <p>If you use this parameter and specify the name of a composite alarm, the operation returns information about the \"children\" alarms of the alarm you specify. These are the metric alarms and composite alarms referenced in the <code>AlarmRule</code> field of the composite alarm that you specify in <code>ChildrenOfAlarmName</code>. Information about the composite alarm that you name in <code>ChildrenOfAlarmName</code> is not returned.</p> <p>If you specify <code>ChildrenOfAlarmName</code>, you cannot specify any other parameters in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you do so, you receive a validation error.</p> <note> <p>Only the <code>Alarm Name</code>, <code>ARN</code>, <code>StateValue</code> (OK/ALARM/INSUFFICIENT_DATA), and <code>StateUpdatedTimestamp</code> information are returned by this operation when you use this parameter. To get complete information about these alarms, perform another <code>DescribeAlarms</code> operation and specify the parent alarm names in the <code>AlarmNames</code> parameter.</p> </note>
             parents_of_alarm_name: <p>If you use this parameter and specify the name of a metric or composite alarm, the operation returns information about the \"parent\" alarms of the alarm you specify. These are the composite alarms that have <code>AlarmRule</code> parameters that reference the alarm named in <code>ParentsOfAlarmName</code>. Information about the alarm that you specify in <code>ParentsOfAlarmName</code> is not returned.</p> <p>If you specify <code>ParentsOfAlarmName</code>, you cannot specify any other parameters in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you do so, you receive a validation error.</p> <note> <p>Only the Alarm Name and ARN are returned by this operation when you use this parameter. To get complete information about these alarms, perform another <code>DescribeAlarms</code> operation and specify the parent alarm names in the <code>AlarmNames</code> parameter.</p> </note>
             state_value: <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
@@ -965,6 +981,9 @@ class CloudWatchClient:
         self,
         *,
         config_overrides: Optional[CloudWatchClientConfig] = None,
+        anomaly_detector_ids: Optional[
+            "capo_cloudwatch.types.anomaly_detector_ids.AnomalyDetectorIds"
+        ] = None,
         next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudwatch.types.max_returned_results_count.MaxReturnedResultsCount"
@@ -979,6 +998,7 @@ class CloudWatchClient:
         """<p>Lists the anomaly detection models that you have created in your account. For single metric anomaly detectors, you can list all of the models in your account or filter the results to only the models that are related to a certain namespace, metric name, or metric dimension. For metric math anomaly detectors, you can list them by adding <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will return all metric math anomaly detectors in your account.</p>
 
         Args:
+            anomaly_detector_ids: <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>
             next_token: <p>Use the token returned by the previous operation to request the next page of results.</p>
             max_results: <p>The maximum number of results to return in one operation. The maximum value that you can specify is 100.</p> <p>To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. </p>
             namespace: <p>Limits the results to only the anomaly detection models that are associated with the specified namespace.</p>
@@ -1010,6 +1030,8 @@ class CloudWatchClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_cloudwatch.types.describe_anomaly_detectors_input.DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
+        if anomaly_detector_ids is not None:
+            input_["anomaly_detector_ids"] = anomaly_detector_ids
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1034,6 +1056,9 @@ class CloudWatchClient:
         self,
         *,
         config_overrides: Optional[CloudWatchClientConfig] = None,
+        anomaly_detector_ids: Optional[
+            "capo_cloudwatch.types.anomaly_detector_ids.AnomalyDetectorIds"
+        ] = None,
         next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
         max_results: Optional[
             "capo_cloudwatch.types.max_returned_results_count.MaxReturnedResultsCount"
@@ -1049,6 +1074,7 @@ class CloudWatchClient:
         while True:
             _response = self.describe_anomaly_detectors(
                 config_overrides=config_overrides,
+                anomaly_detector_ids=anomaly_detector_ids,
                 next_token=_token,
                 max_results=max_results,
                 namespace=namespace,
@@ -1791,7 +1817,7 @@ class CloudWatchClient:
         r"""<p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your own custom live dashboard.</p> <p>The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and vertical annotations.</p> <p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p> <ul> <li> <p>As many as 100 metrics in the graph.</p> </li> <li> <p>Up to 100 KB uncompressed payload.</p> </li> </ul>
 
         Args:
-            metric_widget: <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code> call.</p> <p>For more information about the syntax of <code>MetricWidget</code> see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html\">GetMetricWidgetImage: Metric Widget Structure and Syntax</a>.</p> <p>If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.</p>
+            metric_widget: <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code> call.</p> <p>For more information about the syntax of <code>MetricWidget</code> see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Widget-Structure.html\">GetMetricWidgetImage: Metric Widget Structure and Syntax</a>.</p> <p>If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.</p>
             output_format: <p>The format of the resulting image. Only PNG images are supported.</p> <p>The default is <code>png</code>. If you specify <code>png</code>, the API returns an HTTP response with the content-type set to <code>text/xml</code>. The image data is in a <code>MetricWidgetImage</code> field. For example:</p> <p> <code> <GetMetricWidgetImageResponse xmlns=<URLstring>></code> </p> <p> <code> <GetMetricWidgetImageResult></code> </p> <p> <code> <MetricWidgetImage></code> </p> <p> <code> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</code> </p> <p> <code> </MetricWidgetImage></code> </p> <p> <code> </GetMetricWidgetImageResult></code> </p> <p> <code> <ResponseMetadata></code> </p> <p> <code> <RequestId>6f0d4192-4d42-11e8-82c1-f539a07e0e3b</RequestId></code> </p> <p> <code> </ResponseMetadata></code> </p> <p> <code></GetMetricWidgetImageResponse></code> </p> <p>The <code>image/png</code> setting is intended only for custom HTTP requests. For most use cases, and all actions using an Amazon Web Services SDK, you should use <code>png</code>. If you specify <code>image/png</code>, the HTTP response has a content-type set to <code>image/png</code>, and the body of the response is a PNG image.</p>
 
         Raises:
@@ -2503,7 +2529,7 @@ class CloudWatchClient:
 
         Args:
             dashboard_name: <p>The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is required.</p>
-            dashboard_body: <p>The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.</p> <p>For more information about the syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html\">Dashboard Body Structure and Syntax</a>.</p>
+            dashboard_body: <p>The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.</p> <p>For more information about the syntax, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Dashboard-Body-Structure.html\">Dashboard Body Structure and Syntax</a>.</p>
             tags: <p>A list of key-value pairs to associate with the dashboard. You can associate as many as 50 tags with a dashboard.</p> <p>Tags can help you organize and categorize your dashboards. You can also use them to scope user permissions by granting a user permission to access or change only dashboards with certain tag values.</p> <p>You can use this parameter only when creating a new dashboard. If you specify <code>Tags</code> when updating an existing dashboard, the tag updates are ignored. To add or update tags on an existing dashboard, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a>. To remove tags, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>
 
         Raises:
@@ -2611,6 +2637,125 @@ class CloudWatchClient:
         )
         return response.output
 
+    def put_log_alarm(
+        self,
+        *,
+        config_overrides: Optional[CloudWatchClientConfig] = None,
+        alarm_name: Optional["capo_cloudwatch.types.alarm_name.AlarmName"] = None,
+        alarm_description: Optional[
+            "capo_cloudwatch.types.alarm_description.AlarmDescription"
+        ] = None,
+        scheduled_query_configuration: Optional[
+            "capo_cloudwatch.types.scheduled_query_configuration.ScheduledQueryConfiguration"
+        ] = None,
+        action_log_line_count: Optional[
+            "capo_cloudwatch.types.action_log_line_count.ActionLogLineCount"
+        ] = None,
+        action_log_line_role_arn: Optional[
+            "capo_cloudwatch.types.action_log_line_role_arn.ActionLogLineRoleArn"
+        ] = None,
+        actions_enabled: Optional[
+            "capo_cloudwatch.types.actions_enabled.ActionsEnabled"
+        ] = None,
+        ok_actions: Optional["capo_cloudwatch.types.resource_list.ResourceList"] = None,
+        alarm_actions: Optional[
+            "capo_cloudwatch.types.resource_list.ResourceList"
+        ] = None,
+        insufficient_data_actions: Optional[
+            "capo_cloudwatch.types.resource_list.ResourceList"
+        ] = None,
+        query_results_to_evaluate: Optional[
+            "capo_cloudwatch.types.query_results_to_evaluate.QueryResultsToEvaluate"
+        ] = None,
+        query_results_to_alarm: Optional[
+            "capo_cloudwatch.types.query_results_to_alarm.QueryResultsToAlarm"
+        ] = None,
+        threshold: Optional["capo_cloudwatch.types.threshold.Threshold"] = None,
+        comparison_operator: Optional[
+            "capo_cloudwatch.types.comparison_operator.ComparisonOperator"
+        ] = None,
+        treat_missing_data: Optional[
+            "capo_cloudwatch.types.treat_missing_data.TreatMissingData"
+        ] = None,
+        tags: Optional["capo_cloudwatch.types.tag_list.TagList"] = None,
+    ) -> None:
+        """<p>Creates or updates a log alarm. A log alarm evaluates the results of a CloudWatch Logs scheduled query against the configured threshold and comparison operator to determine its state.</p> <p>When you create a log alarm, the operation creates a service-managed CloudWatch Logs scheduled query that runs the query string you provide on the schedule you configure. Each scheduled query execution returns one or more aggregated values determined by the <code>AggregationExpression</code>, and each aggregated value is compared against the alarm <code>Threshold</code> to determine the alarm state. The alarm uses M-out-of-N evaluation: if <code>QueryResultsToAlarm</code> out of the most recent <code>QueryResultsToEvaluate</code> query results breach the threshold, the alarm transitions to <code>ALARM</code>.</p> <p>Log alarms support the alarm states (<code>OK</code>, <code>ALARM</code>, <code>INSUFFICIENT_DATA</code>). Configure transition actions using <code>OKActions</code>, <code>AlarmActions</code>, and <code>InsufficientDataActions</code>.</p> <p>If you call this operation with the name of an existing log alarm, the operation replaces the previous configuration of that alarm.</p> <p> <b>Permissions</b> </p> <p>To create or update a log alarm, you must have the <code>cloudwatch:PutLogAlarm</code> permission. The IAM role specified in <code>ScheduledQueryRoleARN</code> must grant the CloudWatch Alarms service permission to execute scheduled queries on the specified log groups. If you set <code>ActionLogLineCount</code>, the role specified in <code>ActionLogLineRoleArn</code> must grant permission to retrieve log events for inclusion in alarm notifications.</p>
+
+        Args:
+            alarm_name: <p>The name for the alarm. This name must be unique within the Amazon Web Services account and Region.</p>
+            alarm_description: <p>The description for the alarm.</p>
+            scheduled_query_configuration: <p>The configuration of the underlying CloudWatch Logs scheduled query that this alarm evaluates, including the query string, log groups, schedule, and aggregation expression.</p>
+            action_log_line_count: <p>The number of log lines from the most recent scheduled query execution to include in alarm action notifications. Valid range is 0 through 50. The default is 0, which means no log lines are included.</p>
+            action_log_line_role_arn: <p>The Amazon Resource Name (ARN) of an IAM role that CloudWatch assumes to retrieve log events for inclusion in alarm action notifications. Required when <code>ActionLogLineCount</code> is greater than 0.</p>
+            actions_enabled: <p>Indicates whether actions should be executed during any changes to the alarm state. The default is <code>true</code>.</p>
+            ok_actions: <p>The actions to execute when this alarm transitions to the <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p> <p>Valid Values:</p> <p> <b>Amazon SNS actions:</b> </p> <p> <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> </code> </p> <p> <b>Lambda actions:</b> </p> <ul> <li> <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i> </code> </p> </li> <li> <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i> </code> </p> </li> <li> <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i> </code> </p> </li> </ul>
+            alarm_actions: <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p> <p>Valid Values:</p> <p> <b>Amazon SNS actions:</b> </p> <p> <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> </code> </p> <p> <b>Lambda actions:</b> </p> <ul> <li> <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i> </code> </p> </li> <li> <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i> </code> </p> </li> <li> <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i> </code> </p> </li> </ul> <p> <b>Systems Manager actions:</b> </p> <p> <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i> </code> </p>
+            insufficient_data_actions: <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p> <p>Valid Values:</p> <p> <b>Amazon SNS actions:</b> </p> <p> <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> </code> </p> <p> <b>Lambda actions:</b> </p> <ul> <li> <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i> </code> </p> </li> <li> <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i> </code> </p> </li> <li> <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i> </code> </p> </li> </ul>
+            query_results_to_evaluate: <p>The number of most recent scheduled query results to evaluate against the threshold (the N in M-of-N evaluation). Valid range is 1 through 100.</p>
+            query_results_to_alarm: <p>The number of query results, out of the most recent <code>QueryResultsToEvaluate</code> results, that must breach the threshold to trigger the alarm to transition to <code>ALARM</code> (the M in M-of-N evaluation). Must be less than or equal to <code>QueryResultsToEvaluate</code>.</p>
+            threshold: <p>The value to compare with the aggregated query result.</p>
+            comparison_operator: <p>The arithmetic operation to use when comparing the aggregated query result and the threshold. The aggregated query result is used as the first operand. Valid values are <code>GreaterThanThreshold</code>, <code>GreaterThanOrEqualToThreshold</code>, <code>LessThanThreshold</code>, and <code>LessThanOrEqualToThreshold</code>.</p>
+            treat_missing_data: <p>Sets how this alarm is to handle missing data points. Valid values are <code>breaching</code>, <code>notBreaching</code>, <code>ignore</code>, and <code>missing</code>. If this parameter is omitted, the default behavior of <code>missing</code> is used.</p>
+            tags: <p>A list of key-value pairs to associate with the alarm. You can use tags to categorize and manage your alarms.</p>
+
+        Raises:
+            capo_cloudwatch.errors.limit_exceeded_fault.LimitExceededFault: <p>The quota for alarms for this customer has already been reached.</p>
+            capo_cloudwatch.errors.resource_conflict.ResourceConflict: <p>The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.</p>
+            capo_cloudwatch.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_cloudwatch.types.put_log_alarm_input.PutLogAlarmInput]",
+        ) -> OperationResponse[None]:
+            import capo_cloudwatch._operations.granite_service_version20100801.put_log_alarm
+
+            output, http_response = (
+                capo_cloudwatch._operations.granite_service_version20100801.put_log_alarm.put_log_alarm(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_cloudwatch.types.put_log_alarm_input.PutLogAlarmInput = {}  # type: ignore[typeddict-item]
+        if alarm_name is not None:
+            input_["alarm_name"] = alarm_name
+        if alarm_description is not None:
+            input_["alarm_description"] = alarm_description
+        if scheduled_query_configuration is not None:
+            input_["scheduled_query_configuration"] = scheduled_query_configuration
+        if action_log_line_count is not None:
+            input_["action_log_line_count"] = action_log_line_count
+        if action_log_line_role_arn is not None:
+            input_["action_log_line_role_arn"] = action_log_line_role_arn
+        if actions_enabled is not None:
+            input_["actions_enabled"] = actions_enabled
+        if ok_actions is not None:
+            input_["ok_actions"] = ok_actions
+        if alarm_actions is not None:
+            input_["alarm_actions"] = alarm_actions
+        if insufficient_data_actions is not None:
+            input_["insufficient_data_actions"] = insufficient_data_actions
+        if query_results_to_evaluate is not None:
+            input_["query_results_to_evaluate"] = query_results_to_evaluate
+        if query_results_to_alarm is not None:
+            input_["query_results_to_alarm"] = query_results_to_alarm
+        if threshold is not None:
+            input_["threshold"] = threshold
+        if comparison_operator is not None:
+            input_["comparison_operator"] = comparison_operator
+        if treat_missing_data is not None:
+            input_["treat_missing_data"] = treat_missing_data
+        if tags is not None:
+            input_["tags"] = tags
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def put_managed_insight_rules(
         self,
         *,
@@ -2706,6 +2851,9 @@ class CloudWatchClient:
         threshold_metric_id: Optional[
             "capo_cloudwatch.types.metric_id.MetricId"
         ] = None,
+        evaluation_window: Optional[
+            "capo_cloudwatch.types.evaluation_window.EvaluationWindow"
+        ] = None,
         evaluation_criteria: Optional[
             "capo_cloudwatch.types.evaluation_criteria.EvaluationCriteria"
         ] = None,
@@ -2738,6 +2886,7 @@ class CloudWatchClient:
             metrics: <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a metric math expression. For each <code>PutMetricAlarm</code> operation, you must specify either <code>MetricName</code>, a <code>Metrics</code> array, or an <code>EvaluationCriteria</code>.</p> <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p> <p>One item in the <code>Metrics</code> array is the expression that the alarm watches. You designate this expression by setting <code>ReturnData</code> to true for this object in the array. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html\">MetricDataQuery</a>.</p> <p>If you use the <code>Metrics</code> parameter, you cannot include the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
             tags: <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the <code>cloudwatch:TagResource</code> permission.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>If you are using this operation to update an existing alarm, any tags you specify in this parameter are ignored. To change the tags of an existing alarm, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a> or <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p> <p>To use this field to set tags for an alarm when you create it, you must be signed on with both the <code>cloudwatch:PutMetricAlarm</code> and <code>cloudwatch:TagResource</code> permissions.</p>
             threshold_metric_id: <p>If this is an alarm based on an anomaly detection model, make this value match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an example of how to use this parameter, see the <b>Anomaly Detection Model Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
+            evaluation_window: <p>The evaluation window that the alarm uses to select the range of metric data that it evaluates. Specify either a sliding window or a wall clock window. If you omit this parameter, the alarm uses a sliding window.</p> <p>A sliding window advances each time the alarm is evaluated, forming a rolling time window. A wall clock window aligns the evaluated range to fixed clock boundaries, such as the top of the hour or the start of the day.</p> <p>You can use <code>EvaluationWindow</code> with any type of metric alarm except alarms that are based on a PromQL query.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html\">Alarm evaluation windows</a> in the <i>CloudWatch User Guide</i>.</p>
             evaluation_criteria: <p>The evaluation criteria for the alarm. For each <code>PutMetricAlarm</code> operation, you must specify either <code>MetricName</code>, a <code>Metrics</code> array, or an <code>EvaluationCriteria</code>.</p> <p>If you use the <code>EvaluationCriteria</code> parameter, you cannot include the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Unit</code>, <code>Statistic</code>, <code>ExtendedStatistic</code>, <code>Metrics</code>, <code>Threshold</code>, <code>ComparisonOperator</code>, <code>ThresholdMetricId</code>, <code>EvaluationPeriods</code>, or <code>DatapointsToAlarm</code> parameters of <code>PutMetricAlarm</code> in the same operation. Instead, all evaluation parameters are defined within this structure.</p> <p>For an example of how to use this parameter, see the <b>PromQL alarm</b> example on this page.</p>
             evaluation_interval: <p>The frequency, in seconds, at which the alarm is evaluated. Valid values are 10, 20, 30, and any multiple of 60.</p> <p>This parameter is required for alarms that use <code>EvaluationCriteria</code>, and cannot be specified for alarms configured with <code>MetricName</code> or <code>Metrics</code>.</p>
 
@@ -2806,6 +2955,8 @@ class CloudWatchClient:
             input_["tags"] = tags
         if threshold_metric_id is not None:
             input_["threshold_metric_id"] = threshold_metric_id
+        if evaluation_window is not None:
+            input_["evaluation_window"] = evaluation_window
         if evaluation_criteria is not None:
             input_["evaluation_criteria"] = evaluation_criteria
         if evaluation_interval is not None:

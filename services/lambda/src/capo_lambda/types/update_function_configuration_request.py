@@ -78,7 +78,7 @@ class UpdateFunctionConfigurationRequest(TypedDict, closed=True):
     ]
     """<p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>"""
     durable_config: NotRequired["capo_lambda.types.durable_config.DurableConfig"]
-    """<p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>"""
+    r"""<p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>"""
 
 
 # --- restJson1 ser/de ---

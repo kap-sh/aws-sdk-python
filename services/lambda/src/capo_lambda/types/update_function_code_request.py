@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     import capo_lambda.types.kms_key_arn
     import capo_lambda.types.s3_bucket
     import capo_lambda.types.s3_key
+    import capo_lambda.types.s3_object_storage_mode
     import capo_lambda.types.s3_object_version
     import capo_lambda.types.string
 
@@ -30,22 +31,26 @@ class UpdateFunctionCodeRequest(TypedDict, closed=True):
         "capo_lambda.types.s3_object_version.S3ObjectVersion"
     ]
     """<p>For versioned objects, the version of the deployment package object to use.</p>"""
+    s3_object_storage_mode: NotRequired[
+        "capo_lambda.types.s3_object_storage_mode.S3ObjectStorageMode"
+    ]
+    """<p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>"""
     image_uri: NotRequired["capo_lambda.types.string.String"]
     """<p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>"""
-    publish: "capo_lambda.types.boolean.Boolean"
-    """<p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>"""
-    dry_run: "capo_lambda.types.boolean.Boolean"
-    """<p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>"""
-    revision_id: NotRequired["capo_lambda.types.string.String"]
-    """<p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>"""
     architectures: NotRequired["capo_lambda.types.architectures_list.ArchitecturesList"]
     """<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>"""
-    source_kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
-    """<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>"""
+    publish: "capo_lambda.types.boolean.Boolean"
+    """<p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>"""
     publish_to: NotRequired[
         "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
     ]
     """<p>Specifies where to publish the function version or configuration.</p>"""
+    dry_run: "capo_lambda.types.boolean.Boolean"
+    """<p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>"""
+    revision_id: NotRequired["capo_lambda.types.string.String"]
+    """<p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>"""
+    source_kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
+    """<p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -61,20 +66,23 @@ def serialize_json(value: UpdateFunctionCodeRequest) -> dict:
         out["S3Key"] = value["s3_key"]
     if "s3_object_version" in value:
         out["S3ObjectVersion"] = value["s3_object_version"]
+    if "s3_object_storage_mode" in value:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["S3ObjectStorageMode"] = (
+            capo_lambda.types.s3_object_storage_mode.serialize_json(
+                value["s3_object_storage_mode"]
+            )
+        )
     if "image_uri" in value:
         out["ImageUri"] = value["image_uri"]
-    out["Publish"] = value.get("publish", False)
-    out["DryRun"] = value.get("dry_run", False)
-    if "revision_id" in value:
-        out["RevisionId"] = value["revision_id"]
     if "architectures" in value:
         import capo_lambda.types.architectures_list
 
         out["Architectures"] = capo_lambda.types.architectures_list.serialize_json(
             value["architectures"]
         )
-    if "source_kms_key_arn" in value:
-        out["SourceKMSKeyArn"] = value["source_kms_key_arn"]
+    out["Publish"] = value.get("publish", False)
     if "publish_to" in value:
         import capo_lambda.types.function_version_latest_published
 
@@ -83,6 +91,11 @@ def serialize_json(value: UpdateFunctionCodeRequest) -> dict:
                 value["publish_to"]
             )
         )
+    out["DryRun"] = value.get("dry_run", False)
+    if "revision_id" in value:
+        out["RevisionId"] = value["revision_id"]
+    if "source_kms_key_arn" in value:
+        out["SourceKMSKeyArn"] = value["source_kms_key_arn"]
     return out
 
 
@@ -98,26 +111,26 @@ def deserialize_json(data: dict) -> UpdateFunctionCodeRequest:
         out["s3_key"] = data["S3Key"]
     if "S3ObjectVersion" in data:
         out["s3_object_version"] = data["S3ObjectVersion"]
+    if "S3ObjectStorageMode" in data:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["s3_object_storage_mode"] = (
+            capo_lambda.types.s3_object_storage_mode.deserialize_json(
+                data["S3ObjectStorageMode"]
+            )
+        )
     if "ImageUri" in data:
         out["image_uri"] = data["ImageUri"]
-    if "Publish" in data:
-        out["publish"] = data["Publish"]
-    else:
-        out["publish"] = False
-    if "DryRun" in data:
-        out["dry_run"] = data["DryRun"]
-    else:
-        out["dry_run"] = False
-    if "RevisionId" in data:
-        out["revision_id"] = data["RevisionId"]
     if "Architectures" in data:
         import capo_lambda.types.architectures_list
 
         out["architectures"] = capo_lambda.types.architectures_list.deserialize_json(
             data["Architectures"]
         )
-    if "SourceKMSKeyArn" in data:
-        out["source_kms_key_arn"] = data["SourceKMSKeyArn"]
+    if "Publish" in data:
+        out["publish"] = data["Publish"]
+    else:
+        out["publish"] = False
     if "PublishTo" in data:
         import capo_lambda.types.function_version_latest_published
 
@@ -126,4 +139,12 @@ def deserialize_json(data: dict) -> UpdateFunctionCodeRequest:
                 data["PublishTo"]
             )
         )
+    if "DryRun" in data:
+        out["dry_run"] = data["DryRun"]
+    else:
+        out["dry_run"] = False
+    if "RevisionId" in data:
+        out["revision_id"] = data["RevisionId"]
+    if "SourceKMSKeyArn" in data:
+        out["source_kms_key_arn"] = data["SourceKMSKeyArn"]
     return out

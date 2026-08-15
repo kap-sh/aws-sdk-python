@@ -14,6 +14,7 @@ import capo_lambda._auth._sigv4
 import capo_lambda.errors.invalid_parameter_value_exception
 import capo_lambda.errors.policy_length_exceeded_exception
 import capo_lambda.errors.precondition_failed_exception
+import capo_lambda.errors.public_policy_exception
 import capo_lambda.errors.resource_conflict_exception
 import capo_lambda.errors.resource_not_found_exception
 import capo_lambda.errors.service_exception
@@ -41,6 +42,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "PreconditionFailedException":
             raise capo_lambda.errors.precondition_failed_exception.PreconditionFailedException.from_json(
+                data, message
+            )
+        case "PublicPolicyException":
+            raise capo_lambda.errors.public_policy_exception.PublicPolicyException.from_json(
                 data, message
             )
         case "ResourceConflictException":

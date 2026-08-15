@@ -11,9 +11,11 @@ if TYPE_CHECKING:
     import capo_lambda.types.capacity_provider_permissions_config
     import capo_lambda.types.capacity_provider_scaling_config
     import capo_lambda.types.capacity_provider_state
+    import capo_lambda.types.capacity_provider_telemetry_config
     import capo_lambda.types.capacity_provider_vpc_config
     import capo_lambda.types.instance_requirements
     import capo_lambda.types.kms_key_arn
+    import capo_lambda.types.propagate_tags
     import capo_lambda.types.timestamp
 
 
@@ -40,6 +42,11 @@ class CapacityProvider(TypedDict, closed=True):
     """<p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>"""
     last_modified: NotRequired["capo_lambda.types.timestamp.Timestamp"]
     """<p>The date and time when the capacity provider was last modified.</p>"""
+    propagate_tags: NotRequired["capo_lambda.types.propagate_tags.PropagateTags"]
+    telemetry_config: NotRequired[
+        "capo_lambda.types.capacity_provider_telemetry_config.CapacityProviderTelemetryConfig"
+    ]
+    """<p>The telemetry configuration for the capacity provider, including logging settings.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -83,6 +90,20 @@ def serialize_json(value: CapacityProvider) -> dict:
         out["KmsKeyArn"] = value["kms_key_arn"]
     if "last_modified" in value:
         out["LastModified"] = value["last_modified"]
+    if "propagate_tags" in value:
+        import capo_lambda.types.propagate_tags
+
+        out["PropagateTags"] = capo_lambda.types.propagate_tags.serialize_json(
+            value["propagate_tags"]
+        )
+    if "telemetry_config" in value:
+        import capo_lambda.types.capacity_provider_telemetry_config
+
+        out["TelemetryConfig"] = (
+            capo_lambda.types.capacity_provider_telemetry_config.serialize_json(
+                value["telemetry_config"]
+            )
+        )
     return out
 
 
@@ -140,4 +161,18 @@ def deserialize_json(data: dict) -> CapacityProvider:
         out["kms_key_arn"] = data["KmsKeyArn"]
     if "LastModified" in data:
         out["last_modified"] = data["LastModified"]
+    if "PropagateTags" in data:
+        import capo_lambda.types.propagate_tags
+
+        out["propagate_tags"] = capo_lambda.types.propagate_tags.deserialize_json(
+            data["PropagateTags"]
+        )
+    if "TelemetryConfig" in data:
+        import capo_lambda.types.capacity_provider_telemetry_config
+
+        out["telemetry_config"] = (
+            capo_lambda.types.capacity_provider_telemetry_config.deserialize_json(
+                data["TelemetryConfig"]
+            )
+        )
     return out

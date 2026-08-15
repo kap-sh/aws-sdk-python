@@ -16,6 +16,7 @@ import capo_ec2.types.destination_options_request
 import capo_ec2.types.flow_log_resource_ids
 import capo_ec2.types.flow_logs_resource_type
 import capo_ec2.types.log_destination_type
+import capo_ec2.types.tag_field_specification_list_request
 import capo_ec2.types.tag_specification_list
 import capo_ec2.types.traffic_type
 import capo_ec2.types.unsuccessful_item_set

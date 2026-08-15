@@ -1,0 +1,173 @@
+"""Generated from Smithy shape ``com.amazonaws.s3#DeleteObjectAnnotation``."""
+
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import quote
+
+import zapros
+from typing_extensions import Never
+
+import capo_s3._auth._signers
+import capo_s3._auth._sigv4
+import capo_s3._protocol.eventstream
+import capo_s3.errors.no_such_bucket
+import capo_s3.errors.no_such_key
+import capo_s3.types.delete_object_annotation_output
+import capo_s3.types.delete_object_annotation_request
+import capo_s3.types.request_charged
+import capo_s3.types.request_payer
+from capo_s3._protocol.errors import find_error_element, parse_error_metadata
+from capo_s3._protocol.xml import fromstring
+from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
+from capo_s3._rule_engine._endpoint_runtime import apply_label
+from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
+from capo_s3.errors import UnknownServiceError
+
+
+def handle_error(response: zapros.Response) -> Never:
+    root = fromstring(response.read())
+    code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
+    match code:
+        case "NoSuchBucket":
+            raise capo_s3.errors.no_such_bucket.NoSuchBucket.from_xml(error_el, message)
+        case "NoSuchKey":
+            raise capo_s3.errors.no_such_key.NoSuchKey.from_xml(error_el, message)
+        case _:
+            raise UnknownServiceError(code=code, message=message, response=response)
+
+
+def handle_response(
+    response: zapros.Response,
+) -> capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput:
+    out: capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput = {}  # type: ignore[typeddict-item]
+    if "x-amz-object-version-id" in response.headers:
+        out["object_version_id"] = response.headers["x-amz-object-version-id"]
+    if "x-amz-request-charged" in response.headers:
+        out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput:
+    out: capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput = {}  # type: ignore[typeddict-item]
+    if "x-amz-object-version-id" in response.headers:
+        out["object_version_id"] = response.headers["x-amz-object-version-id"]
+    if "x-amz-request-charged" in response.headers:
+        out["request_charged"] = capo_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
+
+
+def get_signer(
+    options: AsyncOperationOptions | OperationOptions,
+    auth_schemes: list[dict[str, Any]] | None = None,
+) -> capo_s3._auth._signers.Signer | None:
+    name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
+    if options.credentials_provider is not None:
+        sigv4_config = (
+            name_to_schema.get("sigv4")
+            or name_to_schema.get("sigv4a")
+            or name_to_schema.get("sigv4-s3express")
+            or capo_s3._auth._sigv4.build_sigv4_auth_scheme("s3", options.region)
+        )
+        if sigv4_config is not None:
+            return capo_s3._auth._signers.SigV4Signer(
+                options.credentials_provider, auth_scheme=sigv4_config
+            )
+    raise RuntimeError("Auth was not resolved")
+
+
+def build_request(
+    options: OperationOptions | AsyncOperationOptions,
+    input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest,
+) -> zapros.Request:
+    endpoint = resolve(
+        EndpointParams(
+            Bucket=input_.get("bucket"),
+            Region=options.region,
+            UseFIPS=options.use_fips,
+            UseDualStack=options.use_dual_stack,
+            Endpoint=options.endpoint,
+            ForcePathStyle=options.force_path_style,
+            Accelerate=options.accelerate,
+            UseGlobalEndpoint=options.use_global_endpoint,
+            UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
+            Key=options.key,
+            Prefix=options.prefix,
+            CopySource=options.copy_source,
+            DisableAccessPoints=options.disable_access_points,
+            DisableMultiRegionAccessPoints=options.disable_multi_region_access_points,
+            UseArnRegion=options.use_arn_region,
+            UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
+            DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
+        )
+    )  # noqa: F841
+    import capo_s3.types.request_payer
+
+    url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?annotation"
+    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = url.replace("{Key+}", quote(input_["key"], safe="/"))
+    params: list[tuple[str, str]] = []
+    if "annotation_name" in input_:
+        params.append(("annotationName", input_["annotation_name"]))
+    if "version_id" in input_:
+        params.append(("versionId", input_["version_id"]))
+    headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = capo_s3.types.request_payer.to_xml_text(
+            input_["request_payer"]
+        )
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
+    if "object_if_match" in input_:
+        headers["x-amz-object-if-match"] = input_["object_if_match"]
+    body: bytes | None = b""
+    signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    normalized_url = zapros.URL(url)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
+    return zapros.Request(
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
+    )
+
+
+def delete_object_annotation(
+    options: OperationOptions,
+    input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest,
+) -> tuple[
+    capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput,
+    zapros.Response,
+]:
+    response = options.client.handler.handle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            response.read()
+            handle_error(response)
+        return handle_response(response), response
+    except BaseException:
+        response.close()
+        raise
+
+
+async def async_delete_object_annotation(
+    options: AsyncOperationOptions,
+    input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest,
+) -> tuple[
+    capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput,
+    zapros.Response,
+]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
+    try:
+        if response.status >= 400:
+            await response.aread()
+            handle_error(response)
+        return await async_handle_response(response), response
+    except BaseException:
+        await response.aclose()
+        raise

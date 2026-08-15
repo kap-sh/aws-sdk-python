@@ -56,6 +56,10 @@ class CreateFunctionRequest(TypedDict, closed=True):
     r"""<p>The amount of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console\">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>"""
     publish: "capo_lambda.types.boolean.Boolean"
     """<p>Set to true to publish the first version of the function during creation.</p>"""
+    publish_to: NotRequired[
+        "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
+    ]
+    """<p>Specifies where to publish the function version or configuration.</p>"""
     vpc_config: NotRequired["capo_lambda.types.vpc_config.VpcConfig"]
     r"""<p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">Configuring a Lambda function to access resources in a VPC</a>.</p>"""
     package_type: NotRequired["capo_lambda.types.package_type.PackageType"]
@@ -78,12 +82,12 @@ class CreateFunctionRequest(TypedDict, closed=True):
         "capo_lambda.types.file_system_config_list.FileSystemConfigList"
     ]
     """<p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>"""
-    image_config: NotRequired["capo_lambda.types.image_config.ImageConfig"]
-    r"""<p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>"""
     code_signing_config_arn: NotRequired[
         "capo_lambda.types.code_signing_config_arn.CodeSigningConfigArn"
     ]
     """<p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>"""
+    image_config: NotRequired["capo_lambda.types.image_config.ImageConfig"]
+    r"""<p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>"""
     architectures: NotRequired["capo_lambda.types.architectures_list.ArchitecturesList"]
     """<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>"""
     ephemeral_storage: NotRequired[
@@ -94,18 +98,14 @@ class CreateFunctionRequest(TypedDict, closed=True):
     r"""<p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">SnapStart</a> setting.</p>"""
     logging_config: NotRequired["capo_lambda.types.logging_config.LoggingConfig"]
     """<p>The function's Amazon CloudWatch Logs configuration settings.</p>"""
+    tenancy_config: NotRequired["capo_lambda.types.tenancy_config.TenancyConfig"]
+    """<p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>"""
     capacity_provider_config: NotRequired[
         "capo_lambda.types.capacity_provider_config.CapacityProviderConfig"
     ]
     """<p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>"""
-    publish_to: NotRequired[
-        "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
-    ]
-    """<p>Specifies where to publish the function version or configuration.</p>"""
     durable_config: NotRequired["capo_lambda.types.durable_config.DurableConfig"]
     """<p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>"""
-    tenancy_config: NotRequired["capo_lambda.types.tenancy_config.TenancyConfig"]
-    """<p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -129,6 +129,14 @@ def serialize_json(value: CreateFunctionRequest) -> dict:
     if "memory_size" in value:
         out["MemorySize"] = value["memory_size"]
     out["Publish"] = value.get("publish", False)
+    if "publish_to" in value:
+        import capo_lambda.types.function_version_latest_published
+
+        out["PublishTo"] = (
+            capo_lambda.types.function_version_latest_published.serialize_json(
+                value["publish_to"]
+            )
+        )
     if "vpc_config" in value:
         import capo_lambda.types.vpc_config
 
@@ -177,14 +185,14 @@ def serialize_json(value: CreateFunctionRequest) -> dict:
                 value["file_system_configs"]
             )
         )
+    if "code_signing_config_arn" in value:
+        out["CodeSigningConfigArn"] = value["code_signing_config_arn"]
     if "image_config" in value:
         import capo_lambda.types.image_config
 
         out["ImageConfig"] = capo_lambda.types.image_config.serialize_json(
             value["image_config"]
         )
-    if "code_signing_config_arn" in value:
-        out["CodeSigningConfigArn"] = value["code_signing_config_arn"]
     if "architectures" in value:
         import capo_lambda.types.architectures_list
 
@@ -209,6 +217,12 @@ def serialize_json(value: CreateFunctionRequest) -> dict:
         out["LoggingConfig"] = capo_lambda.types.logging_config.serialize_json(
             value["logging_config"]
         )
+    if "tenancy_config" in value:
+        import capo_lambda.types.tenancy_config
+
+        out["TenancyConfig"] = capo_lambda.types.tenancy_config.serialize_json(
+            value["tenancy_config"]
+        )
     if "capacity_provider_config" in value:
         import capo_lambda.types.capacity_provider_config
 
@@ -217,25 +231,11 @@ def serialize_json(value: CreateFunctionRequest) -> dict:
                 value["capacity_provider_config"]
             )
         )
-    if "publish_to" in value:
-        import capo_lambda.types.function_version_latest_published
-
-        out["PublishTo"] = (
-            capo_lambda.types.function_version_latest_published.serialize_json(
-                value["publish_to"]
-            )
-        )
     if "durable_config" in value:
         import capo_lambda.types.durable_config
 
         out["DurableConfig"] = capo_lambda.types.durable_config.serialize_json(
             value["durable_config"]
-        )
-    if "tenancy_config" in value:
-        import capo_lambda.types.tenancy_config
-
-        out["TenancyConfig"] = capo_lambda.types.tenancy_config.serialize_json(
-            value["tenancy_config"]
         )
     return out
 
@@ -272,6 +272,14 @@ def deserialize_json(data: dict) -> CreateFunctionRequest:
         out["publish"] = data["Publish"]
     else:
         out["publish"] = False
+    if "PublishTo" in data:
+        import capo_lambda.types.function_version_latest_published
+
+        out["publish_to"] = (
+            capo_lambda.types.function_version_latest_published.deserialize_json(
+                data["PublishTo"]
+            )
+        )
     if "VpcConfig" in data:
         import capo_lambda.types.vpc_config
 
@@ -322,14 +330,14 @@ def deserialize_json(data: dict) -> CreateFunctionRequest:
                 data["FileSystemConfigs"]
             )
         )
+    if "CodeSigningConfigArn" in data:
+        out["code_signing_config_arn"] = data["CodeSigningConfigArn"]
     if "ImageConfig" in data:
         import capo_lambda.types.image_config
 
         out["image_config"] = capo_lambda.types.image_config.deserialize_json(
             data["ImageConfig"]
         )
-    if "CodeSigningConfigArn" in data:
-        out["code_signing_config_arn"] = data["CodeSigningConfigArn"]
     if "Architectures" in data:
         import capo_lambda.types.architectures_list
 
@@ -354,6 +362,12 @@ def deserialize_json(data: dict) -> CreateFunctionRequest:
         out["logging_config"] = capo_lambda.types.logging_config.deserialize_json(
             data["LoggingConfig"]
         )
+    if "TenancyConfig" in data:
+        import capo_lambda.types.tenancy_config
+
+        out["tenancy_config"] = capo_lambda.types.tenancy_config.deserialize_json(
+            data["TenancyConfig"]
+        )
     if "CapacityProviderConfig" in data:
         import capo_lambda.types.capacity_provider_config
 
@@ -362,24 +376,10 @@ def deserialize_json(data: dict) -> CreateFunctionRequest:
                 data["CapacityProviderConfig"]
             )
         )
-    if "PublishTo" in data:
-        import capo_lambda.types.function_version_latest_published
-
-        out["publish_to"] = (
-            capo_lambda.types.function_version_latest_published.deserialize_json(
-                data["PublishTo"]
-            )
-        )
     if "DurableConfig" in data:
         import capo_lambda.types.durable_config
 
         out["durable_config"] = capo_lambda.types.durable_config.deserialize_json(
             data["DurableConfig"]
-        )
-    if "TenancyConfig" in data:
-        import capo_lambda.types.tenancy_config
-
-        out["tenancy_config"] = capo_lambda.types.tenancy_config.deserialize_json(
-            data["TenancyConfig"]
         )
     return out

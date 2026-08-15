@@ -15,11 +15,11 @@ class TransitGatewayPolicyRule(TypedDict, closed=True):
     source_cidr_block: NotRequired["capo_ec2.types.string.String"]
     """<p>The source CIDR block for the transit gateway policy rule.</p>"""
     source_port_range: NotRequired["capo_ec2.types.string.String"]
-    """<p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>"""
+    """<p>The source port or port range for the transit gateway policy rule.</p>"""
     destination_cidr_block: NotRequired["capo_ec2.types.string.String"]
     """<p>The destination CIDR block for the transit gateway policy rule.</p>"""
     destination_port_range: NotRequired["capo_ec2.types.string.String"]
-    """<p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>"""
+    """<p>The destination port or port range for the transit gateway policy rule.</p>"""
     protocol: NotRequired["capo_ec2.types.string.String"]
     """<p>The protocol used by the transit gateway policy rule.</p>"""
     meta_data: NotRequired[

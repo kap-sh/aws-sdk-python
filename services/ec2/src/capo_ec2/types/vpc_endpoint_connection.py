@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.dns_entry_set
     import capo_ec2.types.ip_address_type
     import capo_ec2.types.millisecond_date_time
+    import capo_ec2.types.payer_responsibility_set
     import capo_ec2.types.state
     import capo_ec2.types.string
     import capo_ec2.types.tag_list
@@ -47,6 +48,10 @@ class VpcEndpointConnection(TypedDict, closed=True):
     """<p>The tags.</p>"""
     vpc_endpoint_region: NotRequired["capo_ec2.types.string.String"]
     """<p>The Region of the endpoint.</p>"""
+    payer_responsibilities: NotRequired[
+        "capo_ec2.types.payer_responsibility_set.PayerResponsibilitySet"
+    ]
+    """<p>The payer responsibility settings for the endpoint.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -118,6 +123,14 @@ def serialize_ec2_query(
     if "vpc_endpoint_region" in value:
         pairs.append(
             (f"{key_prefix}VpcEndpointRegion", str(value["vpc_endpoint_region"]))
+        )
+    if "payer_responsibilities" in value:
+        import capo_ec2.types.payer_responsibility_set
+
+        capo_ec2.types.payer_responsibility_set.serialize_ec2_query(
+            value["payer_responsibilities"],
+            pairs,
+            f"{key_prefix}PayerResponsibilitySet",
         )
 
 
@@ -193,4 +206,13 @@ def deserialize_ec2_query(el: Element) -> VpcEndpointConnection:
     child_vpc_endpoint_region = el.find("vpcEndpointRegion")
     if child_vpc_endpoint_region is not None:
         out["vpc_endpoint_region"] = str(child_vpc_endpoint_region.text or "")
+    child_payer_responsibilities = el.find("payerResponsibilitySet")
+    if child_payer_responsibilities is not None:
+        import capo_ec2.types.payer_responsibility_set
+
+        out["payer_responsibilities"] = (
+            capo_ec2.types.payer_responsibility_set.deserialize_ec2_query(
+                child_payer_responsibilities
+            )
+        )
     return out

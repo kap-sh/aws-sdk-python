@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 
 
 class CreateExpressGatewayServiceRequest(TypedDict, closed=True):
-    execution_role_arn: "capo_ecs.types.string.String"
+    execution_role_arn: NotRequired["capo_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf. This role is required for Amazon ECS to pull container images from Amazon ECR, send container logs to Amazon CloudWatch Logs, and retrieve sensitive data from Amazon Web Services Systems Manager Parameter Store or Amazon Web Services Secrets Manager.</p> <p>The execution role must include the <code>AmazonECSTaskExecutionRolePolicy</code> managed policy or equivalent permissions. For Express services, this role is used during task startup and runtime for container management operations.</p>"""
     infrastructure_role_arn: "capo_ecs.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the infrastructure role that grants Amazon ECS permission to create and manage Amazon Web Services resources on your behalf for the Express service. This role is used to provision and manage Application Load Balancers, target groups, security groups, auto-scaling policies, and other Amazon Web Services infrastructure components.</p> <p>The infrastructure role must include permissions for Elastic Load Balancing, Application Auto Scaling, Amazon EC2 (for security groups), and other services required for managed infrastructure. This role is only used during Express service creation, updates, and deletion operations.</p>"""
@@ -25,9 +25,9 @@ class CreateExpressGatewayServiceRequest(TypedDict, closed=True):
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster on which to create the Express service. If you do not specify a cluster, the <code>default</code> cluster is assumed.</p>"""
     health_check_path: NotRequired["capo_ecs.types.string.String"]
     """<p>The path on the container that the Application Load Balancer uses for health checks. This should be a valid HTTP endpoint that returns a successful response (HTTP 200) when the application is healthy.</p> <p>If not specified, the default health check path is <code>/ping</code>. The health check path must start with a forward slash and can include query parameters. Examples: <code>/health</code>, <code>/api/status</code>, <code>/ping?format=json</code>.</p>"""
-    primary_container: (
+    primary_container: NotRequired[
         "capo_ecs.types.express_gateway_container.ExpressGatewayContainer"
-    )
+    ]
     """<p>The primary container configuration for the Express service. This defines the main application container that will receive traffic from the Application Load Balancer.</p> <p>The primary container must specify at minimum a container image. You can also configure the container port (defaults to 80), logging configuration, environment variables, secrets, and startup commands. The container image can be from Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.</p>"""
     task_role_arn: NotRequired["capo_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. This role allows your application code to access other Amazon Web Services services securely.</p> <p>The task role is different from the execution role. While the execution role is used by the Amazon ECS agent to set up the task, the task role is used by your application code running inside the container to make Amazon Web Services API calls. If your application doesn't need to access Amazon Web Services services, you can omit this parameter.</p>"""
@@ -45,12 +45,15 @@ class CreateExpressGatewayServiceRequest(TypedDict, closed=True):
     """<p>The auto-scaling configuration for the Express service. This defines how the service automatically adjusts the number of running tasks based on demand.</p> <p>You can specify the minimum and maximum number of tasks, the scaling metric (CPU utilization, memory utilization, or request count per target), and the target value for the metric. If not specified, the default target value for an Express service is 60.</p>"""
     tags: NotRequired["capo_ecs.types.tags.Tags"]
     """<p>The metadata that you apply to the Express service to help categorize and organize it. Each tag consists of a key and an optional value. You can apply up to 50 tags to a service.</p>"""
+    task_definition_arn: NotRequired["capo_ecs.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of a task definition to use to create the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: CreateExpressGatewayServiceRequest) -> dict:
     out: dict = {}
-    out["executionRoleArn"] = value["execution_role_arn"]
+    if "execution_role_arn" in value:
+        out["executionRoleArn"] = value["execution_role_arn"]
     out["infrastructureRoleArn"] = value["infrastructure_role_arn"]
     if "service_name" in value:
         out["serviceName"] = value["service_name"]
@@ -58,13 +61,14 @@ def serialize_aws_json_1_1(value: CreateExpressGatewayServiceRequest) -> dict:
         out["cluster"] = value["cluster"]
     if "health_check_path" in value:
         out["healthCheckPath"] = value["health_check_path"]
-    import capo_ecs.types.express_gateway_container
+    if "primary_container" in value:
+        import capo_ecs.types.express_gateway_container
 
-    out["primaryContainer"] = (
-        capo_ecs.types.express_gateway_container.serialize_aws_json_1_1(
-            value["primary_container"]
+        out["primaryContainer"] = (
+            capo_ecs.types.express_gateway_container.serialize_aws_json_1_1(
+                value["primary_container"]
+            )
         )
-    )
     if "task_role_arn" in value:
         out["taskRoleArn"] = value["task_role_arn"]
     if "network_configuration" in value:
@@ -91,6 +95,8 @@ def serialize_aws_json_1_1(value: CreateExpressGatewayServiceRequest) -> dict:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.serialize_aws_json_1_1(value["tags"])
+    if "task_definition_arn" in value:
+        out["taskDefinitionArn"] = value["task_definition_arn"]
     return out
 
 
@@ -98,10 +104,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateExpressGatewayServiceRequest:
     out: CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
     if "executionRoleArn" in data:
         out["execution_role_arn"] = data["executionRoleArn"]
-    else:
-        raise DeserializationError(
-            "CreateExpressGatewayServiceRequest.execution_role_arn required"
-        )
     if "infrastructureRoleArn" in data:
         out["infrastructure_role_arn"] = data["infrastructureRoleArn"]
     else:
@@ -121,10 +123,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateExpressGatewayServiceRequest:
             capo_ecs.types.express_gateway_container.deserialize_aws_json_1_1(
                 data["primaryContainer"]
             )
-        )
-    else:
-        raise DeserializationError(
-            "CreateExpressGatewayServiceRequest.primary_container required"
         )
     if "taskRoleArn" in data:
         out["task_role_arn"] = data["taskRoleArn"]
@@ -152,4 +150,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateExpressGatewayServiceRequest:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
+    if "taskDefinitionArn" in data:
+        out["task_definition_arn"] = data["taskDefinitionArn"]
     return out

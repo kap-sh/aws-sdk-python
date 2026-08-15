@@ -39,6 +39,7 @@ import capo_lambda.types.logging_config
 import capo_lambda.types.package_type
 import capo_lambda.types.runtime
 import capo_lambda.types.runtime_version_config
+import capo_lambda.types.s3_object_storage_mode
 import capo_lambda.types.snap_start_response
 import capo_lambda.types.state
 import capo_lambda.types.state_reason_code

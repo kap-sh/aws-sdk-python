@@ -59,23 +59,23 @@ class LayerVersion:
         layer_name: "capo_lambda.types.layer_name.LayerName",
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
+        compatible_architecture: Optional[
+            "capo_lambda.types.architecture.Architecture"
+        ] = None,
         compatible_runtime: Optional["capo_lambda.types.runtime.Runtime"] = None,
         marker: Optional["capo_lambda.types.string.String"] = None,
         max_items: Optional[
             "capo_lambda.types.max_layer_list_items.MaxLayerListItems"
         ] = None,
-        compatible_architecture: Optional[
-            "capo_lambda.types.architecture.Architecture"
-        ] = None,
     ) -> "capo_lambda.types.list_layer_versions_response.ListLayerVersionsResponse":
         r"""<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
 
         Args:
+            compatible_architecture: <p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>
             compatible_runtime: <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
             marker: <p>A pagination token returned by a previous call.</p>
             max_items: <p>The maximum number of versions to return.</p>
-            compatible_architecture: <p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
@@ -107,6 +107,8 @@ class LayerVersion:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
+        if compatible_architecture is not None:
+            input_["compatible_architecture"] = compatible_architecture
         if compatible_runtime is not None:
             input_["compatible_runtime"] = compatible_runtime
         input_["layer_name"] = layer_name
@@ -114,8 +116,6 @@ class LayerVersion:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        if compatible_architecture is not None:
-            input_["compatible_architecture"] = compatible_architecture
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -163,7 +163,7 @@ class LayerVersion:
             To add permissions to a layer version
             The following example grants permission for the account 223456789012 to use version 1 of a layer named my-layer.
 
-            >>> client.add_layer_version_permission(layer_name='my-layer', version_number=1, statement_id='xaccount', action='lambda:GetLayerVersion', principal='223456789012')
+            >>> client.add_layer_version_permission(action='lambda:GetLayerVersion', layer_name='my-layer', principal='223456789012', statement_id='xaccount', version_number=1)
         """
 
         def _handler(
@@ -213,6 +213,8 @@ class LayerVersion:
             version_number: <p>The version number.</p>
 
         Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -405,13 +407,13 @@ class LayerVersion:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
         description: Optional["capo_lambda.types.description.Description"] = None,
+        compatible_architectures: Optional[
+            "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
+        ] = None,
         compatible_runtimes: Optional[
             "capo_lambda.types.compatible_runtimes.CompatibleRuntimes"
         ] = None,
         license_info: Optional["capo_lambda.types.license_info.LicenseInfo"] = None,
-        compatible_architectures: Optional[
-            "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
-        ] = None,
     ) -> "capo_lambda.types.publish_layer_version_response.PublishLayerVersionResponse":
         r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
 
@@ -419,9 +421,9 @@ class LayerVersion:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
             description: <p>The description of the version.</p>
             content: <p>The function layer archive.</p>
+            compatible_architectures: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>
             compatible_runtimes: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\">Runtime deprecation policy</a>.</p>
             license_info: <p>The layer's software license. It can be any of the following:</p> <ul> <li> <p>An <a href=\"https://spdx.org/licenses/\">SPDX license identifier</a>. For example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p> </li> <li> <p>The full text of the license.</p> </li> </ul>
-            compatible_architectures: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>
 
         Raises:
             capo_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
@@ -435,7 +437,7 @@ class LayerVersion:
             To create a Lambda layer version
             The following example creates a new Python library layer version. The command retrieves the layer content a file named layer.zip in the specified S3 bucket.
 
-            >>> client.publish_layer_version(layer_name='my-layer', description='My Python layer', content={'S3Bucket': 'lambda-layers-us-west-2-123456789012', 'S3Key': 'layer.zip'}, compatible_runtimes=['python3.6', 'python3.7'], license_info='MIT')
+            >>> client.publish_layer_version(compatible_runtimes=['python3.6', 'python3.7'], content={'S3Bucket': 'lambda-layers-us-west-2-123456789012', 'S3Key': 'layer.zip'}, description='My Python layer', layer_name='my-layer', license_info='MIT')
         """
 
         def _handler(
@@ -458,12 +460,12 @@ class LayerVersion:
         if description is not None:
             input_["description"] = description
         input_["content"] = content
+        if compatible_architectures is not None:
+            input_["compatible_architectures"] = compatible_architectures
         if compatible_runtimes is not None:
             input_["compatible_runtimes"] = compatible_runtimes
         if license_info is not None:
             input_["license_info"] = license_info
-        if compatible_architectures is not None:
-            input_["compatible_architectures"] = compatible_architectures
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -501,7 +503,7 @@ class LayerVersion:
             To delete layer-version permissions
             The following example deletes permission for an account to configure a layer version.
 
-            >>> client.remove_layer_version_permission(layer_name='my-layer', version_number=1, statement_id='xaccount')
+            >>> client.remove_layer_version_permission(layer_name='my-layer', statement_id='xaccount', version_number=1)
         """
 
         def _handler(
@@ -541,23 +543,23 @@ class AsyncLayerVersion:
         layer_name: "capo_lambda.types.layer_name.LayerName",
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        compatible_architecture: Optional[
+            "capo_lambda.types.architecture.Architecture"
+        ] = None,
         compatible_runtime: Optional["capo_lambda.types.runtime.Runtime"] = None,
         marker: Optional["capo_lambda.types.string.String"] = None,
         max_items: Optional[
             "capo_lambda.types.max_layer_list_items.MaxLayerListItems"
         ] = None,
-        compatible_architecture: Optional[
-            "capo_lambda.types.architecture.Architecture"
-        ] = None,
     ) -> "capo_lambda.types.list_layer_versions_response.ListLayerVersionsResponse":
         r"""<p>Lists the versions of an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only layer versions that are compatible with that architecture.</p>
 
         Args:
+            compatible_architecture: <p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>
             compatible_runtime: <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
             marker: <p>A pagination token returned by a previous call.</p>
             max_items: <p>The maximum number of versions to return.</p>
-            compatible_architecture: <p>The compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architecture</a>.</p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
@@ -590,6 +592,8 @@ class AsyncLayerVersion:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
+        if compatible_architecture is not None:
+            input_["compatible_architecture"] = compatible_architecture
         if compatible_runtime is not None:
             input_["compatible_runtime"] = compatible_runtime
         input_["layer_name"] = layer_name
@@ -597,8 +601,6 @@ class AsyncLayerVersion:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        if compatible_architecture is not None:
-            input_["compatible_architecture"] = compatible_architecture
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -646,7 +648,7 @@ class AsyncLayerVersion:
             To add permissions to a layer version
             The following example grants permission for the account 223456789012 to use version 1 of a layer named my-layer.
 
-            >>> await client.add_layer_version_permission(layer_name='my-layer', version_number=1, statement_id='xaccount', action='lambda:GetLayerVersion', principal='223456789012')
+            >>> await client.add_layer_version_permission(action='lambda:GetLayerVersion', layer_name='my-layer', principal='223456789012', statement_id='xaccount', version_number=1)
         """
 
         async def _handler(
@@ -697,6 +699,8 @@ class AsyncLayerVersion:
             version_number: <p>The version number.</p>
 
         Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -893,13 +897,13 @@ class AsyncLayerVersion:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
         description: Optional["capo_lambda.types.description.Description"] = None,
+        compatible_architectures: Optional[
+            "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
+        ] = None,
         compatible_runtimes: Optional[
             "capo_lambda.types.compatible_runtimes.CompatibleRuntimes"
         ] = None,
         license_info: Optional["capo_lambda.types.license_info.LicenseInfo"] = None,
-        compatible_architectures: Optional[
-            "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
-        ] = None,
     ) -> "capo_lambda.types.publish_layer_version_response.PublishLayerVersionResponse":
         r"""<p>Creates an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p> <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
 
@@ -907,9 +911,9 @@ class AsyncLayerVersion:
             layer_name: <p>The name or Amazon Resource Name (ARN) of the layer.</p>
             description: <p>The description of the version.</p>
             content: <p>The function layer archive.</p>
+            compatible_architectures: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>
             compatible_runtimes: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy\">Runtime deprecation policy</a>.</p>
             license_info: <p>The layer's software license. It can be any of the following:</p> <ul> <li> <p>An <a href=\"https://spdx.org/licenses/\">SPDX license identifier</a>. For example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p> </li> <li> <p>The full text of the license.</p> </li> </ul>
-            compatible_architectures: <p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>
 
         Raises:
             capo_lambda.errors.code_storage_exceeded_exception.CodeStorageExceededException: <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
@@ -923,7 +927,7 @@ class AsyncLayerVersion:
             To create a Lambda layer version
             The following example creates a new Python library layer version. The command retrieves the layer content a file named layer.zip in the specified S3 bucket.
 
-            >>> await client.publish_layer_version(layer_name='my-layer', description='My Python layer', content={'S3Bucket': 'lambda-layers-us-west-2-123456789012', 'S3Key': 'layer.zip'}, compatible_runtimes=['python3.6', 'python3.7'], license_info='MIT')
+            >>> await client.publish_layer_version(compatible_runtimes=['python3.6', 'python3.7'], content={'S3Bucket': 'lambda-layers-us-west-2-123456789012', 'S3Key': 'layer.zip'}, description='My Python layer', layer_name='my-layer', license_info='MIT')
         """
 
         async def _handler(
@@ -947,12 +951,12 @@ class AsyncLayerVersion:
         if description is not None:
             input_["description"] = description
         input_["content"] = content
+        if compatible_architectures is not None:
+            input_["compatible_architectures"] = compatible_architectures
         if compatible_runtimes is not None:
             input_["compatible_runtimes"] = compatible_runtimes
         if license_info is not None:
             input_["license_info"] = license_info
-        if compatible_architectures is not None:
-            input_["compatible_architectures"] = compatible_architectures
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -990,7 +994,7 @@ class AsyncLayerVersion:
             To delete layer-version permissions
             The following example deletes permission for an account to configure a layer version.
 
-            >>> await client.remove_layer_version_permission(layer_name='my-layer', version_number=1, statement_id='xaccount')
+            >>> await client.remove_layer_version_permission(layer_name='my-layer', statement_id='xaccount', version_number=1)
         """
 
         async def _handler(

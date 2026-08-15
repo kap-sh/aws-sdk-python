@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.integer
     import capo_ec2.types.log_destination_type
     import capo_ec2.types.string
+    import capo_ec2.types.tag_field_specification_list_request
     import capo_ec2.types.tag_specification_list
     import capo_ec2.types.traffic_type
 
@@ -30,7 +31,7 @@ class CreateFlowLogsRequest(TypedDict, closed=True):
     log_group_name: NotRequired["capo_ec2.types.string.String"]
     """<p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p> <p>This parameter is valid only if the destination type is <code>cloud-watch-logs</code>.</p>"""
     resource_ids: NotRequired["capo_ec2.types.flow_log_resource_ids.FlowLogResourceIds"]
-    """<p>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>, specify the IDs of the VPCs.</p> <p>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 1000 for the other resource types.</p>"""
+    """<p>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>, specify the IDs of the VPCs.</p> <p>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 300 for the other resource types.</p>"""
     resource_type: NotRequired[
         "capo_ec2.types.flow_logs_resource_type.FlowLogsResourceType"
     ]
@@ -55,6 +56,10 @@ class CreateFlowLogsRequest(TypedDict, closed=True):
         "capo_ec2.types.destination_options_request.DestinationOptionsRequest"
     ]
     """<p>The destination options.</p>"""
+    tag_field_specifications: NotRequired[
+        "capo_ec2.types.tag_field_specification_list_request.TagFieldSpecificationListRequest"
+    ]
+    """<p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -128,6 +133,14 @@ def serialize_ec2_query(
 
         capo_ec2.types.destination_options_request.serialize_ec2_query(
             value["destination_options"], pairs, f"{key_prefix}DestinationOptions"
+        )
+    if "tag_field_specifications" in value:
+        import capo_ec2.types.tag_field_specification_list_request
+
+        capo_ec2.types.tag_field_specification_list_request.serialize_ec2_query(
+            value["tag_field_specifications"],
+            pairs,
+            f"{key_prefix}TagFieldSpecification",
         )
 
 
@@ -211,6 +224,15 @@ def deserialize_ec2_query(el: Element) -> CreateFlowLogsRequest:
         out["destination_options"] = (
             capo_ec2.types.destination_options_request.deserialize_ec2_query(
                 child_destination_options
+            )
+        )
+    child_tag_field_specifications = el.find("TagFieldSpecification")
+    if child_tag_field_specifications is not None:
+        import capo_ec2.types.tag_field_specification_list_request
+
+        out["tag_field_specifications"] = (
+            capo_ec2.types.tag_field_specification_list_request.deserialize_ec2_query(
+                child_tag_field_specifications
             )
         )
     return out

@@ -12,10 +12,12 @@ if TYPE_CHECKING:
     import capo_ecs.types.ecs_managed_resources
     import capo_ecs.types.launch_type
     import capo_ecs.types.load_balancers
+    import capo_ecs.types.monitoring_configuration
     import capo_ecs.types.network_configuration
     import capo_ecs.types.resolved_configuration
     import capo_ecs.types.service_connect_configuration
     import capo_ecs.types.service_registries
+    import capo_ecs.types.service_revision_overrides
     import capo_ecs.types.service_volume_configurations
     import capo_ecs.types.string
     import capo_ecs.types.timestamp
@@ -78,6 +80,14 @@ class ServiceRevision(TypedDict, closed=True):
         "capo_ecs.types.ecs_managed_resources.ECSManagedResources"
     ]
     """<p>The resources created and managed by Amazon ECS when you create an Express service for Amazon ECS.</p>"""
+    overrides: NotRequired[
+        "capo_ecs.types.service_revision_overrides.ServiceRevisionOverrides"
+    ]
+    """<p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>"""
+    monitoring: NotRequired[
+        "capo_ecs.types.monitoring_configuration.MonitoringConfiguration"
+    ]
+    """<p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>"""
 
 
 # --- awsJson1_1 ser/de ---
@@ -190,6 +200,22 @@ def serialize_aws_json_1_1(value: ServiceRevision) -> dict:
         out["ecsManagedResources"] = (
             capo_ecs.types.ecs_managed_resources.serialize_aws_json_1_1(
                 value["ecs_managed_resources"]
+            )
+        )
+    if "overrides" in value:
+        import capo_ecs.types.service_revision_overrides
+
+        out["overrides"] = (
+            capo_ecs.types.service_revision_overrides.serialize_aws_json_1_1(
+                value["overrides"]
+            )
+        )
+    if "monitoring" in value:
+        import capo_ecs.types.monitoring_configuration
+
+        out["monitoring"] = (
+            capo_ecs.types.monitoring_configuration.serialize_aws_json_1_1(
+                value["monitoring"]
             )
         )
     return out
@@ -309,6 +335,22 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
         out["ecs_managed_resources"] = (
             capo_ecs.types.ecs_managed_resources.deserialize_aws_json_1_1(
                 data["ecsManagedResources"]
+            )
+        )
+    if "overrides" in data:
+        import capo_ecs.types.service_revision_overrides
+
+        out["overrides"] = (
+            capo_ecs.types.service_revision_overrides.deserialize_aws_json_1_1(
+                data["overrides"]
+            )
+        )
+    if "monitoring" in data:
+        import capo_ecs.types.monitoring_configuration
+
+        out["monitoring"] = (
+            capo_ecs.types.monitoring_configuration.deserialize_aws_json_1_1(
+                data["monitoring"]
             )
         )
     return out

@@ -11,11 +11,35 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda.errors.ec2_access_denied_exception
+import capo_lambda.errors.ec2_throttled_exception
+import capo_lambda.errors.ec2_unexpected_exception
+import capo_lambda.errors.efs_mount_connectivity_exception
+import capo_lambda.errors.efs_mount_failure_exception
+import capo_lambda.errors.efs_mount_timeout_exception
+import capo_lambda.errors.efsio_exception
+import capo_lambda.errors.eni_limit_reached_exception
 import capo_lambda.errors.invalid_request_content_exception
 import capo_lambda.errors.invalid_runtime_exception
+import capo_lambda.errors.invalid_security_group_id_exception
+import capo_lambda.errors.invalid_subnet_id_exception
+import capo_lambda.errors.kms_access_denied_exception
+import capo_lambda.errors.kms_disabled_exception
+import capo_lambda.errors.kms_invalid_state_exception
+import capo_lambda.errors.kms_not_found_exception
+import capo_lambda.errors.mode_not_supported_exception
 import capo_lambda.errors.resource_conflict_exception
 import capo_lambda.errors.resource_not_found_exception
+import capo_lambda.errors.s3_files_mount_connectivity_exception
+import capo_lambda.errors.s3_files_mount_failure_exception
+import capo_lambda.errors.s3_files_mount_timeout_exception
 import capo_lambda.errors.service_exception
+import capo_lambda.errors.service_quota_exceeded_exception
+import capo_lambda.errors.snap_start_exception
+import capo_lambda.errors.snap_start_not_ready_exception
+import capo_lambda.errors.snap_start_regeneration_failure_exception
+import capo_lambda.errors.snap_start_timeout_exception
+import capo_lambda.errors.subnet_ip_address_limit_reached_exception
 import capo_lambda.types.blob_stream
 import capo_lambda.types.invoke_async_request
 import capo_lambda.types.invoke_async_response
@@ -29,12 +53,72 @@ def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
+        case "EC2AccessDeniedException":
+            raise capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException.from_json(
+                data, message
+            )
+        case "EC2ThrottledException":
+            raise capo_lambda.errors.ec2_throttled_exception.EC2ThrottledException.from_json(
+                data, message
+            )
+        case "EC2UnexpectedException":
+            raise capo_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException.from_json(
+                data, message
+            )
+        case "EFSIOException":
+            raise capo_lambda.errors.efsio_exception.EFSIOException.from_json(
+                data, message
+            )
+        case "EFSMountConnectivityException":
+            raise capo_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException.from_json(
+                data, message
+            )
+        case "EFSMountFailureException":
+            raise capo_lambda.errors.efs_mount_failure_exception.EFSMountFailureException.from_json(
+                data, message
+            )
+        case "EFSMountTimeoutException":
+            raise capo_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException.from_json(
+                data, message
+            )
+        case "ENILimitReachedException":
+            raise capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException.from_json(
+                data, message
+            )
         case "InvalidRequestContentException":
             raise capo_lambda.errors.invalid_request_content_exception.InvalidRequestContentException.from_json(
                 data, message
             )
         case "InvalidRuntimeException":
             raise capo_lambda.errors.invalid_runtime_exception.InvalidRuntimeException.from_json(
+                data, message
+            )
+        case "InvalidSecurityGroupIDException":
+            raise capo_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException.from_json(
+                data, message
+            )
+        case "InvalidSubnetIDException":
+            raise capo_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException.from_json(
+                data, message
+            )
+        case "KMSAccessDeniedException":
+            raise capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException.from_json(
+                data, message
+            )
+        case "KMSDisabledException":
+            raise capo_lambda.errors.kms_disabled_exception.KMSDisabledException.from_json(
+                data, message
+            )
+        case "KMSInvalidStateException":
+            raise capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException.from_json(
+                data, message
+            )
+        case "KMSNotFoundException":
+            raise capo_lambda.errors.kms_not_found_exception.KMSNotFoundException.from_json(
+                data, message
+            )
+        case "ModeNotSupportedException":
+            raise capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException.from_json(
                 data, message
             )
         case "ResourceConflictException":
@@ -45,8 +129,44 @@ def handle_error(response: zapros.Response) -> Never:
             raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data, message
             )
+        case "S3FilesMountConnectivityException":
+            raise capo_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException.from_json(
+                data, message
+            )
+        case "S3FilesMountFailureException":
+            raise capo_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException.from_json(
+                data, message
+            )
+        case "S3FilesMountTimeoutException":
+            raise capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException.from_json(
+                data, message
+            )
         case "ServiceException":
             raise capo_lambda.errors.service_exception.ServiceException.from_json(
+                data, message
+            )
+        case "ServiceQuotaExceededException":
+            raise capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data, message
+            )
+        case "SnapStartException":
+            raise capo_lambda.errors.snap_start_exception.SnapStartException.from_json(
+                data, message
+            )
+        case "SnapStartNotReadyException":
+            raise capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException.from_json(
+                data, message
+            )
+        case "SnapStartRegenerationFailureException":
+            raise capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException.from_json(
+                data, message
+            )
+        case "SnapStartTimeoutException":
+            raise capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException.from_json(
+                data, message
+            )
+        case "SubnetIPAddressLimitReachedException":
+            raise capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException.from_json(
                 data, message
             )
         case _:

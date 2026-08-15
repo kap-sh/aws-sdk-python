@@ -24,7 +24,7 @@ class DeploymentLifecycleHookDetail(TypedDict, closed=True):
     status: NotRequired[
         "capo_ecs.types.deployment_lifecycle_hook_status.DeploymentLifecycleHookStatus"
     ]
-    """<p>The status of the lifecycle hook. Valid values depend on the hook type:</p> <ul> <li> <p>For <code>AWS_LAMBDA</code> hooks: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> <li> <p>For <code>PAUSE</code> hooks: <code>AWAITING_ACTION</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p> </li> </ul>"""
+    """<p>The status of the lifecycle hook. Valid values include <code>AWAITING_ACTION</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>TIMED_OUT</code>.</p>"""
     expires_at: NotRequired["capo_ecs.types.timestamp.Timestamp"]
     """<p>The time when the lifecycle hook times out. If the hook has not been completed by this time, Amazon ECS takes the timeout action.</p>"""
     timeout_action: NotRequired[

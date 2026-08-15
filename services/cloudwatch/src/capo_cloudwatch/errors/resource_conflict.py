@@ -1,0 +1,73 @@
+"""Generated from Smithy shape ``com.amazonaws.cloudwatch#ResourceConflict``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_cloudwatch._protocol.xml import Element
+from capo_cloudwatch.errors import ServiceError
+
+if TYPE_CHECKING:
+    import capo_cloudwatch.types.error_message
+
+
+class ResourceConflict_(TypedDict, closed=True):
+    message: NotRequired["capo_cloudwatch.types.error_message.ErrorMessage"]
+
+
+# --- awsJson1_0 ser/de ---
+def serialize_aws_json_1_0(value: ResourceConflict_) -> dict:
+    out: dict = {}
+    if "message" in value:
+        out["message"] = value["message"]
+    return out
+
+
+def deserialize_aws_json_1_0(data: dict) -> ResourceConflict_:
+    out: ResourceConflict_ = {}  # type: ignore[typeddict-item]
+    if "message" in data:
+        out["message"] = data["message"]
+    return out
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: ResourceConflict_, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
+    if "message" in value:
+        pairs.append((f"{key_prefix}message", str(value["message"])))
+
+
+def deserialize_query(el: Element) -> ResourceConflict_:
+    out: ResourceConflict_ = {}  # type: ignore[typeddict-item]
+    child_message = el.find("message")
+    if child_message is not None:
+        out["message"] = str(child_message.text or "")
+    return out
+
+
+class ResourceConflict(ServiceError):
+    """Modeled error for Smithy shape ``com.amazonaws.cloudwatch#ResourceConflict``."""
+
+    code: str | None = "ResourceConflict"
+
+    def __init__(self, data: ResourceConflict_, message: str | None = None):
+        super().__init__(
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="ResourceConflict",
+            message=message if message is not None else data.get("message"),
+        )
+        self.data = data
+
+    @classmethod
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourceConflict":
+        return cls(deserialize_aws_json_1_0(data), message)
+
+    @classmethod
+    def from_query(cls, el: Element, message: str | None = None) -> "ResourceConflict":
+        return cls(deserialize_query(el), message)

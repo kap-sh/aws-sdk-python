@@ -37,12 +37,16 @@ if TYPE_CHECKING:
     import capo_lambda.types.durable_execution_name
     import capo_lambda.types.environment
     import capo_lambda.types.ephemeral_storage
+    import capo_lambda.types.execution
+    import capo_lambda.types.execution_status_list
+    import capo_lambda.types.execution_timestamp
     import capo_lambda.types.file_system_config_list
     import capo_lambda.types.function_code
     import capo_lambda.types.function_configuration
     import capo_lambda.types.function_name
     import capo_lambda.types.function_scaling_config
     import capo_lambda.types.function_url_auth_type
+    import capo_lambda.types.function_url_function_name
     import capo_lambda.types.function_url_qualifier
     import capo_lambda.types.function_version
     import capo_lambda.types.function_version_latest_published
@@ -73,8 +77,11 @@ if TYPE_CHECKING:
     import capo_lambda.types.invoke_mode
     import capo_lambda.types.invoke_with_response_stream_request
     import capo_lambda.types.invoke_with_response_stream_response
+    import capo_lambda.types.item_count
     import capo_lambda.types.kms_key_arn
     import capo_lambda.types.layer_list
+    import capo_lambda.types.list_durable_executions_by_function_request
+    import capo_lambda.types.list_durable_executions_by_function_response
     import capo_lambda.types.list_function_url_configs_request
     import capo_lambda.types.list_function_url_configs_response
     import capo_lambda.types.list_functions_request
@@ -104,11 +111,13 @@ if TYPE_CHECKING:
     import capo_lambda.types.recursive_loop
     import capo_lambda.types.reserved_concurrent_executions
     import capo_lambda.types.response_streaming_invocation_type
+    import capo_lambda.types.reverse_order
     import capo_lambda.types.role_arn
     import capo_lambda.types.runtime
     import capo_lambda.types.runtime_version_arn
     import capo_lambda.types.s3_bucket
     import capo_lambda.types.s3_key
+    import capo_lambda.types.s3_object_storage_mode
     import capo_lambda.types.s3_object_version
     import capo_lambda.types.snap_start
     import capo_lambda.types.string
@@ -148,6 +157,9 @@ class Function:
         timeout: Optional["capo_lambda.types.timeout.Timeout"] = None,
         memory_size: Optional["capo_lambda.types.memory_size.MemorySize"] = None,
         publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
+        publish_to: Optional[
+            "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
+        ] = None,
         vpc_config: Optional["capo_lambda.types.vpc_config.VpcConfig"] = None,
         package_type: Optional["capo_lambda.types.package_type.PackageType"] = None,
         dead_letter_config: Optional[
@@ -163,10 +175,10 @@ class Function:
         file_system_configs: Optional[
             "capo_lambda.types.file_system_config_list.FileSystemConfigList"
         ] = None,
-        image_config: Optional["capo_lambda.types.image_config.ImageConfig"] = None,
         code_signing_config_arn: Optional[
             "capo_lambda.types.code_signing_config_arn.CodeSigningConfigArn"
         ] = None,
+        image_config: Optional["capo_lambda.types.image_config.ImageConfig"] = None,
         architectures: Optional[
             "capo_lambda.types.architectures_list.ArchitecturesList"
         ] = None,
@@ -177,17 +189,14 @@ class Function:
         logging_config: Optional[
             "capo_lambda.types.logging_config.LoggingConfig"
         ] = None,
+        tenancy_config: Optional[
+            "capo_lambda.types.tenancy_config.TenancyConfig"
+        ] = None,
         capacity_provider_config: Optional[
             "capo_lambda.types.capacity_provider_config.CapacityProviderConfig"
         ] = None,
-        publish_to: Optional[
-            "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
-        ] = None,
         durable_config: Optional[
             "capo_lambda.types.durable_config.DurableConfig"
-        ] = None,
-        tenancy_config: Optional[
-            "capo_lambda.types.tenancy_config.TenancyConfig"
         ] = None,
     ) -> "capo_lambda.types.function_configuration.FunctionConfiguration":
         r"""<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p> <p>If the deployment package is a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\">container image</a>, then you set the package type to <code>Image</code>. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.</p> <p>If the deployment package is a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip\">.zip file archive</a>, then you set the package type to <code>Zip</code>. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, then the default value is <code>x86-64</code>.</p> <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Lambda function states</a>.</p> <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p> <p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p> <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted publishers for this function.</p> <p>If another Amazon Web Services account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p> <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Lambda functions</a>.</p>
@@ -202,6 +211,7 @@ class Function:
             timeout: <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>
             memory_size: <p>The amount of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console\">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
             publish: <p>Set to true to publish the first version of the function during creation.</p>
+            publish_to: <p>Specifies where to publish the function version or configuration.</p>
             vpc_config: <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">Configuring a Lambda function to access resources in a VPC</a>.</p>
             package_type: <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
             dead_letter_config: <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq\">Dead-letter queues</a>.</p>
@@ -211,16 +221,15 @@ class Function:
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a> to apply to the function.</p>
             layers: <p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
             file_system_configs: <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
-            image_config: <p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>
             code_signing_config_arn: <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
+            image_config: <p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>
             architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             ephemeral_storage: <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\">Configuring ephemeral storage (console)</a>.</p>
             snap_start: <p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">SnapStart</a> setting.</p>
             logging_config: <p>The function's Amazon CloudWatch Logs configuration settings.</p>
-            capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-            publish_to: <p>Specifies where to publish the function version or configuration.</p>
-            durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
             tenancy_config: <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
+            capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+            durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -239,7 +248,7 @@ class Function:
             To create a function
             The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
 
-            >>> client.put(function_name='my-function', runtime='nodejs12.x', role='arn:aws:iam::123456789012:role/lambda-role', handler='index.handler', code={'S3Bucket': 'my-bucket-1xpuxmplzrlbh', 'S3Key': 'function.zip'}, description='Process image objects from Amazon S3.', timeout=15, memory_size=256, publish=True, environment={'Variables': {'BUCKET': 'my-bucket-1xpuxmplzrlbh', 'PREFIX': 'inbound'}}, kms_key_arn='arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966', tracing_config={'Mode': 'Active'}, durable_config={'ExecutionTimeout': 31622400, 'RetentionPeriodInDays': 30}, tags={'DEPARTMENT': 'Assets'})
+            >>> client.put(code={'S3Bucket': 'my-bucket-1xpuxmplzrlbh', 'S3Key': 'function.zip'}, description='Process image objects from Amazon S3.', durable_config={'ExecutionTimeout': 31622400, 'RetentionPeriodInDays': 30}, environment={'Variables': {'BUCKET': 'my-bucket-1xpuxmplzrlbh', 'PREFIX': 'inbound'}}, function_name='my-function', handler='index.handler', kms_key_arn='arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966', memory_size=256, publish=True, role='arn:aws:iam::123456789012:role/lambda-role', runtime='nodejs12.x', tags={'DEPARTMENT': 'Assets'}, timeout=15, tracing_config={'Mode': 'Active'})
         """
 
         def _handler(
@@ -273,6 +282,8 @@ class Function:
             input_["memory_size"] = memory_size
         if publish is not None:
             input_["publish"] = publish
+        if publish_to is not None:
+            input_["publish_to"] = publish_to
         if vpc_config is not None:
             input_["vpc_config"] = vpc_config
         if package_type is not None:
@@ -291,10 +302,10 @@ class Function:
             input_["layers"] = layers
         if file_system_configs is not None:
             input_["file_system_configs"] = file_system_configs
-        if image_config is not None:
-            input_["image_config"] = image_config
         if code_signing_config_arn is not None:
             input_["code_signing_config_arn"] = code_signing_config_arn
+        if image_config is not None:
+            input_["image_config"] = image_config
         if architectures is not None:
             input_["architectures"] = architectures
         if ephemeral_storage is not None:
@@ -303,14 +314,12 @@ class Function:
             input_["snap_start"] = snap_start
         if logging_config is not None:
             input_["logging_config"] = logging_config
-        if capacity_provider_config is not None:
-            input_["capacity_provider_config"] = capacity_provider_config
-        if publish_to is not None:
-            input_["publish_to"] = publish_to
-        if durable_config is not None:
-            input_["durable_config"] = durable_config
         if tenancy_config is not None:
             input_["tenancy_config"] = tenancy_config
+        if capacity_provider_config is not None:
+            input_["capacity_provider_config"] = capacity_provider_config
+        if durable_config is not None:
+            input_["durable_config"] = durable_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -383,68 +392,6 @@ class Function:
         )
         return response.output
 
-    def create_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        auth_type: "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType",
-        *,
-        config_overrides: Optional[LambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-        cors: Optional["capo_lambda.types.cors.Cors"] = None,
-        invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
-    ) -> "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse":
-        r"""<p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-            auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
-            cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-            invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        def _handler(
-            req: "OperationRequest[capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest]",
-        ) -> OperationResponse[
-            "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.create_function_url_config
-
-            output, http_response = (
-                capo_lambda._operations.aws_gir_api_service.create_function_url_config.create_function_url_config(
-                    req.options, req.input
-                )
-            )
-            return OperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
-        input_["auth_type"] = auth_type
-        if cors is not None:
-            input_["cors"] = cors
-        if invoke_mode is not None:
-            input_["invoke_mode"] = invoke_mode
-
-        response = execute_pipeline(
-            OperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
     def delete_function_concurrency(
         self,
         function_name: "capo_lambda.types.function_name.FunctionName",
@@ -486,54 +433,6 @@ class Function:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-
-        response = execute_pipeline(
-            OperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    def delete_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[LambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-    ) -> None:
-        r"""<p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-
-        Raises:
-            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        def _handler(
-            req: "OperationRequest[capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest]",
-        ) -> OperationResponse[None]:
-            import capo_lambda._operations.aws_gir_api_service.delete_function_url_config
-
-            output, http_response = (
-                capo_lambda._operations.aws_gir_api_service.delete_function_url_config.delete_function_url_config(
-                    req.options, req.input
-                )
-            )
-            return OperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -584,108 +483,6 @@ class Function:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-
-        response = execute_pipeline(
-            OperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    def get_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[LambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-    ) -> "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse":
-        r"""<p>Returns details about a Lambda function URL.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        def _handler(
-            req: "OperationRequest[capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest]",
-        ) -> OperationResponse[
-            "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.get_function_url_config
-
-            output, http_response = (
-                capo_lambda._operations.aws_gir_api_service.get_function_url_config.get_function_url_config(
-                    req.options, req.input
-                )
-            )
-            return OperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
-
-        response = execute_pipeline(
-            OperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    def list_function_url_configs(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[LambdaClientConfig] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.max_items.MaxItems"] = None,
-    ) -> "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse":
-        r"""<p>Returns a list of Lambda function URLs for the specified function.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-            max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        def _handler(
-            req: "OperationRequest[capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest]",
-        ) -> OperationResponse[
-            "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.list_function_url_configs
-
-            output, http_response = (
-                capo_lambda._operations.aws_gir_api_service.list_function_url_configs.list_function_url_configs(
-                    req.options, req.input
-                )
-            )
-            return OperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if marker is not None:
-            input_["marker"] = marker
-        if max_items is not None:
-            input_["max_items"] = max_items
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -817,17 +614,20 @@ class Function:
         s3_object_version: Optional[
             "capo_lambda.types.s3_object_version.S3ObjectVersion"
         ] = None,
+        s3_object_storage_mode: Optional[
+            "capo_lambda.types.s3_object_storage_mode.S3ObjectStorageMode"
+        ] = None,
         image_uri: Optional["capo_lambda.types.string.String"] = None,
-        publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
-        dry_run: Optional["capo_lambda.types.boolean.Boolean"] = None,
-        revision_id: Optional["capo_lambda.types.string.String"] = None,
         architectures: Optional[
             "capo_lambda.types.architectures_list.ArchitecturesList"
         ] = None,
-        source_kms_key_arn: Optional["capo_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
         publish_to: Optional[
             "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
         ] = None,
+        dry_run: Optional["capo_lambda.types.boolean.Boolean"] = None,
+        revision_id: Optional["capo_lambda.types.string.String"] = None,
+        source_kms_key_arn: Optional["capo_lambda.types.kms_key_arn.KMSKeyArn"] = None,
     ) -> "capo_lambda.types.function_configuration.FunctionConfiguration":
         r"""<p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html\">Configuring code signing for Lambda</a>.</p> <p>If the function's package type is <code>Image</code>, then you must specify the code package in <code>ImageUri</code> as the URI of a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\">container image</a> in the Amazon ECR registry.</p> <p>If the function's package type is <code>Zip</code>, then you must specify the deployment package as a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip\">.zip file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location. You can also provide the function code inline using the <code>ZipFile</code> field.</p> <p>The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>).</p> <p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p> <note> <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if you update the image tag to a new image, Lambda does not automatically update the function.</p> </note>
 
@@ -837,13 +637,14 @@ class Function:
             s3_bucket: <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
             s3_key: <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
             s3_object_version: <p>For versioned objects, the version of the deployment package object to use.</p>
+            s3_object_storage_mode: <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
             image_uri: <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
+            architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             publish: <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+            publish_to: <p>Specifies where to publish the function version or configuration.</p>
             dry_run: <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
             revision_id: <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
-            architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             source_kms_key_arn: <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-            publish_to: <p>Specifies where to publish the function version or configuration.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -890,20 +691,22 @@ class Function:
             input_["s3_key"] = s3_key
         if s3_object_version is not None:
             input_["s3_object_version"] = s3_object_version
+        if s3_object_storage_mode is not None:
+            input_["s3_object_storage_mode"] = s3_object_storage_mode
         if image_uri is not None:
             input_["image_uri"] = image_uri
+        if architectures is not None:
+            input_["architectures"] = architectures
         if publish is not None:
             input_["publish"] = publish
+        if publish_to is not None:
+            input_["publish_to"] = publish_to
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if revision_id is not None:
             input_["revision_id"] = revision_id
-        if architectures is not None:
-            input_["architectures"] = architectures
         if source_kms_key_arn is not None:
             input_["source_kms_key_arn"] = source_kms_key_arn
-        if publish_to is not None:
-            input_["publish_to"] = publish_to
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -975,7 +778,7 @@ class Function:
             snap_start: <p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">SnapStart</a> setting.</p>
             logging_config: <p>The function's Amazon CloudWatch Logs configuration settings.</p>
             capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-            durable_config: <p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>
+            durable_config: <p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -993,7 +796,7 @@ class Function:
             To update a Lambda function's configuration
             The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
 
-            >>> client.update_function_configuration(function_name='my-function', memory_size=256, durable_config={'ExecutionTimeout': 3600, 'RetentionPeriodInDays': 45})
+            >>> client.update_function_configuration(durable_config={'ExecutionTimeout': 3600, 'RetentionPeriodInDays': 45}, function_name='my-function', memory_size=256)
         """
 
         def _handler(
@@ -1061,21 +864,19 @@ class Function:
         )
         return response.output
 
-    def update_function_url_config(
+    def create_function_url_config(
         self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        auth_type: "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType",
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
         qualifier: Optional[
             "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
         ] = None,
-        auth_type: Optional[
-            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
-        ] = None,
         cors: Optional["capo_lambda.types.cors.Cors"] = None,
         invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
-    ) -> "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse":
-        r"""<p>Updates the configuration for a Lambda function URL.</p>
+    ) -> "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse":
+        r"""<p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -1094,26 +895,25 @@ class Function:
         """
 
         def _handler(
-            req: "OperationRequest[capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest]",
+            req: "OperationRequest[capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest]",
         ) -> OperationResponse[
-            "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse"
+            "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse"
         ]:
-            import capo_lambda._operations.aws_gir_api_service.update_function_url_config
+            import capo_lambda._operations.aws_gir_api_service.create_function_url_config
 
             output, http_response = (
-                capo_lambda._operations.aws_gir_api_service.update_function_url_config.update_function_url_config(
+                capo_lambda._operations.aws_gir_api_service.create_function_url_config.create_function_url_config(
                     req.options, req.input
                 )
             )
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        if auth_type is not None:
-            input_["auth_type"] = auth_type
+        input_["auth_type"] = auth_type
         if cors is not None:
             input_["cors"] = cors
         if invoke_mode is not None:
@@ -1162,6 +962,55 @@ class Function:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+    ) -> None:
+        r"""<p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest]",
+        ) -> OperationResponse[None]:
+            import capo_lambda._operations.aws_gir_api_service.delete_function_url_config
+
+            output, http_response = (
+                capo_lambda._operations.aws_gir_api_service.delete_function_url_config.delete_function_url_config(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1238,6 +1087,7 @@ class Function:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
         Raises:
+            capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
@@ -1417,6 +1267,56 @@ class Function:
         )
         return response.output
 
+    def get_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+    ) -> "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse":
+        r"""<p>Returns details about a Lambda function URL.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest]",
+        ) -> OperationResponse[
+            "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.get_function_url_config
+
+            output, http_response = (
+                capo_lambda._operations.aws_gir_api_service.get_function_url_config.get_function_url_config(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def get_policy(
         self,
         function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
@@ -1549,12 +1449,15 @@ class Function:
             invocation_type: <p>Choose from the following options.</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p> </li> <li> <p> <code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p> </li> </ul>
             log_type: <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
             client_context: <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
-            durable_execution_name: <p>Optional unique name for the durable execution. When you start your special function, you can give it a unique name to identify this specific execution. It's like giving a nickname to a task.</p>
+            durable_execution_name: <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p> <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names\">Execution names</a>.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             qualifier: <p>Specify a version or alias to invoke a published version of the function.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
 
         Raises:
+            capo_lambda.errors.code_artifact_user_deleted_exception.CodeArtifactUserDeletedException: <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+            capo_lambda.errors.code_artifact_user_failed_exception.CodeArtifactUserFailedException: <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+            capo_lambda.errors.code_artifact_user_pending_exception.CodeArtifactUserPendingException: <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
             capo_lambda.errors.durable_execution_already_started_exception.DurableExecutionAlreadyStartedException: <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
             capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
             capo_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
@@ -1564,6 +1467,7 @@ class Function:
             capo_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
             capo_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
             capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            capo_lambda.errors.eni_not_ready_exception.ENINotReadyException: <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">Configuring a Lambda function to access resources in a VPC</a>.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
             capo_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
@@ -1574,6 +1478,7 @@ class Function:
             capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
             capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
             capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException: <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html\">Invoking Lambda functions</a>.</p>
             capo_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
             capo_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
             capo_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
@@ -1585,8 +1490,10 @@ class Function:
             capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
             capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
             capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
             capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
             capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -1597,11 +1504,11 @@ class Function:
             To invoke a Lambda function
             The following example invokes version 1 of a function named my-function with an empty event payload.
 
-            >>> client.invoke(function_name='my-function', invocation_type='Event', durable_execution_name='myExecution', payload='{}', qualifier='1')
+            >>> client.invoke(durable_execution_name='myExecution', function_name='my-function', invocation_type='Event', payload='{}', qualifier='1')
             To invoke a Lambda function asynchronously
             The following example invokes version 1 of a function named my-function asynchronously.
 
-            >>> client.invoke(function_name='my-function', payload='{}', invocation_type='Event', qualifier='1')
+            >>> client.invoke(function_name='my-function', invocation_type='Event', payload='{}', qualifier='1')
         """
 
         def _handler(
@@ -1657,11 +1564,35 @@ class Function:
             invoke_args: <p>The JSON that you want to provide to your Lambda function as input.</p>
 
         Raises:
+            capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            capo_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            capo_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            capo_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            capo_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            capo_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            capo_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
             capo_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            capo_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            capo_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException: <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html\">Invoking Lambda functions</a>.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            capo_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+            capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
+            capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
@@ -1703,9 +1634,6 @@ class Function:
         function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
-        invocation_type: Optional[
-            "capo_lambda.types.response_streaming_invocation_type.ResponseStreamingInvocationType"
-        ] = None,
         log_type: Optional["capo_lambda.types.log_type.LogType"] = None,
         client_context: Optional["capo_lambda.types.string.String"] = None,
         qualifier: Optional[
@@ -1713,17 +1641,20 @@ class Function:
         ] = None,
         payload: Optional["capo_lambda.types.blob.Blob"] = None,
         tenant_id: Optional["capo_lambda.types.tenant_id.TenantId"] = None,
+        invocation_type: Optional[
+            "capo_lambda.types.response_streaming_invocation_type.ResponseStreamingInvocationType"
+        ] = None,
     ) -> "Generator[capo_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse]":
         r"""<p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html\">Configuring a Lambda function to stream responses</a>.</p> <p>This operation requires permission for the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\">Granting function access to other accounts</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            invocation_type: <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
             log_type: <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
             client_context: <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
             qualifier: <p>The alias name.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+            invocation_type: <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
 
         Raises:
             capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
@@ -1755,8 +1686,10 @@ class Function:
             capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
             capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
             capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
             capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
             capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -1781,8 +1714,6 @@ class Function:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-        if invocation_type is not None:
-            input_["invocation_type"] = invocation_type
         if log_type is not None:
             input_["log_type"] = log_type
         if client_context is not None:
@@ -1793,6 +1724,8 @@ class Function:
             input_["payload"] = payload
         if tenant_id is not None:
             input_["tenant_id"] = tenant_id
+        if invocation_type is not None:
+            input_["invocation_type"] = invocation_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1800,6 +1733,144 @@ class Function:
             interceptors=list(interceptors_),
         )
         yield response.output
+
+    def list_durable_executions_by_function(
+        self,
+        function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.numeric_latest_published_or_alias_qualifier.NumericLatestPublishedOrAliasQualifier"
+        ] = None,
+        durable_execution_name: Optional[
+            "capo_lambda.types.durable_execution_name.DurableExecutionName"
+        ] = None,
+        statuses: Optional[
+            "capo_lambda.types.execution_status_list.ExecutionStatusList"
+        ] = None,
+        started_after: Optional[
+            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
+        ] = None,
+        started_before: Optional[
+            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
+        ] = None,
+        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
+        marker: Optional["capo_lambda.types.string.String"] = None,
+        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
+    ) -> "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse":
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable executions</a> for a specified Lambda function. You can filter the results by execution name, status, and start time range. This API supports pagination for large result sets.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
+            qualifier: <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
+            durable_execution_name: <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
+            statuses: <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+            started_after: <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
+            started_before: <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
+            reverse_order: <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
+            marker: <p>Pagination token from a previous request to continue retrieving results.</p>
+            max_items: <p>Maximum number of executions to return (1-1000). Default is 100.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest]",
+        ) -> OperationResponse[
+            "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function
+
+            output, http_response = (
+                capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function.list_durable_executions_by_function(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+        if durable_execution_name is not None:
+            input_["durable_execution_name"] = durable_execution_name
+        if statuses is not None:
+            input_["statuses"] = statuses
+        if started_after is not None:
+            input_["started_after"] = started_after
+        if started_before is not None:
+            input_["started_before"] = started_before
+        if reverse_order is not None:
+            input_["reverse_order"] = reverse_order
+        if marker is not None:
+            input_["marker"] = marker
+        if max_items is not None:
+            input_["max_items"] = max_items
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def list_function_url_configs(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        marker: Optional["capo_lambda.types.string.String"] = None,
+        max_items: Optional["capo_lambda.types.max_items.MaxItems"] = None,
+    ) -> "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse":
+        r"""<p>Returns a list of Lambda function URLs for the specified function.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+            max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest]",
+        ) -> OperationResponse[
+            "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.list_function_url_configs
+
+            output, http_response = (
+                capo_lambda._operations.aws_gir_api_service.list_function_url_configs.list_function_url_configs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if marker is not None:
+            input_["marker"] = marker
+        if max_items is not None:
+            input_["max_items"] = max_items
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
 
     def put_function_code_signing_config(
         self,
@@ -2012,6 +2083,71 @@ class Function:
         )
         return response.output
 
+    def update_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[LambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+        auth_type: Optional[
+            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
+        ] = None,
+        cors: Optional["capo_lambda.types.cors.Cors"] = None,
+        invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
+    ) -> "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse":
+        r"""<p>Updates the configuration for a Lambda function URL.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+            auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
+            cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+            invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest]",
+        ) -> OperationResponse[
+            "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.update_function_url_config
+
+            output, http_response = (
+                capo_lambda._operations.aws_gir_api_service.update_function_url_config.update_function_url_config(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+        if auth_type is not None:
+            input_["auth_type"] = auth_type
+        if cors is not None:
+            input_["cors"] = cors
+        if invoke_mode is not None:
+            input_["invoke_mode"] = invoke_mode
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
 
 class AsyncFunction:
     def __init__(self, service: AsyncLambdaClient) -> None:
@@ -2030,6 +2166,9 @@ class AsyncFunction:
         timeout: Optional["capo_lambda.types.timeout.Timeout"] = None,
         memory_size: Optional["capo_lambda.types.memory_size.MemorySize"] = None,
         publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
+        publish_to: Optional[
+            "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
+        ] = None,
         vpc_config: Optional["capo_lambda.types.vpc_config.VpcConfig"] = None,
         package_type: Optional["capo_lambda.types.package_type.PackageType"] = None,
         dead_letter_config: Optional[
@@ -2045,10 +2184,10 @@ class AsyncFunction:
         file_system_configs: Optional[
             "capo_lambda.types.file_system_config_list.FileSystemConfigList"
         ] = None,
-        image_config: Optional["capo_lambda.types.image_config.ImageConfig"] = None,
         code_signing_config_arn: Optional[
             "capo_lambda.types.code_signing_config_arn.CodeSigningConfigArn"
         ] = None,
+        image_config: Optional["capo_lambda.types.image_config.ImageConfig"] = None,
         architectures: Optional[
             "capo_lambda.types.architectures_list.ArchitecturesList"
         ] = None,
@@ -2059,17 +2198,14 @@ class AsyncFunction:
         logging_config: Optional[
             "capo_lambda.types.logging_config.LoggingConfig"
         ] = None,
+        tenancy_config: Optional[
+            "capo_lambda.types.tenancy_config.TenancyConfig"
+        ] = None,
         capacity_provider_config: Optional[
             "capo_lambda.types.capacity_provider_config.CapacityProviderConfig"
         ] = None,
-        publish_to: Optional[
-            "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
-        ] = None,
         durable_config: Optional[
             "capo_lambda.types.durable_config.DurableConfig"
-        ] = None,
-        tenancy_config: Optional[
-            "capo_lambda.types.tenancy_config.TenancyConfig"
         ] = None,
     ) -> "capo_lambda.types.function_configuration.FunctionConfiguration":
         r"""<p>Creates a Lambda function. To create a function, you need a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html\">deployment package</a> and an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p> <p>If the deployment package is a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\">container image</a>, then you set the package type to <code>Image</code>. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.</p> <p>If the deployment package is a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip\">.zip file archive</a>, then you set the package type to <code>Zip</code>. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, then the default value is <code>x86-64</code>.</p> <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">Lambda function states</a>.</p> <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p> <p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p> <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted publishers for this function.</p> <p>If another Amazon Web Services account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p> <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\">Invoking Lambda functions</a>.</p>
@@ -2084,6 +2220,7 @@ class AsyncFunction:
             timeout: <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\">Lambda execution environment</a>.</p>
             memory_size: <p>The amount of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console\">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
             publish: <p>Set to true to publish the first version of the function during creation.</p>
+            publish_to: <p>Specifies where to publish the function version or configuration.</p>
             vpc_config: <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">Configuring a Lambda function to access resources in a VPC</a>.</p>
             package_type: <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
             dead_letter_config: <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq\">Dead-letter queues</a>.</p>
@@ -2093,16 +2230,15 @@ class AsyncFunction:
             tags: <p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/tagging.html\">tags</a> to apply to the function.</p>
             layers: <p>A list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
             file_system_configs: <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
-            image_config: <p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>
             code_signing_config_arn: <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
+            image_config: <p>Container image <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms\">configuration values</a> that override the values in the container image Dockerfile.</p>
             architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             ephemeral_storage: <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage\">Configuring ephemeral storage (console)</a>.</p>
             snap_start: <p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">SnapStart</a> setting.</p>
             logging_config: <p>The function's Amazon CloudWatch Logs configuration settings.</p>
-            capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-            publish_to: <p>Specifies where to publish the function version or configuration.</p>
-            durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
             tenancy_config: <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
+            capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+            durable_config: <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -2121,7 +2257,7 @@ class AsyncFunction:
             To create a function
             The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
 
-            >>> await client.put(function_name='my-function', runtime='nodejs12.x', role='arn:aws:iam::123456789012:role/lambda-role', handler='index.handler', code={'S3Bucket': 'my-bucket-1xpuxmplzrlbh', 'S3Key': 'function.zip'}, description='Process image objects from Amazon S3.', timeout=15, memory_size=256, publish=True, environment={'Variables': {'BUCKET': 'my-bucket-1xpuxmplzrlbh', 'PREFIX': 'inbound'}}, kms_key_arn='arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966', tracing_config={'Mode': 'Active'}, durable_config={'ExecutionTimeout': 31622400, 'RetentionPeriodInDays': 30}, tags={'DEPARTMENT': 'Assets'})
+            >>> await client.put(code={'S3Bucket': 'my-bucket-1xpuxmplzrlbh', 'S3Key': 'function.zip'}, description='Process image objects from Amazon S3.', durable_config={'ExecutionTimeout': 31622400, 'RetentionPeriodInDays': 30}, environment={'Variables': {'BUCKET': 'my-bucket-1xpuxmplzrlbh', 'PREFIX': 'inbound'}}, function_name='my-function', handler='index.handler', kms_key_arn='arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966', memory_size=256, publish=True, role='arn:aws:iam::123456789012:role/lambda-role', runtime='nodejs12.x', tags={'DEPARTMENT': 'Assets'}, timeout=15, tracing_config={'Mode': 'Active'})
         """
 
         async def _handler(
@@ -2156,6 +2292,8 @@ class AsyncFunction:
             input_["memory_size"] = memory_size
         if publish is not None:
             input_["publish"] = publish
+        if publish_to is not None:
+            input_["publish_to"] = publish_to
         if vpc_config is not None:
             input_["vpc_config"] = vpc_config
         if package_type is not None:
@@ -2174,10 +2312,10 @@ class AsyncFunction:
             input_["layers"] = layers
         if file_system_configs is not None:
             input_["file_system_configs"] = file_system_configs
-        if image_config is not None:
-            input_["image_config"] = image_config
         if code_signing_config_arn is not None:
             input_["code_signing_config_arn"] = code_signing_config_arn
+        if image_config is not None:
+            input_["image_config"] = image_config
         if architectures is not None:
             input_["architectures"] = architectures
         if ephemeral_storage is not None:
@@ -2186,14 +2324,12 @@ class AsyncFunction:
             input_["snap_start"] = snap_start
         if logging_config is not None:
             input_["logging_config"] = logging_config
-        if capacity_provider_config is not None:
-            input_["capacity_provider_config"] = capacity_provider_config
-        if publish_to is not None:
-            input_["publish_to"] = publish_to
-        if durable_config is not None:
-            input_["durable_config"] = durable_config
         if tenancy_config is not None:
             input_["tenancy_config"] = tenancy_config
+        if capacity_provider_config is not None:
+            input_["capacity_provider_config"] = capacity_provider_config
+        if durable_config is not None:
+            input_["durable_config"] = durable_config
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2267,69 +2403,6 @@ class AsyncFunction:
         )
         return response.output
 
-    async def create_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        auth_type: "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-        cors: Optional["capo_lambda.types.cors.Cors"] = None,
-        invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
-    ) -> "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse":
-        r"""<p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-            auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
-            cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-            invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.create_function_url_config
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.create_function_url_config.async_create_function_url_config(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
-        input_["auth_type"] = auth_type
-        if cors is not None:
-            input_["cors"] = cors
-        if invoke_mode is not None:
-            input_["invoke_mode"] = invoke_mode
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
     async def delete_function_concurrency(
         self,
         function_name: "capo_lambda.types.function_name.FunctionName",
@@ -2372,55 +2445,6 @@ class AsyncFunction:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def delete_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-    ) -> None:
-        r"""<p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-
-        Raises:
-            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest]",
-        ) -> AsyncOperationResponse[None]:
-            import capo_lambda._operations.aws_gir_api_service.delete_function_url_config
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.delete_function_url_config.async_delete_function_url_config(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2472,110 +2496,6 @@ class AsyncFunction:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def get_function_url_config(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
-        ] = None,
-    ) -> "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse":
-        r"""<p>Returns details about a Lambda function URL.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            qualifier: <p>The alias name.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.get_function_url_config
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.get_function_url_config.async_get_function_url_config(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def list_function_url_configs(
-        self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.max_items.MaxItems"] = None,
-    ) -> "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse":
-        r"""<p>Returns a list of Lambda function URLs for the specified function.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-            max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.list_function_url_configs
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.list_function_url_configs.async_list_function_url_configs(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if marker is not None:
-            input_["marker"] = marker
-        if max_items is not None:
-            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2709,17 +2629,20 @@ class AsyncFunction:
         s3_object_version: Optional[
             "capo_lambda.types.s3_object_version.S3ObjectVersion"
         ] = None,
+        s3_object_storage_mode: Optional[
+            "capo_lambda.types.s3_object_storage_mode.S3ObjectStorageMode"
+        ] = None,
         image_uri: Optional["capo_lambda.types.string.String"] = None,
-        publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
-        dry_run: Optional["capo_lambda.types.boolean.Boolean"] = None,
-        revision_id: Optional["capo_lambda.types.string.String"] = None,
         architectures: Optional[
             "capo_lambda.types.architectures_list.ArchitecturesList"
         ] = None,
-        source_kms_key_arn: Optional["capo_lambda.types.kms_key_arn.KMSKeyArn"] = None,
+        publish: Optional["capo_lambda.types.boolean.Boolean"] = None,
         publish_to: Optional[
             "capo_lambda.types.function_version_latest_published.FunctionVersionLatestPublished"
         ] = None,
+        dry_run: Optional["capo_lambda.types.boolean.Boolean"] = None,
+        revision_id: Optional["capo_lambda.types.string.String"] = None,
+        source_kms_key_arn: Optional["capo_lambda.types.kms_key_arn.KMSKeyArn"] = None,
     ) -> "capo_lambda.types.function_configuration.FunctionConfiguration":
         r"""<p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html\">Configuring code signing for Lambda</a>.</p> <p>If the function's package type is <code>Image</code>, then you must specify the code package in <code>ImageUri</code> as the URI of a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\">container image</a> in the Amazon ECR registry.</p> <p>If the function's package type is <code>Zip</code>, then you must specify the deployment package as a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip\">.zip file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location. You can also provide the function code inline using the <code>ZipFile</code> field.</p> <p>The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>).</p> <p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p> <note> <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if you update the image tag to a new image, Lambda does not automatically update the function.</p> </note>
 
@@ -2729,13 +2652,14 @@ class AsyncFunction:
             s3_bucket: <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
             s3_key: <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
             s3_object_version: <p>For versioned objects, the version of the deployment package object to use.</p>
+            s3_object_storage_mode: <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
             image_uri: <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
+            architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             publish: <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+            publish_to: <p>Specifies where to publish the function version or configuration.</p>
             dry_run: <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
             revision_id: <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
-            architectures: <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
             source_kms_key_arn: <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-            publish_to: <p>Specifies where to publish the function version or configuration.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -2783,20 +2707,22 @@ class AsyncFunction:
             input_["s3_key"] = s3_key
         if s3_object_version is not None:
             input_["s3_object_version"] = s3_object_version
+        if s3_object_storage_mode is not None:
+            input_["s3_object_storage_mode"] = s3_object_storage_mode
         if image_uri is not None:
             input_["image_uri"] = image_uri
+        if architectures is not None:
+            input_["architectures"] = architectures
         if publish is not None:
             input_["publish"] = publish
+        if publish_to is not None:
+            input_["publish_to"] = publish_to
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if revision_id is not None:
             input_["revision_id"] = revision_id
-        if architectures is not None:
-            input_["architectures"] = architectures
         if source_kms_key_arn is not None:
             input_["source_kms_key_arn"] = source_kms_key_arn
-        if publish_to is not None:
-            input_["publish_to"] = publish_to
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2868,7 +2794,7 @@ class AsyncFunction:
             snap_start: <p>The function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">SnapStart</a> setting.</p>
             logging_config: <p>The function's Amazon CloudWatch Logs configuration settings.</p>
             capacity_provider_config: <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-            durable_config: <p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>
+            durable_config: <p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
 
         Raises:
             capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
@@ -2886,7 +2812,7 @@ class AsyncFunction:
             To update a Lambda function's configuration
             The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
 
-            >>> await client.update_function_configuration(function_name='my-function', memory_size=256, durable_config={'ExecutionTimeout': 3600, 'RetentionPeriodInDays': 45})
+            >>> await client.update_function_configuration(durable_config={'ExecutionTimeout': 3600, 'RetentionPeriodInDays': 45}, function_name='my-function', memory_size=256)
         """
 
         async def _handler(
@@ -2955,21 +2881,19 @@ class AsyncFunction:
         )
         return response.output
 
-    async def update_function_url_config(
+    async def create_function_url_config(
         self,
-        function_name: "capo_lambda.types.function_name.FunctionName",
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        auth_type: "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType",
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
         qualifier: Optional[
             "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
         ] = None,
-        auth_type: Optional[
-            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
-        ] = None,
         cors: Optional["capo_lambda.types.cors.Cors"] = None,
         invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
-    ) -> "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse":
-        r"""<p>Updates the configuration for a Lambda function URL.</p>
+    ) -> "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse":
+        r"""<p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -2988,27 +2912,26 @@ class AsyncFunction:
         """
 
         async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest]",
+            req: "AsyncOperationRequest[capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest]",
         ) -> AsyncOperationResponse[
-            "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse"
+            "capo_lambda.types.create_function_url_config_response.CreateFunctionUrlConfigResponse"
         ]:
-            import capo_lambda._operations.aws_gir_api_service.update_function_url_config
+            import capo_lambda._operations.aws_gir_api_service.create_function_url_config
 
             (
                 output,
                 http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.update_function_url_config.async_update_function_url_config(
+            ) = await capo_lambda._operations.aws_gir_api_service.create_function_url_config.async_create_function_url_config(
                 req.options, req.input
             )
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        if auth_type is not None:
-            input_["auth_type"] = auth_type
+        input_["auth_type"] = auth_type
         if cors is not None:
             input_["cors"] = cors
         if invoke_mode is not None:
@@ -3058,6 +2981,56 @@ class AsyncFunction:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def delete_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+    ) -> None:
+        r"""<p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest]",
+        ) -> AsyncOperationResponse[None]:
+            import capo_lambda._operations.aws_gir_api_service.delete_function_url_config
+
+            (
+                output,
+                http_response,
+            ) = await capo_lambda._operations.aws_gir_api_service.delete_function_url_config.async_delete_function_url_config(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3135,6 +3108,7 @@ class AsyncFunction:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
         Raises:
+            capo_lambda.errors.code_signing_config_not_found_exception.CodeSigningConfigNotFoundException: <p>The specified code signing configuration does not exist.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
@@ -3318,6 +3292,57 @@ class AsyncFunction:
         )
         return response.output
 
+    async def get_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+    ) -> "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse":
+        r"""<p>Returns details about a Lambda function URL.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_lambda.types.get_function_url_config_response.GetFunctionUrlConfigResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.get_function_url_config
+
+            (
+                output,
+                http_response,
+            ) = await capo_lambda._operations.aws_gir_api_service.get_function_url_config.async_get_function_url_config(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     async def get_policy(
         self,
         function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
@@ -3452,12 +3477,15 @@ class AsyncFunction:
             invocation_type: <p>Choose from the following options.</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p> </li> <li> <p> <code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p> </li> </ul>
             log_type: <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
             client_context: <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
-            durable_execution_name: <p>Optional unique name for the durable execution. When you start your special function, you can give it a unique name to identify this specific execution. It's like giving a nickname to a task.</p>
+            durable_execution_name: <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p> <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names\">Execution names</a>.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             qualifier: <p>Specify a version or alias to invoke a published version of the function.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
 
         Raises:
+            capo_lambda.errors.code_artifact_user_deleted_exception.CodeArtifactUserDeletedException: <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+            capo_lambda.errors.code_artifact_user_failed_exception.CodeArtifactUserFailedException: <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+            capo_lambda.errors.code_artifact_user_pending_exception.CodeArtifactUserPendingException: <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
             capo_lambda.errors.durable_execution_already_started_exception.DurableExecutionAlreadyStartedException: <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
             capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
             capo_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
@@ -3467,6 +3495,7 @@ class AsyncFunction:
             capo_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
             capo_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
             capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
+            capo_lambda.errors.eni_not_ready_exception.ENINotReadyException: <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html\">Configuring a Lambda function to access resources in a VPC</a>.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
             capo_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
@@ -3477,6 +3506,7 @@ class AsyncFunction:
             capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
             capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
             capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException: <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html\">Invoking Lambda functions</a>.</p>
             capo_lambda.errors.no_published_version_exception.NoPublishedVersionException: <p>The function has no published versions available.</p>
             capo_lambda.errors.recursive_invocation_exception.RecursiveInvocationException: <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
             capo_lambda.errors.request_too_large_exception.RequestTooLargeException: <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
@@ -3488,8 +3518,10 @@ class AsyncFunction:
             capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
             capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
             capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
             capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
             capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -3500,11 +3532,11 @@ class AsyncFunction:
             To invoke a Lambda function
             The following example invokes version 1 of a function named my-function with an empty event payload.
 
-            >>> await client.invoke(function_name='my-function', invocation_type='Event', durable_execution_name='myExecution', payload='{}', qualifier='1')
+            >>> await client.invoke(durable_execution_name='myExecution', function_name='my-function', invocation_type='Event', payload='{}', qualifier='1')
             To invoke a Lambda function asynchronously
             The following example invokes version 1 of a function named my-function asynchronously.
 
-            >>> await client.invoke(function_name='my-function', payload='{}', invocation_type='Event', qualifier='1')
+            >>> await client.invoke(function_name='my-function', invocation_type='Event', payload='{}', qualifier='1')
         """
 
         async def _handler(
@@ -3561,11 +3593,35 @@ class AsyncFunction:
             invoke_args: <p>The JSON that you want to provide to your Lambda function as input.</p>
 
         Raises:
+            capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
+            capo_lambda.errors.ec2_throttled_exception.EC2ThrottledException: <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+            capo_lambda.errors.ec2_unexpected_exception.EC2UnexpectedException: <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+            capo_lambda.errors.efsio_exception.EFSIOException: <p>An error occurred when reading from or writing to a connected file system.</p>
+            capo_lambda.errors.efs_mount_connectivity_exception.EFSMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+            capo_lambda.errors.efs_mount_failure_exception.EFSMountFailureException: <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+            capo_lambda.errors.efs_mount_timeout_exception.EFSMountTimeoutException: <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+            capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException: <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.invalid_request_content_exception.InvalidRequestContentException: <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
             capo_lambda.errors.invalid_runtime_exception.InvalidRuntimeException: <p>The runtime or runtime version specified is not supported.</p>
+            capo_lambda.errors.invalid_security_group_id_exception.InvalidSecurityGroupIDException: <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+            capo_lambda.errors.invalid_subnet_id_exception.InvalidSubnetIDException: <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+            capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException: <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html\">Invoking Lambda functions</a>.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.s3_files_mount_connectivity_exception.S3FilesMountConnectivityException: <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+            capo_lambda.errors.s3_files_mount_failure_exception.S3FilesMountFailureException: <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+            capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+            capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+            capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
+            capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+            capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
 
         Examples:
@@ -3608,9 +3664,6 @@ class AsyncFunction:
         function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        invocation_type: Optional[
-            "capo_lambda.types.response_streaming_invocation_type.ResponseStreamingInvocationType"
-        ] = None,
         log_type: Optional["capo_lambda.types.log_type.LogType"] = None,
         client_context: Optional["capo_lambda.types.string.String"] = None,
         qualifier: Optional[
@@ -3618,17 +3671,20 @@ class AsyncFunction:
         ] = None,
         payload: Optional["capo_lambda.types.blob.Blob"] = None,
         tenant_id: Optional["capo_lambda.types.tenant_id.TenantId"] = None,
+        invocation_type: Optional[
+            "capo_lambda.types.response_streaming_invocation_type.ResponseStreamingInvocationType"
+        ] = None,
     ) -> "AsyncGenerator[capo_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse]":
         r"""<p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html\">Configuring a Lambda function to stream responses</a>.</p> <p>This operation requires permission for the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\">Granting function access to other accounts</a>.</p>
 
         Args:
             function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-            invocation_type: <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
             log_type: <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
             client_context: <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
             qualifier: <p>The alias name.</p>
             payload: <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \"key\": \"value\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
             tenant_id: <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+            invocation_type: <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
 
         Raises:
             capo_lambda.errors.ec2_access_denied_exception.EC2AccessDeniedException: <p>Need additional permissions to configure VPC settings.</p>
@@ -3660,8 +3716,10 @@ class AsyncFunction:
             capo_lambda.errors.s3_files_mount_timeout_exception.S3FilesMountTimeoutException: <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
             capo_lambda.errors.serialized_request_entity_too_large_exception.SerializedRequestEntityTooLargeException: <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException: <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>. To request a quota increase, see <a href=\"https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html\">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
             capo_lambda.errors.snap_start_exception.SnapStartException: <p>The <code>afterRestore()</code> <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html\">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
             capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException: <p>Lambda is initializing your function. You can invoke the function when the <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\">function state</a> becomes <code>Active</code>.</p>
+            capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException: <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html\">Lambda SnapStart</a>.</p>
             capo_lambda.errors.snap_start_timeout_exception.SnapStartTimeoutException: <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
             capo_lambda.errors.subnet_ip_address_limit_reached_exception.SubnetIPAddressLimitReachedException: <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -3687,8 +3745,6 @@ class AsyncFunction:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-        if invocation_type is not None:
-            input_["invocation_type"] = invocation_type
         if log_type is not None:
             input_["log_type"] = log_type
         if client_context is not None:
@@ -3699,6 +3755,8 @@ class AsyncFunction:
             input_["payload"] = payload
         if tenant_id is not None:
             input_["tenant_id"] = tenant_id
+        if invocation_type is not None:
+            input_["invocation_type"] = invocation_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3706,6 +3764,146 @@ class AsyncFunction:
             interceptors=list(interceptors_),
         )
         yield response.output
+
+    async def list_durable_executions_by_function(
+        self,
+        function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.numeric_latest_published_or_alias_qualifier.NumericLatestPublishedOrAliasQualifier"
+        ] = None,
+        durable_execution_name: Optional[
+            "capo_lambda.types.durable_execution_name.DurableExecutionName"
+        ] = None,
+        statuses: Optional[
+            "capo_lambda.types.execution_status_list.ExecutionStatusList"
+        ] = None,
+        started_after: Optional[
+            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
+        ] = None,
+        started_before: Optional[
+            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
+        ] = None,
+        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
+        marker: Optional["capo_lambda.types.string.String"] = None,
+        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
+    ) -> "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse":
+        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable executions</a> for a specified Lambda function. You can filter the results by execution name, status, and start time range. This API supports pagination for large result sets.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
+            qualifier: <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
+            durable_execution_name: <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
+            statuses: <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+            started_after: <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
+            started_before: <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
+            reverse_order: <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
+            marker: <p>Pagination token from a previous request to continue retrieving results.</p>
+            max_items: <p>Maximum number of executions to return (1-1000). Default is 100.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function
+
+            (
+                output,
+                http_response,
+            ) = await capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function.async_list_durable_executions_by_function(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+        if durable_execution_name is not None:
+            input_["durable_execution_name"] = durable_execution_name
+        if statuses is not None:
+            input_["statuses"] = statuses
+        if started_after is not None:
+            input_["started_after"] = started_after
+        if started_before is not None:
+            input_["started_before"] = started_before
+        if reverse_order is not None:
+            input_["reverse_order"] = reverse_order
+        if marker is not None:
+            input_["marker"] = marker
+        if max_items is not None:
+            input_["max_items"] = max_items
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def list_function_url_configs(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        marker: Optional["capo_lambda.types.string.String"] = None,
+        max_items: Optional["capo_lambda.types.max_items.MaxItems"] = None,
+    ) -> "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse":
+        r"""<p>Returns a list of Lambda function URLs for the specified function.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            marker: <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+            max_items: <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_lambda.types.list_function_url_configs_response.ListFunctionUrlConfigsResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.list_function_url_configs
+
+            (
+                output,
+                http_response,
+            ) = await capo_lambda._operations.aws_gir_api_service.list_function_url_configs.async_list_function_url_configs(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if marker is not None:
+            input_["marker"] = marker
+        if max_items is not None:
+            input_["max_items"] = max_items
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
 
     async def put_function_code_signing_config(
         self,
@@ -3914,6 +4112,72 @@ class AsyncFunction:
         input_["update_runtime_on"] = update_runtime_on
         if runtime_version_arn is not None:
             input_["runtime_version_arn"] = runtime_version_arn
+
+        response = await aexecute_pipeline(
+            AsyncOperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    async def update_function_url_config(
+        self,
+        function_name: "capo_lambda.types.function_url_function_name.FunctionUrlFunctionName",
+        *,
+        config_overrides: Optional[AsyncLambdaClientConfig] = None,
+        qualifier: Optional[
+            "capo_lambda.types.function_url_qualifier.FunctionUrlQualifier"
+        ] = None,
+        auth_type: Optional[
+            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
+        ] = None,
+        cors: Optional["capo_lambda.types.cors.Cors"] = None,
+        invoke_mode: Optional["capo_lambda.types.invoke_mode.InvokeMode"] = None,
+    ) -> "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse":
+        r"""<p>Updates the configuration for a Lambda function URL.</p>
+
+        Args:
+            function_name: <p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+            qualifier: <p>The alias name.</p>
+            auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
+            cors: <p>The <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS\">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+            invoke_mode: <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+
+        Raises:
+            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
+            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
+            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
+            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        async def _handler(
+            req: "AsyncOperationRequest[capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest]",
+        ) -> AsyncOperationResponse[
+            "capo_lambda.types.update_function_url_config_response.UpdateFunctionUrlConfigResponse"
+        ]:
+            import capo_lambda._operations.aws_gir_api_service.update_function_url_config
+
+            (
+                output,
+                http_response,
+            ) = await capo_lambda._operations.aws_gir_api_service.update_function_url_config.async_update_function_url_config(
+                req.options, req.input
+            )
+            return AsyncOperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self._service.operation_options(config_overrides)
+        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        if qualifier is not None:
+            input_["qualifier"] = qualifier
+        if auth_type is not None:
+            input_["auth_type"] = auth_type
+        if cors is not None:
+            input_["cors"] = cors
+        if invoke_mode is not None:
+            input_["invoke_mode"] = invoke_mode
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

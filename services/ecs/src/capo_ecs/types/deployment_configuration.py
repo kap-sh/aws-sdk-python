@@ -32,7 +32,7 @@ class DeploymentConfiguration(TypedDict, closed=True):
     lifecycle_hooks: NotRequired[
         "capo_ecs.types.deployment_lifecycle_hook_list.DeploymentLifecycleHookList"
     ]
-    """<p>An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.</p>"""
+    """<p>An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.</p>"""
     linear_configuration: NotRequired[
         "capo_ecs.types.linear_configuration.LinearConfiguration"
     ]

@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     import capo_lambda.types.kms_key_arn
     import capo_lambda.types.s3_bucket
     import capo_lambda.types.s3_key
+    import capo_lambda.types.s3_object_storage_mode
     import capo_lambda.types.s3_object_version
     import capo_lambda.types.string
 
@@ -24,6 +25,10 @@ class FunctionCode(TypedDict, closed=True):
         "capo_lambda.types.s3_object_version.S3ObjectVersion"
     ]
     """<p>For versioned objects, the version of the deployment package object to use.</p>"""
+    s3_object_storage_mode: NotRequired[
+        "capo_lambda.types.s3_object_storage_mode.S3ObjectStorageMode"
+    ]
+    """<p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>"""
     image_uri: NotRequired["capo_lambda.types.string.String"]
     r"""<p>URI of a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\">container image</a> in the Amazon ECR registry.</p>"""
     source_kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
@@ -43,6 +48,14 @@ def serialize_json(value: FunctionCode) -> dict:
         out["S3Key"] = value["s3_key"]
     if "s3_object_version" in value:
         out["S3ObjectVersion"] = value["s3_object_version"]
+    if "s3_object_storage_mode" in value:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["S3ObjectStorageMode"] = (
+            capo_lambda.types.s3_object_storage_mode.serialize_json(
+                value["s3_object_storage_mode"]
+            )
+        )
     if "image_uri" in value:
         out["ImageUri"] = value["image_uri"]
     if "source_kms_key_arn" in value:
@@ -62,6 +75,14 @@ def deserialize_json(data: dict) -> FunctionCode:
         out["s3_key"] = data["S3Key"]
     if "S3ObjectVersion" in data:
         out["s3_object_version"] = data["S3ObjectVersion"]
+    if "S3ObjectStorageMode" in data:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["s3_object_storage_mode"] = (
+            capo_lambda.types.s3_object_storage_mode.deserialize_json(
+                data["S3ObjectStorageMode"]
+            )
+        )
     if "ImageUri" in data:
         out["image_uri"] = data["ImageUri"]
     if "SourceKMSKeyArn" in data:

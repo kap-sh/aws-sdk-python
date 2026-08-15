@@ -17,6 +17,7 @@ if TYPE_CHECKING:
     import capo_cloudwatch.types.evaluation_criteria
     import capo_cloudwatch.types.evaluation_interval
     import capo_cloudwatch.types.evaluation_periods
+    import capo_cloudwatch.types.evaluation_window
     import capo_cloudwatch.types.extended_statistic
     import capo_cloudwatch.types.metric_data_queries
     import capo_cloudwatch.types.metric_id
@@ -92,6 +93,10 @@ class PutMetricAlarmInput(TypedDict, closed=True):
     r"""<p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the <code>cloudwatch:TagResource</code> permission.</p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>If you are using this operation to update an existing alarm, any tags you specify in this parameter are ignored. To change the tags of an existing alarm, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html\">TagResource</a> or <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p> <p>To use this field to set tags for an alarm when you create it, you must be signed on with both the <code>cloudwatch:PutMetricAlarm</code> and <code>cloudwatch:TagResource</code> permissions.</p>"""
     threshold_metric_id: NotRequired["capo_cloudwatch.types.metric_id.MetricId"]
     """<p>If this is an alarm based on an anomaly detection model, make this value match the ID of the <code>ANOMALY_DETECTION_BAND</code> function.</p> <p>For an example of how to use this parameter, see the <b>Anomaly Detection Model Alarm</b> example on this page.</p> <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>"""
+    evaluation_window: NotRequired[
+        "capo_cloudwatch.types.evaluation_window.EvaluationWindow"
+    ]
+    r"""<p>The evaluation window that the alarm uses to select the range of metric data that it evaluates. Specify either a sliding window or a wall clock window. If you omit this parameter, the alarm uses a sliding window.</p> <p>A sliding window advances each time the alarm is evaluated, forming a rolling time window. A wall clock window aligns the evaluated range to fixed clock boundaries, such as the top of the hour or the start of the day.</p> <p>You can use <code>EvaluationWindow</code> with any type of metric alarm except alarms that are based on a PromQL query.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html\">Alarm evaluation windows</a> in the <i>CloudWatch User Guide</i>.</p>"""
     evaluation_criteria: NotRequired[
         "capo_cloudwatch.types.evaluation_criteria.EvaluationCriteria"
     ]
@@ -195,6 +200,14 @@ def serialize_aws_json_1_0(value: PutMetricAlarmInput) -> dict:
         )
     if "threshold_metric_id" in value:
         out["ThresholdMetricId"] = value["threshold_metric_id"]
+    if "evaluation_window" in value:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["EvaluationWindow"] = (
+            capo_cloudwatch.types.evaluation_window.serialize_aws_json_1_0(
+                value["evaluation_window"]
+            )
+        )
     if "evaluation_criteria" in value:
         import capo_cloudwatch.types.evaluation_criteria
 
@@ -302,6 +315,14 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
         )
     if "ThresholdMetricId" in data:
         out["threshold_metric_id"] = data["ThresholdMetricId"]
+    if "EvaluationWindow" in data:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["evaluation_window"] = (
+            capo_cloudwatch.types.evaluation_window.deserialize_aws_json_1_0(
+                data["EvaluationWindow"]
+            )
+        )
     if "EvaluationCriteria" in data:
         import capo_cloudwatch.types.evaluation_criteria
 
@@ -435,6 +456,12 @@ def serialize_query(
         pairs.append(
             (f"{key_prefix}ThresholdMetricId", str(value["threshold_metric_id"]))
         )
+    if "evaluation_window" in value:
+        import capo_cloudwatch.types.evaluation_window
+
+        capo_cloudwatch.types.evaluation_window.serialize_query(
+            value["evaluation_window"], pairs, f"{key_prefix}EvaluationWindow"
+        )
     if "evaluation_criteria" in value:
         import capo_cloudwatch.types.evaluation_criteria
 
@@ -555,6 +582,15 @@ def deserialize_query(el: Element) -> PutMetricAlarmInput:
     child_threshold_metric_id = el.find("ThresholdMetricId")
     if child_threshold_metric_id is not None:
         out["threshold_metric_id"] = str(child_threshold_metric_id.text or "")
+    child_evaluation_window = el.find("EvaluationWindow")
+    if child_evaluation_window is not None:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["evaluation_window"] = (
+            capo_cloudwatch.types.evaluation_window.deserialize_query(
+                child_evaluation_window
+            )
+        )
     child_evaluation_criteria = el.find("EvaluationCriteria")
     if child_evaluation_criteria is not None:
         import capo_cloudwatch.types.evaluation_criteria

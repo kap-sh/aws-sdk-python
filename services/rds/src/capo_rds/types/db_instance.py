@@ -282,6 +282,12 @@ class DBInstance(TypedDict, closed=True):
     """<p>The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.</p>"""
     storage_volume_status: NotRequired["capo_rds.types.string.String"]
     """<p>The detailed status information for storage volumes associated with the DB instance. This information helps identify which specific volume is causing the instance to be in a storage-full state.</p>"""
+    storage_operation_status: NotRequired["capo_rds.types.string.String"]
+    """<p>The status of an in-progress storage operation on the DB instance. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active. Possible values:</p> <ul> <li> <p> <code>Initializing</code> - The volume is initializing from a snapshot, such as during a snapshot restore, point-in-time restore, read replica creation, or blue/green deployment. Performance can be lower than provisioned until initialization completes.</p> </li> <li> <p> <code>Optimizing</code> - The volume is optimizing following a storage scaling or modification operation.</p> </li> </ul>"""
+    storage_operation_percent_progress: NotRequired[
+        "capo_rds.types.integer_optional.IntegerOptional"
+    ]
+    """<p>The percentage of the in-progress storage operation on the DB instance that has completed, from <code>0</code> to <code>100</code>. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active.</p>"""
 
 
 # --- awsQuery ser/de ---
@@ -777,6 +783,20 @@ def serialize_query(
     if "storage_volume_status" in value:
         pairs.append(
             (f"{key_prefix}StorageVolumeStatus", str(value["storage_volume_status"]))
+        )
+    if "storage_operation_status" in value:
+        pairs.append(
+            (
+                f"{key_prefix}StorageOperationStatus",
+                str(value["storage_operation_status"]),
+            )
+        )
+    if "storage_operation_percent_progress" in value:
+        pairs.append(
+            (
+                f"{key_prefix}StorageOperationPercentProgress",
+                str(value["storage_operation_percent_progress"]),
+            )
         )
 
 
@@ -1287,4 +1307,14 @@ def deserialize_query(el: Element) -> DBInstance:
     child_storage_volume_status = el.find("StorageVolumeStatus")
     if child_storage_volume_status is not None:
         out["storage_volume_status"] = str(child_storage_volume_status.text or "")
+    child_storage_operation_status = el.find("StorageOperationStatus")
+    if child_storage_operation_status is not None:
+        out["storage_operation_status"] = str(child_storage_operation_status.text or "")
+    child_storage_operation_percent_progress = el.find(
+        "StorageOperationPercentProgress"
+    )
+    if child_storage_operation_percent_progress is not None:
+        out["storage_operation_percent_progress"] = int(
+            child_storage_operation_percent_progress.text or ""
+        )
     return out

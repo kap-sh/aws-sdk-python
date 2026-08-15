@@ -26,6 +26,7 @@ import capo_ecs.types.capacity_provider_strategy
 import capo_ecs.types.deployment_configuration
 import capo_ecs.types.deployment_controller
 import capo_ecs.types.load_balancers
+import capo_ecs.types.monitoring_configuration
 import capo_ecs.types.network_configuration
 import capo_ecs.types.placement_constraints
 import capo_ecs.types.placement_strategies

@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.boolean
     import capo_ec2.types.image_id
     import capo_ec2.types.image_state
+    import capo_ec2.types.image_watermark_list
     import capo_ec2.types.string
 
 
@@ -32,6 +33,10 @@ class ImageMetadata(TypedDict, closed=True):
     r"""<p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be discovered and used in the account. If <code>false</code>, the AMI can't be discovered or used in the account.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>"""
     is_public: NotRequired["capo_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the AMI has public launch permissions. A value of <code>true</code> means this AMI has public launch permissions, while <code>false</code> means it has only implicit (AMI owner) or explicit (shared with your account) launch permissions.</p>"""
+    image_watermarks: NotRequired[
+        "capo_ec2.types.image_watermark_list.ImageWatermarkList"
+    ]
+    """<p>The watermarks attached to the AMI.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -64,6 +69,12 @@ def serialize_ec2_query(
     if "is_public" in value:
         pairs.append(
             (f"{key_prefix}IsPublic", "true" if value["is_public"] else "false")
+        )
+    if "image_watermarks" in value:
+        import capo_ec2.types.image_watermark_list
+
+        capo_ec2.types.image_watermark_list.serialize_ec2_query(
+            value["image_watermarks"], pairs, f"{key_prefix}ImageWatermarkSet"
         )
 
 
@@ -98,4 +109,13 @@ def deserialize_ec2_query(el: Element) -> ImageMetadata:
     child_is_public = el.find("isPublic")
     if child_is_public is not None:
         out["is_public"] = (child_is_public.text or "").lower() == "true"
+    child_image_watermarks = el.find("imageWatermarkSet")
+    if child_image_watermarks is not None:
+        import capo_ec2.types.image_watermark_list
+
+        out["image_watermarks"] = (
+            capo_ec2.types.image_watermark_list.deserialize_ec2_query(
+                child_image_watermarks
+            )
+        )
     return out

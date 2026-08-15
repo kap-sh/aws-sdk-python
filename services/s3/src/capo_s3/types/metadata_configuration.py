@@ -8,6 +8,7 @@ from capo_s3._protocol.xml import Element, SubElement
 from capo_s3.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import capo_s3.types.annotation_table_configuration
     import capo_s3.types.inventory_table_configuration
     import capo_s3.types.journal_table_configuration
 
@@ -21,6 +22,10 @@ class MetadataConfiguration(TypedDict, closed=True):
         "capo_s3.types.inventory_table_configuration.InventoryTableConfiguration"
     ]
     """<p> The inventory table configuration for a metadata configuration. </p>"""
+    annotation_table_configuration: NotRequired[
+        "capo_s3.types.annotation_table_configuration.AnnotationTableConfiguration"
+    ]
+    """<p>Optional annotation table configuration to include with the metadata configuration.</p>"""
 
 
 # --- restXml ser/de ---
@@ -36,6 +41,12 @@ def serialize_xml(value: MetadataConfiguration, parent: Element, tag: str) -> No
 
         capo_s3.types.inventory_table_configuration.serialize_xml(
             value["inventory_table_configuration"], el, "InventoryTableConfiguration"
+        )
+    if "annotation_table_configuration" in value:
+        import capo_s3.types.annotation_table_configuration
+
+        capo_s3.types.annotation_table_configuration.serialize_xml(
+            value["annotation_table_configuration"], el, "AnnotationTableConfiguration"
         )
 
 
@@ -61,6 +72,15 @@ def deserialize_xml(el: Element) -> MetadataConfiguration:
         out["inventory_table_configuration"] = (
             capo_s3.types.inventory_table_configuration.deserialize_xml(
                 child_inventory_table_configuration
+            )
+        )
+    child_annotation_table_configuration = el.find("AnnotationTableConfiguration")
+    if child_annotation_table_configuration is not None:
+        import capo_s3.types.annotation_table_configuration
+
+        out["annotation_table_configuration"] = (
+            capo_s3.types.annotation_table_configuration.deserialize_xml(
+                child_annotation_table_configuration
             )
         )
     return out

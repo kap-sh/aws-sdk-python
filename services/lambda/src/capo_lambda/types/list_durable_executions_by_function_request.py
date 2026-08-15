@@ -37,7 +37,7 @@ class ListDurableExecutionsByFunctionRequest(TypedDict, closed=True):
     ]
     """<p>Filter executions that started before this timestamp (ISO 8601 format).</p>"""
     reverse_order: NotRequired["capo_lambda.types.reverse_order.ReverseOrder"]
-    """<p>Set to true to return results in reverse chronological order (newest first). Default is false.</p>"""
+    """<p>Set to true to return results in chronological order (oldest first). Default is false.</p>"""
     marker: NotRequired["capo_lambda.types.string.String"]
     """<p>Pagination token from a previous request to continue retrieving results.</p>"""
     max_items: "capo_lambda.types.item_count.ItemCount"

@@ -14,6 +14,7 @@ import capo_ec2.types.allocate_hosts_request
 import capo_ec2.types.allocate_hosts_result
 import capo_ec2.types.asset_id_list
 import capo_ec2.types.auto_placement
+import capo_ec2.types.host_cpu_options_request
 import capo_ec2.types.host_maintenance
 import capo_ec2.types.host_recovery
 import capo_ec2.types.response_host_id_list

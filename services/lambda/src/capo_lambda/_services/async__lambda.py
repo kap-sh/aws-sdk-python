@@ -1,8 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AWSGirApiService``."""
 
-import uuid
 import warnings
-from collections.abc import AsyncIterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
 
 from typing_extensions import Self, TypedDict
@@ -18,12 +16,14 @@ from capo_lambda._auth._providers import (
     default_aws_credentials_chain,
 )
 from capo_lambda._auth._zapros_handler import AuthMiddleware
-from capo_lambda._pagination import resolve_path as _resolve_path
 from capo_lambda._resources.aws_gir_api_service.capacity_provider_resource import (
     AsyncCapacityProviderResource,
 )
 from capo_lambda._resources.aws_gir_api_service.code_signing_config_resource import (
     AsyncCodeSigningConfigResource,
+)
+from capo_lambda._resources.aws_gir_api_service.durable_execution import (
+    AsyncDurableExecution,
 )
 from capo_lambda._resources.aws_gir_api_service.event_source_mapping import (
     AsyncEventSourceMapping,
@@ -39,9 +39,6 @@ from capo_lambda._resources.aws_gir_api_service.permission import AsyncPermissio
 from capo_lambda._resources.aws_gir_api_service.provisioned_concurrency_config import (
     AsyncProvisionedConcurrencyConfig,
 )
-from capo_lambda._resources.aws_gir_api_service.resource_policy import (
-    AsyncResourcePolicy,
-)
 from capo_lambda._services._aws_config import aaws_config
 from capo_lambda._services._pipeline import (
     AsyncInterceptor,
@@ -55,35 +52,15 @@ from capo_lambda._services._pipeline import (
 if TYPE_CHECKING:
     import capo_lambda.types.binary_operation_payload
     import capo_lambda.types.callback_id
-    import capo_lambda.types.checkpoint_durable_execution_request
-    import capo_lambda.types.checkpoint_durable_execution_response
-    import capo_lambda.types.checkpoint_token
-    import capo_lambda.types.client_token
     import capo_lambda.types.delete_function_event_invoke_config_request
     import capo_lambda.types.delete_function_request
     import capo_lambda.types.delete_function_response
     import capo_lambda.types.destination_config
-    import capo_lambda.types.durable_execution_arn
-    import capo_lambda.types.durable_execution_name
     import capo_lambda.types.error_object
-    import capo_lambda.types.event
-    import capo_lambda.types.execution
-    import capo_lambda.types.execution_status_list
-    import capo_lambda.types.execution_timestamp
     import capo_lambda.types.function_event_invoke_config
     import capo_lambda.types.get_account_settings_request
     import capo_lambda.types.get_account_settings_response
-    import capo_lambda.types.get_durable_execution_history_request
-    import capo_lambda.types.get_durable_execution_history_response
-    import capo_lambda.types.get_durable_execution_request
-    import capo_lambda.types.get_durable_execution_response
-    import capo_lambda.types.get_durable_execution_state_request
-    import capo_lambda.types.get_durable_execution_state_response
     import capo_lambda.types.get_function_event_invoke_config_request
-    import capo_lambda.types.include_execution_data
-    import capo_lambda.types.item_count
-    import capo_lambda.types.list_durable_executions_by_function_request
-    import capo_lambda.types.list_durable_executions_by_function_response
     import capo_lambda.types.list_function_event_invoke_configs_request
     import capo_lambda.types.list_function_event_invoke_configs_response
     import capo_lambda.types.list_tags_request
@@ -93,18 +70,13 @@ if TYPE_CHECKING:
     import capo_lambda.types.maximum_retry_attempts
     import capo_lambda.types.namespaced_function_name
     import capo_lambda.types.numeric_latest_published_or_alias_qualifier
-    import capo_lambda.types.operation
-    import capo_lambda.types.operation_updates
     import capo_lambda.types.put_function_event_invoke_config_request
-    import capo_lambda.types.reverse_order
     import capo_lambda.types.send_durable_execution_callback_failure_request
     import capo_lambda.types.send_durable_execution_callback_failure_response
     import capo_lambda.types.send_durable_execution_callback_heartbeat_request
     import capo_lambda.types.send_durable_execution_callback_heartbeat_response
     import capo_lambda.types.send_durable_execution_callback_success_request
     import capo_lambda.types.send_durable_execution_callback_success_response
-    import capo_lambda.types.stop_durable_execution_request
-    import capo_lambda.types.stop_durable_execution_response
     import capo_lambda.types.string
     import capo_lambda.types.tag_key_list
     import capo_lambda.types.tag_resource_request
@@ -182,6 +154,7 @@ class AsyncLambdaClient:
         # resources
         self.capacity_provider_resource = AsyncCapacityProviderResource(self)
         self.code_signing_config_resource = AsyncCodeSigningConfigResource(self)
+        self.durable_execution = AsyncDurableExecution(self)
         self.event_source_mapping = AsyncEventSourceMapping(self)
         self.function = AsyncFunction(self)
         self.function_alias = AsyncFunctionAlias(self)
@@ -190,7 +163,6 @@ class AsyncLambdaClient:
         self.layer_version = AsyncLayerVersion(self)
         self.permission = AsyncPermission(self)
         self.provisioned_concurrency_config = AsyncProvisionedConcurrencyConfig(self)
-        self.resource_policy = AsyncResourcePolicy(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncLambdaClientConfig] = None
@@ -219,64 +191,6 @@ class AsyncLambdaClient:
             ),
         )
         return interceptors_, options_
-
-    async def checkpoint_durable_execution(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        checkpoint_token: "capo_lambda.types.checkpoint_token.CheckpointToken",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        updates: Optional[
-            "capo_lambda.types.operation_updates.OperationUpdates"
-        ] = None,
-        client_token: Optional["capo_lambda.types.client_token.ClientToken"] = None,
-    ) -> "capo_lambda.types.checkpoint_durable_execution_response.CheckpointDurableExecutionResponse":
-        r"""<p>Saves the progress of a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable function</a> execution during runtime. This API is used by the Lambda durable functions SDK to checkpoint completed steps and schedule asynchronous operations. You typically don't need to call this API directly as the SDK handles checkpointing automatically.</p> <p>Each checkpoint operation consumes the current checkpoint token and returns a new one for the next checkpoint. This ensures that checkpoints are applied in the correct order and prevents duplicate or out-of-order state updates.</p>
-
-        Args:
-            durable_execution_arn: <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-            checkpoint_token: <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
-            updates: <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-            client_token: <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.checkpoint_durable_execution_response.CheckpointDurableExecutionResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.checkpoint_durable_execution
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.checkpoint_durable_execution.async_checkpoint_durable_execution(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
-        if updates is not None:
-            input_["updates"] = updates
-        if client_token is None:
-            client_token = str(uuid.uuid4())
-        input_["client_token"] = client_token
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
 
     async def delete_function(
         self,
@@ -434,223 +348,6 @@ class AsyncLambdaClient:
         )
         return response.output
 
-    async def get_durable_execution(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-    ) -> "capo_lambda.types.get_durable_execution_response.GetDurableExecutionResponse":
-        r"""<p>Retrieves detailed information about a specific <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable execution</a>, including its current status, input payload, result or error information, and execution metadata such as start time and usage statistics.</p>
-
-        Args:
-            durable_execution_arn: <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.get_durable_execution_response.GetDurableExecutionResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.get_durable_execution
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.get_durable_execution.async_get_durable_execution(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def get_durable_execution_history(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        include_execution_data: Optional[
-            "capo_lambda.types.include_execution_data.IncludeExecutionData"
-        ] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
-    ) -> "capo_lambda.types.get_durable_execution_history_response.GetDurableExecutionHistoryResponse":
-        r"""<p>Retrieves the execution history for a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable execution</a>, showing all the steps, callbacks, and events that occurred during the execution. This provides a detailed audit trail of the execution's progress over time.</p> <p>The history is available while the execution is running and for a retention period after it completes (1-90 days, default 30 days). You can control whether to include execution data such as step results and callback payloads.</p>
-
-        Args:
-            durable_execution_arn: <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-            include_execution_data: <p>Specifies whether to include execution data such as step results and callback payloads in the history events. Set to <code>true</code> to include data, or <code>false</code> to exclude it for a more compact response. The default is <code>true</code>.</p>
-            max_items: <p>The maximum number of history events to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
-            marker: <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.</p>
-            reverse_order: <p>When set to <code>true</code>, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.get_durable_execution_history_response.GetDurableExecutionHistoryResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.get_durable_execution_history
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.get_durable_execution_history.async_get_durable_execution_history(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        if include_execution_data is not None:
-            input_["include_execution_data"] = include_execution_data
-        if max_items is not None:
-            input_["max_items"] = max_items
-        if marker is not None:
-            input_["marker"] = marker
-        if reverse_order is not None:
-            input_["reverse_order"] = reverse_order
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def iter_get_durable_execution_history(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        include_execution_data: Optional[
-            "capo_lambda.types.include_execution_data.IncludeExecutionData"
-        ] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
-    ) -> "AsyncIterator[capo_lambda.types.event.Event]":
-        _token = marker
-        while True:
-            _response = await self.get_durable_execution_history(
-                durable_execution_arn,
-                config_overrides=config_overrides,
-                include_execution_data=include_execution_data,
-                max_items=max_items,
-                marker=_token,
-                reverse_order=reverse_order,
-            )
-            _page = _resolve_path(_response, ("events",))
-            for _item in _page or []:
-                yield _item
-            _token = _resolve_path(_response, ("next_marker",))
-            if not _token:
-                break
-
-    async def get_durable_execution_state(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        checkpoint_token: "capo_lambda.types.checkpoint_token.CheckpointToken",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-    ) -> "capo_lambda.types.get_durable_execution_state_response.GetDurableExecutionStateResponse":
-        r"""<p>Retrieves the current execution state required for the replay process during <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable function</a> execution. This API is used by the Lambda durable functions SDK to get state information needed for replay. You typically don't need to call this API directly as the SDK handles state management automatically.</p> <p>The response contains operations ordered by start sequence number in ascending order. Completed operations with children don't include child operation details since they don't need to be replayed.</p>
-
-        Args:
-            durable_execution_arn: <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-            checkpoint_token: <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
-            marker: <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.</p>
-            max_items: <p>The maximum number of operations to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.get_durable_execution_state_response.GetDurableExecutionStateResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.get_durable_execution_state
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.get_durable_execution_state.async_get_durable_execution_state(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
-        if marker is not None:
-            input_["marker"] = marker
-        if max_items is not None:
-            input_["max_items"] = max_items
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def iter_get_durable_execution_state(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        checkpoint_token: "capo_lambda.types.checkpoint_token.CheckpointToken",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-    ) -> "AsyncIterator[capo_lambda.types.operation.Operation]":
-        _token = marker
-        while True:
-            _response = await self.get_durable_execution_state(
-                durable_execution_arn,
-                checkpoint_token,
-                config_overrides=config_overrides,
-                marker=_token,
-                max_items=max_items,
-            )
-            _page = _resolve_path(_response, ("operations",))
-            for _item in _page or []:
-                yield _item
-            _token = _resolve_path(_response, ("next_marker",))
-            if not _token:
-                break
-
     async def get_function_event_invoke_config(
         self,
         function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
@@ -707,138 +404,6 @@ class AsyncLambdaClient:
             interceptors=list(interceptors_),
         )
         return response.output
-
-    async def list_durable_executions_by_function(
-        self,
-        function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.numeric_latest_published_or_alias_qualifier.NumericLatestPublishedOrAliasQualifier"
-        ] = None,
-        durable_execution_name: Optional[
-            "capo_lambda.types.durable_execution_name.DurableExecutionName"
-        ] = None,
-        statuses: Optional[
-            "capo_lambda.types.execution_status_list.ExecutionStatusList"
-        ] = None,
-        started_after: Optional[
-            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
-        ] = None,
-        started_before: Optional[
-            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
-        ] = None,
-        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-    ) -> "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse":
-        r"""<p>Returns a list of <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable executions</a> for a specified Lambda function. You can filter the results by execution name, status, and start time range. This API supports pagination for large result sets.</p>
-
-        Args:
-            function_name: <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-            qualifier: <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
-            durable_execution_name: <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-            statuses: <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-            started_after: <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
-            started_before: <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
-            reverse_order: <p>Set to true to return results in reverse chronological order (newest first). Default is false.</p>
-            marker: <p>Pagination token from a previous request to continue retrieving results.</p>
-            max_items: <p>Maximum number of executions to return (1-1000). Default is 100.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.list_durable_executions_by_function_response.ListDurableExecutionsByFunctionResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.list_durable_executions_by_function.async_list_durable_executions_by_function(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        if qualifier is not None:
-            input_["qualifier"] = qualifier
-        if durable_execution_name is not None:
-            input_["durable_execution_name"] = durable_execution_name
-        if statuses is not None:
-            input_["statuses"] = statuses
-        if started_after is not None:
-            input_["started_after"] = started_after
-        if started_before is not None:
-            input_["started_before"] = started_before
-        if reverse_order is not None:
-            input_["reverse_order"] = reverse_order
-        if marker is not None:
-            input_["marker"] = marker
-        if max_items is not None:
-            input_["max_items"] = max_items
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def iter_list_durable_executions_by_function(
-        self,
-        function_name: "capo_lambda.types.namespaced_function_name.NamespacedFunctionName",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        qualifier: Optional[
-            "capo_lambda.types.numeric_latest_published_or_alias_qualifier.NumericLatestPublishedOrAliasQualifier"
-        ] = None,
-        durable_execution_name: Optional[
-            "capo_lambda.types.durable_execution_name.DurableExecutionName"
-        ] = None,
-        statuses: Optional[
-            "capo_lambda.types.execution_status_list.ExecutionStatusList"
-        ] = None,
-        started_after: Optional[
-            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
-        ] = None,
-        started_before: Optional[
-            "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
-        ] = None,
-        reverse_order: Optional["capo_lambda.types.reverse_order.ReverseOrder"] = None,
-        marker: Optional["capo_lambda.types.string.String"] = None,
-        max_items: Optional["capo_lambda.types.item_count.ItemCount"] = None,
-    ) -> "AsyncIterator[capo_lambda.types.execution.Execution]":
-        _token = marker
-        while True:
-            _response = await self.list_durable_executions_by_function(
-                function_name,
-                config_overrides=config_overrides,
-                qualifier=qualifier,
-                durable_execution_name=durable_execution_name,
-                statuses=statuses,
-                started_after=started_after,
-                started_before=started_before,
-                reverse_order=reverse_order,
-                marker=_token,
-                max_items=max_items,
-            )
-            _page = _resolve_path(_response, ("durable_executions",))
-            for _item in _page or []:
-                yield _item
-            _token = _resolve_path(_response, ("next_marker",))
-            if not _token:
-                break
 
     async def list_function_event_invoke_configs(
         self,
@@ -991,7 +556,7 @@ class AsyncLambdaClient:
             To configure error handling for asynchronous invocation
             The following example sets a maximum event age of one hour and disables retries for the specified function.
 
-            >>> await client.put_function_event_invoke_config(function_name='my-function', maximum_retry_attempts=0, maximum_event_age_in_seconds=3600)
+            >>> await client.put_function_event_invoke_config(function_name='my-function', maximum_event_age_in_seconds=3600, maximum_retry_attempts=0)
         """
 
         async def _handler(
@@ -1044,6 +609,11 @@ class AsyncLambdaClient:
         Raises:
             capo_lambda.errors.callback_timeout_exception.CallbackTimeoutException: <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -1091,6 +661,7 @@ class AsyncLambdaClient:
         Raises:
             capo_lambda.errors.callback_timeout_exception.CallbackTimeoutException: <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -1140,6 +711,11 @@ class AsyncLambdaClient:
         Raises:
             capo_lambda.errors.callback_timeout_exception.CallbackTimeoutException: <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
+            capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException: <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+            capo_lambda.errors.kms_disabled_exception.KMSDisabledException: <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+            capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException: <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+            capo_lambda.errors.kms_not_found_exception.KMSNotFoundException: <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -1165,57 +741,6 @@ class AsyncLambdaClient:
         input_["callback_id"] = callback_id
         if result is not None:
             input_["result"] = result
-
-        response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input_, options=options_),
-            handler=_handler,
-            interceptors=list(interceptors_),
-        )
-        return response.output
-
-    async def stop_durable_execution(
-        self,
-        durable_execution_arn: "capo_lambda.types.durable_execution_arn.DurableExecutionArn",
-        *,
-        config_overrides: Optional[AsyncLambdaClientConfig] = None,
-        error: Optional["capo_lambda.types.error_object.ErrorObject"] = None,
-    ) -> (
-        "capo_lambda.types.stop_durable_execution_response.StopDurableExecutionResponse"
-    ):
-        r"""<p>Stops a running <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable execution</a>. The execution transitions to STOPPED status and cannot be resumed. Any in-progress operations are terminated.</p>
-
-        Args:
-            durable_execution_arn: <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-            error: <p>Optional error details explaining why the execution is being stopped.</p>
-
-        Raises:
-            capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
-            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
-            capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
-            capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
-            capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
-        """
-
-        async def _handler(
-            req: "AsyncOperationRequest[capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest]",
-        ) -> AsyncOperationResponse[
-            "capo_lambda.types.stop_durable_execution_response.StopDurableExecutionResponse"
-        ]:
-            import capo_lambda._operations.aws_gir_api_service.stop_durable_execution
-
-            (
-                output,
-                http_response,
-            ) = await capo_lambda._operations.aws_gir_api_service.stop_durable_execution.async_stop_durable_execution(
-                req.options, req.input
-            )
-            return AsyncOperationResponse(output=output, response=http_response)
-
-        interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        if error is not None:
-            input_["error"] = error
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1369,7 +894,7 @@ class AsyncLambdaClient:
             To update an asynchronous invocation configuration
             The following example adds an on-failure destination to the existing asynchronous invocation configuration for a function named my-function.
 
-            >>> await client.update_function_event_invoke_config(function_name='my-function', destination_config={'OnFailure': {'Destination': 'arn:aws:sqs:us-east-2:123456789012:destination'}})
+            >>> await client.update_function_event_invoke_config(destination_config={'OnFailure': {'Destination': 'arn:aws:sqs:us-east-2:123456789012:destination'}}, function_name='my-function')
         """
 
         async def _handler(

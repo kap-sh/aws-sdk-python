@@ -24,6 +24,7 @@ LastUpdateStatusReasonCode: TypeAlias = Literal[
     "InvalidRuntime",
     "InvalidZipFileException",
     "FunctionError",
+    "ServiceQuotaExceededException",
     "VcpuLimitExceeded",
     "CapacityProviderScalingLimitExceeded",
     "InsufficientCapacity",
@@ -37,6 +38,7 @@ LastUpdateStatusReasonCode: TypeAlias = Literal[
     "FunctionError.TooManyExtensions",
     "FunctionError.InitResourceExhausted",
     "DisallowedByVpcEncryptionControl",
+    "DependencyError",
 ]
 
 

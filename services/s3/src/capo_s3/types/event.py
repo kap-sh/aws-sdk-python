@@ -33,6 +33,9 @@ Event: TypeAlias = Literal[
     "s3:ObjectTagging:*",
     "s3:ObjectTagging:Put",
     "s3:ObjectTagging:Delete",
+    "s3:ObjectAnnotation:*",
+    "s3:ObjectAnnotation:Put",
+    "s3:ObjectAnnotation:Delete",
 ]
 
 

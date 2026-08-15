@@ -18,10 +18,12 @@ import capo_lambda.errors.too_many_requests_exception
 import capo_lambda.types.capacity_provider
 import capo_lambda.types.capacity_provider_permissions_config
 import capo_lambda.types.capacity_provider_scaling_config
+import capo_lambda.types.capacity_provider_telemetry_config
 import capo_lambda.types.capacity_provider_vpc_config
 import capo_lambda.types.create_capacity_provider_request
 import capo_lambda.types.create_capacity_provider_response
 import capo_lambda.types.instance_requirements
+import capo_lambda.types.propagate_tags
 import capo_lambda.types.tags
 from capo_lambda._protocol.errors import parse_error_metadata_json
 from capo_lambda._rule_engine._endpoint_rule_set import EndpointParams, resolve

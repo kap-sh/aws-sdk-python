@@ -1,0 +1,44 @@
+"""Generated from Smithy shape ``com.amazonaws.ec2#ApplicationStatusesResponseType``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import NotRequired, TypedDict
+
+from capo_ec2._protocol.xml import Element
+
+if TYPE_CHECKING:
+    import capo_ec2.types.instance_application_status_set
+
+
+class ApplicationStatusesResponseType(TypedDict, closed=True):
+    instances: NotRequired[
+        "capo_ec2.types.instance_application_status_set.InstanceApplicationStatusSet"
+    ]
+    """<p>The application status information for the instances.</p>"""
+
+
+# --- ec2Query ser/de ---
+def serialize_ec2_query(
+    value: ApplicationStatusesResponseType, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
+    if "instances" in value:
+        import capo_ec2.types.instance_application_status_set
+
+        capo_ec2.types.instance_application_status_set.serialize_ec2_query(
+            value["instances"], pairs, f"{key_prefix}InstanceSet"
+        )
+
+
+def deserialize_ec2_query(el: Element) -> ApplicationStatusesResponseType:
+    out: ApplicationStatusesResponseType = {}  # type: ignore[typeddict-item]
+    child_instances = el.find("instanceSet")
+    if child_instances is not None:
+        import capo_ec2.types.instance_application_status_set
+
+        out["instances"] = (
+            capo_ec2.types.instance_application_status_set.deserialize_ec2_query(
+                child_instances
+            )
+        )
+    return out

@@ -54,6 +54,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.access_scope_path_list_request
     import capo_ec2.types.account_attribute_name_string_list
     import capo_ec2.types.account_id
+    import capo_ec2.types.account_vpc_encryption_control_mode
     import capo_ec2.types.add_ipam_operating_region_set
     import capo_ec2.types.add_ipam_organizational_unit_exclusion_set
     import capo_ec2.types.add_prefix_list_entries
@@ -65,6 +66,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.advertise_byoip_cidr_request
     import capo_ec2.types.advertise_byoip_cidr_result
     import capo_ec2.types.affinity
+    import capo_ec2.types.aggregation_status_enum
     import capo_ec2.types.allocate_address_request
     import capo_ec2.types.allocate_address_result
     import capo_ec2.types.allocate_hosts_request
@@ -76,12 +78,16 @@ if TYPE_CHECKING:
     import capo_ec2.types.allocation_ids
     import capo_ec2.types.allowed_images_settings_enabled_state
     import capo_ec2.types.allowed_principal
+    import capo_ec2.types.application_status_check_id
+    import capo_ec2.types.application_status_check_id_list
+    import capo_ec2.types.apply_cancellation_charges
     import capo_ec2.types.apply_security_groups_to_client_vpn_target_network_request
     import capo_ec2.types.apply_security_groups_to_client_vpn_target_network_result
     import capo_ec2.types.architecture_type_set
     import capo_ec2.types.architecture_values
     import capo_ec2.types.arn_list
     import capo_ec2.types.asn_authorization_context
+    import capo_ec2.types.asn_list
     import capo_ec2.types.asset_id_list
     import capo_ec2.types.assign_ipv6_addresses_request
     import capo_ec2.types.assign_ipv6_addresses_result
@@ -91,6 +97,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.assign_private_nat_gateway_address_result
     import capo_ec2.types.associate_address_request
     import capo_ec2.types.associate_address_result
+    import capo_ec2.types.associate_application_status_check_request
+    import capo_ec2.types.associate_application_status_check_result
     import capo_ec2.types.associate_capacity_reservation_billing_owner_request
     import capo_ec2.types.associate_capacity_reservation_billing_owner_result
     import capo_ec2.types.associate_client_vpn_target_network_request
@@ -129,6 +137,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.association_id_list
     import capo_ec2.types.attach_classic_link_vpc_request
     import capo_ec2.types.attach_classic_link_vpc_result
+    import capo_ec2.types.attach_image_watermark_request
+    import capo_ec2.types.attach_image_watermark_result
     import capo_ec2.types.attach_internet_gateway_request
     import capo_ec2.types.attach_network_interface_request
     import capo_ec2.types.attach_network_interface_result
@@ -153,6 +163,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.availability_zone_id_string_list
     import capo_ec2.types.availability_zone_name
     import capo_ec2.types.availability_zone_string_list
+    import capo_ec2.types.batch_modify_ipam_routing_policy_registrations_request
+    import capo_ec2.types.batch_modify_ipam_routing_policy_registrations_result
     import capo_ec2.types.billing_product_list
     import capo_ec2.types.blob
     import capo_ec2.types.blob_attribute_value
@@ -202,6 +214,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.capacity_manager_monitored_tag_key
     import capo_ec2.types.capacity_reservation
     import capo_ec2.types.capacity_reservation_billing_request
+    import capo_ec2.types.capacity_reservation_cancellation_quote_id
+    import capo_ec2.types.capacity_reservation_cancellation_quote_id_set
     import capo_ec2.types.capacity_reservation_commitment_duration
     import capo_ec2.types.capacity_reservation_delivery_preference
     import capo_ec2.types.capacity_reservation_fleet
@@ -219,6 +233,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.carrier_gateway_max_results
     import capo_ec2.types.certificate_arn
     import capo_ec2.types.certificate_id
+    import capo_ec2.types.chronological_order
     import capo_ec2.types.cidr_authorization_context
     import capo_ec2.types.classic_link_dns_support
     import capo_ec2.types.classic_link_instance
@@ -261,10 +276,14 @@ if TYPE_CHECKING:
     import capo_ec2.types.copy_volumes_result
     import capo_ec2.types.core_network_arn
     import capo_ec2.types.cpu_options_request
+    import capo_ec2.types.create_application_status_check_request
+    import capo_ec2.types.create_application_status_check_result
     import capo_ec2.types.create_capacity_manager_data_export_request
     import capo_ec2.types.create_capacity_manager_data_export_result
     import capo_ec2.types.create_capacity_reservation_by_splitting_request
     import capo_ec2.types.create_capacity_reservation_by_splitting_result
+    import capo_ec2.types.create_capacity_reservation_cancellation_quote_request
+    import capo_ec2.types.create_capacity_reservation_cancellation_quote_result
     import capo_ec2.types.create_capacity_reservation_fleet_request
     import capo_ec2.types.create_capacity_reservation_fleet_result
     import capo_ec2.types.create_capacity_reservation_request
@@ -314,6 +333,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.create_interruptible_capacity_reservation_allocation_result
     import capo_ec2.types.create_ipam_external_resource_verification_token_request
     import capo_ec2.types.create_ipam_external_resource_verification_token_result
+    import capo_ec2.types.create_ipam_internet_registry_association_request
+    import capo_ec2.types.create_ipam_internet_registry_association_result
     import capo_ec2.types.create_ipam_policy_request
     import capo_ec2.types.create_ipam_policy_result
     import capo_ec2.types.create_ipam_pool_request
@@ -326,6 +347,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.create_ipam_resource_discovery_request
     import capo_ec2.types.create_ipam_resource_discovery_result
     import capo_ec2.types.create_ipam_result
+    import capo_ec2.types.create_ipam_routing_policy_registration_request
+    import capo_ec2.types.create_ipam_routing_policy_registration_result
     import capo_ec2.types.create_ipam_scope_request
     import capo_ec2.types.create_ipam_scope_result
     import capo_ec2.types.create_key_pair_request
@@ -423,6 +446,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.create_transit_gateway_peering_attachment_request
     import capo_ec2.types.create_transit_gateway_peering_attachment_request_options
     import capo_ec2.types.create_transit_gateway_peering_attachment_result
+    import capo_ec2.types.create_transit_gateway_policy_table_entry_request
+    import capo_ec2.types.create_transit_gateway_policy_table_entry_result
     import capo_ec2.types.create_transit_gateway_policy_table_request
     import capo_ec2.types.create_transit_gateway_policy_table_result
     import capo_ec2.types.create_transit_gateway_prefix_list_reference_request
@@ -478,6 +503,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.create_vpn_gateway_result
     import capo_ec2.types.credit_specification_request
     import capo_ec2.types.currency_code_values
+    import capo_ec2.types.custom_key_value_pair_request_set
     import capo_ec2.types.customer_gateway_id
     import capo_ec2.types.customer_gateway_id_string_list
     import capo_ec2.types.data_queries
@@ -490,6 +516,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.default_instance_metadata_endpoint_state
     import capo_ec2.types.default_instance_metadata_tags_state
     import capo_ec2.types.defaulting_dhcp_options_id
+    import capo_ec2.types.delete_application_status_check_request
+    import capo_ec2.types.delete_application_status_check_result
     import capo_ec2.types.delete_capacity_manager_data_export_request
     import capo_ec2.types.delete_capacity_manager_data_export_result
     import capo_ec2.types.delete_carrier_gateway_request
@@ -521,6 +549,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.delete_internet_gateway_request
     import capo_ec2.types.delete_ipam_external_resource_verification_token_request
     import capo_ec2.types.delete_ipam_external_resource_verification_token_result
+    import capo_ec2.types.delete_ipam_internet_registry_association_request
+    import capo_ec2.types.delete_ipam_internet_registry_association_result
     import capo_ec2.types.delete_ipam_policy_request
     import capo_ec2.types.delete_ipam_policy_result
     import capo_ec2.types.delete_ipam_pool_request
@@ -533,6 +563,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.delete_ipam_resource_discovery_request
     import capo_ec2.types.delete_ipam_resource_discovery_result
     import capo_ec2.types.delete_ipam_result
+    import capo_ec2.types.delete_ipam_routing_policy_registration_request
+    import capo_ec2.types.delete_ipam_routing_policy_registration_result
     import capo_ec2.types.delete_ipam_scope_request
     import capo_ec2.types.delete_ipam_scope_result
     import capo_ec2.types.delete_key_pair_request
@@ -618,6 +650,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.delete_transit_gateway_multicast_domain_result
     import capo_ec2.types.delete_transit_gateway_peering_attachment_request
     import capo_ec2.types.delete_transit_gateway_peering_attachment_result
+    import capo_ec2.types.delete_transit_gateway_policy_table_entry_request
+    import capo_ec2.types.delete_transit_gateway_policy_table_entry_result
     import capo_ec2.types.delete_transit_gateway_policy_table_request
     import capo_ec2.types.delete_transit_gateway_policy_table_result
     import capo_ec2.types.delete_transit_gateway_prefix_list_reference_request
@@ -678,6 +712,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.deregister_transit_gateway_multicast_group_sources_result
     import capo_ec2.types.describe_account_attributes_request
     import capo_ec2.types.describe_account_attributes_result
+    import capo_ec2.types.describe_account_vpc_encryption_control_request
+    import capo_ec2.types.describe_account_vpc_encryption_control_result
     import capo_ec2.types.describe_address_transfers_max_results
     import capo_ec2.types.describe_address_transfers_request
     import capo_ec2.types.describe_address_transfers_result
@@ -687,6 +723,15 @@ if TYPE_CHECKING:
     import capo_ec2.types.describe_addresses_result
     import capo_ec2.types.describe_aggregate_id_format_request
     import capo_ec2.types.describe_aggregate_id_format_result
+    import capo_ec2.types.describe_application_status_check_associations_max_results
+    import capo_ec2.types.describe_application_status_check_associations_request
+    import capo_ec2.types.describe_application_status_check_associations_result
+    import capo_ec2.types.describe_application_status_checks_max_results
+    import capo_ec2.types.describe_application_status_checks_request
+    import capo_ec2.types.describe_application_status_checks_result
+    import capo_ec2.types.describe_application_status_max_results
+    import capo_ec2.types.describe_application_status_request
+    import capo_ec2.types.describe_application_status_result
     import capo_ec2.types.describe_availability_zones_request
     import capo_ec2.types.describe_availability_zones_result
     import capo_ec2.types.describe_aws_network_performance_metric_subscriptions_request
@@ -716,6 +761,9 @@ if TYPE_CHECKING:
     import capo_ec2.types.describe_capacity_reservation_billing_requests_request
     import capo_ec2.types.describe_capacity_reservation_billing_requests_request_max_results
     import capo_ec2.types.describe_capacity_reservation_billing_requests_result
+    import capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request
+    import capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request_max_results
+    import capo_ec2.types.describe_capacity_reservation_cancellation_quotes_result
     import capo_ec2.types.describe_capacity_reservation_fleets_max_results
     import capo_ec2.types.describe_capacity_reservation_fleets_request
     import capo_ec2.types.describe_capacity_reservation_fleets_result
@@ -860,6 +908,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.describe_ipam_byoasn_result
     import capo_ec2.types.describe_ipam_external_resource_verification_tokens_request
     import capo_ec2.types.describe_ipam_external_resource_verification_tokens_result
+    import capo_ec2.types.describe_ipam_internet_registry_associations_request
+    import capo_ec2.types.describe_ipam_internet_registry_associations_result
     import capo_ec2.types.describe_ipam_policies_request
     import capo_ec2.types.describe_ipam_policies_result
     import capo_ec2.types.describe_ipam_pool_allocations_max_results
@@ -1130,6 +1180,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.destination_options_request
     import capo_ec2.types.detach_classic_link_vpc_request
     import capo_ec2.types.detach_classic_link_vpc_result
+    import capo_ec2.types.detach_image_watermark_request
+    import capo_ec2.types.detach_image_watermark_result
     import capo_ec2.types.detach_internet_gateway_request
     import capo_ec2.types.detach_network_interface_request
     import capo_ec2.types.detach_verified_access_trust_provider_request
@@ -1144,6 +1196,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.disable_address_transfer_result
     import capo_ec2.types.disable_allowed_images_settings_request
     import capo_ec2.types.disable_allowed_images_settings_result
+    import capo_ec2.types.disable_application_status_check_suppression_request
+    import capo_ec2.types.disable_application_status_check_suppression_result
     import capo_ec2.types.disable_aws_network_performance_metric_subscription_request
     import capo_ec2.types.disable_aws_network_performance_metric_subscription_result
     import capo_ec2.types.disable_capacity_manager_request
@@ -1182,6 +1236,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.disable_vpc_classic_link_request
     import capo_ec2.types.disable_vpc_classic_link_result
     import capo_ec2.types.disassociate_address_request
+    import capo_ec2.types.disassociate_application_status_check_request
+    import capo_ec2.types.disassociate_application_status_check_result
     import capo_ec2.types.disassociate_capacity_reservation_billing_owner_request
     import capo_ec2.types.disassociate_capacity_reservation_billing_owner_result
     import capo_ec2.types.disassociate_client_vpn_target_network_request
@@ -1242,6 +1298,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.enable_address_transfer_result
     import capo_ec2.types.enable_allowed_images_settings_request
     import capo_ec2.types.enable_allowed_images_settings_result
+    import capo_ec2.types.enable_application_status_check_suppression_request
+    import capo_ec2.types.enable_application_status_check_suppression_result
     import capo_ec2.types.enable_aws_network_performance_metric_subscription_request
     import capo_ec2.types.enable_aws_network_performance_metric_subscription_result
     import capo_ec2.types.enable_capacity_manager_request
@@ -1262,6 +1320,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.enable_image_result
     import capo_ec2.types.enable_instance_sql_ha_standby_detections_request
     import capo_ec2.types.enable_instance_sql_ha_standby_detections_result
+    import capo_ec2.types.enable_ipam_internet_registry_association_request
+    import capo_ec2.types.enable_ipam_internet_registry_association_result
     import capo_ec2.types.enable_ipam_organization_admin_account_request
     import capo_ec2.types.enable_ipam_organization_admin_account_result
     import capo_ec2.types.enable_ipam_policy_request
@@ -1393,6 +1453,12 @@ if TYPE_CHECKING:
     import capo_ec2.types.get_ipam_discovered_public_addresses_result
     import capo_ec2.types.get_ipam_discovered_resource_cidrs_request
     import capo_ec2.types.get_ipam_discovered_resource_cidrs_result
+    import capo_ec2.types.get_ipam_discovered_routes_request
+    import capo_ec2.types.get_ipam_discovered_routes_result
+    import capo_ec2.types.get_ipam_internet_registry_association_asns_request
+    import capo_ec2.types.get_ipam_internet_registry_association_asns_result
+    import capo_ec2.types.get_ipam_internet_registry_association_cidrs_request
+    import capo_ec2.types.get_ipam_internet_registry_association_cidrs_result
     import capo_ec2.types.get_ipam_policy_allocation_rules_request
     import capo_ec2.types.get_ipam_policy_allocation_rules_result
     import capo_ec2.types.get_ipam_policy_organization_targets_request
@@ -1410,6 +1476,14 @@ if TYPE_CHECKING:
     import capo_ec2.types.get_ipam_prefix_list_resolver_versions_result
     import capo_ec2.types.get_ipam_resource_cidrs_request
     import capo_ec2.types.get_ipam_resource_cidrs_result
+    import capo_ec2.types.get_ipam_route_origin_authorizations_request
+    import capo_ec2.types.get_ipam_route_origin_authorizations_result
+    import capo_ec2.types.get_ipam_route_protection_findings_request
+    import capo_ec2.types.get_ipam_route_protection_findings_result
+    import capo_ec2.types.get_ipam_routing_policy_registration_deltas_request
+    import capo_ec2.types.get_ipam_routing_policy_registration_deltas_result
+    import capo_ec2.types.get_ipam_routing_policy_registrations_request
+    import capo_ec2.types.get_ipam_routing_policy_registrations_result
     import capo_ec2.types.get_launch_template_data_request
     import capo_ec2.types.get_launch_template_data_result
     import capo_ec2.types.get_managed_prefix_list_associations_max_results
@@ -1483,8 +1557,10 @@ if TYPE_CHECKING:
     import capo_ec2.types.group_ids
     import capo_ec2.types.group_name_string_list
     import capo_ec2.types.gvcd_max_results
+    import capo_ec2.types.health_check_path_request_list
     import capo_ec2.types.hibernation_options_request
     import capo_ec2.types.host
+    import capo_ec2.types.host_cpu_options_request
     import capo_ec2.types.host_maintenance
     import capo_ec2.types.host_offering
     import capo_ec2.types.host_recovery
@@ -1517,6 +1593,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.image_usage_report_id_string_list
     import capo_ec2.types.image_usage_report_user_id_string_list
     import capo_ec2.types.image_usage_resource_type_request_list
+    import capo_ec2.types.image_watermark_name_request
     import capo_ec2.types.imds_support_values
     import capo_ec2.types.import_client_vpn_client_certificate_revocation_list_request
     import capo_ec2.types.import_client_vpn_client_certificate_revocation_list_result
@@ -1538,6 +1615,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.import_volume_request
     import capo_ec2.types.import_volume_result
     import capo_ec2.types.include_unsupported_in_region
+    import capo_ec2.types.initialization_grace_period_seconds
     import capo_ec2.types.inside_cidr_blocks_string_list
     import capo_ec2.types.instance_attribute
     import capo_ec2.types.instance_attribute_name
@@ -1557,6 +1635,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.instance_event_window_time_range_request_set
     import capo_ec2.types.instance_id
     import capo_ec2.types.instance_id_for_resolver
+    import capo_ec2.types.instance_id_list
     import capo_ec2.types.instance_id_string_list
     import capo_ec2.types.instance_id_update_string_list
     import capo_ec2.types.instance_image_metadata
@@ -1597,6 +1676,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.ip_list
     import capo_ec2.types.ip_permission_list
     import capo_ec2.types.ip_prefix_list
+    import capo_ec2.types.ip_scope_enum
+    import capo_ec2.types.ip_version_enum
     import capo_ec2.types.ipam
     import capo_ec2.types.ipam_address_history_max_results
     import capo_ec2.types.ipam_address_history_record
@@ -1605,6 +1686,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.ipam_discovered_resource_cidr
     import capo_ec2.types.ipam_external_resource_verification_token_id
     import capo_ec2.types.ipam_id
+    import capo_ec2.types.ipam_internet_registry_association_id
     import capo_ec2.types.ipam_max_results
     import capo_ec2.types.ipam_metered_account
     import capo_ec2.types.ipam_netmask_length
@@ -1636,6 +1718,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.ipam_resource_discovery_association_id
     import capo_ec2.types.ipam_resource_discovery_id
     import capo_ec2.types.ipam_resource_type
+    import capo_ec2.types.ipam_routing_policy_registration_max_length
     import capo_ec2.types.ipam_scope
     import capo_ec2.types.ipam_scope_id
     import capo_ec2.types.ipam_tier
@@ -1720,8 +1803,12 @@ if TYPE_CHECKING:
     import capo_ec2.types.metric_set
     import capo_ec2.types.metric_type
     import capo_ec2.types.millisecond_date_time
+    import capo_ec2.types.modify_account_vpc_encryption_control_request
+    import capo_ec2.types.modify_account_vpc_encryption_control_result
     import capo_ec2.types.modify_address_attribute_request
     import capo_ec2.types.modify_address_attribute_result
+    import capo_ec2.types.modify_application_status_check_request
+    import capo_ec2.types.modify_application_status_check_result
     import capo_ec2.types.modify_availability_zone_group_request
     import capo_ec2.types.modify_availability_zone_group_result
     import capo_ec2.types.modify_availability_zone_opt_in_status
@@ -1784,6 +1871,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.modify_ipam_resource_discovery_request
     import capo_ec2.types.modify_ipam_resource_discovery_result
     import capo_ec2.types.modify_ipam_result
+    import capo_ec2.types.modify_ipam_routing_policy_registration_request
+    import capo_ec2.types.modify_ipam_routing_policy_registration_result
     import capo_ec2.types.modify_ipam_scope_request
     import capo_ec2.types.modify_ipam_scope_result
     import capo_ec2.types.modify_launch_template_request
@@ -1820,6 +1909,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.modify_transit_gateway_metering_policy_request
     import capo_ec2.types.modify_transit_gateway_metering_policy_result
     import capo_ec2.types.modify_transit_gateway_options
+    import capo_ec2.types.modify_transit_gateway_policy_table_entry_request
+    import capo_ec2.types.modify_transit_gateway_policy_table_entry_result
     import capo_ec2.types.modify_transit_gateway_prefix_list_reference_request
     import capo_ec2.types.modify_transit_gateway_prefix_list_reference_result
     import capo_ec2.types.modify_transit_gateway_request
@@ -1860,6 +1951,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.modify_vpc_encryption_control_result
     import capo_ec2.types.modify_vpc_endpoint_connection_notification_request
     import capo_ec2.types.modify_vpc_endpoint_connection_notification_result
+    import capo_ec2.types.modify_vpc_endpoint_payer_responsibility_request
+    import capo_ec2.types.modify_vpc_endpoint_payer_responsibility_result
     import capo_ec2.types.modify_vpc_endpoint_request
     import capo_ec2.types.modify_vpc_endpoint_result
     import capo_ec2.types.modify_vpc_endpoint_service_configuration_request
@@ -1923,6 +2016,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.network_interface_permission
     import capo_ec2.types.network_interface_permission_id
     import capo_ec2.types.network_interface_permission_id_list
+    import capo_ec2.types.network_protocol_enum
     import capo_ec2.types.new_dhcp_configuration_list
     import capo_ec2.types.next_token
     import capo_ec2.types.odb_network_arn
@@ -1942,6 +2036,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.owner_string_list
     import capo_ec2.types.path_request_filter
     import capo_ec2.types.payer_responsibility
+    import capo_ec2.types.payer_responsibility_scope
+    import capo_ec2.types.payer_responsibility_type
     import capo_ec2.types.peering_connection_options_request
     import capo_ec2.types.period
     import capo_ec2.types.placement
@@ -1955,6 +2051,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.platform_values
     import capo_ec2.types.pool_max_results
     import capo_ec2.types.port
+    import capo_ec2.types.port_number
     import capo_ec2.types.port_range
     import capo_ec2.types.prefix_list
     import capo_ec2.types.prefix_list_association
@@ -2114,6 +2211,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.revoke_security_group_ingress_request
     import capo_ec2.types.revoke_security_group_ingress_result
     import capo_ec2.types.ri_product_description
+    import capo_ec2.types.rir
     import capo_ec2.types.role_id
     import capo_ec2.types.route_gateway_id
     import capo_ec2.types.route_server
@@ -2236,6 +2334,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.subnet_id_string_list
     import capo_ec2.types.subscription
     import capo_ec2.types.tag_description
+    import capo_ec2.types.tag_field_specification_list_request
     import capo_ec2.types.tag_list
     import capo_ec2.types.tag_specification_list
     import capo_ec2.types.target_capacity_specification_request
@@ -2297,10 +2396,12 @@ if TYPE_CHECKING:
     import capo_ec2.types.transit_gateway_peering_attachment
     import capo_ec2.types.transit_gateway_policy_table
     import capo_ec2.types.transit_gateway_policy_table_association
+    import capo_ec2.types.transit_gateway_policy_table_entry
     import capo_ec2.types.transit_gateway_policy_table_id
     import capo_ec2.types.transit_gateway_policy_table_id_string_list
     import capo_ec2.types.transit_gateway_prefix_list_reference
     import capo_ec2.types.transit_gateway_request_options
+    import capo_ec2.types.transit_gateway_request_policy_rule
     import capo_ec2.types.transit_gateway_route
     import capo_ec2.types.transit_gateway_route_table
     import capo_ec2.types.transit_gateway_route_table_announcement
@@ -3112,6 +3213,9 @@ class EC2Client:
         availability_zone_id: Optional[
             "capo_ec2.types.availability_zone_id.AvailabilityZoneId"
         ] = None,
+        cpu_options: Optional[
+            "capo_ec2.types.host_cpu_options_request.HostCpuOptionsRequest"
+        ] = None,
         auto_placement: Optional["capo_ec2.types.auto_placement.AutoPlacement"] = None,
         client_token: Optional["capo_ec2.types.string.String"] = None,
         instance_type: Optional["capo_ec2.types.string.String"] = None,
@@ -3130,6 +3234,7 @@ class EC2Client:
             host_maintenance: <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html\">Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
             asset_ids: <p>The IDs of the Outpost hardware assets on which to allocate the Dedicated Hosts. Targeting specific hardware assets on an Outpost can help to minimize latency between your workloads. This parameter is supported only if you specify <b>OutpostArn</b>. If you are allocating the Dedicated Hosts in a Region, omit this parameter.</p> <ul> <li> <p>If you specify this parameter, you can omit <b>Quantity</b>. In this case, Amazon EC2 allocates a Dedicated Host on each specified hardware asset.</p> </li> <li> <p>If you specify both <b>AssetIds</b> and <b>Quantity</b>, then the value for <b>Quantity</b> must be equal to the number of asset IDs specified.</p> </li> </ul>
             availability_zone_id: <p>The ID of the Availability Zone.</p>
+            cpu_options: <p>The CPU configuration options to apply to the Dedicated Host.</p>
             auto_placement: <p>Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding\"> Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>off</code> </p>
             client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>
             instance_type: <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.</p> <p>If you want the Dedicated Hosts to support multiple instance types in a specific instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the same request.</p>
@@ -3170,6 +3275,8 @@ class EC2Client:
             input_["asset_ids"] = asset_ids
         if availability_zone_id is not None:
             input_["availability_zone_id"] = availability_zone_id
+        if cpu_options is not None:
+            input_["cpu_options"] = cpu_options
         if auto_placement is not None:
             input_["auto_placement"] = auto_placement
         if client_token is not None:
@@ -3595,6 +3702,74 @@ class EC2Client:
             input_["private_ip_address"] = private_ip_address
         if allow_reassociation is not None:
             input_["allow_reassociation"] = allow_reassociation
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def associate_application_status_check(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_id: Optional[
+            "capo_ec2.types.application_status_check_id.ApplicationStatusCheckId"
+        ] = None,
+        target_tag_associations: Optional[
+            "capo_ec2.types.custom_key_value_pair_request_set.CustomKeyValuePairRequestSet"
+        ] = None,
+        instance_ids: Optional["capo_ec2.types.instance_id_list.InstanceIdList"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.associate_application_status_check_result.AssociateApplicationStatusCheckResult":
+        r"""<p>Associates an application status check with instances or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">tags</a>. Once you create an association, health monitoring automatically begins for the specified instances or for instances that match the specified tags. The following rules apply:</p> <ul> <li> <p>You must specify either <code>TargetTagAssociations</code> or <code>InstanceIds</code>, but not both. Specifying both results in an <code>InvalidParameterCombination</code> error.</p> </li> <li> <p>The application status check must already exist and belong to your account.</p> </li> <li> <p>Tag keys must not be blank.</p> </li> <li> <p>Maximum 50 tag associations per application status check.</p> </li> <li> <p>Use <code>DisassociateApplicationStatusCheck</code> to remove associations.</p> </li> <li> <p>When you associate <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">tags</a>, the application status check automatically monitors all current and future instances that have the specified tags.</p> </li> </ul>
+
+        Args:
+            application_status_check_id: <p>The ID of the application status check to associate.</p>
+            target_tag_associations: <p>The <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">tags</a> to associate the application status check with. Each tag is a key-value pair. When you associate tags, the application status check automatically monitors all instances that have the specified tags.</p>
+            instance_ids: <p>The IDs of the instances to associate with the application status check.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To associate an application status check with tags
+            This example associates an application status check with instances matching the specified tag.
+
+            >>> client.associate_application_status_check(application_status_check_id='asc-0123456789abcdef0', target_tag_associations=[{'Key': 'env', 'Value': 'prod'}])
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.associate_application_status_check_request.AssociateApplicationStatusCheckRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.associate_application_status_check_result.AssociateApplicationStatusCheckResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.associate_application_status_check
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.associate_application_status_check.associate_application_status_check(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.associate_application_status_check_request.AssociateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_id is not None:
+            input_["application_status_check_id"] = application_status_check_id
+        if target_tag_associations is not None:
+            input_["target_tag_associations"] = target_tag_associations
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4715,6 +4890,57 @@ class EC2Client:
         )
         return response.output
 
+    def attach_image_watermark(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
+        watermark_name: Optional[
+            "capo_ec2.types.image_watermark_name_request.ImageWatermarkNameRequest"
+        ] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.attach_image_watermark_result.AttachImageWatermarkResult":
+        r"""<p>Attaches a watermark to a non-public AMI. The watermark is a structured identifier that automatically propagates to all derivative images created through <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html\">CopyImage</a>.</p> <p>Only the AMI owner can attach watermarks. Watermarks cannot be added to public AMIs.</p>
+
+        Args:
+            image_id: <p>The ID of the AMI.</p>
+            watermark_name: <p>The name for the watermark. Combined with the caller's account ID to form the <code>WatermarkKey</code> (<code>accountId:watermarkName</code>).</p> <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.attach_image_watermark_request.AttachImageWatermarkRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.attach_image_watermark_result.AttachImageWatermarkResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.attach_image_watermark
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.attach_image_watermark.attach_image_watermark(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.attach_image_watermark_request.AttachImageWatermarkRequest = {}  # type: ignore[typeddict-item]
+        if image_id is not None:
+            input_["image_id"] = image_id
+        if watermark_name is not None:
+            input_["watermark_name"] = watermark_name
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def attach_internet_gateway(
         self,
         *,
@@ -5275,6 +5501,68 @@ class EC2Client:
         )
         return response.output
 
+    def batch_modify_ipam_routing_policy_registrations(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        delta_json: Optional["capo_ec2.types.string.String"] = None,
+        force: Optional["capo_ec2.types.boxed_boolean.BoxedBoolean"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.batch_modify_ipam_routing_policy_registrations_result.BatchModifyIpamRoutingPolicyRegistrationsResult":
+        """<p>Modifies multiple routing policy registrations in a single operation. You can create, update, or delete Route Origin Authorizations (ROAs) in batch.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            delta_json: <p>The batch modifications to apply, in JSON format.</p>
+            force: <p>Forces the batch modification even if individual changes conflict with announced routes. Default: <code>false</code>.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.batch_modify_ipam_routing_policy_registrations_request.BatchModifyIpamRoutingPolicyRegistrationsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.batch_modify_ipam_routing_policy_registrations_result.BatchModifyIpamRoutingPolicyRegistrationsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.batch_modify_ipam_routing_policy_registrations
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.batch_modify_ipam_routing_policy_registrations.batch_modify_ipam_routing_policy_registrations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.batch_modify_ipam_routing_policy_registrations_request.BatchModifyIpamRoutingPolicyRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if delta_json is not None:
+            input_["delta_json"] = delta_json
+        if force is not None:
+            input_["force"] = force
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def bundle_instance(
         self,
         *,
@@ -5283,7 +5571,7 @@ class EC2Client:
         storage: Optional["capo_ec2.types.storage.Storage"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.bundle_instance_result.BundleInstanceResult":
-        r"""<p>Bundles an Amazon instance store-backed Windows instance.</p> <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p> <note> <p>This action is no longer supported. To create an AMI, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"> Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
+        r"""<p>Bundles an Amazon instance store-backed Windows instance.</p> <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p> <note> <p>BundleInstance is no longer supported. To create an AMI, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a> instead. For more information about creating an Amazon EBS-backed AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\"> Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>
 
         Args:
             instance_id: <p>The ID of the instance to bundle.</p> <p>Default: None</p>
@@ -5331,7 +5619,7 @@ class EC2Client:
         bundle_id: Optional["capo_ec2.types.bundle_id.BundleId"] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.cancel_bundle_task_result.CancelBundleTaskResult":
-        """<p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
+        r"""<p>Cancels a bundling operation for an instance store-backed Windows instance.</p> <note> <p>CancelBundleTask is no longer supported because <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BundleInstance.html\">BundleInstance</a>, the operation it cancels, is no longer supported.</p> </note>
 
         Args:
             bundle_id: <p>The ID of the bundle task.</p>
@@ -5377,12 +5665,20 @@ class EC2Client:
             "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        apply_cancellation_charges: Optional[
+            "capo_ec2.types.apply_cancellation_charges.ApplyCancellationCharges"
+        ] = None,
+        quote_id: Optional[
+            "capo_ec2.types.capacity_reservation_cancellation_quote_id.CapacityReservationCancellationQuoteId"
+        ] = None,
     ) -> "capo_ec2.types.cancel_capacity_reservation_result.CancelCapacityReservationResult":
-        r"""<p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to <code>cancelled</code>.</p> <p>You can cancel a Capacity Reservation that is in the following states:</p> <ul> <li> <p> <code>assessing</code> </p> </li> <li> <p> <code>active</code> and there is no commitment duration or the commitment duration has elapsed. You can't cancel a future-dated Capacity Reservation during the commitment duration.</p> </li> </ul> <note> <p>You can't modify or cancel a Capacity Block. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html\">Capacity Blocks for ML</a>.</p> </note> <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p> <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
+        r"""<p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to <code>cancelled</code>.</p> <p>You can cancel a Capacity Reservation that is in the following states:</p> <ul> <li> <p> <code>assessing</code> </p> </li> <li> <p> <code>scheduled</code> — requires a cancellation quote. Use <code>CreateCapacityReservationCancellationQuote</code> to generate a quote, then pass the quote ID with <code>ApplyCancellationCharges</code> set to <code>commitment-wind-down</code>. The cancellation charge depends on how close the reservation is to its start date.</p> </li> <li> <p> <code>active</code> and there is no commitment duration or the commitment duration has elapsed.</p> </li> <li> <p> <code>active</code> during the commitment duration — requires a cancellation quote. Use <code>CreateCapacityReservationCancellationQuote</code> to generate a quote, then pass the quote ID with <code>ApplyCancellationCharges</code> set to <code>commitment-wind-down</code>. The Capacity Reservation transitions to <code>cancelling</code> while charges are applied.</p> </li> <li> <p> <code>delayed</code> — the commitment duration is waived, so no cancellation charge applies.</p> </li> </ul> <note> <p>You can't modify or cancel a Capacity Block. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html\">Capacity Blocks for ML</a>.</p> </note> <p>Instances running in the reserved capacity continue running until you stop them. Stopped instances that target the Capacity Reservation can no longer launch. Modify these instances to either target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation that has matching attributes and sufficient capacity.</p>
 
         Args:
             capacity_reservation_id: <p>The ID of the Capacity Reservation to be cancelled.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            apply_cancellation_charges: <p>Specifies the cancellation charge type to apply when cancelling a future-dated Capacity Reservation during its commitment duration. Possible values include <code>commitment-wind-down</code>, which continues billing for the remaining commitment duration without delivering capacity.</p>
+            quote_id: <p>The ID of the cancellation quote to use for the cancellation. You can generate a cancellation quote by using the <code>CreateCapacityReservationCancellationQuote</code> action. The cancellation quote must be in an <code>active</code> state.</p>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -5408,6 +5704,10 @@ class EC2Client:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
+        if apply_cancellation_charges is not None:
+            input_["apply_cancellation_charges"] = apply_cancellation_charges
+        if quote_id is not None:
+            input_["quote_id"] = quote_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6250,6 +6550,130 @@ class EC2Client:
         )
         return response.output
 
+    def create_application_status_check(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        health_check_paths: Optional[
+            "capo_ec2.types.health_check_path_request_list.HealthCheckPathRequestList"
+        ] = None,
+        aggregation: Optional[
+            "capo_ec2.types.aggregation_status_enum.AggregationStatusEnum"
+        ] = None,
+        protocol: Optional[
+            "capo_ec2.types.network_protocol_enum.NetworkProtocolEnum"
+        ] = None,
+        port: Optional["capo_ec2.types.port_number.PortNumber"] = None,
+        path: Optional["capo_ec2.types.string.String"] = None,
+        device_index: Optional["capo_ec2.types.integer.Integer"] = None,
+        ip_version: Optional["capo_ec2.types.ip_version_enum.IpVersionEnum"] = None,
+        ip_scope: Optional["capo_ec2.types.ip_scope_enum.IpScopeEnum"] = None,
+        interval: Optional["capo_ec2.types.integer.Integer"] = None,
+        timeout: Optional["capo_ec2.types.integer.Integer"] = None,
+        failure_threshold: Optional["capo_ec2.types.integer.Integer"] = None,
+        success_threshold: Optional["capo_ec2.types.integer.Integer"] = None,
+        status_code_matcher: Optional["capo_ec2.types.string.String"] = None,
+        initialization_grace_period_seconds: Optional[
+            "capo_ec2.types.initialization_grace_period_seconds.InitializationGracePeriodSeconds"
+        ] = None,
+        tag_specifications: Optional[
+            "capo_ec2.types.tag_specification_list.TagSpecificationList"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.create_application_status_check_result.CreateApplicationStatusCheckResult":
+        r"""<p>Creates an application status check for monitoring the health of applications running on your instances. You can configure the protocol, port, path, and thresholds for the health check. The following rules apply:</p> <ul> <li> <p>You can create a maximum of 50 application status checks per account.</p> </li> <li> <p>Health checks do not start until you associate the check with instances or tags using <code>AssociateApplicationStatusCheck</code>.</p> </li> <li> <p>The <code>Timeout</code> value must be less than the <code>Interval</code> value.</p> </li> <li> <p>The <code>Path</code> must start with a forward slash (<code>/</code>). Default: <code>/</code>.</p> </li> <li> <p>If you do not specify <code>Aggregation</code>, it defaults to <code>included</code>, which means the check contributes to the instance-level application status.</p> </li> <li> <p>Default values: <code>Interval</code> is 60 seconds, <code>Timeout</code> is 6 seconds, <code>FailureThreshold</code> is 2, <code>SuccessThreshold</code> is 2, <code>StatusCodeMatcher</code> is <code>200</code>, <code>InitializationGracePeriodSeconds</code> is 300 seconds.</p> </li> <li> <p>You can tag the application status check during creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a>.</p> </li> </ul>
+
+        Args:
+            health_check_paths: <p>The health check paths to use for the application status check. Health check paths define the network path from a source subnet to one or more destination subnets for cross-Availability Zone or Availability Zone to Local Zone health checking. If omitted, health checks are performed in the same subnet as the instance.</p>
+            aggregation: <p>The aggregation setting for the application status check. When set to <code>included</code>, the result of this check contributes to the instance-level application status reported by <code>DescribeApplicationStatus</code>. When set to <code>excluded</code>, the check runs independently and does not affect the instance-level status. Valid values: <code>included</code> | <code>excluded</code>.</p>
+            protocol: <p>The protocol to use for the health check. Valid values: <code>http</code> | <code>https</code>.</p>
+            port: <p>The port to use for the health check. Valid values: 1 to 65535.</p>
+            path: <p>The URL path to use for the health check HTTP request (for example, <code>/health</code> or <code>/status</code>).</p>
+            device_index: <p>The index of the network device to use for the health check. The value must be greater than or equal to 0.</p>
+            ip_version: <p>The IP version to use for the health check. Valid values: <code>ipv4</code> and <code>ipv6</code>.</p>
+            ip_scope: <p>The IP scope to use for the health check. Valid value: <code>private</code>.</p>
+            interval: <p>The interval, in seconds, between health checks. Valid value: 60.</p>
+            timeout: <p>The amount of time, in seconds, to wait for a health check response before considering it failed. Valid values: 1 to 30. The value must be less than <code>Interval</code>.</p>
+            failure_threshold: <p>The number of consecutive failed health checks before the application status is considered impaired. The value must be greater than 0.</p>
+            success_threshold: <p>The number of consecutive successful health checks before the application status is considered healthy. The value must be greater than 0.</p>
+            status_code_matcher: <p>The HTTP status codes that indicate a successful health check response. Specify a comma-separated list of individual status codes or ranges, for example, <code>200,202,300-399</code>. For a range, the first value must be less than the second value. Maximum length: 64 characters. Default: <code>200</code>.</p>
+            initialization_grace_period_seconds: <p>The number of seconds to wait before starting health checks after an instance is launched. Valid values: 1 to 600.</p>
+            tag_specifications: <p>The tags to apply to the application status check.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To create an application status check
+            This example creates an application status check that monitors HTTP health on port 80.
+
+            >>> client.create_application_status_check(protocol='http', port=80, path='/health', aggregation='included')
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.create_application_status_check_request.CreateApplicationStatusCheckRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.create_application_status_check_result.CreateApplicationStatusCheckResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.create_application_status_check
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.create_application_status_check.create_application_status_check(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.create_application_status_check_request.CreateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        if health_check_paths is not None:
+            input_["health_check_paths"] = health_check_paths
+        if aggregation is not None:
+            input_["aggregation"] = aggregation
+        if protocol is not None:
+            input_["protocol"] = protocol
+        if port is not None:
+            input_["port"] = port
+        if path is not None:
+            input_["path"] = path
+        if device_index is not None:
+            input_["device_index"] = device_index
+        if ip_version is not None:
+            input_["ip_version"] = ip_version
+        if ip_scope is not None:
+            input_["ip_scope"] = ip_scope
+        if interval is not None:
+            input_["interval"] = interval
+        if timeout is not None:
+            input_["timeout"] = timeout
+        if failure_threshold is not None:
+            input_["failure_threshold"] = failure_threshold
+        if success_threshold is not None:
+            input_["success_threshold"] = success_threshold
+        if status_code_matcher is not None:
+            input_["status_code_matcher"] = status_code_matcher
+        if initialization_grace_period_seconds is not None:
+            input_["initialization_grace_period_seconds"] = (
+                initialization_grace_period_seconds
+            )
+        if tag_specifications is not None:
+            input_["tag_specifications"] = tag_specifications
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def create_capacity_manager_data_export(
         self,
         *,
@@ -6505,6 +6929,64 @@ class EC2Client:
             input_["instance_count"] = instance_count
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_capacity_reservation_cancellation_quote(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_id: Optional[
+            "capo_ec2.types.capacity_reservation_id.CapacityReservationId"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        tag_specifications: Optional[
+            "capo_ec2.types.tag_specification_list.TagSpecificationList"
+        ] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.create_capacity_reservation_cancellation_quote_result.CreateCapacityReservationCancellationQuoteResult":
+        r"""<p>Generates a cancellation quote for a future-dated Capacity Reservation that is within its commitment duration. The quote includes the cancellation terms and a quote ID that you can pass to the <code>CancelCapacityReservation</code> action. Cancellation quotes are valid for 24 hours.</p>
+
+        Args:
+            capacity_reservation_id: <p>The ID of the Capacity Reservation.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensure Idempotency</a>.</p>
+            tag_specifications: <p>The tags to apply to the cancellation quote.</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.create_capacity_reservation_cancellation_quote_request.CreateCapacityReservationCancellationQuoteRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.create_capacity_reservation_cancellation_quote_result.CreateCapacityReservationCancellationQuoteResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.create_capacity_reservation_cancellation_quote
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.create_capacity_reservation_cancellation_quote.create_capacity_reservation_cancellation_quote(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.create_capacity_reservation_cancellation_quote_request.CreateCapacityReservationCancellationQuoteRequest = {}  # type: ignore[typeddict-item]
+        if capacity_reservation_id is not None:
+            input_["capacity_reservation_id"] = capacity_reservation_id
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+        if tag_specifications is not None:
+            input_["tag_specifications"] = tag_specifications
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7390,7 +7872,7 @@ class EC2Client:
             valid_from: <p>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). The default is to start fulfilling the request immediately.</p>
             valid_until: <p>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.</p>
             replace_unhealthy_instances: <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type <code>maintain</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks\">EC2 Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
-            tag_specifications: <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tag your resources</a>.</p> <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code> to tag the fleet or <code>instance</code> to tag the instances at launch.</p> <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of <code>instance</code>. To tag instances at launch, specify the tags in a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch template</a>.</p>
+            tag_specifications: <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\">Tag your resources</a>.</p> <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code> to tag the fleet, <code>instance</code> to tag the instances at launch, <code>volume</code> to tag the volumes at launch, or <code>network-interface</code> to tag the network interfaces at launch.</p> <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of <code>instance</code>, <code>volume</code>, or <code>network-interface</code>. To tag instances at launch, specify the tags in a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\">launch template</a>.</p>
             context: <p>Reserved.</p>
 
         Raises:
@@ -7482,6 +7964,9 @@ class EC2Client:
         destination_options: Optional[
             "capo_ec2.types.destination_options_request.DestinationOptionsRequest"
         ] = None,
+        tag_field_specifications: Optional[
+            "capo_ec2.types.tag_field_specification_list_request.TagFieldSpecificationListRequest"
+        ] = None,
     ) -> "capo_ec2.types.create_flow_logs_result.CreateFlowLogsResult":
         r"""<p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p> <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html\">Flow log records</a> in the <i>Amazon VPC User Guide</i>.</p> <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html\">VPC Flow Logs</a> in the <i>Amazon VPC User Guide</i>.</p>
 
@@ -7491,7 +7976,7 @@ class EC2Client:
             deliver_logs_permission_arn: <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to the log destination.</p> <p>This parameter is required if the destination type is <code>cloud-watch-logs</code>, or if the destination type is <code>kinesis-data-firehose</code> and the delivery stream and the resources to monitor are in different accounts.</p>
             deliver_cross_account_role: <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.</p>
             log_group_name: <p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p> <p>This parameter is valid only if the destination type is <code>cloud-watch-logs</code>.</p>
-            resource_ids: <p>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>, specify the IDs of the VPCs.</p> <p>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 1000 for the other resource types.</p>
+            resource_ids: <p>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>, specify the IDs of the VPCs.</p> <p>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 300 for the other resource types.</p>
             resource_type: <p>The type of resource to monitor.</p>
             traffic_type: <p>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic). This parameter is not supported for transit gateway resource types. It is required for the other resource types.</p>
             log_destination_type: <p>The type of destination for the flow log data.</p> <p>Default: <code>cloud-watch-logs</code> </p>
@@ -7500,6 +7985,7 @@ class EC2Client:
             tag_specifications: <p>The tags to apply to the flow logs.</p>
             max_aggregation_interval: <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes). This parameter must be 60 seconds for transit gateway resource types.</p> <p>When a network interface is attached to a <a href=\"https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html\">Nitro-based instance</a>, the aggregation interval is always 60 seconds or less, regardless of the value that you specify.</p> <p>Default: 600</p>
             destination_options: <p>The destination options.</p>
+            tag_field_specifications: <p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -7549,6 +8035,8 @@ class EC2Client:
             input_["max_aggregation_interval"] = max_aggregation_interval
         if destination_options is not None:
             input_["destination_options"] = destination_options
+        if tag_field_specifications is not None:
+            input_["tag_field_specifications"] = tag_field_specifications
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8216,6 +8704,74 @@ class EC2Client:
         )
         return response.output
 
+    def create_ipam_internet_registry_association(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
+        rir: Optional["capo_ec2.types.rir.Rir"] = None,
+        organization_handle: Optional["capo_ec2.types.string.String"] = None,
+        description: Optional["capo_ec2.types.string.String"] = None,
+        tag_specifications: Optional[
+            "capo_ec2.types.tag_specification_list.TagSpecificationList"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.create_ipam_internet_registry_association_result.CreateIpamInternetRegistryAssociationResult":
+        """<p>Creates an association between an IPAM and a Regional Internet Registry (RIR) for Resource Public Key Infrastructure (RPKI) management. You can use this association to create Route Origin Authorizations (ROAs) for IP address prefixes registered with the internet registry. Your IPAM must be in the Advanced tier to use this feature.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_id: <p>The ID of the IPAM to associate with the internet registry.</p>
+            rir: <p>The Regional Internet Registry to associate with. Possible values:</p> <ul> <li> <p> <code>ripe</code> - RIPE NCC (Europe, the Middle East, and Central Asia).</p> </li> <li> <p> <code>apnic</code> - APNIC (Asia Pacific).</p> </li> <li> <p> <code>arin</code> - ARIN (North America).</p> </li> <li> <p> <code>lacnic</code> - LACNIC (Latin America and the Caribbean).</p> </li> </ul>
+            organization_handle: <p>The organization handle at the internet registry (for example, a RIPE NCC organization ID or ARIN Org ID).</p>
+            description: <p>A description for the internet registry association.</p>
+            tag_specifications: <p>The tags to assign to the internet registry association.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.create_ipam_internet_registry_association_request.CreateIpamInternetRegistryAssociationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.create_ipam_internet_registry_association_result.CreateIpamInternetRegistryAssociationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.create_ipam_internet_registry_association
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.create_ipam_internet_registry_association.create_ipam_internet_registry_association(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.create_ipam_internet_registry_association_request.CreateIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
+        if rir is not None:
+            input_["rir"] = rir
+        if organization_handle is not None:
+            input_["organization_handle"] = organization_handle
+        if description is not None:
+            input_["description"] = description
+        if tag_specifications is not None:
+            input_["tag_specifications"] = tag_specifications
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def create_ipam_policy(
         self,
         *,
@@ -8591,6 +9147,90 @@ class EC2Client:
             input_["operating_regions"] = operating_regions
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def create_ipam_routing_policy_registration(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        asns: Optional["capo_ec2.types.asn_list.AsnList"] = None,
+        permit_more_specific_announcements: Optional[
+            "capo_ec2.types.boxed_boolean.BoxedBoolean"
+        ] = None,
+        max_length: Optional[
+            "capo_ec2.types.ipam_routing_policy_registration_max_length.IpamRoutingPolicyRegistrationMaxLength"
+        ] = None,
+        description: Optional["capo_ec2.types.string.String"] = None,
+        force: Optional["capo_ec2.types.boxed_boolean.BoxedBoolean"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.create_ipam_routing_policy_registration_result.CreateIpamRoutingPolicyRegistrationResult":
+        """<p>Creates a routing policy registration and publishes Route Origin Authorizations (ROAs) to the RPKI for the specified CIDR prefix and ASNs.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            cidr: <p>The IP address prefix in CIDR notation to authorize in the ROA.</p>
+            asns: <p>The Autonomous System Numbers (ASNs) authorized to originate the prefix.</p>
+            permit_more_specific_announcements: <p>Specifies whether to permit more specific route announcements than the CIDR prefix. When enabled, ASNs can announce sub-prefixes of the authorized CIDR up to the specified maximum length. Default: <code>false</code>.</p>
+            max_length: <p>The maximum prefix length that the ASNs are authorized to announce. Must be greater than or equal to the prefix length of the CIDR. If not specified, defaults to the prefix length of the CIDR (exact match only).</p>
+            description: <p>A description for the routing policy registration.</p>
+            force: <p>Forces the creation of the routing policy registration even if it conflicts with an announced route. Default: <code>false</code>.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.create_ipam_routing_policy_registration_request.CreateIpamRoutingPolicyRegistrationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.create_ipam_routing_policy_registration_result.CreateIpamRoutingPolicyRegistrationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.create_ipam_routing_policy_registration
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.create_ipam_routing_policy_registration.create_ipam_routing_policy_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.create_ipam_routing_policy_registration_request.CreateIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if asns is not None:
+            input_["asns"] = asns
+        if permit_more_specific_announcements is not None:
+            input_["permit_more_specific_announcements"] = (
+                permit_more_specific_announcements
+            )
+        if max_length is not None:
+            input_["max_length"] = max_length
+        if description is not None:
+            input_["description"] = description
+        if force is not None:
+            input_["force"] = force
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -10056,13 +10696,16 @@ class EC2Client:
             "capo_ec2.types.placement_group_id.PlacementGroupId"
         ] = None,
         operator: Optional["capo_ec2.types.operator_request.OperatorRequest"] = None,
+        parent_group_id: Optional[
+            "capo_ec2.types.placement_group_id.PlacementGroupId"
+        ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
         group_name: Optional["capo_ec2.types.string.String"] = None,
         strategy: Optional[
             "capo_ec2.types.placement_strategy.PlacementStrategy"
         ] = None,
     ) -> "capo_ec2.types.create_placement_group_result.CreatePlacementGroupResult":
-        r"""<p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p> <p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p> <p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition. A <code>precision-time</code> placement group places instances on supported hardware with direct access to high-precision time sources in Amazon Web Services infrastructure.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             partition_count: <p>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</p>
@@ -10070,6 +10713,7 @@ class EC2Client:
             spread_level: <p>Determines how placement groups spread instances. </p> <ul> <li> <p>Host – You can use <code>host</code> only with Outpost placement groups.</p> </li> <li> <p>Rack – No usage restrictions.</p> </li> </ul>
             linked_group_id: <p>Reserved for future use.</p>
             operator: <p>Reserved for internal use.</p>
+            parent_group_id: <p>The ID of a parent placement group. Valid only when <b>Strategy</b> is set to <code>cluster</code>.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             group_name: <p>A name for the placement group. Must be unique within the scope of your account for the Region.</p> <p>Constraints: Up to 255 ASCII characters</p>
             strategy: <p>The placement strategy.</p>
@@ -10110,6 +10754,8 @@ class EC2Client:
             input_["linked_group_id"] = linked_group_id
         if operator is not None:
             input_["operator"] = operator
+        if parent_group_id is not None:
+            input_["parent_group_id"] = parent_group_id
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if group_name is not None:
@@ -10189,18 +10835,20 @@ class EC2Client:
         image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
         delete_replaced_root_volume: Optional["capo_ec2.types.boolean.Boolean"] = None,
         volume_initialization_rate: Optional["capo_ec2.types.long.Long"] = None,
+        volume_id: Optional["capo_ec2.types.volume_id.VolumeId"] = None,
     ) -> "capo_ec2.types.create_replace_root_volume_task_result.CreateReplaceRootVolumeTaskResult":
-        r"""<p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, that is restored from an AMI that has the same key characteristics as that of the instance, or that is replaced by a specified volume.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html\">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             instance_id: <p>The ID of the instance for which to replace the root volume.</p>
-            snapshot_id: <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p> <p>If you want to restore the replacement root volume to the initial launch state, or if you want to restore the replacement root volume from an AMI, omit this parameter.</p>
+            snapshot_id: <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p> <p>If you want to restore the replacement root volume to the initial launch state, if you want to restore the replacement root volume from an AMI, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
             client_token: <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency. For more information, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html\">Ensuring idempotency</a>.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             tag_specifications: <p>The tags to apply to the root volume replacement task.</p>
-            image_id: <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p> <p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
+            image_id: <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p> <p>If you want to restore the replacement volume from a specific snapshot, if you want to restore it to its launch state, or if you want to replace the root volume with a specified volume, omit this parameter.</p>
             delete_replaced_root_volume: <p>Indicates whether to automatically delete the original root volume after the root volume replacement task completes. To delete the original root volume, specify <code>true</code>. If you choose to keep the original root volume after the replacement task completes, you must manually delete it when you no longer need it.</p>
             volume_initialization_rate: <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the replacement root volume. This is also known as <i>volume initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.</p> <p>Omit this parameter if:</p> <ul> <li> <p>You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.</p> <note> <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.</p> </note> </li> <li> <p>You want to create a volume that is initialized at the default rate.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html\"> Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid range: 100 - 300 MiB/s</p>
+            volume_id: <p>The ID of the volume to use as the replacement root volume. The specified volume must be in the same Availability Zone as the instance, must be in the <code>available</code> state, and must not be attached to an instance. If the original root volume is encrypted, the specified volume must also be encrypted.</p> <p>If you want to restore the replacement root volume from a specific snapshot, an AMI, or to its launch state, omit this parameter.</p>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -10239,6 +10887,8 @@ class EC2Client:
             input_["delete_replaced_root_volume"] = delete_replaced_root_volume
         if volume_initialization_rate is not None:
             input_["volume_initialization_rate"] = volume_initialization_rate
+        if volume_id is not None:
+            input_["volume_id"] = volume_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -12297,6 +12947,69 @@ class EC2Client:
         )
         return response.output
 
+    def create_transit_gateway_policy_table_entry(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        policy_rule_number: Optional["capo_ec2.types.string.String"] = None,
+        policy_rule: Optional[
+            "capo_ec2.types.transit_gateway_request_policy_rule.TransitGatewayRequestPolicyRule"
+        ] = None,
+        target_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.create_transit_gateway_policy_table_entry_result.CreateTransitGatewayPolicyTableEntryResult":
+        """<p>Creates an entry in a transit gateway policy table to route matching traffic to a specified route table.</p>
+
+        Args:
+            transit_gateway_policy_table_id: <p>The ID of the transit gateway policy table.</p>
+            policy_rule_number: <p>The rule number for the policy table entry. Lower rule numbers are evaluated first and take precedence.</p>
+            policy_rule: <p>The matching criteria for the policy table entry.</p>
+            target_route_table_id: <p>The ID of the transit gateway route table to use for traffic matching this rule.</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.create_transit_gateway_policy_table_entry_request.CreateTransitGatewayPolicyTableEntryRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.create_transit_gateway_policy_table_entry_result.CreateTransitGatewayPolicyTableEntryResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.create_transit_gateway_policy_table_entry
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.create_transit_gateway_policy_table_entry.create_transit_gateway_policy_table_entry(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.create_transit_gateway_policy_table_entry_request.CreateTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if policy_rule_number is not None:
+            input_["policy_rule_number"] = policy_rule_number
+        if policy_rule is not None:
+            input_["policy_rule"] = policy_rule
+        if target_route_table_id is not None:
+            input_["target_route_table_id"] = target_route_table_id
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def create_transit_gateway_prefix_list_reference(
         self,
         *,
@@ -13891,6 +14604,64 @@ class EC2Client:
         )
         return response.output
 
+    def delete_application_status_check(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_id: Optional[
+            "capo_ec2.types.application_status_check_id.ApplicationStatusCheckId"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.delete_application_status_check_result.DeleteApplicationStatusCheckResult":
+        r"""<p>Deletes an application status check. The following rules apply:</p> <ul> <li> <p>Deleting a check automatically removes all of its associations.</p> </li> <li> <p>Use <code>DescribeApplicationStatusChecks</code> to view existing checks before deleting.</p> </li> </ul>
+
+        Args:
+            application_status_check_id: <p>The ID of the application status check to delete.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To delete an application status check
+            This example deletes the specified application status check.
+
+            >>> client.delete_application_status_check(application_status_check_id='asc-0123456789abcdef0')
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.delete_application_status_check_request.DeleteApplicationStatusCheckRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.delete_application_status_check_result.DeleteApplicationStatusCheckResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.delete_application_status_check
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.delete_application_status_check.delete_application_status_check(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.delete_application_status_check_request.DeleteApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_id is not None:
+            input_["application_status_check_id"] = application_status_check_id
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def delete_capacity_manager_data_export(
         self,
         *,
@@ -14767,6 +15538,55 @@ class EC2Client:
         )
         return response.output
 
+    def delete_ipam_internet_registry_association(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+    ) -> "capo_ec2.types.delete_ipam_internet_registry_association_result.DeleteIpamInternetRegistryAssociationResult":
+        """<p>Deletes an IPAM internet registry association. Before deleting, you must remove all routing policy registrations associated with the internet registry.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association to delete.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.delete_ipam_internet_registry_association_request.DeleteIpamInternetRegistryAssociationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.delete_ipam_internet_registry_association_result.DeleteIpamInternetRegistryAssociationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.delete_ipam_internet_registry_association
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.delete_ipam_internet_registry_association.delete_ipam_internet_registry_association(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.delete_ipam_internet_registry_association_request.DeleteIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def delete_ipam_policy(
         self,
         *,
@@ -14996,6 +15816,68 @@ class EC2Client:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
             input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_ipam_routing_policy_registration(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        force: Optional["capo_ec2.types.boxed_boolean.BoxedBoolean"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.delete_ipam_routing_policy_registration_result.DeleteIpamRoutingPolicyRegistrationResult":
+        """<p>Deletes a routing policy registration for a specified CIDR prefix.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            cidr: <p>The IP address prefix in CIDR notation identifying the routing policy registration to delete.</p>
+            force: <p>Forces the deletion even if it conflicts with an announced route. Default: <code>false</code>.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.delete_ipam_routing_policy_registration_request.DeleteIpamRoutingPolicyRegistrationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.delete_ipam_routing_policy_registration_result.DeleteIpamRoutingPolicyRegistrationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.delete_ipam_routing_policy_registration
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.delete_ipam_routing_policy_registration.delete_ipam_routing_policy_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.delete_ipam_routing_policy_registration_request.DeleteIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if force is not None:
+            input_["force"] = force
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -16041,7 +16923,7 @@ class EC2Client:
             "capo_ec2.types.placement_group_name_with_resolver.PlacementGroupNameWithResolver"
         ] = None,
     ) -> None:
-        r"""<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. You cannot delete a placement group that is a parent of a cluster placement group. Delete the cluster placement groups first. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -17460,6 +18342,57 @@ class EC2Client:
         input_: capo_ec2.types.delete_transit_gateway_policy_table_request.DeleteTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def delete_transit_gateway_policy_table_entry(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        policy_rule_number: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.delete_transit_gateway_policy_table_entry_result.DeleteTransitGatewayPolicyTableEntryResult":
+        """<p>Deletes the specified transit gateway policy table entry.</p>
+
+        Args:
+            transit_gateway_policy_table_id: <p>The ID of the transit gateway policy table.</p>
+            policy_rule_number: <p>The rule number of the policy table entry to delete.</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.delete_transit_gateway_policy_table_entry_request.DeleteTransitGatewayPolicyTableEntryRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.delete_transit_gateway_policy_table_entry_result.DeleteTransitGatewayPolicyTableEntryResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.delete_transit_gateway_policy_table_entry
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.delete_transit_gateway_policy_table_entry.delete_transit_gateway_policy_table_entry(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.delete_transit_gateway_policy_table_entry_request.DeleteTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if policy_rule_number is not None:
+            input_["policy_rule_number"] = policy_rule_number
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -18952,6 +19885,47 @@ class EC2Client:
         )
         return response.output
 
+    def describe_account_vpc_encryption_control(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.describe_account_vpc_encryption_control_result.DescribeAccountVpcEncryptionControlResult":
+        r"""<p>Describes the account-level VPC Encryption Control configuration for your account. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_account_vpc_encryption_control_request.DescribeAccountVpcEncryptionControlRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_account_vpc_encryption_control_result.DescribeAccountVpcEncryptionControlResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_account_vpc_encryption_control
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_account_vpc_encryption_control.describe_account_vpc_encryption_control(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_account_vpc_encryption_control_request.DescribeAccountVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def describe_addresses(
         self,
         *,
@@ -19224,6 +20198,217 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.describe_aggregate_id_format_request.DescribeAggregateIdFormatRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_application_status(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional["capo_ec2.types.instance_id_list.InstanceIdList"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_application_status_max_results.DescribeApplicationStatusMaxResults"
+        ] = None,
+        next_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.describe_application_status_result.DescribeApplicationStatusResult":
+        r"""<p>Describes the application status for the specified instances. Returns the aggregated application health status for each instance. The following rules apply:</p> <ul> <li> <p>The instance-level status is derived from all application status checks with the aggregation setting set to <code>included</code>.</p> </li> <li> <p>Use <code>DescribeApplicationStatusChecks</code> to view the configuration of individual checks.</p> </li> <li> <p>Use <code>EnableApplicationStatusCheckSuppression</code> to temporarily suppress health check results from affecting the instance-level status.</p> </li> </ul>
+
+        Args:
+            instance_ids: <p>The IDs of the instances for which to describe application status.</p>
+            filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone-id</code> – The ID of the Availability Zone.</p> </li> <li> <p> <code>status</code> – The instance-level application status. For valid values and their meanings, see <code>ApplicationStatus</code>.</p> </li> </ul>
+            max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+            next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To describe application status for instances
+            This example describes the application status for the specified instance.
+
+            >>> client.describe_application_status(instance_ids=['i-0123456789abcdef0'])
+            To describe application status using filters
+            This example uses a filter to describe impaired application status in a specific Availability Zone.
+
+            >>> client.describe_application_status(filters=[{'Name': 'availability-zone-id', 'Values': ['use1-az1']}, {'Name': 'status', 'Values': ['impaired']}], max_results=10)
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_application_status_request.DescribeApplicationStatusRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_application_status_result.DescribeApplicationStatusResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_application_status
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_application_status.describe_application_status(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_application_status_request.DescribeApplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if filters is not None:
+            input_["filters"] = filters
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_application_status_check_associations(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_ids: Optional[
+            "capo_ec2.types.application_status_check_id_list.ApplicationStatusCheckIdList"
+        ] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_application_status_check_associations_max_results.DescribeApplicationStatusCheckAssociationsMaxResults"
+        ] = None,
+        next_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.describe_application_status_check_associations_result.DescribeApplicationStatusCheckAssociationsResult":
+        r"""<p>Describes the associations for one or more application status checks. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-application-status-checks.html\">Application status checks</a>. To avoid timeouts and retrieve complete results, use the pagination parameters.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary.</p> </note>
+
+        Args:
+            application_status_check_ids: <p>The IDs of the application status checks for which to describe associations.</p>
+            filters: <p>The filters to use to limit the results.</p> <ul> <li> <p> <code>association-type</code> – The type of association. Valid values: <code>tag</code> and <code>instance-id</code>.</p> </li> </ul>
+            max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+            next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To describe application status check associations
+            This example describes instance ID associations for the specified application status check.
+
+            >>> client.describe_application_status_check_associations(application_status_check_ids=['asc-0123456789abcdef0'], filters=[{'Name': 'association-type', 'Values': ['instance-id']}])
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_application_status_check_associations_request.DescribeApplicationStatusCheckAssociationsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_application_status_check_associations_result.DescribeApplicationStatusCheckAssociationsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_application_status_check_associations
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_application_status_check_associations.describe_application_status_check_associations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_application_status_check_associations_request.DescribeApplicationStatusCheckAssociationsRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_ids is not None:
+            input_["application_status_check_ids"] = application_status_check_ids
+        if filters is not None:
+            input_["filters"] = filters
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_application_status_checks(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_ids: Optional[
+            "capo_ec2.types.application_status_check_id_list.ApplicationStatusCheckIdList"
+        ] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_application_status_checks_max_results.DescribeApplicationStatusChecksMaxResults"
+        ] = None,
+        next_token: Optional["capo_ec2.types.string.String"] = None,
+        include_all: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.describe_application_status_checks_result.DescribeApplicationStatusChecksResult":
+        r"""<p>Describes one or more application status checks. Returns configuration details for your application status checks, including protocol, port, path, thresholds, and associations. The following rules apply:</p> <ul> <li> <p>If you do not specify any application status check IDs, all checks in your account are returned.</p> </li> <li> <p>Use <code>DescribeApplicationStatus</code> to see the actual health status of instances.</p> </li> </ul>
+
+        Args:
+            application_status_check_ids: <p>The IDs of the application status checks to describe.</p>
+            filters: <p>The filters.</p> <ul> <li> <p> <code>aggregation</code> – The aggregation setting. Valid values: <code>included</code> and <code>excluded</code>.</p> </li> </ul>
+            max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+            next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+            include_all: <p>Specifies whether to include recently deleted application status checks that remain available during the deletion grace period. If you omit this parameter or set it to <code>false</code>, the response includes only active checks.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To describe application status checks
+            This example describes the specified application status checks.
+
+            >>> client.describe_application_status_checks(application_status_check_ids=['asc-0123456789abcdef0'])
+            To describe application status checks using filters
+            This example uses a filter to describe application status checks included in aggregation.
+
+            >>> client.describe_application_status_checks(filters=[{'Name': 'aggregation', 'Values': ['included']}], max_results=10)
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_application_status_checks_request.DescribeApplicationStatusChecksRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_application_status_checks_result.DescribeApplicationStatusChecksResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_application_status_checks
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_application_status_checks.describe_application_status_checks(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_application_status_checks_request.DescribeApplicationStatusChecksRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_ids is not None:
+            input_["application_status_check_ids"] = application_status_check_ids
+        if filters is not None:
+            input_["filters"] = filters
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if include_all is not None:
+            input_["include_all"] = include_all
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -20208,6 +21393,69 @@ class EC2Client:
             if not _token:
                 break
 
+    def describe_capacity_reservation_cancellation_quotes(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        capacity_reservation_cancellation_quote_ids: Optional[
+            "capo_ec2.types.capacity_reservation_cancellation_quote_id_set.CapacityReservationCancellationQuoteIdSet"
+        ] = None,
+        max_results: Optional[
+            "capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request_max_results.DescribeCapacityReservationCancellationQuotesRequestMaxResults"
+        ] = None,
+        next_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+    ) -> "capo_ec2.types.describe_capacity_reservation_cancellation_quotes_result.DescribeCapacityReservationCancellationQuotesResult":
+        r"""<p>Describes one or more Capacity Reservation cancellation quotes. The results describe only the quotes that you have previously generated by using the <code>CreateCapacityReservationCancellationQuote</code> action.</p>
+
+        Args:
+            capacity_reservation_cancellation_quote_ids: <p>The IDs of the cancellation quotes to describe.</p>
+            max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+            next_token: <p>The token to use to retrieve the next page of results.</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            filters: <p>One or more filters. Filter names and values are case-sensitive.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request.DescribeCapacityReservationCancellationQuotesRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_capacity_reservation_cancellation_quotes_result.DescribeCapacityReservationCancellationQuotesResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_capacity_reservation_cancellation_quotes
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_capacity_reservation_cancellation_quotes.describe_capacity_reservation_cancellation_quotes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request.DescribeCapacityReservationCancellationQuotesRequest = {}  # type: ignore[typeddict-item]
+        if capacity_reservation_cancellation_quote_ids is not None:
+            input_["capacity_reservation_cancellation_quote_ids"] = (
+                capacity_reservation_cancellation_quote_ids
+            )
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if filters is not None:
+            input_["filters"] = filters
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def describe_capacity_reservation_fleets(
         self,
         *,
@@ -20412,7 +21660,7 @@ class EC2Client:
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p> <p>You can't specify this parameter and the Capacity Reservation IDs parameter in the same request.</p> <p>Default: <code>10</code> </p>
-            capacity_reservation_ids: <p>The Capacity Reservation IDs.</p> <p>Default: Describes all your Capacity Reservations.</p> <p>Constraints: Maximum 100 explicitly specified Capacity Reservation IDs.</p>
+            capacity_reservation_ids: <p>The Capacity Reservation IDs.</p> <p>Default: Describes all your Capacity Reservations.</p> <p>Constraints: Maximum 10 explicitly specified Capacity Reservation IDs.</p>
             filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) that the Capacity Reservation is in.</p> </li> <li> <p> <code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>) or instance family (for example, <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or more characters, or the <code>?</code> wildcard to match zero or one character.</p> </li> </ul>
 
         Raises:
@@ -22985,7 +24233,7 @@ class EC2Client:
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-            filters: <p>The filters.</p> <ul> <li> <p> <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p> </li> <li> <p> <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p> </li> <li> <p> <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p> </li> <li> <p> <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p> </li> <li> <p> <code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>description</code> - The description of the image (provided during image creation).</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p> </li> <li> <p> <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be used under the Amazon Web Services Free Tier (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p> </li> <li> <p> <code>image-allowed</code> - A Boolean that indicates whether the image meets the criteria specified for Allowed AMIs.</p> </li> <li> <p> <code>image-id</code> - The ID of the image.</p> </li> <li> <p> <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p> </li> <li> <p> <code>is-public</code> - A Boolean that indicates whether the image is public.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>manifest-location</code> - The location of the image manifest.</p> </li> <li> <p> <code>name</code> - The name of the AMI (provided during image creation).</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-image-id</code> - The ID of the source AMI from which the AMI was created.</p> </li> <li> <p> <code>source-image-region</code> - The Region of the source AMI.</p> </li> <li> <p> <code>source-instance-id</code> - The ID of the instance that the AMI was created from if the AMI was created using CreateImage. This filter is applicable only if the AMI was created using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>.</p> </li> <li> <p> <code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - The message for the state change.</p> </li> <li> <p> <code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p> </li> </ul>
+            filters: <p>The filters.</p> <ul> <li> <p> <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p> </li> <li> <p> <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p> </li> <li> <p> <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p> </li> <li> <p> <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p> </li> <li> <p> <code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>description</code> - The description of the image (provided during image creation).</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p> </li> <li> <p> <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be used under the Amazon Web Services Free Tier (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p> </li> <li> <p> <code>image-allowed</code> - A Boolean that indicates whether the image meets the criteria specified for Allowed AMIs.</p> </li> <li> <p> <code>image-id</code> - The ID of the image.</p> </li> <li> <p> <code>image-watermark.source-image-creation-time</code> - The creation date of the source AMI, in the ISO 8601 format in the UTC time zone (<code> <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i> </code>). You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>image-watermark.source-image-id</code> - The ID of the AMI to which the watermark was originally attached.</p> </li> <li> <p> <code>image-watermark.source-image-region</code> - The Region where the watermark was originally attached.</p> </li> <li> <p> <code>image-watermark.watermark-creation-time</code> - The date and time the watermark was attached to the AMI, in the ISO 8601 format in the UTC time zone (<code> <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i> </code>). You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>image-watermark.watermark-key</code> - The watermark identifier, in <code>accountId:watermarkName</code> format (for example, <code>123456789012:approvedAmi</code>).</p> </li> <li> <p> <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p> </li> <li> <p> <code>is-public</code> - A Boolean that indicates whether the image is public.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>manifest-location</code> - The location of the image manifest.</p> </li> <li> <p> <code>name</code> - The name of the AMI (provided during image creation).</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p> </li> <li> <p> <code>public-ssm-parameter-name</code> - The name of a public Systems Manager parameter associated with the AMI. The parameter must be in a trusted Amazon Web Services namespace under <code>aws/service/</code>. Returns all AMIs that have ever been associated with the parameter, including previous versions.</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>source-image-id</code> - The ID of the source AMI from which the AMI was created.</p> </li> <li> <p> <code>source-image-region</code> - The Region of the source AMI.</p> </li> <li> <p> <code>source-instance-id</code> - The ID of the instance that the AMI was created from if the AMI was created using CreateImage. This filter is applicable only if the AMI was created using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">CreateImage</a>.</p> </li> <li> <p> <code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - The message for the state change.</p> </li> <li> <p> <code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p> </li> </ul>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -24180,7 +25428,7 @@ class EC2Client:
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         include_all_instances: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.describe_instance_status_result.DescribeInstanceStatusResult":
-        r"""<p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p> <p>Instance status includes the following components:</p> <ul> <li> <p> <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\">Status checks for your instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html\">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
+        r"""<p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p> <p>Instance status includes the following components:</p> <ul> <li> <p> <b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\">Status checks for your instances</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html\">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Application status checks</b> - Amazon EC2 reports application-level health status for instances, indicating whether applications running on the instance are functioning properly.</p> </li> <li> <p> <b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html\">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> <li> <p> <b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p> </li> </ul> <p>The Amazon EC2 API follows an eventual consistency model. This means that the result of an API command you run that creates or modifies resources might not be immediately available to all subsequent commands you run. For guidance on how to manage eventual consistency, see <a href=\"https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html\">Eventual consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.</p> <note> <p>The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.</p> </note>
 
         Args:
             instance_ids: <p>The instance IDs.</p> <p>Default: Describes all your instances.</p> <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
@@ -24188,7 +25436,7 @@ class EC2Client:
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             include_managed_resources: <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-            filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the instance.</p> </li> <li> <p> <code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p> </li> <li> <p> <code>event.description</code> - A description of the event.</p> </li> <li> <p> <code>event.instance-event-id</code> - The ID of the event whose date and time you are modifying.</p> </li> <li> <p> <code>event.not-after</code> - The latest end time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before</code> - The earliest start time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before-deadline</code> - The deadline for starting the event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed instance.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the instance. Only valid for managed instances, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>attached-ebs-status.status</code> - The status of the attached EBS volume for the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> </ul>
+            filters: <p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone of the instance.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone of the instance.</p> </li> <li> <p> <code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code> | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code> | <code>instance-stop</code>).</p> </li> <li> <p> <code>event.description</code> - A description of the event.</p> </li> <li> <p> <code>event.instance-event-id</code> - The ID of the event whose date and time you are modifying.</p> </li> <li> <p> <code>event.not-after</code> - The latest end time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before</code> - The earliest start time for the scheduled event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>event.not-before-deadline</code> - The deadline for starting the event (for example, <code>2014-09-15T17:15:20.000Z</code>).</p> </li> <li> <p> <code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</p> </li> <li> <p> <code>instance-state-name</code> - The state of the instance (<code>pending</code> | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code> | <code>stopped</code>).</p> </li> <li> <p> <code>instance-status.reachability</code> - Filters on instance status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>instance-status.status</code> - The status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>operator.managed</code> - A Boolean that indicates whether this is a managed instance.</p> </li> <li> <p> <code>operator.principal</code> - The principal that manages the instance. Only valid for managed instances, where <code>managed</code> is <code>true</code>.</p> </li> <li> <p> <code>system-status.reachability</code> - Filters on system status where the name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code> | <code>insufficient-data</code>).</p> </li> <li> <p> <code>system-status.status</code> - The system status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>attached-ebs-status.status</code> - The status of the attached EBS volume for the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> <li> <p> <code>application-status.status</code> - The application status of the instance (<code>ok</code> | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code> | <code>not-applicable</code>).</p> </li> </ul>
             include_all_instances: <p>When <code>true</code>, includes the health status for all instances. When <code>false</code>, includes the health status for running instances only.</p> <p>Default: <code>false</code> </p>
 
         Raises:
@@ -24758,6 +26006,67 @@ class EC2Client:
             input_["ipam_external_resource_verification_token_ids"] = (
                 ipam_external_resource_verification_token_ids
             )
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def describe_ipam_internet_registry_associations(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_ids: Optional[
+            "capo_ec2.types.value_string_list.ValueStringList"
+        ] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+    ) -> "capo_ec2.types.describe_ipam_internet_registry_associations_result.DescribeIpamInternetRegistryAssociationsResult":
+        """<p>Describes one or more IPAM internet registry associations. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_ids: <p>The IDs of the internet registry associations to describe.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+            filters: <p>One or more filters to apply to the results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.describe_ipam_internet_registry_associations_request.DescribeIpamInternetRegistryAssociationsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.describe_ipam_internet_registry_associations_result.DescribeIpamInternetRegistryAssociationsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.describe_ipam_internet_registry_associations
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.describe_ipam_internet_registry_associations.describe_ipam_internet_registry_associations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.describe_ipam_internet_registry_associations_request.DescribeIpamInternetRegistryAssociationsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_ids is not None:
+            input_["ipam_internet_registry_association_ids"] = (
+                ipam_internet_registry_association_ids
+            )
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if filters is not None:
+            input_["filters"] = filters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -27927,7 +29236,7 @@ class EC2Client:
             group_ids: <p>The IDs of the placement groups.</p>
             dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             group_names: <p>The names of the placement groups.</p> <p>Constraints:</p> <ul> <li> <p>You can specify a name only if the placement group is owned by your account.</p> </li> <li> <p>If a placement group is <i>shared</i> with your account, specifying the name results in an error. You must use the <code>GroupId</code> parameter instead.</p> </li> </ul>
-            filters: <p>The filters.</p> <ul> <li> <p> <code>group-name</code> - The name of the placement group.</p> </li> <li> <p> <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p> </li> <li> <p> <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>). </p> </li> <li> <p> <code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> </ul>
+            filters: <p>The filters.</p> <ul> <li> <p> <code>group-name</code> - The name of the placement group.</p> </li> <li> <p> <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p> </li> <li> <p> <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>). </p> </li> <li> <p> <code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code> | <code>precision-time</code>).</p> </li> <li> <p> <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> </ul>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -33232,6 +34541,7 @@ class EC2Client:
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
+        include_managed_resources: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.describe_volumes_modifications_result.DescribeVolumesModificationsResult":
         r"""<p>Describes the most recent volume modification request for the specified EBS volumes.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html\"> Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
 
@@ -33241,6 +34551,7 @@ class EC2Client:
             filters: <p>The filters.</p> <ul> <li> <p> <code>modification-state</code> - The current modification state (modifying | optimizing | completed | failed).</p> </li> <li> <p> <code>original-iops</code> - The original IOPS rate of the volume.</p> </li> <li> <p> <code>original-size</code> - The original size of the volume, in GiB.</p> </li> <li> <p> <code>original-volume-type</code> - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).</p> </li> <li> <p> <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p> </li> <li> <p> <code>start-time</code> - The modification start time.</p> </li> <li> <p> <code>target-iops</code> - The target IOPS rate of the volume.</p> </li> <li> <p> <code>target-size</code> - The target size of the volume, in GiB.</p> </li> <li> <p> <code>target-volume-type</code> - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).</p> </li> <li> <p> <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p> </li> <li> <p> <code>volume-id</code> - The ID of the volume.</p> </li> </ul>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
             max_results: <p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
+            include_managed_resources: <p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -33272,6 +34583,8 @@ class EC2Client:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
+        if include_managed_resources is not None:
+            input_["include_managed_resources"] = include_managed_resources
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -33291,6 +34604,7 @@ class EC2Client:
         filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
         max_results: Optional["capo_ec2.types.integer.Integer"] = None,
+        include_managed_resources: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "Iterator[capo_ec2.types.volume_modification.VolumeModification]":
         _token = next_token
         while True:
@@ -33301,6 +34615,7 @@ class EC2Client:
                 filters=filters,
                 next_token=_token,
                 max_results=max_results,
+                include_managed_resources=include_managed_resources,
             )
             _page = _resolve_path(_response, ("volumes_modifications",))
             for _item in _page or []:
@@ -34874,6 +36189,55 @@ class EC2Client:
         )
         return response.output
 
+    def detach_image_watermark(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        image_id: Optional["capo_ec2.types.image_id.ImageId"] = None,
+        watermark_key: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.detach_image_watermark_result.DetachImageWatermarkResult":
+        """<p>Removes a watermark from the specified AMI. This is an idempotent operation. It succeeds even if the watermark does not exist on the image.</p> <p>Removing a watermark from an image does not affect derivative images that already carry the watermark.</p> <p>Only the AMI owner can detach watermarks.</p>
+
+        Args:
+            image_id: <p>The ID of the AMI.</p>
+            watermark_key: <p>The watermark key to remove, in <code>accountId:watermarkName</code> format (for example, <code>123456789012:approvedAmi</code>).</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.detach_image_watermark_request.DetachImageWatermarkRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.detach_image_watermark_result.DetachImageWatermarkResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.detach_image_watermark
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.detach_image_watermark.detach_image_watermark(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.detach_image_watermark_request.DetachImageWatermarkRequest = {}  # type: ignore[typeddict-item]
+        if image_id is not None:
+            input_["image_id"] = image_id
+        if watermark_key is not None:
+            input_["watermark_key"] = watermark_key
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def detach_internet_gateway(
         self,
         *,
@@ -35232,6 +36596,62 @@ class EC2Client:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_ec2.types.disable_allowed_images_settings_request.DisableAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disable_application_status_check_suppression(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional["capo_ec2.types.instance_id_list.InstanceIdList"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.disable_application_status_check_suppression_result.DisableApplicationStatusCheckSuppressionResult":
+        r"""<p>Disables suppression of application status checks for the specified instances. After suppression is disabled, health check results resume affecting the instance-level application status. You can specify a maximum of 100 instance IDs per request.</p>
+
+        Args:
+            instance_ids: <p>The IDs of the instances for which to disable application status check suppression.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To disable application status check suppression
+            This example disables application status check suppression for the specified instance, resuming normal status reporting.
+
+            >>> client.disable_application_status_check_suppression(instance_ids=['i-0123456789abcdef0'])
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.disable_application_status_check_suppression_request.DisableApplicationStatusCheckSuppressionRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.disable_application_status_check_suppression_result.DisableApplicationStatusCheckSuppressionResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.disable_application_status_check_suppression
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.disable_application_status_check_suppression.disable_application_status_check_suppression(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.disable_application_status_check_suppression_request.DisableApplicationStatusCheckSuppressionRequest = {}  # type: ignore[typeddict-item]
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -36193,6 +37613,74 @@ class EC2Client:
             input_["association_id"] = association_id
         if public_ip is not None:
             input_["public_ip"] = public_ip
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def disassociate_application_status_check(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_id: Optional[
+            "capo_ec2.types.application_status_check_id.ApplicationStatusCheckId"
+        ] = None,
+        target_tag_associations: Optional[
+            "capo_ec2.types.custom_key_value_pair_request_set.CustomKeyValuePairRequestSet"
+        ] = None,
+        instance_ids: Optional["capo_ec2.types.instance_id_list.InstanceIdList"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.disassociate_application_status_check_result.DisassociateApplicationStatusCheckResult":
+        r"""<p>Disassociates an application status check from instances or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">tags</a>. After disassociation, health monitoring stops for the affected instances. The following rules apply:</p> <ul> <li> <p>You must specify either <code>TargetTagAssociations</code> or <code>InstanceIds</code>, but not both. Specifying both results in an <code>InvalidParameterCombination</code> error.</p> </li> <li> <p>The application status check must already exist and belong to your account.</p> </li> <li> <p>Tag keys must not be blank.</p> </li> </ul>
+
+        Args:
+            application_status_check_id: <p>The ID of the application status check to disassociate.</p>
+            target_tag_associations: <p>The <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">tags</a> to disassociate from the application status check. Specify the same key-value pairs that were used during association.</p>
+            instance_ids: <p>The IDs of the instances to disassociate from the application status check.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To disassociate an application status check from tags
+            This example disassociates an application status check from instances matching the specified tag.
+
+            >>> client.disassociate_application_status_check(application_status_check_id='asc-0123456789abcdef0', target_tag_associations=[{'Key': 'env', 'Value': 'prod'}])
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.disassociate_application_status_check_request.DisassociateApplicationStatusCheckRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.disassociate_application_status_check_result.DisassociateApplicationStatusCheckResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.disassociate_application_status_check
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.disassociate_application_status_check.disassociate_application_status_check(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.disassociate_application_status_check_request.DisassociateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_id is not None:
+            input_["application_status_check_id"] = application_status_check_id
+        if target_tag_associations is not None:
+            input_["target_tag_associations"] = target_tag_associations
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37171,6 +38659,66 @@ class EC2Client:
         )
         return response.output
 
+    def enable_application_status_check_suppression(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        instance_ids: Optional["capo_ec2.types.instance_id_list.InstanceIdList"] = None,
+        duration_seconds: Optional["capo_ec2.types.boxed_integer.BoxedInteger"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.enable_application_status_check_suppression_result.EnableApplicationStatusCheckSuppressionResult":
+        r"""<p>Suppresses application status checks for the specified instances. While suppressed, health checks continue to run but do not affect the instance-level application status. The following rules apply:</p> <ul> <li> <p>Maximum 100 instance IDs per request.</p> </li> <li> <p>Use <code>DisableApplicationStatusCheckSuppression</code> to resume normal health check reporting.</p> </li> <li> <p>If you do not specify <code>DurationSeconds</code>, suppression continues indefinitely until you call <code>DisableApplicationStatusCheckSuppression</code>.</p> </li> </ul>
+
+        Args:
+            instance_ids: <p>The IDs of the instances for which to suppress application status checks.</p>
+            duration_seconds: <p>The duration, in seconds, for which to suppress application status checks. If omitted, the application status check is suppressed indefinitely until you call <code>DisableApplicationStatusCheckSuppression</code>.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To enable application status check suppression
+            This example suppresses application status check reporting for the specified instance for one hour.
+
+            >>> client.enable_application_status_check_suppression(instance_ids=['i-0123456789abcdef0'], duration_seconds=3600)
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.enable_application_status_check_suppression_request.EnableApplicationStatusCheckSuppressionRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.enable_application_status_check_suppression_result.EnableApplicationStatusCheckSuppressionResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.enable_application_status_check_suppression
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.enable_application_status_check_suppression.enable_application_status_check_suppression(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.enable_application_status_check_suppression_request.EnableApplicationStatusCheckSuppressionRequest = {}  # type: ignore[typeddict-item]
+        if instance_ids is not None:
+            input_["instance_ids"] = instance_ids
+        if duration_seconds is not None:
+            input_["duration_seconds"] = duration_seconds
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def enable_aws_network_performance_metric_subscription(
         self,
         *,
@@ -37676,6 +39224,80 @@ class EC2Client:
             input_["sql_server_credentials"] = sql_server_credentials
         if dry_run is not None:
             input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def enable_ipam_internet_registry_association(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        rpki_version: Optional["capo_ec2.types.string.String"] = None,
+        service_uri: Optional["capo_ec2.types.string.String"] = None,
+        child_handle: Optional["capo_ec2.types.string.String"] = None,
+        parent_handle: Optional["capo_ec2.types.string.String"] = None,
+        parent_bpki_ta: Optional["capo_ec2.types.string.String"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.enable_ipam_internet_registry_association_result.EnableIpamInternetRegistryAssociationResult":
+        """<p>Enables Resource Public Key Infrastructure (RPKI) on an existing IPAM internet registry association by providing BGP Public Key Infrastructure (BPKI) certificate details. After enabling, you can create Route Origin Authorizations (ROAs) for prefixes registered with the internet registry.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association to enable.</p>
+            rpki_version: <p>The RPKI version to use from the Parent Response XML.</p>
+            service_uri: <p>The RPKI service URI for the publication point from the Parent Response XML.</p>
+            child_handle: <p>The child handle for the BPKI certificate hierarchy from the Parent Response XML.</p>
+            parent_handle: <p>The parent handle for the BPKI certificate hierarchy from the Parent Response XML.</p>
+            parent_bpki_ta: <p>The parent BPKI Trust Anchor certificate in PEM format from the Parent Response XML.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.enable_ipam_internet_registry_association_request.EnableIpamInternetRegistryAssociationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.enable_ipam_internet_registry_association_result.EnableIpamInternetRegistryAssociationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.enable_ipam_internet_registry_association
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.enable_ipam_internet_registry_association.enable_ipam_internet_registry_association(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.enable_ipam_internet_registry_association_request.EnableIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if rpki_version is not None:
+            input_["rpki_version"] = rpki_version
+        if service_uri is not None:
+            input_["service_uri"] = service_uri
+        if child_handle is not None:
+            input_["child_handle"] = child_handle
+        if parent_handle is not None:
+            input_["parent_handle"] = parent_handle
+        if parent_bpki_ta is not None:
+            input_["parent_bpki_ta"] = parent_bpki_ta
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -40474,6 +42096,193 @@ class EC2Client:
             if not _token:
                 break
 
+    def get_ipam_discovered_routes(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_resource_discovery_id: Optional[
+            "capo_ec2.types.ipam_resource_discovery_id.IpamResourceDiscoveryId"
+        ] = None,
+        resource_region: Optional["capo_ec2.types.string.String"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+    ) -> (
+        "capo_ec2.types.get_ipam_discovered_routes_result.GetIpamDiscoveredRoutesResult"
+    ):
+        """<p>Retrieves Border Gateway Protocol (BGP) routes discovered by IPAM resource discovery for a specified Region. Use this operation to view the Bring Your Own IP (BYOIP) address ranges that are currently advertised through BGP. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_resource_discovery_id: <p>The ID of the IPAM resource discovery.</p>
+            resource_region: <p>The Amazon Web Services Region to retrieve discovered routes for.</p>
+            filters: <p>One or more filters to apply to the results.</p>
+            next_token: <p>The token for the next page of results.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_discovered_routes_request.GetIpamDiscoveredRoutesRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_discovered_routes_result.GetIpamDiscoveredRoutesResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_discovered_routes
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_discovered_routes.get_ipam_discovered_routes(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_discovered_routes_request.GetIpamDiscoveredRoutesRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_resource_discovery_id is not None:
+            input_["ipam_resource_discovery_id"] = ipam_resource_discovery_id
+        if resource_region is not None:
+            input_["resource_region"] = resource_region
+        if filters is not None:
+            input_["filters"] = filters
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ipam_internet_registry_association_asns(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+    ) -> "capo_ec2.types.get_ipam_internet_registry_association_asns_result.GetIpamInternetRegistryAssociationAsnsResult":
+        """<p>Retrieves Autonomous System Numbers (ASNs) registered with an internet registry for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+            filters: <p>One or more filters to apply to the results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_internet_registry_association_asns_request.GetIpamInternetRegistryAssociationAsnsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_internet_registry_association_asns_result.GetIpamInternetRegistryAssociationAsnsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_internet_registry_association_asns
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_internet_registry_association_asns.get_ipam_internet_registry_association_asns(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_internet_registry_association_asns_request.GetIpamInternetRegistryAssociationAsnsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if filters is not None:
+            input_["filters"] = filters
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ipam_internet_registry_association_cidrs(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+    ) -> "capo_ec2.types.get_ipam_internet_registry_association_cidrs_result.GetIpamInternetRegistryAssociationCidrsResult":
+        """<p>Retrieves IP address CIDRs registered with an internet registry for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+            filters: <p>One or more filters to apply to the results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_internet_registry_association_cidrs_request.GetIpamInternetRegistryAssociationCidrsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_internet_registry_association_cidrs_result.GetIpamInternetRegistryAssociationCidrsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_internet_registry_association_cidrs
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_internet_registry_association_cidrs.get_ipam_internet_registry_association_cidrs(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_internet_registry_association_cidrs_request.GetIpamInternetRegistryAssociationCidrsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if filters is not None:
+            input_["filters"] = filters
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def get_ipam_policy_allocation_rules(
         self,
         *,
@@ -41179,6 +42988,264 @@ class EC2Client:
             _token = _resolve_path(_response, ("next_token",))
             if not _token:
                 break
+
+    def get_ipam_route_origin_authorizations(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+    ) -> "capo_ec2.types.get_ipam_route_origin_authorizations_result.GetIpamRouteOriginAuthorizationsResult":
+        """<p>Retrieves the current Route Origin Authorizations (ROAs) published to the RPKI for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            cidr: <p>Filter results to a specific CIDR prefix.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_route_origin_authorizations_request.GetIpamRouteOriginAuthorizationsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_route_origin_authorizations_result.GetIpamRouteOriginAuthorizationsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_route_origin_authorizations
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_route_origin_authorizations.get_ipam_route_origin_authorizations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_route_origin_authorizations_request.GetIpamRouteOriginAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ipam_route_protection_findings(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_id: Optional["capo_ec2.types.ipam_id.IpamId"] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+    ) -> "capo_ec2.types.get_ipam_route_protection_findings_result.GetIpamRouteProtectionFindingsResult":
+        """<p>Retrieves route protection findings for an IPAM. Route protection findings show the Resource Public Key Infrastructure (RPKI) validation status of your Bring Your Own IP (BYOIP) routes. Findings identify routes that have valid, invalid, or unknown validation states. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_id: <p>The ID of the IPAM to retrieve route protection findings for.</p>
+            filters: <p>One or more filters to apply to the results.</p>
+            next_token: <p>The token for the next page of results.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_route_protection_findings_request.GetIpamRouteProtectionFindingsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_route_protection_findings_result.GetIpamRouteProtectionFindingsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_route_protection_findings
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_route_protection_findings.get_ipam_route_protection_findings(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_route_protection_findings_request.GetIpamRouteProtectionFindingsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_id is not None:
+            input_["ipam_id"] = ipam_id
+        if filters is not None:
+            input_["filters"] = filters
+        if next_token is not None:
+            input_["next_token"] = next_token
+        if max_results is not None:
+            input_["max_results"] = max_results
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ipam_routing_policy_registration_deltas(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        delta_id: Optional["capo_ec2.types.string.String"] = None,
+        start_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        end_time: Optional[
+            "capo_ec2.types.millisecond_date_time.MillisecondDateTime"
+        ] = None,
+        chronological_order: Optional[
+            "capo_ec2.types.chronological_order.ChronologicalOrder"
+        ] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+    ) -> "capo_ec2.types.get_ipam_routing_policy_registration_deltas_result.GetIpamRoutingPolicyRegistrationDeltasResult":
+        """<p>Retrieves the history of routing policy registration changes for an IPAM internet registry association. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            delta_id: <p>Filter results to a specific delta ID.</p>
+            start_time: <p>The start of the time range to filter deltas by.</p>
+            end_time: <p>The end of the time range to filter deltas by.</p>
+            chronological_order: <p>The chronological order to return results in. Valid values: <code>forward</code> | <code>reverse</code>.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_routing_policy_registration_deltas_request.GetIpamRoutingPolicyRegistrationDeltasRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_routing_policy_registration_deltas_result.GetIpamRoutingPolicyRegistrationDeltasResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_routing_policy_registration_deltas
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_routing_policy_registration_deltas.get_ipam_routing_policy_registration_deltas(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_routing_policy_registration_deltas_request.GetIpamRoutingPolicyRegistrationDeltasRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if delta_id is not None:
+            input_["delta_id"] = delta_id
+        if start_time is not None:
+            input_["start_time"] = start_time
+        if end_time is not None:
+            input_["end_time"] = end_time
+        if chronological_order is not None:
+            input_["chronological_order"] = chronological_order
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_ipam_routing_policy_registrations(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        max_results: Optional["capo_ec2.types.ipam_max_results.IpamMaxResults"] = None,
+        next_token: Optional["capo_ec2.types.next_token.NextToken"] = None,
+    ) -> "capo_ec2.types.get_ipam_routing_policy_registrations_result.GetIpamRoutingPolicyRegistrationsResult":
+        """<p>Retrieves routing policy registrations for an IPAM internet registry association. Each registration represents a Route Origin Authorization (ROA) that has been created or is pending publication to the RPKI. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            cidr: <p>Filter results to a specific CIDR prefix.</p>
+            max_results: <p>The maximum number of results to return in a single call. If not specified, all available results are returned. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+            next_token: <p>The token for the next page of results.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.get_ipam_routing_policy_registrations_request.GetIpamRoutingPolicyRegistrationsRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.get_ipam_routing_policy_registrations_result.GetIpamRoutingPolicyRegistrationsResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.get_ipam_routing_policy_registrations
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.get_ipam_routing_policy_registrations.get_ipam_routing_policy_registrations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.get_ipam_routing_policy_registrations_request.GetIpamRoutingPolicyRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if max_results is not None:
+            input_["max_results"] = max_results
+        if next_token is not None:
+            input_["next_token"] = next_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
 
     def get_launch_template_data(
         self,
@@ -42035,6 +44102,7 @@ class EC2Client:
             "capo_ec2.types.spot_placement_scores_max_results.SpotPlacementScoresMaxResults"
         ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        include_local_zones: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.get_spot_placement_scores_result.GetSpotPlacementScoresResult":
         r"""<p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p> <p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
@@ -42048,6 +44116,7 @@ class EC2Client:
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
             max_results: <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>
             next_token: <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+            include_local_zones: <p>Specify <code>true</code> so that the response returns scores that include Local Zones. Otherwise, the response ignores Local Zones.</p> <p>When you request regional scores, Local Zone capacity counts toward its parent Region.</p>
 
         Raises:
             capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -42089,6 +44158,8 @@ class EC2Client:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
+        if include_local_zones is not None:
+            input_["include_local_zones"] = include_local_zones
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -42118,6 +44189,7 @@ class EC2Client:
             "capo_ec2.types.spot_placement_scores_max_results.SpotPlacementScoresMaxResults"
         ] = None,
         next_token: Optional["capo_ec2.types.string.String"] = None,
+        include_local_zones: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "Iterator[capo_ec2.types.spot_placement_score.SpotPlacementScore]":
         _token = next_token
         while True:
@@ -42132,6 +44204,7 @@ class EC2Client:
                 dry_run=dry_run,
                 max_results=max_results,
                 next_token=_token,
+                include_local_zones=include_local_zones,
             )
             _page = _resolve_path(_response, ("spot_placement_scores",))
             for _item in _page or []:
@@ -42560,7 +44633,7 @@ class EC2Client:
 
         Args:
             transit_gateway_policy_table_id: <p>The ID of the transit gateway policy table.</p>
-            filters: <p>The filters associated with the transit gateway policy table.</p>
+            filters: <p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>policy-rule-number</code> - The rule number for the transit gateway policy table entry.</p> </li> <li> <p> <code>target-route-table-id</code> - The ID of the target route table.</p> </li> <li> <p> <code>policy-rule.source-ip</code> - The source CIDR block for the policy rule.</p> </li> <li> <p> <code>policy-rule.destination-ip</code> - The destination CIDR block for the policy rule.</p> </li> <li> <p> <code>policy-rule.source-port</code> - The source port or port range for the policy rule.</p> </li> <li> <p> <code>policy-rule.destination-port</code> - The destination port or port range for the policy rule.</p> </li> <li> <p> <code>policy-rule.protocol</code> - The protocol for the policy rule.</p> </li> <li> <p> <code>policy-rule.meta-data.key</code> - The metadata key for the policy rule.</p> </li> <li> <p> <code>policy-rule.meta-data.value</code> - The metadata value for the policy rule.</p> </li> </ul>
             max_results: <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
             next_token: <p>The token for the next page of results.</p>
             dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -42602,6 +44675,37 @@ class EC2Client:
             interceptors=list(interceptors_),
         )
         return response.output
+
+    def iter_get_transit_gateway_policy_table_entries(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        filters: Optional["capo_ec2.types.filter_list.FilterList"] = None,
+        max_results: Optional[
+            "capo_ec2.types.transit_gateway_max_results.TransitGatewayMaxResults"
+        ] = None,
+        next_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "Iterator[capo_ec2.types.transit_gateway_policy_table_entry.TransitGatewayPolicyTableEntry]":
+        _token = next_token
+        while True:
+            _response = self.get_transit_gateway_policy_table_entries(
+                config_overrides=config_overrides,
+                transit_gateway_policy_table_id=transit_gateway_policy_table_id,
+                filters=filters,
+                max_results=max_results,
+                next_token=_token,
+                dry_run=dry_run,
+            )
+            _page = _resolve_path(_response, ("transit_gateway_policy_table_entries",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     def get_transit_gateway_prefix_list_references(
         self,
@@ -43979,6 +46083,101 @@ class EC2Client:
         )
         return response.output
 
+    def modify_account_vpc_encryption_control(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        mode: Optional[
+            "capo_ec2.types.account_vpc_encryption_control_mode.AccountVpcEncryptionControlMode"
+        ] = None,
+        internet_gateway: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        egress_only_internet_gateway: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        nat_gateway: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        virtual_private_gateway: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        vpc_peering: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        lambda_: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        vpc_lattice: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+        elastic_file_system: Optional[
+            "capo_ec2.types.vpc_encryption_control_exclusion_state_input.VpcEncryptionControlExclusionStateInput"
+        ] = None,
+    ) -> "capo_ec2.types.modify_account_vpc_encryption_control_result.ModifyAccountVpcEncryptionControlResult":
+        r"""<p>Modifies the account-level VPC Encryption Control configuration. This sets the encryption control mode and resource exclusions that apply to the VPCs in your account. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html\">Enforce VPC encryption in transit</a> in the <i>Amazon VPC User Guide</i>.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            mode: <p>The encryption mode for the account encryption control configuration.</p>
+            internet_gateway: <p>Specifies whether to exclude internet gateway resource from account-level encryption enforcement.</p>
+            egress_only_internet_gateway: <p>Specifies whether to exclude egress-only internet gateway resource from account-level encryption enforcement.</p>
+            nat_gateway: <p>Specifies whether to exclude NAT gateway resource from account-level encryption enforcement.</p>
+            virtual_private_gateway: <p>Specifies whether to exclude virtual private gateway resource from account-level encryption enforcement.</p>
+            vpc_peering: <p>Specifies whether to exclude VPC peering connection resource from account-level encryption enforcement.</p>
+            lambda_: <p>Specifies whether to exclude Lambda service from account-level encryption enforcement.</p>
+            vpc_lattice: <p>Specifies whether to exclude VPC Lattice service from account-level encryption enforcement.</p>
+            elastic_file_system: <p>Specifies whether to exclude Elastic File System service from account-level encryption enforcement.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.modify_account_vpc_encryption_control_request.ModifyAccountVpcEncryptionControlRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.modify_account_vpc_encryption_control_result.ModifyAccountVpcEncryptionControlResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.modify_account_vpc_encryption_control
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.modify_account_vpc_encryption_control.modify_account_vpc_encryption_control(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.modify_account_vpc_encryption_control_request.ModifyAccountVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if mode is not None:
+            input_["mode"] = mode
+        if internet_gateway is not None:
+            input_["internet_gateway"] = internet_gateway
+        if egress_only_internet_gateway is not None:
+            input_["egress_only_internet_gateway"] = egress_only_internet_gateway
+        if nat_gateway is not None:
+            input_["nat_gateway"] = nat_gateway
+        if virtual_private_gateway is not None:
+            input_["virtual_private_gateway"] = virtual_private_gateway
+        if vpc_peering is not None:
+            input_["vpc_peering"] = vpc_peering
+        if lambda_ is not None:
+            input_["lambda"] = lambda_
+        if vpc_lattice is not None:
+            input_["vpc_lattice"] = vpc_lattice
+        if elastic_file_system is not None:
+            input_["elastic_file_system"] = elastic_file_system
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def modify_address_attribute(
         self,
         *,
@@ -44018,6 +46217,130 @@ class EC2Client:
             input_["allocation_id"] = allocation_id
         if domain_name is not None:
             input_["domain_name"] = domain_name
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def modify_application_status_check(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        application_status_check_id: Optional[
+            "capo_ec2.types.application_status_check_id.ApplicationStatusCheckId"
+        ] = None,
+        aggregation: Optional[
+            "capo_ec2.types.aggregation_status_enum.AggregationStatusEnum"
+        ] = None,
+        health_check_paths: Optional[
+            "capo_ec2.types.health_check_path_request_list.HealthCheckPathRequestList"
+        ] = None,
+        protocol: Optional[
+            "capo_ec2.types.network_protocol_enum.NetworkProtocolEnum"
+        ] = None,
+        port: Optional["capo_ec2.types.port_number.PortNumber"] = None,
+        path: Optional["capo_ec2.types.string.String"] = None,
+        device_index: Optional["capo_ec2.types.integer.Integer"] = None,
+        ip_version: Optional["capo_ec2.types.ip_version_enum.IpVersionEnum"] = None,
+        ip_scope: Optional["capo_ec2.types.ip_scope_enum.IpScopeEnum"] = None,
+        interval: Optional["capo_ec2.types.integer.Integer"] = None,
+        timeout: Optional["capo_ec2.types.integer.Integer"] = None,
+        failure_threshold: Optional["capo_ec2.types.integer.Integer"] = None,
+        success_threshold: Optional["capo_ec2.types.integer.Integer"] = None,
+        status_code_matcher: Optional["capo_ec2.types.string.String"] = None,
+        initialization_grace_period_seconds: Optional[
+            "capo_ec2.types.initialization_grace_period_seconds.InitializationGracePeriodSeconds"
+        ] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.modify_application_status_check_result.ModifyApplicationStatusCheckResult":
+        r"""<p>Modifies an existing application status check. You can update the protocol, port, path, thresholds, and other configuration settings. The following rules apply:</p> <ul> <li> <p>The application status check must exist and belong to your account.</p> </li> <li> <p>Changes take effect on the next health check interval.</p> </li> </ul>
+
+        Args:
+            application_status_check_id: <p>The ID of the application status check to modify.</p>
+            aggregation: <p>The aggregation setting for the application status check. When set to <code>included</code>, the result of this check contributes to the instance-level application status reported by <code>DescribeApplicationStatus</code>. When set to <code>excluded</code>, the check runs independently and does not affect the instance-level status. Valid values: <code>included</code> | <code>excluded</code>.</p>
+            health_check_paths: <p>The health check paths to use for the application status check.</p>
+            protocol: <p>The protocol to use for the health check. Valid values: <code>http</code> | <code>https</code>.</p>
+            port: <p>The port to use for the health check. Valid values: 1 to 65535.</p>
+            path: <p>The URL path to use for the health check HTTP request (for example, <code>/health</code> or <code>/status</code>).</p>
+            device_index: <p>The index of the network device to use for the health check. The value must be greater than or equal to 0.</p>
+            ip_version: <p>The IP version to use for the health check. Valid values: <code>ipv4</code> and <code>ipv6</code>.</p>
+            ip_scope: <p>The IP scope to use for the health check. Valid value: <code>private</code>.</p>
+            interval: <p>The interval, in seconds, between health checks. Valid value: 60.</p>
+            timeout: <p>The amount of time, in seconds, to wait for a health check response before considering it failed. Valid values: 1 to 30. The value must be less than <code>Interval</code>.</p>
+            failure_threshold: <p>The number of consecutive failed health checks before the application status is considered impaired. The value must be greater than 0.</p>
+            success_threshold: <p>The number of consecutive successful health checks before the application status is considered healthy. The value must be greater than 0.</p>
+            status_code_matcher: <p>The HTTP status codes that indicate a successful health check response. Specify a comma-separated list of individual status codes or ranges, for example, <code>200,202,300-399</code>. For a range, the first value must be less than the second value. Maximum length: 64 characters.</p>
+            initialization_grace_period_seconds: <p>The number of seconds to wait before starting health checks after an instance is launched. Valid values: 1 to 600.</p>
+            client_token: <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring idempotency</a>.</p>
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+
+        Examples:
+            To modify an application status check
+            This example modifies the port and path of an existing application status check.
+
+            >>> client.modify_application_status_check(application_status_check_id='asc-0123456789abcdef0', port=8080, path='/healthv2')
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.modify_application_status_check_request.ModifyApplicationStatusCheckRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.modify_application_status_check_result.ModifyApplicationStatusCheckResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.modify_application_status_check
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.modify_application_status_check.modify_application_status_check(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.modify_application_status_check_request.ModifyApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        if application_status_check_id is not None:
+            input_["application_status_check_id"] = application_status_check_id
+        if aggregation is not None:
+            input_["aggregation"] = aggregation
+        if health_check_paths is not None:
+            input_["health_check_paths"] = health_check_paths
+        if protocol is not None:
+            input_["protocol"] = protocol
+        if port is not None:
+            input_["port"] = port
+        if path is not None:
+            input_["path"] = path
+        if device_index is not None:
+            input_["device_index"] = device_index
+        if ip_version is not None:
+            input_["ip_version"] = ip_version
+        if ip_scope is not None:
+            input_["ip_scope"] = ip_scope
+        if interval is not None:
+            input_["interval"] = interval
+        if timeout is not None:
+            input_["timeout"] = timeout
+        if failure_threshold is not None:
+            input_["failure_threshold"] = failure_threshold
+        if success_threshold is not None:
+            input_["success_threshold"] = success_threshold
+        if status_code_matcher is not None:
+            input_["status_code_matcher"] = status_code_matcher
+        if initialization_grace_period_seconds is not None:
+            input_["initialization_grace_period_seconds"] = (
+                initialization_grace_period_seconds
+            )
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -46213,6 +48536,90 @@ class EC2Client:
         )
         return response.output
 
+    def modify_ipam_routing_policy_registration(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        ipam_internet_registry_association_id: Optional[
+            "capo_ec2.types.ipam_internet_registry_association_id.IpamInternetRegistryAssociationId"
+        ] = None,
+        cidr: Optional["capo_ec2.types.string.String"] = None,
+        asns: Optional["capo_ec2.types.asn_list.AsnList"] = None,
+        permit_more_specific_announcements: Optional[
+            "capo_ec2.types.boxed_boolean.BoxedBoolean"
+        ] = None,
+        max_length: Optional[
+            "capo_ec2.types.ipam_routing_policy_registration_max_length.IpamRoutingPolicyRegistrationMaxLength"
+        ] = None,
+        description: Optional["capo_ec2.types.string.String"] = None,
+        force: Optional["capo_ec2.types.boxed_boolean.BoxedBoolean"] = None,
+        client_token: Optional["capo_ec2.types.string.String"] = None,
+    ) -> "capo_ec2.types.modify_ipam_routing_policy_registration_result.ModifyIpamRoutingPolicyRegistrationResult":
+        """<p>Modifies an existing routing policy registration. You can update the authorized ASNs, maximum prefix length, and other properties of a Route Origin Authorization (ROA).</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            ipam_internet_registry_association_id: <p>The ID of the IPAM internet registry association.</p>
+            cidr: <p>The IP address prefix in CIDR notation identifying the routing policy registration to modify.</p>
+            asns: <p>The updated list of Autonomous System Numbers (ASNs) authorized to originate the prefix.</p>
+            permit_more_specific_announcements: <p>Specifies whether to permit more specific route announcements than the CIDR prefix. Default: <code>false</code>.</p>
+            max_length: <p>The new maximum prefix length that the ASNs are authorized to announce. Must be greater than or equal to the prefix length of the CIDR.</p>
+            description: <p>A new description for the routing policy registration.</p>
+            force: <p>Forces the modification even if it conflicts with an announced route. Default: <code>false</code>.</p>
+            client_token: <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.modify_ipam_routing_policy_registration_request.ModifyIpamRoutingPolicyRegistrationRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.modify_ipam_routing_policy_registration_result.ModifyIpamRoutingPolicyRegistrationResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.modify_ipam_routing_policy_registration
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.modify_ipam_routing_policy_registration.modify_ipam_routing_policy_registration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.modify_ipam_routing_policy_registration_request.ModifyIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if ipam_internet_registry_association_id is not None:
+            input_["ipam_internet_registry_association_id"] = (
+                ipam_internet_registry_association_id
+            )
+        if cidr is not None:
+            input_["cidr"] = cidr
+        if asns is not None:
+            input_["asns"] = asns
+        if permit_more_specific_announcements is not None:
+            input_["permit_more_specific_announcements"] = (
+                permit_more_specific_announcements
+            )
+        if max_length is not None:
+            input_["max_length"] = max_length
+        if description is not None:
+            input_["description"] = description
+        if force is not None:
+            input_["force"] = force
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def modify_ipam_scope(
         self,
         *,
@@ -47618,6 +50025,69 @@ class EC2Client:
         )
         return response.output
 
+    def modify_transit_gateway_policy_table_entry(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        transit_gateway_policy_table_id: Optional[
+            "capo_ec2.types.transit_gateway_policy_table_id.TransitGatewayPolicyTableId"
+        ] = None,
+        policy_rule_number: Optional["capo_ec2.types.string.String"] = None,
+        policy_rule: Optional[
+            "capo_ec2.types.transit_gateway_request_policy_rule.TransitGatewayRequestPolicyRule"
+        ] = None,
+        target_route_table_id: Optional[
+            "capo_ec2.types.transit_gateway_route_table_id.TransitGatewayRouteTableId"
+        ] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+    ) -> "capo_ec2.types.modify_transit_gateway_policy_table_entry_result.ModifyTransitGatewayPolicyTableEntryResult":
+        """<p>Modifies the specified transit gateway policy table entry.</p>
+
+        Args:
+            transit_gateway_policy_table_id: <p>The ID of the transit gateway policy table.</p>
+            policy_rule_number: <p>The rule number of the policy table entry to modify.</p>
+            policy_rule: <p>The updated matching criteria for the policy table entry. Unspecified fields retain their current values.</p>
+            target_route_table_id: <p>The ID of the transit gateway route table to use for traffic matching this rule.</p>
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.modify_transit_gateway_policy_table_entry_request.ModifyTransitGatewayPolicyTableEntryRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.modify_transit_gateway_policy_table_entry_result.ModifyTransitGatewayPolicyTableEntryResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.modify_transit_gateway_policy_table_entry
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.modify_transit_gateway_policy_table_entry.modify_transit_gateway_policy_table_entry(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.modify_transit_gateway_policy_table_entry_request.ModifyTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        if transit_gateway_policy_table_id is not None:
+            input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
+        if policy_rule_number is not None:
+            input_["policy_rule_number"] = policy_rule_number
+        if policy_rule is not None:
+            input_["policy_rule"] = policy_rule
+        if target_route_table_id is not None:
+            input_["target_route_table_id"] = target_route_table_id
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def modify_transit_gateway_prefix_list_reference(
         self,
         *,
@@ -48794,6 +51264,71 @@ class EC2Client:
         )
         return response.output
 
+    def modify_vpc_endpoint_payer_responsibility(
+        self,
+        *,
+        config_overrides: Optional[EC2ClientConfig] = None,
+        dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
+        service_id: Optional[
+            "capo_ec2.types.vpc_endpoint_service_id.VpcEndpointServiceId"
+        ] = None,
+        vpc_endpoint_id: Optional[
+            "capo_ec2.types.vpc_endpoint_id.VpcEndpointId"
+        ] = None,
+        payer_responsibility: Optional[
+            "capo_ec2.types.payer_responsibility_type.PayerResponsibilityType"
+        ] = None,
+        scope: Optional[
+            "capo_ec2.types.payer_responsibility_scope.PayerResponsibilityScope"
+        ] = None,
+    ) -> "capo_ec2.types.modify_vpc_endpoint_payer_responsibility_result.ModifyVpcEndpointPayerResponsibilityResult":
+        """<p>Modifies the billing account for VPC endpoint usage/charges.</p>
+
+        Args:
+            dry_run: <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+            service_id: <p>The ID of the VPC endpoint service.</p>
+            vpc_endpoint_id: <p>The ID of the VPC endpoint.</p>
+            payer_responsibility: <p>The Amazon Web Services account to which the usage of VPC endpoint is charged.</p>
+            scope: <p>The scope of usage/charges for which the billing account is being modified.</p>
+
+        Raises:
+            capo_ec2.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_ec2.types.modify_vpc_endpoint_payer_responsibility_request.ModifyVpcEndpointPayerResponsibilityRequest]",
+        ) -> OperationResponse[
+            "capo_ec2.types.modify_vpc_endpoint_payer_responsibility_result.ModifyVpcEndpointPayerResponsibilityResult"
+        ]:
+            import capo_ec2._operations.amazon_ec2.modify_vpc_endpoint_payer_responsibility
+
+            output, http_response = (
+                capo_ec2._operations.amazon_ec2.modify_vpc_endpoint_payer_responsibility.modify_vpc_endpoint_payer_responsibility(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_ec2.types.modify_vpc_endpoint_payer_responsibility_request.ModifyVpcEndpointPayerResponsibilityRequest = {}  # type: ignore[typeddict-item]
+        if dry_run is not None:
+            input_["dry_run"] = dry_run
+        if service_id is not None:
+            input_["service_id"] = service_id
+        if vpc_endpoint_id is not None:
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
+        if payer_responsibility is not None:
+            input_["payer_responsibility"] = payer_responsibility
+        if scope is not None:
+            input_["scope"] = scope
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def modify_vpc_endpoint_service_configuration(
         self,
         *,
@@ -49611,7 +52146,7 @@ class EC2Client:
         multi_region: Optional["capo_ec2.types.boolean.Boolean"] = None,
         network_border_group: Optional["capo_ec2.types.string.String"] = None,
     ) -> "capo_ec2.types.provision_byoip_cidr_result.ProvisionByoipCidrResult":
-        r"""<p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised.</p> <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it. You must ensure that the address range is registered to you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Provisioning an address range is an asynchronous operation, so the call returns immediately, but the address range is not ready to use until its status changes from <code>pending-provision</code> to <code>provisioned</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html\">Onboard your address range</a>.</p>
+        r"""<p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised.</p> <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it. You must ensure that the address range is registered to you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For the Amazon Web Services GovCloud (US) Regions, authorize only ASN 8987. For the Amazon Web Services European Sovereign Cloud, authorize ASNs 16509 and 214101. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Provisioning an address range is an asynchronous operation, so the call returns immediately, but the address range is not ready to use until its status changes from <code>pending-provision</code> to <code>provisioned</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/byoip-onboard.html\">Onboard your address range</a>.</p>
 
         Args:
             cidr: <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
@@ -51054,7 +53589,7 @@ class EC2Client:
         ] = None,
         dry_run: Optional["capo_ec2.types.boolean.Boolean"] = None,
     ) -> "capo_ec2.types.replace_image_criteria_in_allowed_images_settings_result.ReplaceImageCriteriaInAllowedImagesSettingsResult":
-        r"""<p>Sets or replaces the criteria for Allowed AMIs.</p> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
+        r"""<p>Sets or replaces the criteria for Allowed AMIs.</p> <p>The <code>ImageCriteria</code> can include up to:</p> <ul> <li> <p>10 <code>ImageCriterion</code> </p> </li> </ul> <note> <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.</p> </note> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html\">Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs</a> in <i>Amazon EC2 User Guide</i>.</p>
 
         Args:
             image_criteria: <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and usable in the account in the specified Amazon Web Services Region.</p>

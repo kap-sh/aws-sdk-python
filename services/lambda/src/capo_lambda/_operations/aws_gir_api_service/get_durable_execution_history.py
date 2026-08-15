@@ -12,6 +12,10 @@ from typing_extensions import Never
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
 import capo_lambda.errors.invalid_parameter_value_exception
+import capo_lambda.errors.kms_access_denied_exception
+import capo_lambda.errors.kms_disabled_exception
+import capo_lambda.errors.kms_invalid_state_exception
+import capo_lambda.errors.kms_not_found_exception
 import capo_lambda.errors.resource_not_found_exception
 import capo_lambda.errors.service_exception
 import capo_lambda.errors.too_many_requests_exception
@@ -30,6 +34,22 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
+                data, message
+            )
+        case "KMSAccessDeniedException":
+            raise capo_lambda.errors.kms_access_denied_exception.KMSAccessDeniedException.from_json(
+                data, message
+            )
+        case "KMSDisabledException":
+            raise capo_lambda.errors.kms_disabled_exception.KMSDisabledException.from_json(
+                data, message
+            )
+        case "KMSInvalidStateException":
+            raise capo_lambda.errors.kms_invalid_state_exception.KMSInvalidStateException.from_json(
+                data, message
+            )
+        case "KMSNotFoundException":
+            raise capo_lambda.errors.kms_not_found_exception.KMSNotFoundException.from_json(
                 data, message
             )
         case "ResourceNotFoundException":

@@ -119,16 +119,16 @@ class FunctionConfiguration(TypedDict, closed=True):
         "capo_lambda.types.file_system_config_list.FileSystemConfigList"
     ]
     r"""<p>Connection settings for an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html\">Amazon EFS file system</a> or an <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html\">Amazon S3 Files file system</a>.</p>"""
+    signing_profile_version_arn: NotRequired["capo_lambda.types.arn.Arn"]
+    """<p>The ARN of the signing profile version.</p>"""
+    signing_job_arn: NotRequired["capo_lambda.types.arn.Arn"]
+    """<p>The ARN of the signing job.</p>"""
     package_type: NotRequired["capo_lambda.types.package_type.PackageType"]
     """<p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>"""
     image_config_response: NotRequired[
         "capo_lambda.types.image_config_response.ImageConfigResponse"
     ]
     """<p>The function's image configuration values.</p>"""
-    signing_profile_version_arn: NotRequired["capo_lambda.types.arn.Arn"]
-    """<p>The ARN of the signing profile version.</p>"""
-    signing_job_arn: NotRequired["capo_lambda.types.arn.Arn"]
-    """<p>The ARN of the signing job.</p>"""
     architectures: NotRequired["capo_lambda.types.architectures_list.ArchitecturesList"]
     """<p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>"""
     ephemeral_storage: NotRequired[
@@ -143,6 +143,8 @@ class FunctionConfiguration(TypedDict, closed=True):
     """<p>The ARN of the runtime and any errors that occured.</p>"""
     logging_config: NotRequired["capo_lambda.types.logging_config.LoggingConfig"]
     """<p>The function's Amazon CloudWatch Logs configuration settings.</p>"""
+    tenancy_config: NotRequired["capo_lambda.types.tenancy_config.TenancyConfig"]
+    """<p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>"""
     capacity_provider_config: NotRequired[
         "capo_lambda.types.capacity_provider_config.CapacityProviderConfig"
     ]
@@ -151,8 +153,6 @@ class FunctionConfiguration(TypedDict, closed=True):
     """<p>The SHA256 hash of the function configuration.</p>"""
     durable_config: NotRequired["capo_lambda.types.durable_config.DurableConfig"]
     """<p>The function's durable execution configuration settings, if the function is configured for durability.</p>"""
-    tenancy_config: NotRequired["capo_lambda.types.tenancy_config.TenancyConfig"]
-    """<p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -255,6 +255,10 @@ def serialize_json(value: FunctionConfiguration) -> dict:
                 value["file_system_configs"]
             )
         )
+    if "signing_profile_version_arn" in value:
+        out["SigningProfileVersionArn"] = value["signing_profile_version_arn"]
+    if "signing_job_arn" in value:
+        out["SigningJobArn"] = value["signing_job_arn"]
     if "package_type" in value:
         import capo_lambda.types.package_type
 
@@ -269,10 +273,6 @@ def serialize_json(value: FunctionConfiguration) -> dict:
                 value["image_config_response"]
             )
         )
-    if "signing_profile_version_arn" in value:
-        out["SigningProfileVersionArn"] = value["signing_profile_version_arn"]
-    if "signing_job_arn" in value:
-        out["SigningJobArn"] = value["signing_job_arn"]
     if "architectures" in value:
         import capo_lambda.types.architectures_list
 
@@ -305,6 +305,12 @@ def serialize_json(value: FunctionConfiguration) -> dict:
         out["LoggingConfig"] = capo_lambda.types.logging_config.serialize_json(
             value["logging_config"]
         )
+    if "tenancy_config" in value:
+        import capo_lambda.types.tenancy_config
+
+        out["TenancyConfig"] = capo_lambda.types.tenancy_config.serialize_json(
+            value["tenancy_config"]
+        )
     if "capacity_provider_config" in value:
         import capo_lambda.types.capacity_provider_config
 
@@ -320,12 +326,6 @@ def serialize_json(value: FunctionConfiguration) -> dict:
 
         out["DurableConfig"] = capo_lambda.types.durable_config.serialize_json(
             value["durable_config"]
-        )
-    if "tenancy_config" in value:
-        import capo_lambda.types.tenancy_config
-
-        out["TenancyConfig"] = capo_lambda.types.tenancy_config.serialize_json(
-            value["tenancy_config"]
         )
     return out
 
@@ -438,6 +438,10 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["FileSystemConfigs"]
             )
         )
+    if "SigningProfileVersionArn" in data:
+        out["signing_profile_version_arn"] = data["SigningProfileVersionArn"]
+    if "SigningJobArn" in data:
+        out["signing_job_arn"] = data["SigningJobArn"]
     if "PackageType" in data:
         import capo_lambda.types.package_type
 
@@ -452,10 +456,6 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["ImageConfigResponse"]
             )
         )
-    if "SigningProfileVersionArn" in data:
-        out["signing_profile_version_arn"] = data["SigningProfileVersionArn"]
-    if "SigningJobArn" in data:
-        out["signing_job_arn"] = data["SigningJobArn"]
     if "Architectures" in data:
         import capo_lambda.types.architectures_list
 
@@ -488,6 +488,12 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
         out["logging_config"] = capo_lambda.types.logging_config.deserialize_json(
             data["LoggingConfig"]
         )
+    if "TenancyConfig" in data:
+        import capo_lambda.types.tenancy_config
+
+        out["tenancy_config"] = capo_lambda.types.tenancy_config.deserialize_json(
+            data["TenancyConfig"]
+        )
     if "CapacityProviderConfig" in data:
         import capo_lambda.types.capacity_provider_config
 
@@ -503,11 +509,5 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
 
         out["durable_config"] = capo_lambda.types.durable_config.deserialize_json(
             data["DurableConfig"]
-        )
-    if "TenancyConfig" in data:
-        import capo_lambda.types.tenancy_config
-
-        out["tenancy_config"] = capo_lambda.types.tenancy_config.deserialize_json(
-            data["TenancyConfig"]
         )
     return out

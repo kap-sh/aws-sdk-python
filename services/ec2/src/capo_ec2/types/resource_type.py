@@ -107,12 +107,15 @@ ResourceType: TypeAlias = Literal[
     "ipam-prefix-list-resolver",
     "ipam-policy",
     "ipam-prefix-list-resolver-target",
+    "ipam-internet-registry-association",
     "secondary-interface",
     "secondary-network",
     "secondary-subnet",
     "capacity-manager-data-export",
     "vpn-concentrator",
     "ipam-pool-allocation",
+    "capacity-reservation-cancellation-quote",
+    "application-status-check",
 ]
 
 

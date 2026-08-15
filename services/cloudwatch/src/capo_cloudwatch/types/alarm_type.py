@@ -7,6 +7,7 @@ from capo_cloudwatch._protocol.xml import Element
 AlarmType: TypeAlias = Literal[
     "CompositeAlarm",
     "MetricAlarm",
+    "LogAlarm",
 ]
 
 

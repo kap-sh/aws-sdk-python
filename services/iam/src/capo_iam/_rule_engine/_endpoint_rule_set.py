@@ -57,6 +57,48 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                 interpolate("aws", p, _locals),
             ):
                 if p.UseFIPS is False:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate("https://iam.amazonaws.com", p, _locals),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.amazonaws.com", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws", p, _locals),
+            ):
+                if p.UseFIPS is False:
                     if p.UseDualStack is True:
                         return Endpoint(
                             url=interpolate("https://iam.global.api.aws", p, _locals),
@@ -122,11 +164,57 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                 get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
                 interpolate("aws-cn", p, _locals),
             ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.amazonwebservices.com.cn",
+                                p,
+                                _locals,
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "cn-north-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-cn", p, _locals),
+            ):
                 if p.UseFIPS is False:
                     if p.UseDualStack is False:
                         return Endpoint(
                             url=interpolate(
                                 "https://iam.cn-north-1.amazonaws.com.cn", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "cn-north-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-cn", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.amazonaws.com.cn", p, _locals
                             ),
                             properties={
                                 "authSchemes": [
@@ -270,6 +358,48 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         )
             if string_equals(
                 get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate("https://iam.api.aws.ic.gov", p, _locals),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-iso-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.aws.ic.gov", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-iso-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
                 interpolate("aws-iso-b", p, _locals),
             ):
                 if p.UseFIPS is False:
@@ -316,6 +446,48 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         )
             if string_equals(
                 get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-b", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate("https://iam.api.aws.scloud", p, _locals),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-isob-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-b", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.aws.scloud", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-isob-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
                 interpolate("aws-iso-e", p, _locals),
             ):
                 if p.UseFIPS is False:
@@ -323,6 +495,72 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         return Endpoint(
                             url=interpolate(
                                 "https://iam.eu-isoe-west-1.cloud.adc-e.uk", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eu-isoe-west-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-e", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.cloud.adc-e.uk", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eu-isoe-west-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-e", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam.api.cloud-aws.adc-e.uk", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eu-isoe-west-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-e", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.cloud-aws.adc-e.uk", p, _locals
                             ),
                             properties={
                                 "authSchemes": [
@@ -360,6 +598,72 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         )
             if string_equals(
                 get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-f", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.csp.hci.ic.gov", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-isof-south-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-f", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam.api.aws.hci.ic.gov", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-isof-south-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-iso-f", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.aws.hci.ic.gov", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "us-isof-south-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
                 interpolate("aws-eusc", p, _locals),
             ):
                 if p.UseFIPS is False:
@@ -367,6 +671,74 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         return Endpoint(
                             url=interpolate(
                                 "https://iam.eusc-de-east-1.amazonaws.eu", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eusc-de-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-eusc", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is False:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.amazonaws.eu", p, _locals
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eusc-de-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-eusc", p, _locals),
+            ):
+                if p.UseFIPS is False:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam.global.api.amazonwebservices.eu",
+                                p,
+                                _locals,
+                            ),
+                            properties={
+                                "authSchemes": [
+                                    {
+                                        "name": interpolate("sigv4", p, _locals),
+                                        "signingRegion": interpolate(
+                                            "eusc-de-east-1", p, _locals
+                                        ),
+                                    }
+                                ]
+                            },
+                            headers={},
+                        )
+            if string_equals(
+                get_attr(_locals["PartitionResult"], interpolate("name", p, _locals)),
+                interpolate("aws-eusc", p, _locals),
+            ):
+                if p.UseFIPS is True:
+                    if p.UseDualStack is True:
+                        return Endpoint(
+                            url=interpolate(
+                                "https://iam-fips.api.amazonwebservices.eu", p, _locals
                             ),
                             properties={
                                 "authSchemes": [
@@ -392,7 +764,7 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         ):
                             return Endpoint(
                                 url=interpolate(
-                                    "https://iam-fips.{PartitionResult#dualStackDnsSuffix}",
+                                    "https://iam-fips.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dualStackDnsSuffix}",
                                     p,
                                     _locals,
                                 ),
@@ -428,7 +800,7 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                     ):
                         return Endpoint(
                             url=interpolate(
-                                "https://iam-fips.{PartitionResult#dnsSuffix}",
+                                "https://iam-fips.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dnsSuffix}",
                                 p,
                                 _locals,
                             ),
@@ -461,7 +833,7 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                     ):
                         return Endpoint(
                             url=interpolate(
-                                "https://iam.{PartitionResult#dualStackDnsSuffix}",
+                                "https://iam.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dualStackDnsSuffix}",
                                 p,
                                 _locals,
                             ),
@@ -487,7 +859,11 @@ def resolve(p: EndpointParams) -> Endpoint:  # type: ignore
                         )
                     )
             return Endpoint(
-                url=interpolate("https://iam.{PartitionResult#dnsSuffix}", p, _locals),
+                url=interpolate(
+                    "https://iam.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dnsSuffix}",
+                    p,
+                    _locals,
+                ),
                 properties={
                     "authSchemes": [
                         {

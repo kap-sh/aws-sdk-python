@@ -25,7 +25,7 @@ class DescribeAlarmHistoryInput(TypedDict, closed=True):
     ]
     """<p>The unique identifier of a specific alarm contributor to filter the alarm history results.</p>"""
     alarm_types: NotRequired["capo_cloudwatch.types.alarm_types.AlarmTypes"]
-    """<p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.</p>"""
+    """<p>Use this parameter to specify whether you want the operation to return metric alarms, composite alarms, or log alarms. If you omit this parameter, only metric alarms are returned.</p>"""
     history_item_type: NotRequired[
         "capo_cloudwatch.types.history_item_type.HistoryItemType"
     ]

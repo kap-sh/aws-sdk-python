@@ -8,13 +8,13 @@ from capo_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
     import capo_ec2.types.instance_id
-    import capo_ec2.types.string
+    import capo_ec2.types.sensitive_string
 
 
 class GetInstanceUefiDataResult(TypedDict, closed=True):
     instance_id: NotRequired["capo_ec2.types.instance_id.InstanceId"]
     """<p>The ID of the instance from which to retrieve the UEFI data.</p>"""
-    uefi_data: NotRequired["capo_ec2.types.string.String"]
+    uefi_data: NotRequired["capo_ec2.types.sensitive_string.SensitiveString"]
     """<p>Base64 representation of the non-volatile UEFI variable store.</p>"""
 
 

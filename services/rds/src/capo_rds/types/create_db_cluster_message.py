@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     import capo_rds.types.boolean_optional
     import capo_rds.types.cluster_scalability_type
     import capo_rds.types.database_insights_mode
+    import capo_rds.types.db_cluster_associated_roles
     import capo_rds.types.global_cluster_identifier
     import capo_rds.types.integer_optional
     import capo_rds.types.log_type_list
@@ -175,7 +176,7 @@ class CreateDBClusterMessage(TypedDict, closed=True):
     ca_certificate_identifier: NotRequired["capo_rds.types.string.String"]
     r"""<p>The CA certificate identifier to use for the DB cluster's server certificate.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html\">Using SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Valid for Cluster Type: Multi-AZ DB clusters</p>"""
     engine_lifecycle_support: NotRequired["capo_rds.types.string.String"]
-    r"""<p>The life cycle type for this DB cluster.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>"""
+    r"""<p>The lifecycle type for this DB cluster.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>"""
     tag_specifications: NotRequired[
         "capo_rds.types.tag_specification_list.TagSpecificationList"
     ]
@@ -188,6 +189,10 @@ class CreateDBClusterMessage(TypedDict, closed=True):
         "capo_rds.types.boolean_optional.BooleanOptional"
     ]
     """<p>Specifies to create an Aurora DB Cluster with express configuration in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>Valid for Cluster Type: Aurora DB clusters</p>"""
+    associated_roles: NotRequired[
+        "capo_rds.types.db_cluster_associated_roles.DBClusterAssociatedRoles"
+    ]
+    """<p>A list of Amazon Web Services Identity and Access Management (IAM) roles to associate with the DB cluster. Each role grants the DB cluster permission to access other Amazon Web Services on your behalf. For each role, specify a role ARN and, optionally, the feature name (such as <code>s3Import</code>, <code>s3Export</code>, or <code>Lambda</code>).</p> <p>Valid for Cluster Type: Aurora DB clusters only</p>"""
 
 
 # --- awsQuery ser/de ---
@@ -506,6 +511,12 @@ def serialize_query(
                 "true" if value["with_express_configuration"] else "false",
             )
         )
+    if "associated_roles" in value:
+        import capo_rds.types.db_cluster_associated_roles
+
+        capo_rds.types.db_cluster_associated_roles.serialize_query(
+            value["associated_roles"], pairs, f"{key_prefix}AssociatedRoles"
+        )
 
 
 def deserialize_query(el: Element) -> CreateDBClusterMessage:
@@ -797,4 +808,13 @@ def deserialize_query(el: Element) -> CreateDBClusterMessage:
         out["with_express_configuration"] = (
             child_with_express_configuration.text or ""
         ).lower() == "true"
+    child_associated_roles = el.find("AssociatedRoles")
+    if child_associated_roles is not None:
+        import capo_rds.types.db_cluster_associated_roles
+
+        out["associated_roles"] = (
+            capo_rds.types.db_cluster_associated_roles.deserialize_query(
+                child_associated_roles
+            )
+        )
     return out

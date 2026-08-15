@@ -13,6 +13,7 @@ import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
 import capo_lambda.errors.invalid_parameter_value_exception
 import capo_lambda.errors.resource_conflict_exception
+import capo_lambda.errors.resource_not_found_exception
 import capo_lambda.errors.service_exception
 import capo_lambda.errors.too_many_requests_exception
 import capo_lambda.types.delete_alias_request
@@ -32,6 +33,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "ResourceConflictException":
             raise capo_lambda.errors.resource_conflict_exception.ResourceConflictException.from_json(
+                data, message
+            )
+        case "ResourceNotFoundException":
+            raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data, message
             )
         case "ServiceException":

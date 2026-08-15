@@ -61,6 +61,7 @@ class FunctionAlias:
             routing_config: <p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing configuration</a> of the alias.</p>
 
         Raises:
+            capo_lambda.errors.alias_limit_exceeded_exception.AliasLimitExceededException: <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
@@ -72,7 +73,7 @@ class FunctionAlias:
             To create an alias for a Lambda function
             The following example creates an alias named LIVE that points to version 1 of the my-function Lambda function.
 
-            >>> client.put(function_name='my-function', name='LIVE', function_version='1', description='alias for live version of function')
+            >>> client.put(description='alias for live version of function', function_name='my-function', function_version='1', name='LIVE')
         """
 
         def _handler(
@@ -197,7 +198,7 @@ class FunctionAlias:
             To update a function alias
             The following example updates the alias named BLUE to send 30% of traffic to version 2 and 70% to version 1.
 
-            >>> client.update(function_name='my-function', name='BLUE', function_version='2', routing_config={'AdditionalVersionWeights': {'1': 0.7}})
+            >>> client.update(function_name='my-function', function_version='2', name='BLUE', routing_config={'AdditionalVersionWeights': {'1': 0.7}})
         """
 
         def _handler(
@@ -250,6 +251,7 @@ class FunctionAlias:
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.
@@ -376,6 +378,7 @@ class AsyncFunctionAlias:
             routing_config: <p>The <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\">routing configuration</a> of the alias.</p>
 
         Raises:
+            capo_lambda.errors.alias_limit_exceeded_exception.AliasLimitExceededException: <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
@@ -387,7 +390,7 @@ class AsyncFunctionAlias:
             To create an alias for a Lambda function
             The following example creates an alias named LIVE that points to version 1 of the my-function Lambda function.
 
-            >>> await client.put(function_name='my-function', name='LIVE', function_version='1', description='alias for live version of function')
+            >>> await client.put(description='alias for live version of function', function_name='my-function', function_version='1', name='LIVE')
         """
 
         async def _handler(
@@ -514,7 +517,7 @@ class AsyncFunctionAlias:
             To update a function alias
             The following example updates the alias named BLUE to send 30% of traffic to version 2 and 70% to version 1.
 
-            >>> await client.update(function_name='my-function', name='BLUE', function_version='2', routing_config={'AdditionalVersionWeights': {'1': 0.7}})
+            >>> await client.update(function_name='my-function', function_version='2', name='BLUE', routing_config={'AdditionalVersionWeights': {'1': 0.7}})
         """
 
         async def _handler(
@@ -568,6 +571,7 @@ class AsyncFunctionAlias:
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
+            capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
             capo_lambda.errors.UnknownServiceError: The service returned an error code this client does not model.

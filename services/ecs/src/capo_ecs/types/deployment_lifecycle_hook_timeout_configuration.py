@@ -13,11 +13,11 @@ class DeploymentLifecycleHookTimeoutConfiguration(TypedDict, closed=True):
     timeout_in_minutes: NotRequired[
         "capo_ecs.types.deployment_lifecycle_hook_duration.DeploymentLifecycleHookDuration"
     ]
-    """<p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p>"""
+    """<p>The number of minutes Amazon ECS waits for the lifecycle hook to complete before taking the timeout action.</p> <p>Default: 1440 (24 hours)</p>"""
     action: NotRequired[
         "capo_ecs.types.deployment_lifecycle_hook_action.DeploymentLifecycleHookAction"
     ]
-    """<p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul>"""
+    """<p>The action Amazon ECS takes when the lifecycle hook times out. Valid values are:</p> <ul> <li> <p> <code>CONTINUE</code> - Proceeds the deployment to the next lifecycle stage.</p> </li> <li> <p> <code>ROLLBACK</code> - Rolls back the deployment to the previous service revision.</p> </li> </ul> <p>Default: <code>ROLLBACK</code> </p>"""
 
 
 # --- awsJson1_1 ser/de ---

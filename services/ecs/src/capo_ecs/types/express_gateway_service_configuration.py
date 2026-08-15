@@ -20,6 +20,8 @@ class ExpressGatewayServiceConfiguration(TypedDict, closed=True):
     """<p>The ARN of the task execution role for the service revision.</p>"""
     task_role_arn: NotRequired["capo_ecs.types.string.String"]
     """<p>The ARN of the task role for the service revision.</p>"""
+    task_definition_arn: NotRequired["capo_ecs.types.string.String"]
+    """<p>The ARN of the task definition used by this service revision. This is present for all Express services and reflects the task definition in use, whether managed by Amazon ECS or provided by the customer.</p>"""
     cpu: NotRequired["capo_ecs.types.string.String"]
     """<p>The CPU allocation for tasks in this service revision.</p>"""
     memory: NotRequired["capo_ecs.types.string.String"]
@@ -55,6 +57,8 @@ def serialize_aws_json_1_1(value: ExpressGatewayServiceConfiguration) -> dict:
         out["executionRoleArn"] = value["execution_role_arn"]
     if "task_role_arn" in value:
         out["taskRoleArn"] = value["task_role_arn"]
+    if "task_definition_arn" in value:
+        out["taskDefinitionArn"] = value["task_definition_arn"]
     if "cpu" in value:
         out["cpu"] = value["cpu"]
     if "memory" in value:
@@ -110,6 +114,8 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
         out["execution_role_arn"] = data["executionRoleArn"]
     if "taskRoleArn" in data:
         out["task_role_arn"] = data["taskRoleArn"]
+    if "taskDefinitionArn" in data:
+        out["task_definition_arn"] = data["taskDefinitionArn"]
     if "cpu" in data:
         out["cpu"] = data["cpu"]
     if "memory" in data:

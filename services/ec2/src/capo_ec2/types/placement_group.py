@@ -38,6 +38,8 @@ class PlacementGroup(TypedDict, closed=True):
     """<p>Reserved for future use.</p>"""
     operator: NotRequired["capo_ec2.types.operator_response.OperatorResponse"]
     """<p>The service provider that manages the Placement Group.</p>"""
+    parent_group_id: NotRequired["capo_ec2.types.placement_group_id.PlacementGroupId"]
+    """<p>The ID of the parent placement group.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -85,6 +87,8 @@ def serialize_ec2_query(
         capo_ec2.types.operator_response.serialize_ec2_query(
             value["operator"], pairs, f"{key_prefix}Operator"
         )
+    if "parent_group_id" in value:
+        pairs.append((f"{key_prefix}ParentGroupId", str(value["parent_group_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> PlacementGroup:
@@ -137,4 +141,7 @@ def deserialize_ec2_query(el: Element) -> PlacementGroup:
         out["operator"] = capo_ec2.types.operator_response.deserialize_ec2_query(
             child_operator
         )
+    child_parent_group_id = el.find("parentGroupId")
+    if child_parent_group_id is not None:
+        out["parent_group_id"] = str(child_parent_group_id.text or "")
     return out

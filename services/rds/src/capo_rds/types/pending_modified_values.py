@@ -36,7 +36,7 @@ class PendingModifiedValues(TypedDict, closed=True):
     engine_version: NotRequired["capo_rds.types.string.String"]
     """<p>The database engine version.</p>"""
     license_model: NotRequired["capo_rds.types.string.String"]
-    """<p>The license model for the DB instance.</p> <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code> </p>"""
+    """<p>The license model for the DB instance.</p> <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code> | <code>bring-your-own-media</code> </p>"""
     iops: NotRequired["capo_rds.types.integer_optional.IntegerOptional"]
     """<p>The Provisioned IOPS value for the DB instance.</p>"""
     storage_throughput: NotRequired["capo_rds.types.integer_optional.IntegerOptional"]

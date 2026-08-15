@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch.errors.resource_conflict
 import capo_cloudwatch.errors.resource_not_found
 import capo_cloudwatch.types.alarm_names
 import capo_cloudwatch.types.delete_alarms_input
@@ -24,6 +25,10 @@ def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
+        case "ResourceConflict":
+            raise capo_cloudwatch.errors.resource_conflict.ResourceConflict.from_aws_json_1_0(
+                data, message
+            )
         case "ResourceNotFound":
             raise capo_cloudwatch.errors.resource_not_found.ResourceNotFound.from_aws_json_1_0(
                 data, message

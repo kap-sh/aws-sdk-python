@@ -13,6 +13,7 @@ import capo_rds._auth._sigv4
 import capo_rds.errors.db_cluster_already_exists_fault
 import capo_rds.errors.db_cluster_parameter_group_not_found_fault
 import capo_rds.errors.db_cluster_quota_exceeded_fault
+import capo_rds.errors.db_cluster_role_quota_exceeded_fault
 import capo_rds.errors.db_cluster_snapshot_not_found_fault
 import capo_rds.errors.db_snapshot_not_found_fault
 import capo_rds.errors.db_subnet_group_does_not_cover_enough_a_zs
@@ -35,6 +36,7 @@ import capo_rds.errors.storage_type_not_supported_fault
 import capo_rds.errors.vpc_encryption_control_violation_exception
 import capo_rds.types.availability_zones
 import capo_rds.types.db_cluster
+import capo_rds.types.db_cluster_associated_roles
 import capo_rds.types.log_type_list
 import capo_rds.types.rds_custom_cluster_configuration
 import capo_rds.types.restore_db_cluster_from_snapshot_message
@@ -66,6 +68,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "DBClusterQuotaExceededFault":
             raise capo_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
+                error_el, message
+            )
+        case "DBClusterRoleQuotaExceeded":
+            raise capo_rds.errors.db_cluster_role_quota_exceeded_fault.DBClusterRoleQuotaExceededFault.from_query(
                 error_el, message
             )
         case "DBClusterSnapshotNotFoundFault":

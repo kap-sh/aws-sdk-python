@@ -17,6 +17,7 @@ import capo_cloudwatch.types.alarm_types
 import capo_cloudwatch.types.composite_alarms
 import capo_cloudwatch.types.describe_alarms_input
 import capo_cloudwatch.types.describe_alarms_output
+import capo_cloudwatch.types.log_alarms
 import capo_cloudwatch.types.metric_alarms
 import capo_cloudwatch.types.state_value
 from capo_cloudwatch._protocol.errors import parse_error_metadata_json

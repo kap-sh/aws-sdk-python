@@ -11,6 +11,8 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda.errors.invalid_parameter_value_exception
+import capo_lambda.errors.resource_not_found_exception
 import capo_lambda.errors.service_exception
 import capo_lambda.errors.too_many_requests_exception
 import capo_lambda.types.delete_layer_version_request
@@ -24,6 +26,14 @@ def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
+        case "InvalidParameterValueException":
+            raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
+                data, message
+            )
+        case "ResourceNotFoundException":
+            raise capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
+                data, message
+            )
         case "ServiceException":
             raise capo_lambda.errors.service_exception.ServiceException.from_json(
                 data, message

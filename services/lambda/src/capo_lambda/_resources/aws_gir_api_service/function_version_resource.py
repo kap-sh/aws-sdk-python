@@ -71,7 +71,7 @@ class FunctionVersionResource:
             To publish a version of a Lambda function
             This operation publishes a version of a Lambda function
 
-            >>> client.create(function_name='myFunction', code_sha256='', description='')
+            >>> client.create(code_sha256='', description='', function_name='myFunction')
         """
 
         def _handler(
@@ -206,7 +206,7 @@ class AsyncFunctionVersionResource:
             To publish a version of a Lambda function
             This operation publishes a version of a Lambda function
 
-            >>> await client.create(function_name='myFunction', code_sha256='', description='')
+            >>> await client.create(code_sha256='', description='', function_name='myFunction')
         """
 
         async def _handler(

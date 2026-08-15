@@ -7,13 +7,14 @@ from typing_extensions import NotRequired, TypedDict
 from capo_rds._protocol.xml import Element
 
 if TYPE_CHECKING:
+    import capo_rds.types.iam_role_arn
     import capo_rds.types.string
 
 
 class AddRoleToDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["capo_rds.types.string.String"]
     """<p>The name of the DB cluster to associate the IAM role with.</p>"""
-    role_arn: NotRequired["capo_rds.types.string.String"]
+    role_arn: NotRequired["capo_rds.types.iam_role_arn.IAMRoleArn"]
     """<p>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</p>"""
     feature_name: NotRequired["capo_rds.types.string.String"]
     """<p>The name of the feature for the DB cluster that the IAM role is to be associated with. For information about supported feature names, see <a>DBEngineVersion</a>.</p>"""

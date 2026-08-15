@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     import capo_cloudwatch.types.evaluation_interval
     import capo_cloudwatch.types.evaluation_periods
     import capo_cloudwatch.types.evaluation_state
+    import capo_cloudwatch.types.evaluation_window
     import capo_cloudwatch.types.extended_statistic
     import capo_cloudwatch.types.metric_data_queries
     import capo_cloudwatch.types.metric_id
@@ -119,6 +120,10 @@ class MetricAlarm(TypedDict, closed=True):
         "capo_cloudwatch.types.timestamp.Timestamp"
     ]
     """<p>The date and time that the alarm's <code>StateValue</code> most recently changed.</p>"""
+    evaluation_window: NotRequired[
+        "capo_cloudwatch.types.evaluation_window.EvaluationWindow"
+    ]
+    r"""<p>The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html\">Alarm evaluation windows</a> in the <i>CloudWatch User Guide</i>.</p>"""
     evaluation_criteria: NotRequired[
         "capo_cloudwatch.types.evaluation_criteria.EvaluationCriteria"
     ]
@@ -258,6 +263,14 @@ def serialize_aws_json_1_0(value: MetricAlarm) -> dict:
         out["StateTransitionedTimestamp"] = (
             capo_cloudwatch.types.timestamp.serialize_aws_json_1_0(
                 value["state_transitioned_timestamp"]
+            )
+        )
+    if "evaluation_window" in value:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["EvaluationWindow"] = (
+            capo_cloudwatch.types.evaluation_window.serialize_aws_json_1_0(
+                value["evaluation_window"]
             )
         )
     if "evaluation_criteria" in value:
@@ -403,6 +416,14 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
         out["state_transitioned_timestamp"] = (
             capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
                 data["StateTransitionedTimestamp"]
+            )
+        )
+    if "EvaluationWindow" in data:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["evaluation_window"] = (
+            capo_cloudwatch.types.evaluation_window.deserialize_aws_json_1_0(
+                data["EvaluationWindow"]
             )
         )
     if "EvaluationCriteria" in data:
@@ -574,6 +595,12 @@ def serialize_query(
             pairs,
             f"{key_prefix}StateTransitionedTimestamp",
         )
+    if "evaluation_window" in value:
+        import capo_cloudwatch.types.evaluation_window
+
+        capo_cloudwatch.types.evaluation_window.serialize_query(
+            value["evaluation_window"], pairs, f"{key_prefix}EvaluationWindow"
+        )
     if "evaluation_criteria" in value:
         import capo_cloudwatch.types.evaluation_criteria
 
@@ -741,6 +768,15 @@ def deserialize_query(el: Element) -> MetricAlarm:
         out["state_transitioned_timestamp"] = (
             capo_cloudwatch.types.timestamp.deserialize_query(
                 child_state_transitioned_timestamp
+            )
+        )
+    child_evaluation_window = el.find("EvaluationWindow")
+    if child_evaluation_window is not None:
+        import capo_cloudwatch.types.evaluation_window
+
+        out["evaluation_window"] = (
+            capo_cloudwatch.types.evaluation_window.deserialize_query(
+                child_evaluation_window
             )
         )
     child_evaluation_criteria = el.find("EvaluationCriteria")

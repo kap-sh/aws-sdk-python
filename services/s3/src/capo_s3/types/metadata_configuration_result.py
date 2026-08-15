@@ -8,6 +8,7 @@ from capo_s3._protocol.xml import Element, SubElement
 from capo_s3.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import capo_s3.types.annotation_table_configuration_result
     import capo_s3.types.destination_result
     import capo_s3.types.inventory_table_configuration_result
     import capo_s3.types.journal_table_configuration_result
@@ -24,6 +25,10 @@ class MetadataConfigurationResult(TypedDict, closed=True):
         "capo_s3.types.inventory_table_configuration_result.InventoryTableConfigurationResult"
     ]
     """<p> The inventory table configuration for a metadata configuration. </p>"""
+    annotation_table_configuration_result: NotRequired[
+        "capo_s3.types.annotation_table_configuration_result.AnnotationTableConfigurationResult"
+    ]
+    """<p>The annotation table configuration result, if an annotation table is configured.</p>"""
 
 
 # --- restXml ser/de ---
@@ -51,6 +56,14 @@ def serialize_xml(
             value["inventory_table_configuration_result"],
             el,
             "InventoryTableConfigurationResult",
+        )
+    if "annotation_table_configuration_result" in value:
+        import capo_s3.types.annotation_table_configuration_result
+
+        capo_s3.types.annotation_table_configuration_result.serialize_xml(
+            value["annotation_table_configuration_result"],
+            el,
+            "AnnotationTableConfigurationResult",
         )
 
 
@@ -87,6 +100,17 @@ def deserialize_xml(el: Element) -> MetadataConfigurationResult:
         out["inventory_table_configuration_result"] = (
             capo_s3.types.inventory_table_configuration_result.deserialize_xml(
                 child_inventory_table_configuration_result
+            )
+        )
+    child_annotation_table_configuration_result = el.find(
+        "AnnotationTableConfigurationResult"
+    )
+    if child_annotation_table_configuration_result is not None:
+        import capo_s3.types.annotation_table_configuration_result
+
+        out["annotation_table_configuration_result"] = (
+            capo_s3.types.annotation_table_configuration_result.deserialize_xml(
+                child_annotation_table_configuration_result
             )
         )
     return out

@@ -25,6 +25,8 @@ class DescribeVolumesModificationsRequest(TypedDict, closed=True):
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
     max_results: NotRequired["capo_ec2.types.integer.Integer"]
     r"""<p>The maximum number of results (up to a limit of 500) to be returned in a paginated request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
+    include_managed_resources: NotRequired["capo_ec2.types.boolean.Boolean"]
+    """<p>Indicates whether to include managed resources in the output. If this parameter is set to <code>true</code>, the output includes resources that are managed by Amazon Web Services services, even if managed resource visibility is set to hidden.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -52,6 +54,13 @@ def serialize_ec2_query(
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
+    if "include_managed_resources" in value:
+        pairs.append(
+            (
+                f"{key_prefix}IncludeManagedResources",
+                "true" if value["include_managed_resources"] else "false",
+            )
+        )
 
 
 def deserialize_ec2_query(el: Element) -> DescribeVolumesModificationsRequest:
@@ -77,4 +86,9 @@ def deserialize_ec2_query(el: Element) -> DescribeVolumesModificationsRequest:
     child_max_results = el.find("MaxResults")
     if child_max_results is not None:
         out["max_results"] = int(child_max_results.text or "")
+    child_include_managed_resources = el.find("IncludeManagedResources")
+    if child_include_managed_resources is not None:
+        out["include_managed_resources"] = (
+            child_include_managed_resources.text or ""
+        ).lower() == "true"
     return out

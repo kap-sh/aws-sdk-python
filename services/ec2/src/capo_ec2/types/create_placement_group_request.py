@@ -30,6 +30,8 @@ class CreatePlacementGroupRequest(TypedDict, closed=True):
     """<p>Reserved for future use.</p>"""
     operator: NotRequired["capo_ec2.types.operator_request.OperatorRequest"]
     """<p>Reserved for internal use.</p>"""
+    parent_group_id: NotRequired["capo_ec2.types.placement_group_id.PlacementGroupId"]
+    """<p>The ID of a parent placement group. Valid only when <b>Strategy</b> is set to <code>cluster</code>.</p>"""
     dry_run: NotRequired["capo_ec2.types.boolean.Boolean"]
     """<p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"""
     group_name: NotRequired["capo_ec2.types.string.String"]
@@ -65,6 +67,8 @@ def serialize_ec2_query(
         capo_ec2.types.operator_request.serialize_ec2_query(
             value["operator"], pairs, f"{key_prefix}Operator"
         )
+    if "parent_group_id" in value:
+        pairs.append((f"{key_prefix}ParentGroupId", str(value["parent_group_id"])))
     if "dry_run" in value:
         pairs.append((f"{key_prefix}DryRun", "true" if value["dry_run"] else "false"))
     if "group_name" in value:
@@ -108,6 +112,9 @@ def deserialize_ec2_query(el: Element) -> CreatePlacementGroupRequest:
         out["operator"] = capo_ec2.types.operator_request.deserialize_ec2_query(
             child_operator
         )
+    child_parent_group_id = el.find("ParentGroupId")
+    if child_parent_group_id is not None:
+        out["parent_group_id"] = str(child_parent_group_id.text or "")
     child_dry_run = el.find("dryRun")
     if child_dry_run is not None:
         out["dry_run"] = (child_dry_run.text or "").lower() == "true"

@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class ListDaemonsRequest(TypedDict, closed=True):
     cluster_arn: NotRequired["capo_ecs.types.string.String"]
-    """<p>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If not specified, daemons from all clusters are returned.</p>"""
+    """<p>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If you do not specify a cluster, the default cluster is assumed.</p>"""
     capacity_provider_arns: NotRequired["capo_ecs.types.string_list.StringList"]
     """<p>The Amazon Resource Names (ARNs) of the capacity providers to filter daemons by. Only daemons associated with the specified capacity providers are returned.</p>"""
     max_results: NotRequired["capo_ecs.types.boxed_integer.BoxedInteger"]

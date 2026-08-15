@@ -83,6 +83,7 @@ from .malformed_certificate_exception import (
 from .malformed_policy_document_exception import (
     MalformedPolicyDocumentException as MalformedPolicyDocumentException,
 )
+from .name_conflict_exception import NameConflictException as NameConflictException
 from .no_such_entity_exception import NoSuchEntityException as NoSuchEntityException
 from .open_id_idp_communication_error_exception import (
     OpenIdIdpCommunicationErrorException as OpenIdIdpCommunicationErrorException,
@@ -104,6 +105,10 @@ from .policy_not_attachable_exception import (
 )
 from .report_generation_limit_exceeded_exception import (
     ReportGenerationLimitExceededException as ReportGenerationLimitExceededException,
+)
+from .role_modified_exception import RoleModifiedException as RoleModifiedException
+from .role_template_disabled_exception import (
+    RoleTemplateDisabledException as RoleTemplateDisabledException,
 )
 from .service_access_not_enabled_exception import (
     ServiceAccessNotEnabledException as ServiceAccessNotEnabledException,

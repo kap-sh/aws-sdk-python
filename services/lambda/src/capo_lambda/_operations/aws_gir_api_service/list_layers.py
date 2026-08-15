@@ -104,6 +104,15 @@ def build_request(
 
     url = endpoint.url.rstrip("/") + "/2018-10-31/layers"
     params: list[tuple[str, str]] = []
+    if "compatible_architecture" in input_:
+        params.append(
+            (
+                "CompatibleArchitecture",
+                capo_lambda.types.architecture.serialize_json(
+                    input_["compatible_architecture"]
+                ),
+            )
+        )
     if "compatible_runtime" in input_:
         params.append(
             (
@@ -115,15 +124,6 @@ def build_request(
         params.append(("Marker", input_["marker"]))
     if "max_items" in input_:
         params.append(("MaxItems", str(input_["max_items"])))
-    if "compatible_architecture" in input_:
-        params.append(
-            (
-                "CompatibleArchitecture",
-                capo_lambda.types.architecture.serialize_json(
-                    input_["compatible_architecture"]
-                ),
-            )
-        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

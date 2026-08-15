@@ -6,10 +6,13 @@ from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import capo_lambda.types.execution_timeout
+    import capo_lambda.types.kms_key_arn
     import capo_lambda.types.retention_period_in_days
 
 
 class DurableConfig(TypedDict, closed=True):
+    kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
+    """<p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>"""
     retention_period_in_days: NotRequired[
         "capo_lambda.types.retention_period_in_days.RetentionPeriodInDays"
     ]
@@ -23,6 +26,8 @@ class DurableConfig(TypedDict, closed=True):
 # --- restJson1 ser/de ---
 def serialize_json(value: DurableConfig) -> dict:
     out: dict = {}
+    if "kms_key_arn" in value:
+        out["KMSKeyArn"] = value["kms_key_arn"]
     if "retention_period_in_days" in value:
         out["RetentionPeriodInDays"] = value["retention_period_in_days"]
     if "execution_timeout" in value:
@@ -32,6 +37,8 @@ def serialize_json(value: DurableConfig) -> dict:
 
 def deserialize_json(data: dict) -> DurableConfig:
     out: DurableConfig = {}  # type: ignore[typeddict-item]
+    if "KMSKeyArn" in data:
+        out["kms_key_arn"] = data["KMSKeyArn"]
     if "RetentionPeriodInDays" in data:
         out["retention_period_in_days"] = data["RetentionPeriodInDays"]
     if "ExecutionTimeout" in data:

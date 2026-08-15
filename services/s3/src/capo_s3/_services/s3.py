@@ -45,6 +45,11 @@ if TYPE_CHECKING:
     import capo_s3.types.account_id
     import capo_s3.types.analytics_configuration
     import capo_s3.types.analytics_id
+    import capo_s3.types.annotation_directive
+    import capo_s3.types.annotation_entry
+    import capo_s3.types.annotation_name
+    import capo_s3.types.annotation_prefix
+    import capo_s3.types.annotation_table_configuration_updates
     import capo_s3.types.bucket
     import capo_s3.types.bucket_canned_acl
     import capo_s3.types.bucket_key_enabled
@@ -118,6 +123,8 @@ if TYPE_CHECKING:
     import capo_s3.types.delete_bucket_tagging_request
     import capo_s3.types.delete_bucket_website_request
     import capo_s3.types.delete_marker
+    import capo_s3.types.delete_object_annotation_output
+    import capo_s3.types.delete_object_annotation_request
     import capo_s3.types.delete_object_output
     import capo_s3.types.delete_object_request
     import capo_s3.types.delete_object_tagging_output
@@ -183,6 +190,8 @@ if TYPE_CHECKING:
     import capo_s3.types.get_bucket_website_request
     import capo_s3.types.get_object_acl_output
     import capo_s3.types.get_object_acl_request
+    import capo_s3.types.get_object_annotation_output
+    import capo_s3.types.get_object_annotation_request
     import capo_s3.types.get_object_attributes_output
     import capo_s3.types.get_object_attributes_request
     import capo_s3.types.get_object_legal_hold_output
@@ -239,6 +248,8 @@ if TYPE_CHECKING:
     import capo_s3.types.list_directory_buckets_request
     import capo_s3.types.list_multipart_uploads_output
     import capo_s3.types.list_multipart_uploads_request
+    import capo_s3.types.list_object_annotations_output
+    import capo_s3.types.list_object_annotations_request
     import capo_s3.types.list_object_versions_output
     import capo_s3.types.list_object_versions_request
     import capo_s3.types.list_objects_output
@@ -248,6 +259,7 @@ if TYPE_CHECKING:
     import capo_s3.types.list_parts_output
     import capo_s3.types.list_parts_request
     import capo_s3.types.marker
+    import capo_s3.types.max_annotation_results
     import capo_s3.types.max_buckets
     import capo_s3.types.max_directory_buckets
     import capo_s3.types.max_keys
@@ -267,6 +279,7 @@ if TYPE_CHECKING:
     import capo_s3.types.object_attributes_list
     import capo_s3.types.object_canned_acl
     import capo_s3.types.object_encryption
+    import capo_s3.types.object_if_match
     import capo_s3.types.object_key
     import capo_s3.types.object_lock_configuration
     import capo_s3.types.object_lock_enabled_for_bucket
@@ -310,6 +323,8 @@ if TYPE_CHECKING:
     import capo_s3.types.put_bucket_website_request
     import capo_s3.types.put_object_acl_output
     import capo_s3.types.put_object_acl_request
+    import capo_s3.types.put_object_annotation_output
+    import capo_s3.types.put_object_annotation_request
     import capo_s3.types.put_object_legal_hold_output
     import capo_s3.types.put_object_legal_hold_request
     import capo_s3.types.put_object_lock_configuration_output
@@ -368,6 +383,7 @@ if TYPE_CHECKING:
     import capo_s3.types.tagging_header
     import capo_s3.types.token
     import capo_s3.types.transition_default_minimum_object_size
+    import capo_s3.types.update_bucket_metadata_annotation_table_configuration_request
     import capo_s3.types.update_bucket_metadata_inventory_table_configuration_request
     import capo_s3.types.update_bucket_metadata_journal_table_configuration_request
     import capo_s3.types.update_object_encryption_request
@@ -789,6 +805,9 @@ class S3Client:
         tagging_directive: Optional[
             "capo_s3.types.tagging_directive.TaggingDirective"
         ] = None,
+        annotation_directive: Optional[
+            "capo_s3.types.annotation_directive.AnnotationDirective"
+        ] = None,
         server_side_encryption: Optional[
             "capo_s3.types.server_side_encryption.ServerSideEncryption"
         ] = None,
@@ -864,6 +883,7 @@ class S3Client:
             metadata: <p>A map of metadata to store with the object in S3.</p>
             metadata_directive: <p>Specifies whether the metadata is copied from the source object or replaced with metadata that's provided in the request. When copying an object, you can preserve all metadata (the default) or specify new metadata. If this header isn’t specified, <code>COPY</code> is the default behavior. </p> <p> <b>General purpose bucket</b> - For general purpose buckets, when you grant permissions, you can use the <code>s3:x-amz-metadata-directive</code> condition key to enforce certain metadata behavior when objects are uploaded. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html\">Amazon S3 condition key examples</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p> <code>x-amz-website-redirect-location</code> is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. To copy the value, you must specify <code>x-amz-website-redirect-location</code> in the request header.</p> </note>
             tagging_directive: <p>Specifies whether the object tag-set is copied from the source object or replaced with the tag-set that's provided in the request.</p> <p>The default value is <code>COPY</code>.</p> <note> <p> <b>Directory buckets</b> - For directory buckets in a <code>CopyObject</code> operation, only the empty tag-set is supported. Any requests that attempt to write non-empty tags into directory buckets will receive a <code>501 Not Implemented</code> status code. When the destination bucket is a directory bucket, you will receive a <code>501 Not Implemented</code> response in any of the following situations:</p> <ul> <li> <p>When you attempt to <code>COPY</code> the tag-set from an S3 source object that has non-empty tags.</p> </li> <li> <p>When you attempt to <code>REPLACE</code> the tag-set of a source object and set a non-empty value to <code>x-amz-tagging</code>.</p> </li> <li> <p>When you don't set the <code>x-amz-tagging-directive</code> header and the source object has non-empty tags. This is because the default value of <code>x-amz-tagging-directive</code> is <code>COPY</code>.</p> </li> </ul> <p>Because only the empty tag-set is supported for directory buckets in a <code>CopyObject</code> operation, the following situations are allowed:</p> <ul> <li> <p>When you attempt to <code>COPY</code> the tag-set from a directory bucket source object that has no tags to a general purpose bucket. It copies an empty tag-set to the destination object.</p> </li> <li> <p>When you attempt to <code>REPLACE</code> the tag-set of a directory bucket source object and set the <code>x-amz-tagging</code> value of the directory bucket destination object to empty.</p> </li> <li> <p>When you attempt to <code>REPLACE</code> the tag-set of a general purpose bucket source object that has non-empty tags and set the <code>x-amz-tagging</code> value of the directory bucket destination object to empty.</p> </li> <li> <p>When you attempt to <code>REPLACE</code> the tag-set of a directory bucket source object and don't set the <code>x-amz-tagging</code> value of the directory bucket destination object. This is because the default value of <code>x-amz-tagging</code> is the empty value.</p> </li> </ul> </note>
+            annotation_directive: <p>Specifies whether you want to copy annotations from the source object or exclude them. If this header isn't specified, <code>COPY</code> is the default behavior.</p> <p>Valid Values: <code>COPY | EXCLUDE</code> </p> <p>You can specify this directive as either an HTTP header (<code>x-amz-object-annotation-directive</code>) or as a query string parameter. Use the query string form when generating presigned URLs that need to control annotation copy behavior.</p> <p>When set to <code>COPY</code>, you must have <code>s3:GetObjectAnnotation</code> permission on the source object and <code>s3:PutObjectAnnotation</code> permission on the destination. Each annotation copied is billed as a separate PUT request. If annotations on the source are modified during the copy, Amazon S3 returns a retryable error.</p> <note> <p>For directory buckets, annotations are not supported. Use <code>EXCLUDE</code> to copy objects to directory buckets without errors. If you specify <code>COPY</code> for a directory bucket, the request returns HTTP 501 (Not Implemented).</p> </note> <note> <p>When you copy objects using multipart upload (for example, when the Amazon Web Services CLI or Amazon Web Services SDKs use Transfer Manager for objects larger than approximately 8 MB), annotations are not copied by default. To include annotations, specify <code>--copy-props default</code> in the Amazon Web Services CLI or the equivalent SDK configuration. With this opt-in, the SDK reads source annotations, completes the multipart upload, and then writes each annotation to the destination. Between the upload completion and the last annotation write, the destination object exists without all its annotations.</p> </note>
             server_side_encryption: <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code> response. </p> <p>Amazon S3 automatically encrypts all new objects that are copied to an S3 bucket. When copying an object, if you don't specify encryption information in your copy request, the encryption setting of the target object is set to the default encryption configuration of the destination bucket. By default, all buckets have a base level of encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the destination bucket has a different default encryption configuration, Amazon S3 uses the corresponding encryption key to encrypt the target object copy.</p> <p>With server-side encryption, Amazon S3 encrypts your data as it writes your data to disks in its data centers and decrypts the data when you access it. For more information about server-side encryption, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html\">Using Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p> <p> <b>General purpose buckets </b> </p> <ul> <li> <p>For general purpose buckets, there are the following supported options for server-side encryption: server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), and server-side encryption with customer-provided encryption keys (SSE-C). Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the target object copy.</p> </li> <li> <p>When you perform a <code>CopyObject</code> operation, if you want to use a different type of encryption setting for the target object, you can specify appropriate encryption-related headers to encrypt the target object with an Amazon S3 managed key, a KMS key, or a customer-provided key. If the encryption setting in your request is different from the default encryption configuration of the destination bucket, the encryption setting in your request takes precedence. </p> </li> </ul> <p> <b>Directory buckets </b> </p> <ul> <li> <p>For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects are automatically encrypted with the desired encryption settings. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html\">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html\">Specifying server-side encryption with KMS for new object uploads</a>.</p> </li> <li> <p>To encrypt new object copies to a directory bucket with SSE-KMS, we recommend you specify SSE-KMS as the directory bucket's default encryption configuration with a KMS key (specifically, a <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk\">customer managed key</a>). The <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk\">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported. Your SSE-KMS configuration can only support 1 <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk\">customer managed key</a> per directory bucket for the lifetime of the bucket. After you specify a customer managed key for SSE-KMS, you can't override the customer managed key for the bucket's SSE-KMS configuration. Then, when you perform a <code>CopyObject</code> operation and want to specify server-side encryption settings for new object copies with SSE-KMS in the encryption-related request headers, you must ensure the encryption key is the same customer managed key that you specified for the directory bucket's default encryption configuration. </p> </li> <li> <p> <b>S3 access points for Amazon FSx </b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p> </li> </ul>
             storage_class: <p>If the <code>x-amz-storage-class</code> header is not used, the copied object will be stored in the <code>STANDARD</code> Storage Class by default. The <code>STANDARD</code> storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. </p> <note> <ul> <li> <p> <b>Directory buckets </b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones. Unsupported storage class values won't write a destination object and will respond with the HTTP status code <code>400 Bad Request</code>.</p> </li> <li> <p> <b>Amazon S3 on Outposts </b> - S3 on Outposts only uses the <code>OUTPOSTS</code> Storage Class.</p> </li> </ul> </note> <p>You can use the <code>CopyObject</code> action to change the storage class of an object that is already stored in Amazon S3 by using the <code>x-amz-storage-class</code> header. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html\">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p> <p>Before using an object as a source object for the copy operation, you must restore a copy of it if it meets any of the following conditions:</p> <ul> <li> <p>The storage class of the source object is <code>GLACIER</code> or <code>DEEP_ARCHIVE</code>.</p> </li> <li> <p>The storage class of the source object is <code>INTELLIGENT_TIERING</code> and it's <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering-overview.html#intel-tiering-tier-definition\">S3 Intelligent-Tiering access tier</a> is <code>Archive Access</code> or <code>Deep Archive Access</code>.</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html\">RestoreObject</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html\">Copying Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
             website_redirect_location: <p>If the destination bucket is configured as a website, redirects requests for this object copy to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. This value is unique to each object and is not copied when using the <code>x-amz-metadata-directive</code> header. Instead, you may opt to provide this header in combination with the <code>x-amz-metadata-directive</code> header.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>
@@ -953,6 +973,8 @@ class S3Client:
             input_["metadata_directive"] = metadata_directive
         if tagging_directive is not None:
             input_["tagging_directive"] = tagging_directive
+        if annotation_directive is not None:
+            input_["annotation_directive"] = annotation_directive
         if server_side_encryption is not None:
             input_["server_side_encryption"] = server_side_encryption
         if storage_class is not None:
@@ -1114,7 +1136,7 @@ class S3Client:
         ] = None,
         expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
     ) -> None:
-        r"""<p>Creates an S3 Metadata V2 metadata configuration for a general purpose bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html\">Accelerating data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>To use this operation, you must have the following permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html\">Setting up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you want to encrypt your metadata tables with server-side encryption with Key Management Service (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html\"> Setting up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you also want to integrate your table bucket with Amazon Web Services analytics services so that you can query your metadata table, you need additional permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html\"> Integrating Amazon S3 Tables with Amazon Web Services analytics services</a> in the <i>Amazon S3 User Guide</i>.</p> <p>To query your metadata tables, you need additional permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-bucket-query-permissions.html\"> Permissions for querying metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <ul> <li> <p> <code>s3:CreateBucketMetadataTableConfiguration</code> </p> <note> <p>The IAM policy action name is the same for the V1 and V2 API operations.</p> </note> </li> <li> <p> <code>s3tables:CreateTableBucket</code> </p> </li> <li> <p> <code>s3tables:CreateNamespace</code> </p> </li> <li> <p> <code>s3tables:GetTable</code> </p> </li> <li> <p> <code>s3tables:CreateTable</code> </p> </li> <li> <p> <code>s3tables:PutTablePolicy</code> </p> </li> <li> <p> <code>s3tables:PutTableEncryption</code> </p> </li> <li> <p> <code>kms:DescribeKey</code> </p> </li> </ul> </dd> </dl> <p>The following operations are related to <code>CreateBucketMetadataConfiguration</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html\">DeleteBucketMetadataConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html\">GetBucketMetadataConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html\">UpdateBucketMetadataInventoryTableConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html\">UpdateBucketMetadataJournalTableConfiguration</a> </p> </li> </ul> <important> <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p> </important>
+        r"""<p>Creates an S3 Metadata V2 metadata configuration for a general purpose bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html\">Accelerating data discovery with S3 Metadata</a> in the <i>Amazon S3 User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>To use this operation, you must have the following permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html\">Setting up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you want to encrypt your metadata tables with server-side encryption with Key Management Service (KMS) keys (SSE-KMS), you need additional permissions in your KMS key policy. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html\"> Setting up permissions for configuring metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If you also want to integrate your table bucket with Amazon Web Services analytics services so that you can query your metadata table, you need additional permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html\"> Integrating Amazon S3 Tables with Amazon Web Services analytics services</a> in the <i>Amazon S3 User Guide</i>.</p> <p>To query your metadata tables, you need additional permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-bucket-query-permissions.html\"> Permissions for querying metadata tables</a> in the <i>Amazon S3 User Guide</i>.</p> <ul> <li> <p> <code>s3:CreateBucketMetadataTableConfiguration</code> </p> <note> <p>The IAM policy action name is the same for the V1 and V2 API operations.</p> </note> </li> <li> <p> <code>s3tables:CreateTableBucket</code> </p> </li> <li> <p> <code>s3tables:CreateNamespace</code> </p> </li> <li> <p> <code>s3tables:GetTable</code> </p> </li> <li> <p> <code>s3tables:CreateTable</code> </p> </li> <li> <p> <code>s3tables:PutTablePolicy</code> </p> </li> <li> <p> <code>s3tables:PutTableBucketPolicy</code> </p> </li> <li> <p> <code>s3tables:PutTableEncryption</code> </p> </li> <li> <p> <code>kms:DescribeKey</code> </p> </li> <li> <p> <code>iam:PassRole</code> - required if you include an <code>AnnotationTableConfiguration</code> with an IAM role.</p> </li> </ul> </dd> </dl> <p>The following operations are related to <code>CreateBucketMetadataConfiguration</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html\">DeleteBucketMetadataConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html\">GetBucketMetadataConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html\">UpdateBucketMetadataInventoryTableConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html\">UpdateBucketMetadataJournalTableConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html\">UpdateBucketMetadataAnnotationTableConfiguration</a> </p> </li> </ul> <p>If you include an <code>AnnotationTableConfiguration</code> with an IAM role, the role must have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy that grants the actions needed to read annotations from your bucket. The following examples show a trust policy and a permissions policy that you can adapt for your bucket and account.</p> <important> <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p> </important>
 
         Args:
             bucket: <p> The general purpose bucket that you want to create the metadata configuration for. </p>
@@ -2304,6 +2326,69 @@ class S3Client:
             "signing_name": signer._auth_scheme["signingName"],
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
+
+    def delete_object_annotation(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        key: "capo_s3.types.object_key.ObjectKey",
+        annotation_name: "capo_s3.types.annotation_name.AnnotationName",
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        version_id: Optional["capo_s3.types.object_version_id.ObjectVersionId"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+        object_if_match: Optional["capo_s3.types.object_if_match.ObjectIfMatch"] = None,
+    ) -> "capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput":
+        r"""<p>Deletes a specific annotation from an Amazon S3 object. Use the <code>x-amz-object-if-match</code> header to perform a conditional delete that only succeeds if the object's ETag matches the provided value, preventing race conditions during concurrent updates.</p> <p>Deleting an annotation is permanent. Annotations are not independently versioned, so there is no delete marker or way to recover a deleted annotation.</p> <p>To use this operation, you must have the <code>s3:DeleteObjectAnnotation</code> permission. If the object is protected by Object Lock in governance mode, you must also include the <code>x-amz-bypass-governance-retention</code> header.</p> <note> <p>Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).</p> </note> <p>The following operations are related to <code>DeleteObjectAnnotation</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html\">PutObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html\">GetObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html\">ListObjectAnnotations</a> </p> </li> </ul>
+
+        Args:
+            bucket: <p>The name of the bucket that contains the object.</p>
+            key: <p>The object key.</p>
+            annotation_name: <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with <code>aws</code> or <code>s3</code> (case-insensitive).</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+            version_id: <p>The version ID of the object.</p>
+            expected_bucket_owner: <p>The account ID of the expected bucket owner.</p>
+            object_if_match: <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
+
+        Raises:
+            capo_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            capo_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            capo_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest]",
+        ) -> OperationResponse[
+            "capo_s3.types.delete_object_annotation_output.DeleteObjectAnnotationOutput"
+        ]:
+            import capo_s3._operations.amazon_s3.delete_object_annotation
+
+            output, http_response = (
+                capo_s3._operations.amazon_s3.delete_object_annotation.delete_object_annotation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        input_["annotation_name"] = annotation_name
+        if version_id is not None:
+            input_["version_id"] = version_id
+        if request_payer is not None:
+            input_["request_payer"] = request_payer
+        if expected_bucket_owner is not None:
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        if object_if_match is not None:
+            input_["object_if_match"] = object_if_match
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
 
     def delete_objects(
         self,
@@ -3890,6 +3975,71 @@ class S3Client:
         )
         return response.output
 
+    @contextmanager
+    def get_object_annotation(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        key: "capo_s3.types.object_key.ObjectKey",
+        annotation_name: "capo_s3.types.annotation_name.AnnotationName",
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        version_id: Optional["capo_s3.types.object_version_id.ObjectVersionId"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+        checksum_mode: Optional["capo_s3.types.checksum_mode.ChecksumMode"] = None,
+    ) -> "Generator[capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput]":
+        r"""<p>Retrieves an annotation from an Amazon S3 object. To use this operation, you must have the <code>s3:GetObjectAnnotation</code> permission.</p> <p>If checksum mode is enabled via the <code>x-amz-checksum-mode</code> header, Amazon S3 returns the stored checksum in the response headers for client-side validation.</p> <note> <p>Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).</p> </note> <p>The following operations are related to <code>GetObjectAnnotation</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html\">PutObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html\">ListObjectAnnotations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html\">DeleteObjectAnnotation</a> </p> </li> </ul>
+
+        Args:
+            bucket: <p>The name of the bucket that contains the object.</p>
+            key: <p>The object key.</p>
+            annotation_name: <p>The name of the annotation to retrieve.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+            version_id: <p>The version ID of the object.</p>
+            expected_bucket_owner: <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+            checksum_mode: <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
+
+        Raises:
+            capo_s3.errors.no_such_annotation.NoSuchAnnotation: <p>The specified annotation does not exist on this object.</p>
+            capo_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            capo_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            capo_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_s3.types.get_object_annotation_request.GetObjectAnnotationRequest]",
+        ) -> OperationResponse[
+            "capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput"
+        ]:
+            import capo_s3._operations.amazon_s3.get_object_annotation
+
+            output, http_response = (
+                capo_s3._operations.amazon_s3.get_object_annotation.get_object_annotation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_s3.types.get_object_annotation_request.GetObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        input_["annotation_name"] = annotation_name
+        if version_id is not None:
+            input_["version_id"] = version_id
+        if request_payer is not None:
+            input_["request_payer"] = request_payer
+        if expected_bucket_owner is not None:
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        if checksum_mode is not None:
+            input_["checksum_mode"] = checksum_mode
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        yield response.output
+
     def get_object_attributes(
         self,
         bucket: "capo_s3.types.bucket_name.BucketName",
@@ -5365,6 +5515,116 @@ class S3Client:
             interceptors=list(interceptors_),
         )
         return response.output
+
+    def list_object_annotations(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        key: "capo_s3.types.object_key.ObjectKey",
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        version_id: Optional["capo_s3.types.object_version_id.ObjectVersionId"] = None,
+        max_annotation_results: Optional[
+            "capo_s3.types.max_annotation_results.MaxAnnotationResults"
+        ] = None,
+        annotation_prefix: Optional[
+            "capo_s3.types.annotation_prefix.AnnotationPrefix"
+        ] = None,
+        continuation_token: Optional["capo_s3.types.token.Token"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+    ) -> "capo_s3.types.list_object_annotations_output.ListObjectAnnotationsOutput":
+        r"""<p>Lists the annotations attached to an Amazon S3 object. Results are paginated, with a maximum of 1,000 annotations per object. Use the <code>AnnotationPrefix</code> parameter to filter the results by name prefix.</p> <p>To use this operation, you must have the <code>s3:ListObjectAnnotations</code> permission.</p> <note> <p>Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).</p> </note> <p>The following operations are related to <code>ListObjectAnnotations</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html\">PutObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html\">GetObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html\">DeleteObjectAnnotation</a> </p> </li> </ul>
+
+        Args:
+            bucket: <p>The name of the bucket that contains the object.</p>
+            key: <p>The object key.</p>
+            version_id: <p>The version ID of the object.</p>
+            max_annotation_results: <p>The maximum number of annotations to return in the response. Maximum is 1,000.</p>
+            annotation_prefix: <p>Filter results to annotations whose name begins with the specified prefix.</p>
+            continuation_token: <p>Continuation token returned by a previous request to retrieve the next page.</p>
+            expected_bucket_owner: <p>The account ID of the expected bucket owner.</p>
+
+        Raises:
+            capo_s3.errors.invalid_prefix.InvalidPrefix: <p>The annotation prefix you provided is invalid.</p>
+            capo_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            capo_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            capo_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_s3.types.list_object_annotations_request.ListObjectAnnotationsRequest]",
+        ) -> OperationResponse[
+            "capo_s3.types.list_object_annotations_output.ListObjectAnnotationsOutput"
+        ]:
+            import capo_s3._operations.amazon_s3.list_object_annotations
+
+            output, http_response = (
+                capo_s3._operations.amazon_s3.list_object_annotations.list_object_annotations(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_s3.types.list_object_annotations_request.ListObjectAnnotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        if version_id is not None:
+            input_["version_id"] = version_id
+        if max_annotation_results is not None:
+            input_["max_annotation_results"] = max_annotation_results
+        if annotation_prefix is not None:
+            input_["annotation_prefix"] = annotation_prefix
+        if continuation_token is not None:
+            input_["continuation_token"] = continuation_token
+        if request_payer is not None:
+            input_["request_payer"] = request_payer
+        if expected_bucket_owner is not None:
+            input_["expected_bucket_owner"] = expected_bucket_owner
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def iter_list_object_annotations(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        key: "capo_s3.types.object_key.ObjectKey",
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        version_id: Optional["capo_s3.types.object_version_id.ObjectVersionId"] = None,
+        max_annotation_results: Optional[
+            "capo_s3.types.max_annotation_results.MaxAnnotationResults"
+        ] = None,
+        annotation_prefix: Optional[
+            "capo_s3.types.annotation_prefix.AnnotationPrefix"
+        ] = None,
+        continuation_token: Optional["capo_s3.types.token.Token"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+    ) -> "Iterator[capo_s3.types.annotation_entry.AnnotationEntry]":
+        _token = continuation_token
+        while True:
+            _response = self.list_object_annotations(
+                bucket,
+                key,
+                config_overrides=config_overrides,
+                version_id=version_id,
+                max_annotation_results=max_annotation_results,
+                annotation_prefix=annotation_prefix,
+                continuation_token=_token,
+                request_payer=request_payer,
+                expected_bucket_owner=expected_bucket_owner,
+            )
+            _page = _resolve_path(_response, ("annotations",))
+            for _item in _page or []:
+                yield _item
+            _token = _resolve_path(_response, ("next_continuation_token",))
+            if not _token:
+                break
 
     def list_objects(
         self,
@@ -7479,6 +7739,141 @@ class S3Client:
         )
         return response.output
 
+    def put_object_annotation(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        key: "capo_s3.types.object_key.ObjectKey",
+        annotation_name: "capo_s3.types.annotation_name.AnnotationName",
+        annotation_payload: Iterator[bytes] | bytes,
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        version_id: Optional["capo_s3.types.object_version_id.ObjectVersionId"] = None,
+        object_if_match: Optional["capo_s3.types.object_if_match.ObjectIfMatch"] = None,
+        checksum_algorithm: Optional[
+            "capo_s3.types.checksum_algorithm.ChecksumAlgorithm"
+        ] = None,
+        checksum_crc32: Optional["capo_s3.types.checksum_crc32.ChecksumCRC32"] = None,
+        checksum_crc32_c: Optional[
+            "capo_s3.types.checksum_crc32_c.ChecksumCRC32C"
+        ] = None,
+        checksum_crc64_nvme: Optional[
+            "capo_s3.types.checksum_crc64_nvme.ChecksumCRC64NVME"
+        ] = None,
+        checksum_sha1: Optional["capo_s3.types.checksum_sha1.ChecksumSHA1"] = None,
+        checksum_sha256: Optional[
+            "capo_s3.types.checksum_sha256.ChecksumSHA256"
+        ] = None,
+        checksum_sha512: Optional[
+            "capo_s3.types.checksum_sha512.ChecksumSHA512"
+        ] = None,
+        checksum_md5: Optional["capo_s3.types.checksum_md5.ChecksumMD5"] = None,
+        checksum_xxhash64: Optional[
+            "capo_s3.types.checksum_xxhash64.ChecksumXXHASH64"
+        ] = None,
+        checksum_xxhash3: Optional[
+            "capo_s3.types.checksum_xxhash3.ChecksumXXHASH3"
+        ] = None,
+        checksum_xxhash128: Optional[
+            "capo_s3.types.checksum_xxhash128.ChecksumXXHASH128"
+        ] = None,
+        content_md5: Optional["capo_s3.types.content_md5.ContentMD5"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+    ) -> "capo_s3.types.put_object_annotation_output.PutObjectAnnotationOutput":
+        r"""<p>Attaches an annotation to an Amazon S3 object. An annotation is a named payload of 1 byte to 1 MiB that you can associate with a specific object or object version. Each object can have up to 1,000 annotations.</p> <p>For annotation naming rules and restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/annotations-overview.html\">Annotation naming guidelines</a> in the <i>Amazon S3 User Guide</i>.</p> <p>Annotations inherit the encryption of their parent object. For objects without server-side encryption, annotations are encrypted with SSE-S3 (the default for new objects). Objects encrypted with SSE-C cannot have annotations.</p> <p>To use this operation, you must have the <code>s3:PutObjectAnnotation</code> permission. If the bucket has Requester Pays enabled, you must include the <code>x-amz-request-payer</code> header.</p> <note> <p>Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).</p> </note> <p>The following operations are related to <code>PutObjectAnnotation</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html\">GetObjectAnnotation</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html\">ListObjectAnnotations</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html\">DeleteObjectAnnotation</a> </p> </li> </ul>
+
+        Args:
+            bucket: <p>The name of the bucket that contains the object.</p>
+            key: <p>The object key.</p>
+            version_id: <p>The version ID of the object to attach the annotation to.</p>
+            annotation_name: <p>The name of the annotation.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
+            annotation_payload: <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
+            object_if_match: <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
+            checksum_algorithm: <p>The checksum algorithm to use. Supported values: <code>CRC32</code>, <code>CRC32C</code>, <code>CRC64NVME</code>, <code>SHA1</code>, <code>SHA256</code>, <code>SHA512</code>, <code>MD5</code>, <code>XXHASH64</code>, <code>XXHASH3</code>, <code>XXHASH128</code>.</p>
+            checksum_crc32: <p>Base64-encoded CRC32 checksum of the annotation payload.</p>
+            checksum_crc32_c: <p>Base64-encoded CRC32C checksum of the annotation payload.</p>
+            checksum_crc64_nvme: <p>Base64-encoded CRC64NVME checksum of the annotation payload.</p>
+            checksum_sha1: <p>Base64-encoded SHA1 checksum of the annotation payload.</p>
+            checksum_sha256: <p>Base64-encoded SHA256 checksum of the annotation payload.</p>
+            checksum_sha512: <p>Base64-encoded SHA512 checksum of the annotation payload.</p>
+            checksum_md5: <p>Base64-encoded MD5 checksum of the annotation payload.</p>
+            checksum_xxhash64: <p>Base64-encoded XXHASH64 checksum of the annotation payload.</p>
+            checksum_xxhash3: <p>Base64-encoded XXHASH3 checksum of the annotation payload.</p>
+            checksum_xxhash128: <p>Base64-encoded XXHASH128 checksum of the annotation payload.</p>
+            content_md5: <p>Base64-encoded MD5 digest of the message.</p>
+            expected_bucket_owner: <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
+
+        Raises:
+            capo_s3.errors.annotation_limit_exceeded.AnnotationLimitExceeded: <p>The request would exceed the maximum number of annotations allowed per object.</p>
+            capo_s3.errors.annotation_name_too_long.AnnotationNameTooLong: <p>The annotation name exceeds 512 bytes.</p>
+            capo_s3.errors.invalid_annotation_name.InvalidAnnotationName: <p>The annotation name you provided is invalid.</p>
+            capo_s3.errors.invalid_request.InvalidRequest: <p>A parameter or header in your request isn't valid. For details, see the description of this API operation.</p>
+            capo_s3.errors.no_such_bucket.NoSuchBucket: <p>The specified bucket does not exist.</p>
+            capo_s3.errors.no_such_key.NoSuchKey: <p>The specified key does not exist.</p>
+            capo_s3.errors.unsupported_media_type.UnsupportedMediaType: <p>The annotation payload is not valid UTF-8 encoded text.</p>
+            capo_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_s3.types.put_object_annotation_request.PutObjectAnnotationRequest]",
+        ) -> OperationResponse[
+            "capo_s3.types.put_object_annotation_output.PutObjectAnnotationOutput"
+        ]:
+            import capo_s3._operations.amazon_s3.put_object_annotation
+
+            output, http_response = (
+                capo_s3._operations.amazon_s3.put_object_annotation.put_object_annotation(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_s3.types.put_object_annotation_request.PutObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        if version_id is not None:
+            input_["version_id"] = version_id
+        input_["annotation_name"] = annotation_name
+        input_["annotation_payload"] = ensure_sync_iterator(annotation_payload)
+        if object_if_match is not None:
+            input_["object_if_match"] = object_if_match
+        if checksum_algorithm is not None:
+            input_["checksum_algorithm"] = checksum_algorithm
+        if checksum_crc32 is not None:
+            input_["checksum_crc32"] = checksum_crc32
+        if checksum_crc32_c is not None:
+            input_["checksum_crc32_c"] = checksum_crc32_c
+        if checksum_crc64_nvme is not None:
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
+        if checksum_sha1 is not None:
+            input_["checksum_sha1"] = checksum_sha1
+        if checksum_sha256 is not None:
+            input_["checksum_sha256"] = checksum_sha256
+        if checksum_sha512 is not None:
+            input_["checksum_sha512"] = checksum_sha512
+        if checksum_md5 is not None:
+            input_["checksum_md5"] = checksum_md5
+        if checksum_xxhash64 is not None:
+            input_["checksum_xxhash64"] = checksum_xxhash64
+        if checksum_xxhash3 is not None:
+            input_["checksum_xxhash3"] = checksum_xxhash3
+        if checksum_xxhash128 is not None:
+            input_["checksum_xxhash128"] = checksum_xxhash128
+        if content_md5 is not None:
+            input_["content_md5"] = content_md5
+        if request_payer is not None:
+            input_["request_payer"] = request_payer
+        if expected_bucket_owner is not None:
+            input_["expected_bucket_owner"] = expected_bucket_owner
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def put_object_legal_hold(
         self,
         bucket: "capo_s3.types.bucket_name.BucketName",
@@ -8077,6 +8472,61 @@ class S3Client:
         )
         yield response.output
 
+    def update_bucket_metadata_annotation_table_configuration(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        annotation_table_configuration: "capo_s3.types.annotation_table_configuration_updates.AnnotationTableConfigurationUpdates",
+        *,
+        config_overrides: Optional[S3ClientConfig] = None,
+        content_md5: Optional["capo_s3.types.content_md5.ContentMD5"] = None,
+        checksum_algorithm: Optional[
+            "capo_s3.types.checksum_algorithm.ChecksumAlgorithm"
+        ] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+    ) -> None:
+        r"""<p>Updates the annotation table configuration for an Amazon S3 bucket's metadata configuration. Use this operation to enable or disable the annotation table, or to update its associated IAM role.</p> <p>An annotation table is a queryable Iceberg table that contains records of all annotations attached to objects in the bucket. To use this operation, the bucket must have an existing Amazon S3 Metadata configuration.</p> <p>To use this operation, you must have the <code>s3:UpdateBucketMetadataAnnotationTableConfiguration</code> permission. If you are specifying or changing the IAM role, you must also have <code>iam:PassRole</code> permission for the role.</p> <p>The IAM role must have a trust policy that allows the Amazon S3 metadata service to assume it, and a permissions policy that grants the actions needed to read annotations from your bucket. The following examples show a trust policy and a permissions policy that you can adapt for your bucket and account.</p> <p>The following operations are related to <code>UpdateBucketMetadataAnnotationTableConfiguration</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html\">CreateBucketMetadataConfiguration</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html\">GetBucketMetadataConfiguration</a> </p> </li> </ul>
+
+        Args:
+            bucket: <p>The name of the bucket whose annotation table configuration to update.</p>
+            content_md5: <p>Base64-encoded MD5 digest of the message body.</p>
+            checksum_algorithm: <p>Checksum algorithm for the request payload.</p>
+            annotation_table_configuration: <p>The annotation table configuration updates to apply.</p>
+            expected_bucket_owner: <p>The account ID of the expected bucket owner.</p>
+
+        Raises:
+            capo_s3.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_s3.types.update_bucket_metadata_annotation_table_configuration_request.UpdateBucketMetadataAnnotationTableConfigurationRequest]",
+        ) -> OperationResponse[None]:
+            import capo_s3._operations.amazon_s3.update_bucket_metadata_annotation_table_configuration
+
+            output, http_response = (
+                capo_s3._operations.amazon_s3.update_bucket_metadata_annotation_table_configuration.update_bucket_metadata_annotation_table_configuration(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_s3.types.update_bucket_metadata_annotation_table_configuration_request.UpdateBucketMetadataAnnotationTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        if content_md5 is not None:
+            input_["content_md5"] = content_md5
+        if checksum_algorithm is not None:
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["annotation_table_configuration"] = annotation_table_configuration
+        if expected_bucket_owner is not None:
+            input_["expected_bucket_owner"] = expected_bucket_owner
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def update_bucket_metadata_inventory_table_configuration(
         self,
         bucket: "capo_s3.types.bucket_name.BucketName",
@@ -8204,7 +8654,7 @@ class S3Client:
     ) -> (
         "capo_s3.types.update_object_encryption_response.UpdateObjectEncryptionResponse"
     ):
-        r"""<note> <p>This operation is not supported for directory buckets or Amazon S3 on Outposts buckets. </p> </note> <p> Updates the server-side encryption type of an existing encrypted object in a general purpose bucket. You can use the <code>UpdateObjectEncryption</code> operation to change encrypted objects from server-side encryption with Amazon S3 managed keys (SSE-S3) to server-side encryption with Key Management Service (KMS) keys (SSE-KMS), or to apply S3 Bucket Keys. You can also use the <code>UpdateObjectEncryption</code> operation to change the customer-managed KMS key used to encrypt your data so that you can comply with custom key-rotation standards. </p> <p>Using the <code>UpdateObjectEncryption</code> operation, you can atomically update the server-side encryption type of an existing object in a general purpose bucket without any data movement. The <code>UpdateObjectEncryption</code> operation uses envelope encryption to re-encrypt the data key used to encrypt and decrypt your object with your newly specified server-side encryption type. In other words, when you use the <code>UpdateObjectEncryption</code> operation, your data isn't copied, archived objects in the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes aren't restored, and objects in the S3 Intelligent-Tiering storage class aren't moved between tiers. Additionally, the <code>UpdateObjectEncryption</code> operation preserves all object metadata properties, including the storage class, creation date, last modified date, ETag, and checksum properties. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/update-sse-encryption.html\"> Updating server-side encryption for existing objects</a> in the <i>Amazon S3 User Guide</i>.</p> <p>By default, all <code>UpdateObjectEncryption</code> requests that specify a customer-managed KMS key are restricted to KMS keys that are owned by the bucket owner's Amazon Web Services account. If you're using Organizations, you can request the ability to use KMS keys owned by other member accounts within your organization by contacting Amazon Web Services Support.</p> <note> <p>Source objects that are unencrypted, or encrypted with either dual-layer server-side encryption with KMS keys (DSSE-KMS) or server-side encryption with customer-provided keys (SSE-C) aren't supported by this operation. Additionally, you cannot specify SSE-S3 encryption as the requested new encryption type <code>UpdateObjectEncryption</code> request.</p> </note> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>To use the <code>UpdateObjectEncryption</code> operation, you must have the following permissions:</p> <ul> <li> <p> <code>s3:PutObject</code> </p> </li> <li> <p> <code>s3:UpdateObjectEncryption</code> </p> </li> <li> <p> <code>kms:Encrypt</code> </p> </li> <li> <p> <code>kms:Decrypt</code> </p> </li> <li> <p> <code>kms:GenerateDataKey</code> </p> </li> <li> <p> <code>kms:ReEncrypt*</code> </p> </li> </ul> </li> <li> <p>If you're using Organizations, to use this operation with customer-managed KMS keys from other Amazon Web Services accounts within your organization, you must have the <code>organizations:DescribeAccount</code> permission.</p> </li> </ul> </dd> </dl> <dl> <dt>Errors</dt> <dd> <ul> <li> <p>You might receive an <code>InvalidRequest</code> error for several reasons. Depending on the reason for the error, you might receive one of the following messages:</p> <ul> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't supported unencrypted source objects. Only source objects encrypted with SSE-S3 or SSE-KMS are supported.</p> </li> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't support source objects with the encryption type DSSE-KMS or SSE-C. Only source objects encrypted with SSE-S3 or SSE-KMS are supported.</p> </li> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't support updating the encryption type to DSSE-KMS or SSE-C. Modify the request to specify SSE-KMS for the updated encryption type, and then try again.</p> </li> <li> <p>Requests that modify an object encryption configuration require Amazon Web Services Signature Version 4. Modify the request to use Amazon Web Services Signature Version 4, and then try again.</p> </li> <li> <p>Requests that modify an object encryption configuration require a valid new encryption type. Valid values are <code>SSEKMS</code>. Modify the request to specify SSE-KMS for the updated encryption type, and then try again.</p> </li> <li> <p>Requests that modify an object's encryption type to SSE-KMS require an Amazon Web Services KMS key Amazon Resource Name (ARN). Modify the request to specify a KMS key ARN, and then try again.</p> </li> <li> <p>Requests that modify an object's encryption type to SSE-KMS require a valid Amazon Web Services KMS key Amazon Resource Name (ARN). Confirm that you have a correctly formatted KMS key ARN in your request, and then try again.</p> </li> <li> <p>The <code>BucketKeyEnabled</code> value isn't valid. Valid values are <code>true</code> or <code>false</code>. Modify the request to specify a valid value, and then try again.</p> </li> </ul> </li> <li> <p>You might receive an <code>AccessDenied</code> error for several reasons. Depending on the reason for the error, you might receive one of the following messages:</p> <ul> <li> <p>The Amazon Web Services KMS key in the request must be owned by the same account as the bucket. Modify the request to specify a KMS key from the same account, and then try again.</p> </li> <li> <p>The bucket owner's account was approved to make <code>UpdateObjectEncryption</code> requests that use any Amazon Web Services KMS key in their organization, but the bucket owner's account isn't part of an organization in Organizations. Make sure that the bucket owner's account and the specified KMS key belong to the same organization, and then try again. </p> </li> <li> <p>The specified Amazon Web Services KMS key must be from the same organization in Organizations as the bucket. Specify a KMS key that belongs to the same organization as the bucket, and then try again. </p> </li> <li> <p>The encryption type for the specified object can’t be updated because that object is protected by S3 Object Lock. If the object has a governance-mode retention period or a legal hold, you must first remove the Object Lock status on the object before you issue your <code>UpdateObjectEncryption</code> request. You can't use the <code>UpdateObjectEncryption</code> operation with objects that have an Object Lock compliance mode retention period applied to them.</p> </li> </ul> </li> </ul> </dd> </dl>
+        r"""<note> <p>This operation is not supported for directory buckets or Amazon S3 on Outposts buckets. </p> </note> <p> Updates the server-side encryption type of an existing encrypted object in a general purpose bucket. You can use the <code>UpdateObjectEncryption</code> operation to change encrypted objects from server-side encryption with Amazon S3 managed keys (SSE-S3) to server-side encryption with Key Management Service (KMS) keys (SSE-KMS), or to apply S3 Bucket Keys. You can also use the <code>UpdateObjectEncryption</code> operation to change the customer-managed KMS key used to encrypt your data so that you can comply with custom key-rotation standards. </p> <p>Using the <code>UpdateObjectEncryption</code> operation, you can atomically update the server-side encryption type of an existing object in a general purpose bucket without any data movement. The <code>UpdateObjectEncryption</code> operation uses envelope encryption to re-encrypt the data key used to encrypt and decrypt your object with your newly specified server-side encryption type. In other words, when you use the <code>UpdateObjectEncryption</code> operation, your data isn't copied, archived objects in the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes aren't restored, and objects in the S3 Intelligent-Tiering storage class aren't moved between tiers. Additionally, the <code>UpdateObjectEncryption</code> operation preserves all object metadata properties, including the storage class, creation date, last modified date, ETag, and checksum properties. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/update-sse-encryption.html\"> Updating server-side encryption for existing objects</a> in the <i>Amazon S3 User Guide</i>.</p> <p>By default, all <code>UpdateObjectEncryption</code> requests that specify a customer-managed KMS key are restricted to KMS keys that are owned by the bucket owner's Amazon Web Services account. If you're using Organizations, you can request the ability to use KMS keys owned by other member accounts within your organization by contacting Amazon Web Services Support.</p> <note> <p>Source objects that are unencrypted, or encrypted with either dual-layer server-side encryption with KMS keys (DSSE-KMS) or server-side encryption with customer-provided keys (SSE-C) aren't supported by this operation. Additionally, you cannot specify SSE-S3 encryption as the requested new encryption type <code>UpdateObjectEncryption</code> request.</p> </note> <dl> <dt>Permissions</dt> <dd> <ul> <li> <p>To use the <code>UpdateObjectEncryption</code> operation, you must have the following permissions:</p> <ul> <li> <p> <code>s3:UpdateObjectEncryption</code> </p> </li> <li> <p> <code>kms:Encrypt</code> </p> </li> <li> <p> <code>kms:Decrypt</code> </p> </li> <li> <p> <code>kms:GenerateDataKey</code> </p> </li> <li> <p> <code>kms:ReEncrypt*</code> </p> </li> </ul> </li> <li> <p>If you're using Organizations, to use this operation with customer-managed KMS keys from other Amazon Web Services accounts within your organization, you must have the <code>organizations:DescribeAccount</code> permission.</p> </li> </ul> </dd> </dl> <dl> <dt>Errors</dt> <dd> <ul> <li> <p>You might receive an <code>InvalidRequest</code> error for several reasons. Depending on the reason for the error, you might receive one of the following messages:</p> <ul> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't supported unencrypted source objects. Only source objects encrypted with SSE-S3 or SSE-KMS are supported.</p> </li> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't support source objects with the encryption type DSSE-KMS or SSE-C. Only source objects encrypted with SSE-S3 or SSE-KMS are supported.</p> </li> <li> <p>The <code>UpdateObjectEncryption</code> operation doesn't support updating the encryption type to DSSE-KMS or SSE-C. Modify the request to specify SSE-KMS for the updated encryption type, and then try again.</p> </li> <li> <p>Requests that modify an object encryption configuration require Amazon Web Services Signature Version 4. Modify the request to use Amazon Web Services Signature Version 4, and then try again.</p> </li> <li> <p>Requests that modify an object encryption configuration require a valid new encryption type. Valid values are <code>SSEKMS</code>. Modify the request to specify SSE-KMS for the updated encryption type, and then try again.</p> </li> <li> <p>Requests that modify an object's encryption type to SSE-KMS require an Amazon Web Services KMS key Amazon Resource Name (ARN). Modify the request to specify a KMS key ARN, and then try again.</p> </li> <li> <p>Requests that modify an object's encryption type to SSE-KMS require a valid Amazon Web Services KMS key Amazon Resource Name (ARN). Confirm that you have a correctly formatted KMS key ARN in your request, and then try again.</p> </li> <li> <p>The <code>BucketKeyEnabled</code> value isn't valid. Valid values are <code>true</code> or <code>false</code>. Modify the request to specify a valid value, and then try again.</p> </li> </ul> </li> <li> <p>You might receive an <code>AccessDenied</code> error for several reasons. Depending on the reason for the error, you might receive one of the following messages:</p> <ul> <li> <p>The Amazon Web Services KMS key in the request must be owned by the same account as the bucket. Modify the request to specify a KMS key from the same account, and then try again.</p> </li> <li> <p>The bucket owner's account was approved to make <code>UpdateObjectEncryption</code> requests that use any Amazon Web Services KMS key in their organization, but the bucket owner's account isn't part of an organization in Organizations. Make sure that the bucket owner's account and the specified KMS key belong to the same organization, and then try again. </p> </li> <li> <p>The specified Amazon Web Services KMS key must be from the same organization in Organizations as the bucket. Specify a KMS key that belongs to the same organization as the bucket, and then try again. </p> </li> <li> <p>The encryption type for the specified object can’t be updated because that object is protected by S3 Object Lock. If the object has a governance-mode retention period or a legal hold, you must first remove the Object Lock status on the object before you issue your <code>UpdateObjectEncryption</code> request. You can't use the <code>UpdateObjectEncryption</code> operation with objects that have an Object Lock compliance mode retention period applied to them.</p> </li> </ul> </li> </ul> </dd> </dl>
 
         Args:
             bucket: <p> The name of the general purpose bucket that contains the specified object key name. </p> <p>When you use this operation with an access point attached to a general purpose bucket, you must either provide the alias of the access point in place of the bucket name or you must specify the access point Amazon Resource Name (ARN). When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com</code>. When using this operation with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-naming.html\"> Referencing access points</a> in the <i>Amazon S3 User Guide</i>.</p>

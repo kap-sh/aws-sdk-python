@@ -26,7 +26,7 @@ class DescribeCapacityReservationTopologyRequest(TypedDict, closed=True):
     capacity_reservation_ids: NotRequired[
         "capo_ec2.types.capacity_reservation_id_set.CapacityReservationIdSet"
     ]
-    """<p>The Capacity Reservation IDs.</p> <p>Default: Describes all your Capacity Reservations.</p> <p>Constraints: Maximum 100 explicitly specified Capacity Reservation IDs.</p>"""
+    """<p>The Capacity Reservation IDs.</p> <p>Default: Describes all your Capacity Reservations.</p> <p>Constraints: Maximum 10 explicitly specified Capacity Reservation IDs.</p>"""
     filters: NotRequired["capo_ec2.types.filter_list.FilterList"]
     """<p>The filters.</p> <ul> <li> <p> <code>availability-zone</code> - The name of the Availability Zone (for example, <code>us-west-2a</code>) or Local Zone (for example, <code>us-west-2-lax-1b</code>) that the Capacity Reservation is in.</p> </li> <li> <p> <code>instance-type</code> - The instance type (for example, <code>p4d.24xlarge</code>) or instance family (for example, <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or more characters, or the <code>?</code> wildcard to match zero or one character.</p> </li> </ul>"""
 

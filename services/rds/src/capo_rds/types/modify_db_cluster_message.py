@@ -152,6 +152,8 @@ class ModifyDBClusterMessage(TypedDict, closed=True):
         "capo_rds.types.master_user_authentication_type.MasterUserAuthenticationType"
     ]
     """<p>Specifies the authentication type for the master user. With IAM master user authentication, you can change the master DB user to use IAM database authentication.</p> <p>You can specify one of the following values:</p> <ul> <li> <p> <code>password</code> - Use standard database authentication with a password.</p> </li> <li> <p> <code>iam-db-auth</code> - Use IAM database authentication for the master user.</p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</p>"""
+    engine_lifecycle_support: NotRequired["capo_rds.types.string.String"]
+    r"""<p>The lifecycle type for this DB cluster.</p> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support or to opt out. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p>"""
 
 
 # --- awsQuery ser/de ---
@@ -423,6 +425,13 @@ def serialize_query(
             pairs,
             f"{key_prefix}MasterUserAuthenticationType",
         )
+    if "engine_lifecycle_support" in value:
+        pairs.append(
+            (
+                f"{key_prefix}EngineLifecycleSupport",
+                str(value["engine_lifecycle_support"]),
+            )
+        )
 
 
 def deserialize_query(el: Element) -> ModifyDBClusterMessage:
@@ -660,4 +669,7 @@ def deserialize_query(el: Element) -> ModifyDBClusterMessage:
                 child_master_user_authentication_type
             )
         )
+    child_engine_lifecycle_support = el.find("EngineLifecycleSupport")
+    if child_engine_lifecycle_support is not None:
+        out["engine_lifecycle_support"] = str(child_engine_lifecycle_support.text or "")
     return out

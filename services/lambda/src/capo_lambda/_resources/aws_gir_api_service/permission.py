@@ -50,6 +50,12 @@ class Permission:
         *,
         config_overrides: Optional[LambdaClientConfig] = None,
         source_arn: Optional["capo_lambda.types.arn.Arn"] = None,
+        function_url_auth_type: Optional[
+            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
+        ] = None,
+        invoked_via_function_url: Optional[
+            "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
+        ] = None,
         source_account: Optional["capo_lambda.types.source_owner.SourceOwner"] = None,
         event_source_token: Optional[
             "capo_lambda.types.event_source_token.EventSourceToken"
@@ -61,12 +67,6 @@ class Permission:
         principal_org_id: Optional[
             "capo_lambda.types.principal_org_id.PrincipalOrgID"
         ] = None,
-        function_url_auth_type: Optional[
-            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
-        ] = None,
-        invoked_via_function_url: Optional[
-            "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
-        ] = None,
     ) -> "capo_lambda.types.add_permission_response.AddPermissionResponse":
         r"""<p>Grants a <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying\">principal</a> permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function. Note: Lambda does not support adding policies to version $LATEST.</p> <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant permission to an organization defined in Organizations, specify the organization ID as the <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal is a domain-style identifier that the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p> <p>This operation adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html\">Using resource-based policies for Lambda</a>.</p>
 
@@ -76,18 +76,19 @@ class Permission:
             action: <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or <code>lambda:GetFunction</code>.</p>
             principal: <p>The Amazon Web Services service, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
             source_arn: <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p> <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
+            function_url_auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
+            invoked_via_function_url: <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
             source_account: <p>For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
             event_source_token: <p>For Alexa Smart Home functions, a token that the invoker must supply.</p>
             qualifier: <p>Specify a version or alias to add permissions to a published version of the function.</p>
             revision_id: <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
             principal_org_id: <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.</p>
-            function_url_auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
-            invoked_via_function_url: <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.policy_length_exceeded_exception.PolicyLengthExceededException: <p>The permissions policy for the resource is too large. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            capo_lambda.errors.public_policy_exception.PublicPolicyException: <p>The resource-based policy you tried to add to the Lambda function would grant public access to it, and your account's <code>BlockPublicAccess</code> setting prevents public access. For more information about blocking public access to Lambda functions, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-block-public-access\">Block public access to Lambda resources</a>.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
@@ -98,11 +99,11 @@ class Permission:
             To grant Amazon S3 permission to invoke a function
             The following example adds permission for Amazon S3 to invoke a Lambda function named my-function for notifications from a bucket named my-bucket-1xpuxmplzrlbh in account 123456789012.
 
-            >>> client.add_permission(function_name='my-function', statement_id='s3', action='lambda:InvokeFunction', principal='s3.amazonaws.com', source_arn='arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*', source_account='123456789012')
+            >>> client.add_permission(action='lambda:InvokeFunction', function_name='my-function', principal='s3.amazonaws.com', source_account='123456789012', source_arn='arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*', statement_id='s3')
             To grant another account permission to invoke a function
             The following example adds permission for account 223456789012 invoke a Lambda function named my-function.
 
-            >>> client.add_permission(function_name='my-function', statement_id='xaccount', action='lambda:InvokeFunction', principal='223456789012')
+            >>> client.add_permission(action='lambda:InvokeFunction', function_name='my-function', principal='223456789012', statement_id='xaccount')
         """
 
         def _handler(
@@ -127,6 +128,10 @@ class Permission:
         input_["principal"] = principal
         if source_arn is not None:
             input_["source_arn"] = source_arn
+        if function_url_auth_type is not None:
+            input_["function_url_auth_type"] = function_url_auth_type
+        if invoked_via_function_url is not None:
+            input_["invoked_via_function_url"] = invoked_via_function_url
         if source_account is not None:
             input_["source_account"] = source_account
         if event_source_token is not None:
@@ -137,10 +142,6 @@ class Permission:
             input_["revision_id"] = revision_id
         if principal_org_id is not None:
             input_["principal_org_id"] = principal_org_id
-        if function_url_auth_type is not None:
-            input_["function_url_auth_type"] = function_url_auth_type
-        if invoked_via_function_url is not None:
-            input_["invoked_via_function_url"] = invoked_via_function_url
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -171,6 +172,7 @@ class Permission:
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            capo_lambda.errors.public_policy_exception.PublicPolicyException: <p>The resource-based policy you tried to add to the Lambda function would grant public access to it, and your account's <code>BlockPublicAccess</code> setting prevents public access. For more information about blocking public access to Lambda functions, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-block-public-access\">Block public access to Lambda resources</a>.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -180,7 +182,7 @@ class Permission:
             To remove a Lambda function's permissions
             The following example removes a permissions statement named xaccount from the PROD alias of a function named my-function.
 
-            >>> client.remove_permission(function_name='my-function', statement_id='xaccount', qualifier='PROD')
+            >>> client.remove_permission(function_name='my-function', qualifier='PROD', statement_id='xaccount')
         """
 
         def _handler(
@@ -225,6 +227,12 @@ class AsyncPermission:
         *,
         config_overrides: Optional[AsyncLambdaClientConfig] = None,
         source_arn: Optional["capo_lambda.types.arn.Arn"] = None,
+        function_url_auth_type: Optional[
+            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
+        ] = None,
+        invoked_via_function_url: Optional[
+            "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
+        ] = None,
         source_account: Optional["capo_lambda.types.source_owner.SourceOwner"] = None,
         event_source_token: Optional[
             "capo_lambda.types.event_source_token.EventSourceToken"
@@ -236,12 +244,6 @@ class AsyncPermission:
         principal_org_id: Optional[
             "capo_lambda.types.principal_org_id.PrincipalOrgID"
         ] = None,
-        function_url_auth_type: Optional[
-            "capo_lambda.types.function_url_auth_type.FunctionUrlAuthType"
-        ] = None,
-        invoked_via_function_url: Optional[
-            "capo_lambda.types.invoked_via_function_url.InvokedViaFunctionUrl"
-        ] = None,
     ) -> "capo_lambda.types.add_permission_response.AddPermissionResponse":
         r"""<p>Grants a <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying\">principal</a> permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function. Note: Lambda does not support adding policies to version $LATEST.</p> <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant permission to an organization defined in Organizations, specify the organization ID as the <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal is a domain-style identifier that the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p> <p>This operation adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html\">Using resource-based policies for Lambda</a>.</p>
 
@@ -251,18 +253,19 @@ class AsyncPermission:
             action: <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or <code>lambda:GetFunction</code>.</p>
             principal: <p>The Amazon Web Services service, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
             source_arn: <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p> <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
+            function_url_auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
+            invoked_via_function_url: <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
             source_account: <p>For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
             event_source_token: <p>For Alexa Smart Home functions, a token that the invoker must supply.</p>
             qualifier: <p>Specify a version or alias to add permissions to a published version of the function.</p>
             revision_id: <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
             principal_org_id: <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.</p>
-            function_url_auth_type: <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html\">Control access to Lambda function URLs</a>.</p>
-            invoked_via_function_url: <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.policy_length_exceeded_exception.PolicyLengthExceededException: <p>The permissions policy for the resource is too large. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.</p>
             capo_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            capo_lambda.errors.public_policy_exception.PublicPolicyException: <p>The resource-based policy you tried to add to the Lambda function would grant public access to it, and your account's <code>BlockPublicAccess</code> setting prevents public access. For more information about blocking public access to Lambda functions, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-block-public-access\">Block public access to Lambda resources</a>.</p>
             capo_lambda.errors.resource_conflict_exception.ResourceConflictException: <p>The resource already exists, or another operation is in progress.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
@@ -273,11 +276,11 @@ class AsyncPermission:
             To grant Amazon S3 permission to invoke a function
             The following example adds permission for Amazon S3 to invoke a Lambda function named my-function for notifications from a bucket named my-bucket-1xpuxmplzrlbh in account 123456789012.
 
-            >>> await client.add_permission(function_name='my-function', statement_id='s3', action='lambda:InvokeFunction', principal='s3.amazonaws.com', source_arn='arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*', source_account='123456789012')
+            >>> await client.add_permission(action='lambda:InvokeFunction', function_name='my-function', principal='s3.amazonaws.com', source_account='123456789012', source_arn='arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*', statement_id='s3')
             To grant another account permission to invoke a function
             The following example adds permission for account 223456789012 invoke a Lambda function named my-function.
 
-            >>> await client.add_permission(function_name='my-function', statement_id='xaccount', action='lambda:InvokeFunction', principal='223456789012')
+            >>> await client.add_permission(action='lambda:InvokeFunction', function_name='my-function', principal='223456789012', statement_id='xaccount')
         """
 
         async def _handler(
@@ -303,6 +306,10 @@ class AsyncPermission:
         input_["principal"] = principal
         if source_arn is not None:
             input_["source_arn"] = source_arn
+        if function_url_auth_type is not None:
+            input_["function_url_auth_type"] = function_url_auth_type
+        if invoked_via_function_url is not None:
+            input_["invoked_via_function_url"] = invoked_via_function_url
         if source_account is not None:
             input_["source_account"] = source_account
         if event_source_token is not None:
@@ -313,10 +320,6 @@ class AsyncPermission:
             input_["revision_id"] = revision_id
         if principal_org_id is not None:
             input_["principal_org_id"] = principal_org_id
-        if function_url_auth_type is not None:
-            input_["function_url_auth_type"] = function_url_auth_type
-        if invoked_via_function_url is not None:
-            input_["invoked_via_function_url"] = invoked_via_function_url
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -347,6 +350,7 @@ class AsyncPermission:
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
             capo_lambda.errors.precondition_failed_exception.PreconditionFailedException: <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+            capo_lambda.errors.public_policy_exception.PublicPolicyException: <p>The resource-based policy you tried to add to the Lambda function would grant public access to it, and your account's <code>BlockPublicAccess</code> setting prevents public access. For more information about blocking public access to Lambda functions, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-block-public-access\">Block public access to Lambda resources</a>.</p>
             capo_lambda.errors.resource_not_found_exception.ResourceNotFoundException: <p>The resource specified in the request does not exist.</p>
             capo_lambda.errors.service_exception.ServiceException: <p>The Lambda service encountered an internal error.</p>
             capo_lambda.errors.too_many_requests_exception.TooManyRequestsException: <p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>
@@ -356,7 +360,7 @@ class AsyncPermission:
             To remove a Lambda function's permissions
             The following example removes a permissions statement named xaccount from the PROD alias of a function named my-function.
 
-            >>> await client.remove_permission(function_name='my-function', statement_id='xaccount', qualifier='PROD')
+            >>> await client.remove_permission(function_name='my-function', qualifier='PROD', statement_id='xaccount')
         """
 
         async def _handler(

@@ -7,6 +7,7 @@ from capo_s3._protocol.xml import Element, SubElement
 ServerSideEncryption: TypeAlias = Literal[
     "AES256",
     "aws:fsx",
+    "aws:backup",
     "aws:kms",
     "aws:kms:dsse",
 ]

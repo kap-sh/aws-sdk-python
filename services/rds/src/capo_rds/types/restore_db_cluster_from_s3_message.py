@@ -9,6 +9,7 @@ from capo_rds._protocol.xml import Element
 if TYPE_CHECKING:
     import capo_rds.types.availability_zones
     import capo_rds.types.boolean_optional
+    import capo_rds.types.db_cluster_associated_roles
     import capo_rds.types.integer_optional
     import capo_rds.types.log_type_list
     import capo_rds.types.long_optional
@@ -108,11 +109,15 @@ class RestoreDBClusterFromS3Message(TypedDict, closed=True):
     master_user_secret_kms_key_id: NotRequired["capo_rds.types.string.String"]
     """<p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.</p> <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets Manager for the DB cluster.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p> <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer managed KMS key.</p> <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>"""
     engine_lifecycle_support: NotRequired["capo_rds.types.string.String"]
-    r"""<p>The life cycle type for this DB cluster.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>"""
+    r"""<p>The lifecycle type for this DB cluster.</p> <note> <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case, RDS automatically upgrades your restored DB cluster to a higher engine version, if the major engine version is past its end of standard support date.</p> </note> <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p> <ul> <li> <p>Amazon Aurora - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i> </p> </li> <li> <p>Amazon RDS - <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html\">Amazon RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i> </p> </li> </ul> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code> </p> <p>Default: <code>open-source-rds-extended-support</code> </p>"""
     tag_specifications: NotRequired[
         "capo_rds.types.tag_specification_list.TagSpecificationList"
     ]
     """<p>Tags to assign to resources associated with the DB cluster.</p> <p>Valid Values: </p> <ul> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>"""
+    associated_roles: NotRequired[
+        "capo_rds.types.db_cluster_associated_roles.DBClusterAssociatedRoles"
+    ]
+    """<p>A list of Amazon Web Services Identity and Access Management (IAM) roles to associate with the DB cluster when it's restored from Amazon S3. Each role grants the DB cluster permission to access other Amazon Web Services on your behalf. For each role, specify a role ARN and, optionally, the feature name (such as <code>s3Import</code>, <code>s3Export</code>, or <code>Lambda</code>).</p>"""
 
 
 # --- awsQuery ser/de ---
@@ -293,6 +298,12 @@ def serialize_query(
         capo_rds.types.tag_specification_list.serialize_query(
             value["tag_specifications"], pairs, f"{key_prefix}TagSpecifications"
         )
+    if "associated_roles" in value:
+        import capo_rds.types.db_cluster_associated_roles
+
+        capo_rds.types.db_cluster_associated_roles.serialize_query(
+            value["associated_roles"], pairs, f"{key_prefix}AssociatedRoles"
+        )
 
 
 def deserialize_query(el: Element) -> RestoreDBClusterFromS3Message:
@@ -459,6 +470,15 @@ def deserialize_query(el: Element) -> RestoreDBClusterFromS3Message:
         out["tag_specifications"] = (
             capo_rds.types.tag_specification_list.deserialize_query(
                 child_tag_specifications
+            )
+        )
+    child_associated_roles = el.find("AssociatedRoles")
+    if child_associated_roles is not None:
+        import capo_rds.types.db_cluster_associated_roles
+
+        out["associated_roles"] = (
+            capo_rds.types.db_cluster_associated_roles.deserialize_query(
+                child_associated_roles
             )
         )
     return out

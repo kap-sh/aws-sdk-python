@@ -27,7 +27,7 @@ StateReasonCode: TypeAlias = Literal[
     "InvalidRuntime",
     "InvalidZipFileException",
     "FunctionError",
-    "DrainingDurableExecutions",
+    "ServiceQuotaExceededException",
     "VcpuLimitExceeded",
     "CapacityProviderScalingLimitExceeded",
     "InsufficientCapacity",
@@ -41,6 +41,8 @@ StateReasonCode: TypeAlias = Literal[
     "FunctionError.TooManyExtensions",
     "FunctionError.InitResourceExhausted",
     "DisallowedByVpcEncryptionControl",
+    "DrainingDurableExecutions",
+    "DependencyError",
 ]
 
 

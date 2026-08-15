@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     import capo_lambda.types.durable_execution_name
     import capo_lambda.types.execution_status
     import capo_lambda.types.execution_timestamp
+    import capo_lambda.types.kms_key_arn
     import capo_lambda.types.name_spaced_function_arn
 
 
@@ -31,6 +32,8 @@ class Execution(TypedDict, closed=True):
         "capo_lambda.types.execution_timestamp.ExecutionTimestamp"
     ]
     r"""<p>The date and time when the durable execution ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
+    kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
+    """<p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -53,6 +56,8 @@ def serialize_json(value: Execution) -> dict:
         out["EndTimestamp"] = capo_lambda.types.execution_timestamp.serialize_json(
             value["end_timestamp"]
         )
+    if "kms_key_arn" in value:
+        out["KMSKeyArn"] = value["kms_key_arn"]
     return out
 
 
@@ -92,4 +97,6 @@ def deserialize_json(data: dict) -> Execution:
         out["end_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
             data["EndTimestamp"]
         )
+    if "KMSKeyArn" in data:
+        out["kms_key_arn"] = data["KMSKeyArn"]
     return out

@@ -7,6 +7,7 @@ from typing_extensions import NotRequired, TypedDict
 from capo_ec2._protocol.xml import Element
 
 if TYPE_CHECKING:
+    import capo_ec2.types.application_status_summary
     import capo_ec2.types.availability_zone_id
     import capo_ec2.types.ebs_status_summary
     import capo_ec2.types.instance_state
@@ -47,6 +48,10 @@ class InstanceStatus(TypedDict, closed=True):
         "capo_ec2.types.ebs_status_summary.EbsStatusSummary"
     ]
     """<p>Reports impaired functionality that stems from an attached Amazon EBS volume that is unreachable and unable to complete I/O operations.</p>"""
+    application_status: NotRequired[
+        "capo_ec2.types.application_status_summary.ApplicationStatusSummary"
+    ]
+    """<p>Reports impaired functionality that stems from issues with applications running on the instance.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -99,6 +104,12 @@ def serialize_ec2_query(
 
         capo_ec2.types.ebs_status_summary.serialize_ec2_query(
             value["attached_ebs_status"], pairs, f"{key_prefix}AttachedEbsStatus"
+        )
+    if "application_status" in value:
+        import capo_ec2.types.application_status_summary
+
+        capo_ec2.types.application_status_summary.serialize_ec2_query(
+            value["application_status"], pairs, f"{key_prefix}ApplicationStatus"
         )
 
 
@@ -162,6 +173,15 @@ def deserialize_ec2_query(el: Element) -> InstanceStatus:
         out["attached_ebs_status"] = (
             capo_ec2.types.ebs_status_summary.deserialize_ec2_query(
                 child_attached_ebs_status
+            )
+        )
+    child_application_status = el.find("applicationStatus")
+    if child_application_status is not None:
+        import capo_ec2.types.application_status_summary
+
+        out["application_status"] = (
+            capo_ec2.types.application_status_summary.deserialize_ec2_query(
+                child_application_status
             )
         )
     return out

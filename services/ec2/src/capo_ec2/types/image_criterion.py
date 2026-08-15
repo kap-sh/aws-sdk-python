@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.deprecation_time_condition
     import capo_ec2.types.image_name_list
     import capo_ec2.types.image_provider_list
+    import capo_ec2.types.image_watermark_filter_response_list
     import capo_ec2.types.marketplace_product_code_list
 
 
@@ -31,6 +32,10 @@ class ImageCriterion(TypedDict, closed=True):
         "capo_ec2.types.creation_date_condition.CreationDateCondition"
     ]
     """<p>The maximum age for allowed images.</p>"""
+    image_watermarks: NotRequired[
+        "capo_ec2.types.image_watermark_filter_response_list.ImageWatermarkFilterResponseList"
+    ]
+    """<p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a filter when all specified fields in the ImageWatermarkFilter match the corresponding values on the watermark of the AMI.</p> <p>Maximum: 50 values</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -73,6 +78,12 @@ def serialize_ec2_query(
             value["creation_date_condition"],
             pairs,
             f"{key_prefix}CreationDateCondition",
+        )
+    if "image_watermarks" in value:
+        import capo_ec2.types.image_watermark_filter_response_list
+
+        capo_ec2.types.image_watermark_filter_response_list.serialize_ec2_query(
+            value["image_watermarks"], pairs, f"{key_prefix}ImageWatermarkSet"
         )
 
 
@@ -119,6 +130,15 @@ def deserialize_ec2_query(el: Element) -> ImageCriterion:
         out["creation_date_condition"] = (
             capo_ec2.types.creation_date_condition.deserialize_ec2_query(
                 child_creation_date_condition
+            )
+        )
+    child_image_watermarks = el.find("imageWatermarkSet")
+    if child_image_watermarks is not None:
+        import capo_ec2.types.image_watermark_filter_response_list
+
+        out["image_watermarks"] = (
+            capo_ec2.types.image_watermark_filter_response_list.deserialize_ec2_query(
+                child_image_watermarks
             )
         )
     return out

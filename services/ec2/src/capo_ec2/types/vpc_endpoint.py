@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.ip_address_type
     import capo_ec2.types.last_error
     import capo_ec2.types.millisecond_date_time
+    import capo_ec2.types.payer_responsibility_set
     import capo_ec2.types.resource_configuration_arn
     import capo_ec2.types.service_network_arn
     import capo_ec2.types.state
@@ -87,6 +88,10 @@ class VpcEndpoint(TypedDict, closed=True):
     """<p>The Amazon Resource Name (ARN) of the resource configuration.</p>"""
     service_region: NotRequired["capo_ec2.types.string.String"]
     """<p>The Region where the service is hosted.</p>"""
+    payer_responsibilities: NotRequired[
+        "capo_ec2.types.payer_responsibility_set.PayerResponsibilitySet"
+    ]
+    """<p>The payer responsibility settings for the endpoint.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -217,6 +222,14 @@ def serialize_ec2_query(
         )
     if "service_region" in value:
         pairs.append((f"{key_prefix}ServiceRegion", str(value["service_region"])))
+    if "payer_responsibilities" in value:
+        import capo_ec2.types.payer_responsibility_set
+
+        capo_ec2.types.payer_responsibility_set.serialize_ec2_query(
+            value["payer_responsibilities"],
+            pairs,
+            f"{key_prefix}PayerResponsibilitySet",
+        )
 
 
 def deserialize_ec2_query(el: Element) -> VpcEndpoint:
@@ -364,4 +377,13 @@ def deserialize_ec2_query(el: Element) -> VpcEndpoint:
     child_service_region = el.find("serviceRegion")
     if child_service_region is not None:
         out["service_region"] = str(child_service_region.text or "")
+    child_payer_responsibilities = el.find("payerResponsibilitySet")
+    if child_payer_responsibilities is not None:
+        import capo_ec2.types.payer_responsibility_set
+
+        out["payer_responsibilities"] = (
+            capo_ec2.types.payer_responsibility_set.deserialize_ec2_query(
+                child_payer_responsibilities
+            )
+        )
     return out

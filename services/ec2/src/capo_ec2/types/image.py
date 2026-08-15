@@ -15,6 +15,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.hypervisor_type
     import capo_ec2.types.image_state
     import capo_ec2.types.image_type_values
+    import capo_ec2.types.image_watermark_list
     import capo_ec2.types.imds_support_values
     import capo_ec2.types.platform_values
     import capo_ec2.types.product_code_list
@@ -80,6 +81,12 @@ class Image(TypedDict, closed=True):
     """<p>The Region of the source AMI.</p>"""
     free_tier_eligible: NotRequired["capo_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the image is eligible for Amazon Web Services Free Tier.</p> <ul> <li> <p>If <code>true</code>, the AMI is eligible for Free Tier and can be used to launch instances under the Free Tier limits.</p> </li> <li> <p>If <code>false</code>, the AMI is not eligible for Free Tier.</p> </li> </ul>"""
+    public_ssm_parameter_name: NotRequired["capo_ec2.types.string.String"]
+    """<p>The name of the public Systems Manager parameter that resolves to this AMI, under the <code>aws/service/</code> namespace.</p>"""
+    image_watermarks: NotRequired[
+        "capo_ec2.types.image_watermark_list.ImageWatermarkList"
+    ]
+    """<p>The watermarks attached to the AMI.</p>"""
     image_id: NotRequired["capo_ec2.types.string.String"]
     """<p>The ID of the AMI.</p>"""
     image_location: NotRequired["capo_ec2.types.string.String"]
@@ -216,6 +223,19 @@ def serialize_ec2_query(
                 f"{key_prefix}FreeTierEligible",
                 "true" if value["free_tier_eligible"] else "false",
             )
+        )
+    if "public_ssm_parameter_name" in value:
+        pairs.append(
+            (
+                f"{key_prefix}PublicSsmParameterName",
+                str(value["public_ssm_parameter_name"]),
+            )
+        )
+    if "image_watermarks" in value:
+        import capo_ec2.types.image_watermark_list
+
+        capo_ec2.types.image_watermark_list.serialize_ec2_query(
+            value["image_watermarks"], pairs, f"{key_prefix}ImageWatermarkSet"
         )
     if "image_id" in value:
         pairs.append((f"{key_prefix}ImageId", str(value["image_id"])))
@@ -382,6 +402,20 @@ def deserialize_ec2_query(el: Element) -> Image:
         out["free_tier_eligible"] = (
             child_free_tier_eligible.text or ""
         ).lower() == "true"
+    child_public_ssm_parameter_name = el.find("publicSsmParameterName")
+    if child_public_ssm_parameter_name is not None:
+        out["public_ssm_parameter_name"] = str(
+            child_public_ssm_parameter_name.text or ""
+        )
+    child_image_watermarks = el.find("imageWatermarkSet")
+    if child_image_watermarks is not None:
+        import capo_ec2.types.image_watermark_list
+
+        out["image_watermarks"] = (
+            capo_ec2.types.image_watermark_list.deserialize_ec2_query(
+                child_image_watermarks
+            )
+        )
     child_image_id = el.find("imageId")
     if child_image_id is not None:
         out["image_id"] = str(child_image_id.text or "")

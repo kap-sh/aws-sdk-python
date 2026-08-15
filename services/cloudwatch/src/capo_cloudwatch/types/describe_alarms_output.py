@@ -8,6 +8,7 @@ from capo_cloudwatch._protocol.xml import Element
 
 if TYPE_CHECKING:
     import capo_cloudwatch.types.composite_alarms
+    import capo_cloudwatch.types.log_alarms
     import capo_cloudwatch.types.metric_alarms
     import capo_cloudwatch.types.next_token
 
@@ -19,6 +20,8 @@ class DescribeAlarmsOutput(TypedDict, closed=True):
     """<p>The information about any composite alarms returned by the operation.</p>"""
     metric_alarms: NotRequired["capo_cloudwatch.types.metric_alarms.MetricAlarms"]
     """<p>The information about any metric alarms returned by the operation.</p>"""
+    log_alarms: NotRequired["capo_cloudwatch.types.log_alarms.LogAlarms"]
+    """<p>The information about any log alarms returned by the operation.</p>"""
     next_token: NotRequired["capo_cloudwatch.types.next_token.NextToken"]
     """<p>The token that marks the start of the next batch of returned results.</p>"""
 
@@ -41,6 +44,12 @@ def serialize_aws_json_1_0(value: DescribeAlarmsOutput) -> dict:
             capo_cloudwatch.types.metric_alarms.serialize_aws_json_1_0(
                 value["metric_alarms"]
             )
+        )
+    if "log_alarms" in value:
+        import capo_cloudwatch.types.log_alarms
+
+        out["LogAlarms"] = capo_cloudwatch.types.log_alarms.serialize_aws_json_1_0(
+            value["log_alarms"]
         )
     if "next_token" in value:
         out["NextToken"] = value["next_token"]
@@ -65,6 +74,12 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsOutput:
                 data["MetricAlarms"]
             )
         )
+    if "LogAlarms" in data:
+        import capo_cloudwatch.types.log_alarms
+
+        out["log_alarms"] = capo_cloudwatch.types.log_alarms.deserialize_aws_json_1_0(
+            data["LogAlarms"]
+        )
     if "NextToken" in data:
         out["next_token"] = data["NextToken"]
     return out
@@ -87,6 +102,12 @@ def serialize_query(
         capo_cloudwatch.types.metric_alarms.serialize_query(
             value["metric_alarms"], pairs, f"{key_prefix}MetricAlarms"
         )
+    if "log_alarms" in value:
+        import capo_cloudwatch.types.log_alarms
+
+        capo_cloudwatch.types.log_alarms.serialize_query(
+            value["log_alarms"], pairs, f"{key_prefix}LogAlarms"
+        )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
 
@@ -108,6 +129,13 @@ def deserialize_query(el: Element) -> DescribeAlarmsOutput:
 
         out["metric_alarms"] = capo_cloudwatch.types.metric_alarms.deserialize_query(
             child_metric_alarms
+        )
+    child_log_alarms = el.find("LogAlarms")
+    if child_log_alarms is not None:
+        import capo_cloudwatch.types.log_alarms
+
+        out["log_alarms"] = capo_cloudwatch.types.log_alarms.deserialize_query(
+            child_log_alarms
         )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:

@@ -9,6 +9,7 @@ from capo_ec2._protocol.xml import Element
 if TYPE_CHECKING:
     import capo_ec2.types.asn_association_set
     import capo_ec2.types.byoip_cidr_state
+    import capo_ec2.types.ipam_pool_id
     import capo_ec2.types.string
 
 
@@ -29,6 +30,10 @@ class ByoipCidr(TypedDict, closed=True):
     r"""<p>If you have <a href=\"https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html\">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p> <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p> <ul> <li> <p>us-east-1-dfw-2</p> </li> <li> <p>us-west-2-lax-1</p> </li> <li> <p>us-west-2-phx-2</p> </li> </ul> <note> <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p> </note>"""
     advertisement_type: NotRequired["capo_ec2.types.string.String"]
     r"""<p>Specifies the advertisement method for the BYOIP CIDR. Valid values are:</p> <ul> <li> <p> <code>unicast</code>: IP is advertised from a single location (regional services like EC2)</p> </li> <li> <p> <code>anycast</code>: IP is advertised from multiple global locations simultaneously (global services like CloudFront)</p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-cloudfront.html\">Bring your own IP to CloudFront using IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"""
+    pool_id: NotRequired["capo_ec2.types.string.String"]
+    """<p>The ID of the address pool associated with the CIDR.</p>"""
+    ipam_pool_id: NotRequired["capo_ec2.types.ipam_pool_id.IpamPoolId"]
+    """<p>The ID of the IPAM pool associated with the CIDR.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -62,6 +67,10 @@ def serialize_ec2_query(
         pairs.append(
             (f"{key_prefix}AdvertisementType", str(value["advertisement_type"]))
         )
+    if "pool_id" in value:
+        pairs.append((f"{key_prefix}PoolId", str(value["pool_id"])))
+    if "ipam_pool_id" in value:
+        pairs.append((f"{key_prefix}IpamPoolId", str(value["ipam_pool_id"])))
 
 
 def deserialize_ec2_query(el: Element) -> ByoipCidr:
@@ -97,4 +106,10 @@ def deserialize_ec2_query(el: Element) -> ByoipCidr:
     child_advertisement_type = el.find("advertisementType")
     if child_advertisement_type is not None:
         out["advertisement_type"] = str(child_advertisement_type.text or "")
+    child_pool_id = el.find("poolId")
+    if child_pool_id is not None:
+        out["pool_id"] = str(child_pool_id.text or "")
+    child_ipam_pool_id = el.find("ipamPoolId")
+    if child_ipam_pool_id is not None:
+        out["ipam_pool_id"] = str(child_ipam_pool_id.text or "")
     return out

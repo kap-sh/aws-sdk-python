@@ -7,6 +7,7 @@ from typing_extensions import NotRequired, TypedDict
 from capo_cloudwatch._protocol.xml import Element
 
 if TYPE_CHECKING:
+    import capo_cloudwatch.types.anomaly_detector_ids
     import capo_cloudwatch.types.anomaly_detector_types
     import capo_cloudwatch.types.dimensions
     import capo_cloudwatch.types.max_returned_results_count
@@ -16,6 +17,10 @@ if TYPE_CHECKING:
 
 
 class DescribeAnomalyDetectorsInput(TypedDict, closed=True):
+    anomaly_detector_ids: NotRequired[
+        "capo_cloudwatch.types.anomaly_detector_ids.AnomalyDetectorIds"
+    ]
+    """<p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify up to 50 identifiers. If you specify this parameter, you cannot also specify the <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or <code>AnomalyDetectorTypes</code> metric filters.</p>"""
     next_token: NotRequired["capo_cloudwatch.types.next_token.NextToken"]
     """<p>Use the token returned by the previous operation to request the next page of results.</p>"""
     max_results: NotRequired[
@@ -37,6 +42,14 @@ class DescribeAnomalyDetectorsInput(TypedDict, closed=True):
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: DescribeAnomalyDetectorsInput) -> dict:
     out: dict = {}
+    if "anomaly_detector_ids" in value:
+        import capo_cloudwatch.types.anomaly_detector_ids
+
+        out["AnomalyDetectorIds"] = (
+            capo_cloudwatch.types.anomaly_detector_ids.serialize_aws_json_1_0(
+                value["anomaly_detector_ids"]
+            )
+        )
     if "next_token" in value:
         out["NextToken"] = value["next_token"]
     if "max_results" in value:
@@ -64,6 +77,14 @@ def serialize_aws_json_1_0(value: DescribeAnomalyDetectorsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAnomalyDetectorsInput:
     out: DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
+    if "AnomalyDetectorIds" in data:
+        import capo_cloudwatch.types.anomaly_detector_ids
+
+        out["anomaly_detector_ids"] = (
+            capo_cloudwatch.types.anomaly_detector_ids.deserialize_aws_json_1_0(
+                data["AnomalyDetectorIds"]
+            )
+        )
     if "NextToken" in data:
         out["next_token"] = data["NextToken"]
     if "MaxResults" in data:
@@ -94,6 +115,12 @@ def serialize_query(
     value: DescribeAnomalyDetectorsInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
+    if "anomaly_detector_ids" in value:
+        import capo_cloudwatch.types.anomaly_detector_ids
+
+        capo_cloudwatch.types.anomaly_detector_ids.serialize_query(
+            value["anomaly_detector_ids"], pairs, f"{key_prefix}AnomalyDetectorIds"
+        )
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
     if "max_results" in value:
@@ -118,6 +145,15 @@ def serialize_query(
 
 def deserialize_query(el: Element) -> DescribeAnomalyDetectorsInput:
     out: DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
+    child_anomaly_detector_ids = el.find("AnomalyDetectorIds")
+    if child_anomaly_detector_ids is not None:
+        import capo_cloudwatch.types.anomaly_detector_ids
+
+        out["anomaly_detector_ids"] = (
+            capo_cloudwatch.types.anomaly_detector_ids.deserialize_query(
+                child_anomaly_detector_ids
+            )
+        )
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")

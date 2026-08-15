@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.deprecation_time_condition_request
     import capo_ec2.types.image_name_criteria_request_list
     import capo_ec2.types.image_provider_request_list
+    import capo_ec2.types.image_watermark_filter_request_list
     import capo_ec2.types.marketplace_product_code_request_list
 
 
@@ -35,6 +36,10 @@ class ImageCriterionRequest(TypedDict, closed=True):
         "capo_ec2.types.creation_date_condition_request.CreationDateConditionRequest"
     ]
     """<p>The maximum age for allowed images.</p>"""
+    image_watermarks: NotRequired[
+        "capo_ec2.types.image_watermark_filter_request_list.ImageWatermarkFilterRequestList"
+    ]
+    """<p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a filter when all specified fields in the ImageWatermarkFilter match the corresponding values on the watermark of the AMI.</p> <p>Maximum: 50 values</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -77,6 +82,12 @@ def serialize_ec2_query(
             value["creation_date_condition"],
             pairs,
             f"{key_prefix}CreationDateCondition",
+        )
+    if "image_watermarks" in value:
+        import capo_ec2.types.image_watermark_filter_request_list
+
+        capo_ec2.types.image_watermark_filter_request_list.serialize_ec2_query(
+            value["image_watermarks"], pairs, f"{key_prefix}ImageWatermark"
         )
 
 
@@ -125,6 +136,15 @@ def deserialize_ec2_query(el: Element) -> ImageCriterionRequest:
         out["creation_date_condition"] = (
             capo_ec2.types.creation_date_condition_request.deserialize_ec2_query(
                 child_creation_date_condition
+            )
+        )
+    child_image_watermarks = el.find("ImageWatermark")
+    if child_image_watermarks is not None:
+        import capo_ec2.types.image_watermark_filter_request_list
+
+        out["image_watermarks"] = (
+            capo_ec2.types.image_watermark_filter_request_list.deserialize_ec2_query(
+                child_image_watermarks
             )
         )
     return out

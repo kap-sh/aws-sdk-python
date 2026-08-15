@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     import capo_iam.types.context_entry_list_type
     import capo_iam.types.marker_type
     import capo_iam.types.max_items_type
+    import capo_iam.types.organization_policy_list_type
     import capo_iam.types.policy_document_type
     import capo_iam.types.resource_handling_option_type
     import capo_iam.types.resource_name_list_type
@@ -28,6 +29,10 @@ class SimulateCustomPolicyRequest(TypedDict, closed=True):
         "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
     ]
     r"""<p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>"""
+    ordered_organization_policy_input_list: NotRequired[
+        "capo_iam.types.organization_policy_list_type.OrganizationPolicyListType"
+    ]
+    r"""<p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p> <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p> <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a>.</p>"""
     action_names: "capo_iam.types.action_name_list_type.ActionNameListType"
     """<p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>"""
     resource_arns: NotRequired[
@@ -41,7 +46,7 @@ class SimulateCustomPolicyRequest(TypedDict, closed=True):
     resource_owner: NotRequired["capo_iam.types.resource_name_type.ResourceNameType"]
     """<p>An ARN representing the Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p> <p>The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example, to represent the account with the 112233445566 ID, use the following ARN: <code>arn:aws:iam::112233445566-ID:root</code>. </p>"""
     caller_arn: NotRequired["capo_iam.types.resource_name_type.ResourceNameType"]
-    """<p>The ARN of the IAM user that you want to use as the simulated caller of the API operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p>"""
+    """<p>The ARN of the IAM user, group, or role that you want to use as the simulated caller of the API operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>You cannot specify the ARN of an assumed role, federated user, or a service principal.</p>"""
     context_entries: NotRequired[
         "capo_iam.types.context_entry_list_type.ContextEntryListType"
     ]
@@ -73,6 +78,14 @@ def serialize_query(
             value["permissions_boundary_policy_input_list"],
             pairs,
             f"{key_prefix}PermissionsBoundaryPolicyInputList",
+        )
+    if "ordered_organization_policy_input_list" in value:
+        import capo_iam.types.organization_policy_list_type
+
+        capo_iam.types.organization_policy_list_type.serialize_query(
+            value["ordered_organization_policy_input_list"],
+            pairs,
+            f"{key_prefix}OrderedOrganizationPolicyInputList",
         )
     import capo_iam.types.action_name_list_type
 
@@ -134,6 +147,17 @@ def deserialize_query(el: Element) -> SimulateCustomPolicyRequest:
         out["permissions_boundary_policy_input_list"] = (
             capo_iam.types.simulation_policy_list_type.deserialize_query(
                 child_permissions_boundary_policy_input_list
+            )
+        )
+    child_ordered_organization_policy_input_list = el.find(
+        "OrderedOrganizationPolicyInputList"
+    )
+    if child_ordered_organization_policy_input_list is not None:
+        import capo_iam.types.organization_policy_list_type
+
+        out["ordered_organization_policy_input_list"] = (
+            capo_iam.types.organization_policy_list_type.deserialize_query(
+                child_ordered_organization_policy_input_list
             )
         )
     child_action_names = el.find("ActionNames")

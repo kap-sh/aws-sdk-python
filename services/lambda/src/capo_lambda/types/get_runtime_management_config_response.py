@@ -15,14 +15,14 @@ class GetRuntimeManagementConfigResponse(TypedDict, closed=True):
         "capo_lambda.types.update_runtime_on.UpdateRuntimeOn"
     ]
     """<p>The current runtime update mode of the function.</p>"""
-    runtime_version_arn: NotRequired[
-        "capo_lambda.types.runtime_version_arn.RuntimeVersionArn"
-    ]
-    """<p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>"""
     function_arn: NotRequired[
         "capo_lambda.types.name_spaced_function_arn.NameSpacedFunctionArn"
     ]
     """<p>The Amazon Resource Name (ARN) of your function.</p>"""
+    runtime_version_arn: NotRequired[
+        "capo_lambda.types.runtime_version_arn.RuntimeVersionArn"
+    ]
+    """<p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -34,10 +34,10 @@ def serialize_json(value: GetRuntimeManagementConfigResponse) -> dict:
         out["UpdateRuntimeOn"] = capo_lambda.types.update_runtime_on.serialize_json(
             value["update_runtime_on"]
         )
-    if "runtime_version_arn" in value:
-        out["RuntimeVersionArn"] = value["runtime_version_arn"]
     if "function_arn" in value:
         out["FunctionArn"] = value["function_arn"]
+    if "runtime_version_arn" in value:
+        out["RuntimeVersionArn"] = value["runtime_version_arn"]
     return out
 
 
@@ -49,8 +49,8 @@ def deserialize_json(data: dict) -> GetRuntimeManagementConfigResponse:
         out["update_runtime_on"] = capo_lambda.types.update_runtime_on.deserialize_json(
             data["UpdateRuntimeOn"]
         )
-    if "RuntimeVersionArn" in data:
-        out["runtime_version_arn"] = data["RuntimeVersionArn"]
     if "FunctionArn" in data:
         out["function_arn"] = data["FunctionArn"]
+    if "RuntimeVersionArn" in data:
+        out["runtime_version_arn"] = data["RuntimeVersionArn"]
     return out

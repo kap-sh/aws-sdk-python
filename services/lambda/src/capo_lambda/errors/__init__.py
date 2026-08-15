@@ -21,11 +21,23 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
+from .alias_limit_exceeded_exception import (
+    AliasLimitExceededException as AliasLimitExceededException,
+)
 from .callback_timeout_exception import (
     CallbackTimeoutException as CallbackTimeoutException,
 )
 from .capacity_provider_limit_exceeded_exception import (
     CapacityProviderLimitExceededException as CapacityProviderLimitExceededException,
+)
+from .code_artifact_user_deleted_exception import (
+    CodeArtifactUserDeletedException as CodeArtifactUserDeletedException,
+)
+from .code_artifact_user_failed_exception import (
+    CodeArtifactUserFailedException as CodeArtifactUserFailedException,
+)
+from .code_artifact_user_pending_exception import (
+    CodeArtifactUserPendingException as CodeArtifactUserPendingException,
 )
 from .code_signing_config_not_found_exception import (
     CodeSigningConfigNotFoundException as CodeSigningConfigNotFoundException,
@@ -57,6 +69,7 @@ from .efsio_exception import EFSIOException as EFSIOException
 from .eni_limit_reached_exception import (
     ENILimitReachedException as ENILimitReachedException,
 )
+from .eni_not_ready_exception import ENINotReadyException as ENINotReadyException
 from .function_versions_per_capacity_provider_limit_exceeded_exception import (
     FunctionVersionsPerCapacityProviderLimitExceededException as FunctionVersionsPerCapacityProviderLimitExceededException,
 )
@@ -89,6 +102,9 @@ from .kms_invalid_state_exception import (
     KMSInvalidStateException as KMSInvalidStateException,
 )
 from .kms_not_found_exception import KMSNotFoundException as KMSNotFoundException
+from .mode_not_supported_exception import (
+    ModeNotSupportedException as ModeNotSupportedException,
+)
 from .no_published_version_exception import (
     NoPublishedVersionException as NoPublishedVersionException,
 )
@@ -101,6 +117,7 @@ from .precondition_failed_exception import (
 from .provisioned_concurrency_config_not_found_exception import (
     ProvisionedConcurrencyConfigNotFoundException as ProvisionedConcurrencyConfigNotFoundException,
 )
+from .public_policy_exception import PublicPolicyException as PublicPolicyException
 from .recursive_invocation_exception import (
     RecursiveInvocationException as RecursiveInvocationException,
 )
@@ -130,9 +147,15 @@ from .serialized_request_entity_too_large_exception import (
     SerializedRequestEntityTooLargeException as SerializedRequestEntityTooLargeException,
 )
 from .service_exception import ServiceException as ServiceException
+from .service_quota_exceeded_exception import (
+    ServiceQuotaExceededException as ServiceQuotaExceededException,
+)
 from .snap_start_exception import SnapStartException as SnapStartException
 from .snap_start_not_ready_exception import (
     SnapStartNotReadyException as SnapStartNotReadyException,
+)
+from .snap_start_regeneration_failure_exception import (
+    SnapStartRegenerationFailureException as SnapStartRegenerationFailureException,
 )
 from .snap_start_timeout_exception import (
     SnapStartTimeoutException as SnapStartTimeoutException,

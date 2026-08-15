@@ -48,6 +48,18 @@ class CreateEventSourceMappingRequest(TypedDict, closed=True):
     """<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>"""
     filter_criteria: NotRequired["capo_lambda.types.filter_criteria.FilterCriteria"]
     r"""<p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\">Lambda event filtering</a>.</p>"""
+    kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
+    r"""<p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>"""
+    metrics_config: NotRequired[
+        "capo_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
+    ]
+    r"""<p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>"""
+    logging_config: NotRequired[
+        "capo_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
+    ]
+    r"""<p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\">Event source mapping logging</a>.</p>"""
+    scaling_config: NotRequired["capo_lambda.types.scaling_config.ScalingConfig"]
+    r"""<p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>"""
     maximum_batching_window_in_seconds: NotRequired[
         "capo_lambda.types.maximum_batching_window_in_seconds.MaximumBatchingWindowInSeconds"
     ]
@@ -108,22 +120,10 @@ class CreateEventSourceMappingRequest(TypedDict, closed=True):
         "capo_lambda.types.self_managed_kafka_event_source_config.SelfManagedKafkaEventSourceConfig"
     ]
     """<p>Specific configuration settings for a self-managed Apache Kafka event source.</p>"""
-    scaling_config: NotRequired["capo_lambda.types.scaling_config.ScalingConfig"]
-    r"""<p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency\">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>"""
     document_db_event_source_config: NotRequired[
         "capo_lambda.types.document_db_event_source_config.DocumentDBEventSourceConfig"
     ]
     """<p>Specific configuration settings for a DocumentDB event source.</p>"""
-    kms_key_arn: NotRequired["capo_lambda.types.kms_key_arn.KMSKeyArn"]
-    r"""<p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics\">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>"""
-    metrics_config: NotRequired[
-        "capo_lambda.types.event_source_mapping_metrics_config.EventSourceMappingMetricsConfig"
-    ]
-    r"""<p>The metrics configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics\">Event source mapping metrics</a>.</p>"""
-    logging_config: NotRequired[
-        "capo_lambda.types.event_source_mapping_logging_config.EventSourceMappingLoggingConfig"
-    ]
-    r"""<p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html\">Event source mapping logging</a>.</p>"""
     provisioned_poller_config: NotRequired[
         "capo_lambda.types.provisioned_poller_config.ProvisionedPollerConfig"
     ]
@@ -145,6 +145,30 @@ def serialize_json(value: CreateEventSourceMappingRequest) -> dict:
 
         out["FilterCriteria"] = capo_lambda.types.filter_criteria.serialize_json(
             value["filter_criteria"]
+        )
+    if "kms_key_arn" in value:
+        out["KMSKeyArn"] = value["kms_key_arn"]
+    if "metrics_config" in value:
+        import capo_lambda.types.event_source_mapping_metrics_config
+
+        out["MetricsConfig"] = (
+            capo_lambda.types.event_source_mapping_metrics_config.serialize_json(
+                value["metrics_config"]
+            )
+        )
+    if "logging_config" in value:
+        import capo_lambda.types.event_source_mapping_logging_config
+
+        out["LoggingConfig"] = (
+            capo_lambda.types.event_source_mapping_logging_config.serialize_json(
+                value["logging_config"]
+            )
+        )
+    if "scaling_config" in value:
+        import capo_lambda.types.scaling_config
+
+        out["ScalingConfig"] = capo_lambda.types.scaling_config.serialize_json(
+            value["scaling_config"]
         )
     if "maximum_batching_window_in_seconds" in value:
         out["MaximumBatchingWindowInSeconds"] = value[
@@ -232,36 +256,12 @@ def serialize_json(value: CreateEventSourceMappingRequest) -> dict:
                 value["self_managed_kafka_event_source_config"]
             )
         )
-    if "scaling_config" in value:
-        import capo_lambda.types.scaling_config
-
-        out["ScalingConfig"] = capo_lambda.types.scaling_config.serialize_json(
-            value["scaling_config"]
-        )
     if "document_db_event_source_config" in value:
         import capo_lambda.types.document_db_event_source_config
 
         out["DocumentDBEventSourceConfig"] = (
             capo_lambda.types.document_db_event_source_config.serialize_json(
                 value["document_db_event_source_config"]
-            )
-        )
-    if "kms_key_arn" in value:
-        out["KMSKeyArn"] = value["kms_key_arn"]
-    if "metrics_config" in value:
-        import capo_lambda.types.event_source_mapping_metrics_config
-
-        out["MetricsConfig"] = (
-            capo_lambda.types.event_source_mapping_metrics_config.serialize_json(
-                value["metrics_config"]
-            )
-        )
-    if "logging_config" in value:
-        import capo_lambda.types.event_source_mapping_logging_config
-
-        out["LoggingConfig"] = (
-            capo_lambda.types.event_source_mapping_logging_config.serialize_json(
-                value["logging_config"]
             )
         )
     if "provisioned_poller_config" in value:
@@ -294,6 +294,30 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
 
         out["filter_criteria"] = capo_lambda.types.filter_criteria.deserialize_json(
             data["FilterCriteria"]
+        )
+    if "KMSKeyArn" in data:
+        out["kms_key_arn"] = data["KMSKeyArn"]
+    if "MetricsConfig" in data:
+        import capo_lambda.types.event_source_mapping_metrics_config
+
+        out["metrics_config"] = (
+            capo_lambda.types.event_source_mapping_metrics_config.deserialize_json(
+                data["MetricsConfig"]
+            )
+        )
+    if "LoggingConfig" in data:
+        import capo_lambda.types.event_source_mapping_logging_config
+
+        out["logging_config"] = (
+            capo_lambda.types.event_source_mapping_logging_config.deserialize_json(
+                data["LoggingConfig"]
+            )
+        )
+    if "ScalingConfig" in data:
+        import capo_lambda.types.scaling_config
+
+        out["scaling_config"] = capo_lambda.types.scaling_config.deserialize_json(
+            data["ScalingConfig"]
         )
     if "MaximumBatchingWindowInSeconds" in data:
         out["maximum_batching_window_in_seconds"] = data[
@@ -383,36 +407,12 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["SelfManagedKafkaEventSourceConfig"]
             )
         )
-    if "ScalingConfig" in data:
-        import capo_lambda.types.scaling_config
-
-        out["scaling_config"] = capo_lambda.types.scaling_config.deserialize_json(
-            data["ScalingConfig"]
-        )
     if "DocumentDBEventSourceConfig" in data:
         import capo_lambda.types.document_db_event_source_config
 
         out["document_db_event_source_config"] = (
             capo_lambda.types.document_db_event_source_config.deserialize_json(
                 data["DocumentDBEventSourceConfig"]
-            )
-        )
-    if "KMSKeyArn" in data:
-        out["kms_key_arn"] = data["KMSKeyArn"]
-    if "MetricsConfig" in data:
-        import capo_lambda.types.event_source_mapping_metrics_config
-
-        out["metrics_config"] = (
-            capo_lambda.types.event_source_mapping_metrics_config.deserialize_json(
-                data["MetricsConfig"]
-            )
-        )
-    if "LoggingConfig" in data:
-        import capo_lambda.types.event_source_mapping_logging_config
-
-        out["logging_config"] = (
-            capo_lambda.types.event_source_mapping_logging_config.deserialize_json(
-                data["LoggingConfig"]
             )
         )
     if "ProvisionedPollerConfig" in data:

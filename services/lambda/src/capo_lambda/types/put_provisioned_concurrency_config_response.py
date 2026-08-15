@@ -17,14 +17,14 @@ class PutProvisionedConcurrencyConfigResponse(TypedDict, closed=True):
         "capo_lambda.types.positive_integer.PositiveInteger"
     ]
     """<p>The amount of provisioned concurrency requested.</p>"""
-    available_provisioned_concurrent_executions: NotRequired[
-        "capo_lambda.types.non_negative_integer.NonNegativeInteger"
-    ]
-    """<p>The amount of provisioned concurrency available.</p>"""
     allocated_provisioned_concurrent_executions: NotRequired[
         "capo_lambda.types.non_negative_integer.NonNegativeInteger"
     ]
     """<p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>"""
+    available_provisioned_concurrent_executions: NotRequired[
+        "capo_lambda.types.non_negative_integer.NonNegativeInteger"
+    ]
+    """<p>The amount of provisioned concurrency available.</p>"""
     status: NotRequired[
         "capo_lambda.types.provisioned_concurrency_status_enum.ProvisionedConcurrencyStatusEnum"
     ]
@@ -42,13 +42,13 @@ def serialize_json(value: PutProvisionedConcurrencyConfigResponse) -> dict:
         out["RequestedProvisionedConcurrentExecutions"] = value[
             "requested_provisioned_concurrent_executions"
         ]
-    if "available_provisioned_concurrent_executions" in value:
-        out["AvailableProvisionedConcurrentExecutions"] = value[
-            "available_provisioned_concurrent_executions"
-        ]
     if "allocated_provisioned_concurrent_executions" in value:
         out["AllocatedProvisionedConcurrentExecutions"] = value[
             "allocated_provisioned_concurrent_executions"
+        ]
+    if "available_provisioned_concurrent_executions" in value:
+        out["AvailableProvisionedConcurrentExecutions"] = value[
+            "available_provisioned_concurrent_executions"
         ]
     if "status" in value:
         import capo_lambda.types.provisioned_concurrency_status_enum
@@ -71,13 +71,13 @@ def deserialize_json(data: dict) -> PutProvisionedConcurrencyConfigResponse:
         out["requested_provisioned_concurrent_executions"] = data[
             "RequestedProvisionedConcurrentExecutions"
         ]
-    if "AvailableProvisionedConcurrentExecutions" in data:
-        out["available_provisioned_concurrent_executions"] = data[
-            "AvailableProvisionedConcurrentExecutions"
-        ]
     if "AllocatedProvisionedConcurrentExecutions" in data:
         out["allocated_provisioned_concurrent_executions"] = data[
             "AllocatedProvisionedConcurrentExecutions"
+        ]
+    if "AvailableProvisionedConcurrentExecutions" in data:
+        out["available_provisioned_concurrent_executions"] = data[
+            "AvailableProvisionedConcurrentExecutions"
         ]
     if "Status" in data:
         import capo_lambda.types.provisioned_concurrency_status_enum

@@ -15,6 +15,7 @@ if TYPE_CHECKING:
     import capo_ecs.types.deployment_controller
     import capo_ecs.types.launch_type
     import capo_ecs.types.load_balancers
+    import capo_ecs.types.monitoring_configuration
     import capo_ecs.types.network_configuration
     import capo_ecs.types.placement_constraints
     import capo_ecs.types.placement_strategies
@@ -107,6 +108,10 @@ class CreateServiceRequest(TypedDict, closed=True):
         "capo_ecs.types.vpc_lattice_configurations.VpcLatticeConfigurations"
     ]
     """<p>The VPC Lattice configuration for the service being created.</p>"""
+    monitoring: NotRequired[
+        "capo_ecs.types.monitoring_configuration.MonitoringConfiguration"
+    ]
+    """<p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>"""
 
 
 # --- awsJson1_1 ser/de ---
@@ -247,6 +252,14 @@ def serialize_aws_json_1_1(value: CreateServiceRequest) -> dict:
         out["vpcLatticeConfigurations"] = (
             capo_ecs.types.vpc_lattice_configurations.serialize_aws_json_1_1(
                 value["vpc_lattice_configurations"]
+            )
+        )
+    if "monitoring" in value:
+        import capo_ecs.types.monitoring_configuration
+
+        out["monitoring"] = (
+            capo_ecs.types.monitoring_configuration.serialize_aws_json_1_1(
+                value["monitoring"]
             )
         )
     return out
@@ -396,6 +409,14 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
         out["vpc_lattice_configurations"] = (
             capo_ecs.types.vpc_lattice_configurations.deserialize_aws_json_1_1(
                 data["vpcLatticeConfigurations"]
+            )
+        )
+    if "monitoring" in data:
+        import capo_ecs.types.monitoring_configuration
+
+        out["monitoring"] = (
+            capo_ecs.types.monitoring_configuration.deserialize_aws_json_1_1(
+                data["monitoring"]
             )
         )
     return out

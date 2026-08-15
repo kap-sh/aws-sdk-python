@@ -37,6 +37,9 @@ if TYPE_CHECKING:
     import capo_iam.types.access_key_metadata
     import capo_iam.types.account_alias_type
     import capo_iam.types.account_id_type
+    import capo_iam.types.account_properties_map_type
+    import capo_iam.types.acquire_role_request
+    import capo_iam.types.acquire_role_response
     import capo_iam.types.action_name_list_type
     import capo_iam.types.add_client_id_to_open_id_connect_provider_request
     import capo_iam.types.add_role_to_instance_profile_request
@@ -147,6 +150,8 @@ if TYPE_CHECKING:
     import capo_iam.types.get_account_authorization_details_request
     import capo_iam.types.get_account_authorization_details_response
     import capo_iam.types.get_account_password_policy_response
+    import capo_iam.types.get_account_properties_request
+    import capo_iam.types.get_account_properties_response
     import capo_iam.types.get_account_summary_response
     import capo_iam.types.get_context_keys_for_custom_policy_request
     import capo_iam.types.get_context_keys_for_policy_response
@@ -179,6 +184,8 @@ if TYPE_CHECKING:
     import capo_iam.types.get_role_policy_response
     import capo_iam.types.get_role_request
     import capo_iam.types.get_role_response
+    import capo_iam.types.get_role_template_version_request
+    import capo_iam.types.get_role_template_version_response
     import capo_iam.types.get_saml_provider_request
     import capo_iam.types.get_saml_provider_response
     import capo_iam.types.get_server_certificate_request
@@ -200,6 +207,7 @@ if TYPE_CHECKING:
     import capo_iam.types.group_name_type
     import capo_iam.types.instance_profile
     import capo_iam.types.instance_profile_name_type
+    import capo_iam.types.integer_type
     import capo_iam.types.job_id_type
     import capo_iam.types.list_access_keys_request
     import capo_iam.types.list_access_keys_response
@@ -274,14 +282,17 @@ if TYPE_CHECKING:
     import capo_iam.types.list_virtual_mfa_devices_request
     import capo_iam.types.list_virtual_mfa_devices_response
     import capo_iam.types.locale_type
+    import capo_iam.types.map_string_replacement_value_entry
     import capo_iam.types.marker_type
     import capo_iam.types.max_items_type
     import capo_iam.types.max_password_age_type
     import capo_iam.types.mfa_device
     import capo_iam.types.minimum_password_length_type
+    import capo_iam.types.minor_version_type
     import capo_iam.types.notes_type
     import capo_iam.types.notification_channel_type
     import capo_iam.types.open_id_connect_provider_url_type
+    import capo_iam.types.organization_policy_list_type
     import capo_iam.types.organizations_entity_path_type
     import capo_iam.types.organizations_policy_id_type
     import capo_iam.types.owner_id_type
@@ -292,6 +303,7 @@ if TYPE_CHECKING:
     import capo_iam.types.policy
     import capo_iam.types.policy_description_type
     import capo_iam.types.policy_document_type
+    import capo_iam.types.policy_exclusions_list_type
     import capo_iam.types.policy_name_type
     import capo_iam.types.policy_path_type
     import capo_iam.types.policy_scope_type
@@ -302,6 +314,8 @@ if TYPE_CHECKING:
     import capo_iam.types.private_key_type
     import capo_iam.types.public_key_id_type
     import capo_iam.types.public_key_material_type
+    import capo_iam.types.put_account_properties_request
+    import capo_iam.types.put_account_properties_response
     import capo_iam.types.put_group_policy_request
     import capo_iam.types.put_role_permissions_boundary_request
     import capo_iam.types.put_role_policy_request
@@ -521,6 +535,68 @@ class IAMClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_iam.types.accept_delegation_request_request.AcceptDelegationRequestRequest = {}  # type: ignore[typeddict-item]
         input_["delegation_request_id"] = delegation_request_id
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def acquire_role(
+        self,
+        template_arn: "capo_iam.types.arn_type.arnType",
+        *,
+        config_overrides: Optional[IAMClientConfig] = None,
+        template_minor_version: Optional[
+            "capo_iam.types.integer_type.integerType"
+        ] = None,
+        replacement_values: Optional[
+            "capo_iam.types.map_string_replacement_value_entry.mapStringReplacementValueEntry"
+        ] = None,
+    ) -> "capo_iam.types.acquire_role_response.AcquireRoleResponse":
+        r"""<p>Creates an IAM role from the specified role template. The new role takes its configuration—including its name, path, trust policy, inline and managed policies, permissions boundary, tags, and maximum session duration—from the role template version that you specify. For more information about roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the <i>IAM User Guide</i>.</p> <p>If the template version defines parameters, use the <code>ReplacementValues</code> parameter to supply the values that the service substitutes into the role during creation.</p>
+
+        Args:
+            template_arn: <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            template_minor_version: <p>The minor version of the role template to use. If you do not specify a minor version, the service uses the template's default minor version.</p>
+            replacement_values: <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
+
+        Raises:
+            capo_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            capo_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException: <p>The request was rejected because it attempted to create a resource that already exists.</p>
+            capo_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            capo_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+            capo_iam.errors.malformed_policy_document_exception.MalformedPolicyDocumentException: <p>The request was rejected because the policy document was malformed. The error message describes the specific error.</p>
+            capo_iam.errors.name_conflict_exception.NameConflictException: <p>The request was rejected because the resulting role name conflicts with an existing role in the account.</p>
+            capo_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            capo_iam.errors.role_modified_exception.RoleModifiedException: <p>The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.</p>
+            capo_iam.errors.role_template_disabled_exception.RoleTemplateDisabledException: <p>The request was rejected because the specified role template is disabled. A disabled role template cannot be used to create new roles. Contact your administrator to enable the role template, or use a different role template.</p>
+            capo_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            capo_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_iam.types.acquire_role_request.AcquireRoleRequest]",
+        ) -> OperationResponse[
+            "capo_iam.types.acquire_role_response.AcquireRoleResponse"
+        ]:
+            import capo_iam._operations.aws_identity_management_v20100508.acquire_role
+
+            output, http_response = (
+                capo_iam._operations.aws_identity_management_v20100508.acquire_role.acquire_role(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_iam.types.acquire_role_request.AcquireRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        if template_minor_version is not None:
+            input_["template_minor_version"] = template_minor_version
+        if replacement_values is not None:
+            input_["replacement_values"] = replacement_values
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1683,12 +1759,12 @@ class IAMClient:
             "capo_iam.types.credential_age_days.credentialAgeDays"
         ] = None,
     ) -> "capo_iam.types.create_service_specific_credential_response.CreateServiceSpecificCredentialResponse":
-        r"""<p>Generates a set of credentials consisting of a user name and password that can be used to access the service specified in the request. These credentials are generated by IAM, and can be used only for the specified service. </p> <p>You can have a maximum of two sets of service-specific credentials for each supported service per user.</p> <p>You can create service-specific credentials for Amazon Bedrock, Amazon CloudWatch Logs, CodeCommit and Amazon Keyspaces (for Apache Cassandra).</p> <p>You can reset the password to a new service-generated value by calling <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html\">ResetServiceSpecificCredential</a>.</p> <p>For more information about service-specific credentials, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html\">Service-specific credentials for IAM users</a> in the <i>IAM User Guide</i>.</p>
+        r"""<p>Generates a set of credentials consisting of a user name and password that can be used to access the service specified in the request. These credentials are generated by IAM, and can be used only for the specified service. </p> <p>You can have a maximum of two sets of service-specific credentials for each supported service per user.</p> <p>You can reset the password to a new service-generated value by calling <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html\">ResetServiceSpecificCredential</a>.</p> <p>For more information about using service-specific credentials to authenticate to an Amazon Web Services service, refer to the following docs:</p> <ul> <li> <p>For service-specific credentials with CodeCommit, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html\">IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys</a> in the <i>IAM User Guide</i>.</p> </li> <li> <p>For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html\">Use IAM with Amazon Keyspaces (for Apache Cassandra)</a> in the <i>IAM User Guide</i>.</p> </li> <li> <p>For services that support long-term API keys, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html\">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p> </li> </ul>
 
         Args:
             user_name: <p>The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
             service_name: <p>The name of the Amazon Web Services service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.</p>
-            credential_age_days: <p>The number of days until the service specific credential expires. This field is only valid for Bedrock and CloudWatch Logs API keys and must be a positive integer. When not specified, the credential will not expire.</p>
+            credential_age_days: <p>The number of days until the service specific credential expires. This field is only valid for services that support long-term API keys and must be a positive integer. When not specified, the credential will not expire.</p> <p>To see which services support long-term API keys, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html\">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p>
 
         Raises:
             capo_iam.errors.limit_exceeded_exception.LimitExceededException: <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
@@ -3643,6 +3719,41 @@ class IAMClient:
         )
         return response.output
 
+    def get_account_properties(
+        self, *, config_overrides: Optional[IAMClientConfig] = None
+    ) -> "capo_iam.types.get_account_properties_response.GetAccountPropertiesResponse":
+        r"""<p>Retrieves the account-level properties for the caller's Amazon Web Services account. Account properties are configuration settings that control account-wide IAM features such as Role Manager.</p> <p>The service returns properties as key-value pairs in <code>Namespace/PropertyName</code> format. Each namespace groups related configuration settings. Use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutAccountProperties.html\">PutAccountProperties</a> to modify these properties.</p>
+
+        Raises:
+            capo_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            capo_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            capo_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_iam.types.get_account_properties_request.GetAccountPropertiesRequest]",
+        ) -> OperationResponse[
+            "capo_iam.types.get_account_properties_response.GetAccountPropertiesResponse"
+        ]:
+            import capo_iam._operations.aws_identity_management_v20100508.get_account_properties
+
+            output, http_response = (
+                capo_iam._operations.aws_identity_management_v20100508.get_account_properties.get_account_properties(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_iam.types.get_account_properties_request.GetAccountPropertiesRequest = {}  # type: ignore[typeddict-item]
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
     def get_account_summary(
         self, *, config_overrides: Optional[IAMClientConfig] = None
     ) -> "capo_iam.types.get_account_summary_response.GetAccountSummaryResponse":
@@ -3732,7 +3843,7 @@ class IAMClient:
             "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
         ] = None,
     ) -> "capo_iam.types.get_context_keys_for_policy_response.GetContextKeysForPolicyResponse":
-        r"""<p>Gets a list of all of the context keys referenced in all the IAM policies that are attached to the specified IAM entity. The entity can be an IAM user, group, or role. If you specify a user, then the request also includes all of the policies attached to groups that the user is a member of.</p> <p>You can optionally include a list of one or more additional policies, specified as strings. If you want to include <i>only</i> a list of policies by string, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a> instead.</p> <p> <b>Note:</b> This operation discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a> instead.</p> <p>Context keys are variables maintained by Amazon Web Services and its services that provide details about the context of an API query request. Context keys can be evaluated by testing against a value in an IAM policy. Use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html\">GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a>.</p>
+        r"""<p>Gets a list of all of the context keys referenced in all the IAM policies that are attached to the specified IAM entity. The entity can be an IAM user, group, or role. If you specify a user, then the request also includes all of the policies attached to groups that the user is a member of.</p> <p>You can optionally include a list of one or more additional policies, specified as strings. If you want to include <i>only</i> a list of policies by string, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a> instead.</p> <p> <b>Note:</b> This operation discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a> instead.</p> <p>Context keys are variables maintained by Amazon Web Services and its services that provide details about the context of an API query request. Context keys can be evaluated by testing against a value in an IAM policy. Use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html\">GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a>. This operation doesn't return context keys referenced by service control policies (SCPs). Only context keys referenced by the identity-based policies attached to the specified entity, and any additional policies that you provide, are included.</p>
 
         Args:
             policy_source_arn: <p>The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -4594,6 +4705,55 @@ class IAMClient:
         input_: capo_iam.types.get_role_policy_request.GetRolePolicyRequest = {}  # type: ignore[typeddict-item]
         input_["role_name"] = role_name
         input_["policy_name"] = policy_name
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
+
+    def get_role_template_version(
+        self,
+        template_arn: "capo_iam.types.arn_type.arnType",
+        *,
+        config_overrides: Optional[IAMClientConfig] = None,
+        minor_version: Optional[
+            "capo_iam.types.minor_version_type.minorVersionType"
+        ] = None,
+    ) -> "capo_iam.types.get_role_template_version_response.GetRoleTemplateVersionResponse":
+        r"""<p>Retrieves information about a version of the specified role template. Role templates define a reusable configuration—including role name and path patterns, trust policy, inline and managed policies, permissions boundary, tags, and maximum session duration—that you use to create IAM roles with <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html\">AcquireRole</a>.</p> <p>If you do not specify a minor version, the service returns the template's default minor version.</p>
+
+        Args:
+            template_arn: <p>The Amazon Resource Name (ARN) of the role template whose version you want to retrieve.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            minor_version: <p>The minor version of the role template to retrieve. If you do not specify a minor version, the service returns the template's default minor version.</p>
+
+        Raises:
+            capo_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            capo_iam.errors.no_such_entity_exception.NoSuchEntityException: <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
+            capo_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            capo_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_iam.types.get_role_template_version_request.GetRoleTemplateVersionRequest]",
+        ) -> OperationResponse[
+            "capo_iam.types.get_role_template_version_response.GetRoleTemplateVersionResponse"
+        ]:
+            import capo_iam._operations.aws_identity_management_v20100508.get_role_template_version
+
+            output, http_response = (
+                capo_iam._operations.aws_identity_management_v20100508.get_role_template_version.get_role_template_version(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_iam.types.get_role_template_version_request.GetRoleTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        if minor_version is not None:
+            input_["minor_version"] = minor_version
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7093,7 +7253,7 @@ class IAMClient:
         marker: Optional["capo_iam.types.marker_type.markerType"] = None,
         max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
     ) -> "capo_iam.types.list_service_specific_credentials_response.ListServiceSpecificCredentialsResponse":
-        r"""<p>Returns information about the service-specific credentials associated with the specified IAM user. If none exists, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an Amazon Web Services service, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html\">Set up service-specific credentials</a> in the CodeCommit User Guide.</p>
+        r"""<p>Returns information about the service-specific credentials associated with the specified IAM user. If none exists, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an Amazon Web Services service, refer to the following docs:</p> <ul> <li> <p>For service-specific credentials with CodeCommit, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html\">IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys</a> in the <i>IAM User Guide</i>.</p> </li> <li> <p>For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html\">Use IAM with Amazon Keyspaces (for Apache Cassandra)</a> in the <i>IAM User Guide</i>.</p> </li> <li> <p>For services that support long-term API keys, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html\">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p> </li> </ul>
 
         Args:
             user_name: <p>The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
@@ -7611,6 +7771,49 @@ class IAMClient:
             _token = _resolve_path(_response, ("marker",))
             if not _token:
                 break
+
+    def put_account_properties(
+        self,
+        properties: "capo_iam.types.account_properties_map_type.accountPropertiesMapType",
+        *,
+        config_overrides: Optional[IAMClientConfig] = None,
+    ) -> "capo_iam.types.put_account_properties_response.PutAccountPropertiesResponse":
+        r"""<p>Sets account-level properties for the caller's Amazon Web Services account. Account properties are configuration settings that control account-wide IAM features such as Role Manager.</p> <p>Specify properties as key-value pairs in <code>Namespace/PropertyName</code> format. All properties in a single request must belong to the same namespace. Use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountProperties.html\">GetAccountProperties</a> to view the current properties.</p>
+
+        Args:
+            properties: <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p> <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p> <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
+
+        Raises:
+            capo_iam.errors.concurrent_modification_exception.ConcurrentModificationException: <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
+            capo_iam.errors.invalid_input_exception.InvalidInputException: <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
+            capo_iam.errors.service_failure_exception.ServiceFailureException: <p>The request processing has failed because of an unknown error, exception or failure.</p>
+            capo_iam.errors.UnknownServiceError: The service returned an error code this client does not model.
+        """
+
+        def _handler(
+            req: "OperationRequest[capo_iam.types.put_account_properties_request.PutAccountPropertiesRequest]",
+        ) -> OperationResponse[
+            "capo_iam.types.put_account_properties_response.PutAccountPropertiesResponse"
+        ]:
+            import capo_iam._operations.aws_identity_management_v20100508.put_account_properties
+
+            output, http_response = (
+                capo_iam._operations.aws_identity_management_v20100508.put_account_properties.put_account_properties(
+                    req.options, req.input
+                )
+            )
+            return OperationResponse(output=output, response=http_response)
+
+        interceptors_, options_ = self.operation_options(config_overrides)
+        input_: capo_iam.types.put_account_properties_request.PutAccountPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["properties"] = properties
+
+        response = execute_pipeline(
+            OperationRequest(input=input_, options=options_),
+            handler=_handler,
+            interceptors=list(interceptors_),
+        )
+        return response.output
 
     def put_group_policy(
         self,
@@ -8296,6 +8499,9 @@ class IAMClient:
         permissions_boundary_policy_input_list: Optional[
             "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
         ] = None,
+        ordered_organization_policy_input_list: Optional[
+            "capo_iam.types.organization_policy_list_type.OrganizationPolicyListType"
+        ] = None,
         resource_arns: Optional[
             "capo_iam.types.resource_name_list_type.ResourceNameListType"
         ] = None,
@@ -8317,16 +8523,17 @@ class IAMClient:
         max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
         marker: Optional["capo_iam.types.marker_type.markerType"] = None,
     ) -> "capo_iam.types.simulate_policy_response.SimulatePolicyResponse":
-        r"""<p>Simulate how a set of IAM policies and optionally a resource-based policy works with a list of API operations and Amazon Web Services resources to determine the policies' effective permissions. The policies are provided as strings.</p> <p>The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations. You can simulate resources that don't exist in your account.</p> <p>If you want to simulate existing policies that are attached to an IAM user, group, or role, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a> instead.</p> <p>Context keys are variables that are maintained by Amazon Web Services and its services and which provide details about the context of an API query request. You can use the <code>Condition</code> element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a>.</p> <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters to paginate the results.</p> <note> <p>The IAM policy simulator evaluates statements in the identity-based policy and the inputs that you provide during simulation. The policy simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies against your live Amazon Web Services environment after testing using the policy simulator to confirm that you have the desired results. For more information about using the policy simulator, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html\">Testing IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.</p> </note>
+        r"""<p>Simulate how a set of IAM policies and optionally a resource-based policy works with a list of API operations and Amazon Web Services resources to determine the policies' effective permissions. The policies are provided as strings.</p> <p>The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations. You can simulate resources that don't exist in your account.</p> <p>If you want to simulate existing policies that are attached to an IAM user, group, or role, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a> instead.</p> <p>Context keys are variables that are maintained by Amazon Web Services and its services and which provide details about the context of an API query request. You can use the <code>Condition</code> element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html\">GetContextKeysForCustomPolicy</a>.</p> <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters to paginate the results.</p> <note> <p>The IAM policy simulator evaluates statements in identity-based policies, service control policies (SCPs) including their condition keys and resource scoping, and the inputs that you provide during simulation. The policy simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies against your live Amazon Web Services environment after testing using the policy simulator to confirm that you have the desired results. For more information about using the policy simulator, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html\">Testing IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.</p> </note>
 
         Args:
             policy_input_list: <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be \"scope-down\" policies, such as you could include in a call to <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html\">GetFederationToken</a> or one of the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html\">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
             permissions_boundary_policy_input_list: <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+            ordered_organization_policy_input_list: <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p> <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p> <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html\">SimulatePrincipalPolicy</a>.</p>
             action_names: <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
             resource_arns: <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p> <p>The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the <code>ResourcePolicy</code> parameter.</p> <p>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of the resources included in the simulation or you receive an invalid input error.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p> <note> <p>Simulation of resource-based policies isn't supported for IAM roles.</p> </note>
             resource_policy: <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul> <note> <p>Simulation of resource-based policies isn't supported for IAM roles.</p> </note>
             resource_owner: <p>An ARN representing the Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p> <p>The ARN for an account uses the following syntax: <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example, to represent the account with the 112233445566 ID, use the following ARN: <code>arn:aws:iam::112233445566-ID:root</code>. </p>
-            caller_arn: <p>The ARN of the IAM user that you want to use as the simulated caller of the API operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p>
+            caller_arn: <p>The ARN of the IAM user, group, or role that you want to use as the simulated caller of the API operations. <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>You cannot specify the ARN of an assumed role, federated user, or a service principal.</p>
             context_entries: <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
             resource_handling_option: <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p> <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p> <ul> <li> <p> <b>EC2-VPC-InstanceStore</b> </p> <p>instance, image, security group, network interface</p> </li> <li> <p> <b>EC2-VPC-InstanceStore-Subnet</b> </p> <p>instance, image, security group, network interface, subnet</p> </li> <li> <p> <b>EC2-VPC-EBS</b> </p> <p>instance, image, security group, network interface, volume</p> </li> <li> <p> <b>EC2-VPC-EBS-Subnet</b> </p> <p>instance, image, security group, network interface, subnet, volume</p> </li> </ul>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
@@ -8358,6 +8565,10 @@ class IAMClient:
         if permissions_boundary_policy_input_list is not None:
             input_["permissions_boundary_policy_input_list"] = (
                 permissions_boundary_policy_input_list
+            )
+        if ordered_organization_policy_input_list is not None:
+            input_["ordered_organization_policy_input_list"] = (
+                ordered_organization_policy_input_list
             )
         input_["action_names"] = action_names
         if resource_arns is not None:
@@ -8393,6 +8604,9 @@ class IAMClient:
         permissions_boundary_policy_input_list: Optional[
             "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
         ] = None,
+        ordered_organization_policy_input_list: Optional[
+            "capo_iam.types.organization_policy_list_type.OrganizationPolicyListType"
+        ] = None,
         resource_arns: Optional[
             "capo_iam.types.resource_name_list_type.ResourceNameListType"
         ] = None,
@@ -8421,6 +8635,7 @@ class IAMClient:
                 action_names,
                 config_overrides=config_overrides,
                 permissions_boundary_policy_input_list=permissions_boundary_policy_input_list,
+                ordered_organization_policy_input_list=ordered_organization_policy_input_list,
                 resource_arns=resource_arns,
                 resource_policy=resource_policy,
                 resource_owner=resource_owner,
@@ -8449,6 +8664,9 @@ class IAMClient:
         permissions_boundary_policy_input_list: Optional[
             "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
         ] = None,
+        policy_exclusion_list: Optional[
+            "capo_iam.types.policy_exclusions_list_type.PolicyExclusionsListType"
+        ] = None,
         resource_arns: Optional[
             "capo_iam.types.resource_name_list_type.ResourceNameListType"
         ] = None,
@@ -8470,17 +8688,18 @@ class IAMClient:
         max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
         marker: Optional["capo_iam.types.marker_type.markerType"] = None,
     ) -> "capo_iam.types.simulate_policy_response.SimulatePolicyResponse":
-        r"""<p>Simulate how a set of IAM policies attached to an IAM entity works with a list of API operations and Amazon Web Services resources to determine the policies' effective permissions. The entity can be an IAM user, group, or role. If you specify a user, then the simulation also includes all of the policies that are attached to groups that the user belongs to. You can simulate resources that don't exist in your account.</p> <p>You can optionally include a list of one or more additional policies specified as strings to include in the simulation. If you want to simulate only policies specified as strings, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html\">SimulateCustomPolicy</a> instead.</p> <p>You can also optionally include one resource-based policy to be evaluated with each of the resources included in the simulation for IAM users only.</p> <p>The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations.</p> <p> <b>Note:</b> This operation discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html\">SimulateCustomPolicy</a> instead.</p> <p>Context keys are variables maintained by Amazon Web Services and its services that provide details about the context of an API query request. You can use the <code>Condition</code> element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html\">GetContextKeysForPrincipalPolicy</a>.</p> <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code> parameters to paginate the results.</p> <note> <p>The IAM policy simulator evaluates statements in the identity-based policy and the inputs that you provide during simulation. The policy simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies against your live Amazon Web Services environment after testing using the policy simulator to confirm that you have the desired results. For more information about using the policy simulator, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html\">Testing IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.</p> </note>
+        r"""<p>Simulate how a set of IAM policies attached to an IAM entity works with a list of API operations and Amazon Web Services resources to determine the policies' effective permissions. The entity can be an IAM user, group, or role. If you specify a user, then the simulation also includes all of the policies that are attached to groups that the user belongs to. You can simulate resources that don't exist in your account.</p> <p>You can optionally include a list of one or more additional policies specified as strings to include in the simulation. If you want to simulate only policies specified as strings, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html\">SimulateCustomPolicy</a> instead.</p> <p>You can also optionally include one resource-based policy to be evaluated with each of the resources included in the simulation for IAM users only.</p> <p>The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations.</p> <p>For cross-account simulations, <code>EvalDecisionDetails</code> returns the decision for each policy type (identity-based policy, resource-based policy, and permissions boundary). This helps you identify which policy type is responsible for an allow or deny decision when policies span multiple accounts.</p> <p> <b>Note:</b> This operation discloses information about the permissions granted to other users. If you do not want users to see other user's permissions, then consider allowing them to use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html\">SimulateCustomPolicy</a> instead.</p> <p>Context keys are variables maintained by Amazon Web Services and its services that provide details about the context of an API query request. You can use the <code>Condition</code> element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html\">GetContextKeysForPrincipalPolicy</a>.</p> <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code> parameters to paginate the results.</p> <note> <p>The IAM policy simulator evaluates statements in identity-based policies, service control policies (SCPs) including their condition keys and resource scoping, and the inputs that you provide during simulation. The policy simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies against your live Amazon Web Services environment after testing using the policy simulator to confirm that you have the desired results. For more information about using the policy simulator, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html\">Testing IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.</p> </note>
 
         Args:
             policy_source_arn: <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             policy_input_list: <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
             permissions_boundary_policy_input_list: <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html\">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul>
+            policy_exclusion_list: <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p> <p>Each entry is a <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html\">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p> <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
             action_names: <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
             resource_arns: <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p> <p>The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the <code>ResourcePolicy</code> parameter.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p> <note> <p>Simulation of resource-based policies isn't supported for IAM roles.</p> </note>
             resource_policy: <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p> <ul> <li> <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p> </li> <li> <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p> </li> <li> <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p> </li> </ul> <note> <p>Simulation of resource-based policies isn't supported for IAM roles.</p> </note>
             resource_owner: <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-            caller_arn: <p>The ARN of the IAM user that you want to specify as the simulated caller of the API operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user that you specify in <code>PolicySourceArn</code>, if you specified a user. If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.</p> <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p> <p> <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required so that the resource-based policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+            caller_arn: <p>The ARN of the IAM user, group, or role that you want to specify as the simulated caller of the API operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user, group, or role that you specify in <code>PolicySourceArn</code>. If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.</p> <p>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p> <p> <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and the <code>PolicySourceArn</code> is not the ARN for an IAM user, group, or role. This is required so that the resource-based policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
             context_entries: <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
             resource_handling_option: <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p> <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html\">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p> <ul> <li> <p> <b>EC2-VPC-InstanceStore</b> </p> <p>instance, image, security group, network interface</p> </li> <li> <p> <b>EC2-VPC-InstanceStore-Subnet</b> </p> <p>instance, image, security group, network interface, subnet</p> </li> <li> <p> <b>EC2-VPC-EBS</b> </p> <p>instance, image, security group, network interface, volume</p> </li> <li> <p> <b>EC2-VPC-EBS-Subnet</b> </p> <p>instance, image, security group, network interface, subnet, volume</p> </li> </ul>
             max_items: <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p> <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
@@ -8516,6 +8735,8 @@ class IAMClient:
             input_["permissions_boundary_policy_input_list"] = (
                 permissions_boundary_policy_input_list
             )
+        if policy_exclusion_list is not None:
+            input_["policy_exclusion_list"] = policy_exclusion_list
         input_["action_names"] = action_names
         if resource_arns is not None:
             input_["resource_arns"] = resource_arns
@@ -8553,6 +8774,9 @@ class IAMClient:
         permissions_boundary_policy_input_list: Optional[
             "capo_iam.types.simulation_policy_list_type.SimulationPolicyListType"
         ] = None,
+        policy_exclusion_list: Optional[
+            "capo_iam.types.policy_exclusions_list_type.PolicyExclusionsListType"
+        ] = None,
         resource_arns: Optional[
             "capo_iam.types.resource_name_list_type.ResourceNameListType"
         ] = None,
@@ -8582,6 +8806,7 @@ class IAMClient:
                 config_overrides=config_overrides,
                 policy_input_list=policy_input_list,
                 permissions_boundary_policy_input_list=permissions_boundary_policy_input_list,
+                policy_exclusion_list=policy_exclusion_list,
                 resource_arns=resource_arns,
                 resource_policy=resource_policy,
                 resource_owner=resource_owner,

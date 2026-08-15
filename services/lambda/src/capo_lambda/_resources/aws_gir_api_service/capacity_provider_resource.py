@@ -14,15 +14,18 @@ from capo_lambda._services._pipeline import (
 )
 
 if TYPE_CHECKING:
+    import capo_lambda.types.capacity_provider
     import capo_lambda.types.capacity_provider_name
     import capo_lambda.types.capacity_provider_permissions_config
     import capo_lambda.types.capacity_provider_scaling_config
     import capo_lambda.types.capacity_provider_state
+    import capo_lambda.types.capacity_provider_telemetry_config
     import capo_lambda.types.capacity_provider_vpc_config
     import capo_lambda.types.create_capacity_provider_request
     import capo_lambda.types.create_capacity_provider_response
     import capo_lambda.types.delete_capacity_provider_request
     import capo_lambda.types.delete_capacity_provider_response
+    import capo_lambda.types.function_versions_by_capacity_provider_list_item
     import capo_lambda.types.get_capacity_provider_request
     import capo_lambda.types.get_capacity_provider_response
     import capo_lambda.types.instance_requirements
@@ -32,6 +35,7 @@ if TYPE_CHECKING:
     import capo_lambda.types.list_function_versions_by_capacity_provider_request
     import capo_lambda.types.list_function_versions_by_capacity_provider_response
     import capo_lambda.types.max_fifty_list_items
+    import capo_lambda.types.propagate_tags
     import capo_lambda.types.string
     import capo_lambda.types.tags
     import capo_lambda.types.update_capacity_provider_request
@@ -64,6 +68,12 @@ class CapacityProviderResource:
             "capo_lambda.types.kms_key_arn_non_empty.KMSKeyArnNonEmpty"
         ] = None,
         tags: Optional["capo_lambda.types.tags.Tags"] = None,
+        propagate_tags: Optional[
+            "capo_lambda.types.propagate_tags.PropagateTags"
+        ] = None,
+        telemetry_config: Optional[
+            "capo_lambda.types.capacity_provider_telemetry_config.CapacityProviderTelemetryConfig"
+        ] = None,
     ) -> "capo_lambda.types.create_capacity_provider_response.CreateCapacityProviderResponse":
         """<p>Creates a capacity provider that manages compute resources for Lambda functions</p>
 
@@ -75,6 +85,8 @@ class CapacityProviderResource:
             capacity_provider_scaling_config: <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
             kms_key_arn: <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
             tags: <p>A list of tags to associate with the capacity provider.</p>
+            propagate_tags: <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
+            telemetry_config: <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
 
         Raises:
             capo_lambda.errors.capacity_provider_limit_exceeded_exception.CapacityProviderLimitExceededException: <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a> </p>
@@ -114,6 +126,10 @@ class CapacityProviderResource:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
             input_["tags"] = tags
+        if propagate_tags is not None:
+            input_["propagate_tags"] = propagate_tags
+        if telemetry_config is not None:
+            input_["telemetry_config"] = telemetry_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -174,12 +190,19 @@ class CapacityProviderResource:
         capacity_provider_scaling_config: Optional[
             "capo_lambda.types.capacity_provider_scaling_config.CapacityProviderScalingConfig"
         ] = None,
+        propagate_tags: Optional[
+            "capo_lambda.types.propagate_tags.PropagateTags"
+        ] = None,
+        telemetry_config: Optional[
+            "capo_lambda.types.capacity_provider_telemetry_config.CapacityProviderTelemetryConfig"
+        ] = None,
     ) -> "capo_lambda.types.update_capacity_provider_response.UpdateCapacityProviderResponse":
         """<p>Updates the configuration of an existing capacity provider.</p>
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to update.</p>
             capacity_provider_scaling_config: <p>The updated scaling configuration for the capacity provider.</p>
+            telemetry_config: <p>The updated telemetry configuration for the capacity provider.</p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
@@ -211,6 +234,10 @@ class CapacityProviderResource:
             input_["capacity_provider_scaling_config"] = (
                 capacity_provider_scaling_config
             )
+        if propagate_tags is not None:
+            input_["propagate_tags"] = propagate_tags
+        if telemetry_config is not None:
+            input_["telemetry_config"] = telemetry_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -396,6 +423,12 @@ class AsyncCapacityProviderResource:
             "capo_lambda.types.kms_key_arn_non_empty.KMSKeyArnNonEmpty"
         ] = None,
         tags: Optional["capo_lambda.types.tags.Tags"] = None,
+        propagate_tags: Optional[
+            "capo_lambda.types.propagate_tags.PropagateTags"
+        ] = None,
+        telemetry_config: Optional[
+            "capo_lambda.types.capacity_provider_telemetry_config.CapacityProviderTelemetryConfig"
+        ] = None,
     ) -> "capo_lambda.types.create_capacity_provider_response.CreateCapacityProviderResponse":
         """<p>Creates a capacity provider that manages compute resources for Lambda functions</p>
 
@@ -407,6 +440,8 @@ class AsyncCapacityProviderResource:
             capacity_provider_scaling_config: <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
             kms_key_arn: <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
             tags: <p>A list of tags to associate with the capacity provider.</p>
+            propagate_tags: <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
+            telemetry_config: <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
 
         Raises:
             capo_lambda.errors.capacity_provider_limit_exceeded_exception.CapacityProviderLimitExceededException: <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a> </p>
@@ -447,6 +482,10 @@ class AsyncCapacityProviderResource:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
             input_["tags"] = tags
+        if propagate_tags is not None:
+            input_["propagate_tags"] = propagate_tags
+        if telemetry_config is not None:
+            input_["telemetry_config"] = telemetry_config
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -508,12 +547,19 @@ class AsyncCapacityProviderResource:
         capacity_provider_scaling_config: Optional[
             "capo_lambda.types.capacity_provider_scaling_config.CapacityProviderScalingConfig"
         ] = None,
+        propagate_tags: Optional[
+            "capo_lambda.types.propagate_tags.PropagateTags"
+        ] = None,
+        telemetry_config: Optional[
+            "capo_lambda.types.capacity_provider_telemetry_config.CapacityProviderTelemetryConfig"
+        ] = None,
     ) -> "capo_lambda.types.update_capacity_provider_response.UpdateCapacityProviderResponse":
         """<p>Updates the configuration of an existing capacity provider.</p>
 
         Args:
             capacity_provider_name: <p>The name of the capacity provider to update.</p>
             capacity_provider_scaling_config: <p>The updated scaling configuration for the capacity provider.</p>
+            telemetry_config: <p>The updated telemetry configuration for the capacity provider.</p>
 
         Raises:
             capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException: <p>One of the parameters in the request is not valid.</p>
@@ -546,6 +592,10 @@ class AsyncCapacityProviderResource:
             input_["capacity_provider_scaling_config"] = (
                 capacity_provider_scaling_config
             )
+        if propagate_tags is not None:
+            input_["propagate_tags"] = propagate_tags
+        if telemetry_config is not None:
+            input_["telemetry_config"] = telemetry_config
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

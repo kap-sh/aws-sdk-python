@@ -11,6 +11,8 @@ if TYPE_CHECKING:
     import capo_ec2.types.availability_zone_name
     import capo_ec2.types.double
     import capo_ec2.types.fleet_block_device_mapping_request_list
+    import capo_ec2.types.fleet_iam_instance_profile_specification_request
+    import capo_ec2.types.fleet_instance_metadata_options_request
     import capo_ec2.types.instance_requirements_request
     import capo_ec2.types.instance_type
     import capo_ec2.types.placement
@@ -35,10 +37,20 @@ class FleetLaunchTemplateOverridesRequest(TypedDict, closed=True):
     """<p>The priority for the launch template override. The highest priority is launched first.</p> <p>If the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.</p> <p>If the Spot <code>AllocationStrategy</code> is set to <code>capacity-optimized-prioritized</code>, EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.</p> <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.</p>"""
     placement: NotRequired["capo_ec2.types.placement.Placement"]
     """<p>The location where the instance launched, if applicable.</p>"""
+    key_name: NotRequired["capo_ec2.types.string.String"]
+    r"""<p>The name of the key pair to use for the instances.</p> <p>Supported only for fleets of type <code>instant</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     block_device_mappings: NotRequired[
         "capo_ec2.types.fleet_block_device_mapping_request_list.FleetBlockDeviceMappingRequestList"
     ]
     r"""<p>The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.</p> <p>Supported only for fleets of type <code>instant</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html\">Block device mappings for volumes on Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    iam_instance_profile: NotRequired[
+        "capo_ec2.types.fleet_iam_instance_profile_specification_request.FleetIamInstanceProfileSpecificationRequest"
+    ]
+    r"""<p>The IAM instance profile to associate with the instances.</p> <p>Supported only for fleets of type <code>instant</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html\">IAM roles for Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
+    metadata_options: NotRequired[
+        "capo_ec2.types.fleet_instance_metadata_options_request.FleetInstanceMetadataOptionsRequest"
+    ]
+    r"""<p>The metadata options for the instances.</p> <p>Supported only for fleets of type <code>instant</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html\">Configure the instance metadata service</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     instance_requirements: NotRequired[
         "capo_ec2.types.instance_requirements_request.InstanceRequirementsRequest"
     ]
@@ -106,11 +118,25 @@ def serialize_ec2_query(
         capo_ec2.types.placement.serialize_ec2_query(
             value["placement"], pairs, f"{key_prefix}Placement"
         )
+    if "key_name" in value:
+        pairs.append((f"{key_prefix}KeyName", str(value["key_name"])))
     if "block_device_mappings" in value:
         import capo_ec2.types.fleet_block_device_mapping_request_list
 
         capo_ec2.types.fleet_block_device_mapping_request_list.serialize_ec2_query(
             value["block_device_mappings"], pairs, f"{key_prefix}BlockDeviceMapping"
+        )
+    if "iam_instance_profile" in value:
+        import capo_ec2.types.fleet_iam_instance_profile_specification_request
+
+        capo_ec2.types.fleet_iam_instance_profile_specification_request.serialize_ec2_query(
+            value["iam_instance_profile"], pairs, f"{key_prefix}IamInstanceProfile"
+        )
+    if "metadata_options" in value:
+        import capo_ec2.types.fleet_instance_metadata_options_request
+
+        capo_ec2.types.fleet_instance_metadata_options_request.serialize_ec2_query(
+            value["metadata_options"], pairs, f"{key_prefix}MetadataOptions"
         )
     if "instance_requirements" in value:
         import capo_ec2.types.instance_requirements_request
@@ -157,6 +183,9 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverridesRequest:
         out["placement"] = capo_ec2.types.placement.deserialize_ec2_query(
             child_placement
         )
+    child_key_name = el.find("KeyName")
+    if child_key_name is not None:
+        out["key_name"] = str(child_key_name.text or "")
     child_block_device_mappings = el.find("BlockDeviceMapping")
     if child_block_device_mappings is not None:
         import capo_ec2.types.fleet_block_device_mapping_request_list
@@ -164,6 +193,24 @@ def deserialize_ec2_query(el: Element) -> FleetLaunchTemplateOverridesRequest:
         out["block_device_mappings"] = (
             capo_ec2.types.fleet_block_device_mapping_request_list.deserialize_ec2_query(
                 child_block_device_mappings
+            )
+        )
+    child_iam_instance_profile = el.find("IamInstanceProfile")
+    if child_iam_instance_profile is not None:
+        import capo_ec2.types.fleet_iam_instance_profile_specification_request
+
+        out["iam_instance_profile"] = (
+            capo_ec2.types.fleet_iam_instance_profile_specification_request.deserialize_ec2_query(
+                child_iam_instance_profile
+            )
+        )
+    child_metadata_options = el.find("MetadataOptions")
+    if child_metadata_options is not None:
+        import capo_ec2.types.fleet_instance_metadata_options_request
+
+        out["metadata_options"] = (
+            capo_ec2.types.fleet_instance_metadata_options_request.deserialize_ec2_query(
+                child_metadata_options
             )
         )
     child_instance_requirements = el.find("InstanceRequirements")

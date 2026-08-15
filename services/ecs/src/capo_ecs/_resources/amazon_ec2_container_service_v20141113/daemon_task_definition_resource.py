@@ -14,6 +14,8 @@ from capo_ecs._services._pipeline import (
 if TYPE_CHECKING:
     import capo_ecs.types.boxed_integer
     import capo_ecs.types.daemon_container_definition_list
+    import capo_ecs.types.daemon_ipc_mode
+    import capo_ecs.types.daemon_pid_mode
     import capo_ecs.types.daemon_task_definition_revision_filter
     import capo_ecs.types.daemon_task_definition_status_filter
     import capo_ecs.types.daemon_volume_list
@@ -227,6 +229,8 @@ class DaemonTaskDefinitionResource:
         memory: Optional["capo_ecs.types.string.String"] = None,
         volumes: Optional["capo_ecs.types.daemon_volume_list.DaemonVolumeList"] = None,
         tags: Optional["capo_ecs.types.tags.Tags"] = None,
+        pid_mode: Optional["capo_ecs.types.daemon_pid_mode.DaemonPidMode"] = None,
+        ipc_mode: Optional["capo_ecs.types.daemon_ipc_mode.DaemonIpcMode"] = None,
     ) -> "capo_ecs.types.register_daemon_task_definition_response.RegisterDaemonTaskDefinitionResponse":
         r"""<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
 
@@ -239,6 +243,8 @@ class DaemonTaskDefinitionResource:
             memory: <p>The amount of memory (in MiB) used by the daemon task. It can be expressed as an integer using MiB (for example, <code>1024</code>).</p>
             volumes: <p>A list of volume definitions in JSON format that containers in your daemon task can use.</p>
             tags: <p>The metadata that you apply to the daemon task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>
+            pid_mode: <p>The PID namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use <code>pidMode: \"host\"</code> or other daemons that use <code>pidMode: \"shared\"</code>.</p>
+            ipc_mode: <p>The IPC namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use <code>ipcMode: \"host\"</code> or other daemons that use <code>ipcMode: \"shared\"</code>.</p>
 
         Raises:
             capo_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
@@ -285,6 +291,10 @@ class DaemonTaskDefinitionResource:
             input_["volumes"] = volumes
         if tags is not None:
             input_["tags"] = tags
+        if pid_mode is not None:
+            input_["pid_mode"] = pid_mode
+        if ipc_mode is not None:
+            input_["ipc_mode"] = ipc_mode
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -492,6 +502,8 @@ class AsyncDaemonTaskDefinitionResource:
         memory: Optional["capo_ecs.types.string.String"] = None,
         volumes: Optional["capo_ecs.types.daemon_volume_list.DaemonVolumeList"] = None,
         tags: Optional["capo_ecs.types.tags.Tags"] = None,
+        pid_mode: Optional["capo_ecs.types.daemon_pid_mode.DaemonPidMode"] = None,
+        ipc_mode: Optional["capo_ecs.types.daemon_ipc_mode.DaemonIpcMode"] = None,
     ) -> "capo_ecs.types.register_daemon_task_definition_response.RegisterDaemonTaskDefinitionResponse":
         r"""<p>Registers a new daemon task definition from the supplied <code>family</code> and <code>containerDefinitions</code>. Optionally, you can add data volumes to your containers with the <code>volumes</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/daemon-task-definitions.html\">Daemon task definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p> <p>A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents such as security monitoring, telemetry, and logging across your Amazon ECS infrastructure.</p> <p>Each time you call <code>RegisterDaemonTaskDefinition</code>, a new revision of the daemon task definition is created. You can't modify a revision after you register it.</p>
 
@@ -504,6 +516,8 @@ class AsyncDaemonTaskDefinitionResource:
             memory: <p>The amount of memory (in MiB) used by the daemon task. It can be expressed as an integer using MiB (for example, <code>1024</code>).</p>
             volumes: <p>A list of volume definitions in JSON format that containers in your daemon task can use.</p>
             tags: <p>The metadata that you apply to the daemon task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for Amazon Web Services use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.</p> </li> </ul>
+            pid_mode: <p>The PID namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use <code>pidMode: \"host\"</code> or other daemons that use <code>pidMode: \"shared\"</code>.</p>
+            ipc_mode: <p>The IPC namespace mode for the daemon. The valid values are <code>none</code> and <code>shared</code>. The default is <code>none</code>.</p> <p>If <code>none</code> is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If <code>shared</code> is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use <code>ipcMode: \"host\"</code> or other daemons that use <code>ipcMode: \"shared\"</code>.</p>
 
         Raises:
             capo_ecs.errors.access_denied_exception.AccessDeniedException: <p>You don't have authorization to perform the requested action.</p>
@@ -551,6 +565,10 @@ class AsyncDaemonTaskDefinitionResource:
             input_["volumes"] = volumes
         if tags is not None:
             input_["tags"] = tags
+        if pid_mode is not None:
+            input_["pid_mode"] = pid_mode
+        if ipc_mode is not None:
+            input_["ipc_mode"] = ipc_mode
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

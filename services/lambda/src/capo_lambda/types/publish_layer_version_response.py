@@ -33,16 +33,16 @@ class PublishLayerVersionResponse(TypedDict, closed=True):
     r"""<p>The date that the layer version was created, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     version: "capo_lambda.types.layer_version_number.LayerVersionNumber"
     """<p>The version number.</p>"""
+    compatible_architectures: NotRequired[
+        "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
+    ]
+    r"""<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>"""
     compatible_runtimes: NotRequired[
         "capo_lambda.types.compatible_runtimes.CompatibleRuntimes"
     ]
     r"""<p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
     license_info: NotRequired["capo_lambda.types.license_info.LicenseInfo"]
     """<p>The layer's software license.</p>"""
-    compatible_architectures: NotRequired[
-        "capo_lambda.types.compatible_architectures.CompatibleArchitectures"
-    ]
-    r"""<p>A list of compatible <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html\">instruction set architectures</a>.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -63,6 +63,14 @@ def serialize_json(value: PublishLayerVersionResponse) -> dict:
     if "created_date" in value:
         out["CreatedDate"] = value["created_date"]
     out["Version"] = value.get("version", 0)
+    if "compatible_architectures" in value:
+        import capo_lambda.types.compatible_architectures
+
+        out["CompatibleArchitectures"] = (
+            capo_lambda.types.compatible_architectures.serialize_json(
+                value["compatible_architectures"]
+            )
+        )
     if "compatible_runtimes" in value:
         import capo_lambda.types.compatible_runtimes
 
@@ -73,14 +81,6 @@ def serialize_json(value: PublishLayerVersionResponse) -> dict:
         )
     if "license_info" in value:
         out["LicenseInfo"] = value["license_info"]
-    if "compatible_architectures" in value:
-        import capo_lambda.types.compatible_architectures
-
-        out["CompatibleArchitectures"] = (
-            capo_lambda.types.compatible_architectures.serialize_json(
-                value["compatible_architectures"]
-            )
-        )
     return out
 
 
@@ -106,6 +106,14 @@ def deserialize_json(data: dict) -> PublishLayerVersionResponse:
         out["version"] = data["Version"]
     else:
         out["version"] = 0
+    if "CompatibleArchitectures" in data:
+        import capo_lambda.types.compatible_architectures
+
+        out["compatible_architectures"] = (
+            capo_lambda.types.compatible_architectures.deserialize_json(
+                data["CompatibleArchitectures"]
+            )
+        )
     if "CompatibleRuntimes" in data:
         import capo_lambda.types.compatible_runtimes
 
@@ -116,12 +124,4 @@ def deserialize_json(data: dict) -> PublishLayerVersionResponse:
         )
     if "LicenseInfo" in data:
         out["license_info"] = data["LicenseInfo"]
-    if "CompatibleArchitectures" in data:
-        import capo_lambda.types.compatible_architectures
-
-        out["compatible_architectures"] = (
-            capo_lambda.types.compatible_architectures.deserialize_json(
-                data["CompatibleArchitectures"]
-            )
-        )
     return out

@@ -22,6 +22,10 @@ from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
 from .access_denied import AccessDenied as AccessDenied
+from .annotation_limit_exceeded import (
+    AnnotationLimitExceeded as AnnotationLimitExceeded,
+)
+from .annotation_name_too_long import AnnotationNameTooLong as AnnotationNameTooLong
 from .bucket_already_exists import BucketAlreadyExists as BucketAlreadyExists
 from .bucket_already_owned_by_you import (
     BucketAlreadyOwnedByYou as BucketAlreadyOwnedByYou,
@@ -30,9 +34,12 @@ from .encryption_type_mismatch import EncryptionTypeMismatch as EncryptionTypeMi
 from .idempotency_parameter_mismatch import (
     IdempotencyParameterMismatch as IdempotencyParameterMismatch,
 )
+from .invalid_annotation_name import InvalidAnnotationName as InvalidAnnotationName
 from .invalid_object_state import InvalidObjectState as InvalidObjectState
+from .invalid_prefix import InvalidPrefix as InvalidPrefix
 from .invalid_request import InvalidRequest as InvalidRequest
 from .invalid_write_offset import InvalidWriteOffset as InvalidWriteOffset
+from .no_such_annotation import NoSuchAnnotation as NoSuchAnnotation
 from .no_such_bucket import NoSuchBucket as NoSuchBucket
 from .no_such_key import NoSuchKey as NoSuchKey
 from .no_such_upload import NoSuchUpload as NoSuchUpload
@@ -44,3 +51,4 @@ from .object_not_in_active_tier_error import (
     ObjectNotInActiveTierError as ObjectNotInActiveTierError,
 )
 from .too_many_parts import TooManyParts as TooManyParts
+from .unsupported_media_type import UnsupportedMediaType as UnsupportedMediaType

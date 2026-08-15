@@ -60,14 +60,22 @@ def handle_error(response: zapros.Response) -> Never:
 def handle_response(
     response: zapros.Response,
 ) -> capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput:
-    out: capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput = {}  # type: ignore[typeddict-item]
+    out: capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput = (
+        capo_cloudwatch.types.put_anomaly_detector_output.deserialize_aws_json_1_0(
+            json.loads(response.read())
+        )
+    )
     return out
 
 
 async def async_handle_response(
     response: zapros.Response,
 ) -> capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput:
-    out: capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput = {}  # type: ignore[typeddict-item]
+    out: capo_cloudwatch.types.put_anomaly_detector_output.PutAnomalyDetectorOutput = (
+        capo_cloudwatch.types.put_anomaly_detector_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
+        )
+    )
     return out
 
 

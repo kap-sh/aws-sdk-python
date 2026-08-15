@@ -40,8 +40,10 @@ import capo_lambda.errors.s3_files_mount_failure_exception
 import capo_lambda.errors.s3_files_mount_timeout_exception
 import capo_lambda.errors.serialized_request_entity_too_large_exception
 import capo_lambda.errors.service_exception
+import capo_lambda.errors.service_quota_exceeded_exception
 import capo_lambda.errors.snap_start_exception
 import capo_lambda.errors.snap_start_not_ready_exception
+import capo_lambda.errors.snap_start_regeneration_failure_exception
 import capo_lambda.errors.snap_start_timeout_exception
 import capo_lambda.errors.subnet_ip_address_limit_reached_exception
 import capo_lambda.errors.too_many_requests_exception
@@ -183,12 +185,20 @@ def handle_error(response: zapros.Response) -> Never:
             raise capo_lambda.errors.service_exception.ServiceException.from_json(
                 data, message
             )
+        case "ServiceQuotaExceededException":
+            raise capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data, message
+            )
         case "SnapStartException":
             raise capo_lambda.errors.snap_start_exception.SnapStartException.from_json(
                 data, message
             )
         case "SnapStartNotReadyException":
             raise capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException.from_json(
+                data, message
+            )
+        case "SnapStartRegenerationFailureException":
+            raise capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException.from_json(
                 data, message
             )
         case "SnapStartTimeoutException":
@@ -294,12 +304,6 @@ def build_request(
     if "qualifier" in input_:
         params.append(("Qualifier", input_["qualifier"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "invocation_type" in input_:
-        headers["X-Amz-Invocation-Type"] = (
-            capo_lambda.types.response_streaming_invocation_type.serialize_json(
-                input_["invocation_type"]
-            )
-        )
     if "log_type" in input_:
         headers["X-Amz-Log-Type"] = capo_lambda.types.log_type.serialize_json(
             input_["log_type"]
@@ -308,6 +312,12 @@ def build_request(
         headers["X-Amz-Client-Context"] = input_["client_context"]
     if "tenant_id" in input_:
         headers["X-Amz-Tenant-Id"] = input_["tenant_id"]
+    if "invocation_type" in input_:
+        headers["X-Amz-Invocation-Type"] = (
+            capo_lambda.types.response_streaming_invocation_type.serialize_json(
+                input_["invocation_type"]
+            )
+        )
     if "payload" in input_:
         body: bytes | None = input_["payload"]
         headers["content-type"] = "application/octet-stream"

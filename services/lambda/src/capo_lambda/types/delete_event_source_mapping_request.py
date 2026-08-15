@@ -5,11 +5,11 @@ from typing import TYPE_CHECKING
 from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
-    import capo_lambda.types.string
+    import capo_lambda.types.uuid_string
 
 
 class DeleteEventSourceMappingRequest(TypedDict, closed=True):
-    uuid: "capo_lambda.types.string.String"
+    uuid: "capo_lambda.types.uuid_string.UUIDString"
     """<p>The identifier of the event source mapping.</p>"""
 
 

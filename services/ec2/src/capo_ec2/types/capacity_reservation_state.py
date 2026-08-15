@@ -16,6 +16,7 @@ CapacityReservationState: TypeAlias = Literal[
     "assessing",
     "delayed",
     "unsupported",
+    "cancelling",
     "unavailable",
 ]
 

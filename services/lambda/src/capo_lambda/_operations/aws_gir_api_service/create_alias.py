@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda.errors.alias_limit_exceeded_exception
 import capo_lambda.errors.invalid_parameter_value_exception
 import capo_lambda.errors.resource_conflict_exception
 import capo_lambda.errors.resource_not_found_exception
@@ -29,6 +30,10 @@ def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
+        case "AliasLimitExceededException":
+            raise capo_lambda.errors.alias_limit_exceeded_exception.AliasLimitExceededException.from_json(
+                data, message
+            )
         case "InvalidParameterValueException":
             raise capo_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
                 data, message

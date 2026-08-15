@@ -7,9 +7,11 @@ from typing_extensions import NotRequired, TypedDict
 from capo_lambda.errors import DeserializationError
 
 if TYPE_CHECKING:
+    import capo_lambda.types.durable_config
     import capo_lambda.types.durable_execution_arn
     import capo_lambda.types.durable_execution_name
     import capo_lambda.types.error_object
+    import capo_lambda.types.execution_data_included
     import capo_lambda.types.execution_status
     import capo_lambda.types.execution_timestamp
     import capo_lambda.types.input_payload
@@ -48,6 +50,12 @@ class GetDurableExecutionResponse(TypedDict, closed=True):
     """<p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>"""
     trace_header: NotRequired["capo_lambda.types.trace_header.TraceHeader"]
     """<p>The trace headers associated with the durable execution.</p>"""
+    execution_data_included: NotRequired[
+        "capo_lambda.types.execution_data_included.ExecutionDataIncluded"
+    ]
+    """<p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>"""
+    durable_config: NotRequired["capo_lambda.types.durable_config.DurableConfig"]
+    """<p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>"""
 
 
 # --- restJson1 ser/de ---
@@ -85,6 +93,14 @@ def serialize_json(value: GetDurableExecutionResponse) -> dict:
 
         out["TraceHeader"] = capo_lambda.types.trace_header.serialize_json(
             value["trace_header"]
+        )
+    if "execution_data_included" in value:
+        out["ExecutionDataIncluded"] = value["execution_data_included"]
+    if "durable_config" in value:
+        import capo_lambda.types.durable_config
+
+        out["DurableConfig"] = capo_lambda.types.durable_config.serialize_json(
+            value["durable_config"]
         )
     return out
 
@@ -146,5 +162,13 @@ def deserialize_json(data: dict) -> GetDurableExecutionResponse:
 
         out["trace_header"] = capo_lambda.types.trace_header.deserialize_json(
             data["TraceHeader"]
+        )
+    if "ExecutionDataIncluded" in data:
+        out["execution_data_included"] = data["ExecutionDataIncluded"]
+    if "DurableConfig" in data:
+        import capo_lambda.types.durable_config
+
+        out["durable_config"] = capo_lambda.types.durable_config.deserialize_json(
+            data["DurableConfig"]
         )
     return out

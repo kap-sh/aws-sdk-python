@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.log_destination_type
     import capo_ec2.types.millisecond_date_time
     import capo_ec2.types.string
+    import capo_ec2.types.tag_field_specification_list_response
     import capo_ec2.types.tag_list
     import capo_ec2.types.traffic_type
 
@@ -55,6 +56,10 @@ class FlowLog(TypedDict, closed=True):
         "capo_ec2.types.destination_options_response.DestinationOptionsResponse"
     ]
     """<p>The destination options.</p>"""
+    tag_field_specifications: NotRequired[
+        "capo_ec2.types.tag_field_specification_list_response.TagFieldSpecificationListResponse"
+    ]
+    """<p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -136,6 +141,14 @@ def serialize_ec2_query(
         capo_ec2.types.destination_options_response.serialize_ec2_query(
             value["destination_options"], pairs, f"{key_prefix}DestinationOptions"
         )
+    if "tag_field_specifications" in value:
+        import capo_ec2.types.tag_field_specification_list_response
+
+        capo_ec2.types.tag_field_specification_list_response.serialize_ec2_query(
+            value["tag_field_specifications"],
+            pairs,
+            f"{key_prefix}TagFieldSpecificationSet",
+        )
 
 
 def deserialize_ec2_query(el: Element) -> FlowLog:
@@ -216,6 +229,15 @@ def deserialize_ec2_query(el: Element) -> FlowLog:
         out["destination_options"] = (
             capo_ec2.types.destination_options_response.deserialize_ec2_query(
                 child_destination_options
+            )
+        )
+    child_tag_field_specifications = el.find("tagFieldSpecificationSet")
+    if child_tag_field_specifications is not None:
+        import capo_ec2.types.tag_field_specification_list_response
+
+        out["tag_field_specifications"] = (
+            capo_ec2.types.tag_field_specification_list_response.deserialize_ec2_query(
+                child_tag_field_specifications
             )
         )
     return out

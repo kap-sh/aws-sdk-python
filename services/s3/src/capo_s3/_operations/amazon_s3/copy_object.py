@@ -12,6 +12,7 @@ import capo_s3._auth._signers
 import capo_s3._auth._sigv4
 import capo_s3._protocol.eventstream
 import capo_s3.errors.object_not_in_active_tier_error
+import capo_s3.types.annotation_directive
 import capo_s3.types.checksum_algorithm
 import capo_s3.types.copy_object_output
 import capo_s3.types.copy_object_request
@@ -191,6 +192,7 @@ def build_request(
         )
     )  # noqa: F841
     import capo_s3._protocol.serialize
+    import capo_s3.types.annotation_directive
     import capo_s3.types.checksum_algorithm
     import capo_s3.types.metadata_directive
     import capo_s3.types.object_canned_acl
@@ -263,6 +265,12 @@ def build_request(
     if "tagging_directive" in input_:
         headers["x-amz-tagging-directive"] = (
             capo_s3.types.tagging_directive.to_xml_text(input_["tagging_directive"])
+        )
+    if "annotation_directive" in input_:
+        headers["x-amz-object-annotation-directive"] = (
+            capo_s3.types.annotation_directive.to_xml_text(
+                input_["annotation_directive"]
+            )
         )
     if "server_side_encryption" in input_:
         headers["x-amz-server-side-encryption"] = (

@@ -11,6 +11,9 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda.errors.code_artifact_user_deleted_exception
+import capo_lambda.errors.code_artifact_user_failed_exception
+import capo_lambda.errors.code_artifact_user_pending_exception
 import capo_lambda.errors.durable_execution_already_started_exception
 import capo_lambda.errors.ec2_access_denied_exception
 import capo_lambda.errors.ec2_throttled_exception
@@ -20,6 +23,7 @@ import capo_lambda.errors.efs_mount_failure_exception
 import capo_lambda.errors.efs_mount_timeout_exception
 import capo_lambda.errors.efsio_exception
 import capo_lambda.errors.eni_limit_reached_exception
+import capo_lambda.errors.eni_not_ready_exception
 import capo_lambda.errors.invalid_parameter_value_exception
 import capo_lambda.errors.invalid_request_content_exception
 import capo_lambda.errors.invalid_runtime_exception
@@ -30,6 +34,7 @@ import capo_lambda.errors.kms_access_denied_exception
 import capo_lambda.errors.kms_disabled_exception
 import capo_lambda.errors.kms_invalid_state_exception
 import capo_lambda.errors.kms_not_found_exception
+import capo_lambda.errors.mode_not_supported_exception
 import capo_lambda.errors.no_published_version_exception
 import capo_lambda.errors.recursive_invocation_exception
 import capo_lambda.errors.request_too_large_exception
@@ -41,8 +46,10 @@ import capo_lambda.errors.s3_files_mount_failure_exception
 import capo_lambda.errors.s3_files_mount_timeout_exception
 import capo_lambda.errors.serialized_request_entity_too_large_exception
 import capo_lambda.errors.service_exception
+import capo_lambda.errors.service_quota_exceeded_exception
 import capo_lambda.errors.snap_start_exception
 import capo_lambda.errors.snap_start_not_ready_exception
+import capo_lambda.errors.snap_start_regeneration_failure_exception
 import capo_lambda.errors.snap_start_timeout_exception
 import capo_lambda.errors.subnet_ip_address_limit_reached_exception
 import capo_lambda.errors.too_many_requests_exception
@@ -62,6 +69,18 @@ def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
+        case "CodeArtifactUserDeletedException":
+            raise capo_lambda.errors.code_artifact_user_deleted_exception.CodeArtifactUserDeletedException.from_json(
+                data, message
+            )
+        case "CodeArtifactUserFailedException":
+            raise capo_lambda.errors.code_artifact_user_failed_exception.CodeArtifactUserFailedException.from_json(
+                data, message
+            )
+        case "CodeArtifactUserPendingException":
+            raise capo_lambda.errors.code_artifact_user_pending_exception.CodeArtifactUserPendingException.from_json(
+                data, message
+            )
         case "DurableExecutionAlreadyStartedException":
             raise capo_lambda.errors.durable_execution_already_started_exception.DurableExecutionAlreadyStartedException.from_json(
                 data, message
@@ -96,6 +115,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "ENILimitReachedException":
             raise capo_lambda.errors.eni_limit_reached_exception.ENILimitReachedException.from_json(
+                data, message
+            )
+        case "ENINotReadyException":
+            raise capo_lambda.errors.eni_not_ready_exception.ENINotReadyException.from_json(
                 data, message
             )
         case "InvalidParameterValueException":
@@ -136,6 +159,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "KMSNotFoundException":
             raise capo_lambda.errors.kms_not_found_exception.KMSNotFoundException.from_json(
+                data, message
+            )
+        case "ModeNotSupportedException":
+            raise capo_lambda.errors.mode_not_supported_exception.ModeNotSupportedException.from_json(
                 data, message
             )
         case "NoPublishedVersionException":
@@ -182,12 +209,20 @@ def handle_error(response: zapros.Response) -> Never:
             raise capo_lambda.errors.service_exception.ServiceException.from_json(
                 data, message
             )
+        case "ServiceQuotaExceededException":
+            raise capo_lambda.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
+                data, message
+            )
         case "SnapStartException":
             raise capo_lambda.errors.snap_start_exception.SnapStartException.from_json(
                 data, message
             )
         case "SnapStartNotReadyException":
             raise capo_lambda.errors.snap_start_not_ready_exception.SnapStartNotReadyException.from_json(
+                data, message
+            )
+        case "SnapStartRegenerationFailureException":
+            raise capo_lambda.errors.snap_start_regeneration_failure_exception.SnapStartRegenerationFailureException.from_json(
                 data, message
             )
         case "SnapStartTimeoutException":

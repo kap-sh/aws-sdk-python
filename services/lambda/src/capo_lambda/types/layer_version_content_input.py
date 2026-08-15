@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     import capo_lambda.types.blob
     import capo_lambda.types.s3_bucket
     import capo_lambda.types.s3_key
+    import capo_lambda.types.s3_object_storage_mode
     import capo_lambda.types.s3_object_version
 
 
@@ -20,6 +21,10 @@ class LayerVersionContentInput(TypedDict, closed=True):
         "capo_lambda.types.s3_object_version.S3ObjectVersion"
     ]
     """<p>For versioned objects, the version of the layer archive object to use.</p>"""
+    s3_object_storage_mode: NotRequired[
+        "capo_lambda.types.s3_object_storage_mode.S3ObjectStorageMode"
+    ]
+    """<p>Specifies how the layer archive is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p> </li> </ul>"""
     zip_file: NotRequired["capo_lambda.types.blob.Blob"]
     """<p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>"""
 
@@ -33,6 +38,14 @@ def serialize_json(value: LayerVersionContentInput) -> dict:
         out["S3Key"] = value["s3_key"]
     if "s3_object_version" in value:
         out["S3ObjectVersion"] = value["s3_object_version"]
+    if "s3_object_storage_mode" in value:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["S3ObjectStorageMode"] = (
+            capo_lambda.types.s3_object_storage_mode.serialize_json(
+                value["s3_object_storage_mode"]
+            )
+        )
     if "zip_file" in value:
         import capo_lambda.types.blob
 
@@ -48,6 +61,14 @@ def deserialize_json(data: dict) -> LayerVersionContentInput:
         out["s3_key"] = data["S3Key"]
     if "S3ObjectVersion" in data:
         out["s3_object_version"] = data["S3ObjectVersion"]
+    if "S3ObjectStorageMode" in data:
+        import capo_lambda.types.s3_object_storage_mode
+
+        out["s3_object_storage_mode"] = (
+            capo_lambda.types.s3_object_storage_mode.deserialize_json(
+                data["S3ObjectStorageMode"]
+            )
+        )
     if "ZipFile" in data:
         import capo_lambda.types.blob
 

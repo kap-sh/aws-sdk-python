@@ -16,6 +16,8 @@ import capo_ecs.errors.invalid_parameter_exception
 import capo_ecs.errors.limit_exceeded_exception
 import capo_ecs.errors.server_exception
 import capo_ecs.types.daemon_container_definition_list
+import capo_ecs.types.daemon_ipc_mode
+import capo_ecs.types.daemon_pid_mode
 import capo_ecs.types.daemon_volume_list
 import capo_ecs.types.register_daemon_task_definition_request
 import capo_ecs.types.register_daemon_task_definition_response

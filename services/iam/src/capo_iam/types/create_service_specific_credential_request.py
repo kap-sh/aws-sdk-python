@@ -21,7 +21,7 @@ class CreateServiceSpecificCredentialRequest(TypedDict, closed=True):
     credential_age_days: NotRequired[
         "capo_iam.types.credential_age_days.credentialAgeDays"
     ]
-    """<p>The number of days until the service specific credential expires. This field is only valid for Bedrock and CloudWatch Logs API keys and must be a positive integer. When not specified, the credential will not expire.</p>"""
+    r"""<p>The number of days until the service specific credential expires. This field is only valid for services that support long-term API keys and must be a positive integer. When not specified, the credential will not expire.</p> <p>To see which services support long-term API keys, refer to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html\">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p>"""
 
 
 # --- awsQuery ser/de ---

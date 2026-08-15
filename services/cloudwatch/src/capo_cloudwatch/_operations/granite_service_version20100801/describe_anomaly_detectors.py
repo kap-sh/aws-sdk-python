@@ -15,6 +15,7 @@ import capo_cloudwatch.errors.internal_service_fault
 import capo_cloudwatch.errors.invalid_next_token
 import capo_cloudwatch.errors.invalid_parameter_combination_exception
 import capo_cloudwatch.errors.invalid_parameter_value_exception
+import capo_cloudwatch.types.anomaly_detector_ids
 import capo_cloudwatch.types.anomaly_detector_types
 import capo_cloudwatch.types.anomaly_detectors
 import capo_cloudwatch.types.describe_anomaly_detectors_input

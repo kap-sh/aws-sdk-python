@@ -11,6 +11,7 @@ AllocationState: TypeAlias = Literal[
     "released",
     "released-permanent-failure",
     "pending",
+    "configuring",
 ]
 
 

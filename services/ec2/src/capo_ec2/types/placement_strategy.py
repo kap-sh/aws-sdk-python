@@ -8,6 +8,7 @@ PlacementStrategy: TypeAlias = Literal[
     "cluster",
     "spread",
     "partition",
+    "precision-time",
 ]
 
 

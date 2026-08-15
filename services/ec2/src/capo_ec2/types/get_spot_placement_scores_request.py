@@ -44,6 +44,8 @@ class GetSpotPlacementScoresRequest(TypedDict, closed=True):
     r"""<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">Pagination</a>.</p>"""
     next_token: NotRequired["capo_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
+    include_local_zones: NotRequired["capo_ec2.types.boolean.Boolean"]
+    """<p>Specify <code>true</code> so that the response returns scores that include Local Zones. Otherwise, the response ignores Local Zones.</p> <p>When you request regional scores, Local Zone capacity counts toward its parent Region.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -94,6 +96,13 @@ def serialize_ec2_query(
         pairs.append((f"{key_prefix}MaxResults", str(value["max_results"])))
     if "next_token" in value:
         pairs.append((f"{key_prefix}NextToken", str(value["next_token"])))
+    if "include_local_zones" in value:
+        pairs.append(
+            (
+                f"{key_prefix}IncludeLocalZones",
+                "true" if value["include_local_zones"] else "false",
+            )
+        )
 
 
 def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
@@ -149,4 +158,9 @@ def deserialize_ec2_query(el: Element) -> GetSpotPlacementScoresRequest:
     child_next_token = el.find("NextToken")
     if child_next_token is not None:
         out["next_token"] = str(child_next_token.text or "")
+    child_include_local_zones = el.find("IncludeLocalZones")
+    if child_include_local_zones is not None:
+        out["include_local_zones"] = (
+            child_include_local_zones.text or ""
+        ).lower() == "true"
     return out

@@ -53,6 +53,7 @@ class VolumeModification(TypedDict, closed=True):
     end_time: NotRequired["capo_ec2.types.date_time.DateTime"]
     """<p>The modification completion or failure time.</p>"""
     operator: NotRequired["capo_ec2.types.operator_response.OperatorResponse"]
+    """<p>The service provider that manages the resource.</p>"""
 
 
 # --- ec2Query ser/de ---

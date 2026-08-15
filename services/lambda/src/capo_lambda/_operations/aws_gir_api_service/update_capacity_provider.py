@@ -18,6 +18,8 @@ import capo_lambda.errors.service_exception
 import capo_lambda.errors.too_many_requests_exception
 import capo_lambda.types.capacity_provider
 import capo_lambda.types.capacity_provider_scaling_config
+import capo_lambda.types.capacity_provider_telemetry_config
+import capo_lambda.types.propagate_tags
 import capo_lambda.types.update_capacity_provider_request
 import capo_lambda.types.update_capacity_provider_response
 from capo_lambda._protocol.errors import parse_error_metadata_json

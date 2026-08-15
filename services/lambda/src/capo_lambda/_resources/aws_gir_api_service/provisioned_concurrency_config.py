@@ -60,7 +60,7 @@ class ProvisionedConcurrencyConfig:
             To allocate provisioned concurrency
             The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
 
-            >>> client.put(function_name='my-function', qualifier='BLUE', provisioned_concurrent_executions=100)
+            >>> client.put(function_name='my-function', provisioned_concurrent_executions=100, qualifier='BLUE')
         """
 
         def _handler(
@@ -232,7 +232,7 @@ class AsyncProvisionedConcurrencyConfig:
             To allocate provisioned concurrency
             The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
 
-            >>> await client.put(function_name='my-function', qualifier='BLUE', provisioned_concurrent_executions=100)
+            >>> await client.put(function_name='my-function', provisioned_concurrent_executions=100, qualifier='BLUE')
         """
 
         async def _handler(

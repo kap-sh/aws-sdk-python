@@ -18,6 +18,7 @@ if TYPE_CHECKING:
     import capo_iam.types.role_last_used
     import capo_iam.types.role_max_session_duration_type
     import capo_iam.types.role_name_type
+    import capo_iam.types.source_role_template
     import capo_iam.types.tag_list_type
 
 
@@ -50,6 +51,10 @@ class Role(TypedDict, closed=True):
     r"""<p>A list of tags that are attached to the role. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>"""
     role_last_used: NotRequired["capo_iam.types.role_last_used.RoleLastUsed"]
     r"""<p>Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period\">Regions where data is tracked</a> in the <i>IAM user Guide</i>.</p>"""
+    source_role_template: NotRequired[
+        "capo_iam.types.source_role_template.SourceRoleTemplate"
+    ]
+    r"""<p>Contains information about the role template that this role was created from. This member is present only for roles created with <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html\">AcquireRole</a>.</p>"""
 
 
 # --- awsQuery ser/de ---
@@ -94,6 +99,12 @@ def serialize_query(value: Role, pairs: list[tuple[str, str]], prefix: str) -> N
 
         capo_iam.types.role_last_used.serialize_query(
             value["role_last_used"], pairs, f"{key_prefix}RoleLastUsed"
+        )
+    if "source_role_template" in value:
+        import capo_iam.types.source_role_template
+
+        capo_iam.types.source_role_template.serialize_query(
+            value["source_role_template"], pairs, f"{key_prefix}SourceRoleTemplate"
         )
 
 
@@ -159,5 +170,14 @@ def deserialize_query(el: Element) -> Role:
 
         out["role_last_used"] = capo_iam.types.role_last_used.deserialize_query(
             child_role_last_used
+        )
+    child_source_role_template = el.find("SourceRoleTemplate")
+    if child_source_role_template is not None:
+        import capo_iam.types.source_role_template
+
+        out["source_role_template"] = (
+            capo_iam.types.source_role_template.deserialize_query(
+                child_source_role_template
+            )
         )
     return out

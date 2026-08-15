@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.auto_placement
     import capo_ec2.types.availability_zone_id
     import capo_ec2.types.availability_zone_name
+    import capo_ec2.types.host_cpu_options_request
     import capo_ec2.types.host_maintenance
     import capo_ec2.types.host_recovery
     import capo_ec2.types.integer
@@ -37,6 +38,10 @@ class AllocateHostsRequest(TypedDict, closed=True):
         "capo_ec2.types.availability_zone_id.AvailabilityZoneId"
     ]
     """<p>The ID of the Availability Zone.</p>"""
+    cpu_options: NotRequired[
+        "capo_ec2.types.host_cpu_options_request.HostCpuOptionsRequest"
+    ]
+    """<p>The CPU configuration options to apply to the Dedicated Host.</p>"""
     auto_placement: NotRequired["capo_ec2.types.auto_placement.AutoPlacement"]
     r"""<p>Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding\"> Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Default: <code>off</code> </p>"""
     client_token: NotRequired["capo_ec2.types.string.String"]
@@ -87,6 +92,12 @@ def serialize_ec2_query(
     if "availability_zone_id" in value:
         pairs.append(
             (f"{key_prefix}AvailabilityZoneId", str(value["availability_zone_id"]))
+        )
+    if "cpu_options" in value:
+        import capo_ec2.types.host_cpu_options_request
+
+        capo_ec2.types.host_cpu_options_request.serialize_ec2_query(
+            value["cpu_options"], pairs, f"{key_prefix}CpuOptions"
         )
     if "auto_placement" in value:
         import capo_ec2.types.auto_placement
@@ -145,6 +156,15 @@ def deserialize_ec2_query(el: Element) -> AllocateHostsRequest:
     child_availability_zone_id = el.find("AvailabilityZoneId")
     if child_availability_zone_id is not None:
         out["availability_zone_id"] = str(child_availability_zone_id.text or "")
+    child_cpu_options = el.find("CpuOptions")
+    if child_cpu_options is not None:
+        import capo_ec2.types.host_cpu_options_request
+
+        out["cpu_options"] = (
+            capo_ec2.types.host_cpu_options_request.deserialize_ec2_query(
+                child_cpu_options
+            )
+        )
     child_auto_placement = el.find("autoPlacement")
     if child_auto_placement is not None:
         import capo_ec2.types.auto_placement

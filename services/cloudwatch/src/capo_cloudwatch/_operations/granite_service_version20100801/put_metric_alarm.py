@@ -15,6 +15,7 @@ import capo_cloudwatch.errors.limit_exceeded_fault
 import capo_cloudwatch.types.comparison_operator
 import capo_cloudwatch.types.dimensions
 import capo_cloudwatch.types.evaluation_criteria
+import capo_cloudwatch.types.evaluation_window
 import capo_cloudwatch.types.metric_data_queries
 import capo_cloudwatch.types.put_metric_alarm_input
 import capo_cloudwatch.types.resource_list

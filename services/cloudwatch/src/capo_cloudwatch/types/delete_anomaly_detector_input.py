@@ -7,6 +7,7 @@ from typing_extensions import NotRequired, TypedDict
 from capo_cloudwatch._protocol.xml import Element
 
 if TYPE_CHECKING:
+    import capo_cloudwatch.types.anomaly_detector_id
     import capo_cloudwatch.types.anomaly_detector_metric_stat
     import capo_cloudwatch.types.dimensions
     import capo_cloudwatch.types.metric_math_anomaly_detector
@@ -16,6 +17,10 @@ if TYPE_CHECKING:
 
 
 class DeleteAnomalyDetectorInput(TypedDict, closed=True):
+    anomaly_detector_id: NotRequired[
+        "capo_cloudwatch.types.anomaly_detector_id.AnomalyDetectorId"
+    ]
+    """<p>Specifies the unique identifier of the anomaly detector to delete. If you specify this parameter, you do not need to specify a metric to identify the detector.</p>"""
     namespace: NotRequired["capo_cloudwatch.types.namespace.Namespace"]
     """<p>The namespace associated with the anomaly detection model to delete.</p>"""
     metric_name: NotRequired["capo_cloudwatch.types.metric_name.MetricName"]
@@ -39,6 +44,8 @@ class DeleteAnomalyDetectorInput(TypedDict, closed=True):
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: DeleteAnomalyDetectorInput) -> dict:
     out: dict = {}
+    if "anomaly_detector_id" in value:
+        out["AnomalyDetectorId"] = value["anomaly_detector_id"]
     if "namespace" in value:
         out["Namespace"] = value["namespace"]
     if "metric_name" in value:
@@ -72,6 +79,8 @@ def serialize_aws_json_1_0(value: DeleteAnomalyDetectorInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteAnomalyDetectorInput:
     out: DeleteAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
+    if "AnomalyDetectorId" in data:
+        out["anomaly_detector_id"] = data["AnomalyDetectorId"]
     if "Namespace" in data:
         out["namespace"] = data["Namespace"]
     if "MetricName" in data:
@@ -108,6 +117,10 @@ def serialize_query(
     value: DeleteAnomalyDetectorInput, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
     key_prefix = f"{prefix}." if prefix else ""
+    if "anomaly_detector_id" in value:
+        pairs.append(
+            (f"{key_prefix}AnomalyDetectorId", str(value["anomaly_detector_id"]))
+        )
     if "namespace" in value:
         pairs.append((f"{key_prefix}Namespace", str(value["namespace"])))
     if "metric_name" in value:
@@ -140,6 +153,9 @@ def serialize_query(
 
 def deserialize_query(el: Element) -> DeleteAnomalyDetectorInput:
     out: DeleteAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
+    child_anomaly_detector_id = el.find("AnomalyDetectorId")
+    if child_anomaly_detector_id is not None:
+        out["anomaly_detector_id"] = str(child_anomaly_detector_id.text or "")
     child_namespace = el.find("Namespace")
     if child_namespace is not None:
         out["namespace"] = str(child_namespace.text or "")

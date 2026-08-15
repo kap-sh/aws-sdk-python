@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     import capo_ec2.types.available_capacity
     import capo_ec2.types.boolean
     import capo_ec2.types.date_time
+    import capo_ec2.types.host_cpu_options
     import capo_ec2.types.host_instance_list
     import capo_ec2.types.host_maintenance
     import capo_ec2.types.host_properties
@@ -69,6 +70,8 @@ class Host(TypedDict, closed=True):
     """<p>Indicates whether host maintenance is enabled or disabled for the Dedicated Host.</p>"""
     asset_id: NotRequired["capo_ec2.types.asset_id.AssetId"]
     """<p>The ID of the Outpost hardware asset on which the Dedicated Host is allocated.</p>"""
+    cpu_options: NotRequired["capo_ec2.types.host_cpu_options.HostCpuOptions"]
+    """<p>The CPU options for the Dedicated Host, including AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) settings.</p>"""
 
 
 # --- ec2Query ser/de ---
@@ -169,6 +172,12 @@ def serialize_ec2_query(value: Host, pairs: list[tuple[str, str]], prefix: str) 
         )
     if "asset_id" in value:
         pairs.append((f"{key_prefix}AssetId", str(value["asset_id"])))
+    if "cpu_options" in value:
+        import capo_ec2.types.host_cpu_options
+
+        capo_ec2.types.host_cpu_options.serialize_ec2_query(
+            value["cpu_options"], pairs, f"{key_prefix}CpuOptions"
+        )
 
 
 def deserialize_ec2_query(el: Element) -> Host:
@@ -283,4 +292,11 @@ def deserialize_ec2_query(el: Element) -> Host:
     child_asset_id = el.find("assetId")
     if child_asset_id is not None:
         out["asset_id"] = str(child_asset_id.text or "")
+    child_cpu_options = el.find("cpuOptions")
+    if child_cpu_options is not None:
+        import capo_ec2.types.host_cpu_options
+
+        out["cpu_options"] = capo_ec2.types.host_cpu_options.deserialize_ec2_query(
+            child_cpu_options
+        )
     return out

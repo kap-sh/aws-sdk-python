@@ -6,6 +6,7 @@ InstanceHealthCheckType: TypeAlias = Literal[
     "CONTAINER_RUNTIME",
     "ACCELERATED_COMPUTE",
     "DAEMON",
+    "AGENT_CONNECTIVITY",
 ]
 
 

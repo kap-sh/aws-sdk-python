@@ -49,6 +49,10 @@ class ServiceRevisionResource:
             This example describes a service revision with the specified ARN
 
             >>> client.describe_service_revisions(service_revision_arns=['arn:aws:ecs:us-west-2:123456789012:service-revision/testc/sd1/4980306466373577095'])
+            To describe a service revision with a monitoring configuration
+            This example describes a service revision that has a monitoring configuration with 20-second resolution for CPUUtilization and MemoryUtilization CloudWatch metrics.
+
+            >>> client.describe_service_revisions(service_revision_arns=['arn:aws:ecs:us-east-1:012345678910:service-revision/default/ecs-monitored-service/8675309012345678901'])
         """
 
         def _handler(
@@ -107,6 +111,10 @@ class AsyncServiceRevisionResource:
             This example describes a service revision with the specified ARN
 
             >>> await client.describe_service_revisions(service_revision_arns=['arn:aws:ecs:us-west-2:123456789012:service-revision/testc/sd1/4980306466373577095'])
+            To describe a service revision with a monitoring configuration
+            This example describes a service revision that has a monitoring configuration with 20-second resolution for CPUUtilization and MemoryUtilization CloudWatch metrics.
+
+            >>> await client.describe_service_revisions(service_revision_arns=['arn:aws:ecs:us-east-1:012345678910:service-revision/default/ecs-monitored-service/8675309012345678901'])
         """
 
         async def _handler(

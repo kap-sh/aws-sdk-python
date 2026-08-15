@@ -14,6 +14,7 @@ import capo_rds.errors.db_cluster_already_exists_fault
 import capo_rds.errors.db_cluster_not_found_fault
 import capo_rds.errors.db_cluster_parameter_group_not_found_fault
 import capo_rds.errors.db_cluster_quota_exceeded_fault
+import capo_rds.errors.db_cluster_role_quota_exceeded_fault
 import capo_rds.errors.db_instance_not_found_fault
 import capo_rds.errors.db_subnet_group_does_not_cover_enough_a_zs
 import capo_rds.errors.db_subnet_group_not_found_fault
@@ -40,6 +41,7 @@ import capo_rds.types.create_db_cluster_message
 import capo_rds.types.create_db_cluster_result
 import capo_rds.types.database_insights_mode
 import capo_rds.types.db_cluster
+import capo_rds.types.db_cluster_associated_roles
 import capo_rds.types.log_type_list
 import capo_rds.types.master_user_authentication_type
 import capo_rds.types.rds_custom_cluster_configuration
@@ -74,6 +76,10 @@ def handle_error(response: zapros.Response) -> Never:
             )
         case "DBClusterQuotaExceededFault":
             raise capo_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
+                error_el, message
+            )
+        case "DBClusterRoleQuotaExceeded":
+            raise capo_rds.errors.db_cluster_role_quota_exceeded_fault.DBClusterRoleQuotaExceededFault.from_query(
                 error_el, message
             )
         case "DBInstanceNotFound":

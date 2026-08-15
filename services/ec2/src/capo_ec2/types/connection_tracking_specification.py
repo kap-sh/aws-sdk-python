@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class ConnectionTrackingSpecification(TypedDict, closed=True):
     tcp_established_timeout: NotRequired["capo_ec2.types.integer.Integer"]
-    """<p>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>"""
+    """<p>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.</p>"""
     udp_timeout: NotRequired["capo_ec2.types.integer.Integer"]
     """<p>Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>"""
     udp_stream_timeout: NotRequired["capo_ec2.types.integer.Integer"]

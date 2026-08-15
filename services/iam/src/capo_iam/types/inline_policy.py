@@ -1,0 +1,43 @@
+"""Generated from Smithy shape ``com.amazonaws.iam#InlinePolicy``."""
+
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
+
+from capo_iam._protocol.xml import Element
+from capo_iam.errors import DeserializationError
+
+if TYPE_CHECKING:
+    import capo_iam.types.policy_document_type
+    import capo_iam.types.policy_name_type
+
+
+class InlinePolicy(TypedDict, closed=True):
+    policy_name: "capo_iam.types.policy_name_type.policyNameType"
+    """<p>The name of the inline policy.</p>"""
+    policy_document: "capo_iam.types.policy_document_type.policyDocumentType"
+    """<p>The inline policy document.</p>"""
+
+
+# --- awsQuery ser/de ---
+def serialize_query(
+    value: InlinePolicy, pairs: list[tuple[str, str]], prefix: str
+) -> None:
+    key_prefix = f"{prefix}." if prefix else ""
+    pairs.append((f"{key_prefix}PolicyName", str(value["policy_name"])))
+    pairs.append((f"{key_prefix}PolicyDocument", str(value["policy_document"])))
+
+
+def deserialize_query(el: Element) -> InlinePolicy:
+    out: InlinePolicy = {}  # type: ignore[typeddict-item]
+    child_policy_name = el.find("PolicyName")
+    if child_policy_name is not None:
+        out["policy_name"] = str(child_policy_name.text or "")
+    else:
+        raise DeserializationError("InlinePolicy.policy_name required")
+    child_policy_document = el.find("PolicyDocument")
+    if child_policy_document is not None:
+        out["policy_document"] = str(child_policy_document.text or "")
+    else:
+        raise DeserializationError("InlinePolicy.policy_document required")
+    return out

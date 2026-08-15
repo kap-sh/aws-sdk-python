@@ -40,7 +40,7 @@ class DBEngineVersion(TypedDict, closed=True):
     database_installation_files_s3_prefix: NotRequired["capo_rds.types.string.String"]
     """<p>The Amazon S3 directory that contains the database installation files. If not specified, then no prefix is assumed.</p>"""
     database_installation_files: NotRequired["capo_rds.types.string_list.StringList"]
-    """<p>The database installation files (ISO and EXE) uploaded to Amazon S3 for your database engine version to import to Amazon RDS. Required for <code>sqlserver-dev-ee</code>.</p>"""
+    """<p>The database installation files (ISO and EXE) that were uploaded to Amazon S3 and used to import the database engine version to Amazon RDS. Returned for RDS for SQL Server engine versions (<code>sqlserver-ee</code>, <code>sqlserver-se</code>, and <code>sqlserver-dev-ee</code>) created from customer-supplied installation media.</p>"""
     custom_db_engine_version_manifest: NotRequired[
         "capo_rds.types.custom_db_engine_version_manifest.CustomDBEngineVersionManifest"
     ]
@@ -56,13 +56,13 @@ class DBEngineVersion(TypedDict, closed=True):
     default_character_set: NotRequired["capo_rds.types.character_set.CharacterSet"]
     """<p>The default character set for new instances of this engine version, if the <code>CharacterSetName</code> parameter of the CreateDBInstance API isn't specified.</p>"""
     failure_reason: NotRequired["capo_rds.types.string.String"]
-    """<p>The reason that the custom engine version creation for <code>sqlserver-dev-ee</code> failed with an <code>incompatible-installation-media</code> status.</p>"""
+    """<p>The reason that the custom engine version creation failed with an <code>incompatible-installation-media</code> status. Applicable to RDS for SQL Server engine versions (<code>sqlserver-ee</code>, <code>sqlserver-se</code>, and <code>sqlserver-dev-ee</code>).</p>"""
     image: NotRequired[
         "capo_rds.types.custom_db_engine_version_ami.CustomDBEngineVersionAMI"
     ]
     """<p>The EC2 image</p>"""
     db_engine_media_type: NotRequired["capo_rds.types.string.String"]
-    """<p>A value that indicates the source media provider of the AMI based on the usage operation. Applicable for RDS Custom for SQL Server.</p>"""
+    """<p>The source of the installation media for this engine version. A value of <code>Customer Provided</code> indicates that the engine version was created from customer-supplied installation media using <code>CreateCustomDBEngineVersion</code>. Applicable to RDS Custom for SQL Server and to RDS for SQL Server engine versions (<code>sqlserver-ee</code> and <code>sqlserver-se</code> with the <code>bring-your-own-media</code> license model, and <code>sqlserver-dev-ee</code>).</p>"""
     kms_key_id: NotRequired["capo_rds.types.string.String"]
     """<p>The Amazon Web Services KMS key identifier for an encrypted CEV. This parameter is required for RDS Custom, but optional for Amazon RDS.</p>"""
     create_time: NotRequired["capo_rds.types.t_stamp.TStamp"]

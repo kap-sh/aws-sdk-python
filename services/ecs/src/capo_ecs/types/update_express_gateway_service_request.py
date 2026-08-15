@@ -38,6 +38,8 @@ class UpdateExpressGatewayServiceRequest(TypedDict, closed=True):
         "capo_ecs.types.express_gateway_scaling_target.ExpressGatewayScalingTarget"
     ]
     """<p>The auto-scaling configuration for the Express service.</p>"""
+    task_definition_arn: NotRequired["capo_ecs.types.string.String"]
+    """<p>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway service. This allows you to manage your own task definition, giving you more control over the service configuration such as adding sidecar containers.</p> <p>The task definition must have a container named <code>Main</code> with a single TCP port mapping that includes a container port and port name. The task definition must also have <code>FARGATE</code> compatibility.</p> <p>If you provide a task definition ARN, you cannot also specify <code>primaryContainer</code>, <code>executionRoleArn</code>, <code>taskRoleArn</code>, <code>cpu</code>, or <code>memory</code>.</p>"""
 
 
 # --- awsJson1_1 ser/de ---
@@ -78,6 +80,8 @@ def serialize_aws_json_1_1(value: UpdateExpressGatewayServiceRequest) -> dict:
                 value["scaling_target"]
             )
         )
+    if "task_definition_arn" in value:
+        out["taskDefinitionArn"] = value["task_definition_arn"]
     return out
 
 
@@ -123,4 +127,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateExpressGatewayServiceRequest:
                 data["scalingTarget"]
             )
         )
+    if "taskDefinitionArn" in data:
+        out["task_definition_arn"] = data["taskDefinitionArn"]
     return out
