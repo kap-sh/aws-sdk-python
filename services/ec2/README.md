@@ -13,9 +13,9 @@ from capo_ec2 import AsyncEC2Client
 
 
 async def main():
-    async with AsyncEC2Client() as s3:
+    async with AsyncEC2Client() as ec2:
         # Example: call the accept_address_transfer operation
-        response = await s3.accept_address_transfer()
+        response = await ec2.accept_address_transfer()
         print(response["address_transfer"])
 ```
 
@@ -28,9 +28,9 @@ from capo_ec2 import AsyncEC2Client
 
 
 async def main():
-    async with AsyncEC2Client() as s3:
+    async with AsyncEC2Client() as ec2:
         # Example: paginate over describe_addresses_attribute
-        async for item in s3.iter_describe_addresses_attribute():
+        async for item in ec2.iter_describe_addresses_attribute():
             print(item)
 ```
 
@@ -43,9 +43,9 @@ from capo_ec2 import AsyncEC2Client
 
 
 async def main():
-    async with AsyncEC2Client() as s3:
+    async with AsyncEC2Client() as ec2:
         # Example: wait for vpc_peering_connection_exists
-        await s3.wait_until_vpc_peering_connection_exists(max_wait_time=300)
+        await ec2.wait_until_vpc_peering_connection_exists(max_wait_time=300)
 ```
 
 ## Retrying
@@ -59,13 +59,13 @@ from capo_ec2 import AsyncEC2Client
 
 
 async def main():
-    async with AsyncEC2Client() as s3:
+    async with AsyncEC2Client() as ec2:
         # Default: 3 attempts for every operation
-        response = await s3.accept_address_transfer()
+        response = await ec2.accept_address_transfer()
 
         # Override per operation
-        response = await s3.accept_address_transfer(config_overrides={"retry_max_attempts": 5})
+        response = await ec2.accept_address_transfer(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.accept_address_transfer(config_overrides={"retry_max_attempts": 1})
+        response = await ec2.accept_address_transfer(config_overrides={"retry_max_attempts": 1})
 ```

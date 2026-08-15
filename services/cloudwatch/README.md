@@ -13,9 +13,9 @@ from capo_cloudwatch import AsyncCloudWatchClient
 
 
 async def main():
-    async with AsyncCloudWatchClient() as s3:
+    async with AsyncCloudWatchClient() as cloud_watch:
         # Example: call the associate_dataset_kms_key operation
-        response = await s3.associate_dataset_kms_key()
+        response = await cloud_watch.associate_dataset_kms_key()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_cloudwatch import AsyncCloudWatchClient
 
 
 async def main():
-    async with AsyncCloudWatchClient() as s3:
+    async with AsyncCloudWatchClient() as cloud_watch:
         # Example: paginate over describe_alarm_history
-        async for item in s3.iter_describe_alarm_history():
+        async for item in cloud_watch.iter_describe_alarm_history():
             print(item)
 ```
 
@@ -43,9 +43,9 @@ from capo_cloudwatch import AsyncCloudWatchClient
 
 
 async def main():
-    async with AsyncCloudWatchClient() as s3:
+    async with AsyncCloudWatchClient() as cloud_watch:
         # Example: wait for alarm_mute_rule_exists
-        await s3.wait_until_alarm_mute_rule_exists(max_wait_time=300)
+        await cloud_watch.wait_until_alarm_mute_rule_exists(max_wait_time=300)
 ```
 
 ## Error Handling
@@ -58,9 +58,9 @@ from capo_cloudwatch.error import ConflictException
 
 
 async def main():
-    async with AsyncCloudWatchClient() as s3:
+    async with AsyncCloudWatchClient() as cloud_watch:
         try:
-            await s3.associate_dataset_kms_key()
+            await cloud_watch.associate_dataset_kms_key()
         except ConflictException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -77,13 +77,13 @@ from capo_cloudwatch import AsyncCloudWatchClient
 
 
 async def main():
-    async with AsyncCloudWatchClient() as s3:
+    async with AsyncCloudWatchClient() as cloud_watch:
         # Default: 3 attempts for every operation
-        response = await s3.associate_dataset_kms_key()
+        response = await cloud_watch.associate_dataset_kms_key()
 
         # Override per operation
-        response = await s3.associate_dataset_kms_key(config_overrides={"retry_max_attempts": 5})
+        response = await cloud_watch.associate_dataset_kms_key(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.associate_dataset_kms_key(config_overrides={"retry_max_attempts": 1})
+        response = await cloud_watch.associate_dataset_kms_key(config_overrides={"retry_max_attempts": 1})
 ```

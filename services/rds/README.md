@@ -13,9 +13,9 @@ from capo_rds import AsyncRDSClient
 
 
 async def main():
-    async with AsyncRDSClient() as s3:
+    async with AsyncRDSClient() as rds:
         # Example: call the add_role_to_db_cluster operation
-        response = await s3.add_role_to_db_cluster()
+        response = await rds.add_role_to_db_cluster()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_rds import AsyncRDSClient
 
 
 async def main():
-    async with AsyncRDSClient() as s3:
+    async with AsyncRDSClient() as rds:
         # Example: paginate over describe_blue_green_deployments
-        async for item in s3.iter_describe_blue_green_deployments():
+        async for item in rds.iter_describe_blue_green_deployments():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_rds.error import DBClusterNotFoundFault
 
 
 async def main():
-    async with AsyncRDSClient() as s3:
+    async with AsyncRDSClient() as rds:
         try:
-            await s3.add_role_to_db_cluster()
+            await rds.add_role_to_db_cluster()
         except DBClusterNotFoundFault as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_rds import AsyncRDSClient
 
 
 async def main():
-    async with AsyncRDSClient() as s3:
+    async with AsyncRDSClient() as rds:
         # Default: 3 attempts for every operation
-        response = await s3.add_role_to_db_cluster()
+        response = await rds.add_role_to_db_cluster()
 
         # Override per operation
-        response = await s3.add_role_to_db_cluster(config_overrides={"retry_max_attempts": 5})
+        response = await rds.add_role_to_db_cluster(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.add_role_to_db_cluster(config_overrides={"retry_max_attempts": 1})
+        response = await rds.add_role_to_db_cluster(config_overrides={"retry_max_attempts": 1})
 ```

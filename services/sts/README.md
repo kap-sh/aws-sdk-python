@@ -13,9 +13,9 @@ from capo_sts import AsyncSTSClient
 
 
 async def main():
-    async with AsyncSTSClient() as s3:
+    async with AsyncSTSClient() as sts:
         # Example: call the assume_role operation
-        response = await s3.assume_role()
+        response = await sts.assume_role()
         print(response["credentials"])
 ```
 
@@ -29,9 +29,9 @@ from capo_sts.error import ExpiredTokenException
 
 
 async def main():
-    async with AsyncSTSClient() as s3:
+    async with AsyncSTSClient() as sts:
         try:
-            await s3.assume_role()
+            await sts.assume_role()
         except ExpiredTokenException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_sts import AsyncSTSClient
 
 
 async def main():
-    async with AsyncSTSClient() as s3:
+    async with AsyncSTSClient() as sts:
         # Default: 3 attempts for every operation
-        response = await s3.assume_role()
+        response = await sts.assume_role()
 
         # Override per operation
-        response = await s3.assume_role(config_overrides={"retry_max_attempts": 5})
+        response = await sts.assume_role(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.assume_role(config_overrides={"retry_max_attempts": 1})
+        response = await sts.assume_role(config_overrides={"retry_max_attempts": 1})
 ```

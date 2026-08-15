@@ -13,9 +13,9 @@ from capo_sso import AsyncSSOClient
 
 
 async def main():
-    async with AsyncSSOClient() as s3:
+    async with AsyncSSOClient() as sso:
         # Example: call the get_role_credentials operation
-        response = await s3.get_role_credentials()
+        response = await sso.get_role_credentials()
         print(response["role_credentials"])
 ```
 
@@ -28,9 +28,9 @@ from capo_sso import AsyncSSOClient
 
 
 async def main():
-    async with AsyncSSOClient() as s3:
+    async with AsyncSSOClient() as sso:
         # Example: paginate over list_account_roles
-        async for item in s3.iter_list_account_roles():
+        async for item in sso.iter_list_account_roles():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_sso.error import InvalidRequestException
 
 
 async def main():
-    async with AsyncSSOClient() as s3:
+    async with AsyncSSOClient() as sso:
         try:
-            await s3.get_role_credentials()
+            await sso.get_role_credentials()
         except InvalidRequestException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_sso import AsyncSSOClient
 
 
 async def main():
-    async with AsyncSSOClient() as s3:
+    async with AsyncSSOClient() as sso:
         # Default: 3 attempts for every operation
-        response = await s3.get_role_credentials()
+        response = await sso.get_role_credentials()
 
         # Override per operation
-        response = await s3.get_role_credentials(config_overrides={"retry_max_attempts": 5})
+        response = await sso.get_role_credentials(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.get_role_credentials(config_overrides={"retry_max_attempts": 1})
+        response = await sso.get_role_credentials(config_overrides={"retry_max_attempts": 1})
 ```

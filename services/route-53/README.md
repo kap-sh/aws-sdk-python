@@ -13,9 +13,9 @@ from capo_route_53 import AsyncRoute53Client
 
 
 async def main():
-    async with AsyncRoute53Client() as s3:
+    async with AsyncRoute53Client() as route53:
         # Example: call the activate_key_signing_key operation
-        response = await s3.activate_key_signing_key()
+        response = await route53.activate_key_signing_key()
         print(response["change_info"])
 ```
 
@@ -28,9 +28,9 @@ from capo_route_53 import AsyncRoute53Client
 
 
 async def main():
-    async with AsyncRoute53Client() as s3:
+    async with AsyncRoute53Client() as route53:
         # Example: paginate over list_cidr_blocks
-        async for item in s3.iter_list_cidr_blocks():
+        async for item in route53.iter_list_cidr_blocks():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_route_53.error import ConcurrentModification
 
 
 async def main():
-    async with AsyncRoute53Client() as s3:
+    async with AsyncRoute53Client() as route53:
         try:
-            await s3.activate_key_signing_key()
+            await route53.activate_key_signing_key()
         except ConcurrentModification as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_route_53 import AsyncRoute53Client
 
 
 async def main():
-    async with AsyncRoute53Client() as s3:
+    async with AsyncRoute53Client() as route53:
         # Default: 3 attempts for every operation
-        response = await s3.activate_key_signing_key()
+        response = await route53.activate_key_signing_key()
 
         # Override per operation
-        response = await s3.activate_key_signing_key(config_overrides={"retry_max_attempts": 5})
+        response = await route53.activate_key_signing_key(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.activate_key_signing_key(config_overrides={"retry_max_attempts": 1})
+        response = await route53.activate_key_signing_key(config_overrides={"retry_max_attempts": 1})
 ```

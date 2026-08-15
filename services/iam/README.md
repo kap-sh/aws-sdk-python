@@ -13,9 +13,9 @@ from capo_iam import AsyncIAMClient
 
 
 async def main():
-    async with AsyncIAMClient() as s3:
+    async with AsyncIAMClient() as iam:
         # Example: call the accept_delegation_request operation
-        response = await s3.accept_delegation_request()
+        response = await iam.accept_delegation_request()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_iam import AsyncIAMClient
 
 
 async def main():
-    async with AsyncIAMClient() as s3:
+    async with AsyncIAMClient() as iam:
         # Example: paginate over get_group
-        async for item in s3.iter_get_group():
+        async for item in iam.iter_get_group():
             print(item)
 ```
 
@@ -43,9 +43,9 @@ from capo_iam import AsyncIAMClient
 
 
 async def main():
-    async with AsyncIAMClient() as s3:
+    async with AsyncIAMClient() as iam:
         # Example: wait for instance_profile_exists
-        await s3.wait_until_instance_profile_exists(max_wait_time=300)
+        await iam.wait_until_instance_profile_exists(max_wait_time=300)
 ```
 
 ## Error Handling
@@ -58,9 +58,9 @@ from capo_iam.error import ConcurrentModificationException
 
 
 async def main():
-    async with AsyncIAMClient() as s3:
+    async with AsyncIAMClient() as iam:
         try:
-            await s3.accept_delegation_request()
+            await iam.accept_delegation_request()
         except ConcurrentModificationException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -77,13 +77,13 @@ from capo_iam import AsyncIAMClient
 
 
 async def main():
-    async with AsyncIAMClient() as s3:
+    async with AsyncIAMClient() as iam:
         # Default: 3 attempts for every operation
-        response = await s3.accept_delegation_request()
+        response = await iam.accept_delegation_request()
 
         # Override per operation
-        response = await s3.accept_delegation_request(config_overrides={"retry_max_attempts": 5})
+        response = await iam.accept_delegation_request(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.accept_delegation_request(config_overrides={"retry_max_attempts": 1})
+        response = await iam.accept_delegation_request(config_overrides={"retry_max_attempts": 1})
 ```

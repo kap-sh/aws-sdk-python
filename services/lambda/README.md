@@ -13,9 +13,9 @@ from capo_lambda import AsyncLambdaClient
 
 
 async def main():
-    async with AsyncLambdaClient() as s3:
+    async with AsyncLambdaClient() as lambda_:
         # Example: call the delete_function operation
-        response = await s3.delete_function()
+        response = await lambda_.delete_function()
         print(response["status_code"])
 ```
 
@@ -29,9 +29,9 @@ from capo_lambda.error import InvalidParameterValueException
 
 
 async def main():
-    async with AsyncLambdaClient() as s3:
+    async with AsyncLambdaClient() as lambda_:
         try:
-            await s3.delete_function()
+            await lambda_.delete_function()
         except InvalidParameterValueException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_lambda import AsyncLambdaClient
 
 
 async def main():
-    async with AsyncLambdaClient() as s3:
+    async with AsyncLambdaClient() as lambda_:
         # Default: 3 attempts for every operation
-        response = await s3.delete_function()
+        response = await lambda_.delete_function()
 
         # Override per operation
-        response = await s3.delete_function(config_overrides={"retry_max_attempts": 5})
+        response = await lambda_.delete_function(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.delete_function(config_overrides={"retry_max_attempts": 1})
+        response = await lambda_.delete_function(config_overrides={"retry_max_attempts": 1})
 ```

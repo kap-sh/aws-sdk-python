@@ -13,9 +13,9 @@ from capo_ecs import AsyncECSClient
 
 
 async def main():
-    async with AsyncECSClient() as s3:
+    async with AsyncECSClient() as ecs:
         # Example: call the continue_service_deployment operation
-        response = await s3.continue_service_deployment()
+        response = await ecs.continue_service_deployment()
         print(response["service_deployment_arn"])
 ```
 
@@ -28,9 +28,9 @@ from capo_ecs import AsyncECSClient
 
 
 async def main():
-    async with AsyncECSClient() as s3:
+    async with AsyncECSClient() as ecs:
         # Example: paginate over list_account_settings
-        async for item in s3.iter_list_account_settings():
+        async for item in ecs.iter_list_account_settings():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_ecs.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncECSClient() as s3:
+    async with AsyncECSClient() as ecs:
         try:
-            await s3.continue_service_deployment()
+            await ecs.continue_service_deployment()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_ecs import AsyncECSClient
 
 
 async def main():
-    async with AsyncECSClient() as s3:
+    async with AsyncECSClient() as ecs:
         # Default: 3 attempts for every operation
-        response = await s3.continue_service_deployment()
+        response = await ecs.continue_service_deployment()
 
         # Override per operation
-        response = await s3.continue_service_deployment(config_overrides={"retry_max_attempts": 5})
+        response = await ecs.continue_service_deployment(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.continue_service_deployment(config_overrides={"retry_max_attempts": 1})
+        response = await ecs.continue_service_deployment(config_overrides={"retry_max_attempts": 1})
 ```

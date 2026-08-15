@@ -13,9 +13,9 @@ from capo_elastic_load_balancing import AsyncElasticLoadBalancingClient
 
 
 async def main():
-    async with AsyncElasticLoadBalancingClient() as s3:
+    async with AsyncElasticLoadBalancingClient() as elastic_load_balancing:
         # Example: call the add_tags operation
-        response = await s3.add_tags()
+        response = await elastic_load_balancing.add_tags()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_elastic_load_balancing import AsyncElasticLoadBalancingClient
 
 
 async def main():
-    async with AsyncElasticLoadBalancingClient() as s3:
+    async with AsyncElasticLoadBalancingClient() as elastic_load_balancing:
         # Example: paginate over describe_load_balancers
-        async for item in s3.iter_describe_load_balancers():
+        async for item in elastic_load_balancing.iter_describe_load_balancers():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_elastic_load_balancing.error import AccessPointNotFoundException
 
 
 async def main():
-    async with AsyncElasticLoadBalancingClient() as s3:
+    async with AsyncElasticLoadBalancingClient() as elastic_load_balancing:
         try:
-            await s3.add_tags()
+            await elastic_load_balancing.add_tags()
         except AccessPointNotFoundException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_elastic_load_balancing import AsyncElasticLoadBalancingClient
 
 
 async def main():
-    async with AsyncElasticLoadBalancingClient() as s3:
+    async with AsyncElasticLoadBalancingClient() as elastic_load_balancing:
         # Default: 3 attempts for every operation
-        response = await s3.add_tags()
+        response = await elastic_load_balancing.add_tags()
 
         # Override per operation
-        response = await s3.add_tags(config_overrides={"retry_max_attempts": 5})
+        response = await elastic_load_balancing.add_tags(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.add_tags(config_overrides={"retry_max_attempts": 1})
+        response = await elastic_load_balancing.add_tags(config_overrides={"retry_max_attempts": 1})
 ```

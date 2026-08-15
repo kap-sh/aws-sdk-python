@@ -13,9 +13,9 @@ from capo_cloudfront import AsyncCloudFrontClient
 
 
 async def main():
-    async with AsyncCloudFrontClient() as s3:
+    async with AsyncCloudFrontClient() as cloud_front:
         # Example: call the associate_alias operation
-        response = await s3.associate_alias()
+        response = await cloud_front.associate_alias()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_cloudfront import AsyncCloudFrontClient
 
 
 async def main():
-    async with AsyncCloudFrontClient() as s3:
+    async with AsyncCloudFrontClient() as cloud_front:
         # Example: paginate over list_cloud_front_origin_access_identities
-        async for item in s3.iter_list_cloud_front_origin_access_identities():
+        async for item in cloud_front.iter_list_cloud_front_origin_access_identities():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_cloudfront.error import AccessDenied
 
 
 async def main():
-    async with AsyncCloudFrontClient() as s3:
+    async with AsyncCloudFrontClient() as cloud_front:
         try:
-            await s3.associate_alias()
+            await cloud_front.associate_alias()
         except AccessDenied as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_cloudfront import AsyncCloudFrontClient
 
 
 async def main():
-    async with AsyncCloudFrontClient() as s3:
+    async with AsyncCloudFrontClient() as cloud_front:
         # Default: 3 attempts for every operation
-        response = await s3.associate_alias()
+        response = await cloud_front.associate_alias()
 
         # Override per operation
-        response = await s3.associate_alias(config_overrides={"retry_max_attempts": 5})
+        response = await cloud_front.associate_alias(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.associate_alias(config_overrides={"retry_max_attempts": 1})
+        response = await cloud_front.associate_alias(config_overrides={"retry_max_attempts": 1})
 ```

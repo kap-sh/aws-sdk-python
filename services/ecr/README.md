@@ -13,9 +13,9 @@ from capo_ecr import AsyncECRClient
 
 
 async def main():
-    async with AsyncECRClient() as s3:
+    async with AsyncECRClient() as ecr:
         # Example: call the batch_check_layer_availability operation
-        response = await s3.batch_check_layer_availability()
+        response = await ecr.batch_check_layer_availability()
         print(response["layers"])
 ```
 
@@ -28,9 +28,9 @@ from capo_ecr import AsyncECRClient
 
 
 async def main():
-    async with AsyncECRClient() as s3:
+    async with AsyncECRClient() as ecr:
         # Example: paginate over describe_images
-        async for item in s3.iter_describe_images():
+        async for item in ecr.iter_describe_images():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_ecr.error import InvalidParameterException
 
 
 async def main():
-    async with AsyncECRClient() as s3:
+    async with AsyncECRClient() as ecr:
         try:
-            await s3.batch_check_layer_availability()
+            await ecr.batch_check_layer_availability()
         except InvalidParameterException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_ecr import AsyncECRClient
 
 
 async def main():
-    async with AsyncECRClient() as s3:
+    async with AsyncECRClient() as ecr:
         # Default: 3 attempts for every operation
-        response = await s3.batch_check_layer_availability()
+        response = await ecr.batch_check_layer_availability()
 
         # Override per operation
-        response = await s3.batch_check_layer_availability(config_overrides={"retry_max_attempts": 5})
+        response = await ecr.batch_check_layer_availability(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.batch_check_layer_availability(config_overrides={"retry_max_attempts": 1})
+        response = await ecr.batch_check_layer_availability(config_overrides={"retry_max_attempts": 1})
 ```

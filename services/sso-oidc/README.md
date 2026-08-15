@@ -13,9 +13,9 @@ from capo_sso_oidc import AsyncSSOOIDCClient
 
 
 async def main():
-    async with AsyncSSOOIDCClient() as s3:
+    async with AsyncSSOOIDCClient() as ssooidc:
         # Example: call the create_token operation
-        response = await s3.create_token()
+        response = await ssooidc.create_token()
         print(response["access_token"])
 ```
 
@@ -29,9 +29,9 @@ from capo_sso_oidc.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncSSOOIDCClient() as s3:
+    async with AsyncSSOOIDCClient() as ssooidc:
         try:
-            await s3.create_token()
+            await ssooidc.create_token()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_sso_oidc import AsyncSSOOIDCClient
 
 
 async def main():
-    async with AsyncSSOOIDCClient() as s3:
+    async with AsyncSSOOIDCClient() as ssooidc:
         # Default: 3 attempts for every operation
-        response = await s3.create_token()
+        response = await ssooidc.create_token()
 
         # Override per operation
-        response = await s3.create_token(config_overrides={"retry_max_attempts": 5})
+        response = await ssooidc.create_token(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.create_token(config_overrides={"retry_max_attempts": 1})
+        response = await ssooidc.create_token(config_overrides={"retry_max_attempts": 1})
 ```
