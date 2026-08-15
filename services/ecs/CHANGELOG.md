@@ -1,5 +1,12 @@
 # aws-sdk-ecs
 
+## 0.8.0
+
+### Minor Changes
+
+- efc5cc0: regenerate with new smithy files
+- cef709a: respect idempotency token trait
+
 ## 0.7.0
 
 ### Minor Changes

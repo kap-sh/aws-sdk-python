@@ -1,5 +1,12 @@
 # aws-sdk-lambda
 
+## 0.7.0
+
+### Minor Changes
+
+- efc5cc0: regenerate with new smithy files
+- cef709a: respect idempotency token trait
+
 ## 0.6.0
 
 ### Minor Changes

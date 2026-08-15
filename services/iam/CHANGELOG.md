@@ -1,5 +1,11 @@
 # aws-sdk-iam
 
+## 0.8.0
+
+### Minor Changes
+
+- efc5cc0: regenerate with new smithy files
+
 ## 0.7.0
 
 ### Minor Changes
