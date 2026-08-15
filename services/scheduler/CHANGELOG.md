@@ -1,5 +1,11 @@
 # aws-sdk-scheduler
 
+## 0.4.0
+
+### Minor Changes
+
+- cef709a: respect idempotency token trait
+
 ## 0.3.0
 
 ### Minor Changes

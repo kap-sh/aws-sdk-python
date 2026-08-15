@@ -1,5 +1,11 @@
 # aws-sdk-rds
 
+## 0.6.0
+
+### Minor Changes
+
+- efc5cc0: regenerate with new smithy files
+
 ## 0.5.0
 
 ### Minor Changes
