@@ -37,15 +37,18 @@ class InvalidBatchEntryIdException(ServiceError):
 
     code: str | None = "InvalidBatchEntryIdException"
 
-    def __init__(self, data: InvalidBatchEntryIdException_):
+    def __init__(self, data: InvalidBatchEntryIdException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidBatchEntryIdException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InvalidBatchEntryIdException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InvalidBatchEntryIdException":
+        return cls(deserialize_query(el), message)

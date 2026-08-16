@@ -34,15 +34,18 @@ class ManagedRuleException(ServiceError):
 
     code: str | None = "ManagedRuleException"
 
-    def __init__(self, data: ManagedRuleException_):
+    def __init__(self, data: ManagedRuleException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ManagedRuleException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ManagedRuleException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ManagedRuleException":
+        return cls(deserialize_aws_json_1_1(data), message)

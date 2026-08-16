@@ -34,15 +34,18 @@ class InvalidAttributeName(ServiceError):
 
     code: str | None = "InvalidAttributeName"
 
-    def __init__(self, data: InvalidAttributeName_):
+    def __init__(self, data: InvalidAttributeName_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidAttributeName",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidAttributeName":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidAttributeName":
+        return cls(deserialize_aws_json_1_0(data), message)

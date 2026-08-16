@@ -34,15 +34,20 @@ class InvalidEncryptionConfiguration(ServiceError):
 
     code: str | None = "InvalidEncryptionConfiguration"
 
-    def __init__(self, data: InvalidEncryptionConfiguration_):
+    def __init__(
+        self, data: InvalidEncryptionConfiguration_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidEncryptionConfiguration",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidEncryptionConfiguration":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidEncryptionConfiguration":
+        return cls(deserialize_aws_json_1_0(data), message)

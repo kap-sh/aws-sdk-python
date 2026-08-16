@@ -37,15 +37,18 @@ class ConcurrentAccessException(ServiceError):
 
     code: str | None = "ConcurrentAccessException"
 
-    def __init__(self, data: ConcurrentAccessException_):
+    def __init__(self, data: ConcurrentAccessException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ConcurrentAccessException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ConcurrentAccessException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ConcurrentAccessException":
+        return cls(deserialize_query(el), message)

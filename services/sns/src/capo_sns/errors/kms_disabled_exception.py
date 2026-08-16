@@ -37,15 +37,18 @@ class KMSDisabledException(ServiceError):
 
     code: str | None = "KMSDisabledException"
 
-    def __init__(self, data: KMSDisabledException_):
+    def __init__(self, data: KMSDisabledException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KMSDisabledException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "KMSDisabledException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "KMSDisabledException":
+        return cls(deserialize_query(el), message)

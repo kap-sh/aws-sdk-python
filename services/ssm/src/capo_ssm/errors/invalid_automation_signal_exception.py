@@ -34,15 +34,20 @@ class InvalidAutomationSignalException(ServiceError):
 
     code: str | None = "InvalidAutomationSignalException"
 
-    def __init__(self, data: InvalidAutomationSignalException_):
+    def __init__(
+        self, data: InvalidAutomationSignalException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidAutomationSignalException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidAutomationSignalException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidAutomationSignalException":
+        return cls(deserialize_aws_json_1_1(data), message)

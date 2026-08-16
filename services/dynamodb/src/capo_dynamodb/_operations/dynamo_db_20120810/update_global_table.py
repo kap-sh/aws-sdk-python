@@ -32,27 +32,27 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "GlobalTableNotFoundException":
             raise capo_dynamodb.errors.global_table_not_found_exception.GlobalTableNotFoundException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InternalServerError":
             raise capo_dynamodb.errors.internal_server_error.InternalServerError.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidEndpointException":
             raise capo_dynamodb.errors.invalid_endpoint_exception.InvalidEndpointException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "ReplicaAlreadyExistsException":
             raise capo_dynamodb.errors.replica_already_exists_exception.ReplicaAlreadyExistsException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "ReplicaNotFoundException":
             raise capo_dynamodb.errors.replica_not_found_exception.ReplicaNotFoundException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TableNotFoundException":
             raise capo_dynamodb.errors.table_not_found_exception.TableNotFoundException.from_aws_json_1_0(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -118,7 +118,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTable"
     body: bytes | None = json.dumps(
@@ -127,7 +127,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -13,9 +13,9 @@ from capo_eventbridge import AsyncEventBridgeClient
 
 
 async def main():
-    async with AsyncEventBridgeClient() as s3:
+    async with AsyncEventBridgeClient() as event_bridge:
         # Example: call the activate_event_source operation
-        response = await s3.activate_event_source()
+        response = await event_bridge.activate_event_source()
         print(response)
 ```
 
@@ -29,9 +29,9 @@ from capo_eventbridge.error import ConcurrentModificationException
 
 
 async def main():
-    async with AsyncEventBridgeClient() as s3:
+    async with AsyncEventBridgeClient() as event_bridge:
         try:
-            await s3.activate_event_source()
+            await event_bridge.activate_event_source()
         except ConcurrentModificationException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_eventbridge import AsyncEventBridgeClient
 
 
 async def main():
-    async with AsyncEventBridgeClient() as s3:
+    async with AsyncEventBridgeClient() as event_bridge:
         # Default: 3 attempts for every operation
-        response = await s3.activate_event_source()
+        response = await event_bridge.activate_event_source()
 
         # Override per operation
-        response = await s3.activate_event_source(config_overrides={"retry_max_attempts": 5})
+        response = await event_bridge.activate_event_source(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.activate_event_source(config_overrides={"retry_max_attempts": 1})
+        response = await event_bridge.activate_event_source(config_overrides={"retry_max_attempts": 1})
 ```

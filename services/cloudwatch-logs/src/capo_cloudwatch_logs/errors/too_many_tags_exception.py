@@ -43,15 +43,18 @@ class TooManyTagsException(ServiceError):
 
     code: str | None = "TooManyTagsException"
 
-    def __init__(self, data: TooManyTagsException_):
+    def __init__(self, data: TooManyTagsException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyTagsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "TooManyTagsException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "TooManyTagsException":
+        return cls(deserialize_aws_json_1_1(data), message)

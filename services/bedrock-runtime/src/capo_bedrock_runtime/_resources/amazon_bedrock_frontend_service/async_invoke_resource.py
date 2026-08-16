@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_runtime._auth._signers
@@ -221,8 +222,9 @@ class AsyncInvokeResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         input_["model_id"] = model_id
         input_["model_input"] = model_input
         input_["output_data_config"] = output_data_config
@@ -418,8 +420,9 @@ class AsyncAsyncInvokeResource:
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         input_["model_id"] = model_id
         input_["model_input"] = model_input
         input_["output_data_config"] = output_data_config

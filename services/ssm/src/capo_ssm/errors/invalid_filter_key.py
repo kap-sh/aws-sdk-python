@@ -25,15 +25,18 @@ class InvalidFilterKey(ServiceError):
 
     code: str | None = "InvalidFilterKey"
 
-    def __init__(self, data: InvalidFilterKey_):
+    def __init__(self, data: InvalidFilterKey_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidFilterKey",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidFilterKey":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidFilterKey":
+        return cls(deserialize_aws_json_1_1(data), message)

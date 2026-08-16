@@ -34,15 +34,20 @@ class AutomationDefinitionNotFoundException(ServiceError):
 
     code: str | None = "AutomationDefinitionNotFoundException"
 
-    def __init__(self, data: AutomationDefinitionNotFoundException_):
+    def __init__(
+        self, data: AutomationDefinitionNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AutomationDefinitionNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "AutomationDefinitionNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "AutomationDefinitionNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

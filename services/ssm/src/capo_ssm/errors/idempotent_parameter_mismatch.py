@@ -34,15 +34,18 @@ class IdempotentParameterMismatch(ServiceError):
 
     code: str | None = "IdempotentParameterMismatch"
 
-    def __init__(self, data: IdempotentParameterMismatch_):
+    def __init__(self, data: IdempotentParameterMismatch_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="IdempotentParameterMismatch",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "IdempotentParameterMismatch":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "IdempotentParameterMismatch":
+        return cls(deserialize_aws_json_1_1(data), message)

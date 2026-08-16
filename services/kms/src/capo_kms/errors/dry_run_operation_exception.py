@@ -34,15 +34,18 @@ class DryRunOperationException(ServiceError):
 
     code: str | None = "DryRunOperationException"
 
-    def __init__(self, data: DryRunOperationException_):
+    def __init__(self, data: DryRunOperationException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DryRunOperationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "DryRunOperationException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "DryRunOperationException":
+        return cls(deserialize_aws_json_1_1(data), message)

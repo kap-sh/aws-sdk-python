@@ -34,15 +34,18 @@ class NoLongerSupportedException(ServiceError):
 
     code: str | None = "NoLongerSupportedException"
 
-    def __init__(self, data: NoLongerSupportedException_):
+    def __init__(self, data: NoLongerSupportedException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="NoLongerSupportedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "NoLongerSupportedException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "NoLongerSupportedException":
+        return cls(deserialize_aws_json_1_1(data), message)

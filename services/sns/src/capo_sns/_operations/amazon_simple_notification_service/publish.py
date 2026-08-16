@@ -28,7 +28,7 @@ import capo_sns.errors.validation_exception
 import capo_sns.types.message_attribute_map
 import capo_sns.types.publish_input
 import capo_sns.types.publish_response
-from capo_sns._protocol.errors import parse_error_metadata
+from capo_sns._protocol.errors import find_error_element, parse_error_metadata
 from capo_sns._protocol.xml import fromstring
 from capo_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_sns._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -38,62 +38,67 @@ from capo_sns.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "AuthorizationErrorException":
+        case "AuthorizationError":
             raise capo_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
-                root
+                error_el, message
             )
-        case "EndpointDisabledException":
+        case "EndpointDisabled":
             raise capo_sns.errors.endpoint_disabled_exception.EndpointDisabledException.from_query(
-                root
+                error_el, message
             )
-        case "InternalErrorException":
+        case "InternalError":
             raise capo_sns.errors.internal_error_exception.InternalErrorException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidParameterException":
+        case "InvalidParameter":
             raise capo_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidParameterValueException":
+        case "ParameterValueInvalid":
             raise capo_sns.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSecurityException":
+        case "InvalidSecurity":
             raise capo_sns.errors.invalid_security_exception.InvalidSecurityException.from_query(
-                root
+                error_el, message
             )
-        case "KMSAccessDeniedException":
+        case "KMSAccessDenied":
             raise capo_sns.errors.kms_access_denied_exception.KMSAccessDeniedException.from_query(
-                root
+                error_el, message
             )
-        case "KMSDisabledException":
+        case "KMSDisabled":
             raise capo_sns.errors.kms_disabled_exception.KMSDisabledException.from_query(
-                root
+                error_el, message
             )
-        case "KMSInvalidStateException":
+        case "KMSInvalidState":
             raise capo_sns.errors.kms_invalid_state_exception.KMSInvalidStateException.from_query(
-                root
+                error_el, message
             )
-        case "KMSNotFoundException":
+        case "KMSNotFound":
             raise capo_sns.errors.kms_not_found_exception.KMSNotFoundException.from_query(
-                root
+                error_el, message
             )
         case "KMSOptInRequired":
-            raise capo_sns.errors.kms_opt_in_required.KMSOptInRequired.from_query(root)
-        case "KMSThrottlingException":
-            raise capo_sns.errors.kms_throttling_exception.KMSThrottlingException.from_query(
-                root
+            raise capo_sns.errors.kms_opt_in_required.KMSOptInRequired.from_query(
+                error_el, message
             )
-        case "NotFoundException":
-            raise capo_sns.errors.not_found_exception.NotFoundException.from_query(root)
-        case "PlatformApplicationDisabledException":
+        case "KMSThrottling":
+            raise capo_sns.errors.kms_throttling_exception.KMSThrottlingException.from_query(
+                error_el, message
+            )
+        case "NotFound":
+            raise capo_sns.errors.not_found_exception.NotFoundException.from_query(
+                error_el, message
+            )
+        case "PlatformApplicationDisabled":
             raise capo_sns.errors.platform_application_disabled_exception.PlatformApplicationDisabledException.from_query(
-                root
+                error_el, message
             )
         case "ValidationException":
             raise capo_sns.errors.validation_exception.ValidationException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -157,7 +162,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "Publish"))
@@ -167,7 +172,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

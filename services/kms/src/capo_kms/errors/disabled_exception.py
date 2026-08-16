@@ -34,15 +34,18 @@ class DisabledException(ServiceError):
 
     code: str | None = "DisabledException"
 
-    def __init__(self, data: DisabledException_):
+    def __init__(self, data: DisabledException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DisabledException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "DisabledException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "DisabledException":
+        return cls(deserialize_aws_json_1_1(data), message)

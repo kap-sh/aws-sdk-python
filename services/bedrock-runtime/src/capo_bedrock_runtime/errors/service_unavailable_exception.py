@@ -35,18 +35,21 @@ class ServiceUnavailableException(ServiceError):
 
     code: str | None = "ServiceUnavailableException"
 
-    def __init__(self, data: ServiceUnavailableException_):
+    def __init__(self, data: ServiceUnavailableException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="ServiceUnavailableException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ServiceUnavailableException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ServiceUnavailableException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: ServiceUnavailableException_) -> bytes:

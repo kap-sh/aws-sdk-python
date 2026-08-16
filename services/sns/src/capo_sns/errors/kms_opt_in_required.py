@@ -37,15 +37,16 @@ class KMSOptInRequired(ServiceError):
 
     code: str | None = "KMSOptInRequired"
 
-    def __init__(self, data: KMSOptInRequired_):
+    def __init__(self, data: KMSOptInRequired_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KMSOptInRequired",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "KMSOptInRequired":
-        return cls(deserialize_query(el))
+    def from_query(cls, el: Element, message: str | None = None) -> "KMSOptInRequired":
+        return cls(deserialize_query(el), message)

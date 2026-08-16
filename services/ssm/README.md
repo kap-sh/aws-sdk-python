@@ -13,9 +13,9 @@ from capo_ssm import AsyncSSMClient
 
 
 async def main():
-    async with AsyncSSMClient() as s3:
+    async with AsyncSSMClient() as ssm:
         # Example: call the add_tags_to_resource operation
-        response = await s3.add_tags_to_resource()
+        response = await ssm.add_tags_to_resource()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_ssm import AsyncSSMClient
 
 
 async def main():
-    async with AsyncSSMClient() as s3:
+    async with AsyncSSMClient() as ssm:
         # Example: paginate over describe_activations
-        async for item in s3.iter_describe_activations():
+        async for item in ssm.iter_describe_activations():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_ssm.error import InternalServerError
 
 
 async def main():
-    async with AsyncSSMClient() as s3:
+    async with AsyncSSMClient() as ssm:
         try:
-            await s3.add_tags_to_resource()
+            await ssm.add_tags_to_resource()
         except InternalServerError as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_ssm import AsyncSSMClient
 
 
 async def main():
-    async with AsyncSSMClient() as s3:
+    async with AsyncSSMClient() as ssm:
         # Default: 3 attempts for every operation
-        response = await s3.add_tags_to_resource()
+        response = await ssm.add_tags_to_resource()
 
         # Override per operation
-        response = await s3.add_tags_to_resource(config_overrides={"retry_max_attempts": 5})
+        response = await ssm.add_tags_to_resource(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.add_tags_to_resource(config_overrides={"retry_max_attempts": 1})
+        response = await ssm.add_tags_to_resource(config_overrides={"retry_max_attempts": 1})
 ```

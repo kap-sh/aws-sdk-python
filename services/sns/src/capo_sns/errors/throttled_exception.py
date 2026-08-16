@@ -38,15 +38,18 @@ class ThrottledException(ServiceError):
 
     code: str | None = "ThrottledException"
 
-    def __init__(self, data: ThrottledException_):
+    def __init__(self, data: ThrottledException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ThrottledException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "ThrottledException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "ThrottledException":
+        return cls(deserialize_query(el), message)

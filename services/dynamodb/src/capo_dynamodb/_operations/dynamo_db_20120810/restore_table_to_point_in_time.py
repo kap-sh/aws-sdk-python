@@ -40,35 +40,35 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InternalServerError":
             raise capo_dynamodb.errors.internal_server_error.InternalServerError.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidEndpointException":
             raise capo_dynamodb.errors.invalid_endpoint_exception.InvalidEndpointException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidRestoreTimeException":
             raise capo_dynamodb.errors.invalid_restore_time_exception.InvalidRestoreTimeException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "LimitExceededException":
             raise capo_dynamodb.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "PointInTimeRecoveryUnavailableException":
             raise capo_dynamodb.errors.point_in_time_recovery_unavailable_exception.PointInTimeRecoveryUnavailableException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TableAlreadyExistsException":
             raise capo_dynamodb.errors.table_already_exists_exception.TableAlreadyExistsException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TableInUseException":
             raise capo_dynamodb.errors.table_in_use_exception.TableInUseException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TableNotFoundException":
             raise capo_dynamodb.errors.table_not_found_exception.TableNotFoundException.from_aws_json_1_0(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -130,7 +130,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableToPointInTime"
     body: bytes | None = json.dumps(
@@ -141,7 +141,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -34,15 +34,20 @@ class PoliciesLimitExceededException(ServiceError):
 
     code: str | None = "PoliciesLimitExceededException"
 
-    def __init__(self, data: PoliciesLimitExceededException_):
+    def __init__(
+        self, data: PoliciesLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="PoliciesLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "PoliciesLimitExceededException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "PoliciesLimitExceededException":
+        return cls(deserialize_aws_json_1_1(data), message)

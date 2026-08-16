@@ -34,15 +34,20 @@ class AssociationExecutionDoesNotExist(ServiceError):
 
     code: str | None = "AssociationExecutionDoesNotExist"
 
-    def __init__(self, data: AssociationExecutionDoesNotExist_):
+    def __init__(
+        self, data: AssociationExecutionDoesNotExist_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AssociationExecutionDoesNotExist",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "AssociationExecutionDoesNotExist":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "AssociationExecutionDoesNotExist":
+        return cls(deserialize_aws_json_1_1(data), message)

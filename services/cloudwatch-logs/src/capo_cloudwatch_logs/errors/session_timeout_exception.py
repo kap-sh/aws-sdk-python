@@ -35,18 +35,21 @@ class SessionTimeoutException(ServiceError):
 
     code: str | None = "SessionTimeoutException"
 
-    def __init__(self, data: SessionTimeoutException_):
+    def __init__(self, data: SessionTimeoutException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SessionTimeoutException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "SessionTimeoutException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "SessionTimeoutException":
+        return cls(deserialize_aws_json_1_1(data), message)
 
 
 def serialize_event_aws_json_1_1(value: SessionTimeoutException_) -> bytes:

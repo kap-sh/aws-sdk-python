@@ -42,43 +42,43 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_runtime.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_runtime.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ModelErrorException":
             raise capo_bedrock_runtime.errors.model_error_exception.ModelErrorException.from_json(
-                data
+                data, message
             )
         case "ModelNotReadyException":
             raise capo_bedrock_runtime.errors.model_not_ready_exception.ModelNotReadyException.from_json(
-                data
+                data, message
             )
         case "ModelTimeoutException":
             raise capo_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceQuotaExceededException":
             raise capo_bedrock_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
-                data
+                data, message
             )
         case "ServiceUnavailableException":
             raise capo_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_runtime.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_runtime.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -88,11 +88,9 @@ def handle_response(
     response: zapros.Response,
 ) -> capo_bedrock_runtime.types.invoke_model_response.InvokeModelResponse:
     out: capo_bedrock_runtime.types.invoke_model_response.InvokeModelResponse = {
-        "body": capo_bedrock_runtime.types.body.deserialize_json(
-            json.loads(response.read())
-        )
+        "body": response.read()
     }  # type: ignore[typeddict-item]
-    out["content_type"] = str(response.headers["Content-Type"])
+    out["content_type"] = response.headers["Content-Type"]
     if "X-Amzn-Bedrock-PerformanceConfig-Latency" in response.headers:
         out["performance_config_latency"] = (
             capo_bedrock_runtime.types.performance_config_latency.deserialize_json(
@@ -112,11 +110,9 @@ async def async_handle_response(
     response: zapros.Response,
 ) -> capo_bedrock_runtime.types.invoke_model_response.InvokeModelResponse:
     out: capo_bedrock_runtime.types.invoke_model_response.InvokeModelResponse = {
-        "body": capo_bedrock_runtime.types.body.deserialize_json(
-            json.loads(await response.aread())
-        )
+        "body": await response.aread()
     }  # type: ignore[typeddict-item]
-    out["content_type"] = str(response.headers["Content-Type"])
+    out["content_type"] = response.headers["Content-Type"]
     if "X-Amzn-Bedrock-PerformanceConfig-Latency" in response.headers:
         out["performance_config_latency"] = (
             capo_bedrock_runtime.types.performance_config_latency.deserialize_json(
@@ -169,39 +165,48 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock_runtime.types.performance_config_latency
+    import capo_bedrock_runtime.types.service_tier_type
+    import capo_bedrock_runtime.types.trace
+
     url = endpoint.url.rstrip("/") + "/model/{modelId}/invoke"
-    url = url.replace("{modelId}", quote(str(input_["model_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{modelId}", quote(input_["model_id"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "content_type" in input_:
-        headers["Content-Type"] = str(input_["content_type"])
+        headers["Content-Type"] = input_["content_type"]
     if "accept" in input_:
-        headers["Accept"] = str(input_["accept"])
+        headers["Accept"] = input_["accept"]
     if "trace" in input_:
-        headers["X-Amzn-Bedrock-Trace"] = str(input_["trace"])
-    if "guardrail_identifier" in input_:
-        headers["X-Amzn-Bedrock-GuardrailIdentifier"] = str(
-            input_["guardrail_identifier"]
+        headers["X-Amzn-Bedrock-Trace"] = (
+            capo_bedrock_runtime.types.trace.serialize_json(input_["trace"])
         )
+    if "guardrail_identifier" in input_:
+        headers["X-Amzn-Bedrock-GuardrailIdentifier"] = input_["guardrail_identifier"]
     if "guardrail_version" in input_:
-        headers["X-Amzn-Bedrock-GuardrailVersion"] = str(input_["guardrail_version"])
-    headers["X-Amzn-Bedrock-PerformanceConfig-Latency"] = str(
-        input_.get("performance_config_latency", "standard")
+        headers["X-Amzn-Bedrock-GuardrailVersion"] = input_["guardrail_version"]
+    headers["X-Amzn-Bedrock-PerformanceConfig-Latency"] = (
+        capo_bedrock_runtime.types.performance_config_latency.serialize_json(
+            input_.get("performance_config_latency", "standard")
+        )
     )
     if "service_tier" in input_:
-        headers["X-Amzn-Bedrock-Service-Tier"] = str(input_["service_tier"])
+        headers["X-Amzn-Bedrock-Service-Tier"] = (
+            capo_bedrock_runtime.types.service_tier_type.serialize_json(
+                input_["service_tier"]
+            )
+        )
     if "request_metadata" in input_:
-        headers["X-Amzn-Bedrock-Request-Metadata"] = str(input_["request_metadata"])
+        headers["X-Amzn-Bedrock-Request-Metadata"] = input_["request_metadata"]
     if "body" in input_:
-        body: bytes | None = json.dumps(
-            capo_bedrock_runtime.types.body.serialize_json(input_["body"])
-        ).encode()
-        headers["content-type"] = "application/json"
+        body: bytes | None = input_["body"]
+        headers["content-type"] = "application/octet-stream"
     else:
         body = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

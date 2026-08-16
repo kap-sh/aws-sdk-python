@@ -34,15 +34,18 @@ class OpsItemNotFoundException(ServiceError):
 
     code: str | None = "OpsItemNotFoundException"
 
-    def __init__(self, data: OpsItemNotFoundException_):
+    def __init__(self, data: OpsItemNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OpsItemNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "OpsItemNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "OpsItemNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

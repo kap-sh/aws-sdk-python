@@ -34,28 +34,32 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "ActivityAlreadyExists":
             raise capo_sfn.errors.activity_already_exists.ActivityAlreadyExists.from_aws_json_1_0(
-                data
+                data, message
             )
         case "ActivityLimitExceeded":
             raise capo_sfn.errors.activity_limit_exceeded.ActivityLimitExceeded.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidEncryptionConfiguration":
             raise capo_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidName":
-            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(data)
+            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(
+                data, message
+            )
         case "KmsAccessDeniedException":
             raise capo_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsThrottlingException":
             raise capo_sfn.errors.kms_throttling_exception.KmsThrottlingException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TooManyTags":
-            raise capo_sfn.errors.too_many_tags.TooManyTags.from_aws_json_1_0(data)
+            raise capo_sfn.errors.too_many_tags.TooManyTags.from_aws_json_1_0(
+                data, message
+            )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
@@ -114,7 +118,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSStepFunctions.CreateActivity"
     body: bytes | None = json.dumps(
@@ -123,7 +127,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

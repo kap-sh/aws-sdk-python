@@ -34,15 +34,18 @@ class ModelNotReadyException(ServiceError):
 
     code: str | None = "ModelNotReadyException"
 
-    def __init__(self, data: ModelNotReadyException_):
+    def __init__(self, data: ModelNotReadyException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=True,
             code="ModelNotReadyException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ModelNotReadyException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ModelNotReadyException":
+        return cls(deserialize_json(data), message)

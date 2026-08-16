@@ -34,12 +34,16 @@ class InvalidArn(ServiceError):
 
     code: str | None = "InvalidArn"
 
-    def __init__(self, data: InvalidArn_):
+    def __init__(self, data: InvalidArn_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="InvalidArn"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidArn",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidArn":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(cls, data: dict, message: str | None = None) -> "InvalidArn":
+        return cls(deserialize_aws_json_1_0(data), message)

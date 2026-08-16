@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#secretsmanager``."""
 
+import uuid
 import warnings
 from typing import TYPE_CHECKING, Any, Iterable, Optional
 
@@ -409,8 +410,9 @@ class SecretsManagerClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_secrets_manager.types.create_secret_request.CreateSecretRequest = {}  # type: ignore[typeddict-item]
         input_["name"] = name
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if description is not None:
             input_["description"] = description
         if kms_key_id is not None:
@@ -1067,8 +1069,9 @@ class SecretsManagerClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_secrets_manager.types.put_secret_value_request.PutSecretValueRequest = {}  # type: ignore[typeddict-item]
         input_["secret_id"] = secret_id
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if secret_binary is not None:
             input_["secret_binary"] = secret_binary
         if secret_string is not None:
@@ -1311,8 +1314,9 @@ class SecretsManagerClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_secrets_manager.types.rotate_secret_request.RotateSecretRequest = {}  # type: ignore[typeddict-item]
         input_["secret_id"] = secret_id
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if rotation_lambda_arn is not None:
             input_["rotation_lambda_arn"] = rotation_lambda_arn
         if rotation_rules is not None:
@@ -1561,8 +1565,9 @@ class SecretsManagerClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_secrets_manager.types.update_secret_request.UpdateSecretRequest = {}  # type: ignore[typeddict-item]
         input_["secret_id"] = secret_id
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if description is not None:
             input_["description"] = description
         if kms_key_id is not None:

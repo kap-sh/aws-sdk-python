@@ -34,15 +34,20 @@ class UnsupportedFeatureRequiredException(ServiceError):
 
     code: str | None = "UnsupportedFeatureRequiredException"
 
-    def __init__(self, data: UnsupportedFeatureRequiredException_):
+    def __init__(
+        self, data: UnsupportedFeatureRequiredException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedFeatureRequiredException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "UnsupportedFeatureRequiredException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedFeatureRequiredException":
+        return cls(deserialize_aws_json_1_1(data), message)

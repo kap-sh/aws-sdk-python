@@ -34,12 +34,18 @@ class TaskTimedOut(ServiceError):
 
     code: str | None = "TaskTimedOut"
 
-    def __init__(self, data: TaskTimedOut_):
+    def __init__(self, data: TaskTimedOut_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="TaskTimedOut"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="TaskTimedOut",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "TaskTimedOut":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "TaskTimedOut":
+        return cls(deserialize_aws_json_1_0(data), message)

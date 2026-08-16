@@ -34,15 +34,18 @@ class TableInUseException(ServiceError):
 
     code: str | None = "TableInUseException"
 
-    def __init__(self, data: TableInUseException_):
+    def __init__(self, data: TableInUseException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TableInUseException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "TableInUseException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "TableInUseException":
+        return cls(deserialize_aws_json_1_0(data), message)

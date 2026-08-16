@@ -46,15 +46,18 @@ class VerificationException(ServiceError):
 
     code: str | None = "VerificationException"
 
-    def __init__(self, data: VerificationException_):
+    def __init__(self, data: VerificationException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="VerificationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "VerificationException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "VerificationException":
+        return cls(deserialize_query(el), message)

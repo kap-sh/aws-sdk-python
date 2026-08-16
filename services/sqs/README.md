@@ -13,9 +13,9 @@ from capo_sqs import AsyncSQSClient
 
 
 async def main():
-    async with AsyncSQSClient() as s3:
+    async with AsyncSQSClient() as sqs:
         # Example: call the add_permission operation
-        response = await s3.add_permission()
+        response = await sqs.add_permission()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_sqs import AsyncSQSClient
 
 
 async def main():
-    async with AsyncSQSClient() as s3:
+    async with AsyncSQSClient() as sqs:
         # Example: paginate over list_dead_letter_source_queues
-        async for item in s3.iter_list_dead_letter_source_queues():
+        async for item in sqs.iter_list_dead_letter_source_queues():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_sqs.error import InvalidAddress
 
 
 async def main():
-    async with AsyncSQSClient() as s3:
+    async with AsyncSQSClient() as sqs:
         try:
-            await s3.add_permission()
+            await sqs.add_permission()
         except InvalidAddress as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_sqs import AsyncSQSClient
 
 
 async def main():
-    async with AsyncSQSClient() as s3:
+    async with AsyncSQSClient() as sqs:
         # Default: 3 attempts for every operation
-        response = await s3.add_permission()
+        response = await sqs.add_permission()
 
         # Override per operation
-        response = await s3.add_permission(config_overrides={"retry_max_attempts": 5})
+        response = await sqs.add_permission(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.add_permission(config_overrides={"retry_max_attempts": 1})
+        response = await sqs.add_permission(config_overrides={"retry_max_attempts": 1})
 ```

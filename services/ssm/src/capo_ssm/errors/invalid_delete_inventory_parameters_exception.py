@@ -34,17 +34,22 @@ class InvalidDeleteInventoryParametersException(ServiceError):
 
     code: str | None = "InvalidDeleteInventoryParametersException"
 
-    def __init__(self, data: InvalidDeleteInventoryParametersException_):
+    def __init__(
+        self,
+        data: InvalidDeleteInventoryParametersException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDeleteInventoryParametersException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_aws_json_1_1(
-        cls, data: dict
+        cls, data: dict, message: str | None = None
     ) -> "InvalidDeleteInventoryParametersException":
-        return cls(deserialize_aws_json_1_1(data))
+        return cls(deserialize_aws_json_1_1(data), message)

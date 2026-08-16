@@ -25,15 +25,18 @@ class InvalidOutputLocation(ServiceError):
 
     code: str | None = "InvalidOutputLocation"
 
-    def __init__(self, data: InvalidOutputLocation_):
+    def __init__(self, data: InvalidOutputLocation_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidOutputLocation",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidOutputLocation":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidOutputLocation":
+        return cls(deserialize_aws_json_1_1(data), message)

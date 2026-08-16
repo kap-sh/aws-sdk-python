@@ -34,15 +34,18 @@ class StateMachineTypeNotSupported(ServiceError):
 
     code: str | None = "StateMachineTypeNotSupported"
 
-    def __init__(self, data: StateMachineTypeNotSupported_):
+    def __init__(self, data: StateMachineTypeNotSupported_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="StateMachineTypeNotSupported",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "StateMachineTypeNotSupported":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "StateMachineTypeNotSupported":
+        return cls(deserialize_aws_json_1_0(data), message)

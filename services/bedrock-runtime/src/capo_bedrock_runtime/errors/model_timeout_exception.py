@@ -35,18 +35,21 @@ class ModelTimeoutException(ServiceError):
 
     code: str | None = "ModelTimeoutException"
 
-    def __init__(self, data: ModelTimeoutException_):
+    def __init__(self, data: ModelTimeoutException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ModelTimeoutException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ModelTimeoutException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ModelTimeoutException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: ModelTimeoutException_) -> bytes:

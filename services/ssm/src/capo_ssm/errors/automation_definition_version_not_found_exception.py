@@ -38,17 +38,22 @@ class AutomationDefinitionVersionNotFoundException(ServiceError):
 
     code: str | None = "AutomationDefinitionVersionNotFoundException"
 
-    def __init__(self, data: AutomationDefinitionVersionNotFoundException_):
+    def __init__(
+        self,
+        data: AutomationDefinitionVersionNotFoundException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AutomationDefinitionVersionNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_aws_json_1_1(
-        cls, data: dict
+        cls, data: dict, message: str | None = None
     ) -> "AutomationDefinitionVersionNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+        return cls(deserialize_aws_json_1_1(data), message)

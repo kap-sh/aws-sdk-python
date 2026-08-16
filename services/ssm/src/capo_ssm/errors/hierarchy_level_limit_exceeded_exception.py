@@ -35,15 +35,20 @@ class HierarchyLevelLimitExceededException(ServiceError):
 
     code: str | None = "HierarchyLevelLimitExceededException"
 
-    def __init__(self, data: HierarchyLevelLimitExceededException_):
+    def __init__(
+        self, data: HierarchyLevelLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="HierarchyLevelLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "HierarchyLevelLimitExceededException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "HierarchyLevelLimitExceededException":
+        return cls(deserialize_aws_json_1_1(data), message)

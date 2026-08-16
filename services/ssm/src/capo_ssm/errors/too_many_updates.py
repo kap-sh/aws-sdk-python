@@ -34,15 +34,18 @@ class TooManyUpdates(ServiceError):
 
     code: str | None = "TooManyUpdates"
 
-    def __init__(self, data: TooManyUpdates_):
+    def __init__(self, data: TooManyUpdates_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="TooManyUpdates",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "TooManyUpdates":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "TooManyUpdates":
+        return cls(deserialize_aws_json_1_1(data), message)

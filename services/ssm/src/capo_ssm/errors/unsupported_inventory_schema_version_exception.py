@@ -34,17 +34,22 @@ class UnsupportedInventorySchemaVersionException(ServiceError):
 
     code: str | None = "UnsupportedInventorySchemaVersionException"
 
-    def __init__(self, data: UnsupportedInventorySchemaVersionException_):
+    def __init__(
+        self,
+        data: UnsupportedInventorySchemaVersionException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedInventorySchemaVersionException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_aws_json_1_1(
-        cls, data: dict
+        cls, data: dict, message: str | None = None
     ) -> "UnsupportedInventorySchemaVersionException":
-        return cls(deserialize_aws_json_1_1(data))
+        return cls(deserialize_aws_json_1_1(data), message)

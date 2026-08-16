@@ -34,15 +34,18 @@ class IndexNotFoundException(ServiceError):
 
     code: str | None = "IndexNotFoundException"
 
-    def __init__(self, data: IndexNotFoundException_):
+    def __init__(self, data: IndexNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="IndexNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "IndexNotFoundException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "IndexNotFoundException":
+        return cls(deserialize_aws_json_1_0(data), message)

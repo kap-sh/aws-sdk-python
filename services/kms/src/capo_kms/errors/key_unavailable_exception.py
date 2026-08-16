@@ -34,15 +34,18 @@ class KeyUnavailableException(ServiceError):
 
     code: str | None = "KeyUnavailableException"
 
-    def __init__(self, data: KeyUnavailableException_):
+    def __init__(self, data: KeyUnavailableException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="KeyUnavailableException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "KeyUnavailableException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "KeyUnavailableException":
+        return cls(deserialize_aws_json_1_1(data), message)

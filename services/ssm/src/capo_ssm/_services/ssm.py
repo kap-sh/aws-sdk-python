@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AmazonSSM``."""
 
+import uuid
 import warnings
 from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -1385,8 +1386,9 @@ class SSMClient:
         input_["duration"] = duration
         input_["cutoff"] = cutoff
         input_["allow_unassociated_targets"] = allow_unassociated_targets
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -1666,8 +1668,9 @@ class SSMClient:
             input_["available_security_updates_compliance_status"] = (
                 available_security_updates_compliance_status
             )
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -1948,8 +1951,9 @@ class SSMClient:
             input_["schema_delete_option"] = schema_delete_option
         if dry_run is not None:
             input_["dry_run"] = dry_run
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8734,8 +8738,9 @@ class SSMClient:
             input_["name"] = name
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8849,8 +8854,9 @@ class SSMClient:
             input_["name"] = name
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if cutoff_behavior is not None:
             input_["cutoff_behavior"] = cutoff_behavior
         if alarm_configuration is not None:

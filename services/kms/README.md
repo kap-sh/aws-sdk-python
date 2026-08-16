@@ -13,9 +13,9 @@ from capo_kms import AsyncKMSClient
 
 
 async def main():
-    async with AsyncKMSClient() as s3:
+    async with AsyncKMSClient() as kms:
         # Example: call the cancel_key_deletion operation
-        response = await s3.cancel_key_deletion()
+        response = await kms.cancel_key_deletion()
         print(response["key_id"])
 ```
 
@@ -28,9 +28,9 @@ from capo_kms import AsyncKMSClient
 
 
 async def main():
-    async with AsyncKMSClient() as s3:
+    async with AsyncKMSClient() as kms:
         # Example: paginate over describe_custom_key_stores
-        async for item in s3.iter_describe_custom_key_stores():
+        async for item in kms.iter_describe_custom_key_stores():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_kms.error import DependencyTimeoutException
 
 
 async def main():
-    async with AsyncKMSClient() as s3:
+    async with AsyncKMSClient() as kms:
         try:
-            await s3.cancel_key_deletion()
+            await kms.cancel_key_deletion()
         except DependencyTimeoutException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_kms import AsyncKMSClient
 
 
 async def main():
-    async with AsyncKMSClient() as s3:
+    async with AsyncKMSClient() as kms:
         # Default: 3 attempts for every operation
-        response = await s3.cancel_key_deletion()
+        response = await kms.cancel_key_deletion()
 
         # Override per operation
-        response = await s3.cancel_key_deletion(config_overrides={"retry_max_attempts": 5})
+        response = await kms.cancel_key_deletion(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.cancel_key_deletion(config_overrides={"retry_max_attempts": 1})
+        response = await kms.cancel_key_deletion(config_overrides={"retry_max_attempts": 1})
 ```

@@ -43,45 +43,47 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "DuplicateInstanceId":
             raise capo_ssm.errors.duplicate_instance_id.DuplicateInstanceId.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InternalServerError":
             raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidDocument":
             raise capo_ssm.errors.invalid_document.InvalidDocument.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidDocumentVersion":
             raise capo_ssm.errors.invalid_document_version.InvalidDocumentVersion.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidInstanceId":
             raise capo_ssm.errors.invalid_instance_id.InvalidInstanceId.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidNotificationConfig":
             raise capo_ssm.errors.invalid_notification_config.InvalidNotificationConfig.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidOutputFolder":
             raise capo_ssm.errors.invalid_output_folder.InvalidOutputFolder.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidParameters":
             raise capo_ssm.errors.invalid_parameters.InvalidParameters.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidRole":
-            raise capo_ssm.errors.invalid_role.InvalidRole.from_aws_json_1_1(data)
+            raise capo_ssm.errors.invalid_role.InvalidRole.from_aws_json_1_1(
+                data, message
+            )
         case "MaxDocumentSizeExceeded":
             raise capo_ssm.errors.max_document_size_exceeded.MaxDocumentSizeExceeded.from_aws_json_1_1(
-                data
+                data, message
             )
         case "UnsupportedPlatformType":
             raise capo_ssm.errors.unsupported_platform_type.UnsupportedPlatformType.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -141,7 +143,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.SendCommand"
     body: bytes | None = json.dumps(
@@ -150,7 +152,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

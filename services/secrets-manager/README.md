@@ -13,9 +13,9 @@ from capo_secrets_manager import AsyncSecretsManagerClient
 
 
 async def main():
-    async with AsyncSecretsManagerClient() as s3:
+    async with AsyncSecretsManagerClient() as secrets_manager:
         # Example: call the batch_get_secret_value operation
-        response = await s3.batch_get_secret_value()
+        response = await secrets_manager.batch_get_secret_value()
         print(response["secret_values"])
 ```
 
@@ -29,9 +29,9 @@ from capo_secrets_manager.error import DecryptionFailure
 
 
 async def main():
-    async with AsyncSecretsManagerClient() as s3:
+    async with AsyncSecretsManagerClient() as secrets_manager:
         try:
-            await s3.batch_get_secret_value()
+            await secrets_manager.batch_get_secret_value()
         except DecryptionFailure as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_secrets_manager import AsyncSecretsManagerClient
 
 
 async def main():
-    async with AsyncSecretsManagerClient() as s3:
+    async with AsyncSecretsManagerClient() as secrets_manager:
         # Default: 3 attempts for every operation
-        response = await s3.batch_get_secret_value()
+        response = await secrets_manager.batch_get_secret_value()
 
         # Override per operation
-        response = await s3.batch_get_secret_value(config_overrides={"retry_max_attempts": 5})
+        response = await secrets_manager.batch_get_secret_value(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.batch_get_secret_value(config_overrides={"retry_max_attempts": 1})
+        response = await secrets_manager.batch_get_secret_value(config_overrides={"retry_max_attempts": 1})
 ```

@@ -35,18 +35,21 @@ class SessionStreamingException(ServiceError):
 
     code: str | None = "SessionStreamingException"
 
-    def __init__(self, data: SessionStreamingException_):
+    def __init__(self, data: SessionStreamingException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="SessionStreamingException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "SessionStreamingException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "SessionStreamingException":
+        return cls(deserialize_aws_json_1_1(data), message)
 
 
 def serialize_event_aws_json_1_1(value: SessionStreamingException_) -> bytes:

@@ -34,15 +34,20 @@ class CustomKeyStoreHasCMKsException(ServiceError):
 
     code: str | None = "CustomKeyStoreHasCMKsException"
 
-    def __init__(self, data: CustomKeyStoreHasCMKsException_):
+    def __init__(
+        self, data: CustomKeyStoreHasCMKsException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="CustomKeyStoreHasCMKsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "CustomKeyStoreHasCMKsException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "CustomKeyStoreHasCMKsException":
+        return cls(deserialize_aws_json_1_1(data), message)

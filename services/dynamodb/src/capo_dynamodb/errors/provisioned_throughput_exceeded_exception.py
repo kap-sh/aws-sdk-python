@@ -56,15 +56,20 @@ class ProvisionedThroughputExceededException(ServiceError):
 
     code: str | None = "ProvisionedThroughputExceededException"
 
-    def __init__(self, data: ProvisionedThroughputExceededException_):
+    def __init__(
+        self, data: ProvisionedThroughputExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ProvisionedThroughputExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "ProvisionedThroughputExceededException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "ProvisionedThroughputExceededException":
+        return cls(deserialize_aws_json_1_0(data), message)

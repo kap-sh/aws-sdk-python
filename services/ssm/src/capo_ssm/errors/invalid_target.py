@@ -34,15 +34,18 @@ class InvalidTarget(ServiceError):
 
     code: str | None = "InvalidTarget"
 
-    def __init__(self, data: InvalidTarget_):
+    def __init__(self, data: InvalidTarget_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidTarget",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidTarget":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidTarget":
+        return cls(deserialize_aws_json_1_1(data), message)

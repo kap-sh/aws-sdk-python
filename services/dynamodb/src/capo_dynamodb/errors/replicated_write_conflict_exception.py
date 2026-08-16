@@ -34,15 +34,20 @@ class ReplicatedWriteConflictException(ServiceError):
 
     code: str | None = "ReplicatedWriteConflictException"
 
-    def __init__(self, data: ReplicatedWriteConflictException_):
+    def __init__(
+        self, data: ReplicatedWriteConflictException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=True,
             code="ReplicatedWriteConflictException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "ReplicatedWriteConflictException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "ReplicatedWriteConflictException":
+        return cls(deserialize_aws_json_1_0(data), message)

@@ -34,15 +34,18 @@ class BatchRequestTooLong(ServiceError):
 
     code: str | None = "BatchRequestTooLong"
 
-    def __init__(self, data: BatchRequestTooLong_):
+    def __init__(self, data: BatchRequestTooLong_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="BatchRequestTooLong",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "BatchRequestTooLong":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "BatchRequestTooLong":
+        return cls(deserialize_aws_json_1_0(data), message)

@@ -34,15 +34,20 @@ class AutomationStepNotFoundException(ServiceError):
 
     code: str | None = "AutomationStepNotFoundException"
 
-    def __init__(self, data: AutomationStepNotFoundException_):
+    def __init__(
+        self, data: AutomationStepNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="AutomationStepNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "AutomationStepNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "AutomationStepNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

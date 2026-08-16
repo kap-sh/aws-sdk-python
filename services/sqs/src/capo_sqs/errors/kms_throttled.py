@@ -34,12 +34,18 @@ class KmsThrottled(ServiceError):
 
     code: str | None = "KmsThrottled"
 
-    def __init__(self, data: KmsThrottled_):
+    def __init__(self, data: KmsThrottled_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="KmsThrottled"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="KmsThrottled",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "KmsThrottled":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "KmsThrottled":
+        return cls(deserialize_aws_json_1_0(data), message)

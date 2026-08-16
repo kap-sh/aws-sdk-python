@@ -35,29 +35,31 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InternalServerError":
             raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidAggregatorException":
             raise capo_ssm.errors.invalid_aggregator_exception.InvalidAggregatorException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidFilter":
-            raise capo_ssm.errors.invalid_filter.InvalidFilter.from_aws_json_1_1(data)
+            raise capo_ssm.errors.invalid_filter.InvalidFilter.from_aws_json_1_1(
+                data, message
+            )
         case "InvalidInventoryGroupException":
             raise capo_ssm.errors.invalid_inventory_group_exception.InvalidInventoryGroupException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidNextToken":
             raise capo_ssm.errors.invalid_next_token.InvalidNextToken.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidResultAttributeException":
             raise capo_ssm.errors.invalid_result_attribute_exception.InvalidResultAttributeException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidTypeNameException":
             raise capo_ssm.errors.invalid_type_name_exception.InvalidTypeNameException.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -117,7 +119,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.GetInventory"
     body: bytes | None = json.dumps(
@@ -126,7 +128,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

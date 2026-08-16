@@ -42,15 +42,18 @@ class ItemContentMismatchException(ServiceError):
 
     code: str | None = "ItemContentMismatchException"
 
-    def __init__(self, data: ItemContentMismatchException_):
+    def __init__(self, data: ItemContentMismatchException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ItemContentMismatchException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ItemContentMismatchException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ItemContentMismatchException":
+        return cls(deserialize_aws_json_1_1(data), message)

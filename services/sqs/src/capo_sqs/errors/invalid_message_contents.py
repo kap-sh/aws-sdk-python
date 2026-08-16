@@ -34,15 +34,18 @@ class InvalidMessageContents(ServiceError):
 
     code: str | None = "InvalidMessageContents"
 
-    def __init__(self, data: InvalidMessageContents_):
+    def __init__(self, data: InvalidMessageContents_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidMessageContents",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidMessageContents":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidMessageContents":
+        return cls(deserialize_aws_json_1_0(data), message)

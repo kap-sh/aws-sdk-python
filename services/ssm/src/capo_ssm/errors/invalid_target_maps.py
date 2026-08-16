@@ -34,15 +34,18 @@ class InvalidTargetMaps(ServiceError):
 
     code: str | None = "InvalidTargetMaps"
 
-    def __init__(self, data: InvalidTargetMaps_):
+    def __init__(self, data: InvalidTargetMaps_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidTargetMaps",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidTargetMaps":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidTargetMaps":
+        return cls(deserialize_aws_json_1_1(data), message)

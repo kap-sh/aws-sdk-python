@@ -37,15 +37,18 @@ class InternalErrorException(ServiceError):
 
     code: str | None = "InternalErrorException"
 
-    def __init__(self, data: InternalErrorException_):
+    def __init__(self, data: InternalErrorException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="InternalErrorException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "InternalErrorException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "InternalErrorException":
+        return cls(deserialize_query(el), message)

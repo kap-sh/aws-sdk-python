@@ -34,15 +34,18 @@ class InternalException(ServiceError):
 
     code: str | None = "InternalException"
 
-    def __init__(self, data: InternalException_):
+    def __init__(self, data: InternalException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="InternalException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InternalException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InternalException":
+        return cls(deserialize_aws_json_1_1(data), message)

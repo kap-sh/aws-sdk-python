@@ -34,15 +34,18 @@ class XksKeyNotFoundException(ServiceError):
 
     code: str | None = "XksKeyNotFoundException"
 
-    def __init__(self, data: XksKeyNotFoundException_):
+    def __init__(self, data: XksKeyNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="XksKeyNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "XksKeyNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "XksKeyNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

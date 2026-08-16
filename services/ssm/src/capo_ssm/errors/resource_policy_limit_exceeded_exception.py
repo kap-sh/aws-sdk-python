@@ -46,15 +46,20 @@ class ResourcePolicyLimitExceededException(ServiceError):
 
     code: str | None = "ResourcePolicyLimitExceededException"
 
-    def __init__(self, data: ResourcePolicyLimitExceededException_):
+    def __init__(
+        self, data: ResourcePolicyLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResourcePolicyLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ResourcePolicyLimitExceededException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourcePolicyLimitExceededException":
+        return cls(deserialize_aws_json_1_1(data), message)

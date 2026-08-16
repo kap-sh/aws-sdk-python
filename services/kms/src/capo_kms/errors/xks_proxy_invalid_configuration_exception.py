@@ -34,15 +34,20 @@ class XksProxyInvalidConfigurationException(ServiceError):
 
     code: str | None = "XksProxyInvalidConfigurationException"
 
-    def __init__(self, data: XksProxyInvalidConfigurationException_):
+    def __init__(
+        self, data: XksProxyInvalidConfigurationException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="XksProxyInvalidConfigurationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "XksProxyInvalidConfigurationException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "XksProxyInvalidConfigurationException":
+        return cls(deserialize_aws_json_1_1(data), message)

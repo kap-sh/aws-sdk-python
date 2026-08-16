@@ -36,35 +36,35 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AutomationDefinitionNotApprovedException":
             raise capo_ssm.errors.automation_definition_not_approved_exception.AutomationDefinitionNotApprovedException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "AutomationDefinitionNotFoundException":
             raise capo_ssm.errors.automation_definition_not_found_exception.AutomationDefinitionNotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "AutomationDefinitionVersionNotFoundException":
             raise capo_ssm.errors.automation_definition_version_not_found_exception.AutomationDefinitionVersionNotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "AutomationExecutionLimitExceededException":
             raise capo_ssm.errors.automation_execution_limit_exceeded_exception.AutomationExecutionLimitExceededException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "IdempotentParameterMismatch":
             raise capo_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InternalServerError":
             raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidAutomationExecutionParametersException":
             raise capo_ssm.errors.invalid_automation_execution_parameters_exception.InvalidAutomationExecutionParametersException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "NoLongerSupportedException":
             raise capo_ssm.errors.no_longer_supported_exception.NoLongerSupportedException.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -120,7 +120,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.StartChangeRequestExecution"
     body: bytes | None = json.dumps(
@@ -131,7 +131,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

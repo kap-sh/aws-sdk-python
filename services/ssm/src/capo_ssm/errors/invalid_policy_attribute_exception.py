@@ -34,15 +34,20 @@ class InvalidPolicyAttributeException(ServiceError):
 
     code: str | None = "InvalidPolicyAttributeException"
 
-    def __init__(self, data: InvalidPolicyAttributeException_):
+    def __init__(
+        self, data: InvalidPolicyAttributeException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidPolicyAttributeException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidPolicyAttributeException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidPolicyAttributeException":
+        return cls(deserialize_aws_json_1_1(data), message)

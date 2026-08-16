@@ -34,15 +34,20 @@ class GlobalTableAlreadyExistsException(ServiceError):
 
     code: str | None = "GlobalTableAlreadyExistsException"
 
-    def __init__(self, data: GlobalTableAlreadyExistsException_):
+    def __init__(
+        self, data: GlobalTableAlreadyExistsException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="GlobalTableAlreadyExistsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "GlobalTableAlreadyExistsException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "GlobalTableAlreadyExistsException":
+        return cls(deserialize_aws_json_1_0(data), message)

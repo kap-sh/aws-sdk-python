@@ -37,15 +37,18 @@ class KMSNotFoundException(ServiceError):
 
     code: str | None = "KMSNotFoundException"
 
-    def __init__(self, data: KMSNotFoundException_):
+    def __init__(self, data: KMSNotFoundException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="KMSNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "KMSNotFoundException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "KMSNotFoundException":
+        return cls(deserialize_query(el), message)

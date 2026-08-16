@@ -34,15 +34,18 @@ class OpsItemConflictException(ServiceError):
 
     code: str | None = "OpsItemConflictException"
 
-    def __init__(self, data: OpsItemConflictException_):
+    def __init__(self, data: OpsItemConflictException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="OpsItemConflictException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "OpsItemConflictException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "OpsItemConflictException":
+        return cls(deserialize_aws_json_1_1(data), message)

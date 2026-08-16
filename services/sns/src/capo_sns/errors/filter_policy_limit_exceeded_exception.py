@@ -39,15 +39,20 @@ class FilterPolicyLimitExceededException(ServiceError):
 
     code: str | None = "FilterPolicyLimitExceededException"
 
-    def __init__(self, data: FilterPolicyLimitExceededException_):
+    def __init__(
+        self, data: FilterPolicyLimitExceededException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="FilterPolicyLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "FilterPolicyLimitExceededException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "FilterPolicyLimitExceededException":
+        return cls(deserialize_query(el), message)

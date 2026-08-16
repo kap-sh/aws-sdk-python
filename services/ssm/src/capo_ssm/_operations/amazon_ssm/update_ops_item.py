@@ -37,31 +37,31 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "InternalServerError":
             raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemAccessDeniedException":
             raise capo_ssm.errors.ops_item_access_denied_exception.OpsItemAccessDeniedException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemAlreadyExistsException":
             raise capo_ssm.errors.ops_item_already_exists_exception.OpsItemAlreadyExistsException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemConflictException":
             raise capo_ssm.errors.ops_item_conflict_exception.OpsItemConflictException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemInvalidParameterException":
             raise capo_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemLimitExceededException":
             raise capo_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "OpsItemNotFoundException":
             raise capo_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -113,7 +113,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.UpdateOpsItem"
     body: bytes | None = json.dumps(
@@ -122,7 +122,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

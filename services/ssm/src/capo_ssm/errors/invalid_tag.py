@@ -34,12 +34,16 @@ class InvalidTag(ServiceError):
 
     code: str | None = "InvalidTag"
 
-    def __init__(self, data: InvalidTag_):
+    def __init__(self, data: InvalidTag_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="InvalidTag"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="InvalidTag",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidTag":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(cls, data: dict, message: str | None = None) -> "InvalidTag":
+        return cls(deserialize_aws_json_1_1(data), message)

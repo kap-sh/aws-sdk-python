@@ -34,12 +34,16 @@ class KmsNotFound(ServiceError):
 
     code: str | None = "KmsNotFound"
 
-    def __init__(self, data: KmsNotFound_):
+    def __init__(self, data: KmsNotFound_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="KmsNotFound"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="KmsNotFound",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "KmsNotFound":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(cls, data: dict, message: str | None = None) -> "KmsNotFound":
+        return cls(deserialize_aws_json_1_0(data), message)

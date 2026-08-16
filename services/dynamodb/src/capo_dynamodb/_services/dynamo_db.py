@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DynamoDB_20120810``."""
 
 import time
+import uuid
 import warnings
 from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -1853,8 +1854,9 @@ class DynamoDBClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_dynamodb.types.execute_transaction_input.ExecuteTransactionInput = {}  # type: ignore[typeddict-item]
         input_["transact_statements"] = transact_statements
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
 
@@ -1935,8 +1937,9 @@ class DynamoDBClient:
         input_["table_arn"] = table_arn
         if export_time is not None:
             input_["export_time"] = export_time
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         input_["s3_bucket"] = s3_bucket
         if s3_bucket_owner is not None:
             input_["s3_bucket_owner"] = s3_bucket_owner
@@ -2136,8 +2139,9 @@ class DynamoDBClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_dynamodb.types.import_table_input.ImportTableInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         input_["s3_bucket_source"] = s3_bucket_source
         input_["input_format"] = input_format
         if input_format_options is not None:
@@ -3510,8 +3514,9 @@ class DynamoDBClient:
             input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
             input_["return_item_collection_metrics"] = return_item_collection_metrics
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

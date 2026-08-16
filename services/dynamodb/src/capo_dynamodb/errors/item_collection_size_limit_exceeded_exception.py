@@ -35,17 +35,22 @@ class ItemCollectionSizeLimitExceededException(ServiceError):
 
     code: str | None = "ItemCollectionSizeLimitExceededException"
 
-    def __init__(self, data: ItemCollectionSizeLimitExceededException_):
+    def __init__(
+        self,
+        data: ItemCollectionSizeLimitExceededException_,
+        message: str | None = None,
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ItemCollectionSizeLimitExceededException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
     def from_aws_json_1_0(
-        cls, data: dict
+        cls, data: dict, message: str | None = None
     ) -> "ItemCollectionSizeLimitExceededException":
-        return cls(deserialize_aws_json_1_0(data))
+        return cls(deserialize_aws_json_1_0(data), message)

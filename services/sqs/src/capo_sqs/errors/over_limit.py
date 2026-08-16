@@ -34,12 +34,16 @@ class OverLimit(ServiceError):
 
     code: str | None = "OverLimit"
 
-    def __init__(self, data: OverLimit_):
+    def __init__(self, data: OverLimit_, message: str | None = None):
         super().__init__(
-            "client", is_throttling_error=False, is_retryable=False, code="OverLimit"
+            "client",
+            is_throttling_error=False,
+            is_retryable=False,
+            code="OverLimit",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "OverLimit":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(cls, data: dict, message: str | None = None) -> "OverLimit":
+        return cls(deserialize_aws_json_1_0(data), message)

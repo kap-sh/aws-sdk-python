@@ -13,9 +13,9 @@ from capo_cloudwatch_logs import AsyncCloudWatchLogsClient
 
 
 async def main():
-    async with AsyncCloudWatchLogsClient() as s3:
+    async with AsyncCloudWatchLogsClient() as cloud_watch_logs:
         # Example: call the associate_kms_key operation
-        response = await s3.associate_kms_key()
+        response = await cloud_watch_logs.associate_kms_key()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_cloudwatch_logs import AsyncCloudWatchLogsClient
 
 
 async def main():
-    async with AsyncCloudWatchLogsClient() as s3:
+    async with AsyncCloudWatchLogsClient() as cloud_watch_logs:
         # Example: paginate over describe_configuration_templates
-        async for item in s3.iter_describe_configuration_templates():
+        async for item in cloud_watch_logs.iter_describe_configuration_templates():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_cloudwatch_logs.error import InvalidParameterException
 
 
 async def main():
-    async with AsyncCloudWatchLogsClient() as s3:
+    async with AsyncCloudWatchLogsClient() as cloud_watch_logs:
         try:
-            await s3.associate_kms_key()
+            await cloud_watch_logs.associate_kms_key()
         except InvalidParameterException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_cloudwatch_logs import AsyncCloudWatchLogsClient
 
 
 async def main():
-    async with AsyncCloudWatchLogsClient() as s3:
+    async with AsyncCloudWatchLogsClient() as cloud_watch_logs:
         # Default: 3 attempts for every operation
-        response = await s3.associate_kms_key()
+        response = await cloud_watch_logs.associate_kms_key()
 
         # Override per operation
-        response = await s3.associate_kms_key(config_overrides={"retry_max_attempts": 5})
+        response = await cloud_watch_logs.associate_kms_key(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.associate_kms_key(config_overrides={"retry_max_attempts": 1})
+        response = await cloud_watch_logs.associate_kms_key(config_overrides={"retry_max_attempts": 1})
 ```

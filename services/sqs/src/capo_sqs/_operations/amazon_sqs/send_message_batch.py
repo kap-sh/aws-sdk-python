@@ -44,63 +44,71 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "BatchEntryIdsNotDistinct":
             raise capo_sqs.errors.batch_entry_ids_not_distinct.BatchEntryIdsNotDistinct.from_aws_json_1_0(
-                data
+                data, message
             )
         case "BatchRequestTooLong":
             raise capo_sqs.errors.batch_request_too_long.BatchRequestTooLong.from_aws_json_1_0(
-                data
+                data, message
             )
         case "EmptyBatchRequest":
             raise capo_sqs.errors.empty_batch_request.EmptyBatchRequest.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidAddress":
-            raise capo_sqs.errors.invalid_address.InvalidAddress.from_aws_json_1_0(data)
+            raise capo_sqs.errors.invalid_address.InvalidAddress.from_aws_json_1_0(
+                data, message
+            )
         case "InvalidBatchEntryId":
             raise capo_sqs.errors.invalid_batch_entry_id.InvalidBatchEntryId.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidSecurity":
             raise capo_sqs.errors.invalid_security.InvalidSecurity.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsAccessDenied":
             raise capo_sqs.errors.kms_access_denied.KmsAccessDenied.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsDisabled":
-            raise capo_sqs.errors.kms_disabled.KmsDisabled.from_aws_json_1_0(data)
+            raise capo_sqs.errors.kms_disabled.KmsDisabled.from_aws_json_1_0(
+                data, message
+            )
         case "KmsInvalidKeyUsage":
             raise capo_sqs.errors.kms_invalid_key_usage.KmsInvalidKeyUsage.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsInvalidState":
             raise capo_sqs.errors.kms_invalid_state.KmsInvalidState.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsNotFound":
-            raise capo_sqs.errors.kms_not_found.KmsNotFound.from_aws_json_1_0(data)
+            raise capo_sqs.errors.kms_not_found.KmsNotFound.from_aws_json_1_0(
+                data, message
+            )
         case "KmsOptInRequired":
             raise capo_sqs.errors.kms_opt_in_required.KmsOptInRequired.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsThrottled":
-            raise capo_sqs.errors.kms_throttled.KmsThrottled.from_aws_json_1_0(data)
+            raise capo_sqs.errors.kms_throttled.KmsThrottled.from_aws_json_1_0(
+                data, message
+            )
         case "QueueDoesNotExist":
             raise capo_sqs.errors.queue_does_not_exist.QueueDoesNotExist.from_aws_json_1_0(
-                data
+                data, message
             )
         case "RequestThrottled":
             raise capo_sqs.errors.request_throttled.RequestThrottled.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TooManyEntriesInBatchRequest":
             raise capo_sqs.errors.too_many_entries_in_batch_request.TooManyEntriesInBatchRequest.from_aws_json_1_0(
-                data
+                data, message
             )
         case "UnsupportedOperation":
             raise capo_sqs.errors.unsupported_operation.UnsupportedOperation.from_aws_json_1_0(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -160,7 +168,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSQS.SendMessageBatch"
     body: bytes | None = json.dumps(
@@ -169,7 +177,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

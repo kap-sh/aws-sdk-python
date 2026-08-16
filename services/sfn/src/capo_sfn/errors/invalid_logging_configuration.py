@@ -34,15 +34,18 @@ class InvalidLoggingConfiguration(ServiceError):
 
     code: str | None = "InvalidLoggingConfiguration"
 
-    def __init__(self, data: InvalidLoggingConfiguration_):
+    def __init__(self, data: InvalidLoggingConfiguration_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidLoggingConfiguration",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "InvalidLoggingConfiguration":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidLoggingConfiguration":
+        return cls(deserialize_aws_json_1_0(data), message)

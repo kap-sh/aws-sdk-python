@@ -33,6 +33,9 @@ def serialize_aws_json_1_0(value: PutResourcePolicyInput) -> dict:
     out["Policy"] = value["policy"]
     if "expected_revision_id" in value:
         out["ExpectedRevisionId"] = value["expected_revision_id"]
+    out["ConfirmRemoveSelfResourceAccess"] = value.get(
+        "confirm_remove_self_resource_access", False
+    )
     return out
 
 
@@ -48,4 +51,10 @@ def deserialize_aws_json_1_0(data: dict) -> PutResourcePolicyInput:
         raise DeserializationError("PutResourcePolicyInput.policy required")
     if "ExpectedRevisionId" in data:
         out["expected_revision_id"] = data["ExpectedRevisionId"]
+    if "ConfirmRemoveSelfResourceAccess" in data:
+        out["confirm_remove_self_resource_access"] = data[
+            "ConfirmRemoveSelfResourceAccess"
+        ]
+    else:
+        out["confirm_remove_self_resource_access"] = False
     return out

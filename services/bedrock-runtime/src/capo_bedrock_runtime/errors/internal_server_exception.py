@@ -35,18 +35,21 @@ class InternalServerException(ServiceError):
 
     code: str | None = "InternalServerException"
 
-    def __init__(self, data: InternalServerException_):
+    def __init__(self, data: InternalServerException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="InternalServerException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InternalServerException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InternalServerException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: InternalServerException_) -> bytes:

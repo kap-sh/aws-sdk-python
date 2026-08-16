@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#AWSStepFunctions``."""
 
+import uuid
 import warnings
 from collections.abc import AsyncIterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -1627,8 +1628,9 @@ class AsyncSFNClient:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: capo_sfn.types.redrive_execution_input.RedriveExecutionInput = {}  # type: ignore[typeddict-item]
         input_["execution_arn"] = execution_arn
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

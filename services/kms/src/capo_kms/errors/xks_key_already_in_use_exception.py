@@ -34,15 +34,18 @@ class XksKeyAlreadyInUseException(ServiceError):
 
     code: str | None = "XksKeyAlreadyInUseException"
 
-    def __init__(self, data: XksKeyAlreadyInUseException_):
+    def __init__(self, data: XksKeyAlreadyInUseException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="XksKeyAlreadyInUseException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "XksKeyAlreadyInUseException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "XksKeyAlreadyInUseException":
+        return cls(deserialize_aws_json_1_1(data), message)

@@ -34,15 +34,18 @@ class DocumentPermissionLimit(ServiceError):
 
     code: str | None = "DocumentPermissionLimit"
 
-    def __init__(self, data: DocumentPermissionLimit_):
+    def __init__(self, data: DocumentPermissionLimit_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DocumentPermissionLimit",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "DocumentPermissionLimit":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "DocumentPermissionLimit":
+        return cls(deserialize_aws_json_1_1(data), message)

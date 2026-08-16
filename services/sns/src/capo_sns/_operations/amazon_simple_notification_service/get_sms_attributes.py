@@ -18,7 +18,7 @@ import capo_sns.types.get_sms_attributes_input
 import capo_sns.types.get_sms_attributes_response
 import capo_sns.types.list_string
 import capo_sns.types.map_string_to_string
-from capo_sns._protocol.errors import parse_error_metadata
+from capo_sns._protocol.errors import find_error_element, parse_error_metadata
 from capo_sns._protocol.xml import fromstring
 from capo_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_sns._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -28,22 +28,23 @@ from capo_sns.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "AuthorizationErrorException":
+        case "AuthorizationError":
             raise capo_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
-                root
+                error_el, message
             )
-        case "InternalErrorException":
+        case "InternalError":
             raise capo_sns.errors.internal_error_exception.InternalErrorException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidParameterException":
+        case "InvalidParameter":
             raise capo_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
-                root
+                error_el, message
             )
-        case "ThrottledException":
+        case "Throttled":
             raise capo_sns.errors.throttled_exception.ThrottledException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -107,7 +108,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetSMSAttributes"))
@@ -117,7 +118,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

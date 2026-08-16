@@ -34,15 +34,20 @@ class XksProxyUriUnreachableException(ServiceError):
 
     code: str | None = "XksProxyUriUnreachableException"
 
-    def __init__(self, data: XksProxyUriUnreachableException_):
+    def __init__(
+        self, data: XksProxyUriUnreachableException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="XksProxyUriUnreachableException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "XksProxyUriUnreachableException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "XksProxyUriUnreachableException":
+        return cls(deserialize_aws_json_1_1(data), message)

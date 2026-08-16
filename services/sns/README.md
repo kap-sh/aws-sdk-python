@@ -13,9 +13,9 @@ from capo_sns import AsyncSNSClient
 
 
 async def main():
-    async with AsyncSNSClient() as s3:
+    async with AsyncSNSClient() as sns:
         # Example: call the add_permission operation
-        response = await s3.add_permission()
+        response = await sns.add_permission()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_sns import AsyncSNSClient
 
 
 async def main():
-    async with AsyncSNSClient() as s3:
+    async with AsyncSNSClient() as sns:
         # Example: paginate over list_endpoints_by_platform_application
-        async for item in s3.iter_list_endpoints_by_platform_application():
+        async for item in sns.iter_list_endpoints_by_platform_application():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_sns.error import AuthorizationErrorException
 
 
 async def main():
-    async with AsyncSNSClient() as s3:
+    async with AsyncSNSClient() as sns:
         try:
-            await s3.add_permission()
+            await sns.add_permission()
         except AuthorizationErrorException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_sns import AsyncSNSClient
 
 
 async def main():
-    async with AsyncSNSClient() as s3:
+    async with AsyncSNSClient() as sns:
         # Default: 3 attempts for every operation
-        response = await s3.add_permission()
+        response = await sns.add_permission()
 
         # Override per operation
-        response = await s3.add_permission(config_overrides={"retry_max_attempts": 5})
+        response = await sns.add_permission(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.add_permission(config_overrides={"retry_max_attempts": 1})
+        response = await sns.add_permission(config_overrides={"retry_max_attempts": 1})
 ```

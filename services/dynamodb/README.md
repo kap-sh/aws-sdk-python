@@ -13,9 +13,9 @@ from capo_dynamodb import AsyncDynamoDBClient
 
 
 async def main():
-    async with AsyncDynamoDBClient() as s3:
+    async with AsyncDynamoDBClient() as dynamo_db:
         # Example: call the batch_execute_statement operation
-        response = await s3.batch_execute_statement()
+        response = await dynamo_db.batch_execute_statement()
         print(response["responses"])
 ```
 
@@ -28,9 +28,9 @@ from capo_dynamodb import AsyncDynamoDBClient
 
 
 async def main():
-    async with AsyncDynamoDBClient() as s3:
+    async with AsyncDynamoDBClient() as dynamo_db:
         # Example: paginate over list_tables
-        async for item in s3.iter_list_tables():
+        async for item in dynamo_db.iter_list_tables():
             print(item)
 ```
 
@@ -43,9 +43,9 @@ from capo_dynamodb import AsyncDynamoDBClient
 
 
 async def main():
-    async with AsyncDynamoDBClient() as s3:
+    async with AsyncDynamoDBClient() as dynamo_db:
         # Example: wait for table_not_exists
-        await s3.wait_until_table_not_exists(max_wait_time=300)
+        await dynamo_db.wait_until_table_not_exists(max_wait_time=300)
 ```
 
 ## Error Handling
@@ -58,9 +58,9 @@ from capo_dynamodb.error import InternalServerError
 
 
 async def main():
-    async with AsyncDynamoDBClient() as s3:
+    async with AsyncDynamoDBClient() as dynamo_db:
         try:
-            await s3.batch_execute_statement()
+            await dynamo_db.batch_execute_statement()
         except InternalServerError as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -77,13 +77,13 @@ from capo_dynamodb import AsyncDynamoDBClient
 
 
 async def main():
-    async with AsyncDynamoDBClient() as s3:
+    async with AsyncDynamoDBClient() as dynamo_db:
         # Default: 3 attempts for every operation
-        response = await s3.batch_execute_statement()
+        response = await dynamo_db.batch_execute_statement()
 
         # Override per operation
-        response = await s3.batch_execute_statement(config_overrides={"retry_max_attempts": 5})
+        response = await dynamo_db.batch_execute_statement(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.batch_execute_statement(config_overrides={"retry_max_attempts": 1})
+        response = await dynamo_db.batch_execute_statement(config_overrides={"retry_max_attempts": 1})
 ```

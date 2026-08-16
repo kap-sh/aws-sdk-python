@@ -34,15 +34,18 @@ class UnsupportedOperation(ServiceError):
 
     code: str | None = "UnsupportedOperation"
 
-    def __init__(self, data: UnsupportedOperation_):
+    def __init__(self, data: UnsupportedOperation_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedOperation",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "UnsupportedOperation":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedOperation":
+        return cls(deserialize_aws_json_1_0(data), message)

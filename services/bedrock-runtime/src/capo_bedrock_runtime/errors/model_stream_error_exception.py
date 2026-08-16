@@ -52,18 +52,21 @@ class ModelStreamErrorException(ServiceError):
 
     code: str | None = "ModelStreamErrorException"
 
-    def __init__(self, data: ModelStreamErrorException_):
+    def __init__(self, data: ModelStreamErrorException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ModelStreamErrorException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ModelStreamErrorException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ModelStreamErrorException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: ModelStreamErrorException_) -> bytes:

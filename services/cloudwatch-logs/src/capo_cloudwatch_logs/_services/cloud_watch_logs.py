@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Logs_20140328``."""
 
+import uuid
 import warnings
 from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -6235,8 +6236,9 @@ class CloudWatchLogsClient:
         if log_group_names is not None:
             input_["log_group_names"] = log_group_names
         input_["query_string"] = query_string
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if parameters is not None:
             input_["parameters"] = parameters
 

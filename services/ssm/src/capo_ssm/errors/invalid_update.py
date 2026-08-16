@@ -34,15 +34,18 @@ class InvalidUpdate(ServiceError):
 
     code: str | None = "InvalidUpdate"
 
-    def __init__(self, data: InvalidUpdate_):
+    def __init__(self, data: InvalidUpdate_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidUpdate",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidUpdate":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidUpdate":
+        return cls(deserialize_aws_json_1_1(data), message)

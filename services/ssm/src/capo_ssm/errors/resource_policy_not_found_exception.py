@@ -34,15 +34,20 @@ class ResourcePolicyNotFoundException(ServiceError):
 
     code: str | None = "ResourcePolicyNotFoundException"
 
-    def __init__(self, data: ResourcePolicyNotFoundException_):
+    def __init__(
+        self, data: ResourcePolicyNotFoundException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResourcePolicyNotFoundException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ResourcePolicyNotFoundException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourcePolicyNotFoundException":
+        return cls(deserialize_aws_json_1_1(data), message)

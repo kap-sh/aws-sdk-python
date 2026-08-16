@@ -50,15 +50,20 @@ class ConditionalCheckFailedException(ServiceError):
 
     code: str | None = "ConditionalCheckFailedException"
 
-    def __init__(self, data: ConditionalCheckFailedException_):
+    def __init__(
+        self, data: ConditionalCheckFailedException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ConditionalCheckFailedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_0(cls, data: dict) -> "ConditionalCheckFailedException":
-        return cls(deserialize_aws_json_1_0(data))
+    def from_aws_json_1_0(
+        cls, data: dict, message: str | None = None
+    ) -> "ConditionalCheckFailedException":
+        return cls(deserialize_aws_json_1_0(data), message)

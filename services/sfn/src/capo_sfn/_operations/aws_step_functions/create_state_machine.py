@@ -45,57 +45,63 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "ConflictException":
             raise capo_sfn.errors.conflict_exception.ConflictException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidArn":
-            raise capo_sfn.errors.invalid_arn.InvalidArn.from_aws_json_1_0(data)
+            raise capo_sfn.errors.invalid_arn.InvalidArn.from_aws_json_1_0(
+                data, message
+            )
         case "InvalidDefinition":
             raise capo_sfn.errors.invalid_definition.InvalidDefinition.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidEncryptionConfiguration":
             raise capo_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidLoggingConfiguration":
             raise capo_sfn.errors.invalid_logging_configuration.InvalidLoggingConfiguration.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidName":
-            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(data)
+            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(
+                data, message
+            )
         case "InvalidTracingConfiguration":
             raise capo_sfn.errors.invalid_tracing_configuration.InvalidTracingConfiguration.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsAccessDeniedException":
             raise capo_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsThrottlingException":
             raise capo_sfn.errors.kms_throttling_exception.KmsThrottlingException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineAlreadyExists":
             raise capo_sfn.errors.state_machine_already_exists.StateMachineAlreadyExists.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineDeleting":
             raise capo_sfn.errors.state_machine_deleting.StateMachineDeleting.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineLimitExceeded":
             raise capo_sfn.errors.state_machine_limit_exceeded.StateMachineLimitExceeded.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineTypeNotSupported":
             raise capo_sfn.errors.state_machine_type_not_supported.StateMachineTypeNotSupported.from_aws_json_1_0(
-                data
+                data, message
             )
         case "TooManyTags":
-            raise capo_sfn.errors.too_many_tags.TooManyTags.from_aws_json_1_0(data)
+            raise capo_sfn.errors.too_many_tags.TooManyTags.from_aws_json_1_0(
+                data, message
+            )
         case "ValidationException":
             raise capo_sfn.errors.validation_exception.ValidationException.from_aws_json_1_0(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -155,7 +161,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSStepFunctions.CreateStateMachine"
     body: bytes | None = json.dumps(
@@ -164,7 +170,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -34,15 +34,18 @@ class InvalidDocumentOperation(ServiceError):
 
     code: str | None = "InvalidDocumentOperation"
 
-    def __init__(self, data: InvalidDocumentOperation_):
+    def __init__(self, data: InvalidDocumentOperation_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidDocumentOperation",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "InvalidDocumentOperation":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidDocumentOperation":
+        return cls(deserialize_aws_json_1_1(data), message)

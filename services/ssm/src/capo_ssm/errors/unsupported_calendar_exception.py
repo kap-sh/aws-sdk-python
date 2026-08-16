@@ -34,15 +34,18 @@ class UnsupportedCalendarException(ServiceError):
 
     code: str | None = "UnsupportedCalendarException"
 
-    def __init__(self, data: UnsupportedCalendarException_):
+    def __init__(self, data: UnsupportedCalendarException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="UnsupportedCalendarException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "UnsupportedCalendarException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "UnsupportedCalendarException":
+        return cls(deserialize_aws_json_1_1(data), message)

@@ -37,15 +37,18 @@ class EmptyBatchRequestException(ServiceError):
 
     code: str | None = "EmptyBatchRequestException"
 
-    def __init__(self, data: EmptyBatchRequestException_):
+    def __init__(self, data: EmptyBatchRequestException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="EmptyBatchRequestException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_query(cls, el: Element) -> "EmptyBatchRequestException":
-        return cls(deserialize_query(el))
+    def from_query(
+        cls, el: Element, message: str | None = None
+    ) -> "EmptyBatchRequestException":
+        return cls(deserialize_query(el), message)

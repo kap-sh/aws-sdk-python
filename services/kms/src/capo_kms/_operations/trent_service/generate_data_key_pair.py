@@ -41,43 +41,43 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "DependencyTimeoutException":
             raise capo_kms.errors.dependency_timeout_exception.DependencyTimeoutException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "DisabledException":
             raise capo_kms.errors.disabled_exception.DisabledException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "DryRunOperationException":
             raise capo_kms.errors.dry_run_operation_exception.DryRunOperationException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidGrantTokenException":
             raise capo_kms.errors.invalid_grant_token_exception.InvalidGrantTokenException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidKeyUsageException":
             raise capo_kms.errors.invalid_key_usage_exception.InvalidKeyUsageException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "KeyUnavailableException":
             raise capo_kms.errors.key_unavailable_exception.KeyUnavailableException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "KMSInternalException":
             raise capo_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "KMSInvalidStateException":
             raise capo_kms.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "NotFoundException":
             raise capo_kms.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "UnsupportedOperationException":
             raise capo_kms.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -137,7 +137,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "TrentService.GenerateDataKeyPair"
     body: bytes | None = json.dumps(
@@ -146,7 +146,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

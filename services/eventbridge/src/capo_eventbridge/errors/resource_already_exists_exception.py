@@ -34,15 +34,20 @@ class ResourceAlreadyExistsException(ServiceError):
 
     code: str | None = "ResourceAlreadyExistsException"
 
-    def __init__(self, data: ResourceAlreadyExistsException_):
+    def __init__(
+        self, data: ResourceAlreadyExistsException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ResourceAlreadyExistsException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ResourceAlreadyExistsException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ResourceAlreadyExistsException":
+        return cls(deserialize_aws_json_1_1(data), message)

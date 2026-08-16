@@ -42,15 +42,18 @@ class DataAlreadyAcceptedException(ServiceError):
 
     code: str | None = "DataAlreadyAcceptedException"
 
-    def __init__(self, data: DataAlreadyAcceptedException_):
+    def __init__(self, data: DataAlreadyAcceptedException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DataAlreadyAcceptedException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "DataAlreadyAcceptedException":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "DataAlreadyAcceptedException":
+        return cls(deserialize_aws_json_1_1(data), message)

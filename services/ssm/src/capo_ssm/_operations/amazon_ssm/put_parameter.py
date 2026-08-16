@@ -42,61 +42,63 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "HierarchyLevelLimitExceededException":
             raise capo_ssm.errors.hierarchy_level_limit_exceeded_exception.HierarchyLevelLimitExceededException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "HierarchyTypeMismatchException":
             raise capo_ssm.errors.hierarchy_type_mismatch_exception.HierarchyTypeMismatchException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "IncompatiblePolicyException":
             raise capo_ssm.errors.incompatible_policy_exception.IncompatiblePolicyException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InternalServerError":
             raise capo_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidAllowedPatternException":
             raise capo_ssm.errors.invalid_allowed_pattern_exception.InvalidAllowedPatternException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidKeyId":
-            raise capo_ssm.errors.invalid_key_id.InvalidKeyId.from_aws_json_1_1(data)
+            raise capo_ssm.errors.invalid_key_id.InvalidKeyId.from_aws_json_1_1(
+                data, message
+            )
         case "InvalidPolicyAttributeException":
             raise capo_ssm.errors.invalid_policy_attribute_exception.InvalidPolicyAttributeException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "InvalidPolicyTypeException":
             raise capo_ssm.errors.invalid_policy_type_exception.InvalidPolicyTypeException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "ParameterAlreadyExists":
             raise capo_ssm.errors.parameter_already_exists.ParameterAlreadyExists.from_aws_json_1_1(
-                data
+                data, message
             )
         case "ParameterLimitExceeded":
             raise capo_ssm.errors.parameter_limit_exceeded.ParameterLimitExceeded.from_aws_json_1_1(
-                data
+                data, message
             )
         case "ParameterMaxVersionLimitExceeded":
             raise capo_ssm.errors.parameter_max_version_limit_exceeded.ParameterMaxVersionLimitExceeded.from_aws_json_1_1(
-                data
+                data, message
             )
         case "ParameterPatternMismatchException":
             raise capo_ssm.errors.parameter_pattern_mismatch_exception.ParameterPatternMismatchException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "PoliciesLimitExceededException":
             raise capo_ssm.errors.policies_limit_exceeded_exception.PoliciesLimitExceededException.from_aws_json_1_1(
-                data
+                data, message
             )
         case "TooManyUpdates":
             raise capo_ssm.errors.too_many_updates.TooManyUpdates.from_aws_json_1_1(
-                data
+                data, message
             )
         case "UnsupportedParameterType":
             raise capo_ssm.errors.unsupported_parameter_type.UnsupportedParameterType.from_aws_json_1_1(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -156,7 +158,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.PutParameter"
     body: bytes | None = json.dumps(
@@ -165,7 +167,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

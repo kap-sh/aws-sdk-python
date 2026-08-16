@@ -23,7 +23,7 @@ import capo_sns.types.create_topic_input
 import capo_sns.types.create_topic_response
 import capo_sns.types.tag_list
 import capo_sns.types.topic_attributes_map
-from capo_sns._protocol.errors import parse_error_metadata
+from capo_sns._protocol.errors import find_error_element, parse_error_metadata
 from capo_sns._protocol.xml import fromstring
 from capo_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_sns._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -33,40 +33,43 @@ from capo_sns.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "AuthorizationErrorException":
+        case "AuthorizationError":
             raise capo_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
-                root
+                error_el, message
             )
-        case "ConcurrentAccessException":
+        case "ConcurrentAccess":
             raise capo_sns.errors.concurrent_access_exception.ConcurrentAccessException.from_query(
-                root
+                error_el, message
             )
-        case "InternalErrorException":
+        case "InternalError":
             raise capo_sns.errors.internal_error_exception.InternalErrorException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidParameterException":
+        case "InvalidParameter":
             raise capo_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSecurityException":
+        case "InvalidSecurity":
             raise capo_sns.errors.invalid_security_exception.InvalidSecurityException.from_query(
-                root
+                error_el, message
             )
-        case "StaleTagException":
-            raise capo_sns.errors.stale_tag_exception.StaleTagException.from_query(root)
-        case "TagLimitExceededException":
+        case "StaleTag":
+            raise capo_sns.errors.stale_tag_exception.StaleTagException.from_query(
+                error_el, message
+            )
+        case "TagLimitExceeded":
             raise capo_sns.errors.tag_limit_exceeded_exception.TagLimitExceededException.from_query(
-                root
+                error_el, message
             )
-        case "TagPolicyException":
+        case "TagPolicy":
             raise capo_sns.errors.tag_policy_exception.TagPolicyException.from_query(
-                root
+                error_el, message
             )
-        case "TopicLimitExceededException":
+        case "TopicLimitExceeded":
             raise capo_sns.errors.topic_limit_exceeded_exception.TopicLimitExceededException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -130,7 +133,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateTopic"))
@@ -140,7 +143,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

@@ -34,15 +34,20 @@ class ParameterMaxVersionLimitExceeded(ServiceError):
 
     code: str | None = "ParameterMaxVersionLimitExceeded"
 
-    def __init__(self, data: ParameterMaxVersionLimitExceeded_):
+    def __init__(
+        self, data: ParameterMaxVersionLimitExceeded_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ParameterMaxVersionLimitExceeded",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_aws_json_1_1(cls, data: dict) -> "ParameterMaxVersionLimitExceeded":
-        return cls(deserialize_aws_json_1_1(data))
+    def from_aws_json_1_1(
+        cls, data: dict, message: str | None = None
+    ) -> "ParameterMaxVersionLimitExceeded":
+        return cls(deserialize_aws_json_1_1(data), message)

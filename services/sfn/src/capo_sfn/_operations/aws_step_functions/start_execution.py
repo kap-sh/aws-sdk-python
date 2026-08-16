@@ -36,43 +36,47 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "ExecutionAlreadyExists":
             raise capo_sfn.errors.execution_already_exists.ExecutionAlreadyExists.from_aws_json_1_0(
-                data
+                data, message
             )
         case "ExecutionLimitExceeded":
             raise capo_sfn.errors.execution_limit_exceeded.ExecutionLimitExceeded.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidArn":
-            raise capo_sfn.errors.invalid_arn.InvalidArn.from_aws_json_1_0(data)
+            raise capo_sfn.errors.invalid_arn.InvalidArn.from_aws_json_1_0(
+                data, message
+            )
         case "InvalidExecutionInput":
             raise capo_sfn.errors.invalid_execution_input.InvalidExecutionInput.from_aws_json_1_0(
-                data
+                data, message
             )
         case "InvalidName":
-            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(data)
+            raise capo_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(
+                data, message
+            )
         case "KmsAccessDeniedException":
             raise capo_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsInvalidStateException":
             raise capo_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "KmsThrottlingException":
             raise capo_sfn.errors.kms_throttling_exception.KmsThrottlingException.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineDeleting":
             raise capo_sfn.errors.state_machine_deleting.StateMachineDeleting.from_aws_json_1_0(
-                data
+                data, message
             )
         case "StateMachineDoesNotExist":
             raise capo_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist.from_aws_json_1_0(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_sfn.errors.validation_exception.ValidationException.from_aws_json_1_0(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -132,7 +136,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSStepFunctions.StartExecution"
     body: bytes | None = json.dumps(
@@ -141,7 +145,8 @@ def build_request(
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )

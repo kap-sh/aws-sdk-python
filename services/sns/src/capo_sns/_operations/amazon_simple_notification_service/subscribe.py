@@ -21,7 +21,7 @@ import capo_sns.errors.subscription_limit_exceeded_exception
 import capo_sns.types.subscribe_input
 import capo_sns.types.subscribe_response
 import capo_sns.types.subscription_attributes_map
-from capo_sns._protocol.errors import parse_error_metadata
+from capo_sns._protocol.errors import find_error_element, parse_error_metadata
 from capo_sns._protocol.xml import fromstring
 from capo_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_sns._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -31,36 +31,39 @@ from capo_sns.errors import UnknownServiceError
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
+    error_el = find_error_element(root)
     match code:
-        case "AuthorizationErrorException":
+        case "AuthorizationError":
             raise capo_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
-                root
+                error_el, message
             )
-        case "FilterPolicyLimitExceededException":
+        case "FilterPolicyLimitExceeded":
             raise capo_sns.errors.filter_policy_limit_exceeded_exception.FilterPolicyLimitExceededException.from_query(
-                root
+                error_el, message
             )
-        case "InternalErrorException":
+        case "InternalError":
             raise capo_sns.errors.internal_error_exception.InternalErrorException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidParameterException":
+        case "InvalidParameter":
             raise capo_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
-                root
+                error_el, message
             )
-        case "InvalidSecurityException":
+        case "InvalidSecurity":
             raise capo_sns.errors.invalid_security_exception.InvalidSecurityException.from_query(
-                root
+                error_el, message
             )
-        case "NotFoundException":
-            raise capo_sns.errors.not_found_exception.NotFoundException.from_query(root)
-        case "ReplayLimitExceededException":
+        case "NotFound":
+            raise capo_sns.errors.not_found_exception.NotFoundException.from_query(
+                error_el, message
+            )
+        case "ReplayLimitExceeded":
             raise capo_sns.errors.replay_limit_exceeded_exception.ReplayLimitExceededException.from_query(
-                root
+                error_el, message
             )
-        case "SubscriptionLimitExceededException":
+        case "SubscriptionLimitExceeded":
             raise capo_sns.errors.subscription_limit_exceeded_exception.SubscriptionLimitExceededException.from_query(
-                root
+                error_el, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -124,7 +127,7 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "Subscribe"))
@@ -134,7 +137,8 @@ def build_request(
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
