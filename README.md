@@ -39,13 +39,7 @@ Note that Amazon VPC has no separate package — its API is part of EC2, so `cap
 
 ### Services not yet on PyPI
 
-Not every service is on PyPI yet. We publish incrementally because of PyPI's limits on new projects and total upload size. If the service you need isn't published, install it straight from the repository:
-
-```bash
-uv add git+https://github.com/kap-sh/capo#subdirectory=services/glacier
-```
-
-Replace `glacier` with the directory name of the service under [`services/`](https://github.com/kap-sh/capo/tree/main/services), and please [open an issue](https://github.com/kap-sh/capo/issues) so we can prioritize publishing it.
+Not every service is on PyPI yet. We publish incrementally because of PyPI's limits on new projects and total upload size. If the service you need isn't published, please [open an issue](https://github.com/kap-sh/capo/issues) so we can prioritize publishing it.
 
 
 
