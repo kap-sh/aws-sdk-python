@@ -25,11 +25,11 @@ def serialize_json(value: AccountUsage) -> dict:
 
 def deserialize_json(data: dict) -> AccountUsage:
     out: AccountUsage = {}  # type: ignore[typeddict-item]
-    if "TotalCodeSize" in data:
+    if data.get("TotalCodeSize") is not None:
         out["total_code_size"] = data["TotalCodeSize"]
     else:
         out["total_code_size"] = 0
-    if "FunctionCount" in data:
+    if data.get("FunctionCount") is not None:
         out["function_count"] = data["FunctionCount"]
     else:
         out["function_count"] = 0

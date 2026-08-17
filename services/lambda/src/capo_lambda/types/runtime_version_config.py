@@ -34,9 +34,9 @@ def serialize_json(value: RuntimeVersionConfig) -> dict:
 
 def deserialize_json(data: dict) -> RuntimeVersionConfig:
     out: RuntimeVersionConfig = {}  # type: ignore[typeddict-item]
-    if "RuntimeVersionArn" in data:
+    if data.get("RuntimeVersionArn") is not None:
         out["runtime_version_arn"] = data["RuntimeVersionArn"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.runtime_version_error
 
         out["error"] = capo_lambda.types.runtime_version_error.deserialize_json(

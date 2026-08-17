@@ -73,11 +73,11 @@ def serialize_aws_json_1_1(value: VerifyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VerifyRequest:
     out: VerifyRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("VerifyRequest.key_id required")
-    if "Message" in data:
+    if data.get("Message") is not None:
         import capo_kms.types.plaintext_type
 
         out["message"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
@@ -85,13 +85,13 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyRequest:
         )
     else:
         raise DeserializationError("VerifyRequest.message required")
-    if "MessageType" in data:
+    if data.get("MessageType") is not None:
         import capo_kms.types.message_type
 
         out["message_type"] = capo_kms.types.message_type.deserialize_aws_json_1_1(
             data["MessageType"]
         )
-    if "Signature" in data:
+    if data.get("Signature") is not None:
         import capo_kms.types.ciphertext_type
 
         out["signature"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyRequest:
         )
     else:
         raise DeserializationError("VerifyRequest.signature required")
-    if "SigningAlgorithm" in data:
+    if data.get("SigningAlgorithm") is not None:
         import capo_kms.types.signing_algorithm_spec
 
         out["signing_algorithm"] = (
@@ -109,12 +109,12 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyRequest:
         )
     else:
         raise DeserializationError("VerifyRequest.signing_algorithm required")
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

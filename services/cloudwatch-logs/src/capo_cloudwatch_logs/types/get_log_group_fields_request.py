@@ -37,10 +37,10 @@ def serialize_aws_json_1_1(value: GetLogGroupFieldsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogGroupFieldsRequest:
     out: GetLogGroupFieldsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "time" in data:
+    if data.get("time") is not None:
         out["time"] = data["time"]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
     return out

@@ -71,13 +71,13 @@ def serialize_aws_json_1_1(value: PutSecretValueRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutSecretValueRequest:
     out: PutSecretValueRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("PutSecretValueRequest.secret_id required")
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
-    if "SecretBinary" in data:
+    if data.get("SecretBinary") is not None:
         import capo_secrets_manager.types.secret_binary_type
 
         out["secret_binary"] = (
@@ -85,9 +85,9 @@ def deserialize_aws_json_1_1(data: dict) -> PutSecretValueRequest:
                 data["SecretBinary"]
             )
         )
-    if "SecretString" in data:
+    if data.get("SecretString") is not None:
         out["secret_string"] = data["SecretString"]
-    if "VersionStages" in data:
+    if data.get("VersionStages") is not None:
         import capo_secrets_manager.types.secret_version_stages_type
 
         out["version_stages"] = (
@@ -95,6 +95,6 @@ def deserialize_aws_json_1_1(data: dict) -> PutSecretValueRequest:
                 data["VersionStages"]
             )
         )
-    if "RotationToken" in data:
+    if data.get("RotationToken") is not None:
         out["rotation_token"] = data["RotationToken"]
     return out

@@ -40,9 +40,9 @@ def serialize_aws_json_1_1(value: DaemonRevisionDetail) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonRevisionDetail:
     out: DaemonRevisionDetail = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "capacityProviders" in data:
+    if data.get("capacityProviders") is not None:
         import capo_ecs.types.daemon_capacity_provider_list
 
         out["capacity_providers"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonRevisionDetail:
                 data["capacityProviders"]
             )
         )
-    if "totalRunningCount" in data:
+    if data.get("totalRunningCount") is not None:
         out["total_running_count"] = data["totalRunningCount"]
     else:
         out["total_running_count"] = 0

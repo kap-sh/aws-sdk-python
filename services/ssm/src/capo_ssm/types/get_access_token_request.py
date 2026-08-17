@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetAccessTokenRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetAccessTokenRequest:
     out: GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
-    if "AccessRequestId" in data:
+    if data.get("AccessRequestId") is not None:
         out["access_request_id"] = data["AccessRequestId"]
     else:
         raise DeserializationError("GetAccessTokenRequest.access_request_id required")

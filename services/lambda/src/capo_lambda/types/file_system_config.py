@@ -28,11 +28,11 @@ def serialize_json(value: FileSystemConfig) -> dict:
 
 def deserialize_json(data: dict) -> FileSystemConfig:
     out: FileSystemConfig = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
     else:
         raise DeserializationError("FileSystemConfig.arn required")
-    if "LocalMountPath" in data:
+    if data.get("LocalMountPath") is not None:
         out["local_mount_path"] = data["LocalMountPath"]
     else:
         raise DeserializationError("FileSystemConfig.local_mount_path required")

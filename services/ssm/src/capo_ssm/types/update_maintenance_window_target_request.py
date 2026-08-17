@@ -59,30 +59,30 @@ def serialize_aws_json_1_1(value: UpdateMaintenanceWindowTargetRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateMaintenanceWindowTargetRequest:
     out: UpdateMaintenanceWindowTargetRequest = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
     else:
         raise DeserializationError(
             "UpdateMaintenanceWindowTargetRequest.window_id required"
         )
-    if "WindowTargetId" in data:
+    if data.get("WindowTargetId") is not None:
         out["window_target_id"] = data["WindowTargetId"]
     else:
         raise DeserializationError(
             "UpdateMaintenanceWindowTargetRequest.window_target_id required"
         )
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "OwnerInformation" in data:
+    if data.get("OwnerInformation") is not None:
         out["owner_information"] = data["OwnerInformation"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Replace" in data:
+    if data.get("Replace") is not None:
         out["replace"] = data["Replace"]
     return out

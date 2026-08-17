@@ -42,11 +42,11 @@ def serialize_aws_json_1_1(value: ListScheduledQueriesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListScheduledQueriesRequest:
     out: ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_state
 
         out["state"] = (

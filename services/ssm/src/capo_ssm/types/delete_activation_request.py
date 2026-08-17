@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteActivationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteActivationRequest:
     out: DeleteActivationRequest = {}  # type: ignore[typeddict-item]
-    if "ActivationId" in data:
+    if data.get("ActivationId") is not None:
         out["activation_id"] = data["ActivationId"]
     else:
         raise DeserializationError("DeleteActivationRequest.activation_id required")

@@ -46,13 +46,13 @@ def serialize_json(value: GuardrailRegexFilter) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailRegexFilter:
     out: GuardrailRegexFilter = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "match" in data:
+    if data.get("match") is not None:
         out["match"] = data["match"]
-    if "regex" in data:
+    if data.get("regex") is not None:
         out["regex"] = data["regex"]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_runtime.types.guardrail_sensitive_information_policy_action
 
         out["action"] = (
@@ -62,6 +62,6 @@ def deserialize_json(data: dict) -> GuardrailRegexFilter:
         )
     else:
         raise DeserializationError("GuardrailRegexFilter.action required")
-    if "detected" in data:
+    if data.get("detected") is not None:
         out["detected"] = data["detected"]
     return out

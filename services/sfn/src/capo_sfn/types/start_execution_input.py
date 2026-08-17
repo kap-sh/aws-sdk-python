@@ -39,14 +39,14 @@ def serialize_aws_json_1_0(value: StartExecutionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartExecutionInput:
     out: StartExecutionInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("StartExecutionInput.state_machine_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "traceHeader" in data:
+    if data.get("traceHeader") is not None:
         out["trace_header"] = data["traceHeader"]
     return out

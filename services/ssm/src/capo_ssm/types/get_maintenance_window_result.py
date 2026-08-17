@@ -111,45 +111,45 @@ def serialize_aws_json_1_1(value: GetMaintenanceWindowResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowResult:
     out: GetMaintenanceWindowResult = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         out["start_date"] = data["StartDate"]
-    if "EndDate" in data:
+    if data.get("EndDate") is not None:
         out["end_date"] = data["EndDate"]
-    if "Schedule" in data:
+    if data.get("Schedule") is not None:
         out["schedule"] = data["Schedule"]
-    if "ScheduleTimezone" in data:
+    if data.get("ScheduleTimezone") is not None:
         out["schedule_timezone"] = data["ScheduleTimezone"]
-    if "ScheduleOffset" in data:
+    if data.get("ScheduleOffset") is not None:
         out["schedule_offset"] = data["ScheduleOffset"]
-    if "NextExecutionTime" in data:
+    if data.get("NextExecutionTime") is not None:
         out["next_execution_time"] = data["NextExecutionTime"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
-    if "Cutoff" in data:
+    if data.get("Cutoff") is not None:
         out["cutoff"] = data["Cutoff"]
     else:
         out["cutoff"] = 0
-    if "AllowUnassociatedTargets" in data:
+    if data.get("AllowUnassociatedTargets") is not None:
         out["allow_unassociated_targets"] = data["AllowUnassociatedTargets"]
     else:
         out["allow_unassociated_targets"] = False
-    if "Enabled" in data:
+    if data.get("Enabled") is not None:
         out["enabled"] = data["Enabled"]
     else:
         out["enabled"] = False
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_ssm.types.date_time
 
         out["created_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedDate"]
         )
-    if "ModifiedDate" in data:
+    if data.get("ModifiedDate") is not None:
         import capo_ssm.types.date_time
 
         out["modified_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

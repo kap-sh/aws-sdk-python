@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> ReplicationDestinationList:
 
     out: ReplicationDestinationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.replication_destination.deserialize_aws_json_1_1(item)
         )

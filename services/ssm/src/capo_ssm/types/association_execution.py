@@ -95,31 +95,31 @@ def serialize_aws_json_1_1(value: AssociationExecution) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociationExecution:
     out: AssociationExecution = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
-    if "ExecutionId" in data:
+    if data.get("ExecutionId") is not None:
         out["execution_id"] = data["ExecutionId"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         out["status"] = data["Status"]
-    if "DetailedStatus" in data:
+    if data.get("DetailedStatus") is not None:
         out["detailed_status"] = data["DetailedStatus"]
-    if "CreatedTime" in data:
+    if data.get("CreatedTime") is not None:
         import capo_ssm.types.date_time
 
         out["created_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedTime"]
         )
-    if "LastExecutionDate" in data:
+    if data.get("LastExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_execution_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastExecutionDate"]
         )
-    if "ResourceCountByStatus" in data:
+    if data.get("ResourceCountByStatus") is not None:
         out["resource_count_by_status"] = data["ResourceCountByStatus"]
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (
@@ -127,7 +127,7 @@ def deserialize_aws_json_1_1(data: dict) -> AssociationExecution:
                 data["AlarmConfiguration"]
             )
         )
-    if "TriggeredAlarms" in data:
+    if data.get("TriggeredAlarms") is not None:
         import capo_ssm.types.alarm_state_information_list
 
         out["triggered_alarms"] = (

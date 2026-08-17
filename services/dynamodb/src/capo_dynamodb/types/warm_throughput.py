@@ -27,8 +27,8 @@ def serialize_aws_json_1_0(value: WarmThroughput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> WarmThroughput:
     out: WarmThroughput = {}  # type: ignore[typeddict-item]
-    if "ReadUnitsPerSecond" in data:
+    if data.get("ReadUnitsPerSecond") is not None:
         out["read_units_per_second"] = data["ReadUnitsPerSecond"]
-    if "WriteUnitsPerSecond" in data:
+    if data.get("WriteUnitsPerSecond") is not None:
         out["write_units_per_second"] = data["WriteUnitsPerSecond"]
     return out

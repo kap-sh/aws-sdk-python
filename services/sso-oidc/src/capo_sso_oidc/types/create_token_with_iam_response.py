@@ -67,25 +67,25 @@ def serialize_json(value: CreateTokenWithIAMResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateTokenWithIAMResponse:
     out: CreateTokenWithIAMResponse = {}  # type: ignore[typeddict-item]
-    if "accessToken" in data:
+    if data.get("accessToken") is not None:
         out["access_token"] = data["accessToken"]
-    if "tokenType" in data:
+    if data.get("tokenType") is not None:
         out["token_type"] = data["tokenType"]
-    if "expiresIn" in data:
+    if data.get("expiresIn") is not None:
         out["expires_in"] = data["expiresIn"]
     else:
         out["expires_in"] = 0
-    if "refreshToken" in data:
+    if data.get("refreshToken") is not None:
         out["refresh_token"] = data["refreshToken"]
-    if "idToken" in data:
+    if data.get("idToken") is not None:
         out["id_token"] = data["idToken"]
-    if "issuedTokenType" in data:
+    if data.get("issuedTokenType") is not None:
         out["issued_token_type"] = data["issuedTokenType"]
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_sso_oidc.types.scopes
 
         out["scope"] = capo_sso_oidc.types.scopes.deserialize_json(data["scope"])
-    if "awsAdditionalDetails" in data:
+    if data.get("awsAdditionalDetails") is not None:
         import capo_sso_oidc.types.aws_additional_details
 
         out["aws_additional_details"] = (

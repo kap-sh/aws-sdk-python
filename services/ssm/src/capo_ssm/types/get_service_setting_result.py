@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: GetServiceSettingResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetServiceSettingResult:
     out: GetServiceSettingResult = {}  # type: ignore[typeddict-item]
-    if "ServiceSetting" in data:
+    if data.get("ServiceSetting") is not None:
         import capo_ssm.types.service_setting
 
         out["service_setting"] = (

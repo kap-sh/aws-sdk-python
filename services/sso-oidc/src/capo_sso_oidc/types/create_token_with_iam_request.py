@@ -74,32 +74,32 @@ def serialize_json(value: CreateTokenWithIAMRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateTokenWithIAMRequest:
     out: CreateTokenWithIAMRequest = {}  # type: ignore[typeddict-item]
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     else:
         raise DeserializationError("CreateTokenWithIAMRequest.client_id required")
-    if "grantType" in data:
+    if data.get("grantType") is not None:
         out["grant_type"] = data["grantType"]
     else:
         raise DeserializationError("CreateTokenWithIAMRequest.grant_type required")
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
-    if "refreshToken" in data:
+    if data.get("refreshToken") is not None:
         out["refresh_token"] = data["refreshToken"]
-    if "assertion" in data:
+    if data.get("assertion") is not None:
         out["assertion"] = data["assertion"]
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_sso_oidc.types.scopes
 
         out["scope"] = capo_sso_oidc.types.scopes.deserialize_json(data["scope"])
-    if "redirectUri" in data:
+    if data.get("redirectUri") is not None:
         out["redirect_uri"] = data["redirectUri"]
-    if "subjectToken" in data:
+    if data.get("subjectToken") is not None:
         out["subject_token"] = data["subjectToken"]
-    if "subjectTokenType" in data:
+    if data.get("subjectTokenType") is not None:
         out["subject_token_type"] = data["subjectTokenType"]
-    if "requestedTokenType" in data:
+    if data.get("requestedTokenType") is not None:
         out["requested_token_type"] = data["requestedTokenType"]
-    if "codeVerifier" in data:
+    if data.get("codeVerifier") is not None:
         out["code_verifier"] = data["codeVerifier"]
     return out

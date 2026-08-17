@@ -66,17 +66,17 @@ def serialize_aws_json_1_0(value: SendMessageRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SendMessageRequest:
     out: SendMessageRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("SendMessageRequest.queue_url required")
-    if "MessageBody" in data:
+    if data.get("MessageBody") is not None:
         out["message_body"] = data["MessageBody"]
     else:
         raise DeserializationError("SendMessageRequest.message_body required")
-    if "DelaySeconds" in data:
+    if data.get("DelaySeconds") is not None:
         out["delay_seconds"] = data["DelaySeconds"]
-    if "MessageAttributes" in data:
+    if data.get("MessageAttributes") is not None:
         import capo_sqs.types.message_body_attribute_map
 
         out["message_attributes"] = (
@@ -84,7 +84,7 @@ def deserialize_aws_json_1_0(data: dict) -> SendMessageRequest:
                 data["MessageAttributes"]
             )
         )
-    if "MessageSystemAttributes" in data:
+    if data.get("MessageSystemAttributes") is not None:
         import capo_sqs.types.message_body_system_attribute_map
 
         out["message_system_attributes"] = (
@@ -92,8 +92,8 @@ def deserialize_aws_json_1_0(data: dict) -> SendMessageRequest:
                 data["MessageSystemAttributes"]
             )
         )
-    if "MessageDeduplicationId" in data:
+    if data.get("MessageDeduplicationId") is not None:
         out["message_deduplication_id"] = data["MessageDeduplicationId"]
-    if "MessageGroupId" in data:
+    if data.get("MessageGroupId") is not None:
         out["message_group_id"] = data["MessageGroupId"]
     return out

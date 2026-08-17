@@ -32,17 +32,17 @@ def serialize_aws_json_1_1(value: CapacityProviderStrategyItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CapacityProviderStrategyItem:
     out: CapacityProviderStrategyItem = {}  # type: ignore[typeddict-item]
-    if "capacityProvider" in data:
+    if data.get("capacityProvider") is not None:
         out["capacity_provider"] = data["capacityProvider"]
     else:
         raise DeserializationError(
             "CapacityProviderStrategyItem.capacity_provider required"
         )
-    if "weight" in data:
+    if data.get("weight") is not None:
         out["weight"] = data["weight"]
     else:
         out["weight"] = 0
-    if "base" in data:
+    if data.get("base") is not None:
         out["base"] = data["base"]
     else:
         out["base"] = 0

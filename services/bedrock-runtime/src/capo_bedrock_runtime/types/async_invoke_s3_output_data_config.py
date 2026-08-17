@@ -34,12 +34,12 @@ def serialize_json(value: AsyncInvokeS3OutputDataConfig) -> dict:
 
 def deserialize_json(data: dict) -> AsyncInvokeS3OutputDataConfig:
     out: AsyncInvokeS3OutputDataConfig = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError("AsyncInvokeS3OutputDataConfig.s3_uri required")
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "bucketOwner" in data:
+    if data.get("bucketOwner") is not None:
         out["bucket_owner"] = data["bucketOwner"]
     return out

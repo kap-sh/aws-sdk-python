@@ -25,6 +25,8 @@ def serialize_aws_json_1_0(input_to_serialize: BatchWriteItemRequestMap) -> dict
 def deserialize_aws_json_1_0(data: dict) -> BatchWriteItemRequestMap:
     out: BatchWriteItemRequestMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_dynamodb.types.write_requests
 
         out[key] = capo_dynamodb.types.write_requests.deserialize_aws_json_1_0(value)

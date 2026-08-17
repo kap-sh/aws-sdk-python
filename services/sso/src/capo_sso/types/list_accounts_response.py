@@ -32,9 +32,9 @@ def serialize_json(value: ListAccountsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListAccountsResponse:
     out: ListAccountsResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "accountList" in data:
+    if data.get("accountList") is not None:
         import capo_sso.types.account_list_type
 
         out["account_list"] = capo_sso.types.account_list_type.deserialize_json(

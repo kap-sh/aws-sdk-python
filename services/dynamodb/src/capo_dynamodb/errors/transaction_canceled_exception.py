@@ -37,9 +37,9 @@ def serialize_aws_json_1_0(value: TransactionCanceledException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TransactionCanceledException_:
     out: TransactionCanceledException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "CancellationReasons" in data:
+    if data.get("CancellationReasons") is not None:
         import capo_dynamodb.types.cancellation_reason_list
 
         out["cancellation_reasons"] = (

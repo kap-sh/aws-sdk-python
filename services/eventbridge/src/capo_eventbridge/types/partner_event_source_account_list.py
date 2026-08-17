@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> PartnerEventSourceAccountList:
 
     out: PartnerEventSourceAccountList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.partner_event_source_account.deserialize_aws_json_1_1(
                 item

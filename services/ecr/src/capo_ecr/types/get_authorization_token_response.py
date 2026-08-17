@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: GetAuthorizationTokenResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetAuthorizationTokenResponse:
     out: GetAuthorizationTokenResponse = {}  # type: ignore[typeddict-item]
-    if "authorizationData" in data:
+    if data.get("authorizationData") is not None:
         import capo_ecr.types.authorization_data_list
 
         out["authorization_data"] = (

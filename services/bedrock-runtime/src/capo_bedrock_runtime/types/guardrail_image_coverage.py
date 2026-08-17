@@ -28,8 +28,8 @@ def serialize_json(value: GuardrailImageCoverage) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailImageCoverage:
     out: GuardrailImageCoverage = {}  # type: ignore[typeddict-item]
-    if "guarded" in data:
+    if data.get("guarded") is not None:
         out["guarded"] = data["guarded"]
-    if "total" in data:
+    if data.get("total") is not None:
         out["total"] = data["total"]
     return out

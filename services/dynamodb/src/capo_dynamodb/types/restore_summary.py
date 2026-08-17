@@ -42,11 +42,11 @@ def serialize_aws_json_1_0(value: RestoreSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RestoreSummary:
     out: RestoreSummary = {}  # type: ignore[typeddict-item]
-    if "SourceBackupArn" in data:
+    if data.get("SourceBackupArn") is not None:
         out["source_backup_arn"] = data["SourceBackupArn"]
-    if "SourceTableArn" in data:
+    if data.get("SourceTableArn") is not None:
         out["source_table_arn"] = data["SourceTableArn"]
-    if "RestoreDateTime" in data:
+    if data.get("RestoreDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["restore_date_time"] = capo_dynamodb.types.date.deserialize_aws_json_1_0(
@@ -54,7 +54,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreSummary:
         )
     else:
         raise DeserializationError("RestoreSummary.restore_date_time required")
-    if "RestoreInProgress" in data:
+    if data.get("RestoreInProgress") is not None:
         out["restore_in_progress"] = data["RestoreInProgress"]
     else:
         raise DeserializationError("RestoreSummary.restore_in_progress required")

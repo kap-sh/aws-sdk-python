@@ -27,7 +27,7 @@ def serialize_json(value: PutFunctionScalingConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> PutFunctionScalingConfigResponse:
     out: PutFunctionScalingConfigResponse = {}  # type: ignore[typeddict-item]
-    if "FunctionState" in data:
+    if data.get("FunctionState") is not None:
         import capo_lambda.types.state
 
         out["function_state"] = capo_lambda.types.state.deserialize_json(

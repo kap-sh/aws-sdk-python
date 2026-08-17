@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListDocumentsResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDocumentsResult:
     out: ListDocumentsResult = {}  # type: ignore[typeddict-item]
-    if "DocumentIdentifiers" in data:
+    if data.get("DocumentIdentifiers") is not None:
         import capo_ssm.types.document_identifier_list
 
         out["document_identifiers"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListDocumentsResult:
                 data["DocumentIdentifiers"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

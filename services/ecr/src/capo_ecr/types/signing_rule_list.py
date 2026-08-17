@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> SigningRuleList:
 
     out: SigningRuleList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecr.types.signing_rule.deserialize_aws_json_1_1(item))
     return out

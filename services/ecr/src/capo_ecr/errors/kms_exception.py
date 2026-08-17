@@ -29,9 +29,9 @@ def serialize_aws_json_1_1(value: KmsException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KmsException_:
     out: KmsException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "kmsError" in data:
+    if data.get("kmsError") is not None:
         out["kms_error"] = data["kmsError"]
     return out
 

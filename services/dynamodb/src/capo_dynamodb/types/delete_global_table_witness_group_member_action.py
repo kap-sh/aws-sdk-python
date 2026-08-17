@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DeleteGlobalTableWitnessGroupMemberAction) -> 
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteGlobalTableWitnessGroupMemberAction:
     out: DeleteGlobalTableWitnessGroupMemberAction = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     else:
         raise DeserializationError(

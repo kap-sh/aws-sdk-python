@@ -93,11 +93,11 @@ def serialize_aws_json_1_0(value: DescribeContributorInsightsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsOutput:
     out: DescribeContributorInsightsOutput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "ContributorInsightsRuleList" in data:
+    if data.get("ContributorInsightsRuleList") is not None:
         import capo_dynamodb.types.contributor_insights_rule_list
 
         out["contributor_insights_rule_list"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsOutput:
                 data["ContributorInsightsRuleList"]
             )
         )
-    if "ContributorInsightsStatus" in data:
+    if data.get("ContributorInsightsStatus") is not None:
         import capo_dynamodb.types.contributor_insights_status
 
         out["contributor_insights_status"] = (
@@ -113,7 +113,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsOutput:
                 data["ContributorInsightsStatus"]
             )
         )
-    if "LastUpdateDateTime" in data:
+    if data.get("LastUpdateDateTime") is not None:
         import capo_dynamodb.types.last_update_date_time
 
         out["last_update_date_time"] = (
@@ -121,7 +121,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsOutput:
                 data["LastUpdateDateTime"]
             )
         )
-    if "FailureException" in data:
+    if data.get("FailureException") is not None:
         import capo_dynamodb.types.failure_exception
 
         out["failure_exception"] = (
@@ -129,7 +129,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsOutput:
                 data["FailureException"]
             )
         )
-    if "ContributorInsightsMode" in data:
+    if data.get("ContributorInsightsMode") is not None:
         import capo_dynamodb.types.contributor_insights_mode
 
         out["contributor_insights_mode"] = (

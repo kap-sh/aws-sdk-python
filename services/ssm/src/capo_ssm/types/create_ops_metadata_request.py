@@ -40,17 +40,17 @@ def serialize_aws_json_1_1(value: CreateOpsMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateOpsMetadataRequest:
     out: CreateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
     else:
         raise DeserializationError("CreateOpsMetadataRequest.resource_id required")
-    if "Metadata" in data:
+    if data.get("Metadata") is not None:
         import capo_ssm.types.metadata_map
 
         out["metadata"] = capo_ssm.types.metadata_map.deserialize_aws_json_1_1(
             data["Metadata"]
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

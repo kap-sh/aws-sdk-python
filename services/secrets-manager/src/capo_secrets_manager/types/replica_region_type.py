@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: ReplicaRegionType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicaRegionType:
     out: ReplicaRegionType = {}  # type: ignore[typeddict-item]
-    if "Region" in data:
+    if data.get("Region") is not None:
         out["region"] = data["Region"]
-    if "KmsKeyId" in data:
+    if data.get("KmsKeyId") is not None:
         out["kms_key_id"] = data["KmsKeyId"]
     return out

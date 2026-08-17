@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: TotalLocalStorageGBRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TotalLocalStorageGBRequest:
     out: TotalLocalStorageGBRequest = {}  # type: ignore[typeddict-item]
-    if "min" in data:
+    if data.get("min") is not None:
         out["min"] = data["min"]
-    if "max" in data:
+    if data.get("max") is not None:
         out["max"] = data["max"]
     return out

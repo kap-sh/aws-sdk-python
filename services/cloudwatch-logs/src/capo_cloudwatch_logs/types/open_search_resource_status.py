@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: OpenSearchResourceStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchResourceStatus:
     out: OpenSearchResourceStatus = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status_type
 
         out["status"] = (
@@ -46,6 +46,6 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchResourceStatus:
                 data["status"]
             )
         )
-    if "statusMessage" in data:
+    if data.get("statusMessage") is not None:
         out["status_message"] = data["statusMessage"]
     return out

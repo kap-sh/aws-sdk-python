@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: ServiceConnectTestTrafficRules) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectTestTrafficRules:
     out: ServiceConnectTestTrafficRules = {}  # type: ignore[typeddict-item]
-    if "header" in data:
+    if data.get("header") is not None:
         import capo_ecs.types.service_connect_test_traffic_header_rules
 
         out["header"] = (

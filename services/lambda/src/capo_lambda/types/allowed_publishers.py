@@ -32,7 +32,7 @@ def serialize_json(value: AllowedPublishers) -> dict:
 
 def deserialize_json(data: dict) -> AllowedPublishers:
     out: AllowedPublishers = {}  # type: ignore[typeddict-item]
-    if "SigningProfileVersionArns" in data:
+    if data.get("SigningProfileVersionArns") is not None:
         import capo_lambda.types.signing_profile_version_arns
 
         out["signing_profile_version_arns"] = (

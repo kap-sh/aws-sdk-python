@@ -38,9 +38,9 @@ def serialize_aws_json_1_0(value: ProvisionedThroughputExceededException_) -> di
 
 def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughputExceededException_:
     out: ProvisionedThroughputExceededException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "ThrottlingReasons" in data:
+    if data.get("ThrottlingReasons") is not None:
         import capo_dynamodb.types.throttling_reason_list
 
         out["throttling_reasons"] = (

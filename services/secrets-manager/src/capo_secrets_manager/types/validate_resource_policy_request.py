@@ -29,9 +29,9 @@ def serialize_aws_json_1_1(value: ValidateResourcePolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ValidateResourcePolicyRequest:
     out: ValidateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
-    if "ResourcePolicy" in data:
+    if data.get("ResourcePolicy") is not None:
         out["resource_policy"] = data["ResourcePolicy"]
     else:
         raise DeserializationError(

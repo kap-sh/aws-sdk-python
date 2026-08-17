@@ -36,14 +36,14 @@ def serialize_json(value: Layer) -> dict:
 
 def deserialize_json(data: dict) -> Layer:
     out: Layer = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "CodeSize" in data:
+    if data.get("CodeSize") is not None:
         out["code_size"] = data["CodeSize"]
     else:
         out["code_size"] = 0
-    if "SigningProfileVersionArn" in data:
+    if data.get("SigningProfileVersionArn") is not None:
         out["signing_profile_version_arn"] = data["SigningProfileVersionArn"]
-    if "SigningJobArn" in data:
+    if data.get("SigningJobArn") is not None:
         out["signing_job_arn"] = data["SigningJobArn"]
     return out

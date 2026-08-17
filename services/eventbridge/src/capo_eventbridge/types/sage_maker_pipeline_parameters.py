@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: SageMakerPipelineParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SageMakerPipelineParameters:
     out: SageMakerPipelineParameters = {}  # type: ignore[typeddict-item]
-    if "PipelineParameterList" in data:
+    if data.get("PipelineParameterList") is not None:
         import capo_eventbridge.types.sage_maker_pipeline_parameter_list
 
         out["pipeline_parameter_list"] = (

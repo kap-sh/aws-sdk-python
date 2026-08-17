@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: MultiRegionKey) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MultiRegionKey:
     out: MultiRegionKey = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "Region" in data:
+    if data.get("Region") is not None:
         out["region"] = data["Region"]
     return out

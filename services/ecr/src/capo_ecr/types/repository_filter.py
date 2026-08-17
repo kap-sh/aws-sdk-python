@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: RepositoryFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RepositoryFilter:
     out: RepositoryFilter = {}  # type: ignore[typeddict-item]
-    if "filter" in data:
+    if data.get("filter") is not None:
         out["filter"] = data["filter"]
     else:
         raise DeserializationError("RepositoryFilter.filter required")
-    if "filterType" in data:
+    if data.get("filterType") is not None:
         import capo_ecr.types.repository_filter_type
 
         out["filter_type"] = (

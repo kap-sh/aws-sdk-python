@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: TestMetricFilterResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TestMetricFilterResponse:
     out: TestMetricFilterResponse = {}  # type: ignore[typeddict-item]
-    if "matches" in data:
+    if data.get("matches") is not None:
         import capo_cloudwatch_logs.types.metric_filter_matches
 
         out["matches"] = (

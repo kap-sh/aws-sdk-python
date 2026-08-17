@@ -149,15 +149,15 @@ def serialize_aws_json_1_1(value: GetMaintenanceWindowExecutionTaskResult) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskResult:
     out: GetMaintenanceWindowExecutionTaskResult = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionId" in data:
+    if data.get("WindowExecutionId") is not None:
         out["window_execution_id"] = data["WindowExecutionId"]
-    if "TaskExecutionId" in data:
+    if data.get("TaskExecutionId") is not None:
         out["task_execution_id"] = data["TaskExecutionId"]
-    if "TaskArn" in data:
+    if data.get("TaskArn") is not None:
         out["task_arn"] = data["TaskArn"]
-    if "ServiceRole" in data:
+    if data.get("ServiceRole") is not None:
         out["service_role"] = data["ServiceRole"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.maintenance_window_task_type
 
         out["type"] = (
@@ -165,7 +165,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskRes
                 data["Type"]
             )
         )
-    if "TaskParameters" in data:
+    if data.get("TaskParameters") is not None:
         import capo_ssm.types.maintenance_window_task_parameters_list
 
         out["task_parameters"] = (
@@ -173,15 +173,15 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskRes
                 data["TaskParameters"]
             )
         )
-    if "Priority" in data:
+    if data.get("Priority") is not None:
         out["priority"] = data["Priority"]
     else:
         out["priority"] = 0
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.maintenance_window_execution_status
 
         out["status"] = (
@@ -189,21 +189,21 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskRes
                 data["Status"]
             )
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_ssm.types.date_time
 
         out["start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_ssm.types.date_time
 
         out["end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["EndTime"]
         )
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (
@@ -211,7 +211,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskRes
                 data["AlarmConfiguration"]
             )
         )
-    if "TriggeredAlarms" in data:
+    if data.get("TriggeredAlarms") is not None:
         import capo_ssm.types.alarm_state_information_list
 
         out["triggered_alarms"] = (

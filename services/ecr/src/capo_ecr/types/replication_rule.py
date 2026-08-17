@@ -45,7 +45,7 @@ def serialize_aws_json_1_1(value: ReplicationRule) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicationRule:
     out: ReplicationRule = {}  # type: ignore[typeddict-item]
-    if "destinations" in data:
+    if data.get("destinations") is not None:
         import capo_ecr.types.replication_destination_list
 
         out["destinations"] = (
@@ -55,7 +55,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReplicationRule:
         )
     else:
         raise DeserializationError("ReplicationRule.destinations required")
-    if "repositoryFilters" in data:
+    if data.get("repositoryFilters") is not None:
         import capo_ecr.types.repository_filter_list
 
         out["repository_filters"] = (

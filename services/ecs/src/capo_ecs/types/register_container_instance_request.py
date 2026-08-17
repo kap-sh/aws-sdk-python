@@ -80,35 +80,35 @@ def serialize_aws_json_1_1(value: RegisterContainerInstanceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterContainerInstanceRequest:
     out: RegisterContainerInstanceRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "instanceIdentityDocument" in data:
+    if data.get("instanceIdentityDocument") is not None:
         out["instance_identity_document"] = data["instanceIdentityDocument"]
-    if "instanceIdentityDocumentSignature" in data:
+    if data.get("instanceIdentityDocumentSignature") is not None:
         out["instance_identity_document_signature"] = data[
             "instanceIdentityDocumentSignature"
         ]
-    if "totalResources" in data:
+    if data.get("totalResources") is not None:
         import capo_ecs.types.resources
 
         out["total_resources"] = capo_ecs.types.resources.deserialize_aws_json_1_1(
             data["totalResources"]
         )
-    if "versionInfo" in data:
+    if data.get("versionInfo") is not None:
         import capo_ecs.types.version_info
 
         out["version_info"] = capo_ecs.types.version_info.deserialize_aws_json_1_1(
             data["versionInfo"]
         )
-    if "containerInstanceArn" in data:
+    if data.get("containerInstanceArn") is not None:
         out["container_instance_arn"] = data["containerInstanceArn"]
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecs.types.attributes
 
         out["attributes"] = capo_ecs.types.attributes.deserialize_aws_json_1_1(
             data["attributes"]
         )
-    if "platformDevices" in data:
+    if data.get("platformDevices") is not None:
         import capo_ecs.types.platform_devices
 
         out["platform_devices"] = (
@@ -116,7 +116,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterContainerInstanceRequest:
                 data["platformDevices"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])

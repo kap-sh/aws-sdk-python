@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: RuntimePlatformOverride) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RuntimePlatformOverride:
     out: RuntimePlatformOverride = {}  # type: ignore[typeddict-item]
-    if "cpuArchitecture" in data:
+    if data.get("cpuArchitecture") is not None:
         out["cpu_architecture"] = data["cpuArchitecture"]
     return out

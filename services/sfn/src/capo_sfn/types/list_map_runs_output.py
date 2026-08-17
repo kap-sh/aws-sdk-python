@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: ListMapRunsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMapRunsOutput:
     out: ListMapRunsOutput = {}  # type: ignore[typeddict-item]
-    if "mapRuns" in data:
+    if data.get("mapRuns") is not None:
         import capo_sfn.types.map_run_list
 
         out["map_runs"] = capo_sfn.types.map_run_list.deserialize_aws_json_1_0(
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListMapRunsOutput:
         )
     else:
         raise DeserializationError("ListMapRunsOutput.map_runs required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

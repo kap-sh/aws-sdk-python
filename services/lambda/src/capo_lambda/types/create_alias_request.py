@@ -51,17 +51,17 @@ def serialize_json(value: CreateAliasRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateAliasRequest:
     out: CreateAliasRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateAliasRequest.name required")
-    if "FunctionVersion" in data:
+    if data.get("FunctionVersion") is not None:
         out["function_version"] = data["FunctionVersion"]
     else:
         raise DeserializationError("CreateAliasRequest.function_version required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "RoutingConfig" in data:
+    if data.get("RoutingConfig") is not None:
         import capo_lambda.types.alias_routing_configuration
 
         out["routing_config"] = (

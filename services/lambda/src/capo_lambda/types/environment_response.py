@@ -38,13 +38,13 @@ def serialize_json(value: EnvironmentResponse) -> dict:
 
 def deserialize_json(data: dict) -> EnvironmentResponse:
     out: EnvironmentResponse = {}  # type: ignore[typeddict-item]
-    if "Variables" in data:
+    if data.get("Variables") is not None:
         import capo_lambda.types.environment_variables
 
         out["variables"] = capo_lambda.types.environment_variables.deserialize_json(
             data["Variables"]
         )
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.environment_error
 
         out["error"] = capo_lambda.types.environment_error.deserialize_json(

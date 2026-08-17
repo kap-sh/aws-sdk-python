@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: ManagedInstancesLocalStorageConfiguration) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesLocalStorageConfiguration:
     out: ManagedInstancesLocalStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "useLocalStorage" in data:
+    if data.get("useLocalStorage") is not None:
         out["use_local_storage"] = data["useLocalStorage"]
     else:
         out["use_local_storage"] = False

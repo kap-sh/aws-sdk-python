@@ -50,11 +50,11 @@ def serialize_aws_json_1_0(value: ParameterizedStatement) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ParameterizedStatement:
     out: ParameterizedStatement = {}  # type: ignore[typeddict-item]
-    if "Statement" in data:
+    if data.get("Statement") is not None:
         out["statement"] = data["Statement"]
     else:
         raise DeserializationError("ParameterizedStatement.statement required")
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_dynamodb.types.prepared_statement_parameters
 
         out["parameters"] = (
@@ -62,7 +62,7 @@ def deserialize_aws_json_1_0(data: dict) -> ParameterizedStatement:
                 data["Parameters"]
             )
         )
-    if "ReturnValuesOnConditionCheckFailure" in data:
+    if data.get("ReturnValuesOnConditionCheckFailure") is not None:
         import capo_dynamodb.types.return_values_on_condition_check_failure
 
         out["return_values_on_condition_check_failure"] = (

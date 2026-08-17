@@ -36,7 +36,7 @@ def serialize_json(value: ListProvisionedConcurrencyConfigsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListProvisionedConcurrencyConfigsResponse:
     out: ListProvisionedConcurrencyConfigsResponse = {}  # type: ignore[typeddict-item]
-    if "ProvisionedConcurrencyConfigs" in data:
+    if data.get("ProvisionedConcurrencyConfigs") is not None:
         import capo_lambda.types.provisioned_concurrency_config_list
 
         out["provisioned_concurrency_configs"] = (
@@ -44,6 +44,6 @@ def deserialize_json(data: dict) -> ListProvisionedConcurrencyConfigsResponse:
                 data["ProvisionedConcurrencyConfigs"]
             )
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: EnvironmentFile) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EnvironmentFile:
     out: EnvironmentFile = {}  # type: ignore[typeddict-item]
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("EnvironmentFile.value required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.environment_file_type
 
         out["type"] = capo_ecs.types.environment_file_type.deserialize_aws_json_1_1(

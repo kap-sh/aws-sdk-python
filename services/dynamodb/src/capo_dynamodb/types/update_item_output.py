@@ -53,13 +53,13 @@ def serialize_aws_json_1_0(value: UpdateItemOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateItemOutput:
     out: UpdateItemOutput = {}  # type: ignore[typeddict-item]
-    if "Attributes" in data:
+    if data.get("Attributes") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["attributes"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(
             data["Attributes"]
         )
-    if "ConsumedCapacity" in data:
+    if data.get("ConsumedCapacity") is not None:
         import capo_dynamodb.types.consumed_capacity
 
         out["consumed_capacity"] = (
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemOutput:
                 data["ConsumedCapacity"]
             )
         )
-    if "ItemCollectionMetrics" in data:
+    if data.get("ItemCollectionMetrics") is not None:
         import capo_dynamodb.types.item_collection_metrics
 
         out["item_collection_metrics"] = (

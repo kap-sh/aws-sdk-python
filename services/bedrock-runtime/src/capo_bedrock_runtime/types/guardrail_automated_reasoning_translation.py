@@ -75,7 +75,7 @@ def serialize_json(value: GuardrailAutomatedReasoningTranslation) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
     out: GuardrailAutomatedReasoningTranslation = {}  # type: ignore[typeddict-item]
-    if "premises" in data:
+    if data.get("premises") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
         out["premises"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
                 data["premises"]
             )
         )
-    if "claims" in data:
+    if data.get("claims") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
         out["claims"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
                 data["claims"]
             )
         )
-    if "untranslatedPremises" in data:
+    if data.get("untranslatedPremises") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_input_text_reference_list
 
         out["untranslated_premises"] = (
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
                 data["untranslatedPremises"]
             )
         )
-    if "untranslatedClaims" in data:
+    if data.get("untranslatedClaims") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_input_text_reference_list
 
         out["untranslated_claims"] = (
@@ -107,6 +107,6 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
                 data["untranslatedClaims"]
             )
         )
-    if "confidence" in data:
+    if data.get("confidence") is not None:
         out["confidence"] = data["confidence"]
     return out

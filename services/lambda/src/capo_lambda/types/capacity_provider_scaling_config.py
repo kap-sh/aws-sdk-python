@@ -51,9 +51,9 @@ def serialize_json(value: CapacityProviderScalingConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderScalingConfig:
     out: CapacityProviderScalingConfig = {}  # type: ignore[typeddict-item]
-    if "MaxVCpuCount" in data:
+    if data.get("MaxVCpuCount") is not None:
         out["max_v_cpu_count"] = data["MaxVCpuCount"]
-    if "ScalingMode" in data:
+    if data.get("ScalingMode") is not None:
         import capo_lambda.types.capacity_provider_scaling_mode
 
         out["scaling_mode"] = (
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> CapacityProviderScalingConfig:
                 data["ScalingMode"]
             )
         )
-    if "ScalingPolicies" in data:
+    if data.get("ScalingPolicies") is not None:
         import capo_lambda.types.capacity_provider_scaling_policies_list
 
         out["scaling_policies"] = (

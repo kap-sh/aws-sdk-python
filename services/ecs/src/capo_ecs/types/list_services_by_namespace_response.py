@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: ListServicesByNamespaceResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListServicesByNamespaceResponse:
     out: ListServicesByNamespaceResponse = {}  # type: ignore[typeddict-item]
-    if "serviceArns" in data:
+    if data.get("serviceArns") is not None:
         import capo_ecs.types.string_list
 
         out["service_arns"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["serviceArns"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

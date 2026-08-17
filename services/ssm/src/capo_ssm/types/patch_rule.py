@@ -60,7 +60,7 @@ def serialize_aws_json_1_1(value: PatchRule) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchRule:
     out: PatchRule = {}  # type: ignore[typeddict-item]
-    if "PatchFilterGroup" in data:
+    if data.get("PatchFilterGroup") is not None:
         import capo_ssm.types.patch_filter_group
 
         out["patch_filter_group"] = (
@@ -70,7 +70,7 @@ def deserialize_aws_json_1_1(data: dict) -> PatchRule:
         )
     else:
         raise DeserializationError("PatchRule.patch_filter_group required")
-    if "ComplianceLevel" in data:
+    if data.get("ComplianceLevel") is not None:
         import capo_ssm.types.patch_compliance_level
 
         out["compliance_level"] = (
@@ -78,10 +78,10 @@ def deserialize_aws_json_1_1(data: dict) -> PatchRule:
                 data["ComplianceLevel"]
             )
         )
-    if "ApproveAfterDays" in data:
+    if data.get("ApproveAfterDays") is not None:
         out["approve_after_days"] = data["ApproveAfterDays"]
-    if "ApproveUntilDate" in data:
+    if data.get("ApproveUntilDate") is not None:
         out["approve_until_date"] = data["ApproveUntilDate"]
-    if "EnableNonSecurity" in data:
+    if data.get("EnableNonSecurity") is not None:
         out["enable_non_security"] = data["EnableNonSecurity"]
     return out

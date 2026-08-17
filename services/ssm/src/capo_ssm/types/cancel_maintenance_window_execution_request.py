@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: CancelMaintenanceWindowExecutionRequest) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> CancelMaintenanceWindowExecutionRequest:
     out: CancelMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionId" in data:
+    if data.get("WindowExecutionId") is not None:
         out["window_execution_id"] = data["WindowExecutionId"]
     else:
         raise DeserializationError(

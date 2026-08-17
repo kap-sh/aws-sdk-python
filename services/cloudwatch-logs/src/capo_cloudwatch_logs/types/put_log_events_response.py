@@ -51,9 +51,9 @@ def serialize_aws_json_1_1(value: PutLogEventsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutLogEventsResponse:
     out: PutLogEventsResponse = {}  # type: ignore[typeddict-item]
-    if "nextSequenceToken" in data:
+    if data.get("nextSequenceToken") is not None:
         out["next_sequence_token"] = data["nextSequenceToken"]
-    if "rejectedLogEventsInfo" in data:
+    if data.get("rejectedLogEventsInfo") is not None:
         import capo_cloudwatch_logs.types.rejected_log_events_info
 
         out["rejected_log_events_info"] = (
@@ -61,7 +61,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutLogEventsResponse:
                 data["rejectedLogEventsInfo"]
             )
         )
-    if "rejectedEntityInfo" in data:
+    if data.get("rejectedEntityInfo") is not None:
         import capo_cloudwatch_logs.types.rejected_entity_info
 
         out["rejected_entity_info"] = (

@@ -36,12 +36,12 @@ def serialize_aws_json_1_1(value: GetOpsMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetOpsMetadataRequest:
     out: GetOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "OpsMetadataArn" in data:
+    if data.get("OpsMetadataArn") is not None:
         out["ops_metadata_arn"] = data["OpsMetadataArn"]
     else:
         raise DeserializationError("GetOpsMetadataRequest.ops_metadata_arn required")
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

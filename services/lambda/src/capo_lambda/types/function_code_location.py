@@ -65,15 +65,15 @@ def serialize_json(value: FunctionCodeLocation) -> dict:
 
 def deserialize_json(data: dict) -> FunctionCodeLocation:
     out: FunctionCodeLocation = {}  # type: ignore[typeddict-item]
-    if "RepositoryType" in data:
+    if data.get("RepositoryType") is not None:
         out["repository_type"] = data["RepositoryType"]
-    if "Location" in data:
+    if data.get("Location") is not None:
         out["location"] = data["Location"]
-    if "ImageUri" in data:
+    if data.get("ImageUri") is not None:
         out["image_uri"] = data["ImageUri"]
-    if "ResolvedImageUri" in data:
+    if data.get("ResolvedImageUri") is not None:
         out["resolved_image_uri"] = data["ResolvedImageUri"]
-    if "ResolvedS3Object" in data:
+    if data.get("ResolvedS3Object") is not None:
         import capo_lambda.types.resolved_s3_object
 
         out["resolved_s3_object"] = (
@@ -81,9 +81,9 @@ def deserialize_json(data: dict) -> FunctionCodeLocation:
                 data["ResolvedS3Object"]
             )
         )
-    if "SourceKMSKeyArn" in data:
+    if data.get("SourceKMSKeyArn") is not None:
         out["source_kms_key_arn"] = data["SourceKMSKeyArn"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.function_code_location_error
 
         out["error"] = capo_lambda.types.function_code_location_error.deserialize_json(

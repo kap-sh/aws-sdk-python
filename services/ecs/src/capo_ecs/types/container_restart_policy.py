@@ -38,11 +38,11 @@ def serialize_aws_json_1_1(value: ContainerRestartPolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerRestartPolicy:
     out: ContainerRestartPolicy = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         raise DeserializationError("ContainerRestartPolicy.enabled required")
-    if "ignoredExitCodes" in data:
+    if data.get("ignoredExitCodes") is not None:
         import capo_ecs.types.integer_list
 
         out["ignored_exit_codes"] = (
@@ -50,6 +50,6 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerRestartPolicy:
                 data["ignoredExitCodes"]
             )
         )
-    if "restartAttemptPeriod" in data:
+    if data.get("restartAttemptPeriod") is not None:
         out["restart_attempt_period"] = data["restartAttemptPeriod"]
     return out

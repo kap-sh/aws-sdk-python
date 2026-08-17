@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: TestMetricFilterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TestMetricFilterRequest:
     out: TestMetricFilterRequest = {}  # type: ignore[typeddict-item]
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
     else:
         raise DeserializationError("TestMetricFilterRequest.filter_pattern required")
-    if "logEventMessages" in data:
+    if data.get("logEventMessages") is not None:
         import capo_cloudwatch_logs.types.test_event_messages
 
         out["log_event_messages"] = (

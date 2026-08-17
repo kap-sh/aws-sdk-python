@@ -69,27 +69,27 @@ def serialize_aws_json_1_0(value: DescribeAlarmsForMetricInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsForMetricInput:
     out: DescribeAlarmsForMetricInput = {}  # type: ignore[typeddict-item]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "Statistic" in data:
+    if data.get("Statistic") is not None:
         import capo_cloudwatch.types.statistic
 
         out["statistic"] = capo_cloudwatch.types.statistic.deserialize_aws_json_1_0(
             data["Statistic"]
         )
-    if "ExtendedStatistic" in data:
+    if data.get("ExtendedStatistic") is not None:
         out["extended_statistic"] = data["ExtendedStatistic"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(

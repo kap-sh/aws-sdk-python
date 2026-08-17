@@ -43,7 +43,7 @@ def serialize_aws_json_1_1(value: ServiceConnectAccessLogConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectAccessLogConfiguration:
     out: ServiceConnectAccessLogConfiguration = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_ecs.types.service_connect_access_logging_format
 
         out["format"] = (
@@ -55,7 +55,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceConnectAccessLogConfiguration
         raise DeserializationError(
             "ServiceConnectAccessLogConfiguration.format required"
         )
-    if "includeQueryParameters" in data:
+    if data.get("includeQueryParameters") is not None:
         import capo_ecs.types.service_connect_include_query_parameters
 
         out["include_query_parameters"] = (

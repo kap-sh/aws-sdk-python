@@ -29,12 +29,12 @@ def serialize_aws_json_1_0(value: DescribeContributorInsightsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeContributorInsightsInput:
     out: DescribeContributorInsightsInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError(
             "DescribeContributorInsightsInput.table_name required"
         )
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     return out

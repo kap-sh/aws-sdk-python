@@ -63,22 +63,22 @@ def serialize_aws_json_1_1(value: VulnerablePackage) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VulnerablePackage:
     out: VulnerablePackage = {}  # type: ignore[typeddict-item]
-    if "arch" in data:
+    if data.get("arch") is not None:
         out["arch"] = data["arch"]
-    if "epoch" in data:
+    if data.get("epoch") is not None:
         out["epoch"] = data["epoch"]
-    if "filePath" in data:
+    if data.get("filePath") is not None:
         out["file_path"] = data["filePath"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "packageManager" in data:
+    if data.get("packageManager") is not None:
         out["package_manager"] = data["packageManager"]
-    if "release" in data:
+    if data.get("release") is not None:
         out["release"] = data["release"]
-    if "sourceLayerHash" in data:
+    if data.get("sourceLayerHash") is not None:
         out["source_layer_hash"] = data["sourceLayerHash"]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
-    if "fixedInVersion" in data:
+    if data.get("fixedInVersion") is not None:
         out["fixed_in_version"] = data["fixedInVersion"]
     return out

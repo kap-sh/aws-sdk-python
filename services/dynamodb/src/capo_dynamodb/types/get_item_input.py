@@ -80,17 +80,17 @@ def serialize_aws_json_1_0(value: GetItemInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetItemInput:
     out: GetItemInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("GetItemInput.table_name required")
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_dynamodb.types.key
 
         out["key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
     else:
         raise DeserializationError("GetItemInput.key required")
-    if "AttributesToGet" in data:
+    if data.get("AttributesToGet") is not None:
         import capo_dynamodb.types.attribute_name_list
 
         out["attributes_to_get"] = (
@@ -98,9 +98,9 @@ def deserialize_aws_json_1_0(data: dict) -> GetItemInput:
                 data["AttributesToGet"]
             )
         )
-    if "ConsistentRead" in data:
+    if data.get("ConsistentRead") is not None:
         out["consistent_read"] = data["ConsistentRead"]
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (
@@ -108,9 +108,9 @@ def deserialize_aws_json_1_0(data: dict) -> GetItemInput:
                 data["ReturnConsumedCapacity"]
             )
         )
-    if "ProjectionExpression" in data:
+    if data.get("ProjectionExpression") is not None:
         out["projection_expression"] = data["ProjectionExpression"]
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (

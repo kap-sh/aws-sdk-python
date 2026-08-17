@@ -33,11 +33,11 @@ def serialize_aws_json_1_0(value: DescribeExecutionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionInput:
     out: DescribeExecutionInput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("DescribeExecutionInput.execution_arn required")
-    if "includedData" in data:
+    if data.get("includedData") is not None:
         import capo_sfn.types.included_data
 
         out["included_data"] = capo_sfn.types.included_data.deserialize_aws_json_1_0(

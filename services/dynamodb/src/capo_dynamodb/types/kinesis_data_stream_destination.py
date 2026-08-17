@@ -54,9 +54,9 @@ def serialize_aws_json_1_0(value: KinesisDataStreamDestination) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> KinesisDataStreamDestination:
     out: KinesisDataStreamDestination = {}  # type: ignore[typeddict-item]
-    if "StreamArn" in data:
+    if data.get("StreamArn") is not None:
         out["stream_arn"] = data["StreamArn"]
-    if "DestinationStatus" in data:
+    if data.get("DestinationStatus") is not None:
         import capo_dynamodb.types.destination_status
 
         out["destination_status"] = (
@@ -64,9 +64,9 @@ def deserialize_aws_json_1_0(data: dict) -> KinesisDataStreamDestination:
                 data["DestinationStatus"]
             )
         )
-    if "DestinationStatusDescription" in data:
+    if data.get("DestinationStatusDescription") is not None:
         out["destination_status_description"] = data["DestinationStatusDescription"]
-    if "ApproximateCreationDateTimePrecision" in data:
+    if data.get("ApproximateCreationDateTimePrecision") is not None:
         import capo_dynamodb.types.approximate_creation_date_time_precision
 
         out["approximate_creation_date_time_precision"] = (

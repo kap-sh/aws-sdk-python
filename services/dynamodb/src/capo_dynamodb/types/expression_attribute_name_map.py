@@ -23,5 +23,7 @@ def serialize_aws_json_1_0(input_to_serialize: ExpressionAttributeNameMap) -> di
 def deserialize_aws_json_1_0(data: dict) -> ExpressionAttributeNameMap:
     out: ExpressionAttributeNameMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

@@ -208,13 +208,13 @@ def serialize_aws_json_1_0(value: LogAlarm) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
     out: LogAlarm = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmArn" in data:
+    if data.get("AlarmArn") is not None:
         out["alarm_arn"] = data["AlarmArn"]
-    if "AlarmDescription" in data:
+    if data.get("AlarmDescription") is not None:
         out["alarm_description"] = data["AlarmDescription"]
-    if "AlarmConfigurationUpdatedTimestamp" in data:
+    if data.get("AlarmConfigurationUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["alarm_configuration_updated_timestamp"] = (
@@ -222,9 +222,9 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["AlarmConfigurationUpdatedTimestamp"]
             )
         )
-    if "ActionsEnabled" in data:
+    if data.get("ActionsEnabled") is not None:
         out["actions_enabled"] = data["ActionsEnabled"]
-    if "OKActions" in data:
+    if data.get("OKActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["ok_actions"] = (
@@ -232,7 +232,7 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["OKActions"]
             )
         )
-    if "AlarmActions" in data:
+    if data.get("AlarmActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["alarm_actions"] = (
@@ -240,7 +240,7 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["AlarmActions"]
             )
         )
-    if "InsufficientDataActions" in data:
+    if data.get("InsufficientDataActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["insufficient_data_actions"] = (
@@ -248,17 +248,17 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["InsufficientDataActions"]
             )
         )
-    if "StateValue" in data:
+    if data.get("StateValue") is not None:
         import capo_cloudwatch.types.state_value
 
         out["state_value"] = capo_cloudwatch.types.state_value.deserialize_aws_json_1_0(
             data["StateValue"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateReasonData" in data:
+    if data.get("StateReasonData") is not None:
         out["state_reason_data"] = data["StateReasonData"]
-    if "StateUpdatedTimestamp" in data:
+    if data.get("StateUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_updated_timestamp"] = (
@@ -266,7 +266,7 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["StateUpdatedTimestamp"]
             )
         )
-    if "ScheduledQueryConfiguration" in data:
+    if data.get("ScheduledQueryConfiguration") is not None:
         import capo_cloudwatch.types.scheduled_query_configuration
 
         out["scheduled_query_configuration"] = (
@@ -274,13 +274,13 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["ScheduledQueryConfiguration"]
             )
         )
-    if "QueryResultsToEvaluate" in data:
+    if data.get("QueryResultsToEvaluate") is not None:
         out["query_results_to_evaluate"] = data["QueryResultsToEvaluate"]
-    if "QueryResultsToAlarm" in data:
+    if data.get("QueryResultsToAlarm") is not None:
         out["query_results_to_alarm"] = data["QueryResultsToAlarm"]
-    if "Threshold" in data:
+    if data.get("Threshold") is not None:
         out["threshold"] = data["Threshold"]
-    if "ComparisonOperator" in data:
+    if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 
         out["comparison_operator"] = (
@@ -288,9 +288,9 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["ComparisonOperator"]
             )
         )
-    if "TreatMissingData" in data:
+    if data.get("TreatMissingData") is not None:
         out["treat_missing_data"] = data["TreatMissingData"]
-    if "StateTransitionedTimestamp" in data:
+    if data.get("StateTransitionedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_transitioned_timestamp"] = (
@@ -298,7 +298,7 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["StateTransitionedTimestamp"]
             )
         )
-    if "EvaluationState" in data:
+    if data.get("EvaluationState") is not None:
         import capo_cloudwatch.types.evaluation_state
 
         out["evaluation_state"] = (
@@ -306,9 +306,9 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
                 data["EvaluationState"]
             )
         )
-    if "ActionLogLineCount" in data:
+    if data.get("ActionLogLineCount") is not None:
         out["action_log_line_count"] = data["ActionLogLineCount"]
-    if "ActionLogLineRoleArn" in data:
+    if data.get("ActionLogLineRoleArn") is not None:
         out["action_log_line_role_arn"] = data["ActionLogLineRoleArn"]
     return out
 

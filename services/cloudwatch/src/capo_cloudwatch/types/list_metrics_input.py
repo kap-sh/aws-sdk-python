@@ -69,11 +69,11 @@ def serialize_aws_json_1_0(value: ListMetricsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMetricsInput:
     out: ListMetricsInput = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimension_filters
 
         out["dimensions"] = (
@@ -81,9 +81,9 @@ def deserialize_aws_json_1_0(data: dict) -> ListMetricsInput:
                 data["Dimensions"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "RecentlyActive" in data:
+    if data.get("RecentlyActive") is not None:
         import capo_cloudwatch.types.recently_active
 
         out["recently_active"] = (
@@ -91,9 +91,9 @@ def deserialize_aws_json_1_0(data: dict) -> ListMetricsInput:
                 data["RecentlyActive"]
             )
         )
-    if "IncludeLinkedAccounts" in data:
+    if data.get("IncludeLinkedAccounts") is not None:
         out["include_linked_accounts"] = data["IncludeLinkedAccounts"]
-    if "OwningAccount" in data:
+    if data.get("OwningAccount") is not None:
         out["owning_account"] = data["OwningAccount"]
     return out
 

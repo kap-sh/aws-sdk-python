@@ -59,15 +59,15 @@ def deserialize_aws_json_1_0(
     data: dict,
 ) -> ReplicaGlobalSecondaryIndexAutoScalingDescription:
     out: ReplicaGlobalSecondaryIndexAutoScalingDescription = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "IndexStatus" in data:
+    if data.get("IndexStatus") is not None:
         import capo_dynamodb.types.index_status
 
         out["index_status"] = capo_dynamodb.types.index_status.deserialize_aws_json_1_0(
             data["IndexStatus"]
         )
-    if "ProvisionedReadCapacityAutoScalingSettings" in data:
+    if data.get("ProvisionedReadCapacityAutoScalingSettings") is not None:
         import capo_dynamodb.types.auto_scaling_settings_description
 
         out["provisioned_read_capacity_auto_scaling_settings"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_0(
                 data["ProvisionedReadCapacityAutoScalingSettings"]
             )
         )
-    if "ProvisionedWriteCapacityAutoScalingSettings" in data:
+    if data.get("ProvisionedWriteCapacityAutoScalingSettings") is not None:
         import capo_dynamodb.types.auto_scaling_settings_description
 
         out["provisioned_write_capacity_auto_scaling_settings"] = (

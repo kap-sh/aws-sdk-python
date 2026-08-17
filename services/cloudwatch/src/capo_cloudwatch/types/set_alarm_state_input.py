@@ -46,17 +46,17 @@ def serialize_aws_json_1_0(value: SetAlarmStateInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SetAlarmStateInput:
     out: SetAlarmStateInput = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "StateValue" in data:
+    if data.get("StateValue") is not None:
         import capo_cloudwatch.types.state_value
 
         out["state_value"] = capo_cloudwatch.types.state_value.deserialize_aws_json_1_0(
             data["StateValue"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateReasonData" in data:
+    if data.get("StateReasonData") is not None:
         out["state_reason_data"] = data["StateReasonData"]
     return out
 

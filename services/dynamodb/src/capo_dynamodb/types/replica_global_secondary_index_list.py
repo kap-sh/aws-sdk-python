@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> ReplicaGlobalSecondaryIndexList:
 
     out: ReplicaGlobalSecondaryIndexList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.replica_global_secondary_index.deserialize_aws_json_1_0(
                 item

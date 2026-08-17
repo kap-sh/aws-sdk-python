@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> KafkaSchemaValidationConfigList:
 
     out: KafkaSchemaValidationConfigList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_lambda.types.kafka_schema_validation_config.deserialize_json(item)
         )

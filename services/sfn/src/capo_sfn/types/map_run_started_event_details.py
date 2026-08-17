@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: MapRunStartedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapRunStartedEventDetails:
     out: MapRunStartedEventDetails = {}  # type: ignore[typeddict-item]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
     return out

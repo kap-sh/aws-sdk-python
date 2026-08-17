@@ -252,61 +252,61 @@ def serialize_aws_json_1_1(value: KeyMetadata) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
     out: KeyMetadata = {}  # type: ignore[typeddict-item]
-    if "AWSAccountId" in data:
+    if data.get("AWSAccountId") is not None:
         out["aws_account_id"] = data["AWSAccountId"]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("KeyMetadata.key_id required")
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_kms.types.date_type
 
         out["creation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["CreationDate"]
         )
-    if "Enabled" in data:
+    if data.get("Enabled") is not None:
         out["enabled"] = data["Enabled"]
     else:
         out["enabled"] = False
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KeyUsage" in data:
+    if data.get("KeyUsage") is not None:
         import capo_kms.types.key_usage_type
 
         out["key_usage"] = capo_kms.types.key_usage_type.deserialize_aws_json_1_1(
             data["KeyUsage"]
         )
-    if "KeyState" in data:
+    if data.get("KeyState") is not None:
         import capo_kms.types.key_state
 
         out["key_state"] = capo_kms.types.key_state.deserialize_aws_json_1_1(
             data["KeyState"]
         )
-    if "DeletionDate" in data:
+    if data.get("DeletionDate") is not None:
         import capo_kms.types.date_type
 
         out["deletion_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["DeletionDate"]
         )
-    if "ValidTo" in data:
+    if data.get("ValidTo") is not None:
         import capo_kms.types.date_type
 
         out["valid_to"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["ValidTo"]
         )
-    if "Origin" in data:
+    if data.get("Origin") is not None:
         import capo_kms.types.origin_type
 
         out["origin"] = capo_kms.types.origin_type.deserialize_aws_json_1_1(
             data["Origin"]
         )
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
-    if "CloudHsmClusterId" in data:
+    if data.get("CloudHsmClusterId") is not None:
         out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
-    if "ExpirationModel" in data:
+    if data.get("ExpirationModel") is not None:
         import capo_kms.types.expiration_model_type
 
         out["expiration_model"] = (
@@ -314,13 +314,13 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["ExpirationModel"]
             )
         )
-    if "KeyManager" in data:
+    if data.get("KeyManager") is not None:
         import capo_kms.types.key_manager_type
 
         out["key_manager"] = capo_kms.types.key_manager_type.deserialize_aws_json_1_1(
             data["KeyManager"]
         )
-    if "CustomerMasterKeySpec" in data:
+    if data.get("CustomerMasterKeySpec") is not None:
         import capo_kms.types.customer_master_key_spec
 
         out["customer_master_key_spec"] = (
@@ -328,13 +328,13 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["CustomerMasterKeySpec"]
             )
         )
-    if "KeySpec" in data:
+    if data.get("KeySpec") is not None:
         import capo_kms.types.key_spec
 
         out["key_spec"] = capo_kms.types.key_spec.deserialize_aws_json_1_1(
             data["KeySpec"]
         )
-    if "EncryptionAlgorithms" in data:
+    if data.get("EncryptionAlgorithms") is not None:
         import capo_kms.types.encryption_algorithm_spec_list
 
         out["encryption_algorithms"] = (
@@ -342,7 +342,7 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["EncryptionAlgorithms"]
             )
         )
-    if "SigningAlgorithms" in data:
+    if data.get("SigningAlgorithms") is not None:
         import capo_kms.types.signing_algorithm_spec_list
 
         out["signing_algorithms"] = (
@@ -350,7 +350,7 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["SigningAlgorithms"]
             )
         )
-    if "KeyAgreementAlgorithms" in data:
+    if data.get("KeyAgreementAlgorithms") is not None:
         import capo_kms.types.key_agreement_algorithm_spec_list
 
         out["key_agreement_algorithms"] = (
@@ -358,9 +358,9 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["KeyAgreementAlgorithms"]
             )
         )
-    if "MultiRegion" in data:
+    if data.get("MultiRegion") is not None:
         out["multi_region"] = data["MultiRegion"]
-    if "MultiRegionConfiguration" in data:
+    if data.get("MultiRegionConfiguration") is not None:
         import capo_kms.types.multi_region_configuration
 
         out["multi_region_configuration"] = (
@@ -368,9 +368,9 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["MultiRegionConfiguration"]
             )
         )
-    if "PendingDeletionWindowInDays" in data:
+    if data.get("PendingDeletionWindowInDays") is not None:
         out["pending_deletion_window_in_days"] = data["PendingDeletionWindowInDays"]
-    if "MacAlgorithms" in data:
+    if data.get("MacAlgorithms") is not None:
         import capo_kms.types.mac_algorithm_spec_list
 
         out["mac_algorithms"] = (
@@ -378,7 +378,7 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["MacAlgorithms"]
             )
         )
-    if "XksKeyConfiguration" in data:
+    if data.get("XksKeyConfiguration") is not None:
         import capo_kms.types.xks_key_configuration_type
 
         out["xks_key_configuration"] = (
@@ -386,6 +386,6 @@ def deserialize_aws_json_1_1(data: dict) -> KeyMetadata:
                 data["XksKeyConfiguration"]
             )
         )
-    if "CurrentKeyMaterialId" in data:
+    if data.get("CurrentKeyMaterialId") is not None:
         out["current_key_material_id"] = data["CurrentKeyMaterialId"]
     return out

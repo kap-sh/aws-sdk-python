@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: ContinuousBackupsUnavailableException_) -> dic
 
 def deserialize_aws_json_1_0(data: dict) -> ContinuousBackupsUnavailableException_:
     out: ContinuousBackupsUnavailableException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

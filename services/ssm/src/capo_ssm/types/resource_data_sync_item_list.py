@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> ResourceDataSyncItemList:
 
     out: ResourceDataSyncItemList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.resource_data_sync_item.deserialize_aws_json_1_1(item)
         )

@@ -40,7 +40,7 @@ def serialize_aws_json_1_1(value: DescribeActivationsFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeActivationsFilter:
     out: DescribeActivationsFilter = {}  # type: ignore[typeddict-item]
-    if "FilterKey" in data:
+    if data.get("FilterKey") is not None:
         import capo_ssm.types.describe_activations_filter_keys
 
         out["filter_key"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeActivationsFilter:
                 data["FilterKey"]
             )
         )
-    if "FilterValues" in data:
+    if data.get("FilterValues") is not None:
         import capo_ssm.types.string_list
 
         out["filter_values"] = capo_ssm.types.string_list.deserialize_aws_json_1_1(

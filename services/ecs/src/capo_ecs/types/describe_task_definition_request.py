@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: DescribeTaskDefinitionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeTaskDefinitionRequest:
     out: DescribeTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
     else:
         raise DeserializationError(
             "DescribeTaskDefinitionRequest.task_definition required"
         )
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.task_definition_field_list
 
         out["include"] = (

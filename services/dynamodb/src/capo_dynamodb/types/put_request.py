@@ -30,7 +30,7 @@ def serialize_aws_json_1_0(value: PutRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutRequest:
     out: PutRequest = {}  # type: ignore[typeddict-item]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.put_item_input_attribute_map
 
         out["item"] = (

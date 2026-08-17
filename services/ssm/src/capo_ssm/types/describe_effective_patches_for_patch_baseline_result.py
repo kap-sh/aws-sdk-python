@@ -40,7 +40,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeEffectivePatchesForPatchBaselineResult:
     out: DescribeEffectivePatchesForPatchBaselineResult = {}  # type: ignore[typeddict-item]
-    if "EffectivePatches" in data:
+    if data.get("EffectivePatches") is not None:
         import capo_ssm.types.effective_patch_list
 
         out["effective_patches"] = (
@@ -48,6 +48,6 @@ def deserialize_aws_json_1_1(
                 data["EffectivePatches"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

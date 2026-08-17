@@ -36,13 +36,13 @@ def serialize_json(value: ImageBlockDelta) -> dict:
 
 def deserialize_json(data: dict) -> ImageBlockDelta:
     out: ImageBlockDelta = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.image_source
 
         out["source"] = capo_bedrock_runtime.types.image_source.deserialize_json(
             data["source"]
         )
-    if "error" in data:
+    if data.get("error") is not None:
         import capo_bedrock_runtime.types.error_block
 
         out["error"] = capo_bedrock_runtime.types.error_block.deserialize_json(

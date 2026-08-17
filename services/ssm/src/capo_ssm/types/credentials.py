@@ -40,19 +40,19 @@ def serialize_aws_json_1_1(value: Credentials) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Credentials:
     out: Credentials = {}  # type: ignore[typeddict-item]
-    if "AccessKeyId" in data:
+    if data.get("AccessKeyId") is not None:
         out["access_key_id"] = data["AccessKeyId"]
     else:
         raise DeserializationError("Credentials.access_key_id required")
-    if "SecretAccessKey" in data:
+    if data.get("SecretAccessKey") is not None:
         out["secret_access_key"] = data["SecretAccessKey"]
     else:
         raise DeserializationError("Credentials.secret_access_key required")
-    if "SessionToken" in data:
+    if data.get("SessionToken") is not None:
         out["session_token"] = data["SessionToken"]
     else:
         raise DeserializationError("Credentials.session_token required")
-    if "ExpirationTime" in data:
+    if data.get("ExpirationTime") is not None:
         import capo_ssm.types.date_time
 
         out["expiration_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

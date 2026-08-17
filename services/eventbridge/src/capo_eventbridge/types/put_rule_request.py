@@ -71,30 +71,30 @@ def serialize_aws_json_1_1(value: PutRuleRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutRuleRequest:
     out: PutRuleRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("PutRuleRequest.name required")
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
-    if "EventPattern" in data:
+    if data.get("EventPattern") is not None:
         out["event_pattern"] = data["EventPattern"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.rule_state
 
         out["state"] = capo_eventbridge.types.rule_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_eventbridge.types.tag_list
 
         out["tags"] = capo_eventbridge.types.tag_list.deserialize_aws_json_1_1(
             data["Tags"]
         )
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
     return out

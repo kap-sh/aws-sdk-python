@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: MetricMathAnomalyDetector) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricMathAnomalyDetector:
     out: MetricMathAnomalyDetector = {}  # type: ignore[typeddict-item]
-    if "MetricDataQueries" in data:
+    if data.get("MetricDataQueries") is not None:
         import capo_cloudwatch.types.metric_data_queries
 
         out["metric_data_queries"] = (

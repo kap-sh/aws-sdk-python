@@ -35,7 +35,7 @@ def serialize_json(value: ContentBlockStartEvent) -> dict:
 
 def deserialize_json(data: dict) -> ContentBlockStartEvent:
     out: ContentBlockStartEvent = {}  # type: ignore[typeddict-item]
-    if "start" in data:
+    if data.get("start") is not None:
         import capo_bedrock_runtime.types.content_block_start
 
         out["start"] = capo_bedrock_runtime.types.content_block_start.deserialize_json(
@@ -43,7 +43,7 @@ def deserialize_json(data: dict) -> ContentBlockStartEvent:
         )
     else:
         raise DeserializationError("ContentBlockStartEvent.start required")
-    if "contentBlockIndex" in data:
+    if data.get("contentBlockIndex") is not None:
         out["content_block_index"] = data["contentBlockIndex"]
     else:
         raise DeserializationError(

@@ -23,7 +23,7 @@ def serialize_json(value: CitationGeneratedContent) -> dict:
 
 
 def deserialize_json(data: dict) -> CitationGeneratedContent:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError(

@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: ManagedInstancesStorageConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesStorageConfiguration:
     out: ManagedInstancesStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "storageSizeGiB" in data:
+    if data.get("storageSizeGiB") is not None:
         out["storage_size_gi_b"] = data["storageSizeGiB"]
     return out

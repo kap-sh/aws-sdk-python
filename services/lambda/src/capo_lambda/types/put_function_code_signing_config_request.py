@@ -29,7 +29,7 @@ def serialize_json(value: PutFunctionCodeSigningConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutFunctionCodeSigningConfigRequest:
     out: PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-    if "CodeSigningConfigArn" in data:
+    if data.get("CodeSigningConfigArn") is not None:
         out["code_signing_config_arn"] = data["CodeSigningConfigArn"]
     else:
         raise DeserializationError(

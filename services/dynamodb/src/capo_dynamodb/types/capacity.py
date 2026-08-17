@@ -37,10 +37,10 @@ def serialize_aws_json_1_0(value: Capacity) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Capacity:
     out: Capacity = {}  # type: ignore[typeddict-item]
-    if "ReadCapacityUnits" in data:
+    if data.get("ReadCapacityUnits") is not None:
         out["read_capacity_units"] = data["ReadCapacityUnits"]
-    if "WriteCapacityUnits" in data:
+    if data.get("WriteCapacityUnits") is not None:
         out["write_capacity_units"] = data["WriteCapacityUnits"]
-    if "CapacityUnits" in data:
+    if data.get("CapacityUnits") is not None:
         out["capacity_units"] = data["CapacityUnits"]
     return out

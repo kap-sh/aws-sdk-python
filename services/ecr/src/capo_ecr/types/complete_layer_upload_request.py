@@ -41,19 +41,19 @@ def serialize_aws_json_1_1(value: CompleteLayerUploadRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CompleteLayerUploadRequest:
     out: CompleteLayerUploadRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "CompleteLayerUploadRequest.repository_name required"
         )
-    if "uploadId" in data:
+    if data.get("uploadId") is not None:
         out["upload_id"] = data["uploadId"]
     else:
         raise DeserializationError("CompleteLayerUploadRequest.upload_id required")
-    if "layerDigests" in data:
+    if data.get("layerDigests") is not None:
         import capo_ecr.types.layer_digest_list
 
         out["layer_digests"] = (

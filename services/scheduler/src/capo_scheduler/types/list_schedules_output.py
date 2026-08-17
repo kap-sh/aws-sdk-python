@@ -33,9 +33,9 @@ def serialize_json(value: ListSchedulesOutput) -> dict:
 
 def deserialize_json(data: dict) -> ListSchedulesOutput:
     out: ListSchedulesOutput = {}  # type: ignore[typeddict-item]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Schedules" in data:
+    if data.get("Schedules") is not None:
         import capo_scheduler.types.schedule_list
 
         out["schedules"] = capo_scheduler.types.schedule_list.deserialize_json(

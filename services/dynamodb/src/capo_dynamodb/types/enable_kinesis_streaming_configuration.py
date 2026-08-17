@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: EnableKinesisStreamingConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> EnableKinesisStreamingConfiguration:
     out: EnableKinesisStreamingConfiguration = {}  # type: ignore[typeddict-item]
-    if "ApproximateCreationDateTimePrecision" in data:
+    if data.get("ApproximateCreationDateTimePrecision") is not None:
         import capo_dynamodb.types.approximate_creation_date_time_precision
 
         out["approximate_creation_date_time_precision"] = (

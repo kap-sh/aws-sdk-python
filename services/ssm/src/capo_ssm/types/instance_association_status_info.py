@@ -93,31 +93,31 @@ def serialize_aws_json_1_1(value: InstanceAssociationStatusInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceAssociationStatusInfo:
     out: InstanceAssociationStatusInfo = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "ExecutionDate" in data:
+    if data.get("ExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["execution_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ExecutionDate"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         out["status"] = data["Status"]
-    if "DetailedStatus" in data:
+    if data.get("DetailedStatus") is not None:
         out["detailed_status"] = data["DetailedStatus"]
-    if "ExecutionSummary" in data:
+    if data.get("ExecutionSummary") is not None:
         out["execution_summary"] = data["ExecutionSummary"]
-    if "ErrorCode" in data:
+    if data.get("ErrorCode") is not None:
         out["error_code"] = data["ErrorCode"]
-    if "OutputUrl" in data:
+    if data.get("OutputUrl") is not None:
         import capo_ssm.types.instance_association_output_url
 
         out["output_url"] = (
@@ -125,6 +125,6 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceAssociationStatusInfo:
                 data["OutputUrl"]
             )
         )
-    if "AssociationName" in data:
+    if data.get("AssociationName") is not None:
         out["association_name"] = data["AssociationName"]
     return out

@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: PutReplicationConfigurationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutReplicationConfigurationResponse:
     out: PutReplicationConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "replicationConfiguration" in data:
+    if data.get("replicationConfiguration") is not None:
         import capo_ecr.types.replication_configuration
 
         out["replication_configuration"] = (

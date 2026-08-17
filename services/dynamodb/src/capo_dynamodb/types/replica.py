@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: Replica) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Replica:
     out: Replica = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     return out

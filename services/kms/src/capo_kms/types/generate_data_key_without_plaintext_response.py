@@ -37,7 +37,7 @@ def serialize_aws_json_1_1(value: GenerateDataKeyWithoutPlaintextResponse) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyWithoutPlaintextResponse:
     out: GenerateDataKeyWithoutPlaintextResponse = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -45,8 +45,8 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyWithoutPlaintextRespo
                 data["CiphertextBlob"]
             )
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

@@ -34,7 +34,7 @@ def serialize_json(value: KafkaSchemaRegistryAccessConfig) -> dict:
 
 def deserialize_json(data: dict) -> KafkaSchemaRegistryAccessConfig:
     out: KafkaSchemaRegistryAccessConfig = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_lambda.types.kafka_schema_registry_auth_type
 
         out["type"] = (
@@ -42,6 +42,6 @@ def deserialize_json(data: dict) -> KafkaSchemaRegistryAccessConfig:
                 data["Type"]
             )
         )
-    if "URI" in data:
+    if data.get("URI") is not None:
         out["uri"] = data["URI"]
     return out

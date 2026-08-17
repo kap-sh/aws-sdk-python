@@ -47,13 +47,13 @@ def serialize_aws_json_1_1(value: DescribeImportTaskBatchesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImportTaskBatchesRequest:
     out: DescribeImportTaskBatchesRequest = {}  # type: ignore[typeddict-item]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
     else:
         raise DeserializationError(
             "DescribeImportTaskBatchesRequest.import_id required"
         )
-    if "batchImportStatus" in data:
+    if data.get("batchImportStatus") is not None:
         import capo_cloudwatch_logs.types.import_status_list
 
         out["batch_import_status"] = (
@@ -61,8 +61,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImportTaskBatchesRequest:
                 data["batchImportStatus"]
             )
         )
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

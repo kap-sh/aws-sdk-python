@@ -50,16 +50,16 @@ def serialize_aws_json_1_1(value: Destination) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Destination:
     out: Destination = {}  # type: ignore[typeddict-item]
-    if "destinationName" in data:
+    if data.get("destinationName") is not None:
         out["destination_name"] = data["destinationName"]
-    if "targetArn" in data:
+    if data.get("targetArn") is not None:
         out["target_arn"] = data["targetArn"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "accessPolicy" in data:
+    if data.get("accessPolicy") is not None:
         out["access_policy"] = data["accessPolicy"]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
     return out

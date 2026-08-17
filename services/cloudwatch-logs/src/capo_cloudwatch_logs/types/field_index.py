@@ -54,17 +54,17 @@ def serialize_aws_json_1_1(value: FieldIndex) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FieldIndex:
     out: FieldIndex = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "fieldIndexName" in data:
+    if data.get("fieldIndexName") is not None:
         out["field_index_name"] = data["fieldIndexName"]
-    if "lastScanTime" in data:
+    if data.get("lastScanTime") is not None:
         out["last_scan_time"] = data["lastScanTime"]
-    if "firstEventTime" in data:
+    if data.get("firstEventTime") is not None:
         out["first_event_time"] = data["firstEventTime"]
-    if "lastEventTime" in data:
+    if data.get("lastEventTime") is not None:
         out["last_event_time"] = data["lastEventTime"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_cloudwatch_logs.types.index_type
 
         out["type"] = capo_cloudwatch_logs.types.index_type.deserialize_aws_json_1_1(

@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: GetExecutionHistoryOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetExecutionHistoryOutput:
     out: GetExecutionHistoryOutput = {}  # type: ignore[typeddict-item]
-    if "events" in data:
+    if data.get("events") is not None:
         import capo_sfn.types.history_event_list
 
         out["events"] = capo_sfn.types.history_event_list.deserialize_aws_json_1_0(
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_0(data: dict) -> GetExecutionHistoryOutput:
         )
     else:
         raise DeserializationError("GetExecutionHistoryOutput.events required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

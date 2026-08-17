@@ -29,9 +29,9 @@ def serialize_json(value: InvalidRequestContentException_) -> dict:
 
 def deserialize_json(data: dict) -> InvalidRequestContentException_:
     out: InvalidRequestContentException_ = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

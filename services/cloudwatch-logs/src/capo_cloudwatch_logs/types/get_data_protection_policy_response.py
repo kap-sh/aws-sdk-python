@@ -37,10 +37,10 @@ def serialize_aws_json_1_1(value: GetDataProtectionPolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDataProtectionPolicyResponse:
     out: GetDataProtectionPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "policyDocument" in data:
+    if data.get("policyDocument") is not None:
         out["policy_document"] = data["policyDocument"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
     return out

@@ -51,19 +51,19 @@ def serialize_aws_json_1_1(value: DescribeAssociationExecutionTargetsRequest) ->
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAssociationExecutionTargetsRequest:
     out: DescribeAssociationExecutionTargetsRequest = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
     else:
         raise DeserializationError(
             "DescribeAssociationExecutionTargetsRequest.association_id required"
         )
-    if "ExecutionId" in data:
+    if data.get("ExecutionId") is not None:
         out["execution_id"] = data["ExecutionId"]
     else:
         raise DeserializationError(
             "DescribeAssociationExecutionTargetsRequest.execution_id required"
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.association_execution_targets_filter_list
 
         out["filters"] = (
@@ -71,8 +71,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAssociationExecutionTargetsR
                 data["Filters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

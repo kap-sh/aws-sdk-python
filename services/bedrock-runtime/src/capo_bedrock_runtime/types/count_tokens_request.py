@@ -31,7 +31,7 @@ def serialize_json(value: CountTokensRequest) -> dict:
 
 def deserialize_json(data: dict) -> CountTokensRequest:
     out: CountTokensRequest = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_runtime.types.count_tokens_input
 
         out["input"] = capo_bedrock_runtime.types.count_tokens_input.deserialize_json(

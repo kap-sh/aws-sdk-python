@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: IngressPathSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> IngressPathSummary:
     out: IngressPathSummary = {}  # type: ignore[typeddict-item]
-    if "accessType" in data:
+    if data.get("accessType") is not None:
         import capo_ecs.types.access_type
 
         out["access_type"] = capo_ecs.types.access_type.deserialize_aws_json_1_1(
@@ -40,7 +40,7 @@ def deserialize_aws_json_1_1(data: dict) -> IngressPathSummary:
         )
     else:
         raise DeserializationError("IngressPathSummary.access_type required")
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
     else:
         raise DeserializationError("IngressPathSummary.endpoint required")

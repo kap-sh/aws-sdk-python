@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ResultAttribute) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResultAttribute:
     out: ResultAttribute = {}  # type: ignore[typeddict-item]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
     else:
         raise DeserializationError("ResultAttribute.type_name required")

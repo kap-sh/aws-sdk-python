@@ -24,6 +24,8 @@ def serialize_aws_json_1_0(input_to_serialize: SecondaryIndexesCapacityMap) -> d
 def deserialize_aws_json_1_0(data: dict) -> SecondaryIndexesCapacityMap:
     out: SecondaryIndexesCapacityMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_dynamodb.types.capacity
 
         out[key] = capo_dynamodb.types.capacity.deserialize_aws_json_1_0(value)

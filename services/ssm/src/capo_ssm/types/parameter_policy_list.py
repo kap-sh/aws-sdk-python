@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> ParameterPolicyList:
 
     out: ParameterPolicyList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.parameter_inline_policy.deserialize_aws_json_1_1(item)
         )

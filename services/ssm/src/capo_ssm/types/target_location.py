@@ -97,25 +97,25 @@ def serialize_aws_json_1_1(value: TargetLocation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TargetLocation:
     out: TargetLocation = {}  # type: ignore[typeddict-item]
-    if "Accounts" in data:
+    if data.get("Accounts") is not None:
         import capo_ssm.types.accounts
 
         out["accounts"] = capo_ssm.types.accounts.deserialize_aws_json_1_1(
             data["Accounts"]
         )
-    if "Regions" in data:
+    if data.get("Regions") is not None:
         import capo_ssm.types.regions
 
         out["regions"] = capo_ssm.types.regions.deserialize_aws_json_1_1(
             data["Regions"]
         )
-    if "TargetLocationMaxConcurrency" in data:
+    if data.get("TargetLocationMaxConcurrency") is not None:
         out["target_location_max_concurrency"] = data["TargetLocationMaxConcurrency"]
-    if "TargetLocationMaxErrors" in data:
+    if data.get("TargetLocationMaxErrors") is not None:
         out["target_location_max_errors"] = data["TargetLocationMaxErrors"]
-    if "ExecutionRoleName" in data:
+    if data.get("ExecutionRoleName") is not None:
         out["execution_role_name"] = data["ExecutionRoleName"]
-    if "TargetLocationAlarmConfiguration" in data:
+    if data.get("TargetLocationAlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["target_location_alarm_configuration"] = (
@@ -123,11 +123,11 @@ def deserialize_aws_json_1_1(data: dict) -> TargetLocation:
                 data["TargetLocationAlarmConfiguration"]
             )
         )
-    if "IncludeChildOrganizationUnits" in data:
+    if data.get("IncludeChildOrganizationUnits") is not None:
         out["include_child_organization_units"] = data["IncludeChildOrganizationUnits"]
     else:
         out["include_child_organization_units"] = False
-    if "ExcludeAccounts" in data:
+    if data.get("ExcludeAccounts") is not None:
         import capo_ssm.types.exclude_accounts
 
         out["exclude_accounts"] = (
@@ -135,14 +135,14 @@ def deserialize_aws_json_1_1(data: dict) -> TargetLocation:
                 data["ExcludeAccounts"]
             )
         )
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "TargetsMaxConcurrency" in data:
+    if data.get("TargetsMaxConcurrency") is not None:
         out["targets_max_concurrency"] = data["TargetsMaxConcurrency"]
-    if "TargetsMaxErrors" in data:
+    if data.get("TargetsMaxErrors") is not None:
         out["targets_max_errors"] = data["TargetsMaxErrors"]
     return out

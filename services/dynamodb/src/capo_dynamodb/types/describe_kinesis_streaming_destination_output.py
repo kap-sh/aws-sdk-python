@@ -36,9 +36,9 @@ def serialize_aws_json_1_0(value: DescribeKinesisStreamingDestinationOutput) -> 
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeKinesisStreamingDestinationOutput:
     out: DescribeKinesisStreamingDestinationOutput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "KinesisDataStreamDestinations" in data:
+    if data.get("KinesisDataStreamDestinations") is not None:
         import capo_dynamodb.types.kinesis_data_stream_destinations
 
         out["kinesis_data_stream_destinations"] = (

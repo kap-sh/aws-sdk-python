@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: DeploymentEphemeralStorage) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeploymentEphemeralStorage:
     out: DeploymentEphemeralStorage = {}  # type: ignore[typeddict-item]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

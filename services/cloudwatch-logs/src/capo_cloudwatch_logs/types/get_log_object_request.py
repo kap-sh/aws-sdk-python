@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: GetLogObjectRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogObjectRequest:
     out: GetLogObjectRequest = {}  # type: ignore[typeddict-item]
-    if "unmask" in data:
+    if data.get("unmask") is not None:
         out["unmask"] = data["unmask"]
     else:
         out["unmask"] = False
-    if "logObjectPointer" in data:
+    if data.get("logObjectPointer") is not None:
         out["log_object_pointer"] = data["logObjectPointer"]
     else:
         raise DeserializationError("GetLogObjectRequest.log_object_pointer required")

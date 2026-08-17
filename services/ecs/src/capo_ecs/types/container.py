@@ -126,25 +126,25 @@ def serialize_aws_json_1_1(value: Container) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Container:
     out: Container = {}  # type: ignore[typeddict-item]
-    if "containerArn" in data:
+    if data.get("containerArn") is not None:
         out["container_arn"] = data["containerArn"]
-    if "taskArn" in data:
+    if data.get("taskArn") is not None:
         out["task_arn"] = data["taskArn"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "image" in data:
+    if data.get("image") is not None:
         out["image"] = data["image"]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
-    if "runtimeId" in data:
+    if data.get("runtimeId") is not None:
         out["runtime_id"] = data["runtimeId"]
-    if "lastStatus" in data:
+    if data.get("lastStatus") is not None:
         out["last_status"] = data["lastStatus"]
-    if "exitCode" in data:
+    if data.get("exitCode") is not None:
         out["exit_code"] = data["exitCode"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "networkBindings" in data:
+    if data.get("networkBindings") is not None:
         import capo_ecs.types.network_bindings
 
         out["network_bindings"] = (
@@ -152,7 +152,7 @@ def deserialize_aws_json_1_1(data: dict) -> Container:
                 data["networkBindings"]
             )
         )
-    if "networkInterfaces" in data:
+    if data.get("networkInterfaces") is not None:
         import capo_ecs.types.network_interfaces
 
         out["network_interfaces"] = (
@@ -160,29 +160,29 @@ def deserialize_aws_json_1_1(data: dict) -> Container:
                 data["networkInterfaces"]
             )
         )
-    if "healthStatus" in data:
+    if data.get("healthStatus") is not None:
         import capo_ecs.types.health_status
 
         out["health_status"] = capo_ecs.types.health_status.deserialize_aws_json_1_1(
             data["healthStatus"]
         )
-    if "managedAgents" in data:
+    if data.get("managedAgents") is not None:
         import capo_ecs.types.managed_agents
 
         out["managed_agents"] = capo_ecs.types.managed_agents.deserialize_aws_json_1_1(
             data["managedAgents"]
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "memoryReservation" in data:
+    if data.get("memoryReservation") is not None:
         out["memory_reservation"] = data["memoryReservation"]
-    if "gpuIds" in data:
+    if data.get("gpuIds") is not None:
         import capo_ecs.types.gpu_ids
 
         out["gpu_ids"] = capo_ecs.types.gpu_ids.deserialize_aws_json_1_1(data["gpuIds"])
-    if "neuronDeviceIds" in data:
+    if data.get("neuronDeviceIds") is not None:
         import capo_ecs.types.neuron_device_ids
 
         out["neuron_device_ids"] = (

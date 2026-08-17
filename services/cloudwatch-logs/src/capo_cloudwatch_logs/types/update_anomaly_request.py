@@ -67,15 +67,15 @@ def serialize_aws_json_1_1(value: UpdateAnomalyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateAnomalyRequest:
     out: UpdateAnomalyRequest = {}  # type: ignore[typeddict-item]
-    if "anomalyId" in data:
+    if data.get("anomalyId") is not None:
         out["anomaly_id"] = data["anomalyId"]
-    if "patternId" in data:
+    if data.get("patternId") is not None:
         out["pattern_id"] = data["patternId"]
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
     else:
         raise DeserializationError("UpdateAnomalyRequest.anomaly_detector_arn required")
-    if "suppressionType" in data:
+    if data.get("suppressionType") is not None:
         import capo_cloudwatch_logs.types.suppression_type
 
         out["suppression_type"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAnomalyRequest:
                 data["suppressionType"]
             )
         )
-    if "suppressionPeriod" in data:
+    if data.get("suppressionPeriod") is not None:
         import capo_cloudwatch_logs.types.suppression_period
 
         out["suppression_period"] = (
@@ -91,6 +91,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAnomalyRequest:
                 data["suppressionPeriod"]
             )
         )
-    if "baseline" in data:
+    if data.get("baseline") is not None:
         out["baseline"] = data["baseline"]
     return out

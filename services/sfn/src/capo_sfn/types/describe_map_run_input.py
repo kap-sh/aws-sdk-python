@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeMapRunInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunInput:
     out: DescribeMapRunInput = {}  # type: ignore[typeddict-item]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
     else:
         raise DeserializationError("DescribeMapRunInput.map_run_arn required")

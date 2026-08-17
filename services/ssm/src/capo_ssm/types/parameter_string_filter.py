@@ -44,13 +44,13 @@ def serialize_aws_json_1_1(value: ParameterStringFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParameterStringFilter:
     out: ParameterStringFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("ParameterStringFilter.key required")
-    if "Option" in data:
+    if data.get("Option") is not None:
         out["option"] = data["Option"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.parameter_string_filter_value_list
 
         out["values"] = (

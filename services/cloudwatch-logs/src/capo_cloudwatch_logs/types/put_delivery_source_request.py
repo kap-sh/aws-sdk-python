@@ -54,25 +54,25 @@ def serialize_aws_json_1_1(value: PutDeliverySourceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDeliverySourceRequest:
     out: PutDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PutDeliverySourceRequest.name required")
-    if "resourceArn" in data:
+    if data.get("resourceArn") is not None:
         out["resource_arn"] = data["resourceArn"]
     else:
         raise DeserializationError("PutDeliverySourceRequest.resource_arn required")
-    if "logType" in data:
+    if data.get("logType") is not None:
         out["log_type"] = data["logType"]
     else:
         raise DeserializationError("PutDeliverySourceRequest.log_type required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(
             data["tags"]
         )
-    if "deliverySourceConfiguration" in data:
+    if data.get("deliverySourceConfiguration") is not None:
         import capo_cloudwatch_logs.types.delivery_source_configuration
 
         out["delivery_source_configuration"] = (

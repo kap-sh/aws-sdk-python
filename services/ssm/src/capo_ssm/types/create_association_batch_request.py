@@ -37,7 +37,7 @@ def serialize_aws_json_1_1(value: CreateAssociationBatchRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateAssociationBatchRequest:
     out: CreateAssociationBatchRequest = {}  # type: ignore[typeddict-item]
-    if "Entries" in data:
+    if data.get("Entries") is not None:
         import capo_ssm.types.create_association_batch_request_entries
 
         out["entries"] = (
@@ -47,6 +47,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateAssociationBatchRequest:
         )
     else:
         raise DeserializationError("CreateAssociationBatchRequest.entries required")
-    if "AssociationDispatchAssumeRole" in data:
+    if data.get("AssociationDispatchAssumeRole") is not None:
         out["association_dispatch_assume_role"] = data["AssociationDispatchAssumeRole"]
     return out

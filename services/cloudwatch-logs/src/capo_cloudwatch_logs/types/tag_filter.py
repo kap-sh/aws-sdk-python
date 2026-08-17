@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: TagFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TagFilter:
     out: TagFilter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("TagFilter.key required")
-    if "values" in data:
+    if data.get("values") is not None:
         import capo_cloudwatch_logs.types.tag_filter_values
 
         out["values"] = (

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> GuardrailCustomWordList:
 
     out: GuardrailCustomWordList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_custom_word.deserialize_json(item)
         )

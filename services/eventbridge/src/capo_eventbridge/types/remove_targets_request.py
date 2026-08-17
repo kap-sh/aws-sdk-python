@@ -43,13 +43,13 @@ def serialize_aws_json_1_1(value: RemoveTargetsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RemoveTargetsRequest:
     out: RemoveTargetsRequest = {}  # type: ignore[typeddict-item]
-    if "Rule" in data:
+    if data.get("Rule") is not None:
         out["rule"] = data["Rule"]
     else:
         raise DeserializationError("RemoveTargetsRequest.rule required")
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "Ids" in data:
+    if data.get("Ids") is not None:
         import capo_eventbridge.types.target_id_list
 
         out["ids"] = capo_eventbridge.types.target_id_list.deserialize_aws_json_1_1(
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_1(data: dict) -> RemoveTargetsRequest:
         )
     else:
         raise DeserializationError("RemoveTargetsRequest.ids required")
-    if "Force" in data:
+    if data.get("Force") is not None:
         out["force"] = data["Force"]
     else:
         out["force"] = False

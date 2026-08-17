@@ -72,5 +72,7 @@ def deserialize_aws_json_1_0(data: list) -> MetricDataResultMessages:
 
     out: MetricDataResultMessages = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_cloudwatch.types.message_data.deserialize_aws_json_1_0(item))
     return out

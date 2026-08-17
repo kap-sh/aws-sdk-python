@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: BatchArrayProperties) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchArrayProperties:
     out: BatchArrayProperties = {}  # type: ignore[typeddict-item]
-    if "Size" in data:
+    if data.get("Size") is not None:
         out["size"] = data["Size"]
     else:
         out["size"] = 0

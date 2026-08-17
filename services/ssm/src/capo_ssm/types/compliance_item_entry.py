@@ -55,11 +55,11 @@ def serialize_aws_json_1_1(value: ComplianceItemEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ComplianceItemEntry:
     out: ComplianceItemEntry = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         import capo_ssm.types.compliance_severity
 
         out["severity"] = capo_ssm.types.compliance_severity.deserialize_aws_json_1_1(
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceItemEntry:
         )
     else:
         raise DeserializationError("ComplianceItemEntry.severity required")
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.compliance_status
 
         out["status"] = capo_ssm.types.compliance_status.deserialize_aws_json_1_1(
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceItemEntry:
         )
     else:
         raise DeserializationError("ComplianceItemEntry.status required")
-    if "Details" in data:
+    if data.get("Details") is not None:
         import capo_ssm.types.compliance_item_details
 
         out["details"] = (

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ToolResultBlocksDelta:
 
     out: ToolResultBlocksDelta = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.tool_result_block_delta.deserialize_json(item)
         )

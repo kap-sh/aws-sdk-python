@@ -31,10 +31,10 @@ def serialize_aws_json_1_0(value: DeleteResourcePolicyInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteResourcePolicyInput:
     out: DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-    if "ResourceArn" in data:
+    if data.get("ResourceArn") is not None:
         out["resource_arn"] = data["ResourceArn"]
     else:
         raise DeserializationError("DeleteResourcePolicyInput.resource_arn required")
-    if "ExpectedRevisionId" in data:
+    if data.get("ExpectedRevisionId") is not None:
         out["expected_revision_id"] = data["ExpectedRevisionId"]
     return out

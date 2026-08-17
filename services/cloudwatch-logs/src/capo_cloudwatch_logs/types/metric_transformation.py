@@ -57,21 +57,21 @@ def serialize_aws_json_1_1(value: MetricTransformation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MetricTransformation:
     out: MetricTransformation = {}  # type: ignore[typeddict-item]
-    if "metricName" in data:
+    if data.get("metricName") is not None:
         out["metric_name"] = data["metricName"]
     else:
         raise DeserializationError("MetricTransformation.metric_name required")
-    if "metricNamespace" in data:
+    if data.get("metricNamespace") is not None:
         out["metric_namespace"] = data["metricNamespace"]
     else:
         raise DeserializationError("MetricTransformation.metric_namespace required")
-    if "metricValue" in data:
+    if data.get("metricValue") is not None:
         out["metric_value"] = data["metricValue"]
     else:
         raise DeserializationError("MetricTransformation.metric_value required")
-    if "defaultValue" in data:
+    if data.get("defaultValue") is not None:
         out["default_value"] = data["defaultValue"]
-    if "dimensions" in data:
+    if data.get("dimensions") is not None:
         import capo_cloudwatch_logs.types.dimensions
 
         out["dimensions"] = (
@@ -79,7 +79,7 @@ def deserialize_aws_json_1_1(data: dict) -> MetricTransformation:
                 data["dimensions"]
             )
         )
-    if "unit" in data:
+    if data.get("unit") is not None:
         import capo_cloudwatch_logs.types.standard_unit
 
         out["unit"] = capo_cloudwatch_logs.types.standard_unit.deserialize_aws_json_1_1(

@@ -269,13 +269,13 @@ def serialize_aws_json_1_1(value: Processor) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Processor:
     out: Processor = {}  # type: ignore[typeddict-item]
-    if "addKeys" in data:
+    if data.get("addKeys") is not None:
         import capo_cloudwatch_logs.types.add_keys
 
         out["add_keys"] = capo_cloudwatch_logs.types.add_keys.deserialize_aws_json_1_1(
             data["addKeys"]
         )
-    if "copyValue" in data:
+    if data.get("copyValue") is not None:
         import capo_cloudwatch_logs.types.copy_value
 
         out["copy_value"] = (
@@ -283,13 +283,13 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["copyValue"]
             )
         )
-    if "csv" in data:
+    if data.get("csv") is not None:
         import capo_cloudwatch_logs.types.csv
 
         out["csv"] = capo_cloudwatch_logs.types.csv.deserialize_aws_json_1_1(
             data["csv"]
         )
-    if "dateTimeConverter" in data:
+    if data.get("dateTimeConverter") is not None:
         import capo_cloudwatch_logs.types.date_time_converter
 
         out["date_time_converter"] = (
@@ -297,7 +297,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["dateTimeConverter"]
             )
         )
-    if "deleteKeys" in data:
+    if data.get("deleteKeys") is not None:
         import capo_cloudwatch_logs.types.delete_keys
 
         out["delete_keys"] = (
@@ -305,13 +305,13 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["deleteKeys"]
             )
         )
-    if "grok" in data:
+    if data.get("grok") is not None:
         import capo_cloudwatch_logs.types.grok
 
         out["grok"] = capo_cloudwatch_logs.types.grok.deserialize_aws_json_1_1(
             data["grok"]
         )
-    if "listToMap" in data:
+    if data.get("listToMap") is not None:
         import capo_cloudwatch_logs.types.list_to_map
 
         out["list_to_map"] = (
@@ -319,7 +319,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["listToMap"]
             )
         )
-    if "lowerCaseString" in data:
+    if data.get("lowerCaseString") is not None:
         import capo_cloudwatch_logs.types.lower_case_string
 
         out["lower_case_string"] = (
@@ -327,7 +327,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["lowerCaseString"]
             )
         )
-    if "moveKeys" in data:
+    if data.get("moveKeys") is not None:
         import capo_cloudwatch_logs.types.move_keys
 
         out["move_keys"] = (
@@ -335,7 +335,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["moveKeys"]
             )
         )
-    if "parseCloudfront" in data:
+    if data.get("parseCloudfront") is not None:
         import capo_cloudwatch_logs.types.parse_cloudfront
 
         out["parse_cloudfront"] = (
@@ -343,7 +343,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseCloudfront"]
             )
         )
-    if "parseJSON" in data:
+    if data.get("parseJSON") is not None:
         import capo_cloudwatch_logs.types.parse_json
 
         out["parse_json"] = (
@@ -351,7 +351,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseJSON"]
             )
         )
-    if "parseKeyValue" in data:
+    if data.get("parseKeyValue") is not None:
         import capo_cloudwatch_logs.types.parse_key_value
 
         out["parse_key_value"] = (
@@ -359,7 +359,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseKeyValue"]
             )
         )
-    if "parseRoute53" in data:
+    if data.get("parseRoute53") is not None:
         import capo_cloudwatch_logs.types.parse_route53
 
         out["parse_route53"] = (
@@ -367,7 +367,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseRoute53"]
             )
         )
-    if "parseToOCSF" in data:
+    if data.get("parseToOCSF") is not None:
         import capo_cloudwatch_logs.types.parse_to_ocsf
 
         out["parse_to_ocsf"] = (
@@ -375,7 +375,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseToOCSF"]
             )
         )
-    if "parsePostgres" in data:
+    if data.get("parsePostgres") is not None:
         import capo_cloudwatch_logs.types.parse_postgres
 
         out["parse_postgres"] = (
@@ -383,7 +383,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parsePostgres"]
             )
         )
-    if "parseVPC" in data:
+    if data.get("parseVPC") is not None:
         import capo_cloudwatch_logs.types.parse_vpc
 
         out["parse_vpc"] = (
@@ -391,7 +391,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseVPC"]
             )
         )
-    if "parseWAF" in data:
+    if data.get("parseWAF") is not None:
         import capo_cloudwatch_logs.types.parse_waf
 
         out["parse_waf"] = (
@@ -399,7 +399,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["parseWAF"]
             )
         )
-    if "renameKeys" in data:
+    if data.get("renameKeys") is not None:
         import capo_cloudwatch_logs.types.rename_keys
 
         out["rename_keys"] = (
@@ -407,7 +407,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["renameKeys"]
             )
         )
-    if "splitString" in data:
+    if data.get("splitString") is not None:
         import capo_cloudwatch_logs.types.split_string
 
         out["split_string"] = (
@@ -415,7 +415,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["splitString"]
             )
         )
-    if "substituteString" in data:
+    if data.get("substituteString") is not None:
         import capo_cloudwatch_logs.types.substitute_string
 
         out["substitute_string"] = (
@@ -423,7 +423,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["substituteString"]
             )
         )
-    if "trimString" in data:
+    if data.get("trimString") is not None:
         import capo_cloudwatch_logs.types.trim_string
 
         out["trim_string"] = (
@@ -431,7 +431,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["trimString"]
             )
         )
-    if "typeConverter" in data:
+    if data.get("typeConverter") is not None:
         import capo_cloudwatch_logs.types.type_converter
 
         out["type_converter"] = (
@@ -439,7 +439,7 @@ def deserialize_aws_json_1_1(data: dict) -> Processor:
                 data["typeConverter"]
             )
         )
-    if "upperCaseString" in data:
+    if data.get("upperCaseString") is not None:
         import capo_cloudwatch_logs.types.upper_case_string
 
         out["upper_case_string"] = (

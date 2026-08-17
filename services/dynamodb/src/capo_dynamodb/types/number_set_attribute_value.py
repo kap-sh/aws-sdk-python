@@ -16,4 +16,4 @@ def serialize_aws_json_1_0(value: NumberSetAttributeValue) -> list:
 
 
 def deserialize_aws_json_1_0(data: list) -> NumberSetAttributeValue:
-    return list(data)
+    return [item for item in data if item is not None]

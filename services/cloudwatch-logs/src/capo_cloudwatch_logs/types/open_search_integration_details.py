@@ -122,7 +122,7 @@ def serialize_aws_json_1_1(value: OpenSearchIntegrationDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
     out: OpenSearchIntegrationDetails = {}  # type: ignore[typeddict-item]
-    if "dataSource" in data:
+    if data.get("dataSource") is not None:
         import capo_cloudwatch_logs.types.open_search_data_source
 
         out["data_source"] = (
@@ -130,7 +130,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["dataSource"]
             )
         )
-    if "application" in data:
+    if data.get("application") is not None:
         import capo_cloudwatch_logs.types.open_search_application
 
         out["application"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["application"]
             )
         )
-    if "collection" in data:
+    if data.get("collection") is not None:
         import capo_cloudwatch_logs.types.open_search_collection
 
         out["collection"] = (
@@ -146,7 +146,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["collection"]
             )
         )
-    if "workspace" in data:
+    if data.get("workspace") is not None:
         import capo_cloudwatch_logs.types.open_search_workspace
 
         out["workspace"] = (
@@ -154,7 +154,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["workspace"]
             )
         )
-    if "encryptionPolicy" in data:
+    if data.get("encryptionPolicy") is not None:
         import capo_cloudwatch_logs.types.open_search_encryption_policy
 
         out["encryption_policy"] = (
@@ -162,7 +162,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["encryptionPolicy"]
             )
         )
-    if "networkPolicy" in data:
+    if data.get("networkPolicy") is not None:
         import capo_cloudwatch_logs.types.open_search_network_policy
 
         out["network_policy"] = (
@@ -170,7 +170,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["networkPolicy"]
             )
         )
-    if "accessPolicy" in data:
+    if data.get("accessPolicy") is not None:
         import capo_cloudwatch_logs.types.open_search_data_access_policy
 
         out["access_policy"] = (
@@ -178,7 +178,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchIntegrationDetails:
                 data["accessPolicy"]
             )
         )
-    if "lifecyclePolicy" in data:
+    if data.get("lifecyclePolicy") is not None:
         import capo_cloudwatch_logs.types.open_search_lifecycle_policy
 
         out["lifecycle_policy"] = (

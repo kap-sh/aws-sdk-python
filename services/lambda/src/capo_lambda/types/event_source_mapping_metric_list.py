@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> EventSourceMappingMetricList:
 
     out: EventSourceMappingMetricList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.event_source_mapping_metric.deserialize_json(item))
     return out

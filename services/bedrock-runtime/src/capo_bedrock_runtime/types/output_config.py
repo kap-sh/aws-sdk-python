@@ -27,7 +27,7 @@ def serialize_json(value: OutputConfig) -> dict:
 
 def deserialize_json(data: dict) -> OutputConfig:
     out: OutputConfig = {}  # type: ignore[typeddict-item]
-    if "textFormat" in data:
+    if data.get("textFormat") is not None:
         import capo_bedrock_runtime.types.output_format
 
         out["text_format"] = capo_bedrock_runtime.types.output_format.deserialize_json(

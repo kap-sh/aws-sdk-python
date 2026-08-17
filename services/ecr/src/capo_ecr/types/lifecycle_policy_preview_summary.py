@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: LifecyclePolicyPreviewSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LifecyclePolicyPreviewSummary:
     out: LifecyclePolicyPreviewSummary = {}  # type: ignore[typeddict-item]
-    if "expiringImageTotalCount" in data:
+    if data.get("expiringImageTotalCount") is not None:
         out["expiring_image_total_count"] = data["expiringImageTotalCount"]
-    if "transitioningImageTotalCounts" in data:
+    if data.get("transitioningImageTotalCounts") is not None:
         import capo_ecr.types.transitioning_image_total_counts
 
         out["transitioning_image_total_counts"] = (

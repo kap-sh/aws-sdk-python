@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> AsyncInvokeSummaries:
 
     out: AsyncInvokeSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.async_invoke_summary.deserialize_json(item)
         )

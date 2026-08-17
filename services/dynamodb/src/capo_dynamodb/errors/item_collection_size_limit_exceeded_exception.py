@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: ItemCollectionSizeLimitExceededException_) -> 
 
 def deserialize_aws_json_1_0(data: dict) -> ItemCollectionSizeLimitExceededException_:
     out: ItemCollectionSizeLimitExceededException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

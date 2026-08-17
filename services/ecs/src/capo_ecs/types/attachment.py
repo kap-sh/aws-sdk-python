@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: Attachment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Attachment:
     out: Attachment = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "details" in data:
+    if data.get("details") is not None:
         import capo_ecs.types.attachment_details
 
         out["details"] = capo_ecs.types.attachment_details.deserialize_aws_json_1_1(

@@ -22,7 +22,7 @@ def serialize_aws_json_1_0(value: AssignedVariablesDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AssignedVariablesDetails:
     out: AssignedVariablesDetails = {}  # type: ignore[typeddict-item]
-    if "truncated" in data:
+    if data.get("truncated") is not None:
         out["truncated"] = data["truncated"]
     else:
         out["truncated"] = False

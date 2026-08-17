@@ -36,15 +36,15 @@ def serialize_json(value: GuardrailConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailConfiguration:
     out: GuardrailConfiguration = {}  # type: ignore[typeddict-item]
-    if "guardrailIdentifier" in data:
+    if data.get("guardrailIdentifier") is not None:
         out["guardrail_identifier"] = data["guardrailIdentifier"]
     else:
         out["guardrail_identifier"] = ""
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
     else:
         out["guardrail_version"] = ""
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_runtime.types.guardrail_trace
 
         out["trace"] = capo_bedrock_runtime.types.guardrail_trace.deserialize_json(

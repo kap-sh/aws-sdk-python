@@ -25,7 +25,7 @@ def serialize_aws_json_1_1(value: DaemonNotActiveException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonNotActiveException_:
     out: DaemonNotActiveException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

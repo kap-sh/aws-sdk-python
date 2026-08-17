@@ -41,7 +41,7 @@ def serialize_aws_json_1_1(value: ListAssociationsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAssociationsRequest:
     out: ListAssociationsRequest = {}  # type: ignore[typeddict-item]
-    if "AssociationFilterList" in data:
+    if data.get("AssociationFilterList") is not None:
         import capo_ssm.types.association_filter_list
 
         out["association_filter_list"] = (
@@ -49,8 +49,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListAssociationsRequest:
                 data["AssociationFilterList"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

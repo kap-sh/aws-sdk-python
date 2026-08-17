@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: DescribeAlarmHistoryOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryOutput:
     out: DescribeAlarmHistoryOutput = {}  # type: ignore[typeddict-item]
-    if "AlarmHistoryItems" in data:
+    if data.get("AlarmHistoryItems") is not None:
         import capo_cloudwatch.types.alarm_history_items
 
         out["alarm_history_items"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryOutput:
                 data["AlarmHistoryItems"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

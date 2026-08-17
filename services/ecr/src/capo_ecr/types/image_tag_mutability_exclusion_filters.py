@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> ImageTagMutabilityExclusionFilters:
 
     out: ImageTagMutabilityExclusionFilters = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.image_tag_mutability_exclusion_filter.deserialize_aws_json_1_1(
                 item

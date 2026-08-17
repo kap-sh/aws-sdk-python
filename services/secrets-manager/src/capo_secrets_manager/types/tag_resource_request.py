@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: TagResourceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TagResourceRequest:
     out: TagResourceRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("TagResourceRequest.secret_id required")
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_secrets_manager.types.tag_list_type
 
         out["tags"] = capo_secrets_manager.types.tag_list_type.deserialize_aws_json_1_1(

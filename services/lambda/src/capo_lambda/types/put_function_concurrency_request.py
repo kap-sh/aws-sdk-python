@@ -29,7 +29,7 @@ def serialize_json(value: PutFunctionConcurrencyRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutFunctionConcurrencyRequest:
     out: PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-    if "ReservedConcurrentExecutions" in data:
+    if data.get("ReservedConcurrentExecutions") is not None:
         out["reserved_concurrent_executions"] = data["ReservedConcurrentExecutions"]
     else:
         raise DeserializationError(

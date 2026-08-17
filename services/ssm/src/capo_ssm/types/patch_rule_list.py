@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> PatchRuleList:
 
     out: PatchRuleList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.patch_rule.deserialize_aws_json_1_1(item))
     return out

@@ -81,7 +81,7 @@ def serialize_aws_json_1_1(value: QueryInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> QueryInfo:
     out: QueryInfo = {}  # type: ignore[typeddict-item]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -89,11 +89,11 @@ def deserialize_aws_json_1_1(data: dict) -> QueryInfo:
                 data["queryLanguage"]
             )
         )
-    if "queryId" in data:
+    if data.get("queryId") is not None:
         out["query_id"] = data["queryId"]
-    if "queryString" in data:
+    if data.get("queryString") is not None:
         out["query_string"] = data["queryString"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.query_status
 
         out["status"] = (
@@ -101,14 +101,14 @@ def deserialize_aws_json_1_1(data: dict) -> QueryInfo:
                 data["status"]
             )
         )
-    if "createTime" in data:
+    if data.get("createTime") is not None:
         out["create_time"] = data["createTime"]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "queryDuration" in data:
+    if data.get("queryDuration") is not None:
         out["query_duration"] = data["queryDuration"]
-    if "bytesScanned" in data:
+    if data.get("bytesScanned") is not None:
         out["bytes_scanned"] = data["bytesScanned"]
-    if "userIdentity" in data:
+    if data.get("userIdentity") is not None:
         out["user_identity"] = data["userIdentity"]
     return out

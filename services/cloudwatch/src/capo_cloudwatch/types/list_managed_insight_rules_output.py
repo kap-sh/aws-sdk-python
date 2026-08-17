@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: ListManagedInsightRulesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListManagedInsightRulesOutput:
     out: ListManagedInsightRulesOutput = {}  # type: ignore[typeddict-item]
-    if "ManagedRules" in data:
+    if data.get("ManagedRules") is not None:
         import capo_cloudwatch.types.managed_rule_descriptions
 
         out["managed_rules"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_0(data: dict) -> ListManagedInsightRulesOutput:
                 data["ManagedRules"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

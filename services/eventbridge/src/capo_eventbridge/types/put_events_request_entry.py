@@ -65,15 +65,15 @@ def serialize_aws_json_1_1(value: PutEventsRequestEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutEventsRequestEntry:
     out: PutEventsRequestEntry = {}  # type: ignore[typeddict-item]
-    if "Time" in data:
+    if data.get("Time") is not None:
         import capo_eventbridge.types.event_time
 
         out["time"] = capo_eventbridge.types.event_time.deserialize_aws_json_1_1(
             data["Time"]
         )
-    if "Source" in data:
+    if data.get("Source") is not None:
         out["source"] = data["Source"]
-    if "Resources" in data:
+    if data.get("Resources") is not None:
         import capo_eventbridge.types.event_resource_list
 
         out["resources"] = (
@@ -81,12 +81,12 @@ def deserialize_aws_json_1_1(data: dict) -> PutEventsRequestEntry:
                 data["Resources"]
             )
         )
-    if "DetailType" in data:
+    if data.get("DetailType") is not None:
         out["detail_type"] = data["DetailType"]
-    if "Detail" in data:
+    if data.get("Detail") is not None:
         out["detail"] = data["Detail"]
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "TraceHeader" in data:
+    if data.get("TraceHeader") is not None:
         out["trace_header"] = data["TraceHeader"]
     return out

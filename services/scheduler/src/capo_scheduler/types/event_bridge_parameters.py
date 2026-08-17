@@ -28,11 +28,11 @@ def serialize_json(value: EventBridgeParameters) -> dict:
 
 def deserialize_json(data: dict) -> EventBridgeParameters:
     out: EventBridgeParameters = {}  # type: ignore[typeddict-item]
-    if "DetailType" in data:
+    if data.get("DetailType") is not None:
         out["detail_type"] = data["DetailType"]
     else:
         raise DeserializationError("EventBridgeParameters.detail_type required")
-    if "Source" in data:
+    if data.get("Source") is not None:
         out["source"] = data["Source"]
     else:
         raise DeserializationError("EventBridgeParameters.source required")

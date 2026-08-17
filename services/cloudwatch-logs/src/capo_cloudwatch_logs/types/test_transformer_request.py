@@ -42,7 +42,7 @@ def serialize_aws_json_1_1(value: TestTransformerRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TestTransformerRequest:
     out: TestTransformerRequest = {}  # type: ignore[typeddict-item]
-    if "transformerConfig" in data:
+    if data.get("transformerConfig") is not None:
         import capo_cloudwatch_logs.types.processors
 
         out["transformer_config"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> TestTransformerRequest:
         )
     else:
         raise DeserializationError("TestTransformerRequest.transformer_config required")
-    if "logEventMessages" in data:
+    if data.get("logEventMessages") is not None:
         import capo_cloudwatch_logs.types.test_event_messages
 
         out["log_event_messages"] = (

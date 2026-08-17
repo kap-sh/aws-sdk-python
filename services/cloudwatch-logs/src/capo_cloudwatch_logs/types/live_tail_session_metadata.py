@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: LiveTailSessionMetadata) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionMetadata:
     out: LiveTailSessionMetadata = {}  # type: ignore[typeddict-item]
-    if "sampled" in data:
+    if data.get("sampled") is not None:
         out["sampled"] = data["sampled"]
     else:
         out["sampled"] = False

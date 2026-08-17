@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> ImageIdentifierList:
 
     out: ImageIdentifierList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecr.types.image_identifier.deserialize_aws_json_1_1(item))
     return out

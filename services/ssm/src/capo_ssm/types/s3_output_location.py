@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: S3OutputLocation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3OutputLocation:
     out: S3OutputLocation = {}  # type: ignore[typeddict-item]
-    if "OutputS3Region" in data:
+    if data.get("OutputS3Region") is not None:
         out["output_s3_region"] = data["OutputS3Region"]
-    if "OutputS3BucketName" in data:
+    if data.get("OutputS3BucketName") is not None:
         out["output_s3_bucket_name"] = data["OutputS3BucketName"]
-    if "OutputS3KeyPrefix" in data:
+    if data.get("OutputS3KeyPrefix") is not None:
         out["output_s3_key_prefix"] = data["OutputS3KeyPrefix"]
     return out

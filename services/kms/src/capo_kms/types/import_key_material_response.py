@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: ImportKeyMaterialResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialResponse:
     out: ImportKeyMaterialResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

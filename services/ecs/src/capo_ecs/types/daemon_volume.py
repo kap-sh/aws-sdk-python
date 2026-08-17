@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: DaemonVolume) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonVolume:
     out: DaemonVolume = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "host" in data:
+    if data.get("host") is not None:
         import capo_ecs.types.host_volume_properties
 
         out["host"] = capo_ecs.types.host_volume_properties.deserialize_aws_json_1_1(

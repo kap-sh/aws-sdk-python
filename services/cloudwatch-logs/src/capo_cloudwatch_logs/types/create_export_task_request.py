@@ -53,26 +53,26 @@ def serialize_aws_json_1_1(value: CreateExportTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateExportTaskRequest:
     out: CreateExportTaskRequest = {}  # type: ignore[typeddict-item]
-    if "taskName" in data:
+    if data.get("taskName") is not None:
         out["task_name"] = data["taskName"]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("CreateExportTaskRequest.log_group_name required")
-    if "logStreamNamePrefix" in data:
+    if data.get("logStreamNamePrefix") is not None:
         out["log_stream_name_prefix"] = data["logStreamNamePrefix"]
-    if "from" in data:
+    if data.get("from") is not None:
         out["from"] = data["from"]
     else:
         raise DeserializationError("CreateExportTaskRequest.from required")
-    if "to" in data:
+    if data.get("to") is not None:
         out["to"] = data["to"]
     else:
         raise DeserializationError("CreateExportTaskRequest.to required")
-    if "destination" in data:
+    if data.get("destination") is not None:
         out["destination"] = data["destination"]
     else:
         raise DeserializationError("CreateExportTaskRequest.destination required")
-    if "destinationPrefix" in data:
+    if data.get("destinationPrefix") is not None:
         out["destination_prefix"] = data["destinationPrefix"]
     return out

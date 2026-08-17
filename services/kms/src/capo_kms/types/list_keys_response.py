@@ -34,13 +34,13 @@ def serialize_aws_json_1_1(value: ListKeysResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListKeysResponse:
     out: ListKeysResponse = {}  # type: ignore[typeddict-item]
-    if "Keys" in data:
+    if data.get("Keys") is not None:
         import capo_kms.types.key_list
 
         out["keys"] = capo_kms.types.key_list.deserialize_aws_json_1_1(data["Keys"])
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

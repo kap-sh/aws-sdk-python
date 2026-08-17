@@ -46,11 +46,11 @@ def serialize_aws_json_1_1(value: DescribeImportTaskBatchesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImportTaskBatchesResponse:
     out: DescribeImportTaskBatchesResponse = {}  # type: ignore[typeddict-item]
-    if "importSourceArn" in data:
+    if data.get("importSourceArn") is not None:
         out["import_source_arn"] = data["importSourceArn"]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
-    if "importBatches" in data:
+    if data.get("importBatches") is not None:
         import capo_cloudwatch_logs.types.import_batch_list
 
         out["import_batches"] = (
@@ -58,6 +58,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImportTaskBatchesResponse:
                 data["importBatches"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

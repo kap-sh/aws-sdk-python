@@ -74,25 +74,25 @@ def serialize_aws_json_1_0(value: GetInsightRuleReportInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportInput:
     out: GetInsightRuleReportInput = {}  # type: ignore[typeddict-item]
-    if "RuleName" in data:
+    if data.get("RuleName") is not None:
         out["rule_name"] = data["RuleName"]
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["end_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["EndTime"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "MaxContributorCount" in data:
+    if data.get("MaxContributorCount") is not None:
         out["max_contributor_count"] = data["MaxContributorCount"]
-    if "Metrics" in data:
+    if data.get("Metrics") is not None:
         import capo_cloudwatch.types.insight_rule_metric_list
 
         out["metrics"] = (
@@ -100,7 +100,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportInput:
                 data["Metrics"]
             )
         )
-    if "OrderBy" in data:
+    if data.get("OrderBy") is not None:
         out["order_by"] = data["OrderBy"]
     return out
 

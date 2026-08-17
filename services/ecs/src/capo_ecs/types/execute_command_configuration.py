@@ -45,9 +45,9 @@ def serialize_aws_json_1_1(value: ExecuteCommandConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandConfiguration:
     out: ExecuteCommandConfiguration = {}  # type: ignore[typeddict-item]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "logging" in data:
+    if data.get("logging") is not None:
         import capo_ecs.types.execute_command_logging
 
         out["logging"] = (
@@ -55,7 +55,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandConfiguration:
                 data["logging"]
             )
         )
-    if "logConfiguration" in data:
+    if data.get("logConfiguration") is not None:
         import capo_ecs.types.execute_command_log_configuration
 
         out["log_configuration"] = (

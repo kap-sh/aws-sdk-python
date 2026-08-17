@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: ResolvedTargets) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResolvedTargets:
     out: ResolvedTargets = {}  # type: ignore[typeddict-item]
-    if "ParameterValues" in data:
+    if data.get("ParameterValues") is not None:
         import capo_ssm.types.target_parameter_list
 
         out["parameter_values"] = (
@@ -43,7 +43,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResolvedTargets:
                 data["ParameterValues"]
             )
         )
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

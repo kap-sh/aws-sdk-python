@@ -68,13 +68,13 @@ def serialize_aws_json_1_1(value: LookupTable) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LookupTable:
     out: LookupTable = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
-    if "lookupTableName" in data:
+    if data.get("lookupTableName") is not None:
         out["lookup_table_name"] = data["lookupTableName"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "tableFields" in data:
+    if data.get("tableFields") is not None:
         import capo_cloudwatch_logs.types.table_fields
 
         out["table_fields"] = (
@@ -82,12 +82,12 @@ def deserialize_aws_json_1_1(data: dict) -> LookupTable:
                 data["tableFields"]
             )
         )
-    if "recordsCount" in data:
+    if data.get("recordsCount") is not None:
         out["records_count"] = data["recordsCount"]
-    if "sizeBytes" in data:
+    if data.get("sizeBytes") is not None:
         out["size_bytes"] = data["sizeBytes"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

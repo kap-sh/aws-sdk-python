@@ -26,10 +26,10 @@ def serialize_json(value: SearchResultLocation) -> dict:
 
 def deserialize_json(data: dict) -> SearchResultLocation:
     out: SearchResultLocation = {}  # type: ignore[typeddict-item]
-    if "searchResultIndex" in data:
+    if data.get("searchResultIndex") is not None:
         out["search_result_index"] = data["searchResultIndex"]
-    if "start" in data:
+    if data.get("start") is not None:
         out["start"] = data["start"]
-    if "end" in data:
+    if data.get("end") is not None:
         out["end"] = data["end"]
     return out

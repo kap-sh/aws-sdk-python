@@ -27,9 +27,9 @@ def serialize_json(value: EC2ThrottledException_) -> dict:
 
 def deserialize_json(data: dict) -> EC2ThrottledException_:
     out: EC2ThrottledException_ = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

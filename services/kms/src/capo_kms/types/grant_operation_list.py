@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> GrantOperationList:
 
     out: GrantOperationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_kms.types.grant_operation.deserialize_aws_json_1_1(item))
     return out

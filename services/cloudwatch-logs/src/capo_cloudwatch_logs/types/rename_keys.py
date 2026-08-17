@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: RenameKeys) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RenameKeys:
     out: RenameKeys = {}  # type: ignore[typeddict-item]
-    if "entries" in data:
+    if data.get("entries") is not None:
         import capo_cloudwatch_logs.types.rename_key_entries
 
         out["entries"] = (

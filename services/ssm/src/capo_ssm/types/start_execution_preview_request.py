@@ -38,15 +38,15 @@ def serialize_aws_json_1_1(value: StartExecutionPreviewRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartExecutionPreviewRequest:
     out: StartExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
     else:
         raise DeserializationError(
             "StartExecutionPreviewRequest.document_name required"
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "ExecutionInputs" in data:
+    if data.get("ExecutionInputs") is not None:
         import capo_ssm.types.execution_inputs
 
         out["execution_inputs"] = (

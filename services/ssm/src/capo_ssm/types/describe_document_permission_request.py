@@ -46,11 +46,11 @@ def serialize_aws_json_1_1(value: DescribeDocumentPermissionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentPermissionRequest:
     out: DescribeDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("DescribeDocumentPermissionRequest.name required")
-    if "PermissionType" in data:
+    if data.get("PermissionType") is not None:
         import capo_ssm.types.document_permission_type
 
         out["permission_type"] = (
@@ -62,8 +62,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentPermissionRequest:
         raise DeserializationError(
             "DescribeDocumentPermissionRequest.permission_type required"
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

@@ -43,7 +43,7 @@ def serialize_aws_json_1_1(value: DeleteParametersResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteParametersResult:
     out: DeleteParametersResult = {}  # type: ignore[typeddict-item]
-    if "DeletedParameters" in data:
+    if data.get("DeletedParameters") is not None:
         import capo_ssm.types.parameter_name_list
 
         out["deleted_parameters"] = (
@@ -51,7 +51,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeleteParametersResult:
                 data["DeletedParameters"]
             )
         )
-    if "InvalidParameters" in data:
+    if data.get("InvalidParameters") is not None:
         import capo_ssm.types.parameter_name_list
 
         out["invalid_parameters"] = (

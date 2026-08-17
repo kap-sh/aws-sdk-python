@@ -51,18 +51,18 @@ def serialize_aws_json_1_1(value: CSV) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CSV:
     out: CSV = {}  # type: ignore[typeddict-item]
-    if "quoteCharacter" in data:
+    if data.get("quoteCharacter") is not None:
         out["quote_character"] = data["quoteCharacter"]
-    if "delimiter" in data:
+    if data.get("delimiter") is not None:
         out["delimiter"] = data["delimiter"]
-    if "columns" in data:
+    if data.get("columns") is not None:
         import capo_cloudwatch_logs.types.columns
 
         out["columns"] = capo_cloudwatch_logs.types.columns.deserialize_aws_json_1_1(
             data["columns"]
         )
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "destination" in data:
+    if data.get("destination") is not None:
         out["destination"] = data["destination"]
     return out

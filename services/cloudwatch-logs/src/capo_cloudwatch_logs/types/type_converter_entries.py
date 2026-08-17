@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> TypeConverterEntries:
 
     out: TypeConverterEntries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.type_converter_entry.deserialize_aws_json_1_1(
                 item

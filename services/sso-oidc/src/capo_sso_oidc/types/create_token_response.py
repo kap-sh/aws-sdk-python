@@ -42,16 +42,16 @@ def serialize_json(value: CreateTokenResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateTokenResponse:
     out: CreateTokenResponse = {}  # type: ignore[typeddict-item]
-    if "accessToken" in data:
+    if data.get("accessToken") is not None:
         out["access_token"] = data["accessToken"]
-    if "tokenType" in data:
+    if data.get("tokenType") is not None:
         out["token_type"] = data["tokenType"]
-    if "expiresIn" in data:
+    if data.get("expiresIn") is not None:
         out["expires_in"] = data["expiresIn"]
     else:
         out["expires_in"] = 0
-    if "refreshToken" in data:
+    if data.get("refreshToken") is not None:
         out["refresh_token"] = data["refreshToken"]
-    if "idToken" in data:
+    if data.get("idToken") is not None:
         out["id_token"] = data["idToken"]
     return out

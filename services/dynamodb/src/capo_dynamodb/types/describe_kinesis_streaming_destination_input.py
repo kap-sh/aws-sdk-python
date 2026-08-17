@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeKinesisStreamingDestinationInput) -> d
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeKinesisStreamingDestinationInput:
     out: DescribeKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError(

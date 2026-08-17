@@ -82,15 +82,15 @@ def serialize_aws_json_1_1(value: ContainerOverride) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerOverride:
     out: ContainerOverride = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "command" in data:
+    if data.get("command") is not None:
         import capo_ecs.types.string_list
 
         out["command"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["command"]
         )
-    if "environment" in data:
+    if data.get("environment") is not None:
         import capo_ecs.types.environment_variables
 
         out["environment"] = (
@@ -98,7 +98,7 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerOverride:
                 data["environment"]
             )
         )
-    if "environmentFiles" in data:
+    if data.get("environmentFiles") is not None:
         import capo_ecs.types.environment_files
 
         out["environment_files"] = (
@@ -106,13 +106,13 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerOverride:
                 data["environmentFiles"]
             )
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "memoryReservation" in data:
+    if data.get("memoryReservation") is not None:
         out["memory_reservation"] = data["memoryReservation"]
-    if "resourceRequirements" in data:
+    if data.get("resourceRequirements") is not None:
         import capo_ecs.types.resource_requirements
 
         out["resource_requirements"] = (

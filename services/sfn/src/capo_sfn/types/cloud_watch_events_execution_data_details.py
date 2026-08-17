@@ -22,7 +22,7 @@ def serialize_aws_json_1_0(value: CloudWatchEventsExecutionDataDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CloudWatchEventsExecutionDataDetails:
     out: CloudWatchEventsExecutionDataDetails = {}  # type: ignore[typeddict-item]
-    if "included" in data:
+    if data.get("included") is not None:
         out["included"] = data["included"]
     else:
         out["included"] = False

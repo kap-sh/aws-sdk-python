@@ -36,13 +36,13 @@ def serialize_json(value: ImageConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> ImageConfigResponse:
     out: ImageConfigResponse = {}  # type: ignore[typeddict-item]
-    if "ImageConfig" in data:
+    if data.get("ImageConfig") is not None:
         import capo_lambda.types.image_config
 
         out["image_config"] = capo_lambda.types.image_config.deserialize_json(
             data["ImageConfig"]
         )
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.image_config_error
 
         out["error"] = capo_lambda.types.image_config_error.deserialize_json(

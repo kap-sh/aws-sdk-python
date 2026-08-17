@@ -148,9 +148,9 @@ def serialize_aws_json_1_0(value: ReplicaDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
     out: ReplicaDescription = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
-    if "ReplicaStatus" in data:
+    if data.get("ReplicaStatus") is not None:
         import capo_dynamodb.types.replica_status
 
         out["replica_status"] = (
@@ -158,15 +158,15 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["ReplicaStatus"]
             )
         )
-    if "ReplicaArn" in data:
+    if data.get("ReplicaArn") is not None:
         out["replica_arn"] = data["ReplicaArn"]
-    if "ReplicaStatusDescription" in data:
+    if data.get("ReplicaStatusDescription") is not None:
         out["replica_status_description"] = data["ReplicaStatusDescription"]
-    if "ReplicaStatusPercentProgress" in data:
+    if data.get("ReplicaStatusPercentProgress") is not None:
         out["replica_status_percent_progress"] = data["ReplicaStatusPercentProgress"]
-    if "KMSMasterKeyId" in data:
+    if data.get("KMSMasterKeyId") is not None:
         out["kms_master_key_id"] = data["KMSMasterKeyId"]
-    if "ProvisionedThroughputOverride" in data:
+    if data.get("ProvisionedThroughputOverride") is not None:
         import capo_dynamodb.types.provisioned_throughput_override
 
         out["provisioned_throughput_override"] = (
@@ -174,7 +174,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["ProvisionedThroughputOverride"]
             )
         )
-    if "OnDemandThroughputOverride" in data:
+    if data.get("OnDemandThroughputOverride") is not None:
         import capo_dynamodb.types.on_demand_throughput_override
 
         out["on_demand_throughput_override"] = (
@@ -182,7 +182,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["OnDemandThroughputOverride"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.table_warm_throughput_description
 
         out["warm_throughput"] = (
@@ -190,7 +190,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["WarmThroughput"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.replica_global_secondary_index_description_list
 
         out["global_secondary_indexes"] = (
@@ -198,7 +198,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["GlobalSecondaryIndexes"]
             )
         )
-    if "ReplicaInaccessibleDateTime" in data:
+    if data.get("ReplicaInaccessibleDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["replica_inaccessible_date_time"] = (
@@ -206,7 +206,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["ReplicaInaccessibleDateTime"]
             )
         )
-    if "ReplicaTableClassSummary" in data:
+    if data.get("ReplicaTableClassSummary") is not None:
         import capo_dynamodb.types.table_class_summary
 
         out["replica_table_class_summary"] = (
@@ -214,7 +214,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaDescription:
                 data["ReplicaTableClassSummary"]
             )
         )
-    if "GlobalTableSettingsReplicationMode" in data:
+    if data.get("GlobalTableSettingsReplicationMode") is not None:
         import capo_dynamodb.types.global_table_settings_replication_mode
 
         out["global_table_settings_replication_mode"] = (

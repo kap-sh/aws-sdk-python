@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: RegisterDaemonTaskDefinitionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterDaemonTaskDefinitionResponse:
     out: RegisterDaemonTaskDefinitionResponse = {}  # type: ignore[typeddict-item]
-    if "daemonTaskDefinitionArn" in data:
+    if data.get("daemonTaskDefinitionArn") is not None:
         out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
     return out

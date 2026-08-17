@@ -30,8 +30,8 @@ def serialize_aws_json_1_1(value: AccountSharingInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AccountSharingInfo:
     out: AccountSharingInfo = {}  # type: ignore[typeddict-item]
-    if "AccountId" in data:
+    if data.get("AccountId") is not None:
         out["account_id"] = data["AccountId"]
-    if "SharedDocumentVersion" in data:
+    if data.get("SharedDocumentVersion") is not None:
         out["shared_document_version"] = data["SharedDocumentVersion"]
     return out

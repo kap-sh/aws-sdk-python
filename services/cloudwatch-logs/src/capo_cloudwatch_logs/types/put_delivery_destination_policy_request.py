@@ -30,13 +30,13 @@ def serialize_aws_json_1_1(value: PutDeliveryDestinationPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationPolicyRequest:
     out: PutDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "deliveryDestinationName" in data:
+    if data.get("deliveryDestinationName") is not None:
         out["delivery_destination_name"] = data["deliveryDestinationName"]
     else:
         raise DeserializationError(
             "PutDeliveryDestinationPolicyRequest.delivery_destination_name required"
         )
-    if "deliveryDestinationPolicy" in data:
+    if data.get("deliveryDestinationPolicy") is not None:
         out["delivery_destination_policy"] = data["deliveryDestinationPolicy"]
     else:
         raise DeserializationError(

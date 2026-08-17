@@ -14,4 +14,4 @@ def serialize_json(value: Subnets) -> list:
 
 
 def deserialize_json(data: list) -> Subnets:
-    return list(data)
+    return [item for item in data if item is not None]

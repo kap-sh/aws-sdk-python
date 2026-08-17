@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> GlobalSecondaryIndexAutoScalingUpdat
 
     out: GlobalSecondaryIndexAutoScalingUpdateList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.global_secondary_index_auto_scaling_update.deserialize_aws_json_1_0(
                 item

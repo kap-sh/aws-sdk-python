@@ -44,13 +44,13 @@ def serialize_aws_json_1_1(value: PutClusterCapacityProvidersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutClusterCapacityProvidersRequest:
     out: PutClusterCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError(
             "PutClusterCapacityProvidersRequest.cluster required"
         )
-    if "capacityProviders" in data:
+    if data.get("capacityProviders") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_providers"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
@@ -60,7 +60,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutClusterCapacityProvidersRequest:
         raise DeserializationError(
             "PutClusterCapacityProvidersRequest.capacity_providers required"
         )
-    if "defaultCapacityProviderStrategy" in data:
+    if data.get("defaultCapacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["default_capacity_provider_strategy"] = (

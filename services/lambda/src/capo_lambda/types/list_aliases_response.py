@@ -30,9 +30,9 @@ def serialize_json(value: ListAliasesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListAliasesResponse:
     out: ListAliasesResponse = {}  # type: ignore[typeddict-item]
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Aliases" in data:
+    if data.get("Aliases") is not None:
         import capo_lambda.types.alias_list
 
         out["aliases"] = capo_lambda.types.alias_list.deserialize_json(data["Aliases"])

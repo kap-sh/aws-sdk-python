@@ -39,13 +39,13 @@ def serialize_json(value: ListFunctionVersionsByCapacityProviderResponse) -> dic
 
 def deserialize_json(data: dict) -> ListFunctionVersionsByCapacityProviderResponse:
     out: ListFunctionVersionsByCapacityProviderResponse = {}  # type: ignore[typeddict-item]
-    if "CapacityProviderArn" in data:
+    if data.get("CapacityProviderArn") is not None:
         out["capacity_provider_arn"] = data["CapacityProviderArn"]
     else:
         raise DeserializationError(
             "ListFunctionVersionsByCapacityProviderResponse.capacity_provider_arn required"
         )
-    if "FunctionVersions" in data:
+    if data.get("FunctionVersions") is not None:
         import capo_lambda.types.function_versions_by_capacity_provider_list
 
         out["function_versions"] = (
@@ -57,6 +57,6 @@ def deserialize_json(data: dict) -> ListFunctionVersionsByCapacityProviderRespon
         raise DeserializationError(
             "ListFunctionVersionsByCapacityProviderResponse.function_versions required"
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

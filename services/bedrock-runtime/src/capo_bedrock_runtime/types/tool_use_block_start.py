@@ -37,15 +37,15 @@ def serialize_json(value: ToolUseBlockStart) -> dict:
 
 def deserialize_json(data: dict) -> ToolUseBlockStart:
     out: ToolUseBlockStart = {}  # type: ignore[typeddict-item]
-    if "toolUseId" in data:
+    if data.get("toolUseId") is not None:
         out["tool_use_id"] = data["toolUseId"]
     else:
         raise DeserializationError("ToolUseBlockStart.tool_use_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ToolUseBlockStart.name required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_runtime.types.tool_use_type
 
         out["type"] = capo_bedrock_runtime.types.tool_use_type.deserialize_json(

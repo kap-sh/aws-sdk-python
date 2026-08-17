@@ -44,7 +44,7 @@ def serialize_json(value: VideoSource) -> dict:
 
 
 def deserialize_json(data: dict) -> VideoSource:
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_runtime.types._prelude.blob
 
         return {
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> VideoSource:
                 data["bytes"]
             )
         }
-    elif "s3Location" in data:
+    elif data.get("s3Location") is not None:
         import capo_bedrock_runtime.types.s3_location
 
         return {

@@ -32,7 +32,7 @@ def serialize_json(value: PutProvisionedConcurrencyConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutProvisionedConcurrencyConfigRequest:
     out: PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-    if "ProvisionedConcurrentExecutions" in data:
+    if data.get("ProvisionedConcurrentExecutions") is not None:
         out["provisioned_concurrent_executions"] = data[
             "ProvisionedConcurrentExecutions"
         ]

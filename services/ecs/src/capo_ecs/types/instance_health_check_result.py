@@ -64,7 +64,7 @@ def serialize_aws_json_1_1(value: InstanceHealthCheckResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceHealthCheckResult:
     out: InstanceHealthCheckResult = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.instance_health_check_type
 
         out["type"] = (
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceHealthCheckResult:
                 data["type"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.instance_health_check_state
 
         out["status"] = (
@@ -80,15 +80,15 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceHealthCheckResult:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "lastUpdated" in data:
+    if data.get("lastUpdated") is not None:
         import capo_ecs.types.timestamp
 
         out["last_updated"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["lastUpdated"]
         )
-    if "lastStatusChange" in data:
+    if data.get("lastStatusChange") is not None:
         import capo_ecs.types.timestamp
 
         out["last_status_change"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

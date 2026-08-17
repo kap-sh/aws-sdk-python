@@ -33,17 +33,17 @@ def serialize_aws_json_1_1(value: Ulimit) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Ulimit:
     out: Ulimit = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.ulimit_name
 
         out["name"] = capo_ecs.types.ulimit_name.deserialize_aws_json_1_1(data["name"])
     else:
         raise DeserializationError("Ulimit.name required")
-    if "softLimit" in data:
+    if data.get("softLimit") is not None:
         out["soft_limit"] = data["softLimit"]
     else:
         out["soft_limit"] = 0
-    if "hardLimit" in data:
+    if data.get("hardLimit") is not None:
         out["hard_limit"] = data["hardLimit"]
     else:
         out["hard_limit"] = 0

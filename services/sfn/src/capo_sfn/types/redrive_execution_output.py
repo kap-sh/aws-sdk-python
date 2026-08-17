@@ -28,7 +28,7 @@ def serialize_aws_json_1_0(value: RedriveExecutionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RedriveExecutionOutput:
     out: RedriveExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "redriveDate" in data:
+    if data.get("redriveDate") is not None:
         import capo_sfn.types.timestamp
 
         out["redrive_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

@@ -165,9 +165,9 @@ def serialize_aws_json_1_0(value: ExportDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExportDescription:
     out: ExportDescription = {}  # type: ignore[typeddict-item]
-    if "ExportArn" in data:
+    if data.get("ExportArn") is not None:
         out["export_arn"] = data["ExportArn"]
-    if "ExportStatus" in data:
+    if data.get("ExportStatus") is not None:
         import capo_dynamodb.types.export_status
 
         out["export_status"] = (
@@ -175,7 +175,7 @@ def deserialize_aws_json_1_0(data: dict) -> ExportDescription:
                 data["ExportStatus"]
             )
         )
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_dynamodb.types.export_start_time
 
         out["start_time"] = (
@@ -183,33 +183,33 @@ def deserialize_aws_json_1_0(data: dict) -> ExportDescription:
                 data["StartTime"]
             )
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_dynamodb.types.export_end_time
 
         out["end_time"] = capo_dynamodb.types.export_end_time.deserialize_aws_json_1_0(
             data["EndTime"]
         )
-    if "ExportManifest" in data:
+    if data.get("ExportManifest") is not None:
         out["export_manifest"] = data["ExportManifest"]
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "TableId" in data:
+    if data.get("TableId") is not None:
         out["table_id"] = data["TableId"]
-    if "ExportTime" in data:
+    if data.get("ExportTime") is not None:
         import capo_dynamodb.types.export_time
 
         out["export_time"] = capo_dynamodb.types.export_time.deserialize_aws_json_1_0(
             data["ExportTime"]
         )
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "S3Bucket" in data:
+    if data.get("S3Bucket") is not None:
         out["s3_bucket"] = data["S3Bucket"]
-    if "S3BucketOwner" in data:
+    if data.get("S3BucketOwner") is not None:
         out["s3_bucket_owner"] = data["S3BucketOwner"]
-    if "S3Prefix" in data:
+    if data.get("S3Prefix") is not None:
         out["s3_prefix"] = data["S3Prefix"]
-    if "S3SseAlgorithm" in data:
+    if data.get("S3SseAlgorithm") is not None:
         import capo_dynamodb.types.s3_sse_algorithm
 
         out["s3_sse_algorithm"] = (
@@ -217,13 +217,13 @@ def deserialize_aws_json_1_0(data: dict) -> ExportDescription:
                 data["S3SseAlgorithm"]
             )
         )
-    if "S3SseKmsKeyId" in data:
+    if data.get("S3SseKmsKeyId") is not None:
         out["s3_sse_kms_key_id"] = data["S3SseKmsKeyId"]
-    if "FailureCode" in data:
+    if data.get("FailureCode") is not None:
         out["failure_code"] = data["FailureCode"]
-    if "FailureMessage" in data:
+    if data.get("FailureMessage") is not None:
         out["failure_message"] = data["FailureMessage"]
-    if "ExportFormat" in data:
+    if data.get("ExportFormat") is not None:
         import capo_dynamodb.types.export_format
 
         out["export_format"] = (
@@ -231,17 +231,17 @@ def deserialize_aws_json_1_0(data: dict) -> ExportDescription:
                 data["ExportFormat"]
             )
         )
-    if "BilledSizeBytes" in data:
+    if data.get("BilledSizeBytes") is not None:
         out["billed_size_bytes"] = data["BilledSizeBytes"]
-    if "ItemCount" in data:
+    if data.get("ItemCount") is not None:
         out["item_count"] = data["ItemCount"]
-    if "ExportType" in data:
+    if data.get("ExportType") is not None:
         import capo_dynamodb.types.export_type
 
         out["export_type"] = capo_dynamodb.types.export_type.deserialize_aws_json_1_0(
             data["ExportType"]
         )
-    if "IncrementalExportSpecification" in data:
+    if data.get("IncrementalExportSpecification") is not None:
         import capo_dynamodb.types.incremental_export_specification
 
         out["incremental_export_specification"] = (

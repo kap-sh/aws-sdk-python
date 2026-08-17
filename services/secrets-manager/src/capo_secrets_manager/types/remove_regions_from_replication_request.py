@@ -34,13 +34,13 @@ def serialize_aws_json_1_1(value: RemoveRegionsFromReplicationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RemoveRegionsFromReplicationRequest:
     out: RemoveRegionsFromReplicationRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError(
             "RemoveRegionsFromReplicationRequest.secret_id required"
         )
-    if "RemoveReplicaRegions" in data:
+    if data.get("RemoveReplicaRegions") is not None:
         import capo_secrets_manager.types.remove_replica_region_list_type
 
         out["remove_replica_regions"] = (

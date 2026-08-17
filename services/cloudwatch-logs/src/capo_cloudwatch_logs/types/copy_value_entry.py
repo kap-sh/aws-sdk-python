@@ -34,15 +34,15 @@ def serialize_aws_json_1_1(value: CopyValueEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CopyValueEntry:
     out: CopyValueEntry = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("CopyValueEntry.source required")
-    if "target" in data:
+    if data.get("target") is not None:
         out["target"] = data["target"]
     else:
         raise DeserializationError("CopyValueEntry.target required")
-    if "overwriteIfExists" in data:
+    if data.get("overwriteIfExists") is not None:
         out["overwrite_if_exists"] = data["overwriteIfExists"]
     else:
         out["overwrite_if_exists"] = False

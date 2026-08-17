@@ -23,6 +23,6 @@ def serialize_json(value: OnFailure) -> dict:
 
 def deserialize_json(data: dict) -> OnFailure:
     out: OnFailure = {}  # type: ignore[typeddict-item]
-    if "Destination" in data:
+    if data.get("Destination") is not None:
         out["destination"] = data["Destination"]
     return out

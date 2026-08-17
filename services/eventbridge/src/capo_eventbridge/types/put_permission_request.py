@@ -54,20 +54,20 @@ def serialize_aws_json_1_1(value: PutPermissionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutPermissionRequest:
     out: PutPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "Action" in data:
+    if data.get("Action") is not None:
         out["action"] = data["Action"]
-    if "Principal" in data:
+    if data.get("Principal") is not None:
         out["principal"] = data["Principal"]
-    if "StatementId" in data:
+    if data.get("StatementId") is not None:
         out["statement_id"] = data["StatementId"]
-    if "Condition" in data:
+    if data.get("Condition") is not None:
         import capo_eventbridge.types.condition
 
         out["condition"] = capo_eventbridge.types.condition.deserialize_aws_json_1_1(
             data["Condition"]
         )
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
     return out

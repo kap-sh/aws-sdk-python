@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: ListDeadLetterSourceQueuesResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListDeadLetterSourceQueuesResult:
     out: ListDeadLetterSourceQueuesResult = {}  # type: ignore[typeddict-item]
-    if "queueUrls" in data:
+    if data.get("queueUrls") is not None:
         import capo_sqs.types.queue_url_list
 
         out["queue_urls"] = capo_sqs.types.queue_url_list.deserialize_aws_json_1_0(
@@ -43,6 +43,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListDeadLetterSourceQueuesResult:
         raise DeserializationError(
             "ListDeadLetterSourceQueuesResult.queue_urls required"
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

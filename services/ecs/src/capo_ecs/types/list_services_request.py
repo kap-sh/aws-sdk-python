@@ -67,19 +67,19 @@ def serialize_aws_json_1_1(value: ListServicesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListServicesRequest:
     out: ListServicesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "schedulingStrategy" in data:
+    if data.get("schedulingStrategy") is not None:
         import capo_ecs.types.scheduling_strategy
 
         out["scheduling_strategy"] = (
@@ -87,7 +87,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListServicesRequest:
                 data["schedulingStrategy"]
             )
         )
-    if "resourceManagementType" in data:
+    if data.get("resourceManagementType") is not None:
         import capo_ecs.types.resource_management_type
 
         out["resource_management_type"] = (

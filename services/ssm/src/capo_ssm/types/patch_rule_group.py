@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: PatchRuleGroup) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchRuleGroup:
     out: PatchRuleGroup = {}  # type: ignore[typeddict-item]
-    if "PatchRules" in data:
+    if data.get("PatchRules") is not None:
         import capo_ssm.types.patch_rule_list
 
         out["patch_rules"] = capo_ssm.types.patch_rule_list.deserialize_aws_json_1_1(

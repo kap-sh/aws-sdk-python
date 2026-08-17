@@ -89,29 +89,29 @@ def serialize_aws_json_1_1(value: ComplianceItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ComplianceItem:
     out: ComplianceItem = {}  # type: ignore[typeddict-item]
-    if "ComplianceType" in data:
+    if data.get("ComplianceType") is not None:
         out["compliance_type"] = data["ComplianceType"]
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.compliance_status
 
         out["status"] = capo_ssm.types.compliance_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         import capo_ssm.types.compliance_severity
 
         out["severity"] = capo_ssm.types.compliance_severity.deserialize_aws_json_1_1(
             data["Severity"]
         )
-    if "ExecutionSummary" in data:
+    if data.get("ExecutionSummary") is not None:
         import capo_ssm.types.compliance_execution_summary
 
         out["execution_summary"] = (
@@ -119,7 +119,7 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceItem:
                 data["ExecutionSummary"]
             )
         )
-    if "Details" in data:
+    if data.get("Details") is not None:
         import capo_ssm.types.compliance_item_details
 
         out["details"] = (

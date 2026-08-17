@@ -54,7 +54,7 @@ def serialize_aws_json_1_1(value: ListDocumentsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDocumentsRequest:
     out: ListDocumentsRequest = {}  # type: ignore[typeddict-item]
-    if "DocumentFilterList" in data:
+    if data.get("DocumentFilterList") is not None:
         import capo_ssm.types.document_filter_list
 
         out["document_filter_list"] = (
@@ -62,7 +62,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListDocumentsRequest:
                 data["DocumentFilterList"]
             )
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.document_key_values_filter_list
 
         out["filters"] = (
@@ -70,8 +70,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListDocumentsRequest:
                 data["Filters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

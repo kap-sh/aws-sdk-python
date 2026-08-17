@@ -48,20 +48,20 @@ def serialize_aws_json_1_1(value: PutImageRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutImageRequest:
     out: PutImageRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("PutImageRequest.repository_name required")
-    if "imageManifest" in data:
+    if data.get("imageManifest") is not None:
         out["image_manifest"] = data["imageManifest"]
     else:
         raise DeserializationError("PutImageRequest.image_manifest required")
-    if "imageManifestMediaType" in data:
+    if data.get("imageManifestMediaType") is not None:
         out["image_manifest_media_type"] = data["imageManifestMediaType"]
-    if "imageTag" in data:
+    if data.get("imageTag") is not None:
         out["image_tag"] = data["imageTag"]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
     return out

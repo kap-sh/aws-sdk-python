@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: PlatformDevice) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PlatformDevice:
     out: PlatformDevice = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("PlatformDevice.id required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.platform_device_type
 
         out["type"] = capo_ecs.types.platform_device_type.deserialize_aws_json_1_1(

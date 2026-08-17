@@ -33,14 +33,14 @@ def serialize_aws_json_1_0(value: ListMapRunsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMapRunsInput:
     out: ListMapRunsInput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("ListMapRunsInput.execution_arn required")
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 0
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

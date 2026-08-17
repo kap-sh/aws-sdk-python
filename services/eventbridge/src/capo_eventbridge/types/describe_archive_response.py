@@ -89,37 +89,37 @@ def serialize_aws_json_1_1(value: DescribeArchiveResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeArchiveResponse:
     out: DescribeArchiveResponse = {}  # type: ignore[typeddict-item]
-    if "ArchiveArn" in data:
+    if data.get("ArchiveArn") is not None:
         out["archive_arn"] = data["ArchiveArn"]
-    if "ArchiveName" in data:
+    if data.get("ArchiveName") is not None:
         out["archive_name"] = data["ArchiveName"]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "EventPattern" in data:
+    if data.get("EventPattern") is not None:
         out["event_pattern"] = data["EventPattern"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.archive_state
 
         out["state"] = capo_eventbridge.types.archive_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
-    if "RetentionDays" in data:
+    if data.get("RetentionDays") is not None:
         out["retention_days"] = data["RetentionDays"]
-    if "SizeBytes" in data:
+    if data.get("SizeBytes") is not None:
         out["size_bytes"] = data["SizeBytes"]
     else:
         out["size_bytes"] = 0
-    if "EventCount" in data:
+    if data.get("EventCount") is not None:
         out["event_count"] = data["EventCount"]
     else:
         out["event_count"] = 0
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (

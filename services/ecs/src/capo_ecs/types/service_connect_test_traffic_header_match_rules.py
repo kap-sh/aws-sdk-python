@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ServiceConnectTestTrafficHeaderMatchRules) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectTestTrafficHeaderMatchRules:
     out: ServiceConnectTestTrafficHeaderMatchRules = {}  # type: ignore[typeddict-item]
-    if "exact" in data:
+    if data.get("exact") is not None:
         out["exact"] = data["exact"]
     else:
         raise DeserializationError(

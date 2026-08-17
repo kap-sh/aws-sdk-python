@@ -40,12 +40,12 @@ def serialize_aws_json_1_1(value: ListRulesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListRulesRequest:
     out: ListRulesRequest = {}  # type: ignore[typeddict-item]
-    if "NamePrefix" in data:
+    if data.get("NamePrefix") is not None:
         out["name_prefix"] = data["NamePrefix"]
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     return out

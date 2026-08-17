@@ -65,9 +65,9 @@ def serialize_aws_json_1_1(value: ManagedLoadBalancer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedLoadBalancer:
     out: ManagedLoadBalancer = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.managed_resource_status
 
         out["status"] = capo_ecs.types.managed_resource_status.deserialize_aws_json_1_1(
@@ -75,9 +75,9 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedLoadBalancer:
         )
     else:
         raise DeserializationError("ManagedLoadBalancer.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
@@ -85,17 +85,17 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedLoadBalancer:
         )
     else:
         raise DeserializationError("ManagedLoadBalancer.updated_at required")
-    if "scheme" in data:
+    if data.get("scheme") is not None:
         out["scheme"] = data["scheme"]
     else:
         raise DeserializationError("ManagedLoadBalancer.scheme required")
-    if "subnetIds" in data:
+    if data.get("subnetIds") is not None:
         import capo_ecs.types.string_list
 
         out["subnet_ids"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["subnetIds"]
         )
-    if "securityGroupIds" in data:
+    if data.get("securityGroupIds") is not None:
         import capo_ecs.types.string_list
 
         out["security_group_ids"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(

@@ -42,13 +42,13 @@ def serialize_json(value: ErrorObject) -> dict:
 
 def deserialize_json(data: dict) -> ErrorObject:
     out: ErrorObject = {}  # type: ignore[typeddict-item]
-    if "ErrorMessage" in data:
+    if data.get("ErrorMessage") is not None:
         out["error_message"] = data["ErrorMessage"]
-    if "ErrorType" in data:
+    if data.get("ErrorType") is not None:
         out["error_type"] = data["ErrorType"]
-    if "ErrorData" in data:
+    if data.get("ErrorData") is not None:
         out["error_data"] = data["ErrorData"]
-    if "StackTrace" in data:
+    if data.get("StackTrace") is not None:
         import capo_lambda.types.stack_trace_entries
 
         out["stack_trace"] = capo_lambda.types.stack_trace_entries.deserialize_json(

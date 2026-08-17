@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeregisterPullTimeUpdateExclusionRequest) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterPullTimeUpdateExclusionRequest:
     out: DeregisterPullTimeUpdateExclusionRequest = {}  # type: ignore[typeddict-item]
-    if "principalArn" in data:
+    if data.get("principalArn") is not None:
         out["principal_arn"] = data["principalArn"]
     else:
         raise DeserializationError(

@@ -52,13 +52,13 @@ def serialize_json(value: InstanceRequirements) -> dict:
 
 def deserialize_json(data: dict) -> InstanceRequirements:
     out: InstanceRequirements = {}  # type: ignore[typeddict-item]
-    if "Architectures" in data:
+    if data.get("Architectures") is not None:
         import capo_lambda.types.architectures_list
 
         out["architectures"] = capo_lambda.types.architectures_list.deserialize_json(
             data["Architectures"]
         )
-    if "AllowedInstanceTypes" in data:
+    if data.get("AllowedInstanceTypes") is not None:
         import capo_lambda.types.instance_type_set
 
         out["allowed_instance_types"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> InstanceRequirements:
                 data["AllowedInstanceTypes"]
             )
         )
-    if "ExcludedInstanceTypes" in data:
+    if data.get("ExcludedInstanceTypes") is not None:
         import capo_lambda.types.instance_type_set
 
         out["excluded_instance_types"] = (

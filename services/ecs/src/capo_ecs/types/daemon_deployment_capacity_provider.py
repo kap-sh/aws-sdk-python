@@ -32,10 +32,10 @@ def serialize_aws_json_1_1(value: DaemonDeploymentCapacityProvider) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentCapacityProvider:
     out: DaemonDeploymentCapacityProvider = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "runningInstanceCount" in data:
+    if data.get("runningInstanceCount") is not None:
         out["running_instance_count"] = data["runningInstanceCount"]
-    if "drainingInstanceCount" in data:
+    if data.get("drainingInstanceCount") is not None:
         out["draining_instance_count"] = data["drainingInstanceCount"]
     return out

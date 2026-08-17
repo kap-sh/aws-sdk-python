@@ -41,9 +41,9 @@ def serialize_aws_json_1_1(value: LayerFailure) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LayerFailure:
     out: LayerFailure = {}  # type: ignore[typeddict-item]
-    if "layerDigest" in data:
+    if data.get("layerDigest") is not None:
         out["layer_digest"] = data["layerDigest"]
-    if "failureCode" in data:
+    if data.get("failureCode") is not None:
         import capo_ecr.types.layer_failure_code
 
         out["failure_code"] = (
@@ -51,6 +51,6 @@ def deserialize_aws_json_1_1(data: dict) -> LayerFailure:
                 data["failureCode"]
             )
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
     return out

@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: ListTagsForResourceResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTagsForResourceResult:
     out: ListTagsForResourceResult = {}  # type: ignore[typeddict-item]
-    if "TagList" in data:
+    if data.get("TagList") is not None:
         import capo_ssm.types.tag_list
 
         out["tag_list"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(

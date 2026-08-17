@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: CreateImportTaskResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateImportTaskResponse:
     out: CreateImportTaskResponse = {}  # type: ignore[typeddict-item]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
-    if "importDestinationArn" in data:
+    if data.get("importDestinationArn") is not None:
         out["import_destination_arn"] = data["importDestinationArn"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
     return out

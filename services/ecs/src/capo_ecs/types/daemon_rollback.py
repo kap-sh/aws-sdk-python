@@ -49,19 +49,19 @@ def serialize_aws_json_1_1(value: DaemonRollback) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonRollback:
     out: DaemonRollback = {}  # type: ignore[typeddict-item]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "rollbackTargetDaemonRevisionArn" in data:
+    if data.get("rollbackTargetDaemonRevisionArn") is not None:
         out["rollback_target_daemon_revision_arn"] = data[
             "rollbackTargetDaemonRevisionArn"
         ]
-    if "rollbackCapacityProviders" in data:
+    if data.get("rollbackCapacityProviders") is not None:
         import capo_ecs.types.string_list
 
         out["rollback_capacity_providers"] = (

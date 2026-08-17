@@ -25,7 +25,7 @@ def serialize_json(value: ThrottlingException_) -> dict:
 
 def deserialize_json(data: dict) -> ThrottlingException_:
     out: ThrottlingException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

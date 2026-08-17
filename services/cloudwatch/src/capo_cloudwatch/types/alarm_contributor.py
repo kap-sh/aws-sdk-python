@@ -56,9 +56,9 @@ def serialize_aws_json_1_0(value: AlarmContributor) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AlarmContributor:
     out: AlarmContributor = {}  # type: ignore[typeddict-item]
-    if "ContributorId" in data:
+    if data.get("ContributorId") is not None:
         out["contributor_id"] = data["ContributorId"]
-    if "ContributorAttributes" in data:
+    if data.get("ContributorAttributes") is not None:
         import capo_cloudwatch.types.contributor_attributes
 
         out["contributor_attributes"] = (
@@ -66,9 +66,9 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmContributor:
                 data["ContributorAttributes"]
             )
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateTransitionedTimestamp" in data:
+    if data.get("StateTransitionedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_transitioned_timestamp"] = (

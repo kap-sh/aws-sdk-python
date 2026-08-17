@@ -29,10 +29,10 @@ def serialize_aws_json_1_0(value: RedriveExecutionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RedriveExecutionInput:
     out: RedriveExecutionInput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("RedriveExecutionInput.execution_arn required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

@@ -64,7 +64,7 @@ def serialize_json(value: ContentBlockStart) -> dict:
 
 
 def deserialize_json(data: dict) -> ContentBlockStart:
-    if "toolUse" in data:
+    if data.get("toolUse") is not None:
         import capo_bedrock_runtime.types.tool_use_block_start
 
         return {
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> ContentBlockStart:
                 data["toolUse"]
             )
         }
-    elif "toolResult" in data:
+    elif data.get("toolResult") is not None:
         import capo_bedrock_runtime.types.tool_result_block_start
 
         return {
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> ContentBlockStart:
                 data["toolResult"]
             )
         }
-    elif "image" in data:
+    elif data.get("image") is not None:
         import capo_bedrock_runtime.types.image_block_start
 
         return {

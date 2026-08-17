@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> SageMakerPipelineParameterList:
 
     out: SageMakerPipelineParameterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.sage_maker_pipeline_parameter.deserialize_aws_json_1_1(
                 item

@@ -49,20 +49,20 @@ def serialize_aws_json_1_1(value: NetworkBinding) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> NetworkBinding:
     out: NetworkBinding = {}  # type: ignore[typeddict-item]
-    if "bindIP" in data:
+    if data.get("bindIP") is not None:
         out["bind_ip"] = data["bindIP"]
-    if "containerPort" in data:
+    if data.get("containerPort") is not None:
         out["container_port"] = data["containerPort"]
-    if "hostPort" in data:
+    if data.get("hostPort") is not None:
         out["host_port"] = data["hostPort"]
-    if "protocol" in data:
+    if data.get("protocol") is not None:
         import capo_ecs.types.transport_protocol
 
         out["protocol"] = capo_ecs.types.transport_protocol.deserialize_aws_json_1_1(
             data["protocol"]
         )
-    if "containerPortRange" in data:
+    if data.get("containerPortRange") is not None:
         out["container_port_range"] = data["containerPortRange"]
-    if "hostPortRange" in data:
+    if data.get("hostPortRange") is not None:
         out["host_port_range"] = data["hostPortRange"]
     return out

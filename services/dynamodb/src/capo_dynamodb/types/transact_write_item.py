@@ -54,7 +54,7 @@ def serialize_aws_json_1_0(value: TransactWriteItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TransactWriteItem:
     out: TransactWriteItem = {}  # type: ignore[typeddict-item]
-    if "ConditionCheck" in data:
+    if data.get("ConditionCheck") is not None:
         import capo_dynamodb.types.condition_check
 
         out["condition_check"] = (
@@ -62,17 +62,17 @@ def deserialize_aws_json_1_0(data: dict) -> TransactWriteItem:
                 data["ConditionCheck"]
             )
         )
-    if "Put" in data:
+    if data.get("Put") is not None:
         import capo_dynamodb.types.put
 
         out["put"] = capo_dynamodb.types.put.deserialize_aws_json_1_0(data["Put"])
-    if "Delete" in data:
+    if data.get("Delete") is not None:
         import capo_dynamodb.types.delete
 
         out["delete"] = capo_dynamodb.types.delete.deserialize_aws_json_1_0(
             data["Delete"]
         )
-    if "Update" in data:
+    if data.get("Update") is not None:
         import capo_dynamodb.types.update
 
         out["update"] = capo_dynamodb.types.update.deserialize_aws_json_1_0(

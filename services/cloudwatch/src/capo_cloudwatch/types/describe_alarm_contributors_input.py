@@ -30,9 +30,9 @@ def serialize_aws_json_1_0(value: DescribeAlarmContributorsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmContributorsInput:
     out: DescribeAlarmContributorsInput = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

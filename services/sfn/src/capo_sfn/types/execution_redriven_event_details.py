@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: ExecutionRedrivenEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecutionRedrivenEventDetails:
     out: ExecutionRedrivenEventDetails = {}  # type: ignore[typeddict-item]
-    if "redriveCount" in data:
+    if data.get("redriveCount") is not None:
         out["redrive_count"] = data["redriveCount"]
     return out

@@ -19,7 +19,7 @@ def serialize_json(value: CountTokensResponse) -> dict:
 
 def deserialize_json(data: dict) -> CountTokensResponse:
     out: CountTokensResponse = {}  # type: ignore[typeddict-item]
-    if "inputTokens" in data:
+    if data.get("inputTokens") is not None:
         out["input_tokens"] = data["inputTokens"]
     else:
         raise DeserializationError("CountTokensResponse.input_tokens required")

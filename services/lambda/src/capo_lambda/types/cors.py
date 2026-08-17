@@ -65,32 +65,32 @@ def serialize_json(value: Cors) -> dict:
 
 def deserialize_json(data: dict) -> Cors:
     out: Cors = {}  # type: ignore[typeddict-item]
-    if "AllowCredentials" in data:
+    if data.get("AllowCredentials") is not None:
         out["allow_credentials"] = data["AllowCredentials"]
-    if "AllowHeaders" in data:
+    if data.get("AllowHeaders") is not None:
         import capo_lambda.types.headers_list
 
         out["allow_headers"] = capo_lambda.types.headers_list.deserialize_json(
             data["AllowHeaders"]
         )
-    if "AllowMethods" in data:
+    if data.get("AllowMethods") is not None:
         import capo_lambda.types.allow_methods_list
 
         out["allow_methods"] = capo_lambda.types.allow_methods_list.deserialize_json(
             data["AllowMethods"]
         )
-    if "AllowOrigins" in data:
+    if data.get("AllowOrigins") is not None:
         import capo_lambda.types.allow_origins_list
 
         out["allow_origins"] = capo_lambda.types.allow_origins_list.deserialize_json(
             data["AllowOrigins"]
         )
-    if "ExposeHeaders" in data:
+    if data.get("ExposeHeaders") is not None:
         import capo_lambda.types.headers_list
 
         out["expose_headers"] = capo_lambda.types.headers_list.deserialize_json(
             data["ExposeHeaders"]
         )
-    if "MaxAge" in data:
+    if data.get("MaxAge") is not None:
         out["max_age"] = data["MaxAge"]
     return out

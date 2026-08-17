@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: GetQueueAttributesResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetQueueAttributesResult:
     out: GetQueueAttributesResult = {}  # type: ignore[typeddict-item]
-    if "Attributes" in data:
+    if data.get("Attributes") is not None:
         import capo_sqs.types.queue_attribute_map
 
         out["attributes"] = capo_sqs.types.queue_attribute_map.deserialize_aws_json_1_0(

@@ -48,23 +48,23 @@ def serialize_aws_json_1_1(value: Resource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Resource:
     out: Resource = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "doubleValue" in data:
+    if data.get("doubleValue") is not None:
         out["double_value"] = data["doubleValue"]
     else:
         out["double_value"] = 0
-    if "longValue" in data:
+    if data.get("longValue") is not None:
         out["long_value"] = data["longValue"]
     else:
         out["long_value"] = 0
-    if "integerValue" in data:
+    if data.get("integerValue") is not None:
         out["integer_value"] = data["integerValue"]
     else:
         out["integer_value"] = 0
-    if "stringSetValue" in data:
+    if data.get("stringSetValue") is not None:
         import capo_ecs.types.string_list
 
         out["string_set_value"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(

@@ -75,7 +75,7 @@ def serialize_aws_json_1_1(value: ECSManagedResources) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ECSManagedResources:
     out: ECSManagedResources = {}  # type: ignore[typeddict-item]
-    if "ingressPaths" in data:
+    if data.get("ingressPaths") is not None:
         import capo_ecs.types.managed_ingress_paths
 
         out["ingress_paths"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> ECSManagedResources:
                 data["ingressPaths"]
             )
         )
-    if "autoScaling" in data:
+    if data.get("autoScaling") is not None:
         import capo_ecs.types.managed_auto_scaling
 
         out["auto_scaling"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_1(data: dict) -> ECSManagedResources:
                 data["autoScaling"]
             )
         )
-    if "metricAlarms" in data:
+    if data.get("metricAlarms") is not None:
         import capo_ecs.types.managed_metric_alarms
 
         out["metric_alarms"] = (
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_1(data: dict) -> ECSManagedResources:
                 data["metricAlarms"]
             )
         )
-    if "serviceSecurityGroups" in data:
+    if data.get("serviceSecurityGroups") is not None:
         import capo_ecs.types.managed_security_groups
 
         out["service_security_groups"] = (
@@ -107,7 +107,7 @@ def deserialize_aws_json_1_1(data: dict) -> ECSManagedResources:
                 data["serviceSecurityGroups"]
             )
         )
-    if "logGroups" in data:
+    if data.get("logGroups") is not None:
         import capo_ecs.types.managed_log_groups
 
         out["log_groups"] = capo_ecs.types.managed_log_groups.deserialize_aws_json_1_1(

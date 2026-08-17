@@ -95,21 +95,21 @@ def serialize_aws_json_1_1(value: StartChangeRequestExecutionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartChangeRequestExecutionRequest:
     out: StartChangeRequestExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "ScheduledTime" in data:
+    if data.get("ScheduledTime") is not None:
         import capo_ssm.types.date_time
 
         out["scheduled_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ScheduledTime"]
         )
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
     else:
         raise DeserializationError(
             "StartChangeRequestExecutionRequest.document_name required"
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (
@@ -117,15 +117,15 @@ def deserialize_aws_json_1_1(data: dict) -> StartChangeRequestExecutionRequest:
                 data["Parameters"]
             )
         )
-    if "ChangeRequestName" in data:
+    if data.get("ChangeRequestName") is not None:
         out["change_request_name"] = data["ChangeRequestName"]
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "AutoApprove" in data:
+    if data.get("AutoApprove") is not None:
         out["auto_approve"] = data["AutoApprove"]
     else:
         out["auto_approve"] = False
-    if "Runbooks" in data:
+    if data.get("Runbooks") is not None:
         import capo_ssm.types.runbooks
 
         out["runbooks"] = capo_ssm.types.runbooks.deserialize_aws_json_1_1(
@@ -135,16 +135,16 @@ def deserialize_aws_json_1_1(data: dict) -> StartChangeRequestExecutionRequest:
         raise DeserializationError(
             "StartChangeRequestExecutionRequest.runbooks required"
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "ScheduledEndTime" in data:
+    if data.get("ScheduledEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["scheduled_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ScheduledEndTime"]
         )
-    if "ChangeDetails" in data:
+    if data.get("ChangeDetails") is not None:
         out["change_details"] = data["ChangeDetails"]
     return out

@@ -173,9 +173,9 @@ def serialize_aws_json_1_0(value: CompositeAlarm) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
     out: CompositeAlarm = {}  # type: ignore[typeddict-item]
-    if "ActionsEnabled" in data:
+    if data.get("ActionsEnabled") is not None:
         out["actions_enabled"] = data["ActionsEnabled"]
-    if "AlarmActions" in data:
+    if data.get("AlarmActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["alarm_actions"] = (
@@ -183,9 +183,9 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["AlarmActions"]
             )
         )
-    if "AlarmArn" in data:
+    if data.get("AlarmArn") is not None:
         out["alarm_arn"] = data["AlarmArn"]
-    if "AlarmConfigurationUpdatedTimestamp" in data:
+    if data.get("AlarmConfigurationUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["alarm_configuration_updated_timestamp"] = (
@@ -193,13 +193,13 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["AlarmConfigurationUpdatedTimestamp"]
             )
         )
-    if "AlarmDescription" in data:
+    if data.get("AlarmDescription") is not None:
         out["alarm_description"] = data["AlarmDescription"]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmRule" in data:
+    if data.get("AlarmRule") is not None:
         out["alarm_rule"] = data["AlarmRule"]
-    if "InsufficientDataActions" in data:
+    if data.get("InsufficientDataActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["insufficient_data_actions"] = (
@@ -207,7 +207,7 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["InsufficientDataActions"]
             )
         )
-    if "OKActions" in data:
+    if data.get("OKActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["ok_actions"] = (
@@ -215,11 +215,11 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["OKActions"]
             )
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateReasonData" in data:
+    if data.get("StateReasonData") is not None:
         out["state_reason_data"] = data["StateReasonData"]
-    if "StateUpdatedTimestamp" in data:
+    if data.get("StateUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_updated_timestamp"] = (
@@ -227,13 +227,13 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["StateUpdatedTimestamp"]
             )
         )
-    if "StateValue" in data:
+    if data.get("StateValue") is not None:
         import capo_cloudwatch.types.state_value
 
         out["state_value"] = capo_cloudwatch.types.state_value.deserialize_aws_json_1_0(
             data["StateValue"]
         )
-    if "StateTransitionedTimestamp" in data:
+    if data.get("StateTransitionedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_transitioned_timestamp"] = (
@@ -241,7 +241,7 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["StateTransitionedTimestamp"]
             )
         )
-    if "ActionsSuppressedBy" in data:
+    if data.get("ActionsSuppressedBy") is not None:
         import capo_cloudwatch.types.actions_suppressed_by
 
         out["actions_suppressed_by"] = (
@@ -249,13 +249,13 @@ def deserialize_aws_json_1_0(data: dict) -> CompositeAlarm:
                 data["ActionsSuppressedBy"]
             )
         )
-    if "ActionsSuppressedReason" in data:
+    if data.get("ActionsSuppressedReason") is not None:
         out["actions_suppressed_reason"] = data["ActionsSuppressedReason"]
-    if "ActionsSuppressor" in data:
+    if data.get("ActionsSuppressor") is not None:
         out["actions_suppressor"] = data["ActionsSuppressor"]
-    if "ActionsSuppressorWaitPeriod" in data:
+    if data.get("ActionsSuppressorWaitPeriod") is not None:
         out["actions_suppressor_wait_period"] = data["ActionsSuppressorWaitPeriod"]
-    if "ActionsSuppressorExtensionPeriod" in data:
+    if data.get("ActionsSuppressorExtensionPeriod") is not None:
         out["actions_suppressor_extension_period"] = data[
             "ActionsSuppressorExtensionPeriod"
         ]

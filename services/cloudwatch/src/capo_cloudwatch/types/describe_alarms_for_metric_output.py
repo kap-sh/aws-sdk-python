@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: DescribeAlarmsForMetricOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsForMetricOutput:
     out: DescribeAlarmsForMetricOutput = {}  # type: ignore[typeddict-item]
-    if "MetricAlarms" in data:
+    if data.get("MetricAlarms") is not None:
         import capo_cloudwatch.types.metric_alarms
 
         out["metric_alarms"] = (

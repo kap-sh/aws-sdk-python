@@ -119,13 +119,13 @@ def serialize_aws_json_1_1(value: UpdateScheduledQueryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateScheduledQueryRequest:
     out: UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     else:
         raise DeserializationError("UpdateScheduledQueryRequest.identifier required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -137,11 +137,11 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateScheduledQueryRequest:
         raise DeserializationError(
             "UpdateScheduledQueryRequest.query_language required"
         )
-    if "queryString" in data:
+    if data.get("queryString") is not None:
         out["query_string"] = data["queryString"]
     else:
         raise DeserializationError("UpdateScheduledQueryRequest.query_string required")
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -149,17 +149,17 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateScheduledQueryRequest:
                 data["logGroupIdentifiers"]
             )
         )
-    if "scheduleExpression" in data:
+    if data.get("scheduleExpression") is not None:
         out["schedule_expression"] = data["scheduleExpression"]
     else:
         raise DeserializationError(
             "UpdateScheduledQueryRequest.schedule_expression required"
         )
-    if "timezone" in data:
+    if data.get("timezone") is not None:
         out["timezone"] = data["timezone"]
-    if "startTimeOffset" in data:
+    if data.get("startTimeOffset") is not None:
         out["start_time_offset"] = data["startTimeOffset"]
-    if "destinationConfiguration" in data:
+    if data.get("destinationConfiguration") is not None:
         import capo_cloudwatch_logs.types.destination_configuration
 
         out["destination_configuration"] = (
@@ -167,17 +167,17 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateScheduledQueryRequest:
                 data["destinationConfiguration"]
             )
         )
-    if "scheduleStartTime" in data:
+    if data.get("scheduleStartTime") is not None:
         out["schedule_start_time"] = data["scheduleStartTime"]
-    if "scheduleEndTime" in data:
+    if data.get("scheduleEndTime") is not None:
         out["schedule_end_time"] = data["scheduleEndTime"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError(
             "UpdateScheduledQueryRequest.execution_role_arn required"
         )
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_state
 
         out["state"] = (

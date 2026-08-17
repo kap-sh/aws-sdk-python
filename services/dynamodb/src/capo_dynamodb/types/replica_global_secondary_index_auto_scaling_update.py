@@ -37,9 +37,9 @@ def deserialize_aws_json_1_0(
     data: dict,
 ) -> ReplicaGlobalSecondaryIndexAutoScalingUpdate:
     out: ReplicaGlobalSecondaryIndexAutoScalingUpdate = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "ProvisionedReadCapacityAutoScalingUpdate" in data:
+    if data.get("ProvisionedReadCapacityAutoScalingUpdate") is not None:
         import capo_dynamodb.types.auto_scaling_settings_update
 
         out["provisioned_read_capacity_auto_scaling_update"] = (

@@ -42,13 +42,13 @@ def serialize_aws_json_1_1(value: ServiceConnectClientAlias) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectClientAlias:
     out: ServiceConnectClientAlias = {}  # type: ignore[typeddict-item]
-    if "port" in data:
+    if data.get("port") is not None:
         out["port"] = data["port"]
     else:
         raise DeserializationError("ServiceConnectClientAlias.port required")
-    if "dnsName" in data:
+    if data.get("dnsName") is not None:
         out["dns_name"] = data["dnsName"]
-    if "testTrafficRules" in data:
+    if data.get("testTrafficRules") is not None:
         import capo_ecs.types.service_connect_test_traffic_rules
 
         out["test_traffic_rules"] = (

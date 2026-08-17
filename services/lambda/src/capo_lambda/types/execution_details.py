@@ -23,6 +23,6 @@ def serialize_json(value: ExecutionDetails) -> dict:
 
 def deserialize_json(data: dict) -> ExecutionDetails:
     out: ExecutionDetails = {}  # type: ignore[typeddict-item]
-    if "InputPayload" in data:
+    if data.get("InputPayload") is not None:
         out["input_payload"] = data["InputPayload"]
     return out

@@ -93,23 +93,23 @@ def serialize_aws_json_1_0(value: MetricDatum) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricDatum:
     out: MetricDatum = {}  # type: ignore[typeddict-item]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Timestamp" in data:
+    if data.get("Timestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["timestamp"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["Timestamp"]
         )
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
-    if "StatisticValues" in data:
+    if data.get("StatisticValues") is not None:
         import capo_cloudwatch.types.statistic_set
 
         out["statistic_values"] = (
@@ -117,25 +117,25 @@ def deserialize_aws_json_1_0(data: dict) -> MetricDatum:
                 data["StatisticValues"]
             )
         )
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_cloudwatch.types.values
 
         out["values"] = capo_cloudwatch.types.values.deserialize_aws_json_1_0(
             data["Values"]
         )
-    if "Counts" in data:
+    if data.get("Counts") is not None:
         import capo_cloudwatch.types.counts
 
         out["counts"] = capo_cloudwatch.types.counts.deserialize_aws_json_1_0(
             data["Counts"]
         )
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(
             data["Unit"]
         )
-    if "StorageResolution" in data:
+    if data.get("StorageResolution") is not None:
         out["storage_resolution"] = data["StorageResolution"]
     return out
 

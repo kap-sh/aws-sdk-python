@@ -29,7 +29,7 @@ def serialize_aws_json_1_1(value: PutDestinationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDestinationResponse:
     out: PutDestinationResponse = {}  # type: ignore[typeddict-item]
-    if "destination" in data:
+    if data.get("destination") is not None:
         import capo_cloudwatch_logs.types.destination
 
         out["destination"] = (

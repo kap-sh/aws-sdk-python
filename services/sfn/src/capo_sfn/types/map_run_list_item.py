@@ -47,19 +47,19 @@ def serialize_aws_json_1_0(value: MapRunListItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapRunListItem:
     out: MapRunListItem = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("MapRunListItem.execution_arn required")
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
     else:
         raise DeserializationError("MapRunListItem.map_run_arn required")
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("MapRunListItem.state_machine_arn required")
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_0(data: dict) -> MapRunListItem:
         )
     else:
         raise DeserializationError("MapRunListItem.start_date required")
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

@@ -55,9 +55,9 @@ def serialize_aws_json_1_1(value: CreateConnectionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateConnectionResponse:
     out: CreateConnectionResponse = {}  # type: ignore[typeddict-item]
-    if "ConnectionArn" in data:
+    if data.get("ConnectionArn") is not None:
         out["connection_arn"] = data["ConnectionArn"]
-    if "ConnectionState" in data:
+    if data.get("ConnectionState") is not None:
         import capo_eventbridge.types.connection_state
 
         out["connection_state"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionResponse:
                 data["ConnectionState"]
             )
         )
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -73,7 +73,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionResponse:
                 data["CreationTime"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["last_modified_time"] = (

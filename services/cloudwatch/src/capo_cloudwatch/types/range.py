@@ -37,13 +37,13 @@ def serialize_aws_json_1_0(value: Range) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Range:
     out: Range = {}  # type: ignore[typeddict-item]
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["end_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(

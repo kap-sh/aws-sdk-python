@@ -50,9 +50,9 @@ def serialize_aws_json_1_1(value: ListAttributesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAttributesRequest:
     out: ListAttributesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "targetType" in data:
+    if data.get("targetType") is not None:
         import capo_ecs.types.target_type
 
         out["target_type"] = capo_ecs.types.target_type.deserialize_aws_json_1_1(
@@ -60,12 +60,12 @@ def deserialize_aws_json_1_1(data: dict) -> ListAttributesRequest:
         )
     else:
         raise DeserializationError("ListAttributesRequest.target_type required")
-    if "attributeName" in data:
+    if data.get("attributeName") is not None:
         out["attribute_name"] = data["attributeName"]
-    if "attributeValue" in data:
+    if data.get("attributeValue") is not None:
         out["attribute_value"] = data["attributeValue"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

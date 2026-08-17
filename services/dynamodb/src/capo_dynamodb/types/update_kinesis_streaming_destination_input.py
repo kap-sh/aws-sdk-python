@@ -41,19 +41,19 @@ def serialize_aws_json_1_0(value: UpdateKinesisStreamingDestinationInput) -> dic
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateKinesisStreamingDestinationInput:
     out: UpdateKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError(
             "UpdateKinesisStreamingDestinationInput.table_name required"
         )
-    if "StreamArn" in data:
+    if data.get("StreamArn") is not None:
         out["stream_arn"] = data["StreamArn"]
     else:
         raise DeserializationError(
             "UpdateKinesisStreamingDestinationInput.stream_arn required"
         )
-    if "UpdateKinesisStreamingConfiguration" in data:
+    if data.get("UpdateKinesisStreamingConfiguration") is not None:
         import capo_dynamodb.types.update_kinesis_streaming_configuration
 
         out["update_kinesis_streaming_configuration"] = (

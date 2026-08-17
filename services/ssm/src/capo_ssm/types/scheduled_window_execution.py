@@ -35,10 +35,10 @@ def serialize_aws_json_1_1(value: ScheduledWindowExecution) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScheduledWindowExecution:
     out: ScheduledWindowExecution = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "ExecutionTime" in data:
+    if data.get("ExecutionTime") is not None:
         out["execution_time"] = data["ExecutionTime"]
     return out

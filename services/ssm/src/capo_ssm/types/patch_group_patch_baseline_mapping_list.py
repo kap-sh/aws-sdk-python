@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> PatchGroupPatchBaselineMappingList:
 
     out: PatchGroupPatchBaselineMappingList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.patch_group_patch_baseline_mapping.deserialize_aws_json_1_1(
                 item

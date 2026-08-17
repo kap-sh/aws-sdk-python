@@ -19,7 +19,7 @@ def serialize_json(value: ToolUseBlockDelta) -> dict:
 
 def deserialize_json(data: dict) -> ToolUseBlockDelta:
     out: ToolUseBlockDelta = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     else:
         raise DeserializationError("ToolUseBlockDelta.input required")

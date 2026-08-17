@@ -87,21 +87,21 @@ def serialize_json(value: AddPermissionRequest) -> dict:
 
 def deserialize_json(data: dict) -> AddPermissionRequest:
     out: AddPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "StatementId" in data:
+    if data.get("StatementId") is not None:
         out["statement_id"] = data["StatementId"]
     else:
         raise DeserializationError("AddPermissionRequest.statement_id required")
-    if "Action" in data:
+    if data.get("Action") is not None:
         out["action"] = data["Action"]
     else:
         raise DeserializationError("AddPermissionRequest.action required")
-    if "Principal" in data:
+    if data.get("Principal") is not None:
         out["principal"] = data["Principal"]
     else:
         raise DeserializationError("AddPermissionRequest.principal required")
-    if "SourceArn" in data:
+    if data.get("SourceArn") is not None:
         out["source_arn"] = data["SourceArn"]
-    if "FunctionUrlAuthType" in data:
+    if data.get("FunctionUrlAuthType") is not None:
         import capo_lambda.types.function_url_auth_type
 
         out["function_url_auth_type"] = (
@@ -109,14 +109,14 @@ def deserialize_json(data: dict) -> AddPermissionRequest:
                 data["FunctionUrlAuthType"]
             )
         )
-    if "InvokedViaFunctionUrl" in data:
+    if data.get("InvokedViaFunctionUrl") is not None:
         out["invoked_via_function_url"] = data["InvokedViaFunctionUrl"]
-    if "SourceAccount" in data:
+    if data.get("SourceAccount") is not None:
         out["source_account"] = data["SourceAccount"]
-    if "EventSourceToken" in data:
+    if data.get("EventSourceToken") is not None:
         out["event_source_token"] = data["EventSourceToken"]
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
-    if "PrincipalOrgID" in data:
+    if data.get("PrincipalOrgID") is not None:
         out["principal_org_id"] = data["PrincipalOrgID"]
     return out

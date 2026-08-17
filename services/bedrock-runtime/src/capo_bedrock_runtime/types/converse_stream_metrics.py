@@ -19,7 +19,7 @@ def serialize_json(value: ConverseStreamMetrics) -> dict:
 
 def deserialize_json(data: dict) -> ConverseStreamMetrics:
     out: ConverseStreamMetrics = {}  # type: ignore[typeddict-item]
-    if "latencyMs" in data:
+    if data.get("latencyMs") is not None:
         out["latency_ms"] = data["latencyMs"]
     else:
         raise DeserializationError("ConverseStreamMetrics.latency_ms required")

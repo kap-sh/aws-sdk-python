@@ -39,16 +39,16 @@ def serialize_aws_json_1_1(value: UpdatePullThroughCacheRuleRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdatePullThroughCacheRuleRequest:
     out: UpdatePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "ecrRepositoryPrefix" in data:
+    if data.get("ecrRepositoryPrefix") is not None:
         out["ecr_repository_prefix"] = data["ecrRepositoryPrefix"]
     else:
         raise DeserializationError(
             "UpdatePullThroughCacheRuleRequest.ecr_repository_prefix required"
         )
-    if "credentialArn" in data:
+    if data.get("credentialArn") is not None:
         out["credential_arn"] = data["credentialArn"]
-    if "customRoleArn" in data:
+    if data.get("customRoleArn") is not None:
         out["custom_role_arn"] = data["customRoleArn"]
     return out

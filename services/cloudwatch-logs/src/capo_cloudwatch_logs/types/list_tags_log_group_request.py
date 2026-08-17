@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ListTagsLogGroupRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTagsLogGroupRequest:
     out: ListTagsLogGroupRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("ListTagsLogGroupRequest.log_group_name required")

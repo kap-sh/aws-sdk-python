@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: ValidationErrorsEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ValidationErrorsEntry:
     out: ValidationErrorsEntry = {}  # type: ignore[typeddict-item]
-    if "CheckName" in data:
+    if data.get("CheckName") is not None:
         out["check_name"] = data["CheckName"]
-    if "ErrorMessage" in data:
+    if data.get("ErrorMessage") is not None:
         out["error_message"] = data["ErrorMessage"]
     return out

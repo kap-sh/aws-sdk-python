@@ -33,10 +33,10 @@ def serialize_aws_json_1_0(value: ListQueuesRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListQueuesRequest:
     out: ListQueuesRequest = {}  # type: ignore[typeddict-item]
-    if "QueueNamePrefix" in data:
+    if data.get("QueueNamePrefix") is not None:
         out["queue_name_prefix"] = data["QueueNamePrefix"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

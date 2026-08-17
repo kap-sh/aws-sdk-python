@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: EBSTagSpecification) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EBSTagSpecification:
     out: EBSTagSpecification = {}  # type: ignore[typeddict-item]
-    if "resourceType" in data:
+    if data.get("resourceType") is not None:
         import capo_ecs.types.ebs_resource_type
 
         out["resource_type"] = (
@@ -54,11 +54,11 @@ def deserialize_aws_json_1_1(data: dict) -> EBSTagSpecification:
         )
     else:
         raise DeserializationError("EBSTagSpecification.resource_type required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_tags
 
         out["propagate_tags"] = capo_ecs.types.propagate_tags.deserialize_aws_json_1_1(

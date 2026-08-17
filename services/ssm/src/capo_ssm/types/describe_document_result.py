@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: DescribeDocumentResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentResult:
     out: DescribeDocumentResult = {}  # type: ignore[typeddict-item]
-    if "Document" in data:
+    if data.get("Document") is not None:
         import capo_ssm.types.document_description
 
         out["document"] = capo_ssm.types.document_description.deserialize_aws_json_1_1(

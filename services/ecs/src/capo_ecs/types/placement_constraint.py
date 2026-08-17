@@ -34,12 +34,12 @@ def serialize_aws_json_1_1(value: PlacementConstraint) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PlacementConstraint:
     out: PlacementConstraint = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.placement_constraint_type
 
         out["type"] = capo_ecs.types.placement_constraint_type.deserialize_aws_json_1_1(
             data["type"]
         )
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     return out

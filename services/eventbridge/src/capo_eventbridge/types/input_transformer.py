@@ -37,7 +37,7 @@ def serialize_aws_json_1_1(value: InputTransformer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InputTransformer:
     out: InputTransformer = {}  # type: ignore[typeddict-item]
-    if "InputPathsMap" in data:
+    if data.get("InputPathsMap") is not None:
         import capo_eventbridge.types.transformer_paths
 
         out["input_paths_map"] = (
@@ -45,7 +45,7 @@ def deserialize_aws_json_1_1(data: dict) -> InputTransformer:
                 data["InputPathsMap"]
             )
         )
-    if "InputTemplate" in data:
+    if data.get("InputTemplate") is not None:
         out["input_template"] = data["InputTemplate"]
     else:
         raise DeserializationError("InputTransformer.input_template required")

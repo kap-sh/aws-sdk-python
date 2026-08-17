@@ -35,11 +35,11 @@ def serialize_aws_json_1_0(value: GetDatasetOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetDatasetOutput:
     out: GetDatasetOutput = {}  # type: ignore[typeddict-item]
-    if "DatasetId" in data:
+    if data.get("DatasetId") is not None:
         out["dataset_id"] = data["DatasetId"]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "KmsKeyArn" in data:
+    if data.get("KmsKeyArn") is not None:
         out["kms_key_arn"] = data["KmsKeyArn"]
     return out
 

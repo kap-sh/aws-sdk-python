@@ -67,9 +67,9 @@ def serialize_aws_json_1_1(value: S3TableIntegrationSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3TableIntegrationSource:
     out: S3TableIntegrationSource = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
-    if "dataSource" in data:
+    if data.get("dataSource") is not None:
         import capo_cloudwatch_logs.types.data_source
 
         out["data_source"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> S3TableIntegrationSource:
                 data["dataSource"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.s3_table_integration_source_status
 
         out["status"] = (
@@ -85,10 +85,10 @@ def deserialize_aws_json_1_1(data: dict) -> S3TableIntegrationSource:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "createdTimeStamp" in data:
+    if data.get("createdTimeStamp") is not None:
         out["created_time_stamp"] = data["createdTimeStamp"]
-    if "parentSourceIdentifier" in data:
+    if data.get("parentSourceIdentifier") is not None:
         out["parent_source_identifier"] = data["parentSourceIdentifier"]
     return out

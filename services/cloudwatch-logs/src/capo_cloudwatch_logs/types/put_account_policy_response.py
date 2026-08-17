@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: PutAccountPolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutAccountPolicyResponse:
     out: PutAccountPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "accountPolicy" in data:
+    if data.get("accountPolicy") is not None:
         import capo_cloudwatch_logs.types.account_policy
 
         out["account_policy"] = (

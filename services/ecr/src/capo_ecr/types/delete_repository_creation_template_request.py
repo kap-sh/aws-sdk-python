@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteRepositoryCreationTemplateRequest) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteRepositoryCreationTemplateRequest:
     out: DeleteRepositoryCreationTemplateRequest = {}  # type: ignore[typeddict-item]
-    if "prefix" in data:
+    if data.get("prefix") is not None:
         out["prefix"] = data["prefix"]
     else:
         raise DeserializationError(

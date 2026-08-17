@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: GetRandomPasswordResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetRandomPasswordResponse:
     out: GetRandomPasswordResponse = {}  # type: ignore[typeddict-item]
-    if "RandomPassword" in data:
+    if data.get("RandomPassword") is not None:
         out["random_password"] = data["RandomPassword"]
     return out

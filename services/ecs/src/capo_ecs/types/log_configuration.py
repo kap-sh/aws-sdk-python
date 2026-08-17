@@ -50,7 +50,7 @@ def serialize_aws_json_1_1(value: LogConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogConfiguration:
     out: LogConfiguration = {}  # type: ignore[typeddict-item]
-    if "logDriver" in data:
+    if data.get("logDriver") is not None:
         import capo_ecs.types.log_driver
 
         out["log_driver"] = capo_ecs.types.log_driver.deserialize_aws_json_1_1(
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogConfiguration:
         )
     else:
         raise DeserializationError("LogConfiguration.log_driver required")
-    if "options" in data:
+    if data.get("options") is not None:
         import capo_ecs.types.log_configuration_options_map
 
         out["options"] = (
@@ -66,7 +66,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogConfiguration:
                 data["options"]
             )
         )
-    if "secretOptions" in data:
+    if data.get("secretOptions") is not None:
         import capo_ecs.types.secret_list
 
         out["secret_options"] = capo_ecs.types.secret_list.deserialize_aws_json_1_1(

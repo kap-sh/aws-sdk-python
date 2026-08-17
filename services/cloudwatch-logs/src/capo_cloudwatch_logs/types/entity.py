@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: Entity) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Entity:
     out: Entity = {}  # type: ignore[typeddict-item]
-    if "keyAttributes" in data:
+    if data.get("keyAttributes") is not None:
         import capo_cloudwatch_logs.types.entity_key_attributes
 
         out["key_attributes"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> Entity:
                 data["keyAttributes"]
             )
         )
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_cloudwatch_logs.types.entity_attributes
 
         out["attributes"] = (

@@ -56,7 +56,7 @@ def serialize_json(value: GuardrailAutomatedReasoningLogicWarning) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningLogicWarning:
     out: GuardrailAutomatedReasoningLogicWarning = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning_type
 
         out["type"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningLogicWarning:
                 data["type"]
             )
         )
-    if "premises" in data:
+    if data.get("premises") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
         out["premises"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningLogicWarning:
                 data["premises"]
             )
         )
-    if "claims" in data:
+    if data.get("claims") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
         out["claims"] = (

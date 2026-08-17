@@ -45,15 +45,15 @@ def serialize_aws_json_1_1(value: InvalidLayerPartException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvalidLayerPartException_:
     out: InvalidLayerPartException_ = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "uploadId" in data:
+    if data.get("uploadId") is not None:
         out["upload_id"] = data["uploadId"]
-    if "lastValidByteReceived" in data:
+    if data.get("lastValidByteReceived") is not None:
         out["last_valid_byte_received"] = data["lastValidByteReceived"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

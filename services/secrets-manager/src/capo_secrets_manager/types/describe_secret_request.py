@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DescribeSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeSecretRequest:
     out: DescribeSecretRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("DescribeSecretRequest.secret_id required")

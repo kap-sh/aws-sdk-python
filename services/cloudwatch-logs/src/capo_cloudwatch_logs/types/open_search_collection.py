@@ -43,11 +43,11 @@ def serialize_aws_json_1_1(value: OpenSearchCollection) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchCollection:
     out: OpenSearchCollection = {}  # type: ignore[typeddict-item]
-    if "collectionEndpoint" in data:
+    if data.get("collectionEndpoint") is not None:
         out["collection_endpoint"] = data["collectionEndpoint"]
-    if "collectionArn" in data:
+    if data.get("collectionArn") is not None:
         out["collection_arn"] = data["collectionArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status
 
         out["status"] = (

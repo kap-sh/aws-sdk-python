@@ -80,6 +80,8 @@ def deserialize_aws_json_1_0(data: list) -> ManagedRuleDescriptions:
 
     out: ManagedRuleDescriptions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch.types.managed_rule_description.deserialize_aws_json_1_0(
                 item

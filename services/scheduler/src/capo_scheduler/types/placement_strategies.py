@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> PlacementStrategies:
 
     out: PlacementStrategies = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_scheduler.types.placement_strategy.deserialize_json(item))
     return out

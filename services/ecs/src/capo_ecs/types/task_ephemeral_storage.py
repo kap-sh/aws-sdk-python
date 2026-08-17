@@ -27,10 +27,10 @@ def serialize_aws_json_1_1(value: TaskEphemeralStorage) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TaskEphemeralStorage:
     out: TaskEphemeralStorage = {}  # type: ignore[typeddict-item]
-    if "sizeInGiB" in data:
+    if data.get("sizeInGiB") is not None:
         out["size_in_gi_b"] = data["sizeInGiB"]
     else:
         out["size_in_gi_b"] = 0
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

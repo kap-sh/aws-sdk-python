@@ -38,11 +38,11 @@ def serialize_aws_json_1_1(value: DaemonCircuitBreaker) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonCircuitBreaker:
     out: DaemonCircuitBreaker = {}  # type: ignore[typeddict-item]
-    if "failureCount" in data:
+    if data.get("failureCount") is not None:
         out["failure_count"] = data["failureCount"]
     else:
         out["failure_count"] = 0
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_deployment_rollback_monitors_status
 
         out["status"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonCircuitBreaker:
                 data["status"]
             )
         )
-    if "threshold" in data:
+    if data.get("threshold") is not None:
         out["threshold"] = data["threshold"]
     else:
         out["threshold"] = 0

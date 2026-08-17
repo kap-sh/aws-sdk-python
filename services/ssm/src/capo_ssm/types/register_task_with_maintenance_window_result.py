@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: RegisterTaskWithMaintenanceWindowResult) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterTaskWithMaintenanceWindowResult:
     out: RegisterTaskWithMaintenanceWindowResult = {}  # type: ignore[typeddict-item]
-    if "WindowTaskId" in data:
+    if data.get("WindowTaskId") is not None:
         out["window_task_id"] = data["WindowTaskId"]
     return out

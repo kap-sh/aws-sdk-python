@@ -36,15 +36,15 @@ def serialize_aws_json_1_0(value: ActivityListItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ActivityListItem:
     out: ActivityListItem = {}  # type: ignore[typeddict-item]
-    if "activityArn" in data:
+    if data.get("activityArn") is not None:
         out["activity_arn"] = data["activityArn"]
     else:
         raise DeserializationError("ActivityListItem.activity_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ActivityListItem.name required")
-    if "creationDate" in data:
+    if data.get("creationDate") is not None:
         import capo_sfn.types.timestamp
 
         out["creation_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

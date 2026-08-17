@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: S3TablesIntegration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3TablesIntegration:
     out: S3TablesIntegration = {}  # type: ignore[typeddict-item]
-    if "datasourceName" in data:
+    if data.get("datasourceName") is not None:
         out["datasource_name"] = data["datasourceName"]
-    if "datasourceType" in data:
+    if data.get("datasourceType") is not None:
         out["datasource_type"] = data["datasourceType"]
     return out

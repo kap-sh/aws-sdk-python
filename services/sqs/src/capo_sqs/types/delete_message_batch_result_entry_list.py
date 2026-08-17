@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> DeleteMessageBatchResultEntryList:
 
     out: DeleteMessageBatchResultEntryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sqs.types.delete_message_batch_result_entry.deserialize_aws_json_1_0(
                 item

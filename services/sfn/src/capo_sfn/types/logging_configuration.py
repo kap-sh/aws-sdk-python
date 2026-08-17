@@ -40,15 +40,15 @@ def serialize_aws_json_1_0(value: LoggingConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LoggingConfiguration:
     out: LoggingConfiguration = {}  # type: ignore[typeddict-item]
-    if "level" in data:
+    if data.get("level") is not None:
         import capo_sfn.types.log_level
 
         out["level"] = capo_sfn.types.log_level.deserialize_aws_json_1_0(data["level"])
-    if "includeExecutionData" in data:
+    if data.get("includeExecutionData") is not None:
         out["include_execution_data"] = data["includeExecutionData"]
     else:
         out["include_execution_data"] = False
-    if "destinations" in data:
+    if data.get("destinations") is not None:
         import capo_sfn.types.log_destination_list
 
         out["destinations"] = (

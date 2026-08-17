@@ -49,7 +49,7 @@ def serialize_aws_json_1_1(value: FilterLogEventsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FilterLogEventsResponse:
     out: FilterLogEventsResponse = {}  # type: ignore[typeddict-item]
-    if "events" in data:
+    if data.get("events") is not None:
         import capo_cloudwatch_logs.types.filtered_log_events
 
         out["events"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_1(data: dict) -> FilterLogEventsResponse:
                 data["events"]
             )
         )
-    if "searchedLogStreams" in data:
+    if data.get("searchedLogStreams") is not None:
         import capo_cloudwatch_logs.types.searched_log_streams
 
         out["searched_log_streams"] = (
@@ -65,6 +65,6 @@ def deserialize_aws_json_1_1(data: dict) -> FilterLogEventsResponse:
                 data["searchedLogStreams"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

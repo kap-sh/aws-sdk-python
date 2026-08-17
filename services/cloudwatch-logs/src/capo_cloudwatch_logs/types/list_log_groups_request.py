@@ -104,9 +104,9 @@ def serialize_aws_json_1_1(value: ListLogGroupsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsRequest:
     out: ListLogGroupsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupNamePattern" in data:
+    if data.get("logGroupNamePattern") is not None:
         out["log_group_name_pattern"] = data["logGroupNamePattern"]
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (
@@ -114,9 +114,9 @@ def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsRequest:
                 data["logGroupClass"]
             )
         )
-    if "includeLinkedAccounts" in data:
+    if data.get("includeLinkedAccounts") is not None:
         out["include_linked_accounts"] = data["includeLinkedAccounts"]
-    if "accountIdentifiers" in data:
+    if data.get("accountIdentifiers") is not None:
         import capo_cloudwatch_logs.types.account_ids
 
         out["account_identifiers"] = (
@@ -124,11 +124,11 @@ def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsRequest:
                 data["accountIdentifiers"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "dataSources" in data:
+    if data.get("dataSources") is not None:
         import capo_cloudwatch_logs.types.data_source_filters
 
         out["data_sources"] = (
@@ -136,7 +136,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsRequest:
                 data["dataSources"]
             )
         )
-    if "fieldIndexNames" in data:
+    if data.get("fieldIndexNames") is not None:
         import capo_cloudwatch_logs.types.field_index_names
 
         out["field_index_names"] = (
@@ -144,7 +144,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsRequest:
                 data["fieldIndexNames"]
             )
         )
-    if "logGroupTags" in data:
+    if data.get("logGroupTags") is not None:
         import capo_cloudwatch_logs.types.tag_filters
 
         out["log_group_tags"] = (

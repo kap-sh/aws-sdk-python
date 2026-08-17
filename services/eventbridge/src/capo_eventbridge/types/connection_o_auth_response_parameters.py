@@ -64,7 +64,7 @@ def serialize_aws_json_1_1(value: ConnectionOAuthResponseParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectionOAuthResponseParameters:
     out: ConnectionOAuthResponseParameters = {}  # type: ignore[typeddict-item]
-    if "ClientParameters" in data:
+    if data.get("ClientParameters") is not None:
         import capo_eventbridge.types.connection_o_auth_client_response_parameters
 
         out["client_parameters"] = (
@@ -72,9 +72,9 @@ def deserialize_aws_json_1_1(data: dict) -> ConnectionOAuthResponseParameters:
                 data["ClientParameters"]
             )
         )
-    if "AuthorizationEndpoint" in data:
+    if data.get("AuthorizationEndpoint") is not None:
         out["authorization_endpoint"] = data["AuthorizationEndpoint"]
-    if "HttpMethod" in data:
+    if data.get("HttpMethod") is not None:
         import capo_eventbridge.types.connection_o_auth_http_method
 
         out["http_method"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConnectionOAuthResponseParameters:
                 data["HttpMethod"]
             )
         )
-    if "OAuthHttpParameters" in data:
+    if data.get("OAuthHttpParameters") is not None:
         import capo_eventbridge.types.connection_http_parameters
 
         out["o_auth_http_parameters"] = (

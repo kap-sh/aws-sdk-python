@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeliveryDestinationConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeliveryDestinationConfiguration:
     out: DeliveryDestinationConfiguration = {}  # type: ignore[typeddict-item]
-    if "destinationResourceArn" in data:
+    if data.get("destinationResourceArn") is not None:
         out["destination_resource_arn"] = data["destinationResourceArn"]
     else:
         raise DeserializationError(

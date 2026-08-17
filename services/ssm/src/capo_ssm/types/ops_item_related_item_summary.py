@@ -83,29 +83,29 @@ def serialize_aws_json_1_1(value: OpsItemRelatedItemSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemRelatedItemSummary:
     out: OpsItemRelatedItemSummary = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
-    if "AssociationType" in data:
+    if data.get("AssociationType") is not None:
         out["association_type"] = data["AssociationType"]
-    if "ResourceUri" in data:
+    if data.get("ResourceUri") is not None:
         out["resource_uri"] = data["ResourceUri"]
-    if "CreatedBy" in data:
+    if data.get("CreatedBy") is not None:
         import capo_ssm.types.ops_item_identity
 
         out["created_by"] = capo_ssm.types.ops_item_identity.deserialize_aws_json_1_1(
             data["CreatedBy"]
         )
-    if "CreatedTime" in data:
+    if data.get("CreatedTime") is not None:
         import capo_ssm.types.date_time
 
         out["created_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedTime"]
         )
-    if "LastModifiedBy" in data:
+    if data.get("LastModifiedBy") is not None:
         import capo_ssm.types.ops_item_identity
 
         out["last_modified_by"] = (
@@ -113,7 +113,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpsItemRelatedItemSummary:
                 data["LastModifiedBy"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

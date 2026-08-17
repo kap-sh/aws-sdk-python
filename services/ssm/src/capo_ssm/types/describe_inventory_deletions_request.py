@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: DescribeInventoryDeletionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeInventoryDeletionsRequest:
     out: DescribeInventoryDeletionsRequest = {}  # type: ignore[typeddict-item]
-    if "DeletionId" in data:
+    if data.get("DeletionId") is not None:
         out["deletion_id"] = data["DeletionId"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

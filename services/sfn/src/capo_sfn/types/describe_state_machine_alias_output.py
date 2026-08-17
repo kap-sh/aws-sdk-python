@@ -63,13 +63,13 @@ def serialize_aws_json_1_0(value: DescribeStateMachineAliasOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineAliasOutput:
     out: DescribeStateMachineAliasOutput = {}  # type: ignore[typeddict-item]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_sfn.types.routing_configuration_list
 
         out["routing_configuration"] = (
@@ -77,13 +77,13 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineAliasOutput:
                 data["routingConfiguration"]
             )
         )
-    if "creationDate" in data:
+    if data.get("creationDate") is not None:
         import capo_sfn.types.timestamp
 
         out["creation_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
             data["creationDate"]
         )
-    if "updateDate" in data:
+    if data.get("updateDate") is not None:
         import capo_sfn.types.timestamp
 
         out["update_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

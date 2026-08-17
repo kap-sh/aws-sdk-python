@@ -37,10 +37,10 @@ def serialize_aws_json_1_1(value: RotationRulesType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RotationRulesType:
     out: RotationRulesType = {}  # type: ignore[typeddict-item]
-    if "AutomaticallyAfterDays" in data:
+    if data.get("AutomaticallyAfterDays") is not None:
         out["automatically_after_days"] = data["AutomaticallyAfterDays"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
     return out

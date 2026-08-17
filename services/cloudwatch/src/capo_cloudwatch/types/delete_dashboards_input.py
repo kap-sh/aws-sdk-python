@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: DeleteDashboardsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteDashboardsInput:
     out: DeleteDashboardsInput = {}  # type: ignore[typeddict-item]
-    if "DashboardNames" in data:
+    if data.get("DashboardNames") is not None:
         import capo_cloudwatch.types.dashboard_names
 
         out["dashboard_names"] = (

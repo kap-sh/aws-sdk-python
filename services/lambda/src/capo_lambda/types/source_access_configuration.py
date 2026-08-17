@@ -30,12 +30,12 @@ def serialize_json(value: SourceAccessConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SourceAccessConfiguration:
     out: SourceAccessConfiguration = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_lambda.types.source_access_type
 
         out["type"] = capo_lambda.types.source_access_type.deserialize_json(
             data["Type"]
         )
-    if "URI" in data:
+    if data.get("URI") is not None:
         out["uri"] = data["URI"]
     return out

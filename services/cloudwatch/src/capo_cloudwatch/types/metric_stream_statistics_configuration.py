@@ -46,7 +46,7 @@ def serialize_aws_json_1_0(value: MetricStreamStatisticsConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricStreamStatisticsConfiguration:
     out: MetricStreamStatisticsConfiguration = {}  # type: ignore[typeddict-item]
-    if "IncludeMetrics" in data:
+    if data.get("IncludeMetrics") is not None:
         import capo_cloudwatch.types.metric_stream_statistics_include_metrics
 
         out["include_metrics"] = (
@@ -54,7 +54,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStreamStatisticsConfiguration:
                 data["IncludeMetrics"]
             )
         )
-    if "AdditionalStatistics" in data:
+    if data.get("AdditionalStatistics") is not None:
         import capo_cloudwatch.types.metric_stream_statistics_additional_statistics
 
         out["additional_statistics"] = (

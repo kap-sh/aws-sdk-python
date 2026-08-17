@@ -32,10 +32,10 @@ def serialize_aws_json_1_1(value: Session) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Session:
     out: Session = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "streamUrl" in data:
+    if data.get("streamUrl") is not None:
         out["stream_url"] = data["streamUrl"]
-    if "tokenValue" in data:
+    if data.get("tokenValue") is not None:
         out["token_value"] = data["tokenValue"]
     return out

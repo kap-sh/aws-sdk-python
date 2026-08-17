@@ -46,15 +46,15 @@ def serialize_json(value: GuardrailStreamConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailStreamConfiguration:
     out: GuardrailStreamConfiguration = {}  # type: ignore[typeddict-item]
-    if "guardrailIdentifier" in data:
+    if data.get("guardrailIdentifier") is not None:
         out["guardrail_identifier"] = data["guardrailIdentifier"]
     else:
         out["guardrail_identifier"] = ""
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
     else:
         out["guardrail_version"] = ""
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_runtime.types.guardrail_trace
 
         out["trace"] = capo_bedrock_runtime.types.guardrail_trace.deserialize_json(
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> GuardrailStreamConfiguration:
         )
     else:
         out["trace"] = "disabled"
-    if "streamProcessingMode" in data:
+    if data.get("streamProcessingMode") is not None:
         import capo_bedrock_runtime.types.guardrail_stream_processing_mode
 
         out["stream_processing_mode"] = (

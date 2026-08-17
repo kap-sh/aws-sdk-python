@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DescribePatchGroupStateRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePatchGroupStateRequest:
     out: DescribePatchGroupStateRequest = {}  # type: ignore[typeddict-item]
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
     else:
         raise DeserializationError(

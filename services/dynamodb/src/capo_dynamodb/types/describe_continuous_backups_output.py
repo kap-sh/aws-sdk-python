@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: DescribeContinuousBackupsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeContinuousBackupsOutput:
     out: DescribeContinuousBackupsOutput = {}  # type: ignore[typeddict-item]
-    if "ContinuousBackupsDescription" in data:
+    if data.get("ContinuousBackupsDescription") is not None:
         import capo_dynamodb.types.continuous_backups_description
 
         out["continuous_backups_description"] = (

@@ -45,7 +45,7 @@ def serialize_json(value: CountTokensInput) -> dict:
 
 
 def deserialize_json(data: dict) -> CountTokensInput:
-    if "invokeModel" in data:
+    if data.get("invokeModel") is not None:
         import capo_bedrock_runtime.types.invoke_model_tokens_request
 
         return {
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> CountTokensInput:
                 data["invokeModel"]
             )
         }
-    elif "converse" in data:
+    elif data.get("converse") is not None:
         import capo_bedrock_runtime.types.converse_tokens_request
 
         return {

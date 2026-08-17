@@ -36,9 +36,9 @@ def serialize_json(value: ListEventSourceMappingsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListEventSourceMappingsResponse:
     out: ListEventSourceMappingsResponse = {}  # type: ignore[typeddict-item]
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "EventSourceMappings" in data:
+    if data.get("EventSourceMappings") is not None:
         import capo_lambda.types.event_source_mappings_list
 
         out["event_source_mappings"] = (

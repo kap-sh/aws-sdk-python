@@ -25,5 +25,7 @@ def deserialize_aws_json_1_0(data: list) -> ConsumedCapacityMultiple:
 
     out: ConsumedCapacityMultiple = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_dynamodb.types.consumed_capacity.deserialize_aws_json_1_0(item))
     return out

@@ -47,11 +47,11 @@ def serialize_aws_json_1_1(value: GetScheduledQueryHistoryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetScheduledQueryHistoryResponse:
     out: GetScheduledQueryHistoryResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "scheduledQueryArn" in data:
+    if data.get("scheduledQueryArn") is not None:
         out["scheduled_query_arn"] = data["scheduledQueryArn"]
-    if "triggerHistory" in data:
+    if data.get("triggerHistory") is not None:
         import capo_cloudwatch_logs.types.trigger_history_record_list
 
         out["trigger_history"] = (
@@ -59,6 +59,6 @@ def deserialize_aws_json_1_1(data: dict) -> GetScheduledQueryHistoryResponse:
                 data["triggerHistory"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

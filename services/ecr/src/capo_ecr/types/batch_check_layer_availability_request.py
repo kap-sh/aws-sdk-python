@@ -39,15 +39,15 @@ def serialize_aws_json_1_1(value: BatchCheckLayerAvailabilityRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchCheckLayerAvailabilityRequest:
     out: BatchCheckLayerAvailabilityRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "BatchCheckLayerAvailabilityRequest.repository_name required"
         )
-    if "layerDigests" in data:
+    if data.get("layerDigests") is not None:
         import capo_ecr.types.batched_operation_layer_digest_list
 
         out["layer_digests"] = (

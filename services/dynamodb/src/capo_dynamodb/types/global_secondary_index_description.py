@@ -108,29 +108,29 @@ def serialize_aws_json_1_0(value: GlobalSecondaryIndexDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexDescription:
     out: GlobalSecondaryIndexDescription = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
             data["KeySchema"]
         )
-    if "Projection" in data:
+    if data.get("Projection") is not None:
         import capo_dynamodb.types.projection
 
         out["projection"] = capo_dynamodb.types.projection.deserialize_aws_json_1_0(
             data["Projection"]
         )
-    if "IndexStatus" in data:
+    if data.get("IndexStatus") is not None:
         import capo_dynamodb.types.index_status
 
         out["index_status"] = capo_dynamodb.types.index_status.deserialize_aws_json_1_0(
             data["IndexStatus"]
         )
-    if "Backfilling" in data:
+    if data.get("Backfilling") is not None:
         out["backfilling"] = data["Backfilling"]
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput_description
 
         out["provisioned_throughput"] = (
@@ -138,13 +138,13 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexDescription:
                 data["ProvisionedThroughput"]
             )
         )
-    if "IndexSizeBytes" in data:
+    if data.get("IndexSizeBytes") is not None:
         out["index_size_bytes"] = data["IndexSizeBytes"]
-    if "ItemCount" in data:
+    if data.get("ItemCount") is not None:
         out["item_count"] = data["ItemCount"]
-    if "IndexArn" in data:
+    if data.get("IndexArn") is not None:
         out["index_arn"] = data["IndexArn"]
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -152,7 +152,7 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexDescription:
                 data["OnDemandThroughput"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.global_secondary_index_warm_throughput_description
 
         out["warm_throughput"] = (

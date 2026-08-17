@@ -32,7 +32,7 @@ def serialize_json(value: ConverseOutput) -> dict:
 
 
 def deserialize_json(data: dict) -> ConverseOutput:
-    if "message" in data:
+    if data.get("message") is not None:
         import capo_bedrock_runtime.types.message
 
         return {

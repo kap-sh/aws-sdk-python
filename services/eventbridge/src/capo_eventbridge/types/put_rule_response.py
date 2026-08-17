@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: PutRuleResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutRuleResponse:
     out: PutRuleResponse = {}  # type: ignore[typeddict-item]
-    if "RuleArn" in data:
+    if data.get("RuleArn") is not None:
         out["rule_arn"] = data["RuleArn"]
     return out

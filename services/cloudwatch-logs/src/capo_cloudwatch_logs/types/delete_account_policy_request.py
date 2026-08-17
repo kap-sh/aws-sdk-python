@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: DeleteAccountPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteAccountPolicyRequest:
     out: DeleteAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
     else:
         raise DeserializationError("DeleteAccountPolicyRequest.policy_name required")
-    if "policyType" in data:
+    if data.get("policyType") is not None:
         import capo_cloudwatch_logs.types.policy_type
 
         out["policy_type"] = (

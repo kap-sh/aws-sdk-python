@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: ManagedAutoScaling) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedAutoScaling:
     out: ManagedAutoScaling = {}  # type: ignore[typeddict-item]
-    if "scalableTarget" in data:
+    if data.get("scalableTarget") is not None:
         import capo_ecs.types.managed_scalable_target
 
         out["scalable_target"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedAutoScaling:
                 data["scalableTarget"]
             )
         )
-    if "applicationAutoScalingPolicies" in data:
+    if data.get("applicationAutoScalingPolicies") is not None:
         import capo_ecs.types.managed_application_auto_scaling_policies
 
         out["application_auto_scaling_policies"] = (

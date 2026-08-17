@@ -25,6 +25,8 @@ def serialize_aws_json_1_1(input_to_serialize: Parameters) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> Parameters:
     out: Parameters = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_ssm.types.parameter_value_list
 
         out[key] = capo_ssm.types.parameter_value_list.deserialize_aws_json_1_1(value)

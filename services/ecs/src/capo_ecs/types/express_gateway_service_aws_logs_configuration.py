@@ -27,13 +27,13 @@ def serialize_aws_json_1_1(value: ExpressGatewayServiceAwsLogsConfiguration) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceAwsLogsConfiguration:
     out: ExpressGatewayServiceAwsLogsConfiguration = {}  # type: ignore[typeddict-item]
-    if "logGroup" in data:
+    if data.get("logGroup") is not None:
         out["log_group"] = data["logGroup"]
     else:
         raise DeserializationError(
             "ExpressGatewayServiceAwsLogsConfiguration.log_group required"
         )
-    if "logStreamPrefix" in data:
+    if data.get("logStreamPrefix") is not None:
         out["log_stream_prefix"] = data["logStreamPrefix"]
     else:
         raise DeserializationError(

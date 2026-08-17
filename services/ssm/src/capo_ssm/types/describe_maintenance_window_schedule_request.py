@@ -68,15 +68,15 @@ def serialize_aws_json_1_1(value: DescribeMaintenanceWindowScheduleRequest) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowScheduleRequest:
     out: DescribeMaintenanceWindowScheduleRequest = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         import capo_ssm.types.maintenance_window_resource_type
 
         out["resource_type"] = (
@@ -84,7 +84,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowScheduleReq
                 data["ResourceType"]
             )
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.patch_orchestrator_filter_list
 
         out["filters"] = (
@@ -92,8 +92,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowScheduleReq
                 data["Filters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

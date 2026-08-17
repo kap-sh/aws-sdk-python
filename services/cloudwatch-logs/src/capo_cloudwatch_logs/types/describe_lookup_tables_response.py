@@ -34,7 +34,7 @@ def serialize_aws_json_1_1(value: DescribeLookupTablesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeLookupTablesResponse:
     out: DescribeLookupTablesResponse = {}  # type: ignore[typeddict-item]
-    if "lookupTables" in data:
+    if data.get("lookupTables") is not None:
         import capo_cloudwatch_logs.types.lookup_tables
 
         out["lookup_tables"] = (
@@ -42,6 +42,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeLookupTablesResponse:
                 data["lookupTables"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

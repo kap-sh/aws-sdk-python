@@ -75,11 +75,11 @@ def serialize_aws_json_1_1(value: LiveTailSessionStart) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionStart:
     out: LiveTailSessionStart = {}  # type: ignore[typeddict-item]
-    if "requestId" in data:
+    if data.get("requestId") is not None:
         out["request_id"] = data["requestId"]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.start_live_tail_log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -87,7 +87,7 @@ def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionStart:
                 data["logGroupIdentifiers"]
             )
         )
-    if "logStreamNames" in data:
+    if data.get("logStreamNames") is not None:
         import capo_cloudwatch_logs.types.input_log_stream_names
 
         out["log_stream_names"] = (
@@ -95,7 +95,7 @@ def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionStart:
                 data["logStreamNames"]
             )
         )
-    if "logStreamNamePrefixes" in data:
+    if data.get("logStreamNamePrefixes") is not None:
         import capo_cloudwatch_logs.types.input_log_stream_names
 
         out["log_stream_name_prefixes"] = (
@@ -103,7 +103,7 @@ def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionStart:
                 data["logStreamNamePrefixes"]
             )
         )
-    if "logEventFilterPattern" in data:
+    if data.get("logEventFilterPattern") is not None:
         out["log_event_filter_pattern"] = data["logEventFilterPattern"]
     return out
 

@@ -57,17 +57,17 @@ def serialize_json(value: CodeSigningConfig) -> dict:
 
 def deserialize_json(data: dict) -> CodeSigningConfig:
     out: CodeSigningConfig = {}  # type: ignore[typeddict-item]
-    if "CodeSigningConfigId" in data:
+    if data.get("CodeSigningConfigId") is not None:
         out["code_signing_config_id"] = data["CodeSigningConfigId"]
     else:
         raise DeserializationError("CodeSigningConfig.code_signing_config_id required")
-    if "CodeSigningConfigArn" in data:
+    if data.get("CodeSigningConfigArn") is not None:
         out["code_signing_config_arn"] = data["CodeSigningConfigArn"]
     else:
         raise DeserializationError("CodeSigningConfig.code_signing_config_arn required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "AllowedPublishers" in data:
+    if data.get("AllowedPublishers") is not None:
         import capo_lambda.types.allowed_publishers
 
         out["allowed_publishers"] = (
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> CodeSigningConfig:
         )
     else:
         raise DeserializationError("CodeSigningConfig.allowed_publishers required")
-    if "CodeSigningPolicies" in data:
+    if data.get("CodeSigningPolicies") is not None:
         import capo_lambda.types.code_signing_policies
 
         out["code_signing_policies"] = (
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> CodeSigningConfig:
         )
     else:
         raise DeserializationError("CodeSigningConfig.code_signing_policies required")
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         out["last_modified"] = data["LastModified"]
     else:
         raise DeserializationError("CodeSigningConfig.last_modified required")

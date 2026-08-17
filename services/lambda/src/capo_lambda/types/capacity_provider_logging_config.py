@@ -32,12 +32,12 @@ def serialize_json(value: CapacityProviderLoggingConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderLoggingConfig:
     out: CapacityProviderLoggingConfig = {}  # type: ignore[typeddict-item]
-    if "SystemLogLevel" in data:
+    if data.get("SystemLogLevel") is not None:
         import capo_lambda.types.system_log_level
 
         out["system_log_level"] = capo_lambda.types.system_log_level.deserialize_json(
             data["SystemLogLevel"]
         )
-    if "LogGroup" in data:
+    if data.get("LogGroup") is not None:
         out["log_group"] = data["LogGroup"]
     return out

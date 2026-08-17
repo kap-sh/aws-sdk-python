@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: IntegrationDetails) -> dict:
 
 
 def deserialize_aws_json_1_1(data: dict) -> IntegrationDetails:
-    if "openSearchIntegrationDetails" in data:
+    if data.get("openSearchIntegrationDetails") is not None:
         import capo_cloudwatch_logs.types.open_search_integration_details
 
         return {

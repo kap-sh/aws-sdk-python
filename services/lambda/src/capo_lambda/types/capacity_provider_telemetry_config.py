@@ -31,7 +31,7 @@ def serialize_json(value: CapacityProviderTelemetryConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderTelemetryConfig:
     out: CapacityProviderTelemetryConfig = {}  # type: ignore[typeddict-item]
-    if "LoggingConfig" in data:
+    if data.get("LoggingConfig") is not None:
         import capo_lambda.types.capacity_provider_logging_config
 
         out["logging_config"] = (

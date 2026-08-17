@@ -99,11 +99,11 @@ def serialize_aws_json_1_1(value: DeliverySource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeliverySource:
     out: DeliverySource = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "resourceArns" in data:
+    if data.get("resourceArns") is not None:
         import capo_cloudwatch_logs.types.resource_arns
 
         out["resource_arns"] = (
@@ -111,17 +111,17 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySource:
                 data["resourceArns"]
             )
         )
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
-    if "logType" in data:
+    if data.get("logType") is not None:
         out["log_type"] = data["logType"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(
             data["tags"]
         )
-    if "deliverySourceConfiguration" in data:
+    if data.get("deliverySourceConfiguration") is not None:
         import capo_cloudwatch_logs.types.delivery_source_configuration
 
         out["delivery_source_configuration"] = (
@@ -129,7 +129,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySource:
                 data["deliverySourceConfiguration"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.delivery_source_status
 
         out["status"] = (
@@ -137,7 +137,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySource:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         import capo_cloudwatch_logs.types.delivery_source_status_reason
 
         out["status_reason"] = (

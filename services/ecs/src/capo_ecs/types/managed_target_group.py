@@ -55,9 +55,9 @@ def serialize_aws_json_1_1(value: ManagedTargetGroup) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedTargetGroup:
     out: ManagedTargetGroup = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.managed_resource_status
 
         out["status"] = capo_ecs.types.managed_resource_status.deserialize_aws_json_1_1(
@@ -65,9 +65,9 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedTargetGroup:
         )
     else:
         raise DeserializationError("ManagedTargetGroup.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
@@ -75,15 +75,15 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedTargetGroup:
         )
     else:
         raise DeserializationError("ManagedTargetGroup.updated_at required")
-    if "healthCheckPath" in data:
+    if data.get("healthCheckPath") is not None:
         out["health_check_path"] = data["healthCheckPath"]
     else:
         raise DeserializationError("ManagedTargetGroup.health_check_path required")
-    if "healthCheckPort" in data:
+    if data.get("healthCheckPort") is not None:
         out["health_check_port"] = data["healthCheckPort"]
     else:
         out["health_check_port"] = 0
-    if "port" in data:
+    if data.get("port") is not None:
         out["port"] = data["port"]
     else:
         out["port"] = 0

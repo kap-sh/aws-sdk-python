@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: PutManagedInsightRulesInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutManagedInsightRulesInput:
     out: PutManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-    if "ManagedRules" in data:
+    if data.get("ManagedRules") is not None:
         import capo_cloudwatch.types.managed_rules
 
         out["managed_rules"] = (

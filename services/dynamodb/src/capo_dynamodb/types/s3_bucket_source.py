@@ -34,12 +34,12 @@ def serialize_aws_json_1_0(value: S3BucketSource) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> S3BucketSource:
     out: S3BucketSource = {}  # type: ignore[typeddict-item]
-    if "S3BucketOwner" in data:
+    if data.get("S3BucketOwner") is not None:
         out["s3_bucket_owner"] = data["S3BucketOwner"]
-    if "S3Bucket" in data:
+    if data.get("S3Bucket") is not None:
         out["s3_bucket"] = data["S3Bucket"]
     else:
         raise DeserializationError("S3BucketSource.s3_bucket required")
-    if "S3KeyPrefix" in data:
+    if data.get("S3KeyPrefix") is not None:
         out["s3_key_prefix"] = data["S3KeyPrefix"]
     return out

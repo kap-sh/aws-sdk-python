@@ -70,7 +70,7 @@ def serialize_aws_json_1_1(value: AutomationExecutionInputs) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionInputs:
     out: AutomationExecutionInputs = {}  # type: ignore[typeddict-item]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (
@@ -78,21 +78,21 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionInputs:
                 data["Parameters"]
             )
         )
-    if "TargetParameterName" in data:
+    if data.get("TargetParameterName") is not None:
         out["target_parameter_name"] = data["TargetParameterName"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(
             data["TargetMaps"]
         )
-    if "TargetLocations" in data:
+    if data.get("TargetLocations") is not None:
         import capo_ssm.types.target_locations
 
         out["target_locations"] = (
@@ -100,6 +100,6 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionInputs:
                 data["TargetLocations"]
             )
         )
-    if "TargetLocationsURL" in data:
+    if data.get("TargetLocationsURL") is not None:
         out["target_locations_url"] = data["TargetLocationsURL"]
     return out

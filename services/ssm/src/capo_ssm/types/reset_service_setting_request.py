@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ResetServiceSettingRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResetServiceSettingRequest:
     out: ResetServiceSettingRequest = {}  # type: ignore[typeddict-item]
-    if "SettingId" in data:
+    if data.get("SettingId") is not None:
         out["setting_id"] = data["SettingId"]
     else:
         raise DeserializationError("ResetServiceSettingRequest.setting_id required")

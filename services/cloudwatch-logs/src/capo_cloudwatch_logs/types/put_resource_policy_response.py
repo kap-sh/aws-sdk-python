@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: PutResourcePolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutResourcePolicyResponse:
     out: PutResourcePolicyResponse = {}  # type: ignore[typeddict-item]
-    if "resourcePolicy" in data:
+    if data.get("resourcePolicy") is not None:
         import capo_cloudwatch_logs.types.resource_policy
 
         out["resource_policy"] = (
@@ -46,6 +46,6 @@ def deserialize_aws_json_1_1(data: dict) -> PutResourcePolicyResponse:
                 data["resourcePolicy"]
             )
         )
-    if "revisionId" in data:
+    if data.get("revisionId") is not None:
         out["revision_id"] = data["revisionId"]
     return out

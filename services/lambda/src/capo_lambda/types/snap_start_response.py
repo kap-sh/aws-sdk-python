@@ -40,13 +40,13 @@ def serialize_json(value: SnapStartResponse) -> dict:
 
 def deserialize_json(data: dict) -> SnapStartResponse:
     out: SnapStartResponse = {}  # type: ignore[typeddict-item]
-    if "ApplyOn" in data:
+    if data.get("ApplyOn") is not None:
         import capo_lambda.types.snap_start_apply_on
 
         out["apply_on"] = capo_lambda.types.snap_start_apply_on.deserialize_json(
             data["ApplyOn"]
         )
-    if "OptimizationStatus" in data:
+    if data.get("OptimizationStatus") is not None:
         import capo_lambda.types.snap_start_optimization_status
 
         out["optimization_status"] = (

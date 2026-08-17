@@ -147,11 +147,11 @@ def serialize_aws_json_1_1(value: DaemonDeployment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
     out: DaemonDeployment = {}  # type: ignore[typeddict-item]
-    if "daemonDeploymentArn" in data:
+    if data.get("daemonDeploymentArn") is not None:
         out["daemon_deployment_arn"] = data["daemonDeploymentArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_deployment_status
 
         out["status"] = (
@@ -159,9 +159,9 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "targetDaemonRevision" in data:
+    if data.get("targetDaemonRevision") is not None:
         import capo_ecs.types.daemon_deployment_revision_detail
 
         out["target_daemon_revision"] = (
@@ -169,7 +169,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["targetDaemonRevision"]
             )
         )
-    if "sourceDaemonRevisions" in data:
+    if data.get("sourceDaemonRevisions") is not None:
         import capo_ecs.types.daemon_deployment_revision_detail_list
 
         out["source_daemon_revisions"] = (
@@ -177,7 +177,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["sourceDaemonRevisions"]
             )
         )
-    if "circuitBreaker" in data:
+    if data.get("circuitBreaker") is not None:
         import capo_ecs.types.daemon_circuit_breaker
 
         out["circuit_breaker"] = (
@@ -185,7 +185,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["circuitBreaker"]
             )
         )
-    if "alarms" in data:
+    if data.get("alarms") is not None:
         import capo_ecs.types.daemon_deployment_alarms
 
         out["alarms"] = (
@@ -193,13 +193,13 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["alarms"]
             )
         )
-    if "rollback" in data:
+    if data.get("rollback") is not None:
         import capo_ecs.types.daemon_rollback
 
         out["rollback"] = capo_ecs.types.daemon_rollback.deserialize_aws_json_1_1(
             data["rollback"]
         )
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.daemon_deployment_configuration
 
         out["deployment_configuration"] = (
@@ -207,25 +207,25 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeployment:
                 data["deploymentConfiguration"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "stoppedAt" in data:
+    if data.get("stoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["stoppedAt"]
         )
-    if "finishedAt" in data:
+    if data.get("finishedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["finished_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

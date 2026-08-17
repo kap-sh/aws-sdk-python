@@ -35,14 +35,14 @@ def serialize_aws_json_1_1(value: ListSourcesForS3TableIntegrationRequest) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> ListSourcesForS3TableIntegrationRequest:
     out: ListSourcesForS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "integrationArn" in data:
+    if data.get("integrationArn") is not None:
         out["integration_arn"] = data["integrationArn"]
     else:
         raise DeserializationError(
             "ListSourcesForS3TableIntegrationRequest.integration_arn required"
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -49,9 +49,9 @@ def serialize_aws_json_1_1(value: DescribeImportTasksRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImportTasksRequest:
     out: DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
-    if "importStatus" in data:
+    if data.get("importStatus") is not None:
         import capo_cloudwatch_logs.types.import_status
 
         out["import_status"] = (
@@ -59,10 +59,10 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImportTasksRequest:
                 data["importStatus"]
             )
         )
-    if "importSourceArn" in data:
+    if data.get("importSourceArn") is not None:
         out["import_source_arn"] = data["importSourceArn"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

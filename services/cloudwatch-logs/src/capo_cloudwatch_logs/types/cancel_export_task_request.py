@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: CancelExportTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelExportTaskRequest:
     out: CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
-    if "taskId" in data:
+    if data.get("taskId") is not None:
         out["task_id"] = data["taskId"]
     else:
         raise DeserializationError("CancelExportTaskRequest.task_id required")

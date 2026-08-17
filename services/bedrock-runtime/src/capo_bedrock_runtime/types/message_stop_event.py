@@ -33,7 +33,7 @@ def serialize_json(value: MessageStopEvent) -> dict:
 
 def deserialize_json(data: dict) -> MessageStopEvent:
     out: MessageStopEvent = {}  # type: ignore[typeddict-item]
-    if "stopReason" in data:
+    if data.get("stopReason") is not None:
         import capo_bedrock_runtime.types.stop_reason
 
         out["stop_reason"] = capo_bedrock_runtime.types.stop_reason.deserialize_json(
@@ -41,7 +41,7 @@ def deserialize_json(data: dict) -> MessageStopEvent:
         )
     else:
         raise DeserializationError("MessageStopEvent.stop_reason required")
-    if "additionalModelResponseFields" in data:
+    if data.get("additionalModelResponseFields") is not None:
         out["additional_model_response_fields"] = data["additionalModelResponseFields"]
     return out
 

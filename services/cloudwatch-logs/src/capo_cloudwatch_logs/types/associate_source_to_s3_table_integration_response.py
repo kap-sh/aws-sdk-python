@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: AssociateSourceToS3TableIntegrationResponse) -
 
 def deserialize_aws_json_1_1(data: dict) -> AssociateSourceToS3TableIntegrationResponse:
     out: AssociateSourceToS3TableIntegrationResponse = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     return out

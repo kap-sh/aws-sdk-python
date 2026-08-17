@@ -36,14 +36,14 @@ def serialize_aws_json_1_1(value: ServiceEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceEvent:
     out: ServiceEvent = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

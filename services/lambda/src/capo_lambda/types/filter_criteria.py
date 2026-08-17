@@ -25,7 +25,7 @@ def serialize_json(value: FilterCriteria) -> dict:
 
 def deserialize_json(data: dict) -> FilterCriteria:
     out: FilterCriteria = {}  # type: ignore[typeddict-item]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_lambda.types.filter_list
 
         out["filters"] = capo_lambda.types.filter_list.deserialize_json(data["Filters"])

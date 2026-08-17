@@ -48,16 +48,16 @@ def serialize_aws_json_1_1(value: UpdateArchiveRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateArchiveRequest:
     out: UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
-    if "ArchiveName" in data:
+    if data.get("ArchiveName") is not None:
         out["archive_name"] = data["ArchiveName"]
     else:
         raise DeserializationError("UpdateArchiveRequest.archive_name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "EventPattern" in data:
+    if data.get("EventPattern") is not None:
         out["event_pattern"] = data["EventPattern"]
-    if "RetentionDays" in data:
+    if data.get("RetentionDays") is not None:
         out["retention_days"] = data["RetentionDays"]
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
     return out

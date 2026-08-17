@@ -31,9 +31,9 @@ def serialize_aws_json_1_1(value: CloudWatchOutputConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CloudWatchOutputConfig:
     out: CloudWatchOutputConfig = {}  # type: ignore[typeddict-item]
-    if "CloudWatchLogGroupName" in data:
+    if data.get("CloudWatchLogGroupName") is not None:
         out["cloud_watch_log_group_name"] = data["CloudWatchLogGroupName"]
-    if "CloudWatchOutputEnabled" in data:
+    if data.get("CloudWatchOutputEnabled") is not None:
         out["cloud_watch_output_enabled"] = data["CloudWatchOutputEnabled"]
     else:
         out["cloud_watch_output_enabled"] = False

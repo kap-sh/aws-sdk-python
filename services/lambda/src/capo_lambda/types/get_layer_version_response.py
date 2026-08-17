@@ -86,7 +86,7 @@ def serialize_json(value: GetLayerVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetLayerVersionResponse:
     out: GetLayerVersionResponse = {}  # type: ignore[typeddict-item]
-    if "Content" in data:
+    if data.get("Content") is not None:
         import capo_lambda.types.layer_version_content_output
 
         out["content"] = (
@@ -94,19 +94,19 @@ def deserialize_json(data: dict) -> GetLayerVersionResponse:
                 data["Content"]
             )
         )
-    if "LayerArn" in data:
+    if data.get("LayerArn") is not None:
         out["layer_arn"] = data["LayerArn"]
-    if "LayerVersionArn" in data:
+    if data.get("LayerVersionArn") is not None:
         out["layer_version_arn"] = data["LayerVersionArn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         out["created_date"] = data["CreatedDate"]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
     else:
         out["version"] = 0
-    if "CompatibleArchitectures" in data:
+    if data.get("CompatibleArchitectures") is not None:
         import capo_lambda.types.compatible_architectures
 
         out["compatible_architectures"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> GetLayerVersionResponse:
                 data["CompatibleArchitectures"]
             )
         )
-    if "CompatibleRuntimes" in data:
+    if data.get("CompatibleRuntimes") is not None:
         import capo_lambda.types.compatible_runtimes
 
         out["compatible_runtimes"] = (
@@ -122,6 +122,6 @@ def deserialize_json(data: dict) -> GetLayerVersionResponse:
                 data["CompatibleRuntimes"]
             )
         )
-    if "LicenseInfo" in data:
+    if data.get("LicenseInfo") is not None:
         out["license_info"] = data["LicenseInfo"]
     return out

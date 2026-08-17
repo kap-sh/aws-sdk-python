@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> SageMakerPipelineParameterList:
 
     out: SageMakerPipelineParameterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_scheduler.types.sage_maker_pipeline_parameter.deserialize_json(item)
         )

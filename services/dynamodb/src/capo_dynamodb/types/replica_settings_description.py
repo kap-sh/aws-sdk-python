@@ -115,11 +115,11 @@ def serialize_aws_json_1_0(value: ReplicaSettingsDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
     out: ReplicaSettingsDescription = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     else:
         raise DeserializationError("ReplicaSettingsDescription.region_name required")
-    if "ReplicaStatus" in data:
+    if data.get("ReplicaStatus") is not None:
         import capo_dynamodb.types.replica_status
 
         out["replica_status"] = (
@@ -127,7 +127,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
                 data["ReplicaStatus"]
             )
         )
-    if "ReplicaBillingModeSummary" in data:
+    if data.get("ReplicaBillingModeSummary") is not None:
         import capo_dynamodb.types.billing_mode_summary
 
         out["replica_billing_mode_summary"] = (
@@ -135,11 +135,11 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
                 data["ReplicaBillingModeSummary"]
             )
         )
-    if "ReplicaProvisionedReadCapacityUnits" in data:
+    if data.get("ReplicaProvisionedReadCapacityUnits") is not None:
         out["replica_provisioned_read_capacity_units"] = data[
             "ReplicaProvisionedReadCapacityUnits"
         ]
-    if "ReplicaProvisionedReadCapacityAutoScalingSettings" in data:
+    if data.get("ReplicaProvisionedReadCapacityAutoScalingSettings") is not None:
         import capo_dynamodb.types.auto_scaling_settings_description
 
         out["replica_provisioned_read_capacity_auto_scaling_settings"] = (
@@ -147,11 +147,11 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
                 data["ReplicaProvisionedReadCapacityAutoScalingSettings"]
             )
         )
-    if "ReplicaProvisionedWriteCapacityUnits" in data:
+    if data.get("ReplicaProvisionedWriteCapacityUnits") is not None:
         out["replica_provisioned_write_capacity_units"] = data[
             "ReplicaProvisionedWriteCapacityUnits"
         ]
-    if "ReplicaProvisionedWriteCapacityAutoScalingSettings" in data:
+    if data.get("ReplicaProvisionedWriteCapacityAutoScalingSettings") is not None:
         import capo_dynamodb.types.auto_scaling_settings_description
 
         out["replica_provisioned_write_capacity_auto_scaling_settings"] = (
@@ -159,7 +159,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
                 data["ReplicaProvisionedWriteCapacityAutoScalingSettings"]
             )
         )
-    if "ReplicaGlobalSecondaryIndexSettings" in data:
+    if data.get("ReplicaGlobalSecondaryIndexSettings") is not None:
         import capo_dynamodb.types.replica_global_secondary_index_settings_description_list
 
         out["replica_global_secondary_index_settings"] = (
@@ -167,7 +167,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsDescription:
                 data["ReplicaGlobalSecondaryIndexSettings"]
             )
         )
-    if "ReplicaTableClassSummary" in data:
+    if data.get("ReplicaTableClassSummary") is not None:
         import capo_dynamodb.types.table_class_summary
 
         out["replica_table_class_summary"] = (

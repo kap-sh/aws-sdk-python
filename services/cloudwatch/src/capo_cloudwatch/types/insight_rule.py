@@ -56,17 +56,17 @@ def serialize_aws_json_1_0(value: InsightRule) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InsightRule:
     out: InsightRule = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "Schema" in data:
+    if data.get("Schema") is not None:
         out["schema"] = data["Schema"]
-    if "Definition" in data:
+    if data.get("Definition") is not None:
         out["definition"] = data["Definition"]
-    if "ManagedRule" in data:
+    if data.get("ManagedRule") is not None:
         out["managed_rule"] = data["ManagedRule"]
-    if "ApplyOnTransformedLogs" in data:
+    if data.get("ApplyOnTransformedLogs") is not None:
         out["apply_on_transformed_logs"] = data["ApplyOnTransformedLogs"]
     return out
 

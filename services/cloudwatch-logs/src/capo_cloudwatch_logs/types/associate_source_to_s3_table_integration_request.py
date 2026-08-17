@@ -32,13 +32,13 @@ def serialize_aws_json_1_1(value: AssociateSourceToS3TableIntegrationRequest) ->
 
 def deserialize_aws_json_1_1(data: dict) -> AssociateSourceToS3TableIntegrationRequest:
     out: AssociateSourceToS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "integrationArn" in data:
+    if data.get("integrationArn") is not None:
         out["integration_arn"] = data["integrationArn"]
     else:
         raise DeserializationError(
             "AssociateSourceToS3TableIntegrationRequest.integration_arn required"
         )
-    if "dataSource" in data:
+    if data.get("dataSource") is not None:
         import capo_cloudwatch_logs.types.data_source
 
         out["data_source"] = (

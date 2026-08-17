@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: DeregisterTaskDefinitionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterTaskDefinitionResponse:
     out: DeregisterTaskDefinitionResponse = {}  # type: ignore[typeddict-item]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         import capo_ecs.types.task_definition
 
         out["task_definition"] = (

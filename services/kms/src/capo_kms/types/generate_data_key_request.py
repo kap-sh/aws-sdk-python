@@ -76,11 +76,11 @@ def serialize_aws_json_1_1(value: GenerateDataKeyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyRequest:
     out: GenerateDataKeyRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("GenerateDataKeyRequest.key_id required")
-    if "EncryptionContext" in data:
+    if data.get("EncryptionContext") is not None:
         import capo_kms.types.encryption_context_type
 
         out["encryption_context"] = (
@@ -88,26 +88,26 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyRequest:
                 data["EncryptionContext"]
             )
         )
-    if "NumberOfBytes" in data:
+    if data.get("NumberOfBytes") is not None:
         out["number_of_bytes"] = data["NumberOfBytes"]
-    if "KeySpec" in data:
+    if data.get("KeySpec") is not None:
         import capo_kms.types.data_key_spec
 
         out["key_spec"] = capo_kms.types.data_key_spec.deserialize_aws_json_1_1(
             data["KeySpec"]
         )
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "Recipient" in data:
+    if data.get("Recipient") is not None:
         import capo_kms.types.recipient_info
 
         out["recipient"] = capo_kms.types.recipient_info.deserialize_aws_json_1_1(
             data["Recipient"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

@@ -34,23 +34,23 @@ def serialize_aws_json_1_1(value: ProgressCounters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ProgressCounters:
     out: ProgressCounters = {}  # type: ignore[typeddict-item]
-    if "TotalSteps" in data:
+    if data.get("TotalSteps") is not None:
         out["total_steps"] = data["TotalSteps"]
     else:
         out["total_steps"] = 0
-    if "SuccessSteps" in data:
+    if data.get("SuccessSteps") is not None:
         out["success_steps"] = data["SuccessSteps"]
     else:
         out["success_steps"] = 0
-    if "FailedSteps" in data:
+    if data.get("FailedSteps") is not None:
         out["failed_steps"] = data["FailedSteps"]
     else:
         out["failed_steps"] = 0
-    if "CancelledSteps" in data:
+    if data.get("CancelledSteps") is not None:
         out["cancelled_steps"] = data["CancelledSteps"]
     else:
         out["cancelled_steps"] = 0
-    if "TimedOutSteps" in data:
+    if data.get("TimedOutSteps") is not None:
         out["timed_out_steps"] = data["TimedOutSteps"]
     else:
         out["timed_out_steps"] = 0

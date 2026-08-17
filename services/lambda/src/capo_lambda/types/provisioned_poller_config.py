@@ -39,10 +39,10 @@ def serialize_json(value: ProvisionedPollerConfig) -> dict:
 
 def deserialize_json(data: dict) -> ProvisionedPollerConfig:
     out: ProvisionedPollerConfig = {}  # type: ignore[typeddict-item]
-    if "MinimumPollers" in data:
+    if data.get("MinimumPollers") is not None:
         out["minimum_pollers"] = data["MinimumPollers"]
-    if "MaximumPollers" in data:
+    if data.get("MaximumPollers") is not None:
         out["maximum_pollers"] = data["MaximumPollers"]
-    if "PollerGroupName" in data:
+    if data.get("PollerGroupName") is not None:
         out["poller_group_name"] = data["PollerGroupName"]
     return out

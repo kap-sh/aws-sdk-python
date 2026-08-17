@@ -65,17 +65,17 @@ def serialize_aws_json_1_1(value: DescribeImageScanFindingsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImageScanFindingsResponse:
     out: DescribeImageScanFindingsResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "imageId" in data:
+    if data.get("imageId") is not None:
         import capo_ecr.types.image_identifier
 
         out["image_id"] = capo_ecr.types.image_identifier.deserialize_aws_json_1_1(
             data["imageId"]
         )
-    if "imageScanStatus" in data:
+    if data.get("imageScanStatus") is not None:
         import capo_ecr.types.image_scan_status
 
         out["image_scan_status"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImageScanFindingsResponse:
                 data["imageScanStatus"]
             )
         )
-    if "imageScanFindings" in data:
+    if data.get("imageScanFindings") is not None:
         import capo_ecr.types.image_scan_findings
 
         out["image_scan_findings"] = (
@@ -91,6 +91,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImageScanFindingsResponse:
                 data["imageScanFindings"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

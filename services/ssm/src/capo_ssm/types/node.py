@@ -55,23 +55,23 @@ def serialize_aws_json_1_1(value: Node) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Node:
     out: Node = {}  # type: ignore[typeddict-item]
-    if "CaptureTime" in data:
+    if data.get("CaptureTime") is not None:
         import capo_ssm.types.node_capture_time
 
         out["capture_time"] = capo_ssm.types.node_capture_time.deserialize_aws_json_1_1(
             data["CaptureTime"]
         )
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Owner" in data:
+    if data.get("Owner") is not None:
         import capo_ssm.types.node_owner_info
 
         out["owner"] = capo_ssm.types.node_owner_info.deserialize_aws_json_1_1(
             data["Owner"]
         )
-    if "Region" in data:
+    if data.get("Region") is not None:
         out["region"] = data["Region"]
-    if "NodeType" in data:
+    if data.get("NodeType") is not None:
         import capo_ssm.types.node_type
 
         out["node_type"] = capo_ssm.types.node_type.deserialize_aws_json_1_1(

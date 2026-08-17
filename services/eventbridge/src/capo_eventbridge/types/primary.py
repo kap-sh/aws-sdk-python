@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: Primary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Primary:
     out: Primary = {}  # type: ignore[typeddict-item]
-    if "HealthCheck" in data:
+    if data.get("HealthCheck") is not None:
         out["health_check"] = data["HealthCheck"]
     else:
         raise DeserializationError("Primary.health_check required")

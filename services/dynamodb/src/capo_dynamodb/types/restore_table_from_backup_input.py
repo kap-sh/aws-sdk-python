@@ -103,17 +103,17 @@ def serialize_aws_json_1_0(value: RestoreTableFromBackupInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
     out: RestoreTableFromBackupInput = {}  # type: ignore[typeddict-item]
-    if "TargetTableName" in data:
+    if data.get("TargetTableName") is not None:
         out["target_table_name"] = data["TargetTableName"]
     else:
         raise DeserializationError(
             "RestoreTableFromBackupInput.target_table_name required"
         )
-    if "BackupArn" in data:
+    if data.get("BackupArn") is not None:
         out["backup_arn"] = data["BackupArn"]
     else:
         raise DeserializationError("RestoreTableFromBackupInput.backup_arn required")
-    if "BillingModeOverride" in data:
+    if data.get("BillingModeOverride") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["billing_mode_override"] = (
@@ -121,7 +121,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
                 data["BillingModeOverride"]
             )
         )
-    if "GlobalSecondaryIndexOverride" in data:
+    if data.get("GlobalSecondaryIndexOverride") is not None:
         import capo_dynamodb.types.global_secondary_index_list
 
         out["global_secondary_index_override"] = (
@@ -129,7 +129,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
                 data["GlobalSecondaryIndexOverride"]
             )
         )
-    if "LocalSecondaryIndexOverride" in data:
+    if data.get("LocalSecondaryIndexOverride") is not None:
         import capo_dynamodb.types.local_secondary_index_list
 
         out["local_secondary_index_override"] = (
@@ -137,7 +137,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
                 data["LocalSecondaryIndexOverride"]
             )
         )
-    if "ProvisionedThroughputOverride" in data:
+    if data.get("ProvisionedThroughputOverride") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput_override"] = (
@@ -145,7 +145,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
                 data["ProvisionedThroughputOverride"]
             )
         )
-    if "OnDemandThroughputOverride" in data:
+    if data.get("OnDemandThroughputOverride") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput_override"] = (
@@ -153,7 +153,7 @@ def deserialize_aws_json_1_0(data: dict) -> RestoreTableFromBackupInput:
                 data["OnDemandThroughputOverride"]
             )
         )
-    if "SSESpecificationOverride" in data:
+    if data.get("SSESpecificationOverride") is not None:
         import capo_dynamodb.types.sse_specification
 
         out["sse_specification_override"] = (

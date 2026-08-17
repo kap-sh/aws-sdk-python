@@ -32,18 +32,18 @@ def serialize_aws_json_1_0(value: ChangeMessageVisibilityBatchRequestEntry) -> d
 
 def deserialize_aws_json_1_0(data: dict) -> ChangeMessageVisibilityBatchRequestEntry:
     out: ChangeMessageVisibilityBatchRequestEntry = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
     else:
         raise DeserializationError(
             "ChangeMessageVisibilityBatchRequestEntry.id required"
         )
-    if "ReceiptHandle" in data:
+    if data.get("ReceiptHandle") is not None:
         out["receipt_handle"] = data["ReceiptHandle"]
     else:
         raise DeserializationError(
             "ChangeMessageVisibilityBatchRequestEntry.receipt_handle required"
         )
-    if "VisibilityTimeout" in data:
+    if data.get("VisibilityTimeout") is not None:
         out["visibility_timeout"] = data["VisibilityTimeout"]
     return out

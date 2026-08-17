@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: AssociateKmsKeyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociateKmsKeyRequest:
     out: AssociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     else:
         raise DeserializationError("AssociateKmsKeyRequest.kms_key_id required")
-    if "resourceIdentifier" in data:
+    if data.get("resourceIdentifier") is not None:
         out["resource_identifier"] = data["resourceIdentifier"]
     return out

@@ -35,10 +35,10 @@ def serialize_aws_json_1_1(value: DescribeDestinationsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDestinationsRequest:
     out: DescribeDestinationsRequest = {}  # type: ignore[typeddict-item]
-    if "DestinationNamePrefix" in data:
+    if data.get("DestinationNamePrefix") is not None:
         out["destination_name_prefix"] = data["DestinationNamePrefix"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

@@ -68,13 +68,13 @@ def serialize_aws_json_1_0(value: StateExitedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StateExitedEventDetails:
     out: StateExitedEventDetails = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("StateExitedEventDetails.name required")
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "outputDetails" in data:
+    if data.get("outputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["output_details"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_0(data: dict) -> StateExitedEventDetails:
                 data["outputDetails"]
             )
         )
-    if "assignedVariables" in data:
+    if data.get("assignedVariables") is not None:
         import capo_sfn.types.assigned_variables
 
         out["assigned_variables"] = (
@@ -90,7 +90,7 @@ def deserialize_aws_json_1_0(data: dict) -> StateExitedEventDetails:
                 data["assignedVariables"]
             )
         )
-    if "assignedVariablesDetails" in data:
+    if data.get("assignedVariablesDetails") is not None:
         import capo_sfn.types.assigned_variables_details
 
         out["assigned_variables_details"] = (

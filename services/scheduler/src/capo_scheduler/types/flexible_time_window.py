@@ -31,10 +31,10 @@ def serialize_json(value: FlexibleTimeWindow) -> dict:
 
 def deserialize_json(data: dict) -> FlexibleTimeWindow:
     out: FlexibleTimeWindow = {}  # type: ignore[typeddict-item]
-    if "Mode" in data:
+    if data.get("Mode") is not None:
         out["mode"] = data["Mode"]
     else:
         raise DeserializationError("FlexibleTimeWindow.mode required")
-    if "MaximumWindowInMinutes" in data:
+    if data.get("MaximumWindowInMinutes") is not None:
         out["maximum_window_in_minutes"] = data["MaximumWindowInMinutes"]
     return out

@@ -46,11 +46,11 @@ def serialize_aws_json_1_0(value: DashboardEntry) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DashboardEntry:
     out: DashboardEntry = {}  # type: ignore[typeddict-item]
-    if "DashboardName" in data:
+    if data.get("DashboardName") is not None:
         out["dashboard_name"] = data["DashboardName"]
-    if "DashboardArn" in data:
+    if data.get("DashboardArn") is not None:
         out["dashboard_arn"] = data["DashboardArn"]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         import capo_cloudwatch.types.last_modified
 
         out["last_modified"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_0(data: dict) -> DashboardEntry:
                 data["LastModified"]
             )
         )
-    if "Size" in data:
+    if data.get("Size") is not None:
         out["size"] = data["Size"]
     return out
 

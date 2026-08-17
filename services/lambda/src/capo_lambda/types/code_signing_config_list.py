@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> CodeSigningConfigList:
 
     out: CodeSigningConfigList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.code_signing_config.deserialize_json(item))
     return out

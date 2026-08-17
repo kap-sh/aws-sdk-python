@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: UpdateConnectionApiKeyAuthRequestParameters) -
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionApiKeyAuthRequestParameters:
     out: UpdateConnectionApiKeyAuthRequestParameters = {}  # type: ignore[typeddict-item]
-    if "ApiKeyName" in data:
+    if data.get("ApiKeyName") is not None:
         out["api_key_name"] = data["ApiKeyName"]
-    if "ApiKeyValue" in data:
+    if data.get("ApiKeyValue") is not None:
         out["api_key_value"] = data["ApiKeyValue"]
     return out

@@ -87,19 +87,19 @@ def serialize_aws_json_1_1(value: CreateClusterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateClusterRequest:
     out: CreateClusterRequest = {}  # type: ignore[typeddict-item]
-    if "clusterName" in data:
+    if data.get("clusterName") is not None:
         out["cluster_name"] = data["clusterName"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "settings" in data:
+    if data.get("settings") is not None:
         import capo_ecs.types.cluster_settings
 
         out["settings"] = capo_ecs.types.cluster_settings.deserialize_aws_json_1_1(
             data["settings"]
         )
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         import capo_ecs.types.cluster_configuration
 
         out["configuration"] = (
@@ -107,13 +107,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateClusterRequest:
                 data["configuration"]
             )
         )
-    if "capacityProviders" in data:
+    if data.get("capacityProviders") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_providers"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["capacityProviders"]
         )
-    if "defaultCapacityProviderStrategy" in data:
+    if data.get("defaultCapacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["default_capacity_provider_strategy"] = (
@@ -121,7 +121,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateClusterRequest:
                 data["defaultCapacityProviderStrategy"]
             )
         )
-    if "serviceConnectDefaults" in data:
+    if data.get("serviceConnectDefaults") is not None:
         import capo_ecs.types.cluster_service_connect_defaults_request
 
         out["service_connect_defaults"] = (

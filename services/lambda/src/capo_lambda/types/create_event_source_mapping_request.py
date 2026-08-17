@@ -277,27 +277,27 @@ def serialize_json(value: CreateEventSourceMappingRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
     out: CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
-    if "FunctionName" in data:
+    if data.get("FunctionName") is not None:
         out["function_name"] = data["FunctionName"]
     else:
         raise DeserializationError(
             "CreateEventSourceMappingRequest.function_name required"
         )
-    if "Enabled" in data:
+    if data.get("Enabled") is not None:
         out["enabled"] = data["Enabled"]
-    if "BatchSize" in data:
+    if data.get("BatchSize") is not None:
         out["batch_size"] = data["BatchSize"]
-    if "FilterCriteria" in data:
+    if data.get("FilterCriteria") is not None:
         import capo_lambda.types.filter_criteria
 
         out["filter_criteria"] = capo_lambda.types.filter_criteria.deserialize_json(
             data["FilterCriteria"]
         )
-    if "KMSKeyArn" in data:
+    if data.get("KMSKeyArn") is not None:
         out["kms_key_arn"] = data["KMSKeyArn"]
-    if "MetricsConfig" in data:
+    if data.get("MetricsConfig") is not None:
         import capo_lambda.types.event_source_mapping_metrics_config
 
         out["metrics_config"] = (
@@ -305,7 +305,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["MetricsConfig"]
             )
         )
-    if "LoggingConfig" in data:
+    if data.get("LoggingConfig") is not None:
         import capo_lambda.types.event_source_mapping_logging_config
 
         out["logging_config"] = (
@@ -313,19 +313,19 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["LoggingConfig"]
             )
         )
-    if "ScalingConfig" in data:
+    if data.get("ScalingConfig") is not None:
         import capo_lambda.types.scaling_config
 
         out["scaling_config"] = capo_lambda.types.scaling_config.deserialize_json(
             data["ScalingConfig"]
         )
-    if "MaximumBatchingWindowInSeconds" in data:
+    if data.get("MaximumBatchingWindowInSeconds") is not None:
         out["maximum_batching_window_in_seconds"] = data[
             "MaximumBatchingWindowInSeconds"
         ]
-    if "ParallelizationFactor" in data:
+    if data.get("ParallelizationFactor") is not None:
         out["parallelization_factor"] = data["ParallelizationFactor"]
-    if "StartingPosition" in data:
+    if data.get("StartingPosition") is not None:
         import capo_lambda.types.event_source_position
 
         out["starting_position"] = (
@@ -333,13 +333,13 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["StartingPosition"]
             )
         )
-    if "StartingPositionTimestamp" in data:
+    if data.get("StartingPositionTimestamp") is not None:
         import capo_lambda.types.date
 
         out["starting_position_timestamp"] = capo_lambda.types.date.deserialize_json(
             data["StartingPositionTimestamp"]
         )
-    if "DestinationConfig" in data:
+    if data.get("DestinationConfig") is not None:
         import capo_lambda.types.destination_config
 
         out["destination_config"] = (
@@ -347,27 +347,27 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["DestinationConfig"]
             )
         )
-    if "MaximumRecordAgeInSeconds" in data:
+    if data.get("MaximumRecordAgeInSeconds") is not None:
         out["maximum_record_age_in_seconds"] = data["MaximumRecordAgeInSeconds"]
-    if "BisectBatchOnFunctionError" in data:
+    if data.get("BisectBatchOnFunctionError") is not None:
         out["bisect_batch_on_function_error"] = data["BisectBatchOnFunctionError"]
-    if "MaximumRetryAttempts" in data:
+    if data.get("MaximumRetryAttempts") is not None:
         out["maximum_retry_attempts"] = data["MaximumRetryAttempts"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_lambda.types.tags
 
         out["tags"] = capo_lambda.types.tags.deserialize_json(data["Tags"])
-    if "TumblingWindowInSeconds" in data:
+    if data.get("TumblingWindowInSeconds") is not None:
         out["tumbling_window_in_seconds"] = data["TumblingWindowInSeconds"]
-    if "Topics" in data:
+    if data.get("Topics") is not None:
         import capo_lambda.types.topics
 
         out["topics"] = capo_lambda.types.topics.deserialize_json(data["Topics"])
-    if "Queues" in data:
+    if data.get("Queues") is not None:
         import capo_lambda.types.queues
 
         out["queues"] = capo_lambda.types.queues.deserialize_json(data["Queues"])
-    if "SourceAccessConfigurations" in data:
+    if data.get("SourceAccessConfigurations") is not None:
         import capo_lambda.types.source_access_configurations
 
         out["source_access_configurations"] = (
@@ -375,7 +375,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["SourceAccessConfigurations"]
             )
         )
-    if "SelfManagedEventSource" in data:
+    if data.get("SelfManagedEventSource") is not None:
         import capo_lambda.types.self_managed_event_source
 
         out["self_managed_event_source"] = (
@@ -383,7 +383,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["SelfManagedEventSource"]
             )
         )
-    if "FunctionResponseTypes" in data:
+    if data.get("FunctionResponseTypes") is not None:
         import capo_lambda.types.function_response_type_list
 
         out["function_response_types"] = (
@@ -391,7 +391,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["FunctionResponseTypes"]
             )
         )
-    if "AmazonManagedKafkaEventSourceConfig" in data:
+    if data.get("AmazonManagedKafkaEventSourceConfig") is not None:
         import capo_lambda.types.amazon_managed_kafka_event_source_config
 
         out["amazon_managed_kafka_event_source_config"] = (
@@ -399,7 +399,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["AmazonManagedKafkaEventSourceConfig"]
             )
         )
-    if "SelfManagedKafkaEventSourceConfig" in data:
+    if data.get("SelfManagedKafkaEventSourceConfig") is not None:
         import capo_lambda.types.self_managed_kafka_event_source_config
 
         out["self_managed_kafka_event_source_config"] = (
@@ -407,7 +407,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["SelfManagedKafkaEventSourceConfig"]
             )
         )
-    if "DocumentDBEventSourceConfig" in data:
+    if data.get("DocumentDBEventSourceConfig") is not None:
         import capo_lambda.types.document_db_event_source_config
 
         out["document_db_event_source_config"] = (
@@ -415,7 +415,7 @@ def deserialize_json(data: dict) -> CreateEventSourceMappingRequest:
                 data["DocumentDBEventSourceConfig"]
             )
         )
-    if "ProvisionedPollerConfig" in data:
+    if data.get("ProvisionedPollerConfig") is not None:
         import capo_lambda.types.provisioned_poller_config
 
         out["provisioned_poller_config"] = (

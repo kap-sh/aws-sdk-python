@@ -110,9 +110,9 @@ def serialize_aws_json_1_1(value: InstanceLaunchTemplateUpdate) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
     out: InstanceLaunchTemplateUpdate = {}  # type: ignore[typeddict-item]
-    if "ec2InstanceProfileArn" in data:
+    if data.get("ec2InstanceProfileArn") is not None:
         out["ec2_instance_profile_arn"] = data["ec2InstanceProfileArn"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.managed_instances_network_configuration
 
         out["network_configuration"] = (
@@ -120,7 +120,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
                 data["networkConfiguration"]
             )
         )
-    if "storageConfiguration" in data:
+    if data.get("storageConfiguration") is not None:
         import capo_ecs.types.managed_instances_storage_configuration
 
         out["storage_configuration"] = (
@@ -128,11 +128,11 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
                 data["storageConfiguration"]
             )
         )
-    if "instanceMetadataTagsPropagation" in data:
+    if data.get("instanceMetadataTagsPropagation") is not None:
         out["instance_metadata_tags_propagation"] = data[
             "instanceMetadataTagsPropagation"
         ]
-    if "localStorageConfiguration" in data:
+    if data.get("localStorageConfiguration") is not None:
         import capo_ecs.types.managed_instances_local_storage_configuration
 
         out["local_storage_configuration"] = (
@@ -140,7 +140,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
                 data["localStorageConfiguration"]
             )
         )
-    if "monitoring" in data:
+    if data.get("monitoring") is not None:
         import capo_ecs.types.managed_instances_monitoring_options
 
         out["monitoring"] = (
@@ -148,7 +148,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
                 data["monitoring"]
             )
         )
-    if "instanceRequirements" in data:
+    if data.get("instanceRequirements") is not None:
         import capo_ecs.types.instance_requirements_request
 
         out["instance_requirements"] = (
@@ -156,7 +156,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplateUpdate:
                 data["instanceRequirements"]
             )
         )
-    if "capacityReservations" in data:
+    if data.get("capacityReservations") is not None:
         import capo_ecs.types.capacity_reservation_request
 
         out["capacity_reservations"] = (

@@ -43,14 +43,14 @@ def serialize_aws_json_1_0(value: InspectionDataResponse) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InspectionDataResponse:
     out: InspectionDataResponse = {}  # type: ignore[typeddict-item]
-    if "protocol" in data:
+    if data.get("protocol") is not None:
         out["protocol"] = data["protocol"]
-    if "statusCode" in data:
+    if data.get("statusCode") is not None:
         out["status_code"] = data["statusCode"]
-    if "statusMessage" in data:
+    if data.get("statusMessage") is not None:
         out["status_message"] = data["statusMessage"]
-    if "headers" in data:
+    if data.get("headers") is not None:
         out["headers"] = data["headers"]
-    if "body" in data:
+    if data.get("body") is not None:
         out["body"] = data["body"]
     return out

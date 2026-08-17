@@ -44,15 +44,15 @@ def serialize_aws_json_1_1(value: DescribeImageReplicationStatusResponse) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImageReplicationStatusResponse:
     out: DescribeImageReplicationStatusResponse = {}  # type: ignore[typeddict-item]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "imageId" in data:
+    if data.get("imageId") is not None:
         import capo_ecr.types.image_identifier
 
         out["image_id"] = capo_ecr.types.image_identifier.deserialize_aws_json_1_1(
             data["imageId"]
         )
-    if "replicationStatuses" in data:
+    if data.get("replicationStatuses") is not None:
         import capo_ecr.types.image_replication_status_list
 
         out["replication_statuses"] = (

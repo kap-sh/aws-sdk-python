@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> TargetPreviewList:
 
     out: TargetPreviewList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.target_preview.deserialize_aws_json_1_1(item))
     return out

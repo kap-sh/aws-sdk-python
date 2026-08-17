@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: PutTransformerRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutTransformerRequest:
     out: PutTransformerRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
     else:
         raise DeserializationError(
             "PutTransformerRequest.log_group_identifier required"
         )
-    if "transformerConfig" in data:
+    if data.get("transformerConfig") is not None:
         import capo_cloudwatch_logs.types.processors
 
         out["transformer_config"] = (

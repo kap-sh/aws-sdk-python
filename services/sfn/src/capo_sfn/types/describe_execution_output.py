@@ -146,17 +146,17 @@ def serialize_aws_json_1_0(value: DescribeExecutionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
     out: DescribeExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("DescribeExecutionOutput.execution_arn required")
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("DescribeExecutionOutput.state_machine_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_sfn.types.execution_status
 
         out["status"] = capo_sfn.types.execution_status.deserialize_aws_json_1_0(
@@ -164,7 +164,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
         )
     else:
         raise DeserializationError("DescribeExecutionOutput.status required")
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -172,15 +172,15 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
         )
     else:
         raise DeserializationError("DescribeExecutionOutput.start_date required")
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
             data["stopDate"]
         )
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.cloud_watch_events_execution_data_details
 
         out["input_details"] = (
@@ -188,9 +188,9 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
                 data["inputDetails"]
             )
         )
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "outputDetails" in data:
+    if data.get("outputDetails") is not None:
         import capo_sfn.types.cloud_watch_events_execution_data_details
 
         out["output_details"] = (
@@ -198,27 +198,27 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
                 data["outputDetails"]
             )
         )
-    if "traceHeader" in data:
+    if data.get("traceHeader") is not None:
         out["trace_header"] = data["traceHeader"]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
-    if "redriveCount" in data:
+    if data.get("redriveCount") is not None:
         out["redrive_count"] = data["redriveCount"]
-    if "redriveDate" in data:
+    if data.get("redriveDate") is not None:
         import capo_sfn.types.timestamp
 
         out["redrive_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
             data["redriveDate"]
         )
-    if "redriveStatus" in data:
+    if data.get("redriveStatus") is not None:
         import capo_sfn.types.execution_redrive_status
 
         out["redrive_status"] = (
@@ -226,6 +226,6 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeExecutionOutput:
                 data["redriveStatus"]
             )
         )
-    if "redriveStatusReason" in data:
+    if data.get("redriveStatusReason") is not None:
         out["redrive_status_reason"] = data["redriveStatusReason"]
     return out

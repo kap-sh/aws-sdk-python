@@ -83,21 +83,21 @@ def serialize_aws_json_1_1(value: ExportTask) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExportTask:
     out: ExportTask = {}  # type: ignore[typeddict-item]
-    if "taskId" in data:
+    if data.get("taskId") is not None:
         out["task_id"] = data["taskId"]
-    if "taskName" in data:
+    if data.get("taskName") is not None:
         out["task_name"] = data["taskName"]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "from" in data:
+    if data.get("from") is not None:
         out["from"] = data["from"]
-    if "to" in data:
+    if data.get("to") is not None:
         out["to"] = data["to"]
-    if "destination" in data:
+    if data.get("destination") is not None:
         out["destination"] = data["destination"]
-    if "destinationPrefix" in data:
+    if data.get("destinationPrefix") is not None:
         out["destination_prefix"] = data["destinationPrefix"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.export_task_status
 
         out["status"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExportTask:
                 data["status"]
             )
         )
-    if "executionInfo" in data:
+    if data.get("executionInfo") is not None:
         import capo_cloudwatch_logs.types.export_task_execution_info
 
         out["execution_info"] = (

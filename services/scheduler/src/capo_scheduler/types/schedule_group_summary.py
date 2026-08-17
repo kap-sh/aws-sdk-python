@@ -55,19 +55,19 @@ def serialize_json(value: ScheduleGroupSummary) -> dict:
 
 def deserialize_json(data: dict) -> ScheduleGroupSummary:
     out: ScheduleGroupSummary = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_scheduler.types.creation_date
 
         out["creation_date"] = capo_scheduler.types.creation_date.deserialize_json(
             data["CreationDate"]
         )
-    if "LastModificationDate" in data:
+    if data.get("LastModificationDate") is not None:
         import capo_scheduler.types.last_modification_date
 
         out["last_modification_date"] = (

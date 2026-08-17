@@ -37,7 +37,7 @@ def serialize_json(value: ListFunctionUrlConfigsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListFunctionUrlConfigsResponse:
     out: ListFunctionUrlConfigsResponse = {}  # type: ignore[typeddict-item]
-    if "FunctionUrlConfigs" in data:
+    if data.get("FunctionUrlConfigs") is not None:
         import capo_lambda.types.function_url_config_list
 
         out["function_url_configs"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListFunctionUrlConfigsResponse:
         raise DeserializationError(
             "ListFunctionUrlConfigsResponse.function_url_configs required"
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

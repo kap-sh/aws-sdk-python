@@ -34,11 +34,11 @@ def serialize_aws_json_1_0(value: UpdateContinuousBackupsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateContinuousBackupsInput:
     out: UpdateContinuousBackupsInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("UpdateContinuousBackupsInput.table_name required")
-    if "PointInTimeRecoverySpecification" in data:
+    if data.get("PointInTimeRecoverySpecification") is not None:
         import capo_dynamodb.types.point_in_time_recovery_specification
 
         out["point_in_time_recovery_specification"] = (

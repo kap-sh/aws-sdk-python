@@ -30,13 +30,13 @@ def serialize_aws_json_1_1(value: GetMaintenanceWindowExecutionTaskRequest) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionTaskRequest:
     out: GetMaintenanceWindowExecutionTaskRequest = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionId" in data:
+    if data.get("WindowExecutionId") is not None:
         out["window_execution_id"] = data["WindowExecutionId"]
     else:
         raise DeserializationError(
             "GetMaintenanceWindowExecutionTaskRequest.window_execution_id required"
         )
-    if "TaskId" in data:
+    if data.get("TaskId") is not None:
         out["task_id"] = data["TaskId"]
     else:
         raise DeserializationError(

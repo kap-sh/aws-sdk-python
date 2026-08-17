@@ -49,7 +49,7 @@ def serialize_aws_json_1_1(value: BatchGetSecretValueResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchGetSecretValueResponse:
     out: BatchGetSecretValueResponse = {}  # type: ignore[typeddict-item]
-    if "SecretValues" in data:
+    if data.get("SecretValues") is not None:
         import capo_secrets_manager.types.secret_values_type
 
         out["secret_values"] = (
@@ -57,9 +57,9 @@ def deserialize_aws_json_1_1(data: dict) -> BatchGetSecretValueResponse:
                 data["SecretValues"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Errors" in data:
+    if data.get("Errors") is not None:
         import capo_secrets_manager.types.api_error_list_type
 
         out["errors"] = (

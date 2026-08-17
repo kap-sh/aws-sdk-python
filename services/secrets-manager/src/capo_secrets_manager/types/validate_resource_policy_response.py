@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: ValidateResourcePolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ValidateResourcePolicyResponse:
     out: ValidateResourcePolicyResponse = {}  # type: ignore[typeddict-item]
-    if "PolicyValidationPassed" in data:
+    if data.get("PolicyValidationPassed") is not None:
         out["policy_validation_passed"] = data["PolicyValidationPassed"]
     else:
         out["policy_validation_passed"] = False
-    if "ValidationErrors" in data:
+    if data.get("ValidationErrors") is not None:
         import capo_secrets_manager.types.validation_errors_type
 
         out["validation_errors"] = (

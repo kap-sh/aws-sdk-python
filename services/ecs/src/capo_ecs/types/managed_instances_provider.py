@@ -71,9 +71,9 @@ def serialize_aws_json_1_1(value: ManagedInstancesProvider) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesProvider:
     out: ManagedInstancesProvider = {}  # type: ignore[typeddict-item]
-    if "infrastructureRoleArn" in data:
+    if data.get("infrastructureRoleArn") is not None:
         out["infrastructure_role_arn"] = data["infrastructureRoleArn"]
-    if "instanceLaunchTemplate" in data:
+    if data.get("instanceLaunchTemplate") is not None:
         import capo_ecs.types.instance_launch_template
 
         out["instance_launch_template"] = (
@@ -81,7 +81,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesProvider:
                 data["instanceLaunchTemplate"]
             )
         )
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_mi_tags
 
         out["propagate_tags"] = (
@@ -89,7 +89,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesProvider:
                 data["propagateTags"]
             )
         )
-    if "infrastructureOptimization" in data:
+    if data.get("infrastructureOptimization") is not None:
         import capo_ecs.types.infrastructure_optimization
 
         out["infrastructure_optimization"] = (
@@ -97,7 +97,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesProvider:
                 data["infrastructureOptimization"]
             )
         )
-    if "autoRepairConfiguration" in data:
+    if data.get("autoRepairConfiguration") is not None:
         import capo_ecs.types.auto_repair_configuration
 
         out["auto_repair_configuration"] = (

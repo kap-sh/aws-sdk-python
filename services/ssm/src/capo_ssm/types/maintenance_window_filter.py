@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: MaintenanceWindowFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowFilter:
     out: MaintenanceWindowFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.maintenance_window_filter_values
 
         out["values"] = (

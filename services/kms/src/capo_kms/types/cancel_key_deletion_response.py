@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: CancelKeyDeletionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelKeyDeletionResponse:
     out: CancelKeyDeletionResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     return out

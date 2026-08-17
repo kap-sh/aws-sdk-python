@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: UpdateTableReplicaAutoScalingOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateTableReplicaAutoScalingOutput:
     out: UpdateTableReplicaAutoScalingOutput = {}  # type: ignore[typeddict-item]
-    if "TableAutoScalingDescription" in data:
+    if data.get("TableAutoScalingDescription") is not None:
         import capo_dynamodb.types.table_auto_scaling_description
 
         out["table_auto_scaling_description"] = (

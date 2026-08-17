@@ -41,18 +41,18 @@ def serialize_json(value: CheckpointDurableExecutionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CheckpointDurableExecutionRequest:
     out: CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "CheckpointToken" in data:
+    if data.get("CheckpointToken") is not None:
         out["checkpoint_token"] = data["CheckpointToken"]
     else:
         raise DeserializationError(
             "CheckpointDurableExecutionRequest.checkpoint_token required"
         )
-    if "Updates" in data:
+    if data.get("Updates") is not None:
         import capo_lambda.types.operation_updates
 
         out["updates"] = capo_lambda.types.operation_updates.deserialize_json(
             data["Updates"]
         )
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
     return out

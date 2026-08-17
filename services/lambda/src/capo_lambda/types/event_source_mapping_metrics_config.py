@@ -31,7 +31,7 @@ def serialize_json(value: EventSourceMappingMetricsConfig) -> dict:
 
 def deserialize_json(data: dict) -> EventSourceMappingMetricsConfig:
     out: EventSourceMappingMetricsConfig = {}  # type: ignore[typeddict-item]
-    if "Metrics" in data:
+    if data.get("Metrics") is not None:
         import capo_lambda.types.event_source_mapping_metric_list
 
         out["metrics"] = (

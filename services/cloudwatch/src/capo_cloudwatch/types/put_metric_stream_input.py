@@ -105,9 +105,9 @@ def serialize_aws_json_1_0(value: PutMetricStreamInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
     out: PutMetricStreamInput = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "IncludeFilters" in data:
+    if data.get("IncludeFilters") is not None:
         import capo_cloudwatch.types.metric_stream_filters
 
         out["include_filters"] = (
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
                 data["IncludeFilters"]
             )
         )
-    if "ExcludeFilters" in data:
+    if data.get("ExcludeFilters") is not None:
         import capo_cloudwatch.types.metric_stream_filters
 
         out["exclude_filters"] = (
@@ -123,11 +123,11 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
                 data["ExcludeFilters"]
             )
         )
-    if "FirehoseArn" in data:
+    if data.get("FirehoseArn") is not None:
         out["firehose_arn"] = data["FirehoseArn"]
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
-    if "OutputFormat" in data:
+    if data.get("OutputFormat") is not None:
         import capo_cloudwatch.types.metric_stream_output_format
 
         out["output_format"] = (
@@ -135,13 +135,13 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
                 data["OutputFormat"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(
             data["Tags"]
         )
-    if "StatisticsConfigurations" in data:
+    if data.get("StatisticsConfigurations") is not None:
         import capo_cloudwatch.types.metric_stream_statistics_configurations
 
         out["statistics_configurations"] = (
@@ -149,7 +149,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricStreamInput:
                 data["StatisticsConfigurations"]
             )
         )
-    if "IncludeLinkedAccountsMetrics" in data:
+    if data.get("IncludeLinkedAccountsMetrics") is not None:
         out["include_linked_accounts_metrics"] = data["IncludeLinkedAccountsMetrics"]
     return out
 

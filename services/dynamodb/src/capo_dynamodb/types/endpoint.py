@@ -28,11 +28,11 @@ def serialize_aws_json_1_0(value: Endpoint) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Endpoint:
     out: Endpoint = {}  # type: ignore[typeddict-item]
-    if "Address" in data:
+    if data.get("Address") is not None:
         out["address"] = data["Address"]
     else:
         raise DeserializationError("Endpoint.address required")
-    if "CachePeriodInMinutes" in data:
+    if data.get("CachePeriodInMinutes") is not None:
         out["cache_period_in_minutes"] = data["CachePeriodInMinutes"]
     else:
         out["cache_period_in_minutes"] = 0

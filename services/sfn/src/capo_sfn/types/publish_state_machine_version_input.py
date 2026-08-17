@@ -34,14 +34,14 @@ def serialize_aws_json_1_0(value: PublishStateMachineVersionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PublishStateMachineVersionInput:
     out: PublishStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError(
             "PublishStateMachineVersionInput.state_machine_arn required"
         )
-    if "revisionId" in data:
+    if data.get("revisionId") is not None:
         out["revision_id"] = data["revisionId"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

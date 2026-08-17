@@ -34,12 +34,12 @@ def serialize_aws_json_1_1(value: TransformedLogRecord) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TransformedLogRecord:
     out: TransformedLogRecord = {}  # type: ignore[typeddict-item]
-    if "eventNumber" in data:
+    if data.get("eventNumber") is not None:
         out["event_number"] = data["eventNumber"]
     else:
         out["event_number"] = 0
-    if "eventMessage" in data:
+    if data.get("eventMessage") is not None:
         out["event_message"] = data["eventMessage"]
-    if "transformedEventMessage" in data:
+    if data.get("transformedEventMessage") is not None:
         out["transformed_event_message"] = data["transformedEventMessage"]
     return out

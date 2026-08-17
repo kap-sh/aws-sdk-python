@@ -57,19 +57,19 @@ def serialize_json(value: FunctionEventInvokeConfig) -> dict:
 
 def deserialize_json(data: dict) -> FunctionEventInvokeConfig:
     out: FunctionEventInvokeConfig = {}  # type: ignore[typeddict-item]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         import capo_lambda.types.date
 
         out["last_modified"] = capo_lambda.types.date.deserialize_json(
             data["LastModified"]
         )
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
-    if "MaximumRetryAttempts" in data:
+    if data.get("MaximumRetryAttempts") is not None:
         out["maximum_retry_attempts"] = data["MaximumRetryAttempts"]
-    if "MaximumEventAgeInSeconds" in data:
+    if data.get("MaximumEventAgeInSeconds") is not None:
         out["maximum_event_age_in_seconds"] = data["MaximumEventAgeInSeconds"]
-    if "DestinationConfig" in data:
+    if data.get("DestinationConfig") is not None:
         import capo_lambda.types.destination_config
 
         out["destination_config"] = (

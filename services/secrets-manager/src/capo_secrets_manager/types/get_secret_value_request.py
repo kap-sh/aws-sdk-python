@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: GetSecretValueRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetSecretValueRequest:
     out: GetSecretValueRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("GetSecretValueRequest.secret_id required")
-    if "VersionId" in data:
+    if data.get("VersionId") is not None:
         out["version_id"] = data["VersionId"]
-    if "VersionStage" in data:
+    if data.get("VersionStage") is not None:
         out["version_stage"] = data["VersionStage"]
     return out

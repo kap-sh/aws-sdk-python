@@ -45,11 +45,11 @@ def serialize_aws_json_1_1(value: InventoryFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryFilter:
     out: InventoryFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("InventoryFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.inventory_filter_value_list
 
         out["values"] = (
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_1(data: dict) -> InventoryFilter:
         )
     else:
         raise DeserializationError("InventoryFilter.values required")
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.inventory_query_operator_type
 
         out["type"] = (

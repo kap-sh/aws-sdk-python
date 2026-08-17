@@ -68,17 +68,17 @@ def serialize_aws_json_1_1(value: UpdateDaemonRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDaemonRequest:
     out: UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
     else:
         raise DeserializationError("UpdateDaemonRequest.daemon_arn required")
-    if "daemonTaskDefinitionArn" in data:
+    if data.get("daemonTaskDefinitionArn") is not None:
         out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
     else:
         raise DeserializationError(
             "UpdateDaemonRequest.daemon_task_definition_arn required"
         )
-    if "capacityProviderArns" in data:
+    if data.get("capacityProviderArns") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_provider_arns"] = (
@@ -90,7 +90,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDaemonRequest:
         raise DeserializationError(
             "UpdateDaemonRequest.capacity_provider_arns required"
         )
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.daemon_deployment_configuration
 
         out["deployment_configuration"] = (
@@ -98,7 +98,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDaemonRequest:
                 data["deploymentConfiguration"]
             )
         )
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.daemon_propagate_tags
 
         out["propagate_tags"] = (
@@ -106,11 +106,11 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDaemonRequest:
                 data["propagateTags"]
             )
         )
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False

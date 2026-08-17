@@ -36,7 +36,7 @@ def serialize_json(value: ListFunctionEventInvokeConfigsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListFunctionEventInvokeConfigsResponse:
     out: ListFunctionEventInvokeConfigsResponse = {}  # type: ignore[typeddict-item]
-    if "FunctionEventInvokeConfigs" in data:
+    if data.get("FunctionEventInvokeConfigs") is not None:
         import capo_lambda.types.function_event_invoke_config_list
 
         out["function_event_invoke_configs"] = (
@@ -44,6 +44,6 @@ def deserialize_json(data: dict) -> ListFunctionEventInvokeConfigsResponse:
                 data["FunctionEventInvokeConfigs"]
             )
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

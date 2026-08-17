@@ -39,15 +39,15 @@ def serialize_aws_json_1_1(value: InventoryDeletionSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionSummary:
     out: InventoryDeletionSummary = {}  # type: ignore[typeddict-item]
-    if "TotalCount" in data:
+    if data.get("TotalCount") is not None:
         out["total_count"] = data["TotalCount"]
     else:
         out["total_count"] = 0
-    if "RemainingCount" in data:
+    if data.get("RemainingCount") is not None:
         out["remaining_count"] = data["RemainingCount"]
     else:
         out["remaining_count"] = 0
-    if "SummaryItems" in data:
+    if data.get("SummaryItems") is not None:
         import capo_ssm.types.inventory_deletion_summary_items
 
         out["summary_items"] = (

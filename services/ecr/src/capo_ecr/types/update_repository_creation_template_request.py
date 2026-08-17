@@ -106,15 +106,15 @@ def serialize_aws_json_1_1(value: UpdateRepositoryCreationTemplateRequest) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateRepositoryCreationTemplateRequest:
     out: UpdateRepositoryCreationTemplateRequest = {}  # type: ignore[typeddict-item]
-    if "prefix" in data:
+    if data.get("prefix") is not None:
         out["prefix"] = data["prefix"]
     else:
         raise DeserializationError(
             "UpdateRepositoryCreationTemplateRequest.prefix required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_ecr.types.encryption_configuration_for_repository_creation_template
 
         out["encryption_configuration"] = (
@@ -122,13 +122,13 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateRepositoryCreationTemplateRequ
                 data["encryptionConfiguration"]
             )
         )
-    if "resourceTags" in data:
+    if data.get("resourceTags") is not None:
         import capo_ecr.types.tag_list
 
         out["resource_tags"] = capo_ecr.types.tag_list.deserialize_aws_json_1_1(
             data["resourceTags"]
         )
-    if "imageTagMutability" in data:
+    if data.get("imageTagMutability") is not None:
         import capo_ecr.types.image_tag_mutability
 
         out["image_tag_mutability"] = (
@@ -136,7 +136,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateRepositoryCreationTemplateRequ
                 data["imageTagMutability"]
             )
         )
-    if "imageTagMutabilityExclusionFilters" in data:
+    if data.get("imageTagMutabilityExclusionFilters") is not None:
         import capo_ecr.types.image_tag_mutability_exclusion_filters
 
         out["image_tag_mutability_exclusion_filters"] = (
@@ -144,11 +144,11 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateRepositoryCreationTemplateRequ
                 data["imageTagMutabilityExclusionFilters"]
             )
         )
-    if "repositoryPolicy" in data:
+    if data.get("repositoryPolicy") is not None:
         out["repository_policy"] = data["repositoryPolicy"]
-    if "lifecyclePolicy" in data:
+    if data.get("lifecyclePolicy") is not None:
         out["lifecycle_policy"] = data["lifecyclePolicy"]
-    if "appliedFor" in data:
+    if data.get("appliedFor") is not None:
         import capo_ecr.types.rct_applied_for_list
 
         out["applied_for"] = (
@@ -156,6 +156,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateRepositoryCreationTemplateRequ
                 data["appliedFor"]
             )
         )
-    if "customRoleArn" in data:
+    if data.get("customRoleArn") is not None:
         out["custom_role_arn"] = data["customRoleArn"]
     return out

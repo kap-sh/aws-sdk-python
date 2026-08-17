@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteDaemonTaskDefinitionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteDaemonTaskDefinitionRequest:
     out: DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "daemonTaskDefinition" in data:
+    if data.get("daemonTaskDefinition") is not None:
         out["daemon_task_definition"] = data["daemonTaskDefinition"]
     else:
         raise DeserializationError(

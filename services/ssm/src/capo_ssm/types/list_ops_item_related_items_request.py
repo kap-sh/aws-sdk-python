@@ -48,9 +48,9 @@ def serialize_aws_json_1_1(value: ListOpsItemRelatedItemsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListOpsItemRelatedItemsRequest:
     out: ListOpsItemRelatedItemsRequest = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.ops_item_related_items_filters
 
         out["filters"] = (
@@ -58,8 +58,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListOpsItemRelatedItemsRequest:
                 data["Filters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

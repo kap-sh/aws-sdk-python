@@ -90,17 +90,17 @@ def serialize_aws_json_1_0(value: DescribeAlarmHistoryInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryInput:
     out: DescribeAlarmHistoryInput = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmContributorId" in data:
+    if data.get("AlarmContributorId") is not None:
         out["alarm_contributor_id"] = data["AlarmContributorId"]
-    if "AlarmTypes" in data:
+    if data.get("AlarmTypes") is not None:
         import capo_cloudwatch.types.alarm_types
 
         out["alarm_types"] = capo_cloudwatch.types.alarm_types.deserialize_aws_json_1_0(
             data["AlarmTypes"]
         )
-    if "HistoryItemType" in data:
+    if data.get("HistoryItemType") is not None:
         import capo_cloudwatch.types.history_item_type
 
         out["history_item_type"] = (
@@ -108,23 +108,23 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmHistoryInput:
                 data["HistoryItemType"]
             )
         )
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartDate"]
         )
-    if "EndDate" in data:
+    if data.get("EndDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["end_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["EndDate"]
         )
-    if "MaxRecords" in data:
+    if data.get("MaxRecords") is not None:
         out["max_records"] = data["MaxRecords"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "ScanBy" in data:
+    if data.get("ScanBy") is not None:
         import capo_cloudwatch.types.scan_by
 
         out["scan_by"] = capo_cloudwatch.types.scan_by.deserialize_aws_json_1_0(

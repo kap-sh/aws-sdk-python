@@ -81,7 +81,7 @@ def serialize_aws_json_1_0(value: SourceTableFeatureDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SourceTableFeatureDetails:
     out: SourceTableFeatureDetails = {}  # type: ignore[typeddict-item]
-    if "LocalSecondaryIndexes" in data:
+    if data.get("LocalSecondaryIndexes") is not None:
         import capo_dynamodb.types.local_secondary_indexes
 
         out["local_secondary_indexes"] = (
@@ -89,7 +89,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableFeatureDetails:
                 data["LocalSecondaryIndexes"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.global_secondary_indexes
 
         out["global_secondary_indexes"] = (
@@ -97,7 +97,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableFeatureDetails:
                 data["GlobalSecondaryIndexes"]
             )
         )
-    if "StreamDescription" in data:
+    if data.get("StreamDescription") is not None:
         import capo_dynamodb.types.stream_specification
 
         out["stream_description"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableFeatureDetails:
                 data["StreamDescription"]
             )
         )
-    if "TimeToLiveDescription" in data:
+    if data.get("TimeToLiveDescription") is not None:
         import capo_dynamodb.types.time_to_live_description
 
         out["time_to_live_description"] = (
@@ -113,7 +113,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableFeatureDetails:
                 data["TimeToLiveDescription"]
             )
         )
-    if "SSEDescription" in data:
+    if data.get("SSEDescription") is not None:
         import capo_dynamodb.types.sse_description
 
         out["sse_description"] = (

@@ -77,9 +77,9 @@ def serialize_aws_json_1_1(value: SecretVersionsListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SecretVersionsListEntry:
     out: SecretVersionsListEntry = {}  # type: ignore[typeddict-item]
-    if "VersionId" in data:
+    if data.get("VersionId") is not None:
         out["version_id"] = data["VersionId"]
-    if "VersionStages" in data:
+    if data.get("VersionStages") is not None:
         import capo_secrets_manager.types.secret_version_stages_type
 
         out["version_stages"] = (
@@ -87,7 +87,7 @@ def deserialize_aws_json_1_1(data: dict) -> SecretVersionsListEntry:
                 data["VersionStages"]
             )
         )
-    if "LastAccessedDate" in data:
+    if data.get("LastAccessedDate") is not None:
         import capo_secrets_manager.types.last_accessed_date_type
 
         out["last_accessed_date"] = (
@@ -95,7 +95,7 @@ def deserialize_aws_json_1_1(data: dict) -> SecretVersionsListEntry:
                 data["LastAccessedDate"]
             )
         )
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_secrets_manager.types.created_date_type
 
         out["created_date"] = (
@@ -103,7 +103,7 @@ def deserialize_aws_json_1_1(data: dict) -> SecretVersionsListEntry:
                 data["CreatedDate"]
             )
         )
-    if "KmsKeyIds" in data:
+    if data.get("KmsKeyIds") is not None:
         import capo_secrets_manager.types.kms_key_id_list_type
 
         out["kms_key_ids"] = (

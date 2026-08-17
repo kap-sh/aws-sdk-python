@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: ResourceDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDetails:
     out: ResourceDetails = {}  # type: ignore[typeddict-item]
-    if "awsEcrContainerImage" in data:
+    if data.get("awsEcrContainerImage") is not None:
         import capo_ecr.types.aws_ecr_container_image_details
 
         out["aws_ecr_container_image"] = (

@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ClusterServiceConnectDefaults) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ClusterServiceConnectDefaults:
     out: ClusterServiceConnectDefaults = {}  # type: ignore[typeddict-item]
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
     return out

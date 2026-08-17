@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> InstanceProperties:
 
     out: InstanceProperties = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.instance_property.deserialize_aws_json_1_1(item))
     return out

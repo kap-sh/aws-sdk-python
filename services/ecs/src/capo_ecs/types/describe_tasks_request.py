@@ -40,9 +40,9 @@ def serialize_aws_json_1_1(value: DescribeTasksRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeTasksRequest:
     out: DescribeTasksRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "tasks" in data:
+    if data.get("tasks") is not None:
         import capo_ecs.types.string_list
 
         out["tasks"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeTasksRequest:
         )
     else:
         raise DeserializationError("DescribeTasksRequest.tasks required")
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.task_field_list
 
         out["include"] = capo_ecs.types.task_field_list.deserialize_aws_json_1_1(

@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: Failure) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Failure:
     out: Failure = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "detail" in data:
+    if data.get("detail") is not None:
         out["detail"] = data["detail"]
     return out

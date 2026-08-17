@@ -42,17 +42,17 @@ def serialize_json(value: LambdaManagedInstancesCapacityProviderConfig) -> dict:
 
 def deserialize_json(data: dict) -> LambdaManagedInstancesCapacityProviderConfig:
     out: LambdaManagedInstancesCapacityProviderConfig = {}  # type: ignore[typeddict-item]
-    if "CapacityProviderArn" in data:
+    if data.get("CapacityProviderArn") is not None:
         out["capacity_provider_arn"] = data["CapacityProviderArn"]
     else:
         raise DeserializationError(
             "LambdaManagedInstancesCapacityProviderConfig.capacity_provider_arn required"
         )
-    if "PerExecutionEnvironmentMaxConcurrency" in data:
+    if data.get("PerExecutionEnvironmentMaxConcurrency") is not None:
         out["per_execution_environment_max_concurrency"] = data[
             "PerExecutionEnvironmentMaxConcurrency"
         ]
-    if "ExecutionEnvironmentMemoryGiBPerVCpu" in data:
+    if data.get("ExecutionEnvironmentMemoryGiBPerVCpu") is not None:
         out["execution_environment_memory_gi_b_per_v_cpu"] = data[
             "ExecutionEnvironmentMemoryGiBPerVCpu"
         ]

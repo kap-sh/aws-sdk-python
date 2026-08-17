@@ -73,21 +73,21 @@ def serialize_aws_json_1_0(value: ConditionCheck) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ConditionCheck:
     out: ConditionCheck = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_dynamodb.types.key
 
         out["key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
     else:
         raise DeserializationError("ConditionCheck.key required")
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("ConditionCheck.table_name required")
-    if "ConditionExpression" in data:
+    if data.get("ConditionExpression") is not None:
         out["condition_expression"] = data["ConditionExpression"]
     else:
         raise DeserializationError("ConditionCheck.condition_expression required")
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (
@@ -95,7 +95,7 @@ def deserialize_aws_json_1_0(data: dict) -> ConditionCheck:
                 data["ExpressionAttributeNames"]
             )
         )
-    if "ExpressionAttributeValues" in data:
+    if data.get("ExpressionAttributeValues") is not None:
         import capo_dynamodb.types.expression_attribute_value_map
 
         out["expression_attribute_values"] = (
@@ -103,7 +103,7 @@ def deserialize_aws_json_1_0(data: dict) -> ConditionCheck:
                 data["ExpressionAttributeValues"]
             )
         )
-    if "ReturnValuesOnConditionCheckFailure" in data:
+    if data.get("ReturnValuesOnConditionCheckFailure") is not None:
         import capo_dynamodb.types.return_values_on_condition_check_failure
 
         out["return_values_on_condition_check_failure"] = (

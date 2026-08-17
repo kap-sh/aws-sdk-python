@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: ServiceRevisionLoadBalancer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceRevisionLoadBalancer:
     out: ServiceRevisionLoadBalancer = {}  # type: ignore[typeddict-item]
-    if "targetGroupArn" in data:
+    if data.get("targetGroupArn") is not None:
         out["target_group_arn"] = data["targetGroupArn"]
-    if "productionListenerRule" in data:
+    if data.get("productionListenerRule") is not None:
         out["production_listener_rule"] = data["productionListenerRule"]
     return out

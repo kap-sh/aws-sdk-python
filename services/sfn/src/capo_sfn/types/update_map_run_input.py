@@ -43,14 +43,14 @@ def serialize_aws_json_1_0(value: UpdateMapRunInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateMapRunInput:
     out: UpdateMapRunInput = {}  # type: ignore[typeddict-item]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
     else:
         raise DeserializationError("UpdateMapRunInput.map_run_arn required")
-    if "maxConcurrency" in data:
+    if data.get("maxConcurrency") is not None:
         out["max_concurrency"] = data["maxConcurrency"]
-    if "toleratedFailurePercentage" in data:
+    if data.get("toleratedFailurePercentage") is not None:
         out["tolerated_failure_percentage"] = data["toleratedFailurePercentage"]
-    if "toleratedFailureCount" in data:
+    if data.get("toleratedFailureCount") is not None:
         out["tolerated_failure_count"] = data["toleratedFailureCount"]
     return out

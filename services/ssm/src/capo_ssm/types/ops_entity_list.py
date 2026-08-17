@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> OpsEntityList:
 
     out: OpsEntityList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.ops_entity.deserialize_aws_json_1_1(item))
     return out

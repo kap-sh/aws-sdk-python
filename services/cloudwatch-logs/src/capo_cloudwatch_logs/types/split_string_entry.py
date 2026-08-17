@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: SplitStringEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SplitStringEntry:
     out: SplitStringEntry = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("SplitStringEntry.source required")
-    if "delimiter" in data:
+    if data.get("delimiter") is not None:
         out["delimiter"] = data["delimiter"]
     else:
         raise DeserializationError("SplitStringEntry.delimiter required")

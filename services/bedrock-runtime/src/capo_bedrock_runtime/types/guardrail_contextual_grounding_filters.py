@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GuardrailContextualGroundingFilters:
 
     out: GuardrailContextualGroundingFilters = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_contextual_grounding_filter.deserialize_json(
                 item

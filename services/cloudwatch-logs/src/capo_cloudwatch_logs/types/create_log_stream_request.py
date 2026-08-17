@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: CreateLogStreamRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateLogStreamRequest:
     out: CreateLogStreamRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("CreateLogStreamRequest.log_group_name required")
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
     else:
         raise DeserializationError("CreateLogStreamRequest.log_stream_name required")

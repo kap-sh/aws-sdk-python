@@ -26,7 +26,7 @@ def serialize_json(value: CallbackTimedOutDetails) -> dict:
 
 def deserialize_json(data: dict) -> CallbackTimedOutDetails:
     out: CallbackTimedOutDetails = {}  # type: ignore[typeddict-item]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.event_error
 
         out["error"] = capo_lambda.types.event_error.deserialize_json(data["Error"])

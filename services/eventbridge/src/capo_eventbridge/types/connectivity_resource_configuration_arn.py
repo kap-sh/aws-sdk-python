@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: ConnectivityResourceConfigurationArn) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectivityResourceConfigurationArn:
     out: ConnectivityResourceConfigurationArn = {}  # type: ignore[typeddict-item]
-    if "ResourceConfigurationArn" in data:
+    if data.get("ResourceConfigurationArn") is not None:
         out["resource_configuration_arn"] = data["ResourceConfigurationArn"]
     else:
         raise DeserializationError(

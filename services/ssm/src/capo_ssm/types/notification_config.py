@@ -47,9 +47,9 @@ def serialize_aws_json_1_1(value: NotificationConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> NotificationConfig:
     out: NotificationConfig = {}  # type: ignore[typeddict-item]
-    if "NotificationArn" in data:
+    if data.get("NotificationArn") is not None:
         out["notification_arn"] = data["NotificationArn"]
-    if "NotificationEvents" in data:
+    if data.get("NotificationEvents") is not None:
         import capo_ssm.types.notification_event_list
 
         out["notification_events"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_1(data: dict) -> NotificationConfig:
                 data["NotificationEvents"]
             )
         )
-    if "NotificationType" in data:
+    if data.get("NotificationType") is not None:
         import capo_ssm.types.notification_type
 
         out["notification_type"] = (

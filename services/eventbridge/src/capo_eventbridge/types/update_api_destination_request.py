@@ -63,17 +63,17 @@ def serialize_aws_json_1_1(value: UpdateApiDestinationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateApiDestinationRequest:
     out: UpdateApiDestinationRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UpdateApiDestinationRequest.name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "ConnectionArn" in data:
+    if data.get("ConnectionArn") is not None:
         out["connection_arn"] = data["ConnectionArn"]
-    if "InvocationEndpoint" in data:
+    if data.get("InvocationEndpoint") is not None:
         out["invocation_endpoint"] = data["InvocationEndpoint"]
-    if "HttpMethod" in data:
+    if data.get("HttpMethod") is not None:
         import capo_eventbridge.types.api_destination_http_method
 
         out["http_method"] = (
@@ -81,6 +81,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateApiDestinationRequest:
                 data["HttpMethod"]
             )
         )
-    if "InvocationRateLimitPerSecond" in data:
+    if data.get("InvocationRateLimitPerSecond") is not None:
         out["invocation_rate_limit_per_second"] = data["InvocationRateLimitPerSecond"]
     return out

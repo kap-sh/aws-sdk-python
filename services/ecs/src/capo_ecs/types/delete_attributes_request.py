@@ -33,9 +33,9 @@ def serialize_aws_json_1_1(value: DeleteAttributesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteAttributesRequest:
     out: DeleteAttributesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecs.types.attributes
 
         out["attributes"] = capo_ecs.types.attributes.deserialize_aws_json_1_1(

@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: RetireGrantRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RetireGrantRequest:
     out: RetireGrantRequest = {}  # type: ignore[typeddict-item]
-    if "GrantToken" in data:
+    if data.get("GrantToken") is not None:
         out["grant_token"] = data["GrantToken"]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "GrantId" in data:
+    if data.get("GrantId") is not None:
         out["grant_id"] = data["GrantId"]
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

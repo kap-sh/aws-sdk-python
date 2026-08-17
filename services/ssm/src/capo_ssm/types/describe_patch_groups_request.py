@@ -43,9 +43,9 @@ def serialize_aws_json_1_1(value: DescribePatchGroupsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePatchGroupsRequest:
     out: DescribePatchGroupsRequest = {}  # type: ignore[typeddict-item]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.patch_orchestrator_filter_list
 
         out["filters"] = (
@@ -53,6 +53,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePatchGroupsRequest:
                 data["Filters"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

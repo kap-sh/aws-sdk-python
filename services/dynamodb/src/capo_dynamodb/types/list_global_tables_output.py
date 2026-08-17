@@ -36,7 +36,7 @@ def serialize_aws_json_1_0(value: ListGlobalTablesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListGlobalTablesOutput:
     out: ListGlobalTablesOutput = {}  # type: ignore[typeddict-item]
-    if "GlobalTables" in data:
+    if data.get("GlobalTables") is not None:
         import capo_dynamodb.types.global_table_list
 
         out["global_tables"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListGlobalTablesOutput:
                 data["GlobalTables"]
             )
         )
-    if "LastEvaluatedGlobalTableName" in data:
+    if data.get("LastEvaluatedGlobalTableName") is not None:
         out["last_evaluated_global_table_name"] = data["LastEvaluatedGlobalTableName"]
     return out

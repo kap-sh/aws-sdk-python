@@ -151,27 +151,27 @@ def serialize_aws_json_1_1(value: SendCommandRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SendCommandRequest:
     out: SendCommandRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceIds" in data:
+    if data.get("InstanceIds") is not None:
         import capo_ssm.types.instance_id_list
 
         out["instance_ids"] = capo_ssm.types.instance_id_list.deserialize_aws_json_1_1(
             data["InstanceIds"]
         )
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
     else:
         raise DeserializationError("SendCommandRequest.document_name required")
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "DocumentHash" in data:
+    if data.get("DocumentHash") is not None:
         out["document_hash"] = data["DocumentHash"]
-    if "DocumentHashType" in data:
+    if data.get("DocumentHashType") is not None:
         import capo_ssm.types.document_hash_type
 
         out["document_hash_type"] = (
@@ -179,29 +179,29 @@ def deserialize_aws_json_1_1(data: dict) -> SendCommandRequest:
                 data["DocumentHashType"]
             )
         )
-    if "TimeoutSeconds" in data:
+    if data.get("TimeoutSeconds") is not None:
         out["timeout_seconds"] = data["TimeoutSeconds"]
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         out["comment"] = data["Comment"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.parameters
 
         out["parameters"] = capo_ssm.types.parameters.deserialize_aws_json_1_1(
             data["Parameters"]
         )
-    if "OutputS3Region" in data:
+    if data.get("OutputS3Region") is not None:
         out["output_s3_region"] = data["OutputS3Region"]
-    if "OutputS3BucketName" in data:
+    if data.get("OutputS3BucketName") is not None:
         out["output_s3_bucket_name"] = data["OutputS3BucketName"]
-    if "OutputS3KeyPrefix" in data:
+    if data.get("OutputS3KeyPrefix") is not None:
         out["output_s3_key_prefix"] = data["OutputS3KeyPrefix"]
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "ServiceRoleArn" in data:
+    if data.get("ServiceRoleArn") is not None:
         out["service_role_arn"] = data["ServiceRoleArn"]
-    if "NotificationConfig" in data:
+    if data.get("NotificationConfig") is not None:
         import capo_ssm.types.notification_config
 
         out["notification_config"] = (
@@ -209,7 +209,7 @@ def deserialize_aws_json_1_1(data: dict) -> SendCommandRequest:
                 data["NotificationConfig"]
             )
         )
-    if "CloudWatchOutputConfig" in data:
+    if data.get("CloudWatchOutputConfig") is not None:
         import capo_ssm.types.cloud_watch_output_config
 
         out["cloud_watch_output_config"] = (
@@ -217,7 +217,7 @@ def deserialize_aws_json_1_1(data: dict) -> SendCommandRequest:
                 data["CloudWatchOutputConfig"]
             )
         )
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (

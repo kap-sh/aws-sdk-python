@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DescribeReplayRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeReplayRequest:
     out: DescribeReplayRequest = {}  # type: ignore[typeddict-item]
-    if "ReplayName" in data:
+    if data.get("ReplayName") is not None:
         out["replay_name"] = data["ReplayName"]
     else:
         raise DeserializationError("DescribeReplayRequest.replay_name required")

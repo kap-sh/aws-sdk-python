@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: RejectedEntityInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RejectedEntityInfo:
     out: RejectedEntityInfo = {}  # type: ignore[typeddict-item]
-    if "errorType" in data:
+    if data.get("errorType") is not None:
         import capo_cloudwatch_logs.types.entity_rejection_error_type
 
         out["error_type"] = (

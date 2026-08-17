@@ -101,27 +101,27 @@ def serialize_aws_json_1_0(value: ExportTableToPointInTimeInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExportTableToPointInTimeInput:
     out: ExportTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
     else:
         raise DeserializationError("ExportTableToPointInTimeInput.table_arn required")
-    if "ExportTime" in data:
+    if data.get("ExportTime") is not None:
         import capo_dynamodb.types.export_time
 
         out["export_time"] = capo_dynamodb.types.export_time.deserialize_aws_json_1_0(
             data["ExportTime"]
         )
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "S3Bucket" in data:
+    if data.get("S3Bucket") is not None:
         out["s3_bucket"] = data["S3Bucket"]
     else:
         raise DeserializationError("ExportTableToPointInTimeInput.s3_bucket required")
-    if "S3BucketOwner" in data:
+    if data.get("S3BucketOwner") is not None:
         out["s3_bucket_owner"] = data["S3BucketOwner"]
-    if "S3Prefix" in data:
+    if data.get("S3Prefix") is not None:
         out["s3_prefix"] = data["S3Prefix"]
-    if "S3SseAlgorithm" in data:
+    if data.get("S3SseAlgorithm") is not None:
         import capo_dynamodb.types.s3_sse_algorithm
 
         out["s3_sse_algorithm"] = (
@@ -129,9 +129,9 @@ def deserialize_aws_json_1_0(data: dict) -> ExportTableToPointInTimeInput:
                 data["S3SseAlgorithm"]
             )
         )
-    if "S3SseKmsKeyId" in data:
+    if data.get("S3SseKmsKeyId") is not None:
         out["s3_sse_kms_key_id"] = data["S3SseKmsKeyId"]
-    if "ExportFormat" in data:
+    if data.get("ExportFormat") is not None:
         import capo_dynamodb.types.export_format
 
         out["export_format"] = (
@@ -139,13 +139,13 @@ def deserialize_aws_json_1_0(data: dict) -> ExportTableToPointInTimeInput:
                 data["ExportFormat"]
             )
         )
-    if "ExportType" in data:
+    if data.get("ExportType") is not None:
         import capo_dynamodb.types.export_type
 
         out["export_type"] = capo_dynamodb.types.export_type.deserialize_aws_json_1_0(
             data["ExportType"]
         )
-    if "IncrementalExportSpecification" in data:
+    if data.get("IncrementalExportSpecification") is not None:
         import capo_dynamodb.types.incremental_export_specification
 
         out["incremental_export_specification"] = (

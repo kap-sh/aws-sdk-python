@@ -143,11 +143,11 @@ def serialize_aws_json_1_0(value: PutLogAlarmInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
     out: PutLogAlarmInput = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmDescription" in data:
+    if data.get("AlarmDescription") is not None:
         out["alarm_description"] = data["AlarmDescription"]
-    if "ScheduledQueryConfiguration" in data:
+    if data.get("ScheduledQueryConfiguration") is not None:
         import capo_cloudwatch.types.scheduled_query_configuration
 
         out["scheduled_query_configuration"] = (
@@ -155,13 +155,13 @@ def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
                 data["ScheduledQueryConfiguration"]
             )
         )
-    if "ActionLogLineCount" in data:
+    if data.get("ActionLogLineCount") is not None:
         out["action_log_line_count"] = data["ActionLogLineCount"]
-    if "ActionLogLineRoleArn" in data:
+    if data.get("ActionLogLineRoleArn") is not None:
         out["action_log_line_role_arn"] = data["ActionLogLineRoleArn"]
-    if "ActionsEnabled" in data:
+    if data.get("ActionsEnabled") is not None:
         out["actions_enabled"] = data["ActionsEnabled"]
-    if "OKActions" in data:
+    if data.get("OKActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["ok_actions"] = (
@@ -169,7 +169,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
                 data["OKActions"]
             )
         )
-    if "AlarmActions" in data:
+    if data.get("AlarmActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["alarm_actions"] = (
@@ -177,7 +177,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
                 data["AlarmActions"]
             )
         )
-    if "InsufficientDataActions" in data:
+    if data.get("InsufficientDataActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["insufficient_data_actions"] = (
@@ -185,13 +185,13 @@ def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
                 data["InsufficientDataActions"]
             )
         )
-    if "QueryResultsToEvaluate" in data:
+    if data.get("QueryResultsToEvaluate") is not None:
         out["query_results_to_evaluate"] = data["QueryResultsToEvaluate"]
-    if "QueryResultsToAlarm" in data:
+    if data.get("QueryResultsToAlarm") is not None:
         out["query_results_to_alarm"] = data["QueryResultsToAlarm"]
-    if "Threshold" in data:
+    if data.get("Threshold") is not None:
         out["threshold"] = data["Threshold"]
-    if "ComparisonOperator" in data:
+    if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 
         out["comparison_operator"] = (
@@ -199,9 +199,9 @@ def deserialize_aws_json_1_0(data: dict) -> PutLogAlarmInput:
                 data["ComparisonOperator"]
             )
         )
-    if "TreatMissingData" in data:
+    if data.get("TreatMissingData") is not None:
         out["treat_missing_data"] = data["TreatMissingData"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(

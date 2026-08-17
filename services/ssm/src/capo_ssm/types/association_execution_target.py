@@ -78,27 +78,27 @@ def serialize_aws_json_1_1(value: AssociationExecutionTarget) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociationExecutionTarget:
     out: AssociationExecutionTarget = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
-    if "ExecutionId" in data:
+    if data.get("ExecutionId") is not None:
         out["execution_id"] = data["ExecutionId"]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         out["status"] = data["Status"]
-    if "DetailedStatus" in data:
+    if data.get("DetailedStatus") is not None:
         out["detailed_status"] = data["DetailedStatus"]
-    if "LastExecutionDate" in data:
+    if data.get("LastExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_execution_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastExecutionDate"]
         )
-    if "OutputSource" in data:
+    if data.get("OutputSource") is not None:
         import capo_ssm.types.output_source
 
         out["output_source"] = capo_ssm.types.output_source.deserialize_aws_json_1_1(

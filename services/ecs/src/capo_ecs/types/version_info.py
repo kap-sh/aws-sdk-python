@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: VersionInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VersionInfo:
     out: VersionInfo = {}  # type: ignore[typeddict-item]
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
-    if "agentHash" in data:
+    if data.get("agentHash") is not None:
         out["agent_hash"] = data["agentHash"]
-    if "dockerVersion" in data:
+    if data.get("dockerVersion") is not None:
         out["docker_version"] = data["dockerVersion"]
     return out

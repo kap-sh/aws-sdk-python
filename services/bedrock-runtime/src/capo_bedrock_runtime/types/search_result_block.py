@@ -47,15 +47,15 @@ def serialize_json(value: SearchResultBlock) -> dict:
 
 def deserialize_json(data: dict) -> SearchResultBlock:
     out: SearchResultBlock = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("SearchResultBlock.source required")
-    if "title" in data:
+    if data.get("title") is not None:
         out["title"] = data["title"]
     else:
         raise DeserializationError("SearchResultBlock.title required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_runtime.types.search_result_content_blocks
 
         out["content"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> SearchResultBlock:
         )
     else:
         raise DeserializationError("SearchResultBlock.content required")
-    if "citations" in data:
+    if data.get("citations") is not None:
         import capo_bedrock_runtime.types.citations_config
 
         out["citations"] = capo_bedrock_runtime.types.citations_config.deserialize_json(

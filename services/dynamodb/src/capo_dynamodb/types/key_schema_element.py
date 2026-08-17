@@ -34,11 +34,11 @@ def serialize_aws_json_1_0(value: KeySchemaElement) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> KeySchemaElement:
     out: KeySchemaElement = {}  # type: ignore[typeddict-item]
-    if "AttributeName" in data:
+    if data.get("AttributeName") is not None:
         out["attribute_name"] = data["AttributeName"]
     else:
         raise DeserializationError("KeySchemaElement.attribute_name required")
-    if "KeyType" in data:
+    if data.get("KeyType") is not None:
         import capo_dynamodb.types.key_type
 
         out["key_type"] = capo_dynamodb.types.key_type.deserialize_aws_json_1_0(

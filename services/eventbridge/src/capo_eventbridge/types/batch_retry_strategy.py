@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: BatchRetryStrategy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchRetryStrategy:
     out: BatchRetryStrategy = {}  # type: ignore[typeddict-item]
-    if "Attempts" in data:
+    if data.get("Attempts") is not None:
         out["attempts"] = data["Attempts"]
     else:
         out["attempts"] = 0

@@ -80,7 +80,7 @@ def serialize_aws_json_1_0(value: GetInsightRuleReportOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportOutput:
     out: GetInsightRuleReportOutput = {}  # type: ignore[typeddict-item]
-    if "KeyLabels" in data:
+    if data.get("KeyLabels") is not None:
         import capo_cloudwatch.types.insight_rule_contributor_key_labels
 
         out["key_labels"] = (
@@ -88,13 +88,13 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportOutput:
                 data["KeyLabels"]
             )
         )
-    if "AggregationStatistic" in data:
+    if data.get("AggregationStatistic") is not None:
         out["aggregation_statistic"] = data["AggregationStatistic"]
-    if "AggregateValue" in data:
+    if data.get("AggregateValue") is not None:
         out["aggregate_value"] = data["AggregateValue"]
-    if "ApproximateUniqueCount" in data:
+    if data.get("ApproximateUniqueCount") is not None:
         out["approximate_unique_count"] = data["ApproximateUniqueCount"]
-    if "Contributors" in data:
+    if data.get("Contributors") is not None:
         import capo_cloudwatch.types.insight_rule_contributors
 
         out["contributors"] = (
@@ -102,7 +102,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportOutput:
                 data["Contributors"]
             )
         )
-    if "MetricDatapoints" in data:
+    if data.get("MetricDatapoints") is not None:
         import capo_cloudwatch.types.insight_rule_metric_datapoints
 
         out["metric_datapoints"] = (

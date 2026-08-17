@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> ServiceRevisionLoadBalancers:
 
     out: ServiceRevisionLoadBalancers = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.service_revision_load_balancer.deserialize_aws_json_1_1(item)
         )

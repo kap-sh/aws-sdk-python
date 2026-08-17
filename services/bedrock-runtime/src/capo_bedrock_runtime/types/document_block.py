@@ -54,7 +54,7 @@ def serialize_json(value: DocumentBlock) -> dict:
 
 def deserialize_json(data: dict) -> DocumentBlock:
     out: DocumentBlock = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_runtime.types.document_format
 
         out["format"] = capo_bedrock_runtime.types.document_format.deserialize_json(
@@ -62,11 +62,11 @@ def deserialize_json(data: dict) -> DocumentBlock:
         )
     else:
         out["format"] = "txt"
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DocumentBlock.name required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.document_source
 
         out["source"] = capo_bedrock_runtime.types.document_source.deserialize_json(
@@ -74,9 +74,9 @@ def deserialize_json(data: dict) -> DocumentBlock:
         )
     else:
         raise DeserializationError("DocumentBlock.source required")
-    if "context" in data:
+    if data.get("context") is not None:
         out["context"] = data["context"]
-    if "citations" in data:
+    if data.get("citations") is not None:
         import capo_bedrock_runtime.types.citations_config
 
         out["citations"] = capo_bedrock_runtime.types.citations_config.deserialize_json(

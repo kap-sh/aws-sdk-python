@@ -33,13 +33,13 @@ def serialize_aws_json_1_1(value: StopAutomationExecutionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopAutomationExecutionRequest:
     out: StopAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
     else:
         raise DeserializationError(
             "StopAutomationExecutionRequest.automation_execution_id required"
         )
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.stop_type
 
         out["type"] = capo_ssm.types.stop_type.deserialize_aws_json_1_1(data["Type"])

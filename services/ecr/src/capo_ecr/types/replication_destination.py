@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: ReplicationDestination) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicationDestination:
     out: ReplicationDestination = {}  # type: ignore[typeddict-item]
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
     else:
         raise DeserializationError("ReplicationDestination.region required")
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
     else:
         raise DeserializationError("ReplicationDestination.registry_id required")

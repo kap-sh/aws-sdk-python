@@ -28,7 +28,7 @@ def serialize_json(value: StopDurableExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StopDurableExecutionResponse:
     out: StopDurableExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "StopTimestamp" in data:
+    if data.get("StopTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["stop_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(

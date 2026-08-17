@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> DeviceCgroupPermissions:
 
     out: DeviceCgroupPermissions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.device_cgroup_permission.deserialize_aws_json_1_1(item)
         )

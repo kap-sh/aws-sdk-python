@@ -23,7 +23,7 @@ def serialize_json(value: CitationSourceContent) -> dict:
 
 
 def deserialize_json(data: dict) -> CitationSourceContent:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError("CitationSourceContent: no recognized variant key")

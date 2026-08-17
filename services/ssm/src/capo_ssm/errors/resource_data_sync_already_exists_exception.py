@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: ResourceDataSyncAlreadyExistsException_) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncAlreadyExistsException_:
     out: ResourceDataSyncAlreadyExistsException_ = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
     return out
 

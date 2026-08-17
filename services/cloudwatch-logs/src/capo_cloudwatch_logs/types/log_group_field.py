@@ -27,9 +27,9 @@ def serialize_aws_json_1_1(value: LogGroupField) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogGroupField:
     out: LogGroupField = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "percent" in data:
+    if data.get("percent") is not None:
         out["percent"] = data["percent"]
     else:
         out["percent"] = 0

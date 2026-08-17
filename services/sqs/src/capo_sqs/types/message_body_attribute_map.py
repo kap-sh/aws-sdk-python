@@ -25,6 +25,8 @@ def serialize_aws_json_1_0(input_to_serialize: MessageBodyAttributeMap) -> dict:
 def deserialize_aws_json_1_0(data: dict) -> MessageBodyAttributeMap:
     out: MessageBodyAttributeMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_sqs.types.message_attribute_value
 
         out[key] = capo_sqs.types.message_attribute_value.deserialize_aws_json_1_0(

@@ -101,17 +101,17 @@ def serialize_json(value: UpdateFunctionCodeRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateFunctionCodeRequest:
     out: UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
-    if "ZipFile" in data:
+    if data.get("ZipFile") is not None:
         import capo_lambda.types.blob
 
         out["zip_file"] = capo_lambda.types.blob.deserialize_json(data["ZipFile"])
-    if "S3Bucket" in data:
+    if data.get("S3Bucket") is not None:
         out["s3_bucket"] = data["S3Bucket"]
-    if "S3Key" in data:
+    if data.get("S3Key") is not None:
         out["s3_key"] = data["S3Key"]
-    if "S3ObjectVersion" in data:
+    if data.get("S3ObjectVersion") is not None:
         out["s3_object_version"] = data["S3ObjectVersion"]
-    if "S3ObjectStorageMode" in data:
+    if data.get("S3ObjectStorageMode") is not None:
         import capo_lambda.types.s3_object_storage_mode
 
         out["s3_object_storage_mode"] = (
@@ -119,19 +119,19 @@ def deserialize_json(data: dict) -> UpdateFunctionCodeRequest:
                 data["S3ObjectStorageMode"]
             )
         )
-    if "ImageUri" in data:
+    if data.get("ImageUri") is not None:
         out["image_uri"] = data["ImageUri"]
-    if "Architectures" in data:
+    if data.get("Architectures") is not None:
         import capo_lambda.types.architectures_list
 
         out["architectures"] = capo_lambda.types.architectures_list.deserialize_json(
             data["Architectures"]
         )
-    if "Publish" in data:
+    if data.get("Publish") is not None:
         out["publish"] = data["Publish"]
     else:
         out["publish"] = False
-    if "PublishTo" in data:
+    if data.get("PublishTo") is not None:
         import capo_lambda.types.function_version_latest_published
 
         out["publish_to"] = (
@@ -139,12 +139,12 @@ def deserialize_json(data: dict) -> UpdateFunctionCodeRequest:
                 data["PublishTo"]
             )
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     else:
         out["dry_run"] = False
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
-    if "SourceKMSKeyArn" in data:
+    if data.get("SourceKMSKeyArn") is not None:
         out["source_kms_key_arn"] = data["SourceKMSKeyArn"]
     return out

@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: ClusterConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ClusterConfiguration:
     out: ClusterConfiguration = {}  # type: ignore[typeddict-item]
-    if "executeCommandConfiguration" in data:
+    if data.get("executeCommandConfiguration") is not None:
         import capo_ecs.types.execute_command_configuration
 
         out["execute_command_configuration"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> ClusterConfiguration:
                 data["executeCommandConfiguration"]
             )
         )
-    if "managedStorageConfiguration" in data:
+    if data.get("managedStorageConfiguration") is not None:
         import capo_ecs.types.managed_storage_configuration
 
         out["managed_storage_configuration"] = (

@@ -28,11 +28,11 @@ def serialize_json(value: TagsError) -> dict:
 
 def deserialize_json(data: dict) -> TagsError:
     out: TagsError = {}  # type: ignore[typeddict-item]
-    if "ErrorCode" in data:
+    if data.get("ErrorCode") is not None:
         out["error_code"] = data["ErrorCode"]
     else:
         raise DeserializationError("TagsError.error_code required")
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("TagsError.message required")

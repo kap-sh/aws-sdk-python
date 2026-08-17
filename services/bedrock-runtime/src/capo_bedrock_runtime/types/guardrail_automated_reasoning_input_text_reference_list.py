@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GuardrailAutomatedReasoningInputTextReferenc
 
     out: GuardrailAutomatedReasoningInputTextReferenceList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_automated_reasoning_input_text_reference.deserialize_json(
                 item

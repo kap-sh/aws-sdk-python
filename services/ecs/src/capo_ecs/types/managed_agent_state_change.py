@@ -39,11 +39,11 @@ def serialize_aws_json_1_1(value: ManagedAgentStateChange) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedAgentStateChange:
     out: ManagedAgentStateChange = {}  # type: ignore[typeddict-item]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
     else:
         raise DeserializationError("ManagedAgentStateChange.container_name required")
-    if "managedAgentName" in data:
+    if data.get("managedAgentName") is not None:
         import capo_ecs.types.managed_agent_name
 
         out["managed_agent_name"] = (
@@ -55,10 +55,10 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedAgentStateChange:
         raise DeserializationError(
             "ManagedAgentStateChange.managed_agent_name required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
     else:
         raise DeserializationError("ManagedAgentStateChange.status required")
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
     return out

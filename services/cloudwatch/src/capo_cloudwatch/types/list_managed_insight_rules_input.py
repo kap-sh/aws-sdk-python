@@ -39,11 +39,11 @@ def serialize_aws_json_1_0(value: ListManagedInsightRulesInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListManagedInsightRulesInput:
     out: ListManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-    if "ResourceARN" in data:
+    if data.get("ResourceARN") is not None:
         out["resource_arn"] = data["ResourceARN"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out
 

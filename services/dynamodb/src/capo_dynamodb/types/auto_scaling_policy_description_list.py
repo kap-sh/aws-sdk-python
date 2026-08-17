@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> AutoScalingPolicyDescriptionList:
 
     out: AutoScalingPolicyDescriptionList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.auto_scaling_policy_description.deserialize_aws_json_1_0(
                 item

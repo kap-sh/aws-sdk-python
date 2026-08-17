@@ -35,9 +35,9 @@ def serialize_aws_json_1_0(value: GlobalSecondaryIndexAutoScalingUpdate) -> dict
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexAutoScalingUpdate:
     out: GlobalSecondaryIndexAutoScalingUpdate = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "ProvisionedWriteCapacityAutoScalingUpdate" in data:
+    if data.get("ProvisionedWriteCapacityAutoScalingUpdate") is not None:
         import capo_dynamodb.types.auto_scaling_settings_update
 
         out["provisioned_write_capacity_auto_scaling_update"] = (

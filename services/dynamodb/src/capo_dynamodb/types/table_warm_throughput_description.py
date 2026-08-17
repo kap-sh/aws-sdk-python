@@ -40,11 +40,11 @@ def serialize_aws_json_1_0(value: TableWarmThroughputDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TableWarmThroughputDescription:
     out: TableWarmThroughputDescription = {}  # type: ignore[typeddict-item]
-    if "ReadUnitsPerSecond" in data:
+    if data.get("ReadUnitsPerSecond") is not None:
         out["read_units_per_second"] = data["ReadUnitsPerSecond"]
-    if "WriteUnitsPerSecond" in data:
+    if data.get("WriteUnitsPerSecond") is not None:
         out["write_units_per_second"] = data["WriteUnitsPerSecond"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_dynamodb.types.table_status
 
         out["status"] = capo_dynamodb.types.table_status.deserialize_aws_json_1_0(

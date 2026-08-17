@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: VerifyMacResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VerifyMacResponse:
     out: VerifyMacResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "MacValid" in data:
+    if data.get("MacValid") is not None:
         out["mac_valid"] = data["MacValid"]
     else:
         out["mac_valid"] = False
-    if "MacAlgorithm" in data:
+    if data.get("MacAlgorithm") is not None:
         import capo_kms.types.mac_algorithm_spec
 
         out["mac_algorithm"] = (

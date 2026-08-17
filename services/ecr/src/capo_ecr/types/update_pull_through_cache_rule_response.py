@@ -55,20 +55,20 @@ def serialize_aws_json_1_1(value: UpdatePullThroughCacheRuleResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdatePullThroughCacheRuleResponse:
     out: UpdatePullThroughCacheRuleResponse = {}  # type: ignore[typeddict-item]
-    if "ecrRepositoryPrefix" in data:
+    if data.get("ecrRepositoryPrefix") is not None:
         out["ecr_repository_prefix"] = data["ecrRepositoryPrefix"]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecr.types.updated_timestamp
 
         out["updated_at"] = capo_ecr.types.updated_timestamp.deserialize_aws_json_1_1(
             data["updatedAt"]
         )
-    if "credentialArn" in data:
+    if data.get("credentialArn") is not None:
         out["credential_arn"] = data["credentialArn"]
-    if "customRoleArn" in data:
+    if data.get("customRoleArn") is not None:
         out["custom_role_arn"] = data["customRoleArn"]
-    if "upstreamRepositoryPrefix" in data:
+    if data.get("upstreamRepositoryPrefix") is not None:
         out["upstream_repository_prefix"] = data["upstreamRepositoryPrefix"]
     return out

@@ -77,13 +77,13 @@ def serialize_aws_json_1_1(value: UpdateConnectionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionRequest:
     out: UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UpdateConnectionRequest.name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "AuthorizationType" in data:
+    if data.get("AuthorizationType") is not None:
         import capo_eventbridge.types.connection_authorization_type
 
         out["authorization_type"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionRequest:
                 data["AuthorizationType"]
             )
         )
-    if "AuthParameters" in data:
+    if data.get("AuthParameters") is not None:
         import capo_eventbridge.types.update_connection_auth_request_parameters
 
         out["auth_parameters"] = (
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionRequest:
                 data["AuthParameters"]
             )
         )
-    if "InvocationConnectivityParameters" in data:
+    if data.get("InvocationConnectivityParameters") is not None:
         import capo_eventbridge.types.connectivity_resource_parameters
 
         out["invocation_connectivity_parameters"] = (
@@ -107,6 +107,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateConnectionRequest:
                 data["InvocationConnectivityParameters"]
             )
         )
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
     return out

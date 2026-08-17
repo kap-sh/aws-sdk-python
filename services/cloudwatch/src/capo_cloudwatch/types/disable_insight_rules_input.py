@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: DisableInsightRulesInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DisableInsightRulesInput:
     out: DisableInsightRulesInput = {}  # type: ignore[typeddict-item]
-    if "RuleNames" in data:
+    if data.get("RuleNames") is not None:
         import capo_cloudwatch.types.insight_rule_names
 
         out["rule_names"] = (

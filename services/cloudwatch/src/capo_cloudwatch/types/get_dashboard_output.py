@@ -35,11 +35,11 @@ def serialize_aws_json_1_0(value: GetDashboardOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetDashboardOutput:
     out: GetDashboardOutput = {}  # type: ignore[typeddict-item]
-    if "DashboardArn" in data:
+    if data.get("DashboardArn") is not None:
         out["dashboard_arn"] = data["DashboardArn"]
-    if "DashboardBody" in data:
+    if data.get("DashboardBody") is not None:
         out["dashboard_body"] = data["DashboardBody"]
-    if "DashboardName" in data:
+    if data.get("DashboardName") is not None:
         out["dashboard_name"] = data["DashboardName"]
     return out
 

@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: CanaryConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CanaryConfiguration:
     out: CanaryConfiguration = {}  # type: ignore[typeddict-item]
-    if "canaryPercent" in data:
+    if data.get("canaryPercent") is not None:
         out["canary_percent"] = data["canaryPercent"]
-    if "canaryBakeTimeInMinutes" in data:
+    if data.get("canaryBakeTimeInMinutes") is not None:
         out["canary_bake_time_in_minutes"] = data["canaryBakeTimeInMinutes"]
     return out

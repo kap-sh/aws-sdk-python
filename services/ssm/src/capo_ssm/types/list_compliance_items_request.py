@@ -67,7 +67,7 @@ def serialize_aws_json_1_1(value: ListComplianceItemsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListComplianceItemsRequest:
     out: ListComplianceItemsRequest = {}  # type: ignore[typeddict-item]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.compliance_string_filter_list
 
         out["filters"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListComplianceItemsRequest:
                 data["Filters"]
             )
         )
-    if "ResourceIds" in data:
+    if data.get("ResourceIds") is not None:
         import capo_ssm.types.compliance_resource_id_list
 
         out["resource_ids"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListComplianceItemsRequest:
                 data["ResourceIds"]
             )
         )
-    if "ResourceTypes" in data:
+    if data.get("ResourceTypes") is not None:
         import capo_ssm.types.compliance_resource_type_list
 
         out["resource_types"] = (
@@ -91,8 +91,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListComplianceItemsRequest:
                 data["ResourceTypes"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

@@ -41,14 +41,14 @@ def serialize_aws_json_1_1(value: ParentStepDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParentStepDetails:
     out: ParentStepDetails = {}  # type: ignore[typeddict-item]
-    if "StepExecutionId" in data:
+    if data.get("StepExecutionId") is not None:
         out["step_execution_id"] = data["StepExecutionId"]
-    if "StepName" in data:
+    if data.get("StepName") is not None:
         out["step_name"] = data["StepName"]
-    if "Action" in data:
+    if data.get("Action") is not None:
         out["action"] = data["Action"]
-    if "Iteration" in data:
+    if data.get("Iteration") is not None:
         out["iteration"] = data["Iteration"]
-    if "IteratorValue" in data:
+    if data.get("IteratorValue") is not None:
         out["iterator_value"] = data["IteratorValue"]
     return out

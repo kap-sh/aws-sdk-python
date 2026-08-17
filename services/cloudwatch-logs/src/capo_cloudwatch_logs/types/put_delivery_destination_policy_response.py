@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: PutDeliveryDestinationPolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationPolicyResponse:
     out: PutDeliveryDestinationPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "policy" in data:
+    if data.get("policy") is not None:
         import capo_cloudwatch_logs.types.policy
 
         out["policy"] = capo_cloudwatch_logs.types.policy.deserialize_aws_json_1_1(

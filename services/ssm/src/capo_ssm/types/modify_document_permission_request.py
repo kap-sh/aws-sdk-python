@@ -60,11 +60,11 @@ def serialize_aws_json_1_1(value: ModifyDocumentPermissionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ModifyDocumentPermissionRequest:
     out: ModifyDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("ModifyDocumentPermissionRequest.name required")
-    if "PermissionType" in data:
+    if data.get("PermissionType") is not None:
         import capo_ssm.types.document_permission_type
 
         out["permission_type"] = (
@@ -76,7 +76,7 @@ def deserialize_aws_json_1_1(data: dict) -> ModifyDocumentPermissionRequest:
         raise DeserializationError(
             "ModifyDocumentPermissionRequest.permission_type required"
         )
-    if "AccountIdsToAdd" in data:
+    if data.get("AccountIdsToAdd") is not None:
         import capo_ssm.types.account_id_list
 
         out["account_ids_to_add"] = (
@@ -84,7 +84,7 @@ def deserialize_aws_json_1_1(data: dict) -> ModifyDocumentPermissionRequest:
                 data["AccountIdsToAdd"]
             )
         )
-    if "AccountIdsToRemove" in data:
+    if data.get("AccountIdsToRemove") is not None:
         import capo_ssm.types.account_id_list
 
         out["account_ids_to_remove"] = (
@@ -92,6 +92,6 @@ def deserialize_aws_json_1_1(data: dict) -> ModifyDocumentPermissionRequest:
                 data["AccountIdsToRemove"]
             )
         )
-    if "SharedDocumentVersion" in data:
+    if data.get("SharedDocumentVersion") is not None:
         out["shared_document_version"] = data["SharedDocumentVersion"]
     return out

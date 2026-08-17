@@ -31,7 +31,7 @@ def serialize_json(value: WaitDetails) -> dict:
 
 def deserialize_json(data: dict) -> WaitDetails:
     out: WaitDetails = {}  # type: ignore[typeddict-item]
-    if "ScheduledEndTimestamp" in data:
+    if data.get("ScheduledEndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["scheduled_end_timestamp"] = (

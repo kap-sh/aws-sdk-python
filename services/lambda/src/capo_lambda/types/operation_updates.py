@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> OperationUpdates:
 
     out: OperationUpdates = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.operation_update.deserialize_json(item))
     return out

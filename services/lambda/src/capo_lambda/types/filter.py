@@ -23,6 +23,6 @@ def serialize_json(value: Filter) -> dict:
 
 def deserialize_json(data: dict) -> Filter:
     out: Filter = {}  # type: ignore[typeddict-item]
-    if "Pattern" in data:
+    if data.get("Pattern") is not None:
         out["pattern"] = data["Pattern"]
     return out

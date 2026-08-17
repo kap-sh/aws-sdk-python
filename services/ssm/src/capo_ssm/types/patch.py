@@ -160,37 +160,37 @@ def serialize_aws_json_1_1(value: Patch) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Patch:
     out: Patch = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "ReleaseDate" in data:
+    if data.get("ReleaseDate") is not None:
         import capo_ssm.types.date_time
 
         out["release_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ReleaseDate"]
         )
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "ContentUrl" in data:
+    if data.get("ContentUrl") is not None:
         out["content_url"] = data["ContentUrl"]
-    if "Vendor" in data:
+    if data.get("Vendor") is not None:
         out["vendor"] = data["Vendor"]
-    if "ProductFamily" in data:
+    if data.get("ProductFamily") is not None:
         out["product_family"] = data["ProductFamily"]
-    if "Product" in data:
+    if data.get("Product") is not None:
         out["product"] = data["Product"]
-    if "Classification" in data:
+    if data.get("Classification") is not None:
         out["classification"] = data["Classification"]
-    if "MsrcSeverity" in data:
+    if data.get("MsrcSeverity") is not None:
         out["msrc_severity"] = data["MsrcSeverity"]
-    if "KbNumber" in data:
+    if data.get("KbNumber") is not None:
         out["kb_number"] = data["KbNumber"]
-    if "MsrcNumber" in data:
+    if data.get("MsrcNumber") is not None:
         out["msrc_number"] = data["MsrcNumber"]
-    if "Language" in data:
+    if data.get("Language") is not None:
         out["language"] = data["Language"]
-    if "AdvisoryIds" in data:
+    if data.get("AdvisoryIds") is not None:
         import capo_ssm.types.patch_advisory_id_list
 
         out["advisory_ids"] = (
@@ -198,7 +198,7 @@ def deserialize_aws_json_1_1(data: dict) -> Patch:
                 data["AdvisoryIds"]
             )
         )
-    if "BugzillaIds" in data:
+    if data.get("BugzillaIds") is not None:
         import capo_ssm.types.patch_bugzilla_id_list
 
         out["bugzilla_ids"] = (
@@ -206,26 +206,26 @@ def deserialize_aws_json_1_1(data: dict) -> Patch:
                 data["BugzillaIds"]
             )
         )
-    if "CVEIds" in data:
+    if data.get("CVEIds") is not None:
         import capo_ssm.types.patch_cve_id_list
 
         out["cve_ids"] = capo_ssm.types.patch_cve_id_list.deserialize_aws_json_1_1(
             data["CVEIds"]
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Epoch" in data:
+    if data.get("Epoch") is not None:
         out["epoch"] = data["Epoch"]
     else:
         out["epoch"] = 0
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
-    if "Release" in data:
+    if data.get("Release") is not None:
         out["release"] = data["Release"]
-    if "Arch" in data:
+    if data.get("Arch") is not None:
         out["arch"] = data["Arch"]
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         out["severity"] = data["Severity"]
-    if "Repository" in data:
+    if data.get("Repository") is not None:
         out["repository"] = data["Repository"]
     return out

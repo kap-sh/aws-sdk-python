@@ -25,7 +25,7 @@ def serialize_json(value: ModelTimeoutException_) -> dict:
 
 def deserialize_json(data: dict) -> ModelTimeoutException_:
     out: ModelTimeoutException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

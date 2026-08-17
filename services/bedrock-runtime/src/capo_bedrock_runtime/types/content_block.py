@@ -185,9 +185,9 @@ def serialize_json(value: ContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> ContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "image" in data:
+    elif data.get("image") is not None:
         import capo_bedrock_runtime.types.image_block
 
         return {
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["image"]
             )
         }
-    elif "document" in data:
+    elif data.get("document") is not None:
         import capo_bedrock_runtime.types.document_block
 
         return {
@@ -203,7 +203,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["document"]
             )
         }
-    elif "video" in data:
+    elif data.get("video") is not None:
         import capo_bedrock_runtime.types.video_block
 
         return {
@@ -211,7 +211,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["video"]
             )
         }
-    elif "audio" in data:
+    elif data.get("audio") is not None:
         import capo_bedrock_runtime.types.audio_block
 
         return {
@@ -219,7 +219,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["audio"]
             )
         }
-    elif "toolUse" in data:
+    elif data.get("toolUse") is not None:
         import capo_bedrock_runtime.types.tool_use_block
 
         return {
@@ -227,7 +227,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["toolUse"]
             )
         }
-    elif "toolResult" in data:
+    elif data.get("toolResult") is not None:
         import capo_bedrock_runtime.types.tool_result_block
 
         return {
@@ -235,7 +235,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["toolResult"]
             )
         }
-    elif "guardContent" in data:
+    elif data.get("guardContent") is not None:
         import capo_bedrock_runtime.types.guardrail_converse_content_block
 
         return {
@@ -243,7 +243,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["guardContent"]
             )
         }
-    elif "cachePoint" in data:
+    elif data.get("cachePoint") is not None:
         import capo_bedrock_runtime.types.cache_point_block
 
         return {
@@ -251,7 +251,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["cachePoint"]
             )
         }
-    elif "reasoningContent" in data:
+    elif data.get("reasoningContent") is not None:
         import capo_bedrock_runtime.types.reasoning_content_block
 
         return {
@@ -259,7 +259,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["reasoningContent"]
             )
         }
-    elif "citationsContent" in data:
+    elif data.get("citationsContent") is not None:
         import capo_bedrock_runtime.types.citations_content_block
 
         return {
@@ -267,7 +267,7 @@ def deserialize_json(data: dict) -> ContentBlock:
                 data["citationsContent"]
             )
         }
-    elif "searchResult" in data:
+    elif data.get("searchResult") is not None:
         import capo_bedrock_runtime.types.search_result_block
 
         return {

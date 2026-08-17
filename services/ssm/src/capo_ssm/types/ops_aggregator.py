@@ -62,13 +62,13 @@ def serialize_aws_json_1_1(value: OpsAggregator) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsAggregator:
     out: OpsAggregator = {}  # type: ignore[typeddict-item]
-    if "AggregatorType" in data:
+    if data.get("AggregatorType") is not None:
         out["aggregator_type"] = data["AggregatorType"]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
-    if "AttributeName" in data:
+    if data.get("AttributeName") is not None:
         out["attribute_name"] = data["AttributeName"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.ops_aggregator_value_map
 
         out["values"] = (
@@ -76,13 +76,13 @@ def deserialize_aws_json_1_1(data: dict) -> OpsAggregator:
                 data["Values"]
             )
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.ops_filter_list
 
         out["filters"] = capo_ssm.types.ops_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.ops_aggregator_list
 
         out["aggregators"] = (

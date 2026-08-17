@@ -69,32 +69,32 @@ def serialize_aws_json_1_1(value: Parameter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Parameter:
     out: Parameter = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.parameter_type
 
         out["type"] = capo_ssm.types.parameter_type.deserialize_aws_json_1_1(
             data["Type"]
         )
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
     else:
         out["version"] = 0
-    if "Selector" in data:
+    if data.get("Selector") is not None:
         out["selector"] = data["Selector"]
-    if "SourceResult" in data:
+    if data.get("SourceResult") is not None:
         out["source_result"] = data["SourceResult"]
-    if "LastModifiedDate" in data:
+    if data.get("LastModifiedDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastModifiedDate"]
         )
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "DataType" in data:
+    if data.get("DataType") is not None:
         out["data_type"] = data["DataType"]
     return out

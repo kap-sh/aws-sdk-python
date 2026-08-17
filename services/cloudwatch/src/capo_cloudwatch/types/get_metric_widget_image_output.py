@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: GetMetricWidgetImageOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricWidgetImageOutput:
     out: GetMetricWidgetImageOutput = {}  # type: ignore[typeddict-item]
-    if "MetricWidgetImage" in data:
+    if data.get("MetricWidgetImage") is not None:
         import capo_cloudwatch.types.metric_widget_image
 
         out["metric_widget_image"] = (

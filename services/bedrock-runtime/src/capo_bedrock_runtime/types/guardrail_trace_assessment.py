@@ -57,13 +57,13 @@ def serialize_json(value: GuardrailTraceAssessment) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTraceAssessment:
     out: GuardrailTraceAssessment = {}  # type: ignore[typeddict-item]
-    if "modelOutput" in data:
+    if data.get("modelOutput") is not None:
         import capo_bedrock_runtime.types.model_outputs
 
         out["model_output"] = capo_bedrock_runtime.types.model_outputs.deserialize_json(
             data["modelOutput"]
         )
-    if "inputAssessment" in data:
+    if data.get("inputAssessment") is not None:
         import capo_bedrock_runtime.types.guardrail_assessment_map
 
         out["input_assessment"] = (
@@ -71,7 +71,7 @@ def deserialize_json(data: dict) -> GuardrailTraceAssessment:
                 data["inputAssessment"]
             )
         )
-    if "outputAssessments" in data:
+    if data.get("outputAssessments") is not None:
         import capo_bedrock_runtime.types.guardrail_assessment_list_map
 
         out["output_assessments"] = (
@@ -79,6 +79,6 @@ def deserialize_json(data: dict) -> GuardrailTraceAssessment:
                 data["outputAssessments"]
             )
         )
-    if "actionReason" in data:
+    if data.get("actionReason") is not None:
         out["action_reason"] = data["actionReason"]
     return out

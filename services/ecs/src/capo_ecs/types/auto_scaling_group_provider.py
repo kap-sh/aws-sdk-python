@@ -55,13 +55,13 @@ def serialize_aws_json_1_1(value: AutoScalingGroupProvider) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProvider:
     out: AutoScalingGroupProvider = {}  # type: ignore[typeddict-item]
-    if "autoScalingGroupArn" in data:
+    if data.get("autoScalingGroupArn") is not None:
         out["auto_scaling_group_arn"] = data["autoScalingGroupArn"]
     else:
         raise DeserializationError(
             "AutoScalingGroupProvider.auto_scaling_group_arn required"
         )
-    if "managedScaling" in data:
+    if data.get("managedScaling") is not None:
         import capo_ecs.types.managed_scaling
 
         out["managed_scaling"] = (
@@ -69,7 +69,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProvider:
                 data["managedScaling"]
             )
         )
-    if "managedTerminationProtection" in data:
+    if data.get("managedTerminationProtection") is not None:
         import capo_ecs.types.managed_termination_protection
 
         out["managed_termination_protection"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProvider:
                 data["managedTerminationProtection"]
             )
         )
-    if "managedDraining" in data:
+    if data.get("managedDraining") is not None:
         import capo_ecs.types.managed_draining
 
         out["managed_draining"] = (

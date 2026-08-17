@@ -28,10 +28,10 @@ def serialize_aws_json_1_1(value: VCpuCountRangeRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VCpuCountRangeRequest:
     out: VCpuCountRangeRequest = {}  # type: ignore[typeddict-item]
-    if "min" in data:
+    if data.get("min") is not None:
         out["min"] = data["min"]
     else:
         raise DeserializationError("VCpuCountRangeRequest.min required")
-    if "max" in data:
+    if data.get("max") is not None:
         out["max"] = data["max"]
     return out

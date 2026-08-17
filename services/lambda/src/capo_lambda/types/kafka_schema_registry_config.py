@@ -64,9 +64,9 @@ def serialize_json(value: KafkaSchemaRegistryConfig) -> dict:
 
 def deserialize_json(data: dict) -> KafkaSchemaRegistryConfig:
     out: KafkaSchemaRegistryConfig = {}  # type: ignore[typeddict-item]
-    if "SchemaRegistryURI" in data:
+    if data.get("SchemaRegistryURI") is not None:
         out["schema_registry_uri"] = data["SchemaRegistryURI"]
-    if "EventRecordFormat" in data:
+    if data.get("EventRecordFormat") is not None:
         import capo_lambda.types.schema_registry_event_record_format
 
         out["event_record_format"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> KafkaSchemaRegistryConfig:
                 data["EventRecordFormat"]
             )
         )
-    if "AccessConfigs" in data:
+    if data.get("AccessConfigs") is not None:
         import capo_lambda.types.kafka_schema_registry_access_config_list
 
         out["access_configs"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> KafkaSchemaRegistryConfig:
                 data["AccessConfigs"]
             )
         )
-    if "SchemaValidationConfigs" in data:
+    if data.get("SchemaValidationConfigs") is not None:
         import capo_lambda.types.kafka_schema_validation_config_list
 
         out["schema_validation_configs"] = (

@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> TransitioningImageTotalCounts:
 
     out: TransitioningImageTotalCounts = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.transitioning_image_total_count.deserialize_aws_json_1_1(
                 item

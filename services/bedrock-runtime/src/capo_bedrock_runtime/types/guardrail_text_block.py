@@ -36,11 +36,11 @@ def serialize_json(value: GuardrailTextBlock) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTextBlock:
     out: GuardrailTextBlock = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("GuardrailTextBlock.text required")
-    if "qualifiers" in data:
+    if data.get("qualifiers") is not None:
         import capo_bedrock_runtime.types.guardrail_content_qualifier_list
 
         out["qualifiers"] = (

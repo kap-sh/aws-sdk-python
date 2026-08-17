@@ -45,15 +45,15 @@ def serialize_aws_json_1_1(value: SignResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SignResponse:
     out: SignResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "Signature" in data:
+    if data.get("Signature") is not None:
         import capo_kms.types.ciphertext_type
 
         out["signature"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
             data["Signature"]
         )
-    if "SigningAlgorithm" in data:
+    if data.get("SigningAlgorithm") is not None:
         import capo_kms.types.signing_algorithm_spec
 
         out["signing_algorithm"] = (

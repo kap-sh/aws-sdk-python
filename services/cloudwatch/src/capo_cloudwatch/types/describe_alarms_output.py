@@ -58,7 +58,7 @@ def serialize_aws_json_1_0(value: DescribeAlarmsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsOutput:
     out: DescribeAlarmsOutput = {}  # type: ignore[typeddict-item]
-    if "CompositeAlarms" in data:
+    if data.get("CompositeAlarms") is not None:
         import capo_cloudwatch.types.composite_alarms
 
         out["composite_alarms"] = (
@@ -66,7 +66,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsOutput:
                 data["CompositeAlarms"]
             )
         )
-    if "MetricAlarms" in data:
+    if data.get("MetricAlarms") is not None:
         import capo_cloudwatch.types.metric_alarms
 
         out["metric_alarms"] = (
@@ -74,13 +74,13 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsOutput:
                 data["MetricAlarms"]
             )
         )
-    if "LogAlarms" in data:
+    if data.get("LogAlarms") is not None:
         import capo_cloudwatch.types.log_alarms
 
         out["log_alarms"] = capo_cloudwatch.types.log_alarms.deserialize_aws_json_1_0(
             data["LogAlarms"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

@@ -63,19 +63,19 @@ def serialize_json(value: Execution) -> dict:
 
 def deserialize_json(data: dict) -> Execution:
     out: Execution = {}  # type: ignore[typeddict-item]
-    if "DurableExecutionArn" in data:
+    if data.get("DurableExecutionArn") is not None:
         out["durable_execution_arn"] = data["DurableExecutionArn"]
     else:
         raise DeserializationError("Execution.durable_execution_arn required")
-    if "DurableExecutionName" in data:
+    if data.get("DurableExecutionName") is not None:
         out["durable_execution_name"] = data["DurableExecutionName"]
     else:
         raise DeserializationError("Execution.durable_execution_name required")
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
     else:
         raise DeserializationError("Execution.function_arn required")
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_lambda.types.execution_status
 
         out["status"] = capo_lambda.types.execution_status.deserialize_json(
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> Execution:
         )
     else:
         raise DeserializationError("Execution.status required")
-    if "StartTimestamp" in data:
+    if data.get("StartTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["start_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
@@ -91,12 +91,12 @@ def deserialize_json(data: dict) -> Execution:
         )
     else:
         raise DeserializationError("Execution.start_timestamp required")
-    if "EndTimestamp" in data:
+    if data.get("EndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["end_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
             data["EndTimestamp"]
         )
-    if "KMSKeyArn" in data:
+    if data.get("KMSKeyArn") is not None:
         out["kms_key_arn"] = data["KMSKeyArn"]
     return out

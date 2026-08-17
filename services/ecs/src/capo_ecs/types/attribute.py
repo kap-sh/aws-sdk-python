@@ -41,18 +41,18 @@ def serialize_aws_json_1_1(value: Attribute) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Attribute:
     out: Attribute = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("Attribute.name required")
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
-    if "targetType" in data:
+    if data.get("targetType") is not None:
         import capo_ecs.types.target_type
 
         out["target_type"] = capo_ecs.types.target_type.deserialize_aws_json_1_1(
             data["targetType"]
         )
-    if "targetId" in data:
+    if data.get("targetId") is not None:
         out["target_id"] = data["targetId"]
     return out

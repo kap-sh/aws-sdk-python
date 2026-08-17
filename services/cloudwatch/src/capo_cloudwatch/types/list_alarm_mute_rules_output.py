@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: ListAlarmMuteRulesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListAlarmMuteRulesOutput:
     out: ListAlarmMuteRulesOutput = {}  # type: ignore[typeddict-item]
-    if "AlarmMuteRuleSummaries" in data:
+    if data.get("AlarmMuteRuleSummaries") is not None:
         import capo_cloudwatch.types.alarm_mute_rule_summaries
 
         out["alarm_mute_rule_summaries"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_0(data: dict) -> ListAlarmMuteRulesOutput:
                 data["AlarmMuteRuleSummaries"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

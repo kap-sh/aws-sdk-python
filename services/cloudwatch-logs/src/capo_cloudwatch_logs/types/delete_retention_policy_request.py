@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteRetentionPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteRetentionPolicyRequest:
     out: DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError(

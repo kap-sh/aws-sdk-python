@@ -52,7 +52,7 @@ def serialize_aws_json_1_1(value: KeyLastUsageData) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KeyLastUsageData:
     out: KeyLastUsageData = {}  # type: ignore[typeddict-item]
-    if "Operation" in data:
+    if data.get("Operation") is not None:
         import capo_kms.types.key_last_usage_tracking_operation
 
         out["operation"] = (
@@ -60,14 +60,14 @@ def deserialize_aws_json_1_1(data: dict) -> KeyLastUsageData:
                 data["Operation"]
             )
         )
-    if "Timestamp" in data:
+    if data.get("Timestamp") is not None:
         import capo_kms.types.date_type
 
         out["timestamp"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["Timestamp"]
         )
-    if "CloudTrailEventId" in data:
+    if data.get("CloudTrailEventId") is not None:
         out["cloud_trail_event_id"] = data["CloudTrailEventId"]
-    if "KmsRequestId" in data:
+    if data.get("KmsRequestId") is not None:
         out["kms_request_id"] = data["KmsRequestId"]
     return out

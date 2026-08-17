@@ -27,11 +27,11 @@ def serialize_aws_json_1_0(value: DeleteMessageBatchRequestEntry) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteMessageBatchRequestEntry:
     out: DeleteMessageBatchRequestEntry = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
     else:
         raise DeserializationError("DeleteMessageBatchRequestEntry.id required")
-    if "ReceiptHandle" in data:
+    if data.get("ReceiptHandle") is not None:
         out["receipt_handle"] = data["ReceiptHandle"]
     else:
         raise DeserializationError(

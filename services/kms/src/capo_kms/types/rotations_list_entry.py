@@ -96,19 +96,19 @@ def serialize_aws_json_1_1(value: RotationsListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RotationsListEntry:
     out: RotationsListEntry = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
-    if "KeyMaterialDescription" in data:
+    if data.get("KeyMaterialDescription") is not None:
         out["key_material_description"] = data["KeyMaterialDescription"]
-    if "ImportState" in data:
+    if data.get("ImportState") is not None:
         import capo_kms.types.import_state
 
         out["import_state"] = capo_kms.types.import_state.deserialize_aws_json_1_1(
             data["ImportState"]
         )
-    if "KeyMaterialState" in data:
+    if data.get("KeyMaterialState") is not None:
         import capo_kms.types.key_material_state
 
         out["key_material_state"] = (
@@ -116,7 +116,7 @@ def deserialize_aws_json_1_1(data: dict) -> RotationsListEntry:
                 data["KeyMaterialState"]
             )
         )
-    if "ExpirationModel" in data:
+    if data.get("ExpirationModel") is not None:
         import capo_kms.types.expiration_model_type
 
         out["expiration_model"] = (
@@ -124,19 +124,19 @@ def deserialize_aws_json_1_1(data: dict) -> RotationsListEntry:
                 data["ExpirationModel"]
             )
         )
-    if "ValidTo" in data:
+    if data.get("ValidTo") is not None:
         import capo_kms.types.date_type
 
         out["valid_to"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["ValidTo"]
         )
-    if "RotationDate" in data:
+    if data.get("RotationDate") is not None:
         import capo_kms.types.date_type
 
         out["rotation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["RotationDate"]
         )
-    if "RotationType" in data:
+    if data.get("RotationType") is not None:
         import capo_kms.types.rotation_type
 
         out["rotation_type"] = capo_kms.types.rotation_type.deserialize_aws_json_1_1(

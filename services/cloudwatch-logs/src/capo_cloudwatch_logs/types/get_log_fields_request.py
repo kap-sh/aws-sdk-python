@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: GetLogFieldsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogFieldsRequest:
     out: GetLogFieldsRequest = {}  # type: ignore[typeddict-item]
-    if "dataSourceName" in data:
+    if data.get("dataSourceName") is not None:
         out["data_source_name"] = data["dataSourceName"]
     else:
         raise DeserializationError("GetLogFieldsRequest.data_source_name required")
-    if "dataSourceType" in data:
+    if data.get("dataSourceType") is not None:
         out["data_source_type"] = data["dataSourceType"]
     else:
         raise DeserializationError("GetLogFieldsRequest.data_source_type required")

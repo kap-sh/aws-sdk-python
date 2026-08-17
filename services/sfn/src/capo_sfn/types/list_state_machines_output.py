@@ -32,7 +32,7 @@ def serialize_aws_json_1_0(value: ListStateMachinesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListStateMachinesOutput:
     out: ListStateMachinesOutput = {}  # type: ignore[typeddict-item]
-    if "stateMachines" in data:
+    if data.get("stateMachines") is not None:
         import capo_sfn.types.state_machine_list
 
         out["state_machines"] = (
@@ -42,6 +42,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListStateMachinesOutput:
         )
     else:
         raise DeserializationError("ListStateMachinesOutput.state_machines required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

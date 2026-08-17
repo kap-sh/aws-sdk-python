@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: DeploymentLifecycleHookTimeoutConfiguration) -
 
 def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHookTimeoutConfiguration:
     out: DeploymentLifecycleHookTimeoutConfiguration = {}  # type: ignore[typeddict-item]
-    if "timeoutInMinutes" in data:
+    if data.get("timeoutInMinutes") is not None:
         out["timeout_in_minutes"] = data["timeoutInMinutes"]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_action
 
         out["action"] = (

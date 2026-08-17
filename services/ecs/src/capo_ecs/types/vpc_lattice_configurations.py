@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> VpcLatticeConfigurations:
 
     out: VpcLatticeConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.vpc_lattice_configuration.deserialize_aws_json_1_1(item)
         )

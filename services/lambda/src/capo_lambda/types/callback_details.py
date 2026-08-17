@@ -35,11 +35,11 @@ def serialize_json(value: CallbackDetails) -> dict:
 
 def deserialize_json(data: dict) -> CallbackDetails:
     out: CallbackDetails = {}  # type: ignore[typeddict-item]
-    if "CallbackId" in data:
+    if data.get("CallbackId") is not None:
         out["callback_id"] = data["CallbackId"]
-    if "Result" in data:
+    if data.get("Result") is not None:
         out["result"] = data["Result"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])

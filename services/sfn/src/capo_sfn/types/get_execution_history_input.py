@@ -44,20 +44,20 @@ def serialize_aws_json_1_0(value: GetExecutionHistoryInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetExecutionHistoryInput:
     out: GetExecutionHistoryInput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("GetExecutionHistoryInput.execution_arn required")
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 0
-    if "reverseOrder" in data:
+    if data.get("reverseOrder") is not None:
         out["reverse_order"] = data["reverseOrder"]
     else:
         out["reverse_order"] = False
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "includeExecutionData" in data:
+    if data.get("includeExecutionData") is not None:
         out["include_execution_data"] = data["includeExecutionData"]
     return out

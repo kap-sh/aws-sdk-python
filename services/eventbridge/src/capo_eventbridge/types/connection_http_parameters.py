@@ -57,7 +57,7 @@ def serialize_aws_json_1_1(value: ConnectionHttpParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectionHttpParameters:
     out: ConnectionHttpParameters = {}  # type: ignore[typeddict-item]
-    if "HeaderParameters" in data:
+    if data.get("HeaderParameters") is not None:
         import capo_eventbridge.types.connection_header_parameters_list
 
         out["header_parameters"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConnectionHttpParameters:
                 data["HeaderParameters"]
             )
         )
-    if "QueryStringParameters" in data:
+    if data.get("QueryStringParameters") is not None:
         import capo_eventbridge.types.connection_query_string_parameters_list
 
         out["query_string_parameters"] = (
@@ -73,7 +73,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConnectionHttpParameters:
                 data["QueryStringParameters"]
             )
         )
-    if "BodyParameters" in data:
+    if data.get("BodyParameters") is not None:
         import capo_eventbridge.types.connection_body_parameters_list
 
         out["body_parameters"] = (

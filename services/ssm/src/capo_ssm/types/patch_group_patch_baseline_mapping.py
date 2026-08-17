@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: PatchGroupPatchBaselineMapping) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchGroupPatchBaselineMapping:
     out: PatchGroupPatchBaselineMapping = {}  # type: ignore[typeddict-item]
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
-    if "BaselineIdentity" in data:
+    if data.get("BaselineIdentity") is not None:
         import capo_ssm.types.patch_baseline_identity
 
         out["baseline_identity"] = (

@@ -122,13 +122,13 @@ def serialize_aws_json_1_1(value: Endpoint) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Endpoint:
     out: Endpoint = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "RoutingConfig" in data:
+    if data.get("RoutingConfig") is not None:
         import capo_eventbridge.types.routing_config
 
         out["routing_config"] = (
@@ -136,7 +136,7 @@ def deserialize_aws_json_1_1(data: dict) -> Endpoint:
                 data["RoutingConfig"]
             )
         )
-    if "ReplicationConfig" in data:
+    if data.get("ReplicationConfig") is not None:
         import capo_eventbridge.types.replication_config
 
         out["replication_config"] = (
@@ -144,7 +144,7 @@ def deserialize_aws_json_1_1(data: dict) -> Endpoint:
                 data["ReplicationConfig"]
             )
         )
-    if "EventBuses" in data:
+    if data.get("EventBuses") is not None:
         import capo_eventbridge.types.endpoint_event_bus_list
 
         out["event_buses"] = (
@@ -152,21 +152,21 @@ def deserialize_aws_json_1_1(data: dict) -> Endpoint:
                 data["EventBuses"]
             )
         )
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
-    if "EndpointId" in data:
+    if data.get("EndpointId") is not None:
         out["endpoint_id"] = data["EndpointId"]
-    if "EndpointUrl" in data:
+    if data.get("EndpointUrl") is not None:
         out["endpoint_url"] = data["EndpointUrl"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.endpoint_state
 
         out["state"] = capo_eventbridge.types.endpoint_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -174,7 +174,7 @@ def deserialize_aws_json_1_1(data: dict) -> Endpoint:
                 data["CreationTime"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["last_modified_time"] = (

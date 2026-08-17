@@ -74,17 +74,17 @@ def serialize_aws_json_1_1(value: CreateActivationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateActivationRequest:
     out: CreateActivationRequest = {}  # type: ignore[typeddict-item]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "DefaultInstanceName" in data:
+    if data.get("DefaultInstanceName") is not None:
         out["default_instance_name"] = data["DefaultInstanceName"]
-    if "IamRole" in data:
+    if data.get("IamRole") is not None:
         out["iam_role"] = data["IamRole"]
     else:
         raise DeserializationError("CreateActivationRequest.iam_role required")
-    if "RegistrationLimit" in data:
+    if data.get("RegistrationLimit") is not None:
         out["registration_limit"] = data["RegistrationLimit"]
-    if "ExpirationDate" in data:
+    if data.get("ExpirationDate") is not None:
         import capo_ssm.types.expiration_date
 
         out["expiration_date"] = (
@@ -92,11 +92,11 @@ def deserialize_aws_json_1_1(data: dict) -> CreateActivationRequest:
                 data["ExpirationDate"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "RegistrationMetadata" in data:
+    if data.get("RegistrationMetadata") is not None:
         import capo_ssm.types.registration_metadata_list
 
         out["registration_metadata"] = (

@@ -33,9 +33,9 @@ def serialize_aws_json_1_1(value: SubmitAttachmentStateChangesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubmitAttachmentStateChangesRequest:
     out: SubmitAttachmentStateChangesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "attachments" in data:
+    if data.get("attachments") is not None:
         import capo_ecs.types.attachment_state_changes
 
         out["attachments"] = (

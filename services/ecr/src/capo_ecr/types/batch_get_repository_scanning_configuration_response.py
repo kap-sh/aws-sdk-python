@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> BatchGetRepositoryScanningConfigurationResponse:
     out: BatchGetRepositoryScanningConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "scanningConfigurations" in data:
+    if data.get("scanningConfigurations") is not None:
         import capo_ecr.types.repository_scanning_configuration_list
 
         out["scanning_configurations"] = (
@@ -56,7 +56,7 @@ def deserialize_aws_json_1_1(
                 data["scanningConfigurations"]
             )
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecr.types.repository_scanning_configuration_failure_list
 
         out["failures"] = (

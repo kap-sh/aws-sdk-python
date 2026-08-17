@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: CreateOpsItemResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateOpsItemResponse:
     out: CreateOpsItemResponse = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "OpsItemArn" in data:
+    if data.get("OpsItemArn") is not None:
         out["ops_item_arn"] = data["OpsItemArn"]
     return out

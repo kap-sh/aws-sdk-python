@@ -32,7 +32,7 @@ def serialize_aws_json_1_0(value: ListTablesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListTablesOutput:
     out: ListTablesOutput = {}  # type: ignore[typeddict-item]
-    if "TableNames" in data:
+    if data.get("TableNames") is not None:
         import capo_dynamodb.types.table_name_list
 
         out["table_names"] = (
@@ -40,6 +40,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListTablesOutput:
                 data["TableNames"]
             )
         )
-    if "LastEvaluatedTableName" in data:
+    if data.get("LastEvaluatedTableName") is not None:
         out["last_evaluated_table_name"] = data["LastEvaluatedTableName"]
     return out

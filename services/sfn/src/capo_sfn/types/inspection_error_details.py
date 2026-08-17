@@ -38,10 +38,10 @@ def serialize_aws_json_1_0(value: InspectionErrorDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InspectionErrorDetails:
     out: InspectionErrorDetails = {}  # type: ignore[typeddict-item]
-    if "catchIndex" in data:
+    if data.get("catchIndex") is not None:
         out["catch_index"] = data["catchIndex"]
-    if "retryIndex" in data:
+    if data.get("retryIndex") is not None:
         out["retry_index"] = data["retryIndex"]
-    if "retryBackoffIntervalSeconds" in data:
+    if data.get("retryBackoffIntervalSeconds") is not None:
         out["retry_backoff_interval_seconds"] = data["retryBackoffIntervalSeconds"]
     return out

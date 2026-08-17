@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: NodeType) -> dict:
 
 
 def deserialize_aws_json_1_1(data: dict) -> NodeType:
-    if "Instance" in data:
+    if data.get("Instance") is not None:
         import capo_ssm.types.instance_info
 
         return {

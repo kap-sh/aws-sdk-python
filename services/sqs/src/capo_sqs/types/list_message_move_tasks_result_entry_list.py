@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> ListMessageMoveTasksResultEntryList:
 
     out: ListMessageMoveTasksResultEntryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sqs.types.list_message_move_tasks_result_entry.deserialize_aws_json_1_0(
                 item

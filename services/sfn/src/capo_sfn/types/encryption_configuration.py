@@ -38,11 +38,11 @@ def serialize_aws_json_1_0(value: EncryptionConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> EncryptionConfiguration:
     out: EncryptionConfiguration = {}  # type: ignore[typeddict-item]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "kmsDataKeyReusePeriodSeconds" in data:
+    if data.get("kmsDataKeyReusePeriodSeconds") is not None:
         out["kms_data_key_reuse_period_seconds"] = data["kmsDataKeyReusePeriodSeconds"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_sfn.types.encryption_type
 
         out["type"] = capo_sfn.types.encryption_type.deserialize_aws_json_1_0(

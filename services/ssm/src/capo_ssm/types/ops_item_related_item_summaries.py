@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> OpsItemRelatedItemSummaries:
 
     out: OpsItemRelatedItemSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.ops_item_related_item_summary.deserialize_aws_json_1_1(item)
         )

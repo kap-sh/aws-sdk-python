@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> CapacityProviderStrategy:
 
     out: CapacityProviderStrategy = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_scheduler.types.capacity_provider_strategy_item.deserialize_json(item)
         )

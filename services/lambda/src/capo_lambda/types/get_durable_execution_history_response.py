@@ -31,12 +31,12 @@ def serialize_json(value: GetDurableExecutionHistoryResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDurableExecutionHistoryResponse:
     out: GetDurableExecutionHistoryResponse = {}  # type: ignore[typeddict-item]
-    if "Events" in data:
+    if data.get("Events") is not None:
         import capo_lambda.types.events
 
         out["events"] = capo_lambda.types.events.deserialize_json(data["Events"])
     else:
         raise DeserializationError("GetDurableExecutionHistoryResponse.events required")
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

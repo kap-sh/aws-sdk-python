@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: GetResourcePoliciesResponseEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetResourcePoliciesResponseEntry:
     out: GetResourcePoliciesResponseEntry = {}  # type: ignore[typeddict-item]
-    if "PolicyId" in data:
+    if data.get("PolicyId") is not None:
         out["policy_id"] = data["PolicyId"]
-    if "PolicyHash" in data:
+    if data.get("PolicyHash") is not None:
         out["policy_hash"] = data["PolicyHash"]
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
     return out

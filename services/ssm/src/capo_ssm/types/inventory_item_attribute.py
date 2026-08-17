@@ -34,11 +34,11 @@ def serialize_aws_json_1_1(value: InventoryItemAttribute) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryItemAttribute:
     out: InventoryItemAttribute = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("InventoryItemAttribute.name required")
-    if "DataType" in data:
+    if data.get("DataType") is not None:
         import capo_ssm.types.inventory_attribute_data_type
 
         out["data_type"] = (

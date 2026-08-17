@@ -66,15 +66,15 @@ def serialize_aws_json_1_1(value: GetOpsSummaryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetOpsSummaryRequest:
     out: GetOpsSummaryRequest = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.ops_filter_list
 
         out["filters"] = capo_ssm.types.ops_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.ops_aggregator_list
 
         out["aggregators"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetOpsSummaryRequest:
                 data["Aggregators"]
             )
         )
-    if "ResultAttributes" in data:
+    if data.get("ResultAttributes") is not None:
         import capo_ssm.types.ops_result_attribute_list
 
         out["result_attributes"] = (
@@ -90,8 +90,8 @@ def deserialize_aws_json_1_1(data: dict) -> GetOpsSummaryRequest:
                 data["ResultAttributes"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

@@ -41,7 +41,7 @@ def serialize_aws_json_1_1(value: DocumentReviews) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentReviews:
     out: DocumentReviews = {}  # type: ignore[typeddict-item]
-    if "Action" in data:
+    if data.get("Action") is not None:
         import capo_ssm.types.document_review_action
 
         out["action"] = capo_ssm.types.document_review_action.deserialize_aws_json_1_1(
@@ -49,7 +49,7 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentReviews:
         )
     else:
         raise DeserializationError("DocumentReviews.action required")
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         import capo_ssm.types.document_review_comment_list
 
         out["comment"] = (

@@ -48,13 +48,13 @@ def serialize_json(value: PublishVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> PublishVersionRequest:
     out: PublishVersionRequest = {}  # type: ignore[typeddict-item]
-    if "CodeSha256" in data:
+    if data.get("CodeSha256") is not None:
         out["code_sha256"] = data["CodeSha256"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
-    if "PublishTo" in data:
+    if data.get("PublishTo") is not None:
         import capo_lambda.types.function_version_latest_published
 
         out["publish_to"] = (

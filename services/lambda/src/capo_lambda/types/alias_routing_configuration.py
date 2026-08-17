@@ -31,7 +31,7 @@ def serialize_json(value: AliasRoutingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AliasRoutingConfiguration:
     out: AliasRoutingConfiguration = {}  # type: ignore[typeddict-item]
-    if "AdditionalVersionWeights" in data:
+    if data.get("AdditionalVersionWeights") is not None:
         import capo_lambda.types.additional_version_weights
 
         out["additional_version_weights"] = (

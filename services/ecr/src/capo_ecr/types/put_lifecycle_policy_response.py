@@ -35,10 +35,10 @@ def serialize_aws_json_1_1(value: PutLifecyclePolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutLifecyclePolicyResponse:
     out: PutLifecyclePolicyResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "lifecyclePolicyText" in data:
+    if data.get("lifecyclePolicyText") is not None:
         out["lifecycle_policy_text"] = data["lifecyclePolicyText"]
     return out

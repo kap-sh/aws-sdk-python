@@ -53,7 +53,7 @@ def serialize_aws_json_1_0(value: InsightRuleContributor) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributor:
     out: InsightRuleContributor = {}  # type: ignore[typeddict-item]
-    if "Keys" in data:
+    if data.get("Keys") is not None:
         import capo_cloudwatch.types.insight_rule_contributor_keys
 
         out["keys"] = (
@@ -61,9 +61,9 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributor:
                 data["Keys"]
             )
         )
-    if "ApproximateAggregateValue" in data:
+    if data.get("ApproximateAggregateValue") is not None:
         out["approximate_aggregate_value"] = data["ApproximateAggregateValue"]
-    if "Datapoints" in data:
+    if data.get("Datapoints") is not None:
         import capo_cloudwatch.types.insight_rule_contributor_datapoints
 
         out["datapoints"] = (

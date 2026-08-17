@@ -119,15 +119,15 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> GetMaintenanceWindowExecutionTaskInvocationResult:
     out: GetMaintenanceWindowExecutionTaskInvocationResult = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionId" in data:
+    if data.get("WindowExecutionId") is not None:
         out["window_execution_id"] = data["WindowExecutionId"]
-    if "TaskExecutionId" in data:
+    if data.get("TaskExecutionId") is not None:
         out["task_execution_id"] = data["TaskExecutionId"]
-    if "InvocationId" in data:
+    if data.get("InvocationId") is not None:
         out["invocation_id"] = data["InvocationId"]
-    if "ExecutionId" in data:
+    if data.get("ExecutionId") is not None:
         out["execution_id"] = data["ExecutionId"]
-    if "TaskType" in data:
+    if data.get("TaskType") is not None:
         import capo_ssm.types.maintenance_window_task_type
 
         out["task_type"] = (
@@ -135,9 +135,9 @@ def deserialize_aws_json_1_1(
                 data["TaskType"]
             )
         )
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         out["parameters"] = data["Parameters"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.maintenance_window_execution_status
 
         out["status"] = (
@@ -145,22 +145,22 @@ def deserialize_aws_json_1_1(
                 data["Status"]
             )
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_ssm.types.date_time
 
         out["start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_ssm.types.date_time
 
         out["end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["EndTime"]
         )
-    if "OwnerInformation" in data:
+    if data.get("OwnerInformation") is not None:
         out["owner_information"] = data["OwnerInformation"]
-    if "WindowTargetId" in data:
+    if data.get("WindowTargetId") is not None:
         out["window_target_id"] = data["WindowTargetId"]
     return out

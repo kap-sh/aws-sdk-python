@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: UpdatePrimaryRegionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdatePrimaryRegionRequest:
     out: UpdatePrimaryRegionRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("UpdatePrimaryRegionRequest.key_id required")
-    if "PrimaryRegion" in data:
+    if data.get("PrimaryRegion") is not None:
         out["primary_region"] = data["PrimaryRegion"]
     else:
         raise DeserializationError("UpdatePrimaryRegionRequest.primary_region required")

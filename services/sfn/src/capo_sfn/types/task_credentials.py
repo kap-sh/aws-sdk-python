@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: TaskCredentials) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TaskCredentials:
     out: TaskCredentials = {}  # type: ignore[typeddict-item]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     return out

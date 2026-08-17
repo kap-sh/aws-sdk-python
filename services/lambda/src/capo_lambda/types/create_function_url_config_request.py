@@ -54,7 +54,7 @@ def serialize_json(value: CreateFunctionUrlConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateFunctionUrlConfigRequest:
     out: CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-    if "AuthType" in data:
+    if data.get("AuthType") is not None:
         import capo_lambda.types.function_url_auth_type
 
         out["auth_type"] = capo_lambda.types.function_url_auth_type.deserialize_json(
@@ -62,11 +62,11 @@ def deserialize_json(data: dict) -> CreateFunctionUrlConfigRequest:
         )
     else:
         raise DeserializationError("CreateFunctionUrlConfigRequest.auth_type required")
-    if "Cors" in data:
+    if data.get("Cors") is not None:
         import capo_lambda.types.cors
 
         out["cors"] = capo_lambda.types.cors.deserialize_json(data["Cors"])
-    if "InvokeMode" in data:
+    if data.get("InvokeMode") is not None:
         import capo_lambda.types.invoke_mode
 
         out["invoke_mode"] = capo_lambda.types.invoke_mode.deserialize_json(

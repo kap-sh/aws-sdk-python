@@ -23,5 +23,7 @@ def deserialize_aws_json_1_0(data: list) -> HistoryEventList:
 
     out: HistoryEventList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_sfn.types.history_event.deserialize_aws_json_1_0(item))
     return out

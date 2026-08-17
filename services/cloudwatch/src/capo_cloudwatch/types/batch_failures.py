@@ -72,5 +72,7 @@ def deserialize_aws_json_1_0(data: list) -> BatchFailures:
 
     out: BatchFailures = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_cloudwatch.types.partial_failure.deserialize_aws_json_1_0(item))
     return out

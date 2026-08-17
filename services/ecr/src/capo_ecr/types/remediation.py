@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: Remediation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Remediation:
     out: Remediation = {}  # type: ignore[typeddict-item]
-    if "recommendation" in data:
+    if data.get("recommendation") is not None:
         import capo_ecr.types.recommendation
 
         out["recommendation"] = capo_ecr.types.recommendation.deserialize_aws_json_1_1(

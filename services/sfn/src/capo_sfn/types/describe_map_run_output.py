@@ -99,15 +99,15 @@ def serialize_aws_json_1_0(value: DescribeMapRunOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
     out: DescribeMapRunOutput = {}  # type: ignore[typeddict-item]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
     else:
         raise DeserializationError("DescribeMapRunOutput.map_run_arn required")
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("DescribeMapRunOutput.execution_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_sfn.types.map_run_status
 
         out["status"] = capo_sfn.types.map_run_status.deserialize_aws_json_1_0(
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
         )
     else:
         raise DeserializationError("DescribeMapRunOutput.status required")
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -123,25 +123,25 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
         )
     else:
         raise DeserializationError("DescribeMapRunOutput.start_date required")
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
             data["stopDate"]
         )
-    if "maxConcurrency" in data:
+    if data.get("maxConcurrency") is not None:
         out["max_concurrency"] = data["maxConcurrency"]
     else:
         out["max_concurrency"] = 0
-    if "toleratedFailurePercentage" in data:
+    if data.get("toleratedFailurePercentage") is not None:
         out["tolerated_failure_percentage"] = data["toleratedFailurePercentage"]
     else:
         out["tolerated_failure_percentage"] = 0
-    if "toleratedFailureCount" in data:
+    if data.get("toleratedFailureCount") is not None:
         out["tolerated_failure_count"] = data["toleratedFailureCount"]
     else:
         out["tolerated_failure_count"] = 0
-    if "itemCounts" in data:
+    if data.get("itemCounts") is not None:
         import capo_sfn.types.map_run_item_counts
 
         out["item_counts"] = (
@@ -151,7 +151,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
         )
     else:
         raise DeserializationError("DescribeMapRunOutput.item_counts required")
-    if "executionCounts" in data:
+    if data.get("executionCounts") is not None:
         import capo_sfn.types.map_run_execution_counts
 
         out["execution_counts"] = (
@@ -161,9 +161,9 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
         )
     else:
         raise DeserializationError("DescribeMapRunOutput.execution_counts required")
-    if "redriveCount" in data:
+    if data.get("redriveCount") is not None:
         out["redrive_count"] = data["redriveCount"]
-    if "redriveDate" in data:
+    if data.get("redriveDate") is not None:
         import capo_sfn.types.timestamp
 
         out["redrive_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

@@ -41,7 +41,7 @@ def serialize_aws_json_1_1(value: FirelensConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FirelensConfiguration:
     out: FirelensConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.firelens_configuration_type
 
         out["type"] = (
@@ -51,7 +51,7 @@ def deserialize_aws_json_1_1(data: dict) -> FirelensConfiguration:
         )
     else:
         raise DeserializationError("FirelensConfiguration.type required")
-    if "options" in data:
+    if data.get("options") is not None:
         import capo_ecs.types.firelens_configuration_options_map
 
         out["options"] = (

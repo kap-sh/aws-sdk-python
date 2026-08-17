@@ -29,7 +29,7 @@ def serialize_aws_json_1_0(value: DisableInsightRulesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DisableInsightRulesOutput:
     out: DisableInsightRulesOutput = {}  # type: ignore[typeddict-item]
-    if "Failures" in data:
+    if data.get("Failures") is not None:
         import capo_cloudwatch.types.batch_failures
 
         out["failures"] = capo_cloudwatch.types.batch_failures.deserialize_aws_json_1_0(

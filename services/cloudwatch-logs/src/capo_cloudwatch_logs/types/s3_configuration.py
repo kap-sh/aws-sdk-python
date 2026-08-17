@@ -38,16 +38,16 @@ def serialize_aws_json_1_1(value: S3Configuration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3Configuration:
     out: S3Configuration = {}  # type: ignore[typeddict-item]
-    if "destinationIdentifier" in data:
+    if data.get("destinationIdentifier") is not None:
         out["destination_identifier"] = data["destinationIdentifier"]
     else:
         raise DeserializationError("S3Configuration.destination_identifier required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("S3Configuration.role_arn required")
-    if "ownerAccountId" in data:
+    if data.get("ownerAccountId") is not None:
         out["owner_account_id"] = data["ownerAccountId"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

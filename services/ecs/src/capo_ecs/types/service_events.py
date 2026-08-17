@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> ServiceEvents:
 
     out: ServiceEvents = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.service_event.deserialize_aws_json_1_1(item))
     return out

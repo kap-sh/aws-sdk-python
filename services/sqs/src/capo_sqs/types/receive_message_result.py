@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: ReceiveMessageResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReceiveMessageResult:
     out: ReceiveMessageResult = {}  # type: ignore[typeddict-item]
-    if "Messages" in data:
+    if data.get("Messages") is not None:
         import capo_sqs.types.message_list
 
         out["messages"] = capo_sqs.types.message_list.deserialize_aws_json_1_0(

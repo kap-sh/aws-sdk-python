@@ -53,9 +53,9 @@ def serialize_json(value: CreateCodeSigningConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateCodeSigningConfigRequest:
     out: CreateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "AllowedPublishers" in data:
+    if data.get("AllowedPublishers") is not None:
         import capo_lambda.types.allowed_publishers
 
         out["allowed_publishers"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> CreateCodeSigningConfigRequest:
         raise DeserializationError(
             "CreateCodeSigningConfigRequest.allowed_publishers required"
         )
-    if "CodeSigningPolicies" in data:
+    if data.get("CodeSigningPolicies") is not None:
         import capo_lambda.types.code_signing_policies
 
         out["code_signing_policies"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> CreateCodeSigningConfigRequest:
                 data["CodeSigningPolicies"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_lambda.types.tags
 
         out["tags"] = capo_lambda.types.tags.deserialize_json(data["Tags"])

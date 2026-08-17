@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: ContainerDependency) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerDependency:
     out: ContainerDependency = {}  # type: ignore[typeddict-item]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
     else:
         raise DeserializationError("ContainerDependency.container_name required")
-    if "condition" in data:
+    if data.get("condition") is not None:
         import capo_ecs.types.container_condition
 
         out["condition"] = capo_ecs.types.container_condition.deserialize_aws_json_1_1(

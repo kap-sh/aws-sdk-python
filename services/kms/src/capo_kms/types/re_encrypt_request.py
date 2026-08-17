@@ -114,7 +114,7 @@ def serialize_aws_json_1_1(value: ReEncryptRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
     out: ReEncryptRequest = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -122,7 +122,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
                 data["CiphertextBlob"]
             )
         )
-    if "SourceEncryptionContext" in data:
+    if data.get("SourceEncryptionContext") is not None:
         import capo_kms.types.encryption_context_type
 
         out["source_encryption_context"] = (
@@ -130,13 +130,13 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
                 data["SourceEncryptionContext"]
             )
         )
-    if "SourceKeyId" in data:
+    if data.get("SourceKeyId") is not None:
         out["source_key_id"] = data["SourceKeyId"]
-    if "DestinationKeyId" in data:
+    if data.get("DestinationKeyId") is not None:
         out["destination_key_id"] = data["DestinationKeyId"]
     else:
         raise DeserializationError("ReEncryptRequest.destination_key_id required")
-    if "DestinationEncryptionContext" in data:
+    if data.get("DestinationEncryptionContext") is not None:
         import capo_kms.types.encryption_context_type
 
         out["destination_encryption_context"] = (
@@ -144,7 +144,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
                 data["DestinationEncryptionContext"]
             )
         )
-    if "SourceEncryptionAlgorithm" in data:
+    if data.get("SourceEncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["source_encryption_algorithm"] = (
@@ -152,7 +152,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
                 data["SourceEncryptionAlgorithm"]
             )
         )
-    if "DestinationEncryptionAlgorithm" in data:
+    if data.get("DestinationEncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["destination_encryption_algorithm"] = (
@@ -160,15 +160,15 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptRequest:
                 data["DestinationEncryptionAlgorithm"]
             )
         )
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
-    if "DryRunModifiers" in data:
+    if data.get("DryRunModifiers") is not None:
         import capo_kms.types.dry_run_modifier_list
 
         out["dry_run_modifiers"] = (

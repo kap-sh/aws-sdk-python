@@ -31,12 +31,12 @@ def serialize_aws_json_1_1(value: DeleteAccountSettingRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteAccountSettingRequest:
     out: DeleteAccountSettingRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.setting_name
 
         out["name"] = capo_ecs.types.setting_name.deserialize_aws_json_1_1(data["name"])
     else:
         raise DeserializationError("DeleteAccountSettingRequest.name required")
-    if "principalArn" in data:
+    if data.get("principalArn") is not None:
         out["principal_arn"] = data["principalArn"]
     return out

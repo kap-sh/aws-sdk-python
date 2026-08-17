@@ -51,19 +51,19 @@ def serialize_aws_json_1_1(value: AutomationExecutionPreview) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionPreview:
     out: AutomationExecutionPreview = {}  # type: ignore[typeddict-item]
-    if "StepPreviews" in data:
+    if data.get("StepPreviews") is not None:
         import capo_ssm.types.step_preview_map
 
         out["step_previews"] = capo_ssm.types.step_preview_map.deserialize_aws_json_1_1(
             data["StepPreviews"]
         )
-    if "Regions" in data:
+    if data.get("Regions") is not None:
         import capo_ssm.types.region_list
 
         out["regions"] = capo_ssm.types.region_list.deserialize_aws_json_1_1(
             data["Regions"]
         )
-    if "TargetPreviews" in data:
+    if data.get("TargetPreviews") is not None:
         import capo_ssm.types.target_preview_list
 
         out["target_previews"] = (
@@ -71,7 +71,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionPreview:
                 data["TargetPreviews"]
             )
         )
-    if "TotalAccounts" in data:
+    if data.get("TotalAccounts") is not None:
         out["total_accounts"] = data["TotalAccounts"]
     else:
         out["total_accounts"] = 0

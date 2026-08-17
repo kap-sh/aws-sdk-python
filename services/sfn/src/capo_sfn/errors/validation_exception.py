@@ -37,9 +37,9 @@ def serialize_aws_json_1_0(value: ValidationException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ValidationException_:
     out: ValidationException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         import capo_sfn.types.validation_exception_reason
 
         out["reason"] = (

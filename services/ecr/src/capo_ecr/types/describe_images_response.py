@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: DescribeImagesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImagesResponse:
     out: DescribeImagesResponse = {}  # type: ignore[typeddict-item]
-    if "imageDetails" in data:
+    if data.get("imageDetails") is not None:
         import capo_ecr.types.image_detail_list
 
         out["image_details"] = (
@@ -40,6 +40,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImagesResponse:
                 data["imageDetails"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

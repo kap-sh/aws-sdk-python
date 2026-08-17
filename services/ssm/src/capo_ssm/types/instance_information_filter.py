@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: InstanceInformationFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceInformationFilter:
     out: InstanceInformationFilter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         import capo_ssm.types.instance_information_filter_key
 
         out["key"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceInformationFilter:
         )
     else:
         raise DeserializationError("InstanceInformationFilter.key required")
-    if "valueSet" in data:
+    if data.get("valueSet") is not None:
         import capo_ssm.types.instance_information_filter_value_set
 
         out["value_set"] = (

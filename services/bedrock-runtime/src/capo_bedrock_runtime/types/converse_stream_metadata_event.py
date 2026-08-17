@@ -68,7 +68,7 @@ def serialize_json(value: ConverseStreamMetadataEvent) -> dict:
 
 def deserialize_json(data: dict) -> ConverseStreamMetadataEvent:
     out: ConverseStreamMetadataEvent = {}  # type: ignore[typeddict-item]
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_runtime.types.token_usage
 
         out["usage"] = capo_bedrock_runtime.types.token_usage.deserialize_json(
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> ConverseStreamMetadataEvent:
         )
     else:
         raise DeserializationError("ConverseStreamMetadataEvent.usage required")
-    if "metrics" in data:
+    if data.get("metrics") is not None:
         import capo_bedrock_runtime.types.converse_stream_metrics
 
         out["metrics"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> ConverseStreamMetadataEvent:
         )
     else:
         raise DeserializationError("ConverseStreamMetadataEvent.metrics required")
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_runtime.types.converse_stream_trace
 
         out["trace"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> ConverseStreamMetadataEvent:
                 data["trace"]
             )
         )
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_runtime.types.performance_configuration
 
         out["performance_config"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> ConverseStreamMetadataEvent:
                 data["performanceConfig"]
             )
         )
-    if "serviceTier" in data:
+    if data.get("serviceTier") is not None:
         import capo_bedrock_runtime.types.service_tier
 
         out["service_tier"] = capo_bedrock_runtime.types.service_tier.deserialize_json(

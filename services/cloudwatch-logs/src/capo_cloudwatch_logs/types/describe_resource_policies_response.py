@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: DescribeResourcePoliciesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeResourcePoliciesResponse:
     out: DescribeResourcePoliciesResponse = {}  # type: ignore[typeddict-item]
-    if "resourcePolicies" in data:
+    if data.get("resourcePolicies") is not None:
         import capo_cloudwatch_logs.types.resource_policies
 
         out["resource_policies"] = (
@@ -43,6 +43,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeResourcePoliciesResponse:
                 data["resourcePolicies"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

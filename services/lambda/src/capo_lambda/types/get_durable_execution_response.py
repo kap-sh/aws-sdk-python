@@ -107,31 +107,31 @@ def serialize_json(value: GetDurableExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDurableExecutionResponse:
     out: GetDurableExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "DurableExecutionArn" in data:
+    if data.get("DurableExecutionArn") is not None:
         out["durable_execution_arn"] = data["DurableExecutionArn"]
     else:
         raise DeserializationError(
             "GetDurableExecutionResponse.durable_execution_arn required"
         )
-    if "DurableExecutionName" in data:
+    if data.get("DurableExecutionName") is not None:
         out["durable_execution_name"] = data["DurableExecutionName"]
     else:
         raise DeserializationError(
             "GetDurableExecutionResponse.durable_execution_name required"
         )
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
     else:
         raise DeserializationError("GetDurableExecutionResponse.function_arn required")
-    if "InputPayload" in data:
+    if data.get("InputPayload") is not None:
         out["input_payload"] = data["InputPayload"]
-    if "Result" in data:
+    if data.get("Result") is not None:
         out["result"] = data["Result"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])
-    if "StartTimestamp" in data:
+    if data.get("StartTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["start_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
@@ -141,7 +141,7 @@ def deserialize_json(data: dict) -> GetDurableExecutionResponse:
         raise DeserializationError(
             "GetDurableExecutionResponse.start_timestamp required"
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_lambda.types.execution_status
 
         out["status"] = capo_lambda.types.execution_status.deserialize_json(
@@ -149,23 +149,23 @@ def deserialize_json(data: dict) -> GetDurableExecutionResponse:
         )
     else:
         raise DeserializationError("GetDurableExecutionResponse.status required")
-    if "EndTimestamp" in data:
+    if data.get("EndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["end_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
             data["EndTimestamp"]
         )
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
-    if "TraceHeader" in data:
+    if data.get("TraceHeader") is not None:
         import capo_lambda.types.trace_header
 
         out["trace_header"] = capo_lambda.types.trace_header.deserialize_json(
             data["TraceHeader"]
         )
-    if "ExecutionDataIncluded" in data:
+    if data.get("ExecutionDataIncluded") is not None:
         out["execution_data_included"] = data["ExecutionDataIncluded"]
-    if "DurableConfig" in data:
+    if data.get("DurableConfig") is not None:
         import capo_lambda.types.durable_config
 
         out["durable_config"] = capo_lambda.types.durable_config.deserialize_json(

@@ -42,15 +42,15 @@ def serialize_aws_json_1_0(value: UpdateStateMachineAliasInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineAliasInput:
     out: UpdateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
     else:
         raise DeserializationError(
             "UpdateStateMachineAliasInput.state_machine_alias_arn required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_sfn.types.routing_configuration_list
 
         out["routing_configuration"] = (

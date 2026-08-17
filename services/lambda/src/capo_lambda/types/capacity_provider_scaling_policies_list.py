@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> CapacityProviderScalingPoliciesList:
 
     out: CapacityProviderScalingPoliciesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_lambda.types.target_tracking_scaling_policy.deserialize_json(item)
         )

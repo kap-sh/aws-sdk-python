@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: UpdateDocumentMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentMetadataRequest:
     out: UpdateDocumentMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UpdateDocumentMetadataRequest.name required")
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "DocumentReviews" in data:
+    if data.get("DocumentReviews") is not None:
         import capo_ssm.types.document_reviews
 
         out["document_reviews"] = (

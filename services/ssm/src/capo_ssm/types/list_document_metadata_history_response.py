@@ -51,13 +51,13 @@ def serialize_aws_json_1_1(value: ListDocumentMetadataHistoryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDocumentMetadataHistoryResponse:
     out: ListDocumentMetadataHistoryResponse = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Author" in data:
+    if data.get("Author") is not None:
         out["author"] = data["Author"]
-    if "Metadata" in data:
+    if data.get("Metadata") is not None:
         import capo_ssm.types.document_metadata_response_info
 
         out["metadata"] = (
@@ -65,6 +65,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListDocumentMetadataHistoryResponse:
                 data["Metadata"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

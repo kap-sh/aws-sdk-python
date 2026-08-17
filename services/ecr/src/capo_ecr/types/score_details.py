@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: ScoreDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScoreDetails:
     out: ScoreDetails = {}  # type: ignore[typeddict-item]
-    if "cvss" in data:
+    if data.get("cvss") is not None:
         import capo_ecr.types.cvss_score_details
 
         out["cvss"] = capo_ecr.types.cvss_score_details.deserialize_aws_json_1_1(

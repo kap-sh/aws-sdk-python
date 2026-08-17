@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeGlobalTableSettingsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeGlobalTableSettingsInput:
     out: DescribeGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
     else:
         raise DeserializationError(

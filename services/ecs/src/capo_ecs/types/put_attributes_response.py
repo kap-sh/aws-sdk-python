@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: PutAttributesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutAttributesResponse:
     out: PutAttributesResponse = {}  # type: ignore[typeddict-item]
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecs.types.attributes
 
         out["attributes"] = capo_ecs.types.attributes.deserialize_aws_json_1_1(

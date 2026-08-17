@@ -61,13 +61,13 @@ def serialize_aws_json_1_0(value: UpdateGlobalSecondaryIndexAction) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalSecondaryIndexAction:
     out: UpdateGlobalSecondaryIndexAction = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     else:
         raise DeserializationError(
             "UpdateGlobalSecondaryIndexAction.index_name required"
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalSecondaryIndexAction:
                 data["ProvisionedThroughput"]
             )
         )
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalSecondaryIndexAction:
                 data["OnDemandThroughput"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.warm_throughput
 
         out["warm_throughput"] = (

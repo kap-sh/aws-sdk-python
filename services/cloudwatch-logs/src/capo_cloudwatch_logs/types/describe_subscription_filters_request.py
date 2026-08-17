@@ -39,16 +39,16 @@ def serialize_aws_json_1_1(value: DescribeSubscriptionFiltersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeSubscriptionFiltersRequest:
     out: DescribeSubscriptionFiltersRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError(
             "DescribeSubscriptionFiltersRequest.log_group_name required"
         )
-    if "filterNamePrefix" in data:
+    if data.get("filterNamePrefix") is not None:
         out["filter_name_prefix"] = data["filterNamePrefix"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> ConnectionQueryStringParametersList:
 
     out: ConnectionQueryStringParametersList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.connection_query_string_parameter.deserialize_aws_json_1_1(
                 item

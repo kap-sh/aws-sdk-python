@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: ListIntegrationsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListIntegrationsResponse:
     out: ListIntegrationsResponse = {}  # type: ignore[typeddict-item]
-    if "integrationSummaries" in data:
+    if data.get("integrationSummaries") is not None:
         import capo_cloudwatch_logs.types.integration_summaries
 
         out["integration_summaries"] = (

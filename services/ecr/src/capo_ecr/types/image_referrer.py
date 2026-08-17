@@ -55,27 +55,27 @@ def serialize_aws_json_1_1(value: ImageReferrer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageReferrer:
     out: ImageReferrer = {}  # type: ignore[typeddict-item]
-    if "digest" in data:
+    if data.get("digest") is not None:
         out["digest"] = data["digest"]
     else:
         raise DeserializationError("ImageReferrer.digest required")
-    if "mediaType" in data:
+    if data.get("mediaType") is not None:
         out["media_type"] = data["mediaType"]
     else:
         raise DeserializationError("ImageReferrer.media_type required")
-    if "artifactType" in data:
+    if data.get("artifactType") is not None:
         out["artifact_type"] = data["artifactType"]
-    if "size" in data:
+    if data.get("size") is not None:
         out["size"] = data["size"]
     else:
         raise DeserializationError("ImageReferrer.size required")
-    if "annotations" in data:
+    if data.get("annotations") is not None:
         import capo_ecr.types.annotations
 
         out["annotations"] = capo_ecr.types.annotations.deserialize_aws_json_1_1(
             data["annotations"]
         )
-    if "artifactStatus" in data:
+    if data.get("artifactStatus") is not None:
         import capo_ecr.types.artifact_status
 
         out["artifact_status"] = (

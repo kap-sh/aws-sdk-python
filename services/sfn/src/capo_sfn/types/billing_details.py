@@ -28,11 +28,11 @@ def serialize_aws_json_1_0(value: BillingDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BillingDetails:
     out: BillingDetails = {}  # type: ignore[typeddict-item]
-    if "billedMemoryUsedInMB" in data:
+    if data.get("billedMemoryUsedInMB") is not None:
         out["billed_memory_used_in_mb"] = data["billedMemoryUsedInMB"]
     else:
         out["billed_memory_used_in_mb"] = 0
-    if "billedDurationInMilliseconds" in data:
+    if data.get("billedDurationInMilliseconds") is not None:
         out["billed_duration_in_milliseconds"] = data["billedDurationInMilliseconds"]
     else:
         out["billed_duration_in_milliseconds"] = 0

@@ -28,8 +28,8 @@ def serialize_aws_json_1_0(value: ThrottlingReason) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ThrottlingReason:
     out: ThrottlingReason = {}  # type: ignore[typeddict-item]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     return out

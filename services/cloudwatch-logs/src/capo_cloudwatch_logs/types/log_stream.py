@@ -59,20 +59,20 @@ def serialize_aws_json_1_1(value: LogStream) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogStream:
     out: LogStream = {}  # type: ignore[typeddict-item]
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "firstEventTimestamp" in data:
+    if data.get("firstEventTimestamp") is not None:
         out["first_event_timestamp"] = data["firstEventTimestamp"]
-    if "lastEventTimestamp" in data:
+    if data.get("lastEventTimestamp") is not None:
         out["last_event_timestamp"] = data["lastEventTimestamp"]
-    if "lastIngestionTime" in data:
+    if data.get("lastIngestionTime") is not None:
         out["last_ingestion_time"] = data["lastIngestionTime"]
-    if "uploadSequenceToken" in data:
+    if data.get("uploadSequenceToken") is not None:
         out["upload_sequence_token"] = data["uploadSequenceToken"]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "storedBytes" in data:
+    if data.get("storedBytes") is not None:
         out["stored_bytes"] = data["storedBytes"]
     return out

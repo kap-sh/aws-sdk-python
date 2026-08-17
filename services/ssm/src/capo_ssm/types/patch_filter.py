@@ -34,7 +34,7 @@ def serialize_aws_json_1_1(value: PatchFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchFilter:
     out: PatchFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_ssm.types.patch_filter_key
 
         out["key"] = capo_ssm.types.patch_filter_key.deserialize_aws_json_1_1(
@@ -42,7 +42,7 @@ def deserialize_aws_json_1_1(data: dict) -> PatchFilter:
         )
     else:
         raise DeserializationError("PatchFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.patch_filter_value_list
 
         out["values"] = capo_ssm.types.patch_filter_value_list.deserialize_aws_json_1_1(

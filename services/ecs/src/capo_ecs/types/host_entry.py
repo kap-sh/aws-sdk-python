@@ -27,11 +27,11 @@ def serialize_aws_json_1_1(value: HostEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> HostEntry:
     out: HostEntry = {}  # type: ignore[typeddict-item]
-    if "hostname" in data:
+    if data.get("hostname") is not None:
         out["hostname"] = data["hostname"]
     else:
         raise DeserializationError("HostEntry.hostname required")
-    if "ipAddress" in data:
+    if data.get("ipAddress") is not None:
         out["ip_address"] = data["ipAddress"]
     else:
         raise DeserializationError("HostEntry.ip_address required")

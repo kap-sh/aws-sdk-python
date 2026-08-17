@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> ImageReplicationStatusList:
 
     out: ImageReplicationStatusList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.image_replication_status.deserialize_aws_json_1_1(item)
         )

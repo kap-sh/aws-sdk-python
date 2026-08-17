@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: CreateCustomKeyStoreResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateCustomKeyStoreResponse:
     out: CreateCustomKeyStoreResponse = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
     return out

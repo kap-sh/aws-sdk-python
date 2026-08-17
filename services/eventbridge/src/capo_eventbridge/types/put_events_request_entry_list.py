@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> PutEventsRequestEntryList:
 
     out: PutEventsRequestEntryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.put_events_request_entry.deserialize_aws_json_1_1(
                 item

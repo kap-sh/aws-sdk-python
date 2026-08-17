@@ -68,25 +68,25 @@ def serialize_aws_json_1_1(value: GetLogEventsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogEventsRequest:
     out: GetLogEventsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
     else:
         raise DeserializationError("GetLogEventsRequest.log_stream_name required")
-    if "startTime" in data:
+    if data.get("startTime") is not None:
         out["start_time"] = data["startTime"]
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         out["end_time"] = data["endTime"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "startFromHead" in data:
+    if data.get("startFromHead") is not None:
         out["start_from_head"] = data["startFromHead"]
-    if "unmask" in data:
+    if data.get("unmask") is not None:
         out["unmask"] = data["unmask"]
     else:
         out["unmask"] = False

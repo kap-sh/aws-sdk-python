@@ -29,7 +29,7 @@ def serialize_json(value: TagResourceInput) -> dict:
 
 def deserialize_json(data: dict) -> TagResourceInput:
     out: TagResourceInput = {}  # type: ignore[typeddict-item]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_scheduler.types.tag_list
 
         out["tags"] = capo_scheduler.types.tag_list.deserialize_json(data["Tags"])

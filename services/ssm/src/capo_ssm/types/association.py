@@ -101,43 +101,43 @@ def serialize_aws_json_1_1(value: Association) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Association:
     out: Association = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "LastExecutionDate" in data:
+    if data.get("LastExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_execution_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastExecutionDate"]
         )
-    if "Overview" in data:
+    if data.get("Overview") is not None:
         import capo_ssm.types.association_overview
 
         out["overview"] = capo_ssm.types.association_overview.deserialize_aws_json_1_1(
             data["Overview"]
         )
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
-    if "AssociationName" in data:
+    if data.get("AssociationName") is not None:
         out["association_name"] = data["AssociationName"]
-    if "ScheduleOffset" in data:
+    if data.get("ScheduleOffset") is not None:
         out["schedule_offset"] = data["ScheduleOffset"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(

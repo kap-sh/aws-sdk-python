@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: DescribeTaskSetsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeTaskSetsResponse:
     out: DescribeTaskSetsResponse = {}  # type: ignore[typeddict-item]
-    if "taskSets" in data:
+    if data.get("taskSets") is not None:
         import capo_ecs.types.task_sets
 
         out["task_sets"] = capo_ecs.types.task_sets.deserialize_aws_json_1_1(
             data["taskSets"]
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(

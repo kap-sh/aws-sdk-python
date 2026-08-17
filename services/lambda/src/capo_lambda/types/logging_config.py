@@ -54,13 +54,13 @@ def serialize_json(value: LoggingConfig) -> dict:
 
 def deserialize_json(data: dict) -> LoggingConfig:
     out: LoggingConfig = {}  # type: ignore[typeddict-item]
-    if "LogFormat" in data:
+    if data.get("LogFormat") is not None:
         import capo_lambda.types.log_format
 
         out["log_format"] = capo_lambda.types.log_format.deserialize_json(
             data["LogFormat"]
         )
-    if "ApplicationLogLevel" in data:
+    if data.get("ApplicationLogLevel") is not None:
         import capo_lambda.types.application_log_level
 
         out["application_log_level"] = (
@@ -68,12 +68,12 @@ def deserialize_json(data: dict) -> LoggingConfig:
                 data["ApplicationLogLevel"]
             )
         )
-    if "SystemLogLevel" in data:
+    if data.get("SystemLogLevel") is not None:
         import capo_lambda.types.system_log_level
 
         out["system_log_level"] = capo_lambda.types.system_log_level.deserialize_json(
             data["SystemLogLevel"]
         )
-    if "LogGroup" in data:
+    if data.get("LogGroup") is not None:
         out["log_group"] = data["LogGroup"]
     return out

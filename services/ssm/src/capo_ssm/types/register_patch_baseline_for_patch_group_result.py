@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: RegisterPatchBaselineForPatchGroupResult) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterPatchBaselineForPatchGroupResult:
     out: RegisterPatchBaselineForPatchGroupResult = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
     return out

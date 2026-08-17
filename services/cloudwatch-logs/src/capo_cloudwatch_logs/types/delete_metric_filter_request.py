@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: DeleteMetricFilterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteMetricFilterRequest:
     out: DeleteMetricFilterRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("DeleteMetricFilterRequest.log_group_name required")
-    if "filterName" in data:
+    if data.get("filterName") is not None:
         out["filter_name"] = data["filterName"]
     else:
         raise DeserializationError("DeleteMetricFilterRequest.filter_name required")

@@ -30,8 +30,8 @@ def serialize_aws_json_1_1(value: DeregisterTaskFromMaintenanceWindowResult) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterTaskFromMaintenanceWindowResult:
     out: DeregisterTaskFromMaintenanceWindowResult = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
-    if "WindowTaskId" in data:
+    if data.get("WindowTaskId") is not None:
         out["window_task_id"] = data["WindowTaskId"]
     return out

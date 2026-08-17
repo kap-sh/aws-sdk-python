@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> TriggerHistoryRecordList:
 
     out: TriggerHistoryRecordList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.trigger_history_record.deserialize_aws_json_1_1(
                 item

@@ -99,9 +99,9 @@ def serialize_json(value: ContentBlockDelta) -> dict:
 
 
 def deserialize_json(data: dict) -> ContentBlockDelta:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "toolUse" in data:
+    elif data.get("toolUse") is not None:
         import capo_bedrock_runtime.types.tool_use_block_delta
 
         return {
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> ContentBlockDelta:
                 data["toolUse"]
             )
         }
-    elif "toolResult" in data:
+    elif data.get("toolResult") is not None:
         import capo_bedrock_runtime.types.tool_result_blocks_delta
 
         return {
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> ContentBlockDelta:
                 data["toolResult"]
             )
         }
-    elif "reasoningContent" in data:
+    elif data.get("reasoningContent") is not None:
         import capo_bedrock_runtime.types.reasoning_content_block_delta
 
         return {
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> ContentBlockDelta:
                 data["reasoningContent"]
             )
         }
-    elif "citation" in data:
+    elif data.get("citation") is not None:
         import capo_bedrock_runtime.types.citations_delta
 
         return {
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> ContentBlockDelta:
                 data["citation"]
             )
         }
-    elif "image" in data:
+    elif data.get("image") is not None:
         import capo_bedrock_runtime.types.image_block_delta
 
         return {

@@ -34,12 +34,12 @@ def serialize_aws_json_1_0(value: StopExecutionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StopExecutionInput:
     out: StopExecutionInput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("StopExecutionInput.execution_arn required")
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
     return out

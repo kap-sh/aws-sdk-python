@@ -39,11 +39,11 @@ def serialize_aws_json_1_1(value: UpdateTaskProtectionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateTaskProtectionRequest:
     out: UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError("UpdateTaskProtectionRequest.cluster required")
-    if "tasks" in data:
+    if data.get("tasks") is not None:
         import capo_ecs.types.string_list
 
         out["tasks"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
@@ -51,10 +51,10 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateTaskProtectionRequest:
         )
     else:
         raise DeserializationError("UpdateTaskProtectionRequest.tasks required")
-    if "protectionEnabled" in data:
+    if data.get("protectionEnabled") is not None:
         out["protection_enabled"] = data["protectionEnabled"]
     else:
         out["protection_enabled"] = False
-    if "expiresInMinutes" in data:
+    if data.get("expiresInMinutes") is not None:
         out["expires_in_minutes"] = data["expiresInMinutes"]
     return out

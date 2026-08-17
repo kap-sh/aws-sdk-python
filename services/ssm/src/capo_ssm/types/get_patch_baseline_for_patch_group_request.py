@@ -33,13 +33,13 @@ def serialize_aws_json_1_1(value: GetPatchBaselineForPatchGroupRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetPatchBaselineForPatchGroupRequest:
     out: GetPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
     else:
         raise DeserializationError(
             "GetPatchBaselineForPatchGroupRequest.patch_group required"
         )
-    if "OperatingSystem" in data:
+    if data.get("OperatingSystem") is not None:
         import capo_ssm.types.operating_system
 
         out["operating_system"] = (

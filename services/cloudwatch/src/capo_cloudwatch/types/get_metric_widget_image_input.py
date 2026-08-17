@@ -30,9 +30,9 @@ def serialize_aws_json_1_0(value: GetMetricWidgetImageInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricWidgetImageInput:
     out: GetMetricWidgetImageInput = {}  # type: ignore[typeddict-item]
-    if "MetricWidget" in data:
+    if data.get("MetricWidget") is not None:
         out["metric_widget"] = data["MetricWidget"]
-    if "OutputFormat" in data:
+    if data.get("OutputFormat") is not None:
         out["output_format"] = data["OutputFormat"]
     return out
 

@@ -31,7 +31,7 @@ def serialize_json(value: NetworkConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> NetworkConfiguration:
     out: NetworkConfiguration = {}  # type: ignore[typeddict-item]
-    if "awsvpcConfiguration" in data:
+    if data.get("awsvpcConfiguration") is not None:
         import capo_scheduler.types.aws_vpc_configuration
 
         out["awsvpc_configuration"] = (

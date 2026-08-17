@@ -94,7 +94,7 @@ def serialize_aws_json_1_1(value: ListAggregateLogGroupSummariesRequest) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesRequest:
     out: ListAggregateLogGroupSummariesRequest = {}  # type: ignore[typeddict-item]
-    if "accountIdentifiers" in data:
+    if data.get("accountIdentifiers") is not None:
         import capo_cloudwatch_logs.types.account_ids
 
         out["account_identifiers"] = (
@@ -102,9 +102,9 @@ def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesReques
                 data["accountIdentifiers"]
             )
         )
-    if "includeLinkedAccounts" in data:
+    if data.get("includeLinkedAccounts") is not None:
         out["include_linked_accounts"] = data["includeLinkedAccounts"]
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (
@@ -112,9 +112,9 @@ def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesReques
                 data["logGroupClass"]
             )
         )
-    if "logGroupNamePattern" in data:
+    if data.get("logGroupNamePattern") is not None:
         out["log_group_name_pattern"] = data["logGroupNamePattern"]
-    if "dataSources" in data:
+    if data.get("dataSources") is not None:
         import capo_cloudwatch_logs.types.data_source_filters
 
         out["data_sources"] = (
@@ -122,7 +122,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesReques
                 data["dataSources"]
             )
         )
-    if "groupBy" in data:
+    if data.get("groupBy") is not None:
         import capo_cloudwatch_logs.types.list_aggregate_log_group_summaries_group_by
 
         out["group_by"] = (
@@ -134,8 +134,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesReques
         raise DeserializationError(
             "ListAggregateLogGroupSummariesRequest.group_by required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

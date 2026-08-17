@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: RemoveTargetsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RemoveTargetsResponse:
     out: RemoveTargetsResponse = {}  # type: ignore[typeddict-item]
-    if "FailedEntryCount" in data:
+    if data.get("FailedEntryCount") is not None:
         out["failed_entry_count"] = data["FailedEntryCount"]
     else:
         out["failed_entry_count"] = 0
-    if "FailedEntries" in data:
+    if data.get("FailedEntries") is not None:
         import capo_eventbridge.types.remove_targets_result_entry_list
 
         out["failed_entries"] = (

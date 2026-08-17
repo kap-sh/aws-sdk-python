@@ -37,10 +37,10 @@ def serialize_aws_json_1_1(value: RejectedLogEventsInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RejectedLogEventsInfo:
     out: RejectedLogEventsInfo = {}  # type: ignore[typeddict-item]
-    if "tooNewLogEventStartIndex" in data:
+    if data.get("tooNewLogEventStartIndex") is not None:
         out["too_new_log_event_start_index"] = data["tooNewLogEventStartIndex"]
-    if "tooOldLogEventEndIndex" in data:
+    if data.get("tooOldLogEventEndIndex") is not None:
         out["too_old_log_event_end_index"] = data["tooOldLogEventEndIndex"]
-    if "expiredLogEventEndIndex" in data:
+    if data.get("expiredLogEventEndIndex") is not None:
         out["expired_log_event_end_index"] = data["expiredLogEventEndIndex"]
     return out

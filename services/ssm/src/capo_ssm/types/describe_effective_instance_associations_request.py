@@ -38,14 +38,14 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeEffectiveInstanceAssociationsRequest:
     out: DescribeEffectiveInstanceAssociationsRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError(
             "DescribeEffectiveInstanceAssociationsRequest.instance_id required"
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

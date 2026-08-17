@@ -25,6 +25,8 @@ def serialize_aws_json_1_0(input_to_serialize: VariableReferences) -> dict:
 def deserialize_aws_json_1_0(data: dict) -> VariableReferences:
     out: VariableReferences = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_sfn.types.variable_name_list
 
         out[key] = capo_sfn.types.variable_name_list.deserialize_aws_json_1_0(value)

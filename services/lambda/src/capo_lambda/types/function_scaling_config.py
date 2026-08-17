@@ -31,8 +31,8 @@ def serialize_json(value: FunctionScalingConfig) -> dict:
 
 def deserialize_json(data: dict) -> FunctionScalingConfig:
     out: FunctionScalingConfig = {}  # type: ignore[typeddict-item]
-    if "MinExecutionEnvironments" in data:
+    if data.get("MinExecutionEnvironments") is not None:
         out["min_execution_environments"] = data["MinExecutionEnvironments"]
-    if "MaxExecutionEnvironments" in data:
+    if data.get("MaxExecutionEnvironments") is not None:
         out["max_execution_environments"] = data["MaxExecutionEnvironments"]
     return out

@@ -72,15 +72,15 @@ def serialize_aws_json_1_0(value: PutAlarmMuteRuleInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutAlarmMuteRuleInput:
     out: PutAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Rule" in data:
+    if data.get("Rule") is not None:
         import capo_cloudwatch.types.rule
 
         out["rule"] = capo_cloudwatch.types.rule.deserialize_aws_json_1_0(data["Rule"])
-    if "MuteTargets" in data:
+    if data.get("MuteTargets") is not None:
         import capo_cloudwatch.types.mute_targets
 
         out["mute_targets"] = (
@@ -88,19 +88,19 @@ def deserialize_aws_json_1_0(data: dict) -> PutAlarmMuteRuleInput:
                 data["MuteTargets"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(
             data["Tags"]
         )
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartDate"]
         )
-    if "ExpireDate" in data:
+    if data.get("ExpireDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["expire_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(

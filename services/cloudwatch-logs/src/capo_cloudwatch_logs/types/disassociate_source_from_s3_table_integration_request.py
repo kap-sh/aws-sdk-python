@@ -28,7 +28,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DisassociateSourceFromS3TableIntegrationRequest:
     out: DisassociateSourceFromS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     else:
         raise DeserializationError(

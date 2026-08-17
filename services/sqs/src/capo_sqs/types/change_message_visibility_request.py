@@ -31,17 +31,17 @@ def serialize_aws_json_1_0(value: ChangeMessageVisibilityRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ChangeMessageVisibilityRequest:
     out: ChangeMessageVisibilityRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("ChangeMessageVisibilityRequest.queue_url required")
-    if "ReceiptHandle" in data:
+    if data.get("ReceiptHandle") is not None:
         out["receipt_handle"] = data["ReceiptHandle"]
     else:
         raise DeserializationError(
             "ChangeMessageVisibilityRequest.receipt_handle required"
         )
-    if "VisibilityTimeout" in data:
+    if data.get("VisibilityTimeout") is not None:
         out["visibility_timeout"] = data["VisibilityTimeout"]
     else:
         raise DeserializationError(

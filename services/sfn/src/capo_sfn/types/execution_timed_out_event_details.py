@@ -28,8 +28,8 @@ def serialize_aws_json_1_0(value: ExecutionTimedOutEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecutionTimedOutEventDetails:
     out: ExecutionTimedOutEventDetails = {}  # type: ignore[typeddict-item]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
     return out

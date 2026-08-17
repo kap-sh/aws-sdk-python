@@ -30,9 +30,9 @@ def serialize_aws_json_1_0(value: MetricStreamStatisticsMetric) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricStreamStatisticsMetric:
     out: MetricStreamStatisticsMetric = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
     return out
 

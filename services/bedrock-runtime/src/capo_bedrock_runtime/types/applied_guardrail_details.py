@@ -61,13 +61,13 @@ def serialize_json(value: AppliedGuardrailDetails) -> dict:
 
 def deserialize_json(data: dict) -> AppliedGuardrailDetails:
     out: AppliedGuardrailDetails = {}  # type: ignore[typeddict-item]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
-    if "guardrailArn" in data:
+    if data.get("guardrailArn") is not None:
         out["guardrail_arn"] = data["guardrailArn"]
-    if "guardrailOrigin" in data:
+    if data.get("guardrailOrigin") is not None:
         import capo_bedrock_runtime.types.guardrail_origin_list
 
         out["guardrail_origin"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> AppliedGuardrailDetails:
                 data["guardrailOrigin"]
             )
         )
-    if "guardrailOwnership" in data:
+    if data.get("guardrailOwnership") is not None:
         import capo_bedrock_runtime.types.guardrail_ownership
 
         out["guardrail_ownership"] = (

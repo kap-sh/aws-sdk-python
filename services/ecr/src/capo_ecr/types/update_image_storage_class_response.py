@@ -45,17 +45,17 @@ def serialize_aws_json_1_1(value: UpdateImageStorageClassResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateImageStorageClassResponse:
     out: UpdateImageStorageClassResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "imageId" in data:
+    if data.get("imageId") is not None:
         import capo_ecr.types.image_identifier
 
         out["image_id"] = capo_ecr.types.image_identifier.deserialize_aws_json_1_1(
             data["imageId"]
         )
-    if "imageStatus" in data:
+    if data.get("imageStatus") is not None:
         import capo_ecr.types.image_status
 
         out["image_status"] = capo_ecr.types.image_status.deserialize_aws_json_1_1(

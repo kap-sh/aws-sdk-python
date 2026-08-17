@@ -41,9 +41,9 @@ def serialize_aws_json_1_1(value: UpdateContainerInstancesStateRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateContainerInstancesStateRequest:
     out: UpdateContainerInstancesStateRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "containerInstances" in data:
+    if data.get("containerInstances") is not None:
         import capo_ecs.types.string_list
 
         out["container_instances"] = (
@@ -55,7 +55,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateContainerInstancesStateRequest
         raise DeserializationError(
             "UpdateContainerInstancesStateRequest.container_instances required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.container_instance_status
 
         out["status"] = (

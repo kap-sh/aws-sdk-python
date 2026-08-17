@@ -30,9 +30,9 @@ def serialize_aws_json_1_0(value: DashboardValidationMessage) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DashboardValidationMessage:
     out: DashboardValidationMessage = {}  # type: ignore[typeddict-item]
-    if "DataPath" in data:
+    if data.get("DataPath") is not None:
         out["data_path"] = data["DataPath"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

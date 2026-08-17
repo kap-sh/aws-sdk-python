@@ -52,20 +52,20 @@ def serialize_aws_json_1_1(value: ServiceSetting) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceSetting:
     out: ServiceSetting = {}  # type: ignore[typeddict-item]
-    if "SettingId" in data:
+    if data.get("SettingId") is not None:
         out["setting_id"] = data["SettingId"]
-    if "SettingValue" in data:
+    if data.get("SettingValue") is not None:
         out["setting_value"] = data["SettingValue"]
-    if "LastModifiedDate" in data:
+    if data.get("LastModifiedDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastModifiedDate"]
         )
-    if "LastModifiedUser" in data:
+    if data.get("LastModifiedUser") is not None:
         out["last_modified_user"] = data["LastModifiedUser"]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         out["status"] = data["Status"]
     return out

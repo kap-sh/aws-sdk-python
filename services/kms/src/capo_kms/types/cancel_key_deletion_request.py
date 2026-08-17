@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: CancelKeyDeletionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelKeyDeletionRequest:
     out: CancelKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("CancelKeyDeletionRequest.key_id required")

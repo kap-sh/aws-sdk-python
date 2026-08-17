@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: DocumentMetadataResponseInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentMetadataResponseInfo:
     out: DocumentMetadataResponseInfo = {}  # type: ignore[typeddict-item]
-    if "ReviewerResponse" in data:
+    if data.get("ReviewerResponse") is not None:
         import capo_ssm.types.document_reviewer_response_list
 
         out["reviewer_response"] = (

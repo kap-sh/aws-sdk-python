@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: ListAliasesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAliasesRequest:
     out: ListAliasesRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "Marker" in data:
+    if data.get("Marker") is not None:
         out["marker"] = data["Marker"]
     return out

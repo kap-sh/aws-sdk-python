@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetConnectionStatusRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetConnectionStatusRequest:
     out: GetConnectionStatusRequest = {}  # type: ignore[typeddict-item]
-    if "Target" in data:
+    if data.get("Target") is not None:
         out["target"] = data["Target"]
     else:
         raise DeserializationError("GetConnectionStatusRequest.target required")

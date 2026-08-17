@@ -92,37 +92,37 @@ def serialize_aws_json_1_0(value: GetMetricStatisticsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricStatisticsInput:
     out: GetMetricStatisticsInput = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["end_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["EndTime"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "Statistics" in data:
+    if data.get("Statistics") is not None:
         import capo_cloudwatch.types.statistics
 
         out["statistics"] = capo_cloudwatch.types.statistics.deserialize_aws_json_1_0(
             data["Statistics"]
         )
-    if "ExtendedStatistics" in data:
+    if data.get("ExtendedStatistics") is not None:
         import capo_cloudwatch.types.extended_statistics
 
         out["extended_statistics"] = (
@@ -130,7 +130,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStatisticsInput:
                 data["ExtendedStatistics"]
             )
         )
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(

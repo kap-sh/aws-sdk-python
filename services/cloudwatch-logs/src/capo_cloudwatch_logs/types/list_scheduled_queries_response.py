@@ -35,9 +35,9 @@ def serialize_aws_json_1_1(value: ListScheduledQueriesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListScheduledQueriesResponse:
     out: ListScheduledQueriesResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "scheduledQueries" in data:
+    if data.get("scheduledQueries") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_summary_list
 
         out["scheduled_queries"] = (

@@ -106,9 +106,9 @@ def serialize_aws_json_1_1(value: StartTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartTaskRequest:
     out: StartTaskRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "containerInstances" in data:
+    if data.get("containerInstances") is not None:
         import capo_ecs.types.string_list
 
         out["container_instances"] = (
@@ -118,17 +118,17 @@ def deserialize_aws_json_1_1(data: dict) -> StartTaskRequest:
         )
     else:
         raise DeserializationError("StartTaskRequest.container_instances required")
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "group" in data:
+    if data.get("group") is not None:
         out["group"] = data["group"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -136,31 +136,31 @@ def deserialize_aws_json_1_1(data: dict) -> StartTaskRequest:
                 data["networkConfiguration"]
             )
         )
-    if "overrides" in data:
+    if data.get("overrides") is not None:
         import capo_ecs.types.task_override
 
         out["overrides"] = capo_ecs.types.task_override.deserialize_aws_json_1_1(
             data["overrides"]
         )
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_tags
 
         out["propagate_tags"] = capo_ecs.types.propagate_tags.deserialize_aws_json_1_1(
             data["propagateTags"]
         )
-    if "referenceId" in data:
+    if data.get("referenceId") is not None:
         out["reference_id"] = data["referenceId"]
-    if "startedBy" in data:
+    if data.get("startedBy") is not None:
         out["started_by"] = data["startedBy"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
     else:
         raise DeserializationError("StartTaskRequest.task_definition required")
-    if "volumeConfigurations" in data:
+    if data.get("volumeConfigurations") is not None:
         import capo_ecs.types.task_volume_configurations
 
         out["volume_configurations"] = (

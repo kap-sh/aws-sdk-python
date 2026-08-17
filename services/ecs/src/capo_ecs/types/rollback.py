@@ -36,14 +36,14 @@ def serialize_aws_json_1_1(value: Rollback) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Rollback:
     out: Rollback = {}  # type: ignore[typeddict-item]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "serviceRevisionArn" in data:
+    if data.get("serviceRevisionArn") is not None:
         out["service_revision_arn"] = data["serviceRevisionArn"]
     return out

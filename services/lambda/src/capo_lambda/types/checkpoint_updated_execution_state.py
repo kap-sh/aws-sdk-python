@@ -32,12 +32,12 @@ def serialize_json(value: CheckpointUpdatedExecutionState) -> dict:
 
 def deserialize_json(data: dict) -> CheckpointUpdatedExecutionState:
     out: CheckpointUpdatedExecutionState = {}  # type: ignore[typeddict-item]
-    if "Operations" in data:
+    if data.get("Operations") is not None:
         import capo_lambda.types.operations
 
         out["operations"] = capo_lambda.types.operations.deserialize_json(
             data["Operations"]
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

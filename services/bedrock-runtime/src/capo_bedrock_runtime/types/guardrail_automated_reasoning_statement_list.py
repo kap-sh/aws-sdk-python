@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GuardrailAutomatedReasoningStatementList:
 
     out: GuardrailAutomatedReasoningStatementList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_automated_reasoning_statement.deserialize_json(
                 item

@@ -33,7 +33,7 @@ def serialize_aws_json_1_1(value: DescribeDestinationsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDestinationsResponse:
     out: DescribeDestinationsResponse = {}  # type: ignore[typeddict-item]
-    if "destinations" in data:
+    if data.get("destinations") is not None:
         import capo_cloudwatch_logs.types.destinations
 
         out["destinations"] = (
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeDestinationsResponse:
                 data["destinations"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

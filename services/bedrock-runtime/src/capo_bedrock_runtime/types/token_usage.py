@@ -50,23 +50,23 @@ def serialize_json(value: TokenUsage) -> dict:
 
 def deserialize_json(data: dict) -> TokenUsage:
     out: TokenUsage = {}  # type: ignore[typeddict-item]
-    if "inputTokens" in data:
+    if data.get("inputTokens") is not None:
         out["input_tokens"] = data["inputTokens"]
     else:
         raise DeserializationError("TokenUsage.input_tokens required")
-    if "outputTokens" in data:
+    if data.get("outputTokens") is not None:
         out["output_tokens"] = data["outputTokens"]
     else:
         raise DeserializationError("TokenUsage.output_tokens required")
-    if "totalTokens" in data:
+    if data.get("totalTokens") is not None:
         out["total_tokens"] = data["totalTokens"]
     else:
         raise DeserializationError("TokenUsage.total_tokens required")
-    if "cacheReadInputTokens" in data:
+    if data.get("cacheReadInputTokens") is not None:
         out["cache_read_input_tokens"] = data["cacheReadInputTokens"]
-    if "cacheWriteInputTokens" in data:
+    if data.get("cacheWriteInputTokens") is not None:
         out["cache_write_input_tokens"] = data["cacheWriteInputTokens"]
-    if "cacheDetails" in data:
+    if data.get("cacheDetails") is not None:
         import capo_bedrock_runtime.types.cache_details_list
 
         out["cache_details"] = (

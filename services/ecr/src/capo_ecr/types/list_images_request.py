@@ -48,17 +48,17 @@ def serialize_aws_json_1_1(value: ListImagesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListImagesRequest:
     out: ListImagesRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("ListImagesRequest.repository_name required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_ecr.types.list_images_filter
 
         out["filter"] = capo_ecr.types.list_images_filter.deserialize_aws_json_1_1(

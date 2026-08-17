@@ -48,7 +48,7 @@ def serialize_aws_json_1_1(value: DaemonLinuxParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonLinuxParameters:
     out: DaemonLinuxParameters = {}  # type: ignore[typeddict-item]
-    if "capabilities" in data:
+    if data.get("capabilities") is not None:
         import capo_ecs.types.kernel_capabilities
 
         out["capabilities"] = (
@@ -56,15 +56,15 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonLinuxParameters:
                 data["capabilities"]
             )
         )
-    if "devices" in data:
+    if data.get("devices") is not None:
         import capo_ecs.types.devices_list
 
         out["devices"] = capo_ecs.types.devices_list.deserialize_aws_json_1_1(
             data["devices"]
         )
-    if "initProcessEnabled" in data:
+    if data.get("initProcessEnabled") is not None:
         out["init_process_enabled"] = data["initProcessEnabled"]
-    if "tmpfs" in data:
+    if data.get("tmpfs") is not None:
         import capo_ecs.types.tmpfs_list
 
         out["tmpfs"] = capo_ecs.types.tmpfs_list.deserialize_aws_json_1_1(data["tmpfs"])

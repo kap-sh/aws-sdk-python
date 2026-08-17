@@ -86,39 +86,39 @@ def serialize_aws_json_1_1(value: CreateMaintenanceWindowRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateMaintenanceWindowRequest:
     out: CreateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateMaintenanceWindowRequest.name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         out["start_date"] = data["StartDate"]
-    if "EndDate" in data:
+    if data.get("EndDate") is not None:
         out["end_date"] = data["EndDate"]
-    if "Schedule" in data:
+    if data.get("Schedule") is not None:
         out["schedule"] = data["Schedule"]
     else:
         raise DeserializationError("CreateMaintenanceWindowRequest.schedule required")
-    if "ScheduleTimezone" in data:
+    if data.get("ScheduleTimezone") is not None:
         out["schedule_timezone"] = data["ScheduleTimezone"]
-    if "ScheduleOffset" in data:
+    if data.get("ScheduleOffset") is not None:
         out["schedule_offset"] = data["ScheduleOffset"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
     else:
         raise DeserializationError("CreateMaintenanceWindowRequest.duration required")
-    if "Cutoff" in data:
+    if data.get("Cutoff") is not None:
         out["cutoff"] = data["Cutoff"]
     else:
         out["cutoff"] = 0
-    if "AllowUnassociatedTargets" in data:
+    if data.get("AllowUnassociatedTargets") is not None:
         out["allow_unassociated_targets"] = data["AllowUnassociatedTargets"]
     else:
         out["allow_unassociated_targets"] = False
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

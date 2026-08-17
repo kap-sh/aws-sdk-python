@@ -79,21 +79,21 @@ def serialize_aws_json_1_1(value: DaemonRevision) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonRevision:
     out: DaemonRevision = {}  # type: ignore[typeddict-item]
-    if "daemonRevisionArn" in data:
+    if data.get("daemonRevisionArn") is not None:
         out["daemon_revision_arn"] = data["daemonRevisionArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
-    if "daemonTaskDefinitionArn" in data:
+    if data.get("daemonTaskDefinitionArn") is not None:
         out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "containerImages" in data:
+    if data.get("containerImages") is not None:
         import capo_ecs.types.daemon_container_images
 
         out["container_images"] = (
@@ -101,7 +101,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonRevision:
                 data["containerImages"]
             )
         )
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.daemon_propagate_tags
 
         out["propagate_tags"] = (
@@ -109,8 +109,8 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonRevision:
                 data["propagateTags"]
             )
         )
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     return out

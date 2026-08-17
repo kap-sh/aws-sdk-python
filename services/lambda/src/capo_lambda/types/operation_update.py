@@ -109,23 +109,23 @@ def serialize_json(value: OperationUpdate) -> dict:
 
 def deserialize_json(data: dict) -> OperationUpdate:
     out: OperationUpdate = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
     else:
         raise DeserializationError("OperationUpdate.id required")
-    if "ParentId" in data:
+    if data.get("ParentId") is not None:
         out["parent_id"] = data["ParentId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_lambda.types.operation_type
 
         out["type"] = capo_lambda.types.operation_type.deserialize_json(data["Type"])
     else:
         raise DeserializationError("OperationUpdate.type required")
-    if "SubType" in data:
+    if data.get("SubType") is not None:
         out["sub_type"] = data["SubType"]
-    if "Action" in data:
+    if data.get("Action") is not None:
         import capo_lambda.types.operation_action
 
         out["action"] = capo_lambda.types.operation_action.deserialize_json(
@@ -133,37 +133,37 @@ def deserialize_json(data: dict) -> OperationUpdate:
         )
     else:
         raise DeserializationError("OperationUpdate.action required")
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         out["payload"] = data["Payload"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])
-    if "ContextOptions" in data:
+    if data.get("ContextOptions") is not None:
         import capo_lambda.types.context_options
 
         out["context_options"] = capo_lambda.types.context_options.deserialize_json(
             data["ContextOptions"]
         )
-    if "StepOptions" in data:
+    if data.get("StepOptions") is not None:
         import capo_lambda.types.step_options
 
         out["step_options"] = capo_lambda.types.step_options.deserialize_json(
             data["StepOptions"]
         )
-    if "WaitOptions" in data:
+    if data.get("WaitOptions") is not None:
         import capo_lambda.types.wait_options
 
         out["wait_options"] = capo_lambda.types.wait_options.deserialize_json(
             data["WaitOptions"]
         )
-    if "CallbackOptions" in data:
+    if data.get("CallbackOptions") is not None:
         import capo_lambda.types.callback_options
 
         out["callback_options"] = capo_lambda.types.callback_options.deserialize_json(
             data["CallbackOptions"]
         )
-    if "ChainedInvokeOptions" in data:
+    if data.get("ChainedInvokeOptions") is not None:
         import capo_lambda.types.chained_invoke_options
 
         out["chained_invoke_options"] = (

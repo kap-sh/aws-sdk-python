@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: ExportTaskExecutionInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExportTaskExecutionInfo:
     out: ExportTaskExecutionInfo = {}  # type: ignore[typeddict-item]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "completionTime" in data:
+    if data.get("completionTime") is not None:
         out["completion_time"] = data["completionTime"]
     return out

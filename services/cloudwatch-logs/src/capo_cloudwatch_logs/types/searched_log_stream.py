@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: SearchedLogStream) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SearchedLogStream:
     out: SearchedLogStream = {}  # type: ignore[typeddict-item]
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
-    if "searchedCompletely" in data:
+    if data.get("searchedCompletely") is not None:
         out["searched_completely"] = data["searchedCompletely"]
     return out

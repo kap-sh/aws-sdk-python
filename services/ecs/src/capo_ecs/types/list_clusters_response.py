@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: ListClustersResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListClustersResponse:
     out: ListClustersResponse = {}  # type: ignore[typeddict-item]
-    if "clusterArns" in data:
+    if data.get("clusterArns") is not None:
         import capo_ecs.types.string_list
 
         out["cluster_arns"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["clusterArns"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

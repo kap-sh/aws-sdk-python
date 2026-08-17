@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: PutInventoryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutInventoryRequest:
     out: PutInventoryRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError("PutInventoryRequest.instance_id required")
-    if "Items" in data:
+    if data.get("Items") is not None:
         import capo_ssm.types.inventory_item_list
 
         out["items"] = capo_ssm.types.inventory_item_list.deserialize_aws_json_1_1(

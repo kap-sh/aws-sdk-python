@@ -45,20 +45,20 @@ def serialize_aws_json_1_1(value: ManagedAgent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedAgent:
     out: ManagedAgent = {}  # type: ignore[typeddict-item]
-    if "lastStartedAt" in data:
+    if data.get("lastStartedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["last_started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["lastStartedAt"]
         )
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.managed_agent_name
 
         out["name"] = capo_ecs.types.managed_agent_name.deserialize_aws_json_1_1(
             data["name"]
         )
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "lastStatus" in data:
+    if data.get("lastStatus") is not None:
         out["last_status"] = data["lastStatus"]
     return out

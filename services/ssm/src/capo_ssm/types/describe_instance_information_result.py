@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribeInstanceInformationResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeInstanceInformationResult:
     out: DescribeInstanceInformationResult = {}  # type: ignore[typeddict-item]
-    if "InstanceInformationList" in data:
+    if data.get("InstanceInformationList") is not None:
         import capo_ssm.types.instance_information_list
 
         out["instance_information_list"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeInstanceInformationResult:
                 data["InstanceInformationList"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

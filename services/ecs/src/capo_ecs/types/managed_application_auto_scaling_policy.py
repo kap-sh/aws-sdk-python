@@ -55,9 +55,9 @@ def serialize_aws_json_1_1(value: ManagedApplicationAutoScalingPolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedApplicationAutoScalingPolicy:
     out: ManagedApplicationAutoScalingPolicy = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.managed_resource_status
 
         out["status"] = capo_ecs.types.managed_resource_status.deserialize_aws_json_1_1(
@@ -67,9 +67,9 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedApplicationAutoScalingPolicy:
         raise DeserializationError(
             "ManagedApplicationAutoScalingPolicy.status required"
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
@@ -79,17 +79,17 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedApplicationAutoScalingPolicy:
         raise DeserializationError(
             "ManagedApplicationAutoScalingPolicy.updated_at required"
         )
-    if "policyType" in data:
+    if data.get("policyType") is not None:
         out["policy_type"] = data["policyType"]
     else:
         raise DeserializationError(
             "ManagedApplicationAutoScalingPolicy.policy_type required"
         )
-    if "targetValue" in data:
+    if data.get("targetValue") is not None:
         out["target_value"] = data["targetValue"]
     else:
         out["target_value"] = 0
-    if "metric" in data:
+    if data.get("metric") is not None:
         out["metric"] = data["metric"]
     else:
         raise DeserializationError(

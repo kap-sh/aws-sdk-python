@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> AlarmStateInformationList:
 
     out: AlarmStateInformationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.alarm_state_information.deserialize_aws_json_1_1(item)
         )

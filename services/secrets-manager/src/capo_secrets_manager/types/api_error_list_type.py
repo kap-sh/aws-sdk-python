@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> APIErrorListType:
 
     out: APIErrorListType = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_secrets_manager.types.api_error_type.deserialize_aws_json_1_1(item)
         )

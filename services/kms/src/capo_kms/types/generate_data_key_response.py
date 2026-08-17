@@ -58,7 +58,7 @@ def serialize_aws_json_1_1(value: GenerateDataKeyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyResponse:
     out: GenerateDataKeyResponse = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -66,15 +66,15 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyResponse:
                 data["CiphertextBlob"]
             )
         )
-    if "Plaintext" in data:
+    if data.get("Plaintext") is not None:
         import capo_kms.types.plaintext_type
 
         out["plaintext"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
             data["Plaintext"]
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "CiphertextForRecipient" in data:
+    if data.get("CiphertextForRecipient") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_for_recipient"] = (
@@ -82,6 +82,6 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyResponse:
                 data["CiphertextForRecipient"]
             )
         )
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

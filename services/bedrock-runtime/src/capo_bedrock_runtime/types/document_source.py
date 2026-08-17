@@ -68,7 +68,7 @@ def serialize_json(value: DocumentSource) -> dict:
 
 
 def deserialize_json(data: dict) -> DocumentSource:
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_runtime.types._prelude.blob
 
         return {
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> DocumentSource:
                 data["bytes"]
             )
         }
-    elif "s3Location" in data:
+    elif data.get("s3Location") is not None:
         import capo_bedrock_runtime.types.s3_location
 
         return {
@@ -84,9 +84,9 @@ def deserialize_json(data: dict) -> DocumentSource:
                 data["s3Location"]
             )
         }
-    elif "text" in data:
+    elif data.get("text") is not None:
         return {"text": data["text"]}
-    elif "content" in data:
+    elif data.get("content") is not None:
         import capo_bedrock_runtime.types.document_content_blocks
 
         return {

@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: PutRegistryScanningConfigurationResponse) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> PutRegistryScanningConfigurationResponse:
     out: PutRegistryScanningConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "registryScanningConfiguration" in data:
+    if data.get("registryScanningConfiguration") is not None:
         import capo_ecr.types.registry_scanning_configuration
 
         out["registry_scanning_configuration"] = (

@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: S3DeliveryConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3DeliveryConfiguration:
     out: S3DeliveryConfiguration = {}  # type: ignore[typeddict-item]
-    if "suffixPath" in data:
+    if data.get("suffixPath") is not None:
         out["suffix_path"] = data["suffixPath"]
-    if "enableHiveCompatiblePath" in data:
+    if data.get("enableHiveCompatiblePath") is not None:
         out["enable_hive_compatible_path"] = data["enableHiveCompatiblePath"]
     return out

@@ -53,7 +53,7 @@ def serialize_aws_json_1_1(value: NodeAggregator) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> NodeAggregator:
     out: NodeAggregator = {}  # type: ignore[typeddict-item]
-    if "AggregatorType" in data:
+    if data.get("AggregatorType") is not None:
         import capo_ssm.types.node_aggregator_type
 
         out["aggregator_type"] = (
@@ -63,7 +63,7 @@ def deserialize_aws_json_1_1(data: dict) -> NodeAggregator:
         )
     else:
         raise DeserializationError("NodeAggregator.aggregator_type required")
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         import capo_ssm.types.node_type_name
 
         out["type_name"] = capo_ssm.types.node_type_name.deserialize_aws_json_1_1(
@@ -71,7 +71,7 @@ def deserialize_aws_json_1_1(data: dict) -> NodeAggregator:
         )
     else:
         raise DeserializationError("NodeAggregator.type_name required")
-    if "AttributeName" in data:
+    if data.get("AttributeName") is not None:
         import capo_ssm.types.node_attribute_name
 
         out["attribute_name"] = (
@@ -81,7 +81,7 @@ def deserialize_aws_json_1_1(data: dict) -> NodeAggregator:
         )
     else:
         raise DeserializationError("NodeAggregator.attribute_name required")
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.node_aggregator_list
 
         out["aggregators"] = (

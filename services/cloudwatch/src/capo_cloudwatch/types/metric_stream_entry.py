@@ -71,15 +71,15 @@ def serialize_aws_json_1_0(value: MetricStreamEntry) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricStreamEntry:
     out: MetricStreamEntry = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["creation_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["CreationDate"]
         )
-    if "LastUpdateDate" in data:
+    if data.get("LastUpdateDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["last_update_date"] = (
@@ -87,13 +87,13 @@ def deserialize_aws_json_1_0(data: dict) -> MetricStreamEntry:
                 data["LastUpdateDate"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "FirehoseArn" in data:
+    if data.get("FirehoseArn") is not None:
         out["firehose_arn"] = data["FirehoseArn"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "OutputFormat" in data:
+    if data.get("OutputFormat") is not None:
         import capo_cloudwatch.types.metric_stream_output_format
 
         out["output_format"] = (

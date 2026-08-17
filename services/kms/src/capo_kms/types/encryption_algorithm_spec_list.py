@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> EncryptionAlgorithmSpecList:
 
     out: EncryptionAlgorithmSpecList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_kms.types.encryption_algorithm_spec.deserialize_aws_json_1_1(item)
         )

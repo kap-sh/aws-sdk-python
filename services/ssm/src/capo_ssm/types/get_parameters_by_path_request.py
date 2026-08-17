@@ -58,13 +58,13 @@ def serialize_aws_json_1_1(value: GetParametersByPathRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersByPathRequest:
     out: GetParametersByPathRequest = {}  # type: ignore[typeddict-item]
-    if "Path" in data:
+    if data.get("Path") is not None:
         out["path"] = data["Path"]
     else:
         raise DeserializationError("GetParametersByPathRequest.path required")
-    if "Recursive" in data:
+    if data.get("Recursive") is not None:
         out["recursive"] = data["Recursive"]
-    if "ParameterFilters" in data:
+    if data.get("ParameterFilters") is not None:
         import capo_ssm.types.parameter_string_filter_list
 
         out["parameter_filters"] = (
@@ -72,10 +72,10 @@ def deserialize_aws_json_1_1(data: dict) -> GetParametersByPathRequest:
                 data["ParameterFilters"]
             )
         )
-    if "WithDecryption" in data:
+    if data.get("WithDecryption") is not None:
         out["with_decryption"] = data["WithDecryption"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

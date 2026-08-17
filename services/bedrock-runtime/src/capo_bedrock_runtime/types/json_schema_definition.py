@@ -27,12 +27,12 @@ def serialize_json(value: JsonSchemaDefinition) -> dict:
 
 def deserialize_json(data: dict) -> JsonSchemaDefinition:
     out: JsonSchemaDefinition = {}  # type: ignore[typeddict-item]
-    if "schema" in data:
+    if data.get("schema") is not None:
         out["schema"] = data["schema"]
     else:
         raise DeserializationError("JsonSchemaDefinition.schema required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

@@ -36,15 +36,15 @@ def serialize_aws_json_1_1(value: ListKeyRotationsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListKeyRotationsResponse:
     out: ListKeyRotationsResponse = {}  # type: ignore[typeddict-item]
-    if "Rotations" in data:
+    if data.get("Rotations") is not None:
         import capo_kms.types.rotations_list
 
         out["rotations"] = capo_kms.types.rotations_list.deserialize_aws_json_1_1(
             data["Rotations"]
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

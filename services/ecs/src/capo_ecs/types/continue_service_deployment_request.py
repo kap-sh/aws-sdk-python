@@ -40,17 +40,17 @@ def serialize_aws_json_1_1(value: ContinueServiceDeploymentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContinueServiceDeploymentRequest:
     out: ContinueServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArn" in data:
+    if data.get("serviceDeploymentArn") is not None:
         out["service_deployment_arn"] = data["serviceDeploymentArn"]
     else:
         raise DeserializationError(
             "ContinueServiceDeploymentRequest.service_deployment_arn required"
         )
-    if "hookId" in data:
+    if data.get("hookId") is not None:
         out["hook_id"] = data["hookId"]
     else:
         raise DeserializationError("ContinueServiceDeploymentRequest.hook_id required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_action
 
         out["action"] = (

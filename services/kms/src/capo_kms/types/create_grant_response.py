@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: CreateGrantResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateGrantResponse:
     out: CreateGrantResponse = {}  # type: ignore[typeddict-item]
-    if "GrantToken" in data:
+    if data.get("GrantToken") is not None:
         out["grant_token"] = data["GrantToken"]
-    if "GrantId" in data:
+    if data.get("GrantId") is not None:
         out["grant_id"] = data["GrantId"]
     return out

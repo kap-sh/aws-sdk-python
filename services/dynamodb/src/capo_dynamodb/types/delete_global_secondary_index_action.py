@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DeleteGlobalSecondaryIndexAction) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteGlobalSecondaryIndexAction:
     out: DeleteGlobalSecondaryIndexAction = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     else:
         raise DeserializationError(

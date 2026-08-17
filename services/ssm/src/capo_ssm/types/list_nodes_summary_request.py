@@ -54,15 +54,15 @@ def serialize_aws_json_1_1(value: ListNodesSummaryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListNodesSummaryRequest:
     out: ListNodesSummaryRequest = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.node_filter_list
 
         out["filters"] = capo_ssm.types.node_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.node_aggregator_list
 
         out["aggregators"] = (
@@ -72,8 +72,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListNodesSummaryRequest:
         )
     else:
         raise DeserializationError("ListNodesSummaryRequest.aggregators required")
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

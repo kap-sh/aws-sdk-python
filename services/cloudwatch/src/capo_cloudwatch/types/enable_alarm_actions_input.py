@@ -29,7 +29,7 @@ def serialize_aws_json_1_0(value: EnableAlarmActionsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> EnableAlarmActionsInput:
     out: EnableAlarmActionsInput = {}  # type: ignore[typeddict-item]
-    if "AlarmNames" in data:
+    if data.get("AlarmNames") is not None:
         import capo_cloudwatch.types.alarm_names
 
         out["alarm_names"] = capo_cloudwatch.types.alarm_names.deserialize_aws_json_1_0(

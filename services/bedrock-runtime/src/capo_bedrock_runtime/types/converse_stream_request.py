@@ -154,13 +154,13 @@ def serialize_json(value: ConverseStreamRequest) -> dict:
 
 def deserialize_json(data: dict) -> ConverseStreamRequest:
     out: ConverseStreamRequest = {}  # type: ignore[typeddict-item]
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_runtime.types.messages
 
         out["messages"] = capo_bedrock_runtime.types.messages.deserialize_json(
             data["messages"]
         )
-    if "system" in data:
+    if data.get("system") is not None:
         import capo_bedrock_runtime.types.system_content_blocks
 
         out["system"] = (
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["system"]
             )
         )
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock_runtime.types.inference_configuration
 
         out["inference_config"] = (
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["inferenceConfig"]
             )
         )
-    if "toolConfig" in data:
+    if data.get("toolConfig") is not None:
         import capo_bedrock_runtime.types.tool_configuration
 
         out["tool_config"] = (
@@ -184,7 +184,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["toolConfig"]
             )
         )
-    if "guardrailConfig" in data:
+    if data.get("guardrailConfig") is not None:
         import capo_bedrock_runtime.types.guardrail_stream_configuration
 
         out["guardrail_config"] = (
@@ -192,9 +192,9 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["guardrailConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
-    if "promptVariables" in data:
+    if data.get("promptVariables") is not None:
         import capo_bedrock_runtime.types.prompt_variable_map
 
         out["prompt_variables"] = (
@@ -202,7 +202,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["promptVariables"]
             )
         )
-    if "additionalModelResponseFieldPaths" in data:
+    if data.get("additionalModelResponseFieldPaths") is not None:
         import capo_bedrock_runtime.types.additional_model_response_field_paths
 
         out["additional_model_response_field_paths"] = (
@@ -210,7 +210,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["additionalModelResponseFieldPaths"]
             )
         )
-    if "requestMetadata" in data:
+    if data.get("requestMetadata") is not None:
         import capo_bedrock_runtime.types.request_metadata
 
         out["request_metadata"] = (
@@ -218,7 +218,7 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["requestMetadata"]
             )
         )
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_runtime.types.performance_configuration
 
         out["performance_config"] = (
@@ -226,13 +226,13 @@ def deserialize_json(data: dict) -> ConverseStreamRequest:
                 data["performanceConfig"]
             )
         )
-    if "serviceTier" in data:
+    if data.get("serviceTier") is not None:
         import capo_bedrock_runtime.types.service_tier
 
         out["service_tier"] = capo_bedrock_runtime.types.service_tier.deserialize_json(
             data["serviceTier"]
         )
-    if "outputConfig" in data:
+    if data.get("outputConfig") is not None:
         import capo_bedrock_runtime.types.output_config
 
         out["output_config"] = (

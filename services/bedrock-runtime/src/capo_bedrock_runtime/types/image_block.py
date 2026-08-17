@@ -45,7 +45,7 @@ def serialize_json(value: ImageBlock) -> dict:
 
 def deserialize_json(data: dict) -> ImageBlock:
     out: ImageBlock = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_runtime.types.image_format
 
         out["format"] = capo_bedrock_runtime.types.image_format.deserialize_json(
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> ImageBlock:
         )
     else:
         raise DeserializationError("ImageBlock.format required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.image_source
 
         out["source"] = capo_bedrock_runtime.types.image_source.deserialize_json(
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> ImageBlock:
         )
     else:
         raise DeserializationError("ImageBlock.source required")
-    if "error" in data:
+    if data.get("error") is not None:
         import capo_bedrock_runtime.types.error_block
 
         out["error"] = capo_bedrock_runtime.types.error_block.deserialize_json(

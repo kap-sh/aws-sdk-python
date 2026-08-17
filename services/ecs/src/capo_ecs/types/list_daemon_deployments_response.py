@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: ListDaemonDeploymentsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDaemonDeploymentsResponse:
     out: ListDaemonDeploymentsResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "daemonDeployments" in data:
+    if data.get("daemonDeployments") is not None:
         import capo_ecs.types.daemon_deployment_summary_list
 
         out["daemon_deployments"] = (

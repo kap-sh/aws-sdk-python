@@ -43,13 +43,13 @@ def serialize_aws_json_1_1(value: AttachmentsSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AttachmentsSource:
     out: AttachmentsSource = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_ssm.types.attachments_source_key
 
         out["key"] = capo_ssm.types.attachments_source_key.deserialize_aws_json_1_1(
             data["Key"]
         )
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.attachments_source_values
 
         out["values"] = (
@@ -57,6 +57,6 @@ def deserialize_aws_json_1_1(data: dict) -> AttachmentsSource:
                 data["Values"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     return out

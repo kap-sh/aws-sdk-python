@@ -44,18 +44,18 @@ def serialize_aws_json_1_1(value: Resource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Resource:
     out: Resource = {}  # type: ignore[typeddict-item]
-    if "details" in data:
+    if data.get("details") is not None:
         import capo_ecr.types.resource_details
 
         out["details"] = capo_ecr.types.resource_details.deserialize_aws_json_1_1(
             data["details"]
         )
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecr.types.tags
 
         out["tags"] = capo_ecr.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
     return out

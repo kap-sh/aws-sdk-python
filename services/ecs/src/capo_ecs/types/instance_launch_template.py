@@ -125,13 +125,13 @@ def serialize_aws_json_1_1(value: InstanceLaunchTemplate) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
     out: InstanceLaunchTemplate = {}  # type: ignore[typeddict-item]
-    if "ec2InstanceProfileArn" in data:
+    if data.get("ec2InstanceProfileArn") is not None:
         out["ec2_instance_profile_arn"] = data["ec2InstanceProfileArn"]
     else:
         raise DeserializationError(
             "InstanceLaunchTemplate.ec2_instance_profile_arn required"
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.managed_instances_network_configuration
 
         out["network_configuration"] = (
@@ -143,7 +143,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
         raise DeserializationError(
             "InstanceLaunchTemplate.network_configuration required"
         )
-    if "storageConfiguration" in data:
+    if data.get("storageConfiguration") is not None:
         import capo_ecs.types.managed_instances_storage_configuration
 
         out["storage_configuration"] = (
@@ -151,7 +151,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
                 data["storageConfiguration"]
             )
         )
-    if "localStorageConfiguration" in data:
+    if data.get("localStorageConfiguration") is not None:
         import capo_ecs.types.managed_instances_local_storage_configuration
 
         out["local_storage_configuration"] = (
@@ -159,7 +159,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
                 data["localStorageConfiguration"]
             )
         )
-    if "monitoring" in data:
+    if data.get("monitoring") is not None:
         import capo_ecs.types.managed_instances_monitoring_options
 
         out["monitoring"] = (
@@ -167,7 +167,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
                 data["monitoring"]
             )
         )
-    if "capacityOptionType" in data:
+    if data.get("capacityOptionType") is not None:
         import capo_ecs.types.capacity_option_type
 
         out["capacity_option_type"] = (
@@ -175,11 +175,11 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
                 data["capacityOptionType"]
             )
         )
-    if "instanceMetadataTagsPropagation" in data:
+    if data.get("instanceMetadataTagsPropagation") is not None:
         out["instance_metadata_tags_propagation"] = data[
             "instanceMetadataTagsPropagation"
         ]
-    if "instanceRequirements" in data:
+    if data.get("instanceRequirements") is not None:
         import capo_ecs.types.instance_requirements_request
 
         out["instance_requirements"] = (
@@ -187,9 +187,9 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceLaunchTemplate:
                 data["instanceRequirements"]
             )
         )
-    if "fipsEnabled" in data:
+    if data.get("fipsEnabled") is not None:
         out["fips_enabled"] = data["fipsEnabled"]
-    if "capacityReservations" in data:
+    if data.get("capacityReservations") is not None:
         import capo_ecs.types.capacity_reservation_request
 
         out["capacity_reservations"] = (

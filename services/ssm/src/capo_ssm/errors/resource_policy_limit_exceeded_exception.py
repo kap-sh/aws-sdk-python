@@ -30,13 +30,13 @@ def serialize_aws_json_1_1(value: ResourcePolicyLimitExceededException_) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ResourcePolicyLimitExceededException_:
     out: ResourcePolicyLimitExceededException_ = {}  # type: ignore[typeddict-item]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     else:
         out["limit"] = 0
-    if "LimitType" in data:
+    if data.get("LimitType") is not None:
         out["limit_type"] = data["LimitType"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

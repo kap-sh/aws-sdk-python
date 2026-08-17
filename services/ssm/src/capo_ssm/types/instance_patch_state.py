@@ -166,53 +166,53 @@ def serialize_aws_json_1_1(value: InstancePatchState) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstancePatchState:
     out: InstancePatchState = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError("InstancePatchState.instance_id required")
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
     else:
         raise DeserializationError("InstancePatchState.patch_group required")
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
     else:
         raise DeserializationError("InstancePatchState.baseline_id required")
-    if "SnapshotId" in data:
+    if data.get("SnapshotId") is not None:
         out["snapshot_id"] = data["SnapshotId"]
-    if "InstallOverrideList" in data:
+    if data.get("InstallOverrideList") is not None:
         out["install_override_list"] = data["InstallOverrideList"]
-    if "OwnerInformation" in data:
+    if data.get("OwnerInformation") is not None:
         out["owner_information"] = data["OwnerInformation"]
-    if "InstalledCount" in data:
+    if data.get("InstalledCount") is not None:
         out["installed_count"] = data["InstalledCount"]
     else:
         out["installed_count"] = 0
-    if "InstalledOtherCount" in data:
+    if data.get("InstalledOtherCount") is not None:
         out["installed_other_count"] = data["InstalledOtherCount"]
     else:
         out["installed_other_count"] = 0
-    if "InstalledPendingRebootCount" in data:
+    if data.get("InstalledPendingRebootCount") is not None:
         out["installed_pending_reboot_count"] = data["InstalledPendingRebootCount"]
-    if "InstalledRejectedCount" in data:
+    if data.get("InstalledRejectedCount") is not None:
         out["installed_rejected_count"] = data["InstalledRejectedCount"]
-    if "MissingCount" in data:
+    if data.get("MissingCount") is not None:
         out["missing_count"] = data["MissingCount"]
     else:
         out["missing_count"] = 0
-    if "FailedCount" in data:
+    if data.get("FailedCount") is not None:
         out["failed_count"] = data["FailedCount"]
     else:
         out["failed_count"] = 0
-    if "UnreportedNotApplicableCount" in data:
+    if data.get("UnreportedNotApplicableCount") is not None:
         out["unreported_not_applicable_count"] = data["UnreportedNotApplicableCount"]
-    if "NotApplicableCount" in data:
+    if data.get("NotApplicableCount") is not None:
         out["not_applicable_count"] = data["NotApplicableCount"]
     else:
         out["not_applicable_count"] = 0
-    if "AvailableSecurityUpdateCount" in data:
+    if data.get("AvailableSecurityUpdateCount") is not None:
         out["available_security_update_count"] = data["AvailableSecurityUpdateCount"]
-    if "OperationStartTime" in data:
+    if data.get("OperationStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["operation_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
@@ -220,7 +220,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePatchState:
         )
     else:
         raise DeserializationError("InstancePatchState.operation_start_time required")
-    if "OperationEndTime" in data:
+    if data.get("OperationEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["operation_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
@@ -228,7 +228,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePatchState:
         )
     else:
         raise DeserializationError("InstancePatchState.operation_end_time required")
-    if "Operation" in data:
+    if data.get("Operation") is not None:
         import capo_ssm.types.patch_operation_type
 
         out["operation"] = capo_ssm.types.patch_operation_type.deserialize_aws_json_1_1(
@@ -236,7 +236,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePatchState:
         )
     else:
         raise DeserializationError("InstancePatchState.operation required")
-    if "LastNoRebootInstallOperationTime" in data:
+    if data.get("LastNoRebootInstallOperationTime") is not None:
         import capo_ssm.types.date_time
 
         out["last_no_reboot_install_operation_time"] = (
@@ -244,16 +244,16 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePatchState:
                 data["LastNoRebootInstallOperationTime"]
             )
         )
-    if "RebootOption" in data:
+    if data.get("RebootOption") is not None:
         import capo_ssm.types.reboot_option
 
         out["reboot_option"] = capo_ssm.types.reboot_option.deserialize_aws_json_1_1(
             data["RebootOption"]
         )
-    if "CriticalNonCompliantCount" in data:
+    if data.get("CriticalNonCompliantCount") is not None:
         out["critical_non_compliant_count"] = data["CriticalNonCompliantCount"]
-    if "SecurityNonCompliantCount" in data:
+    if data.get("SecurityNonCompliantCount") is not None:
         out["security_non_compliant_count"] = data["SecurityNonCompliantCount"]
-    if "OtherNonCompliantCount" in data:
+    if data.get("OtherNonCompliantCount") is not None:
         out["other_non_compliant_count"] = data["OtherNonCompliantCount"]
     return out

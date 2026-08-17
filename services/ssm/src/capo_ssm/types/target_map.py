@@ -25,6 +25,8 @@ def serialize_aws_json_1_1(input_to_serialize: TargetMap) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> TargetMap:
     out: TargetMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_ssm.types.target_map_value_list
 
         out[key] = capo_ssm.types.target_map_value_list.deserialize_aws_json_1_1(value)

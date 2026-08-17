@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: DeleteParametersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteParametersRequest:
     out: DeleteParametersRequest = {}  # type: ignore[typeddict-item]
-    if "Names" in data:
+    if data.get("Names") is not None:
         import capo_ssm.types.parameter_name_list
 
         out["names"] = capo_ssm.types.parameter_name_list.deserialize_aws_json_1_1(

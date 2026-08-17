@@ -28,9 +28,9 @@ def serialize_aws_json_1_1(value: ValidationException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ValidationException_:
     out: ValidationException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "ReasonCode" in data:
+    if data.get("ReasonCode") is not None:
         out["reason_code"] = data["ReasonCode"]
     return out
 

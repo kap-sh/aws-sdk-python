@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> CitationSourceContentListDelta:
 
     out: CitationSourceContentListDelta = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.citation_source_content_delta.deserialize_json(
                 item

@@ -47,15 +47,15 @@ def serialize_aws_json_1_1(value: StartSessionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartSessionRequest:
     out: StartSessionRequest = {}  # type: ignore[typeddict-item]
-    if "Target" in data:
+    if data.get("Target") is not None:
         out["target"] = data["Target"]
     else:
         raise DeserializationError("StartSessionRequest.target required")
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
-    if "Reason" in data:
+    if data.get("Reason") is not None:
         out["reason"] = data["Reason"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.session_manager_parameters
 
         out["parameters"] = (

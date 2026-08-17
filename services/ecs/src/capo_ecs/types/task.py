@@ -268,73 +268,73 @@ def serialize_aws_json_1_1(value: Task) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Task:
     out: Task = {}  # type: ignore[typeddict-item]
-    if "attachments" in data:
+    if data.get("attachments") is not None:
         import capo_ecs.types.attachments
 
         out["attachments"] = capo_ecs.types.attachments.deserialize_aws_json_1_1(
             data["attachments"]
         )
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecs.types.attributes
 
         out["attributes"] = capo_ecs.types.attributes.deserialize_aws_json_1_1(
             data["attributes"]
         )
-    if "availabilityZone" in data:
+    if data.get("availabilityZone") is not None:
         out["availability_zone"] = data["availabilityZone"]
-    if "capacityProviderName" in data:
+    if data.get("capacityProviderName") is not None:
         out["capacity_provider_name"] = data["capacityProviderName"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "connectivity" in data:
+    if data.get("connectivity") is not None:
         import capo_ecs.types.connectivity
 
         out["connectivity"] = capo_ecs.types.connectivity.deserialize_aws_json_1_1(
             data["connectivity"]
         )
-    if "connectivityAt" in data:
+    if data.get("connectivityAt") is not None:
         import capo_ecs.types.timestamp
 
         out["connectivity_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["connectivityAt"]
         )
-    if "containerInstanceArn" in data:
+    if data.get("containerInstanceArn") is not None:
         out["container_instance_arn"] = data["containerInstanceArn"]
-    if "containers" in data:
+    if data.get("containers") is not None:
         import capo_ecs.types.containers
 
         out["containers"] = capo_ecs.types.containers.deserialize_aws_json_1_1(
             data["containers"]
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "desiredStatus" in data:
+    if data.get("desiredStatus") is not None:
         out["desired_status"] = data["desiredStatus"]
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "executionStoppedAt" in data:
+    if data.get("executionStoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["execution_stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["executionStoppedAt"]
         )
-    if "group" in data:
+    if data.get("group") is not None:
         out["group"] = data["group"]
-    if "healthStatus" in data:
+    if data.get("healthStatus") is not None:
         import capo_ecs.types.health_status
 
         out["health_status"] = capo_ecs.types.health_status.deserialize_aws_json_1_1(
             data["healthStatus"]
         )
-    if "inferenceAccelerators" in data:
+    if data.get("inferenceAccelerators") is not None:
         import capo_ecs.types.inference_accelerators
 
         out["inference_accelerators"] = (
@@ -342,79 +342,79 @@ def deserialize_aws_json_1_1(data: dict) -> Task:
                 data["inferenceAccelerators"]
             )
         )
-    if "lastStatus" in data:
+    if data.get("lastStatus") is not None:
         out["last_status"] = data["lastStatus"]
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "overrides" in data:
+    if data.get("overrides") is not None:
         import capo_ecs.types.task_override
 
         out["overrides"] = capo_ecs.types.task_override.deserialize_aws_json_1_1(
             data["overrides"]
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "platformFamily" in data:
+    if data.get("platformFamily") is not None:
         out["platform_family"] = data["platformFamily"]
-    if "pullStartedAt" in data:
+    if data.get("pullStartedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["pull_started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["pullStartedAt"]
         )
-    if "pullStoppedAt" in data:
+    if data.get("pullStoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["pull_stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["pullStoppedAt"]
         )
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "startedBy" in data:
+    if data.get("startedBy") is not None:
         out["started_by"] = data["startedBy"]
-    if "stopCode" in data:
+    if data.get("stopCode") is not None:
         import capo_ecs.types.task_stop_code
 
         out["stop_code"] = capo_ecs.types.task_stop_code.deserialize_aws_json_1_1(
             data["stopCode"]
         )
-    if "stoppedAt" in data:
+    if data.get("stoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["stoppedAt"]
         )
-    if "stoppedReason" in data:
+    if data.get("stoppedReason") is not None:
         out["stopped_reason"] = data["stoppedReason"]
-    if "stoppingAt" in data:
+    if data.get("stoppingAt") is not None:
         import capo_ecs.types.timestamp
 
         out["stopping_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["stoppingAt"]
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "taskArn" in data:
+    if data.get("taskArn") is not None:
         out["task_arn"] = data["taskArn"]
-    if "taskDefinitionArn" in data:
+    if data.get("taskDefinitionArn") is not None:
         out["task_definition_arn"] = data["taskDefinitionArn"]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         out["version"] = 0
-    if "ephemeralStorage" in data:
+    if data.get("ephemeralStorage") is not None:
         import capo_ecs.types.ephemeral_storage
 
         out["ephemeral_storage"] = (
@@ -422,7 +422,7 @@ def deserialize_aws_json_1_1(data: dict) -> Task:
                 data["ephemeralStorage"]
             )
         )
-    if "fargateEphemeralStorage" in data:
+    if data.get("fargateEphemeralStorage") is not None:
         import capo_ecs.types.task_ephemeral_storage
 
         out["fargate_ephemeral_storage"] = (

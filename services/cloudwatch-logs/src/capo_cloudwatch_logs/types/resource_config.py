@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: ResourceConfig) -> dict:
 
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceConfig:
-    if "openSearchResourceConfig" in data:
+    if data.get("openSearchResourceConfig") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_config
 
         return {

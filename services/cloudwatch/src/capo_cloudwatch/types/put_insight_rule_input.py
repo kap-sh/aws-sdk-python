@@ -53,19 +53,19 @@ def serialize_aws_json_1_0(value: PutInsightRuleInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutInsightRuleInput:
     out: PutInsightRuleInput = {}  # type: ignore[typeddict-item]
-    if "RuleName" in data:
+    if data.get("RuleName") is not None:
         out["rule_name"] = data["RuleName"]
-    if "RuleState" in data:
+    if data.get("RuleState") is not None:
         out["rule_state"] = data["RuleState"]
-    if "RuleDefinition" in data:
+    if data.get("RuleDefinition") is not None:
         out["rule_definition"] = data["RuleDefinition"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(
             data["Tags"]
         )
-    if "ApplyOnTransformedLogs" in data:
+    if data.get("ApplyOnTransformedLogs") is not None:
         out["apply_on_transformed_logs"] = data["ApplyOnTransformedLogs"]
     return out
 

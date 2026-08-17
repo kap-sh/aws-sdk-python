@@ -49,21 +49,21 @@ def serialize_aws_json_1_1(value: CreateLookupTableRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateLookupTableRequest:
     out: CreateLookupTableRequest = {}  # type: ignore[typeddict-item]
-    if "lookupTableName" in data:
+    if data.get("lookupTableName") is not None:
         out["lookup_table_name"] = data["lookupTableName"]
     else:
         raise DeserializationError(
             "CreateLookupTableRequest.lookup_table_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "tableBody" in data:
+    if data.get("tableBody") is not None:
         out["table_body"] = data["tableBody"]
     else:
         raise DeserializationError("CreateLookupTableRequest.table_body required")
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

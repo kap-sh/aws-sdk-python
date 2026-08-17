@@ -30,15 +30,15 @@ def serialize_aws_json_1_1(value: Condition) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Condition:
     out: Condition = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
     else:
         raise DeserializationError("Condition.type required")
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("Condition.key required")
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
     else:
         raise DeserializationError("Condition.value required")

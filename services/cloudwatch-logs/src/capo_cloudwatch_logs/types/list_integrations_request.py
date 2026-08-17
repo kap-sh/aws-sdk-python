@@ -51,9 +51,9 @@ def serialize_aws_json_1_1(value: ListIntegrationsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListIntegrationsRequest:
     out: ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
-    if "integrationNamePrefix" in data:
+    if data.get("integrationNamePrefix") is not None:
         out["integration_name_prefix"] = data["integrationNamePrefix"]
-    if "integrationType" in data:
+    if data.get("integrationType") is not None:
         import capo_cloudwatch_logs.types.integration_type
 
         out["integration_type"] = (
@@ -61,7 +61,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListIntegrationsRequest:
                 data["integrationType"]
             )
         )
-    if "integrationStatus" in data:
+    if data.get("integrationStatus") is not None:
         import capo_cloudwatch_logs.types.integration_status
 
         out["integration_status"] = (

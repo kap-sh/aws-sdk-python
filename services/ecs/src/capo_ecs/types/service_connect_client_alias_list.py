@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> ServiceConnectClientAliasList:
 
     out: ServiceConnectClientAliasList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.service_connect_client_alias.deserialize_aws_json_1_1(item)
         )

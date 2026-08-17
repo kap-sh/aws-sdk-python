@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: DescribeServiceDeploymentsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeServiceDeploymentsRequest:
     out: DescribeServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArns" in data:
+    if data.get("serviceDeploymentArns") is not None:
         import capo_ecs.types.string_list
 
         out["service_deployment_arns"] = (

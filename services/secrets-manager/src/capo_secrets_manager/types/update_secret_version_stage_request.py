@@ -43,18 +43,18 @@ def serialize_aws_json_1_1(value: UpdateSecretVersionStageRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateSecretVersionStageRequest:
     out: UpdateSecretVersionStageRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("UpdateSecretVersionStageRequest.secret_id required")
-    if "VersionStage" in data:
+    if data.get("VersionStage") is not None:
         out["version_stage"] = data["VersionStage"]
     else:
         raise DeserializationError(
             "UpdateSecretVersionStageRequest.version_stage required"
         )
-    if "RemoveFromVersionId" in data:
+    if data.get("RemoveFromVersionId") is not None:
         out["remove_from_version_id"] = data["RemoveFromVersionId"]
-    if "MoveToVersionId" in data:
+    if data.get("MoveToVersionId") is not None:
         out["move_to_version_id"] = data["MoveToVersionId"]
     return out

@@ -53,13 +53,13 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeInstancePatchStatesForPatchGroupRequest:
     out: DescribeInstancePatchStatesForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-    if "PatchGroup" in data:
+    if data.get("PatchGroup") is not None:
         out["patch_group"] = data["PatchGroup"]
     else:
         raise DeserializationError(
             "DescribeInstancePatchStatesForPatchGroupRequest.patch_group required"
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.instance_patch_state_filter_list
 
         out["filters"] = (
@@ -67,8 +67,8 @@ def deserialize_aws_json_1_1(
                 data["Filters"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

@@ -47,15 +47,15 @@ def serialize_json(value: GuardrailInvocationMetrics) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailInvocationMetrics:
     out: GuardrailInvocationMetrics = {}  # type: ignore[typeddict-item]
-    if "guardrailProcessingLatency" in data:
+    if data.get("guardrailProcessingLatency") is not None:
         out["guardrail_processing_latency"] = data["guardrailProcessingLatency"]
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_runtime.types.guardrail_usage
 
         out["usage"] = capo_bedrock_runtime.types.guardrail_usage.deserialize_json(
             data["usage"]
         )
-    if "guardrailCoverage" in data:
+    if data.get("guardrailCoverage") is not None:
         import capo_bedrock_runtime.types.guardrail_coverage
 
         out["guardrail_coverage"] = (

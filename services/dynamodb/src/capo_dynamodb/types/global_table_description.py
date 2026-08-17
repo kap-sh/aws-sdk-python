@@ -65,7 +65,7 @@ def serialize_aws_json_1_0(value: GlobalTableDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalTableDescription:
     out: GlobalTableDescription = {}  # type: ignore[typeddict-item]
-    if "ReplicationGroup" in data:
+    if data.get("ReplicationGroup") is not None:
         import capo_dynamodb.types.replica_description_list
 
         out["replication_group"] = (
@@ -73,15 +73,15 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalTableDescription:
                 data["ReplicationGroup"]
             )
         )
-    if "GlobalTableArn" in data:
+    if data.get("GlobalTableArn") is not None:
         out["global_table_arn"] = data["GlobalTableArn"]
-    if "CreationDateTime" in data:
+    if data.get("CreationDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["creation_date_time"] = capo_dynamodb.types.date.deserialize_aws_json_1_0(
             data["CreationDateTime"]
         )
-    if "GlobalTableStatus" in data:
+    if data.get("GlobalTableStatus") is not None:
         import capo_dynamodb.types.global_table_status
 
         out["global_table_status"] = (
@@ -89,6 +89,6 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalTableDescription:
                 data["GlobalTableStatus"]
             )
         )
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
     return out

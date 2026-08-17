@@ -100,17 +100,17 @@ def serialize_aws_json_1_1(value: CreateKeyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateKeyRequest:
     out: CreateKeyRequest = {}  # type: ignore[typeddict-item]
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KeyUsage" in data:
+    if data.get("KeyUsage") is not None:
         import capo_kms.types.key_usage_type
 
         out["key_usage"] = capo_kms.types.key_usage_type.deserialize_aws_json_1_1(
             data["KeyUsage"]
         )
-    if "CustomerMasterKeySpec" in data:
+    if data.get("CustomerMasterKeySpec") is not None:
         import capo_kms.types.customer_master_key_spec
 
         out["customer_master_key_spec"] = (
@@ -118,32 +118,32 @@ def deserialize_aws_json_1_1(data: dict) -> CreateKeyRequest:
                 data["CustomerMasterKeySpec"]
             )
         )
-    if "KeySpec" in data:
+    if data.get("KeySpec") is not None:
         import capo_kms.types.key_spec
 
         out["key_spec"] = capo_kms.types.key_spec.deserialize_aws_json_1_1(
             data["KeySpec"]
         )
-    if "Origin" in data:
+    if data.get("Origin") is not None:
         import capo_kms.types.origin_type
 
         out["origin"] = capo_kms.types.origin_type.deserialize_aws_json_1_1(
             data["Origin"]
         )
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
-    if "BypassPolicyLockoutSafetyCheck" in data:
+    if data.get("BypassPolicyLockoutSafetyCheck") is not None:
         out["bypass_policy_lockout_safety_check"] = data[
             "BypassPolicyLockoutSafetyCheck"
         ]
     else:
         out["bypass_policy_lockout_safety_check"] = False
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_kms.types.tag_list
 
         out["tags"] = capo_kms.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "MultiRegion" in data:
+    if data.get("MultiRegion") is not None:
         out["multi_region"] = data["MultiRegion"]
-    if "XksKeyId" in data:
+    if data.get("XksKeyId") is not None:
         out["xks_key_id"] = data["XksKeyId"]
     return out

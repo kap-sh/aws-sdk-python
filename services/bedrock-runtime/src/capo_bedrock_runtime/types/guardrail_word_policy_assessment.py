@@ -42,7 +42,7 @@ def serialize_json(value: GuardrailWordPolicyAssessment) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailWordPolicyAssessment:
     out: GuardrailWordPolicyAssessment = {}  # type: ignore[typeddict-item]
-    if "customWords" in data:
+    if data.get("customWords") is not None:
         import capo_bedrock_runtime.types.guardrail_custom_word_list
 
         out["custom_words"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> GuardrailWordPolicyAssessment:
         raise DeserializationError(
             "GuardrailWordPolicyAssessment.custom_words required"
         )
-    if "managedWordLists" in data:
+    if data.get("managedWordLists") is not None:
         import capo_bedrock_runtime.types.guardrail_managed_word_list
 
         out["managed_word_lists"] = (

@@ -26,7 +26,7 @@ def serialize_json(value: CapacityProviderPermissionsConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderPermissionsConfig:
     out: CapacityProviderPermissionsConfig = {}  # type: ignore[typeddict-item]
-    if "CapacityProviderOperatorRoleArn" in data:
+    if data.get("CapacityProviderOperatorRoleArn") is not None:
         out["capacity_provider_operator_role_arn"] = data[
             "CapacityProviderOperatorRoleArn"
         ]

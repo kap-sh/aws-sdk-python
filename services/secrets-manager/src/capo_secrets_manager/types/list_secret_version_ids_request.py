@@ -43,14 +43,14 @@ def serialize_aws_json_1_1(value: ListSecretVersionIdsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListSecretVersionIdsRequest:
     out: ListSecretVersionIdsRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("ListSecretVersionIdsRequest.secret_id required")
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "IncludeDeprecated" in data:
+    if data.get("IncludeDeprecated") is not None:
         out["include_deprecated"] = data["IncludeDeprecated"]
     return out

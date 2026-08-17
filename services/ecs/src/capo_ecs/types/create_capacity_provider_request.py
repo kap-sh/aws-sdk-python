@@ -61,13 +61,13 @@ def serialize_aws_json_1_1(value: CreateCapacityProviderRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateCapacityProviderRequest:
     out: CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateCapacityProviderRequest.name required")
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "autoScalingGroupProvider" in data:
+    if data.get("autoScalingGroupProvider") is not None:
         import capo_ecs.types.auto_scaling_group_provider
 
         out["auto_scaling_group_provider"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateCapacityProviderRequest:
                 data["autoScalingGroupProvider"]
             )
         )
-    if "managedInstancesProvider" in data:
+    if data.get("managedInstancesProvider") is not None:
         import capo_ecs.types.create_managed_instances_provider_configuration
 
         out["managed_instances_provider"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateCapacityProviderRequest:
                 data["managedInstancesProvider"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])

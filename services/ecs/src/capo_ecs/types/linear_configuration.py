@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: LinearConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LinearConfiguration:
     out: LinearConfiguration = {}  # type: ignore[typeddict-item]
-    if "stepPercent" in data:
+    if data.get("stepPercent") is not None:
         out["step_percent"] = data["stepPercent"]
-    if "stepBakeTimeInMinutes" in data:
+    if data.get("stepBakeTimeInMinutes") is not None:
         out["step_bake_time_in_minutes"] = data["stepBakeTimeInMinutes"]
     return out

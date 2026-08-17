@@ -32,11 +32,11 @@ def serialize_aws_json_1_0(value: UntagQueueRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UntagQueueRequest:
     out: UntagQueueRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("UntagQueueRequest.queue_url required")
-    if "TagKeys" in data:
+    if data.get("TagKeys") is not None:
         import capo_sqs.types.tag_key_list
 
         out["tag_keys"] = capo_sqs.types.tag_key_list.deserialize_aws_json_1_0(

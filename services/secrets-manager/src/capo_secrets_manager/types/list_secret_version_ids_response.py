@@ -46,7 +46,7 @@ def serialize_aws_json_1_1(value: ListSecretVersionIdsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListSecretVersionIdsResponse:
     out: ListSecretVersionIdsResponse = {}  # type: ignore[typeddict-item]
-    if "Versions" in data:
+    if data.get("Versions") is not None:
         import capo_secrets_manager.types.secret_versions_list_type
 
         out["versions"] = (
@@ -54,10 +54,10 @@ def deserialize_aws_json_1_1(data: dict) -> ListSecretVersionIdsResponse:
                 data["Versions"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     return out

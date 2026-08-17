@@ -36,7 +36,7 @@ def serialize_json(value: VideoBlock) -> dict:
 
 def deserialize_json(data: dict) -> VideoBlock:
     out: VideoBlock = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_runtime.types.video_format
 
         out["format"] = capo_bedrock_runtime.types.video_format.deserialize_json(
@@ -44,7 +44,7 @@ def deserialize_json(data: dict) -> VideoBlock:
         )
     else:
         raise DeserializationError("VideoBlock.format required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.video_source
 
         out["source"] = capo_bedrock_runtime.types.video_source.deserialize_json(

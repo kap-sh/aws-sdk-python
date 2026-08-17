@@ -30,11 +30,11 @@ def serialize_aws_json_1_1(value: TypeConverterEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TypeConverterEntry:
     out: TypeConverterEntry = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("TypeConverterEntry.key required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_cloudwatch_logs.types.type
 
         out["type"] = capo_cloudwatch_logs.types.type.deserialize_aws_json_1_1(

@@ -125,15 +125,15 @@ def serialize_aws_json_1_1(value: StartAutomationExecutionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartAutomationExecutionRequest:
     out: StartAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
     else:
         raise DeserializationError(
             "StartAutomationExecutionRequest.document_name required"
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (
@@ -141,33 +141,33 @@ def deserialize_aws_json_1_1(data: dict) -> StartAutomationExecutionRequest:
                 data["Parameters"]
             )
         )
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "Mode" in data:
+    if data.get("Mode") is not None:
         import capo_ssm.types.execution_mode
 
         out["mode"] = capo_ssm.types.execution_mode.deserialize_aws_json_1_1(
             data["Mode"]
         )
-    if "TargetParameterName" in data:
+    if data.get("TargetParameterName") is not None:
         out["target_parameter_name"] = data["TargetParameterName"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(
             data["TargetMaps"]
         )
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "TargetLocations" in data:
+    if data.get("TargetLocations") is not None:
         import capo_ssm.types.target_locations
 
         out["target_locations"] = (
@@ -175,11 +175,11 @@ def deserialize_aws_json_1_1(data: dict) -> StartAutomationExecutionRequest:
                 data["TargetLocations"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (
@@ -187,6 +187,6 @@ def deserialize_aws_json_1_1(data: dict) -> StartAutomationExecutionRequest:
                 data["AlarmConfiguration"]
             )
         )
-    if "TargetLocationsURL" in data:
+    if data.get("TargetLocationsURL") is not None:
         out["target_locations_url"] = data["TargetLocationsURL"]
     return out

@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> DurableExecutions:
 
     out: DurableExecutions = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.execution.deserialize_json(item))
     return out

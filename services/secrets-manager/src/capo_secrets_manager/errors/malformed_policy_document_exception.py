@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: MalformedPolicyDocumentException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MalformedPolicyDocumentException_:
     out: MalformedPolicyDocumentException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

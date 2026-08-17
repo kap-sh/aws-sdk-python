@@ -57,7 +57,7 @@ def serialize_aws_json_1_0(value: BatchGetItemOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchGetItemOutput:
     out: BatchGetItemOutput = {}  # type: ignore[typeddict-item]
-    if "Responses" in data:
+    if data.get("Responses") is not None:
         import capo_dynamodb.types.batch_get_response_map
 
         out["responses"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_0(data: dict) -> BatchGetItemOutput:
                 data["Responses"]
             )
         )
-    if "UnprocessedKeys" in data:
+    if data.get("UnprocessedKeys") is not None:
         import capo_dynamodb.types.batch_get_request_map
 
         out["unprocessed_keys"] = (
@@ -73,7 +73,7 @@ def deserialize_aws_json_1_0(data: dict) -> BatchGetItemOutput:
                 data["UnprocessedKeys"]
             )
         )
-    if "ConsumedCapacity" in data:
+    if data.get("ConsumedCapacity") is not None:
         import capo_dynamodb.types.consumed_capacity_multiple
 
         out["consumed_capacity"] = (

@@ -67,9 +67,9 @@ def serialize_aws_json_1_1(value: DescribeConfigurationTemplatesRequest) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeConfigurationTemplatesRequest:
     out: DescribeConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
-    if "logTypes" in data:
+    if data.get("logTypes") is not None:
         import capo_cloudwatch_logs.types.log_types
 
         out["log_types"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeConfigurationTemplatesReques
                 data["logTypes"]
             )
         )
-    if "resourceTypes" in data:
+    if data.get("resourceTypes") is not None:
         import capo_cloudwatch_logs.types.resource_types
 
         out["resource_types"] = (
@@ -85,7 +85,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeConfigurationTemplatesReques
                 data["resourceTypes"]
             )
         )
-    if "deliveryDestinationTypes" in data:
+    if data.get("deliveryDestinationTypes") is not None:
         import capo_cloudwatch_logs.types.delivery_destination_types
 
         out["delivery_destination_types"] = (
@@ -93,8 +93,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeConfigurationTemplatesReques
                 data["deliveryDestinationTypes"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

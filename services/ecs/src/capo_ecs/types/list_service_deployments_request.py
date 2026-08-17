@@ -59,13 +59,13 @@ def serialize_aws_json_1_1(value: ListServiceDeploymentsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListServiceDeploymentsRequest:
     out: ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError("ListServiceDeploymentsRequest.service required")
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.service_deployment_status_list
 
         out["status"] = (
@@ -73,14 +73,14 @@ def deserialize_aws_json_1_1(data: dict) -> ListServiceDeploymentsRequest:
                 data["status"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.created_at
 
         out["created_at"] = capo_ecs.types.created_at.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

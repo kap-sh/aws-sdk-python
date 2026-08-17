@@ -40,7 +40,7 @@ def serialize_aws_json_1_1(value: DescribeInstancePatchStatesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePatchStatesRequest:
     out: DescribeInstancePatchStatesRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceIds" in data:
+    if data.get("InstanceIds") is not None:
         import capo_ssm.types.instance_id_list
 
         out["instance_ids"] = capo_ssm.types.instance_id_list.deserialize_aws_json_1_1(
@@ -50,8 +50,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePatchStatesRequest:
         raise DeserializationError(
             "DescribeInstancePatchStatesRequest.instance_ids required"
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

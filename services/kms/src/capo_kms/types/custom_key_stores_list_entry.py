@@ -107,15 +107,15 @@ def serialize_aws_json_1_1(value: CustomKeyStoresListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CustomKeyStoresListEntry:
     out: CustomKeyStoresListEntry = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
-    if "CustomKeyStoreName" in data:
+    if data.get("CustomKeyStoreName") is not None:
         out["custom_key_store_name"] = data["CustomKeyStoreName"]
-    if "CloudHsmClusterId" in data:
+    if data.get("CloudHsmClusterId") is not None:
         out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
-    if "TrustAnchorCertificate" in data:
+    if data.get("TrustAnchorCertificate") is not None:
         out["trust_anchor_certificate"] = data["TrustAnchorCertificate"]
-    if "ConnectionState" in data:
+    if data.get("ConnectionState") is not None:
         import capo_kms.types.connection_state_type
 
         out["connection_state"] = (
@@ -123,7 +123,7 @@ def deserialize_aws_json_1_1(data: dict) -> CustomKeyStoresListEntry:
                 data["ConnectionState"]
             )
         )
-    if "ConnectionErrorCode" in data:
+    if data.get("ConnectionErrorCode") is not None:
         import capo_kms.types.connection_error_code_type
 
         out["connection_error_code"] = (
@@ -131,13 +131,13 @@ def deserialize_aws_json_1_1(data: dict) -> CustomKeyStoresListEntry:
                 data["ConnectionErrorCode"]
             )
         )
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_kms.types.date_type
 
         out["creation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["CreationDate"]
         )
-    if "CustomKeyStoreType" in data:
+    if data.get("CustomKeyStoreType") is not None:
         import capo_kms.types.custom_key_store_type
 
         out["custom_key_store_type"] = (
@@ -145,7 +145,7 @@ def deserialize_aws_json_1_1(data: dict) -> CustomKeyStoresListEntry:
                 data["CustomKeyStoreType"]
             )
         )
-    if "XksProxyConfiguration" in data:
+    if data.get("XksProxyConfiguration") is not None:
         import capo_kms.types.xks_proxy_configuration_type
 
         out["xks_proxy_configuration"] = (

@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> ResourceRequirements:
 
     out: ResourceRequirements = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.resource_requirement.deserialize_aws_json_1_1(item))
     return out

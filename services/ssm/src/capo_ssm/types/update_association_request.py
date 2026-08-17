@@ -191,21 +191,21 @@ def serialize_aws_json_1_1(value: UpdateAssociationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
     out: UpdateAssociationRequest = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
     else:
         raise DeserializationError("UpdateAssociationRequest.association_id required")
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.parameters
 
         out["parameters"] = capo_ssm.types.parameters.deserialize_aws_json_1_1(
             data["Parameters"]
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
-    if "OutputLocation" in data:
+    if data.get("OutputLocation") is not None:
         import capo_ssm.types.instance_association_output_location
 
         out["output_location"] = (
@@ -213,25 +213,25 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["OutputLocation"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "AssociationName" in data:
+    if data.get("AssociationName") is not None:
         out["association_name"] = data["AssociationName"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
-    if "AutomationTargetParameterName" in data:
+    if data.get("AutomationTargetParameterName") is not None:
         out["automation_target_parameter_name"] = data["AutomationTargetParameterName"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "ComplianceSeverity" in data:
+    if data.get("ComplianceSeverity") is not None:
         import capo_ssm.types.association_compliance_severity
 
         out["compliance_severity"] = (
@@ -239,7 +239,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["ComplianceSeverity"]
             )
         )
-    if "SyncCompliance" in data:
+    if data.get("SyncCompliance") is not None:
         import capo_ssm.types.association_sync_compliance
 
         out["sync_compliance"] = (
@@ -247,11 +247,11 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["SyncCompliance"]
             )
         )
-    if "ApplyOnlyAtCronInterval" in data:
+    if data.get("ApplyOnlyAtCronInterval") is not None:
         out["apply_only_at_cron_interval"] = data["ApplyOnlyAtCronInterval"]
     else:
         out["apply_only_at_cron_interval"] = False
-    if "CalendarNames" in data:
+    if data.get("CalendarNames") is not None:
         import capo_ssm.types.calendar_name_or_arn_list
 
         out["calendar_names"] = (
@@ -259,7 +259,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["CalendarNames"]
             )
         )
-    if "TargetLocations" in data:
+    if data.get("TargetLocations") is not None:
         import capo_ssm.types.target_locations
 
         out["target_locations"] = (
@@ -267,17 +267,17 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["TargetLocations"]
             )
         )
-    if "ScheduleOffset" in data:
+    if data.get("ScheduleOffset") is not None:
         out["schedule_offset"] = data["ScheduleOffset"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(
             data["TargetMaps"]
         )
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (
@@ -285,6 +285,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateAssociationRequest:
                 data["AlarmConfiguration"]
             )
         )
-    if "AssociationDispatchAssumeRole" in data:
+    if data.get("AssociationDispatchAssumeRole") is not None:
         out["association_dispatch_assume_role"] = data["AssociationDispatchAssumeRole"]
     return out

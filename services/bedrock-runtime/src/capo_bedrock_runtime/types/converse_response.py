@@ -85,7 +85,7 @@ def serialize_json(value: ConverseResponse) -> dict:
 
 def deserialize_json(data: dict) -> ConverseResponse:
     out: ConverseResponse = {}  # type: ignore[typeddict-item]
-    if "output" in data:
+    if data.get("output") is not None:
         import capo_bedrock_runtime.types.converse_output
 
         out["output"] = capo_bedrock_runtime.types.converse_output.deserialize_json(
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> ConverseResponse:
         )
     else:
         raise DeserializationError("ConverseResponse.output required")
-    if "stopReason" in data:
+    if data.get("stopReason") is not None:
         import capo_bedrock_runtime.types.stop_reason
 
         out["stop_reason"] = capo_bedrock_runtime.types.stop_reason.deserialize_json(
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> ConverseResponse:
         )
     else:
         raise DeserializationError("ConverseResponse.stop_reason required")
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_runtime.types.token_usage
 
         out["usage"] = capo_bedrock_runtime.types.token_usage.deserialize_json(
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> ConverseResponse:
         )
     else:
         raise DeserializationError("ConverseResponse.usage required")
-    if "metrics" in data:
+    if data.get("metrics") is not None:
         import capo_bedrock_runtime.types.converse_metrics
 
         out["metrics"] = capo_bedrock_runtime.types.converse_metrics.deserialize_json(
@@ -117,15 +117,15 @@ def deserialize_json(data: dict) -> ConverseResponse:
         )
     else:
         raise DeserializationError("ConverseResponse.metrics required")
-    if "additionalModelResponseFields" in data:
+    if data.get("additionalModelResponseFields") is not None:
         out["additional_model_response_fields"] = data["additionalModelResponseFields"]
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_runtime.types.converse_trace
 
         out["trace"] = capo_bedrock_runtime.types.converse_trace.deserialize_json(
             data["trace"]
         )
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_runtime.types.performance_configuration
 
         out["performance_config"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> ConverseResponse:
                 data["performanceConfig"]
             )
         )
-    if "serviceTier" in data:
+    if data.get("serviceTier") is not None:
         import capo_bedrock_runtime.types.service_tier
 
         out["service_tier"] = capo_bedrock_runtime.types.service_tier.deserialize_json(

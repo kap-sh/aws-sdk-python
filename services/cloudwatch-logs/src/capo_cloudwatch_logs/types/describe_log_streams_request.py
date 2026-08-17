@@ -63,22 +63,22 @@ def serialize_aws_json_1_1(value: DescribeLogStreamsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeLogStreamsRequest:
     out: DescribeLogStreamsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "logStreamNamePrefix" in data:
+    if data.get("logStreamNamePrefix") is not None:
         out["log_stream_name_prefix"] = data["logStreamNamePrefix"]
-    if "orderBy" in data:
+    if data.get("orderBy") is not None:
         import capo_cloudwatch_logs.types.order_by
 
         out["order_by"] = capo_cloudwatch_logs.types.order_by.deserialize_aws_json_1_1(
             data["orderBy"]
         )
-    if "descending" in data:
+    if data.get("descending") is not None:
         out["descending"] = data["descending"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

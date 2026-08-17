@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: CompleteLayerUploadResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CompleteLayerUploadResponse:
     out: CompleteLayerUploadResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "uploadId" in data:
+    if data.get("uploadId") is not None:
         out["upload_id"] = data["uploadId"]
-    if "layerDigest" in data:
+    if data.get("layerDigest") is not None:
         out["layer_digest"] = data["layerDigest"]
     return out

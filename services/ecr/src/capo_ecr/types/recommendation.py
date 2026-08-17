@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: Recommendation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Recommendation:
     out: Recommendation = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     return out

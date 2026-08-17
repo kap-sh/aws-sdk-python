@@ -37,10 +37,10 @@ def serialize_json(value: DurableConfig) -> dict:
 
 def deserialize_json(data: dict) -> DurableConfig:
     out: DurableConfig = {}  # type: ignore[typeddict-item]
-    if "KMSKeyArn" in data:
+    if data.get("KMSKeyArn") is not None:
         out["kms_key_arn"] = data["KMSKeyArn"]
-    if "RetentionPeriodInDays" in data:
+    if data.get("RetentionPeriodInDays") is not None:
         out["retention_period_in_days"] = data["RetentionPeriodInDays"]
-    if "ExecutionTimeout" in data:
+    if data.get("ExecutionTimeout") is not None:
         out["execution_timeout"] = data["ExecutionTimeout"]
     return out

@@ -28,7 +28,7 @@ def serialize_json(value: SendDurableExecutionCallbackFailureRequest) -> dict:
 
 def deserialize_json(data: dict) -> SendDurableExecutionCallbackFailureRequest:
     out: SendDurableExecutionCallbackFailureRequest = {}  # type: ignore[typeddict-item]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])

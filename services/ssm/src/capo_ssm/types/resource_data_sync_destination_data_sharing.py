@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: ResourceDataSyncDestinationDataSharing) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncDestinationDataSharing:
     out: ResourceDataSyncDestinationDataSharing = {}  # type: ignore[typeddict-item]
-    if "DestinationDataSharingType" in data:
+    if data.get("DestinationDataSharingType") is not None:
         out["destination_data_sharing_type"] = data["DestinationDataSharingType"]
     return out

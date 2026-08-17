@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: StartMessageMoveTaskResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartMessageMoveTaskResult:
     out: StartMessageMoveTaskResult = {}  # type: ignore[typeddict-item]
-    if "TaskHandle" in data:
+    if data.get("TaskHandle") is not None:
         out["task_handle"] = data["TaskHandle"]
     return out

@@ -33,16 +33,16 @@ def serialize_aws_json_1_1(value: PutDestinationPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDestinationPolicyRequest:
     out: PutDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "destinationName" in data:
+    if data.get("destinationName") is not None:
         out["destination_name"] = data["destinationName"]
     else:
         raise DeserializationError(
             "PutDestinationPolicyRequest.destination_name required"
         )
-    if "accessPolicy" in data:
+    if data.get("accessPolicy") is not None:
         out["access_policy"] = data["accessPolicy"]
     else:
         raise DeserializationError("PutDestinationPolicyRequest.access_policy required")
-    if "forceUpdate" in data:
+    if data.get("forceUpdate") is not None:
         out["force_update"] = data["forceUpdate"]
     return out

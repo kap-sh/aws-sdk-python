@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ExpressGatewayRepositoryCredentials) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayRepositoryCredentials:
     out: ExpressGatewayRepositoryCredentials = {}  # type: ignore[typeddict-item]
-    if "credentialsParameter" in data:
+    if data.get("credentialsParameter") is not None:
         out["credentials_parameter"] = data["credentialsParameter"]
     return out

@@ -55,7 +55,7 @@ def serialize_aws_json_1_0(value: BackupDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BackupDescription:
     out: BackupDescription = {}  # type: ignore[typeddict-item]
-    if "BackupDetails" in data:
+    if data.get("BackupDetails") is not None:
         import capo_dynamodb.types.backup_details
 
         out["backup_details"] = (
@@ -63,7 +63,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupDescription:
                 data["BackupDetails"]
             )
         )
-    if "SourceTableDetails" in data:
+    if data.get("SourceTableDetails") is not None:
         import capo_dynamodb.types.source_table_details
 
         out["source_table_details"] = (
@@ -71,7 +71,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupDescription:
                 data["SourceTableDetails"]
             )
         )
-    if "SourceTableFeatureDetails" in data:
+    if data.get("SourceTableFeatureDetails") is not None:
         import capo_dynamodb.types.source_table_feature_details
 
         out["source_table_feature_details"] = (

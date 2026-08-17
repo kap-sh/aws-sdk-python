@@ -86,19 +86,19 @@ def serialize_aws_json_1_0(value: ExecutionListItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecutionListItem:
     out: ExecutionListItem = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("ExecutionListItem.execution_arn required")
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("ExecutionListItem.state_machine_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ExecutionListItem.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_sfn.types.execution_status
 
         out["status"] = capo_sfn.types.execution_status.deserialize_aws_json_1_0(
@@ -106,7 +106,7 @@ def deserialize_aws_json_1_0(data: dict) -> ExecutionListItem:
         )
     else:
         raise DeserializationError("ExecutionListItem.status required")
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -114,23 +114,23 @@ def deserialize_aws_json_1_0(data: dict) -> ExecutionListItem:
         )
     else:
         raise DeserializationError("ExecutionListItem.start_date required")
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
             data["stopDate"]
         )
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
-    if "itemCount" in data:
+    if data.get("itemCount") is not None:
         out["item_count"] = data["itemCount"]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
-    if "redriveCount" in data:
+    if data.get("redriveCount") is not None:
         out["redrive_count"] = data["redriveCount"]
-    if "redriveDate" in data:
+    if data.get("redriveDate") is not None:
         import capo_sfn.types.timestamp
 
         out["redrive_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

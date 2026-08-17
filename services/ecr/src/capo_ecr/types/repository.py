@@ -98,21 +98,21 @@ def serialize_aws_json_1_1(value: Repository) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Repository:
     out: Repository = {}  # type: ignore[typeddict-item]
-    if "repositoryArn" in data:
+    if data.get("repositoryArn") is not None:
         out["repository_arn"] = data["repositoryArn"]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "repositoryUri" in data:
+    if data.get("repositoryUri") is not None:
         out["repository_uri"] = data["repositoryUri"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecr.types.creation_timestamp
 
         out["created_at"] = capo_ecr.types.creation_timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "imageTagMutability" in data:
+    if data.get("imageTagMutability") is not None:
         import capo_ecr.types.image_tag_mutability
 
         out["image_tag_mutability"] = (
@@ -120,7 +120,7 @@ def deserialize_aws_json_1_1(data: dict) -> Repository:
                 data["imageTagMutability"]
             )
         )
-    if "imageTagMutabilityExclusionFilters" in data:
+    if data.get("imageTagMutabilityExclusionFilters") is not None:
         import capo_ecr.types.image_tag_mutability_exclusion_filters
 
         out["image_tag_mutability_exclusion_filters"] = (
@@ -128,7 +128,7 @@ def deserialize_aws_json_1_1(data: dict) -> Repository:
                 data["imageTagMutabilityExclusionFilters"]
             )
         )
-    if "imageScanningConfiguration" in data:
+    if data.get("imageScanningConfiguration") is not None:
         import capo_ecr.types.image_scanning_configuration
 
         out["image_scanning_configuration"] = (
@@ -136,7 +136,7 @@ def deserialize_aws_json_1_1(data: dict) -> Repository:
                 data["imageScanningConfiguration"]
             )
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_ecr.types.encryption_configuration
 
         out["encryption_configuration"] = (

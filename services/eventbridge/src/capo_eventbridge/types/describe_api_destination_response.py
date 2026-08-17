@@ -101,13 +101,13 @@ def serialize_aws_json_1_1(value: DescribeApiDestinationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeApiDestinationResponse:
     out: DescribeApiDestinationResponse = {}  # type: ignore[typeddict-item]
-    if "ApiDestinationArn" in data:
+    if data.get("ApiDestinationArn") is not None:
         out["api_destination_arn"] = data["ApiDestinationArn"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "ApiDestinationState" in data:
+    if data.get("ApiDestinationState") is not None:
         import capo_eventbridge.types.api_destination_state
 
         out["api_destination_state"] = (
@@ -115,11 +115,11 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeApiDestinationResponse:
                 data["ApiDestinationState"]
             )
         )
-    if "ConnectionArn" in data:
+    if data.get("ConnectionArn") is not None:
         out["connection_arn"] = data["ConnectionArn"]
-    if "InvocationEndpoint" in data:
+    if data.get("InvocationEndpoint") is not None:
         out["invocation_endpoint"] = data["InvocationEndpoint"]
-    if "HttpMethod" in data:
+    if data.get("HttpMethod") is not None:
         import capo_eventbridge.types.api_destination_http_method
 
         out["http_method"] = (
@@ -127,9 +127,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeApiDestinationResponse:
                 data["HttpMethod"]
             )
         )
-    if "InvocationRateLimitPerSecond" in data:
+    if data.get("InvocationRateLimitPerSecond") is not None:
         out["invocation_rate_limit_per_second"] = data["InvocationRateLimitPerSecond"]
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -137,7 +137,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeApiDestinationResponse:
                 data["CreationTime"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["last_modified_time"] = (

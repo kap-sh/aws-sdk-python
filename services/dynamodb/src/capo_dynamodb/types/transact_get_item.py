@@ -26,7 +26,7 @@ def serialize_aws_json_1_0(value: TransactGetItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TransactGetItem:
     out: TransactGetItem = {}  # type: ignore[typeddict-item]
-    if "Get" in data:
+    if data.get("Get") is not None:
         import capo_dynamodb.types.get
 
         out["get"] = capo_dynamodb.types.get.deserialize_aws_json_1_0(data["Get"])

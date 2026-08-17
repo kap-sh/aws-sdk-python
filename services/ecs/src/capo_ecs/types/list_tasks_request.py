@@ -70,32 +70,32 @@ def serialize_aws_json_1_1(value: ListTasksRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTasksRequest:
     out: ListTasksRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "containerInstance" in data:
+    if data.get("containerInstance") is not None:
         out["container_instance"] = data["containerInstance"]
-    if "family" in data:
+    if data.get("family") is not None:
         out["family"] = data["family"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "startedBy" in data:
+    if data.get("startedBy") is not None:
         out["started_by"] = data["startedBy"]
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
-    if "desiredStatus" in data:
+    if data.get("desiredStatus") is not None:
         import capo_ecs.types.desired_status
 
         out["desired_status"] = capo_ecs.types.desired_status.deserialize_aws_json_1_1(
             data["desiredStatus"]
         )
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "daemonName" in data:
+    if data.get("daemonName") is not None:
         out["daemon_name"] = data["daemonName"]
     return out

@@ -48,25 +48,25 @@ def serialize_aws_json_1_1(value: UploadLayerPartRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UploadLayerPartRequest:
     out: UploadLayerPartRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("UploadLayerPartRequest.repository_name required")
-    if "uploadId" in data:
+    if data.get("uploadId") is not None:
         out["upload_id"] = data["uploadId"]
     else:
         raise DeserializationError("UploadLayerPartRequest.upload_id required")
-    if "partFirstByte" in data:
+    if data.get("partFirstByte") is not None:
         out["part_first_byte"] = data["partFirstByte"]
     else:
         raise DeserializationError("UploadLayerPartRequest.part_first_byte required")
-    if "partLastByte" in data:
+    if data.get("partLastByte") is not None:
         out["part_last_byte"] = data["partLastByte"]
     else:
         raise DeserializationError("UploadLayerPartRequest.part_last_byte required")
-    if "layerPartBlob" in data:
+    if data.get("layerPartBlob") is not None:
         import capo_ecr.types.layer_part_blob
 
         out["layer_part_blob"] = (

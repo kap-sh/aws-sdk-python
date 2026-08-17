@@ -54,15 +54,15 @@ def serialize_aws_json_1_0(value: PutMetricDataInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutMetricDataInput:
     out: PutMetricDataInput = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricData" in data:
+    if data.get("MetricData") is not None:
         import capo_cloudwatch.types.metric_data
 
         out["metric_data"] = capo_cloudwatch.types.metric_data.deserialize_aws_json_1_0(
             data["MetricData"]
         )
-    if "EntityMetricData" in data:
+    if data.get("EntityMetricData") is not None:
         import capo_cloudwatch.types.entity_metric_data_list
 
         out["entity_metric_data"] = (
@@ -70,7 +70,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricDataInput:
                 data["EntityMetricData"]
             )
         )
-    if "StrictEntityValidation" in data:
+    if data.get("StrictEntityValidation") is not None:
         out["strict_entity_validation"] = data["StrictEntityValidation"]
     return out
 

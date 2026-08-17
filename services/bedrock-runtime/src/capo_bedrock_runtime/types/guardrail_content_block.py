@@ -47,7 +47,7 @@ def serialize_json(value: GuardrailContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> GuardrailContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         import capo_bedrock_runtime.types.guardrail_text_block
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> GuardrailContentBlock:
                 data["text"]
             )
         }
-    elif "image" in data:
+    elif data.get("image") is not None:
         import capo_bedrock_runtime.types.guardrail_image_block
 
         return {

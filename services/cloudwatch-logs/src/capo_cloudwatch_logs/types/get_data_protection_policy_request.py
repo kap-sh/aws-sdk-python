@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: GetDataProtectionPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDataProtectionPolicyRequest:
     out: GetDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
     else:
         raise DeserializationError(

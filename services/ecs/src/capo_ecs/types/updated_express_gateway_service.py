@@ -74,13 +74,13 @@ def serialize_aws_json_1_1(value: UpdatedExpressGatewayService) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdatedExpressGatewayService:
     out: UpdatedExpressGatewayService = {}  # type: ignore[typeddict-item]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.express_gateway_service_status
 
         out["status"] = (
@@ -88,7 +88,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdatedExpressGatewayService:
                 data["status"]
             )
         )
-    if "targetConfiguration" in data:
+    if data.get("targetConfiguration") is not None:
         import capo_ecs.types.express_gateway_service_configuration
 
         out["target_configuration"] = (
@@ -96,13 +96,13 @@ def deserialize_aws_json_1_1(data: dict) -> UpdatedExpressGatewayService:
                 data["targetConfiguration"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

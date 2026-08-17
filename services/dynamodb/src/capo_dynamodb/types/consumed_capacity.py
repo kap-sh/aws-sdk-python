@@ -76,21 +76,21 @@ def serialize_aws_json_1_0(value: ConsumedCapacity) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ConsumedCapacity:
     out: ConsumedCapacity = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "CapacityUnits" in data:
+    if data.get("CapacityUnits") is not None:
         out["capacity_units"] = data["CapacityUnits"]
-    if "ReadCapacityUnits" in data:
+    if data.get("ReadCapacityUnits") is not None:
         out["read_capacity_units"] = data["ReadCapacityUnits"]
-    if "WriteCapacityUnits" in data:
+    if data.get("WriteCapacityUnits") is not None:
         out["write_capacity_units"] = data["WriteCapacityUnits"]
-    if "Table" in data:
+    if data.get("Table") is not None:
         import capo_dynamodb.types.capacity
 
         out["table"] = capo_dynamodb.types.capacity.deserialize_aws_json_1_0(
             data["Table"]
         )
-    if "LocalSecondaryIndexes" in data:
+    if data.get("LocalSecondaryIndexes") is not None:
         import capo_dynamodb.types.secondary_indexes_capacity_map
 
         out["local_secondary_indexes"] = (
@@ -98,7 +98,7 @@ def deserialize_aws_json_1_0(data: dict) -> ConsumedCapacity:
                 data["LocalSecondaryIndexes"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.secondary_indexes_capacity_map
 
         out["global_secondary_indexes"] = (

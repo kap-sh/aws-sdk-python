@@ -49,15 +49,15 @@ def serialize_aws_json_1_1(value: LoadBalancer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LoadBalancer:
     out: LoadBalancer = {}  # type: ignore[typeddict-item]
-    if "targetGroupArn" in data:
+    if data.get("targetGroupArn") is not None:
         out["target_group_arn"] = data["targetGroupArn"]
-    if "loadBalancerName" in data:
+    if data.get("loadBalancerName") is not None:
         out["load_balancer_name"] = data["loadBalancerName"]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
-    if "containerPort" in data:
+    if data.get("containerPort") is not None:
         out["container_port"] = data["containerPort"]
-    if "advancedConfiguration" in data:
+    if data.get("advancedConfiguration") is not None:
         import capo_ecs.types.advanced_configuration
 
         out["advanced_configuration"] = (

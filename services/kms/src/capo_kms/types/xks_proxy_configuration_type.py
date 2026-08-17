@@ -64,7 +64,7 @@ def serialize_aws_json_1_1(value: XksProxyConfigurationType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> XksProxyConfigurationType:
     out: XksProxyConfigurationType = {}  # type: ignore[typeddict-item]
-    if "Connectivity" in data:
+    if data.get("Connectivity") is not None:
         import capo_kms.types.xks_proxy_connectivity_type
 
         out["connectivity"] = (
@@ -72,14 +72,14 @@ def deserialize_aws_json_1_1(data: dict) -> XksProxyConfigurationType:
                 data["Connectivity"]
             )
         )
-    if "AccessKeyId" in data:
+    if data.get("AccessKeyId") is not None:
         out["access_key_id"] = data["AccessKeyId"]
-    if "UriEndpoint" in data:
+    if data.get("UriEndpoint") is not None:
         out["uri_endpoint"] = data["UriEndpoint"]
-    if "UriPath" in data:
+    if data.get("UriPath") is not None:
         out["uri_path"] = data["UriPath"]
-    if "VpcEndpointServiceName" in data:
+    if data.get("VpcEndpointServiceName") is not None:
         out["vpc_endpoint_service_name"] = data["VpcEndpointServiceName"]
-    if "VpcEndpointServiceOwner" in data:
+    if data.get("VpcEndpointServiceOwner") is not None:
         out["vpc_endpoint_service_owner"] = data["VpcEndpointServiceOwner"]
     return out

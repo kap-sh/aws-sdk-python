@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: CopyValue) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CopyValue:
     out: CopyValue = {}  # type: ignore[typeddict-item]
-    if "entries" in data:
+    if data.get("entries") is not None:
         import capo_cloudwatch_logs.types.copy_value_entries
 
         out["entries"] = (

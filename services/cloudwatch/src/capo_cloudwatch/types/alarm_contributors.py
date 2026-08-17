@@ -74,6 +74,8 @@ def deserialize_aws_json_1_0(data: list) -> AlarmContributors:
 
     out: AlarmContributors = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch.types.alarm_contributor.deserialize_aws_json_1_0(item)
         )

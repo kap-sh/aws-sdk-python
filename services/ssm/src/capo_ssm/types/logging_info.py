@@ -33,13 +33,13 @@ def serialize_aws_json_1_1(value: LoggingInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LoggingInfo:
     out: LoggingInfo = {}  # type: ignore[typeddict-item]
-    if "S3BucketName" in data:
+    if data.get("S3BucketName") is not None:
         out["s3_bucket_name"] = data["S3BucketName"]
     else:
         raise DeserializationError("LoggingInfo.s3_bucket_name required")
-    if "S3KeyPrefix" in data:
+    if data.get("S3KeyPrefix") is not None:
         out["s3_key_prefix"] = data["S3KeyPrefix"]
-    if "S3Region" in data:
+    if data.get("S3Region") is not None:
         out["s3_region"] = data["S3Region"]
     else:
         raise DeserializationError("LoggingInfo.s3_region required")

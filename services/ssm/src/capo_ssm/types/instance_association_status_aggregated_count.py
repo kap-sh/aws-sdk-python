@@ -25,5 +25,7 @@ def serialize_aws_json_1_1(
 def deserialize_aws_json_1_1(data: dict) -> InstanceAssociationStatusAggregatedCount:
     out: InstanceAssociationStatusAggregatedCount = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

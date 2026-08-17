@@ -35,18 +35,18 @@ def serialize_aws_json_1_0(value: BatchResultErrorEntry) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchResultErrorEntry:
     out: BatchResultErrorEntry = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
     else:
         raise DeserializationError("BatchResultErrorEntry.id required")
-    if "SenderFault" in data:
+    if data.get("SenderFault") is not None:
         out["sender_fault"] = data["SenderFault"]
     else:
         out["sender_fault"] = False
-    if "Code" in data:
+    if data.get("Code") is not None:
         out["code"] = data["Code"]
     else:
         raise DeserializationError("BatchResultErrorEntry.code required")
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out

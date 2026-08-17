@@ -57,7 +57,7 @@ def serialize_aws_json_1_0(value: GlobalSecondaryIndexUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexUpdate:
     out: GlobalSecondaryIndexUpdate = {}  # type: ignore[typeddict-item]
-    if "Update" in data:
+    if data.get("Update") is not None:
         import capo_dynamodb.types.update_global_secondary_index_action
 
         out["update"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexUpdate:
                 data["Update"]
             )
         )
-    if "Create" in data:
+    if data.get("Create") is not None:
         import capo_dynamodb.types.create_global_secondary_index_action
 
         out["create"] = (
@@ -73,7 +73,7 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalSecondaryIndexUpdate:
                 data["Create"]
             )
         )
-    if "Delete" in data:
+    if data.get("Delete") is not None:
         import capo_dynamodb.types.delete_global_secondary_index_action
 
         out["delete"] = (

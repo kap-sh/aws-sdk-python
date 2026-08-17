@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> AssociationExecutionsList:
 
     out: AssociationExecutionsList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.association_execution.deserialize_aws_json_1_1(item))
     return out

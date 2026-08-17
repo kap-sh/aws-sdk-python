@@ -29,10 +29,10 @@ def serialize_json(value: ChainedInvokeOptions) -> dict:
 
 def deserialize_json(data: dict) -> ChainedInvokeOptions:
     out: ChainedInvokeOptions = {}  # type: ignore[typeddict-item]
-    if "FunctionName" in data:
+    if data.get("FunctionName") is not None:
         out["function_name"] = data["FunctionName"]
     else:
         raise DeserializationError("ChainedInvokeOptions.function_name required")
-    if "TenantId" in data:
+    if data.get("TenantId") is not None:
         out["tenant_id"] = data["TenantId"]
     return out

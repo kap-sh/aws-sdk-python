@@ -28,13 +28,13 @@ def serialize_aws_json_1_1(value: UpdateManagedInstanceRoleRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateManagedInstanceRoleRequest:
     out: UpdateManagedInstanceRoleRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError(
             "UpdateManagedInstanceRoleRequest.instance_id required"
         )
-    if "IamRole" in data:
+    if data.get("IamRole") is not None:
         out["iam_role"] = data["IamRole"]
     else:
         raise DeserializationError("UpdateManagedInstanceRoleRequest.iam_role required")

@@ -69,11 +69,11 @@ def serialize_aws_json_1_1(value: ListDaemonTaskDefinitionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsRequest:
     out: ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-    if "familyPrefix" in data:
+    if data.get("familyPrefix") is not None:
         out["family_prefix"] = data["familyPrefix"]
-    if "family" in data:
+    if data.get("family") is not None:
         out["family"] = data["family"]
-    if "revision" in data:
+    if data.get("revision") is not None:
         import capo_ecs.types.daemon_task_definition_revision_filter
 
         out["revision"] = (
@@ -81,7 +81,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsRequest:
                 data["revision"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_task_definition_status_filter
 
         out["status"] = (
@@ -89,12 +89,12 @@ def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsRequest:
                 data["status"]
             )
         )
-    if "sort" in data:
+    if data.get("sort") is not None:
         import capo_ecs.types.sort_order
 
         out["sort"] = capo_ecs.types.sort_order.deserialize_aws_json_1_1(data["sort"])
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

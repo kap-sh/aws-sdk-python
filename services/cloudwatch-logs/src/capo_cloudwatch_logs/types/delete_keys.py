@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: DeleteKeys) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteKeys:
     out: DeleteKeys = {}  # type: ignore[typeddict-item]
-    if "withKeys" in data:
+    if data.get("withKeys") is not None:
         import capo_cloudwatch_logs.types.delete_with_keys
 
         out["with_keys"] = (

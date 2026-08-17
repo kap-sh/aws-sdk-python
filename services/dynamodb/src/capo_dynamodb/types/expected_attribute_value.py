@@ -58,15 +58,15 @@ def serialize_aws_json_1_0(value: ExpectedAttributeValue) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExpectedAttributeValue:
     out: ExpectedAttributeValue = {}  # type: ignore[typeddict-item]
-    if "Value" in data:
+    if data.get("Value") is not None:
         import capo_dynamodb.types.attribute_value
 
         out["value"] = capo_dynamodb.types.attribute_value.deserialize_aws_json_1_0(
             data["Value"]
         )
-    if "Exists" in data:
+    if data.get("Exists") is not None:
         out["exists"] = data["Exists"]
-    if "ComparisonOperator" in data:
+    if data.get("ComparisonOperator") is not None:
         import capo_dynamodb.types.comparison_operator
 
         out["comparison_operator"] = (
@@ -74,7 +74,7 @@ def deserialize_aws_json_1_0(data: dict) -> ExpectedAttributeValue:
                 data["ComparisonOperator"]
             )
         )
-    if "AttributeValueList" in data:
+    if data.get("AttributeValueList") is not None:
         import capo_dynamodb.types.attribute_value_list
 
         out["attribute_value_list"] = (

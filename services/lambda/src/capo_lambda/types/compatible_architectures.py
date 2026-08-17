@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> CompatibleArchitectures:
 
     out: CompatibleArchitectures = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.architecture.deserialize_json(item))
     return out

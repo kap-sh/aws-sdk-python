@@ -21,5 +21,7 @@ def serialize_aws_json_1_1(input_to_serialize: Annotations) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> Annotations:
     out: Annotations = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

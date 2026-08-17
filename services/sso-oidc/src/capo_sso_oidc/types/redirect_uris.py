@@ -14,4 +14,4 @@ def serialize_json(value: RedirectUris) -> list:
 
 
 def deserialize_json(data: list) -> RedirectUris:
-    return list(data)
+    return [item for item in data if item is not None]

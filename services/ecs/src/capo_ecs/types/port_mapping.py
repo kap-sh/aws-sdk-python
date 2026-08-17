@@ -54,19 +54,19 @@ def serialize_aws_json_1_1(value: PortMapping) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PortMapping:
     out: PortMapping = {}  # type: ignore[typeddict-item]
-    if "containerPort" in data:
+    if data.get("containerPort") is not None:
         out["container_port"] = data["containerPort"]
-    if "hostPort" in data:
+    if data.get("hostPort") is not None:
         out["host_port"] = data["hostPort"]
-    if "protocol" in data:
+    if data.get("protocol") is not None:
         import capo_ecs.types.transport_protocol
 
         out["protocol"] = capo_ecs.types.transport_protocol.deserialize_aws_json_1_1(
             data["protocol"]
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "appProtocol" in data:
+    if data.get("appProtocol") is not None:
         import capo_ecs.types.application_protocol
 
         out["app_protocol"] = (
@@ -74,6 +74,6 @@ def deserialize_aws_json_1_1(data: dict) -> PortMapping:
                 data["appProtocol"]
             )
         )
-    if "containerPortRange" in data:
+    if data.get("containerPortRange") is not None:
         out["container_port_range"] = data["containerPortRange"]
     return out

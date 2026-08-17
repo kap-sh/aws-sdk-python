@@ -52,15 +52,15 @@ def serialize_aws_json_1_1(value: PatternToken) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatternToken:
     out: PatternToken = {}  # type: ignore[typeddict-item]
-    if "dynamicTokenPosition" in data:
+    if data.get("dynamicTokenPosition") is not None:
         out["dynamic_token_position"] = data["dynamicTokenPosition"]
     else:
         out["dynamic_token_position"] = 0
-    if "isDynamic" in data:
+    if data.get("isDynamic") is not None:
         out["is_dynamic"] = data["isDynamic"]
-    if "tokenString" in data:
+    if data.get("tokenString") is not None:
         out["token_string"] = data["tokenString"]
-    if "enumerations" in data:
+    if data.get("enumerations") is not None:
         import capo_cloudwatch_logs.types.enumerations
 
         out["enumerations"] = (
@@ -68,6 +68,6 @@ def deserialize_aws_json_1_1(data: dict) -> PatternToken:
                 data["enumerations"]
             )
         )
-    if "inferredTokenName" in data:
+    if data.get("inferredTokenName") is not None:
         out["inferred_token_name"] = data["inferredTokenName"]
     return out

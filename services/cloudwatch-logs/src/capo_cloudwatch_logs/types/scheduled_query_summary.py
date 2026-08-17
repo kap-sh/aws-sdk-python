@@ -96,11 +96,11 @@ def serialize_aws_json_1_1(value: ScheduledQuerySummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScheduledQuerySummary:
     out: ScheduledQuerySummary = {}  # type: ignore[typeddict-item]
-    if "scheduledQueryArn" in data:
+    if data.get("scheduledQueryArn") is not None:
         out["scheduled_query_arn"] = data["scheduledQueryArn"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_state
 
         out["state"] = (
@@ -108,9 +108,9 @@ def deserialize_aws_json_1_1(data: dict) -> ScheduledQuerySummary:
                 data["state"]
             )
         )
-    if "lastTriggeredTime" in data:
+    if data.get("lastTriggeredTime") is not None:
         out["last_triggered_time"] = data["lastTriggeredTime"]
-    if "lastExecutionStatus" in data:
+    if data.get("lastExecutionStatus") is not None:
         import capo_cloudwatch_logs.types.execution_status
 
         out["last_execution_status"] = (
@@ -118,11 +118,11 @@ def deserialize_aws_json_1_1(data: dict) -> ScheduledQuerySummary:
                 data["lastExecutionStatus"]
             )
         )
-    if "scheduleExpression" in data:
+    if data.get("scheduleExpression") is not None:
         out["schedule_expression"] = data["scheduleExpression"]
-    if "timezone" in data:
+    if data.get("timezone") is not None:
         out["timezone"] = data["timezone"]
-    if "destinationConfiguration" in data:
+    if data.get("destinationConfiguration") is not None:
         import capo_cloudwatch_logs.types.destination_configuration
 
         out["destination_configuration"] = (
@@ -130,8 +130,8 @@ def deserialize_aws_json_1_1(data: dict) -> ScheduledQuerySummary:
                 data["destinationConfiguration"]
             )
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
     return out

@@ -47,15 +47,15 @@ def serialize_aws_json_1_1(value: ListContainerInstancesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListContainerInstancesRequest:
     out: ListContainerInstancesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "filter" in data:
+    if data.get("filter") is not None:
         out["filter"] = data["filter"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.container_instance_status
 
         out["status"] = (

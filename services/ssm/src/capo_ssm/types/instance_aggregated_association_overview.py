@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: InstanceAggregatedAssociationOverview) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceAggregatedAssociationOverview:
     out: InstanceAggregatedAssociationOverview = {}  # type: ignore[typeddict-item]
-    if "DetailedStatus" in data:
+    if data.get("DetailedStatus") is not None:
         out["detailed_status"] = data["DetailedStatus"]
-    if "InstanceAssociationStatusAggregatedCount" in data:
+    if data.get("InstanceAssociationStatusAggregatedCount") is not None:
         import capo_ssm.types.instance_association_status_aggregated_count
 
         out["instance_association_status_aggregated_count"] = (

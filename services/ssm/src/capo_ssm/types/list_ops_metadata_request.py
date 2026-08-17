@@ -41,7 +41,7 @@ def serialize_aws_json_1_1(value: ListOpsMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListOpsMetadataRequest:
     out: ListOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.ops_metadata_filter_list
 
         out["filters"] = (
@@ -49,8 +49,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListOpsMetadataRequest:
                 data["Filters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> SubscriptionFilters:
 
     out: SubscriptionFilters = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.subscription_filter.deserialize_aws_json_1_1(
                 item

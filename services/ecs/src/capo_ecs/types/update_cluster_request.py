@@ -59,17 +59,17 @@ def serialize_aws_json_1_1(value: UpdateClusterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateClusterRequest:
     out: UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError("UpdateClusterRequest.cluster required")
-    if "settings" in data:
+    if data.get("settings") is not None:
         import capo_ecs.types.cluster_settings
 
         out["settings"] = capo_ecs.types.cluster_settings.deserialize_aws_json_1_1(
             data["settings"]
         )
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         import capo_ecs.types.cluster_configuration
 
         out["configuration"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateClusterRequest:
                 data["configuration"]
             )
         )
-    if "serviceConnectDefaults" in data:
+    if data.get("serviceConnectDefaults") is not None:
         import capo_ecs.types.cluster_service_connect_defaults_request
 
         out["service_connect_defaults"] = (

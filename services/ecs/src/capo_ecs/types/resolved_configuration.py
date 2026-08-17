@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: ResolvedConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResolvedConfiguration:
     out: ResolvedConfiguration = {}  # type: ignore[typeddict-item]
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.service_revision_load_balancers
 
         out["load_balancers"] = (

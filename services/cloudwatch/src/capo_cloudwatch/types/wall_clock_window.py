@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: WallClockWindow) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> WallClockWindow:
     out: WallClockWindow = {}  # type: ignore[typeddict-item]
-    if "Timezone" in data:
+    if data.get("Timezone") is not None:
         out["timezone"] = data["Timezone"]
     return out
 

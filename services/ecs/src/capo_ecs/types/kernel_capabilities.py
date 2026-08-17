@@ -31,11 +31,11 @@ def serialize_aws_json_1_1(value: KernelCapabilities) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KernelCapabilities:
     out: KernelCapabilities = {}  # type: ignore[typeddict-item]
-    if "add" in data:
+    if data.get("add") is not None:
         import capo_ecs.types.string_list
 
         out["add"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(data["add"])
-    if "drop" in data:
+    if data.get("drop") is not None:
         import capo_ecs.types.string_list
 
         out["drop"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(data["drop"])

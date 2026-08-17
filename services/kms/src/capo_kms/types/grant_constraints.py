@@ -50,7 +50,7 @@ def serialize_aws_json_1_1(value: GrantConstraints) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GrantConstraints:
     out: GrantConstraints = {}  # type: ignore[typeddict-item]
-    if "EncryptionContextSubset" in data:
+    if data.get("EncryptionContextSubset") is not None:
         import capo_kms.types.encryption_context_type
 
         out["encryption_context_subset"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> GrantConstraints:
                 data["EncryptionContextSubset"]
             )
         )
-    if "EncryptionContextEquals" in data:
+    if data.get("EncryptionContextEquals") is not None:
         import capo_kms.types.encryption_context_type
 
         out["encryption_context_equals"] = (
@@ -66,6 +66,6 @@ def deserialize_aws_json_1_1(data: dict) -> GrantConstraints:
                 data["EncryptionContextEquals"]
             )
         )
-    if "SourceArn" in data:
+    if data.get("SourceArn") is not None:
         out["source_arn"] = data["SourceArn"]
     return out

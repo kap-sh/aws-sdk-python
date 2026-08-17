@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: DisassociateDatasetKmsKeyInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DisassociateDatasetKmsKeyInput:
     out: DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-    if "DatasetIdentifier" in data:
+    if data.get("DatasetIdentifier") is not None:
         out["dataset_identifier"] = data["DatasetIdentifier"]
     return out
 

@@ -44,14 +44,14 @@ def serialize_aws_json_1_1(value: FilteredLogEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FilteredLogEvent:
     out: FilteredLogEvent = {}  # type: ignore[typeddict-item]
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         out["timestamp"] = data["timestamp"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "ingestionTime" in data:
+    if data.get("ingestionTime") is not None:
         out["ingestion_time"] = data["ingestionTime"]
-    if "eventId" in data:
+    if data.get("eventId") is not None:
         out["event_id"] = data["eventId"]
     return out

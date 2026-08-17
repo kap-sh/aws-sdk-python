@@ -27,10 +27,10 @@ def serialize_aws_json_1_1(value: TargetPreview) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TargetPreview:
     out: TargetPreview = {}  # type: ignore[typeddict-item]
-    if "Count" in data:
+    if data.get("Count") is not None:
         out["count"] = data["Count"]
     else:
         out["count"] = 0
-    if "TargetType" in data:
+    if data.get("TargetType") is not None:
         out["target_type"] = data["TargetType"]
     return out

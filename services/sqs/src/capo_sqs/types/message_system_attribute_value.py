@@ -55,27 +55,27 @@ def serialize_aws_json_1_0(value: MessageSystemAttributeValue) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MessageSystemAttributeValue:
     out: MessageSystemAttributeValue = {}  # type: ignore[typeddict-item]
-    if "StringValue" in data:
+    if data.get("StringValue") is not None:
         out["string_value"] = data["StringValue"]
-    if "BinaryValue" in data:
+    if data.get("BinaryValue") is not None:
         import capo_sqs.types.binary
 
         out["binary_value"] = capo_sqs.types.binary.deserialize_aws_json_1_0(
             data["BinaryValue"]
         )
-    if "StringListValues" in data:
+    if data.get("StringListValues") is not None:
         import capo_sqs.types.string_list
 
         out["string_list_values"] = capo_sqs.types.string_list.deserialize_aws_json_1_0(
             data["StringListValues"]
         )
-    if "BinaryListValues" in data:
+    if data.get("BinaryListValues") is not None:
         import capo_sqs.types.binary_list
 
         out["binary_list_values"] = capo_sqs.types.binary_list.deserialize_aws_json_1_0(
             data["BinaryListValues"]
         )
-    if "DataType" in data:
+    if data.get("DataType") is not None:
         out["data_type"] = data["DataType"]
     else:
         raise DeserializationError("MessageSystemAttributeValue.data_type required")

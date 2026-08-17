@@ -31,9 +31,9 @@ def serialize_json(value: ToolResultBlockDelta) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolResultBlockDelta:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "json" in data:
+    elif data.get("json") is not None:
         return {"json": data["json"]}
     else:
         raise DeserializationError("ToolResultBlockDelta: no recognized variant key")

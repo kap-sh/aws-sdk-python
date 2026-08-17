@@ -27,11 +27,11 @@ def serialize_aws_json_1_0(value: ProvisionedThroughput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughput:
     out: ProvisionedThroughput = {}  # type: ignore[typeddict-item]
-    if "ReadCapacityUnits" in data:
+    if data.get("ReadCapacityUnits") is not None:
         out["read_capacity_units"] = data["ReadCapacityUnits"]
     else:
         raise DeserializationError("ProvisionedThroughput.read_capacity_units required")
-    if "WriteCapacityUnits" in data:
+    if data.get("WriteCapacityUnits") is not None:
         out["write_capacity_units"] = data["WriteCapacityUnits"]
     else:
         raise DeserializationError(

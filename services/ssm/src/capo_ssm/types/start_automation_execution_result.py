@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: StartAutomationExecutionResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartAutomationExecutionResult:
     out: StartAutomationExecutionResult = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
     return out

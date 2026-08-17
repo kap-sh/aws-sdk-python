@@ -65,17 +65,17 @@ def serialize_json(value: FunctionCode) -> dict:
 
 def deserialize_json(data: dict) -> FunctionCode:
     out: FunctionCode = {}  # type: ignore[typeddict-item]
-    if "ZipFile" in data:
+    if data.get("ZipFile") is not None:
         import capo_lambda.types.blob
 
         out["zip_file"] = capo_lambda.types.blob.deserialize_json(data["ZipFile"])
-    if "S3Bucket" in data:
+    if data.get("S3Bucket") is not None:
         out["s3_bucket"] = data["S3Bucket"]
-    if "S3Key" in data:
+    if data.get("S3Key") is not None:
         out["s3_key"] = data["S3Key"]
-    if "S3ObjectVersion" in data:
+    if data.get("S3ObjectVersion") is not None:
         out["s3_object_version"] = data["S3ObjectVersion"]
-    if "S3ObjectStorageMode" in data:
+    if data.get("S3ObjectStorageMode") is not None:
         import capo_lambda.types.s3_object_storage_mode
 
         out["s3_object_storage_mode"] = (
@@ -83,8 +83,8 @@ def deserialize_json(data: dict) -> FunctionCode:
                 data["S3ObjectStorageMode"]
             )
         )
-    if "ImageUri" in data:
+    if data.get("ImageUri") is not None:
         out["image_uri"] = data["ImageUri"]
-    if "SourceKMSKeyArn" in data:
+    if data.get("SourceKMSKeyArn") is not None:
         out["source_kms_key_arn"] = data["SourceKMSKeyArn"]
     return out

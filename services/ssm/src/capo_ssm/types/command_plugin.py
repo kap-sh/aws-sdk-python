@@ -87,21 +87,21 @@ def serialize_aws_json_1_1(value: CommandPlugin) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CommandPlugin:
     out: CommandPlugin = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.command_plugin_status
 
         out["status"] = capo_ssm.types.command_plugin_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "ResponseCode" in data:
+    if data.get("ResponseCode") is not None:
         out["response_code"] = data["ResponseCode"]
     else:
         out["response_code"] = 0
-    if "ResponseStartDateTime" in data:
+    if data.get("ResponseStartDateTime") is not None:
         import capo_ssm.types.date_time
 
         out["response_start_date_time"] = (
@@ -109,7 +109,7 @@ def deserialize_aws_json_1_1(data: dict) -> CommandPlugin:
                 data["ResponseStartDateTime"]
             )
         )
-    if "ResponseFinishDateTime" in data:
+    if data.get("ResponseFinishDateTime") is not None:
         import capo_ssm.types.date_time
 
         out["response_finish_date_time"] = (
@@ -117,16 +117,16 @@ def deserialize_aws_json_1_1(data: dict) -> CommandPlugin:
                 data["ResponseFinishDateTime"]
             )
         )
-    if "Output" in data:
+    if data.get("Output") is not None:
         out["output"] = data["Output"]
-    if "StandardOutputUrl" in data:
+    if data.get("StandardOutputUrl") is not None:
         out["standard_output_url"] = data["StandardOutputUrl"]
-    if "StandardErrorUrl" in data:
+    if data.get("StandardErrorUrl") is not None:
         out["standard_error_url"] = data["StandardErrorUrl"]
-    if "OutputS3Region" in data:
+    if data.get("OutputS3Region") is not None:
         out["output_s3_region"] = data["OutputS3Region"]
-    if "OutputS3BucketName" in data:
+    if data.get("OutputS3BucketName") is not None:
         out["output_s3_bucket_name"] = data["OutputS3BucketName"]
-    if "OutputS3KeyPrefix" in data:
+    if data.get("OutputS3KeyPrefix") is not None:
         out["output_s3_key_prefix"] = data["OutputS3KeyPrefix"]
     return out

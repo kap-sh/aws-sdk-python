@@ -62,15 +62,15 @@ def serialize_aws_json_1_0(value: AlarmMuteRuleSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AlarmMuteRuleSummary:
     out: AlarmMuteRuleSummary = {}  # type: ignore[typeddict-item]
-    if "AlarmMuteRuleArn" in data:
+    if data.get("AlarmMuteRuleArn") is not None:
         out["alarm_mute_rule_arn"] = data["AlarmMuteRuleArn"]
-    if "ExpireDate" in data:
+    if data.get("ExpireDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["expire_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["ExpireDate"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_cloudwatch.types.alarm_mute_rule_status
 
         out["status"] = (
@@ -78,9 +78,9 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmMuteRuleSummary:
                 data["Status"]
             )
         )
-    if "MuteType" in data:
+    if data.get("MuteType") is not None:
         out["mute_type"] = data["MuteType"]
-    if "LastUpdatedTimestamp" in data:
+    if data.get("LastUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["last_updated_timestamp"] = (

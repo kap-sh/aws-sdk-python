@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: AssociateOpsItemRelatedItemResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociateOpsItemRelatedItemResponse:
     out: AssociateOpsItemRelatedItemResponse = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
     return out

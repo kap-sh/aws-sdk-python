@@ -48,17 +48,17 @@ def serialize_aws_json_1_0(value: StartSyncExecutionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionInput:
     out: StartSyncExecutionInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("StartSyncExecutionInput.state_machine_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "traceHeader" in data:
+    if data.get("traceHeader") is not None:
         out["trace_header"] = data["traceHeader"]
-    if "includedData" in data:
+    if data.get("includedData") is not None:
         import capo_sfn.types.included_data
 
         out["included_data"] = capo_sfn.types.included_data.deserialize_aws_json_1_0(

@@ -42,7 +42,7 @@ def serialize_aws_json_1_0(value: BatchGetItemInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchGetItemInput:
     out: BatchGetItemInput = {}  # type: ignore[typeddict-item]
-    if "RequestItems" in data:
+    if data.get("RequestItems") is not None:
         import capo_dynamodb.types.batch_get_request_map
 
         out["request_items"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_0(data: dict) -> BatchGetItemInput:
         )
     else:
         raise DeserializationError("BatchGetItemInput.request_items required")
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (

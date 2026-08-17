@@ -38,9 +38,9 @@ def serialize_aws_json_1_0(value: MetricStreamFilter) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricStreamFilter:
     out: MetricStreamFilter = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricNames" in data:
+    if data.get("MetricNames") is not None:
         import capo_cloudwatch.types.metric_stream_filter_metric_names
 
         out["metric_names"] = (

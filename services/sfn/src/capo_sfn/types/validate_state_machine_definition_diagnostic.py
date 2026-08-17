@@ -45,7 +45,7 @@ def serialize_aws_json_1_0(value: ValidateStateMachineDefinitionDiagnostic) -> d
 
 def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionDiagnostic:
     out: ValidateStateMachineDefinitionDiagnostic = {}  # type: ignore[typeddict-item]
-    if "severity" in data:
+    if data.get("severity") is not None:
         import capo_sfn.types.validate_state_machine_definition_severity
 
         out["severity"] = (
@@ -57,18 +57,18 @@ def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionDiagno
         raise DeserializationError(
             "ValidateStateMachineDefinitionDiagnostic.severity required"
         )
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
     else:
         raise DeserializationError(
             "ValidateStateMachineDefinitionDiagnostic.code required"
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError(
             "ValidateStateMachineDefinitionDiagnostic.message required"
         )
-    if "location" in data:
+    if data.get("location") is not None:
         out["location"] = data["location"]
     return out

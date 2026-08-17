@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> ImageSigningStatusList:
 
     out: ImageSigningStatusList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecr.types.image_signing_status.deserialize_aws_json_1_1(item))
     return out

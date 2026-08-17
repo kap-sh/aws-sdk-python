@@ -19,7 +19,7 @@ def serialize_json(value: CitationsConfig) -> dict:
 
 def deserialize_json(data: dict) -> CitationsConfig:
     out: CitationsConfig = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         raise DeserializationError("CitationsConfig.enabled required")

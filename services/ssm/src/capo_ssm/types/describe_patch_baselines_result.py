@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribePatchBaselinesResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePatchBaselinesResult:
     out: DescribePatchBaselinesResult = {}  # type: ignore[typeddict-item]
-    if "BaselineIdentities" in data:
+    if data.get("BaselineIdentities") is not None:
         import capo_ssm.types.patch_baseline_identity_list
 
         out["baseline_identities"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePatchBaselinesResult:
                 data["BaselineIdentities"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

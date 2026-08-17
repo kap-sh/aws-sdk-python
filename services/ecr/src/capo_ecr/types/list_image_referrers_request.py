@@ -60,13 +60,13 @@ def serialize_aws_json_1_1(value: ListImageReferrersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersRequest:
     out: ListImageReferrersRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("ListImageReferrersRequest.repository_name required")
-    if "subjectId" in data:
+    if data.get("subjectId") is not None:
         import capo_ecr.types.subject_identifier
 
         out["subject_id"] = capo_ecr.types.subject_identifier.deserialize_aws_json_1_1(
@@ -74,7 +74,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersRequest:
         )
     else:
         raise DeserializationError("ListImageReferrersRequest.subject_id required")
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_ecr.types.list_image_referrers_filter
 
         out["filter"] = (
@@ -82,8 +82,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersRequest:
                 data["filter"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: KmsKeyDisabledException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> KmsKeyDisabledException_:
     out: KmsKeyDisabledException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

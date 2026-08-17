@@ -52,17 +52,17 @@ def serialize_json(value: StartAsyncInvokeRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartAsyncInvokeRequest:
     out: StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("StartAsyncInvokeRequest.model_id required")
-    if "modelInput" in data:
+    if data.get("modelInput") is not None:
         out["model_input"] = data["modelInput"]
     else:
         raise DeserializationError("StartAsyncInvokeRequest.model_input required")
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock_runtime.types.async_invoke_output_data_config
 
         out["output_data_config"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> StartAsyncInvokeRequest:
         raise DeserializationError(
             "StartAsyncInvokeRequest.output_data_config required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_runtime.types.tag_list
 
         out["tags"] = capo_bedrock_runtime.types.tag_list.deserialize_json(data["tags"])

@@ -46,20 +46,20 @@ def serialize_aws_json_1_1(value: AttachmentContent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AttachmentContent:
     out: AttachmentContent = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Size" in data:
+    if data.get("Size") is not None:
         out["size"] = data["Size"]
     else:
         out["size"] = 0
-    if "Hash" in data:
+    if data.get("Hash") is not None:
         out["hash"] = data["Hash"]
-    if "HashType" in data:
+    if data.get("HashType") is not None:
         import capo_ssm.types.attachment_hash_type
 
         out["hash_type"] = capo_ssm.types.attachment_hash_type.deserialize_aws_json_1_1(
             data["HashType"]
         )
-    if "Url" in data:
+    if data.get("Url") is not None:
         out["url"] = data["Url"]
     return out

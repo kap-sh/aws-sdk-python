@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: CreateActivationResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateActivationResult:
     out: CreateActivationResult = {}  # type: ignore[typeddict-item]
-    if "ActivationId" in data:
+    if data.get("ActivationId") is not None:
         out["activation_id"] = data["ActivationId"]
-    if "ActivationCode" in data:
+    if data.get("ActivationCode") is not None:
         out["activation_code"] = data["ActivationCode"]
     return out

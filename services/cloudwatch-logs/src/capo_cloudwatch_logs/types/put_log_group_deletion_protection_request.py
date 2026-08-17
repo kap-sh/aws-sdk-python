@@ -30,13 +30,13 @@ def serialize_aws_json_1_1(value: PutLogGroupDeletionProtectionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutLogGroupDeletionProtectionRequest:
     out: PutLogGroupDeletionProtectionRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
     else:
         raise DeserializationError(
             "PutLogGroupDeletionProtectionRequest.log_group_identifier required"
         )
-    if "deletionProtectionEnabled" in data:
+    if data.get("deletionProtectionEnabled") is not None:
         out["deletion_protection_enabled"] = data["deletionProtectionEnabled"]
     else:
         raise DeserializationError(

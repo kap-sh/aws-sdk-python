@@ -45,7 +45,7 @@ def serialize_aws_json_1_1(value: DescribeSessionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeSessionsRequest:
     out: DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_ssm.types.session_state
 
         out["state"] = capo_ssm.types.session_state.deserialize_aws_json_1_1(
@@ -53,11 +53,11 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSessionsRequest:
         )
     else:
         raise DeserializationError("DescribeSessionsRequest.state required")
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.session_filter_list
 
         out["filters"] = capo_ssm.types.session_filter_list.deserialize_aws_json_1_1(

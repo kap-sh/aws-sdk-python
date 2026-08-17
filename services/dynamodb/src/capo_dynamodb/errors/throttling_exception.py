@@ -39,9 +39,9 @@ def serialize_aws_json_1_0(value: ThrottlingException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ThrottlingException_:
     out: ThrottlingException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "throttlingReasons" in data:
+    if data.get("throttlingReasons") is not None:
         import capo_dynamodb.types.throttling_reason_list
 
         out["throttling_reasons"] = (

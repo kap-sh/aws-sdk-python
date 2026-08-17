@@ -31,6 +31,9 @@ def deserialize_aws_json_1_0(data: dict) -> MessageBodySystemAttributeMap:
     out: MessageBodySystemAttributeMap = {}
     for key, value in data.items():
         import capo_sqs.types.message_system_attribute_name_for_sends
+
+        if value is None:
+            continue
         import capo_sqs.types.message_system_attribute_value
 
         out[

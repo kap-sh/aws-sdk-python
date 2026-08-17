@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetExecutionPreviewRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetExecutionPreviewRequest:
     out: GetExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-    if "ExecutionPreviewId" in data:
+    if data.get("ExecutionPreviewId") is not None:
         out["execution_preview_id"] = data["ExecutionPreviewId"]
     else:
         raise DeserializationError(

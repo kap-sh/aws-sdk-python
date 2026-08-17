@@ -41,9 +41,9 @@ def serialize_aws_json_1_0(value: ExportSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExportSummary:
     out: ExportSummary = {}  # type: ignore[typeddict-item]
-    if "ExportArn" in data:
+    if data.get("ExportArn") is not None:
         out["export_arn"] = data["ExportArn"]
-    if "ExportStatus" in data:
+    if data.get("ExportStatus") is not None:
         import capo_dynamodb.types.export_status
 
         out["export_status"] = (
@@ -51,7 +51,7 @@ def deserialize_aws_json_1_0(data: dict) -> ExportSummary:
                 data["ExportStatus"]
             )
         )
-    if "ExportType" in data:
+    if data.get("ExportType") is not None:
         import capo_dynamodb.types.export_type
 
         out["export_type"] = capo_dynamodb.types.export_type.deserialize_aws_json_1_0(

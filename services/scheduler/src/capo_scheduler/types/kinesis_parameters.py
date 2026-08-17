@@ -24,7 +24,7 @@ def serialize_json(value: KinesisParameters) -> dict:
 
 def deserialize_json(data: dict) -> KinesisParameters:
     out: KinesisParameters = {}  # type: ignore[typeddict-item]
-    if "PartitionKey" in data:
+    if data.get("PartitionKey") is not None:
         out["partition_key"] = data["PartitionKey"]
     else:
         raise DeserializationError("KinesisParameters.partition_key required")

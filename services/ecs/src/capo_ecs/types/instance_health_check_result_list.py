@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> InstanceHealthCheckResultList:
 
     out: InstanceHealthCheckResultList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.instance_health_check_result.deserialize_aws_json_1_1(item)
         )

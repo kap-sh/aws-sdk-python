@@ -39,13 +39,13 @@ def serialize_aws_json_1_1(value: GenerateMacResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateMacResponse:
     out: GenerateMacResponse = {}  # type: ignore[typeddict-item]
-    if "Mac" in data:
+    if data.get("Mac") is not None:
         import capo_kms.types.ciphertext_type
 
         out["mac"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
             data["Mac"]
         )
-    if "MacAlgorithm" in data:
+    if data.get("MacAlgorithm") is not None:
         import capo_kms.types.mac_algorithm_spec
 
         out["mac_algorithm"] = (
@@ -53,6 +53,6 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateMacResponse:
                 data["MacAlgorithm"]
             )
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     return out

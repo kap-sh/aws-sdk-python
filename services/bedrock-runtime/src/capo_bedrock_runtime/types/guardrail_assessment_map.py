@@ -23,6 +23,8 @@ def serialize_json(input_to_serialize: GuardrailAssessmentMap) -> dict:
 def deserialize_json(data: dict) -> GuardrailAssessmentMap:
     out: GuardrailAssessmentMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock_runtime.types.guardrail_assessment
 
         out[key] = capo_bedrock_runtime.types.guardrail_assessment.deserialize_json(

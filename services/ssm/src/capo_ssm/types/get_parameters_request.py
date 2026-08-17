@@ -33,7 +33,7 @@ def serialize_aws_json_1_1(value: GetParametersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersRequest:
     out: GetParametersRequest = {}  # type: ignore[typeddict-item]
-    if "Names" in data:
+    if data.get("Names") is not None:
         import capo_ssm.types.parameter_name_list
 
         out["names"] = capo_ssm.types.parameter_name_list.deserialize_aws_json_1_1(
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_1(data: dict) -> GetParametersRequest:
         )
     else:
         raise DeserializationError("GetParametersRequest.names required")
-    if "WithDecryption" in data:
+    if data.get("WithDecryption") is not None:
         out["with_decryption"] = data["WithDecryption"]
     return out

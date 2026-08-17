@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: CancelReplayRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelReplayRequest:
     out: CancelReplayRequest = {}  # type: ignore[typeddict-item]
-    if "ReplayName" in data:
+    if data.get("ReplayName") is not None:
         out["replay_name"] = data["ReplayName"]
     else:
         raise DeserializationError("CancelReplayRequest.replay_name required")

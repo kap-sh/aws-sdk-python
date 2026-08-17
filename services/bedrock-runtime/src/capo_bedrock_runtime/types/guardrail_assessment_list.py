@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> GuardrailAssessmentList:
 
     out: GuardrailAssessmentList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_assessment.deserialize_json(item)
         )

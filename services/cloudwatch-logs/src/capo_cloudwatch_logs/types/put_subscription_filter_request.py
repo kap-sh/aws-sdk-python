@@ -78,31 +78,31 @@ def serialize_aws_json_1_1(value: PutSubscriptionFilterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutSubscriptionFilterRequest:
     out: PutSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError(
             "PutSubscriptionFilterRequest.log_group_name required"
         )
-    if "filterName" in data:
+    if data.get("filterName") is not None:
         out["filter_name"] = data["filterName"]
     else:
         raise DeserializationError("PutSubscriptionFilterRequest.filter_name required")
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
     else:
         raise DeserializationError(
             "PutSubscriptionFilterRequest.filter_pattern required"
         )
-    if "destinationArn" in data:
+    if data.get("destinationArn") is not None:
         out["destination_arn"] = data["destinationArn"]
     else:
         raise DeserializationError(
             "PutSubscriptionFilterRequest.destination_arn required"
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "distribution" in data:
+    if data.get("distribution") is not None:
         import capo_cloudwatch_logs.types.distribution
 
         out["distribution"] = (
@@ -110,13 +110,13 @@ def deserialize_aws_json_1_1(data: dict) -> PutSubscriptionFilterRequest:
                 data["distribution"]
             )
         )
-    if "applyOnTransformedLogs" in data:
+    if data.get("applyOnTransformedLogs") is not None:
         out["apply_on_transformed_logs"] = data["applyOnTransformedLogs"]
     else:
         out["apply_on_transformed_logs"] = False
-    if "fieldSelectionCriteria" in data:
+    if data.get("fieldSelectionCriteria") is not None:
         out["field_selection_criteria"] = data["fieldSelectionCriteria"]
-    if "emitSystemFields" in data:
+    if data.get("emitSystemFields") is not None:
         import capo_cloudwatch_logs.types.emit_system_fields
 
         out["emit_system_fields"] = (

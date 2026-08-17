@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ExpressGatewayServiceStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceStatus:
     out: ExpressGatewayServiceStatus = {}  # type: ignore[typeddict-item]
-    if "statusCode" in data:
+    if data.get("statusCode") is not None:
         import capo_ecs.types.express_gateway_service_status_code
 
         out["status_code"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceStatus:
                 data["statusCode"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
     return out

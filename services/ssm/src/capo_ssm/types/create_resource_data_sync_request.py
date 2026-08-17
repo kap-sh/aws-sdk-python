@@ -57,11 +57,11 @@ def serialize_aws_json_1_1(value: CreateResourceDataSyncRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateResourceDataSyncRequest:
     out: CreateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
     else:
         raise DeserializationError("CreateResourceDataSyncRequest.sync_name required")
-    if "S3Destination" in data:
+    if data.get("S3Destination") is not None:
         import capo_ssm.types.resource_data_sync_s3_destination
 
         out["s3_destination"] = (
@@ -69,9 +69,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateResourceDataSyncRequest:
                 data["S3Destination"]
             )
         )
-    if "SyncType" in data:
+    if data.get("SyncType") is not None:
         out["sync_type"] = data["SyncType"]
-    if "SyncSource" in data:
+    if data.get("SyncSource") is not None:
         import capo_ssm.types.resource_data_sync_source
 
         out["sync_source"] = (

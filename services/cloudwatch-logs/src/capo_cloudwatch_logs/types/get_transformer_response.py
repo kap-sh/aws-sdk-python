@@ -45,13 +45,13 @@ def serialize_aws_json_1_1(value: GetTransformerResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetTransformerResponse:
     out: GetTransformerResponse = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         out["last_modified_time"] = data["lastModifiedTime"]
-    if "transformerConfig" in data:
+    if data.get("transformerConfig") is not None:
         import capo_cloudwatch_logs.types.processors
 
         out["transformer_config"] = (

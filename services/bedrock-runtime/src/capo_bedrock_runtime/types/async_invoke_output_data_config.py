@@ -32,7 +32,7 @@ def serialize_json(value: AsyncInvokeOutputDataConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> AsyncInvokeOutputDataConfig:
-    if "s3OutputDataConfig" in data:
+    if data.get("s3OutputDataConfig") is not None:
         import capo_bedrock_runtime.types.async_invoke_s3_output_data_config
 
         return {

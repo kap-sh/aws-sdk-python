@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteArchiveRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteArchiveRequest:
     out: DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
-    if "ArchiveName" in data:
+    if data.get("ArchiveName") is not None:
         out["archive_name"] = data["ArchiveName"]
     else:
         raise DeserializationError("DeleteArchiveRequest.archive_name required")

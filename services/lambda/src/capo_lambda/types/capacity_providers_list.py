@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> CapacityProvidersList:
 
     out: CapacityProvidersList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.capacity_provider.deserialize_json(item))
     return out

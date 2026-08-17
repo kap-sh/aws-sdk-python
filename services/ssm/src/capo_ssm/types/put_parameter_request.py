@@ -85,40 +85,40 @@ def serialize_aws_json_1_1(value: PutParameterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutParameterRequest:
     out: PutParameterRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("PutParameterRequest.name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
     else:
         raise DeserializationError("PutParameterRequest.value required")
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.parameter_type
 
         out["type"] = capo_ssm.types.parameter_type.deserialize_aws_json_1_1(
             data["Type"]
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "Overwrite" in data:
+    if data.get("Overwrite") is not None:
         out["overwrite"] = data["Overwrite"]
-    if "AllowedPattern" in data:
+    if data.get("AllowedPattern") is not None:
         out["allowed_pattern"] = data["AllowedPattern"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "Tier" in data:
+    if data.get("Tier") is not None:
         import capo_ssm.types.parameter_tier
 
         out["tier"] = capo_ssm.types.parameter_tier.deserialize_aws_json_1_1(
             data["Tier"]
         )
-    if "Policies" in data:
+    if data.get("Policies") is not None:
         out["policies"] = data["Policies"]
-    if "DataType" in data:
+    if data.get("DataType") is not None:
         out["data_type"] = data["DataType"]
     return out

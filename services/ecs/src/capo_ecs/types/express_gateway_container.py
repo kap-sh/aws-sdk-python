@@ -86,13 +86,13 @@ def serialize_aws_json_1_1(value: ExpressGatewayContainer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayContainer:
     out: ExpressGatewayContainer = {}  # type: ignore[typeddict-item]
-    if "image" in data:
+    if data.get("image") is not None:
         out["image"] = data["image"]
     else:
         raise DeserializationError("ExpressGatewayContainer.image required")
-    if "containerPort" in data:
+    if data.get("containerPort") is not None:
         out["container_port"] = data["containerPort"]
-    if "awsLogsConfiguration" in data:
+    if data.get("awsLogsConfiguration") is not None:
         import capo_ecs.types.express_gateway_service_aws_logs_configuration
 
         out["aws_logs_configuration"] = (
@@ -100,7 +100,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayContainer:
                 data["awsLogsConfiguration"]
             )
         )
-    if "repositoryCredentials" in data:
+    if data.get("repositoryCredentials") is not None:
         import capo_ecs.types.express_gateway_repository_credentials
 
         out["repository_credentials"] = (
@@ -108,13 +108,13 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayContainer:
                 data["repositoryCredentials"]
             )
         )
-    if "command" in data:
+    if data.get("command") is not None:
         import capo_ecs.types.string_list
 
         out["command"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["command"]
         )
-    if "environment" in data:
+    if data.get("environment") is not None:
         import capo_ecs.types.environment_variables
 
         out["environment"] = (
@@ -122,7 +122,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayContainer:
                 data["environment"]
             )
         )
-    if "secrets" in data:
+    if data.get("secrets") is not None:
         import capo_ecs.types.secret_list
 
         out["secrets"] = capo_ecs.types.secret_list.deserialize_aws_json_1_1(

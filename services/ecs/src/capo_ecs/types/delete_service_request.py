@@ -33,12 +33,12 @@ def serialize_aws_json_1_1(value: DeleteServiceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteServiceRequest:
     out: DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError("DeleteServiceRequest.service required")
-    if "force" in data:
+    if data.get("force") is not None:
         out["force"] = data["force"]
     return out

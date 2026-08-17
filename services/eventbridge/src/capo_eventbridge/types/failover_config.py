@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: FailoverConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FailoverConfig:
     out: FailoverConfig = {}  # type: ignore[typeddict-item]
-    if "Primary" in data:
+    if data.get("Primary") is not None:
         import capo_eventbridge.types.primary
 
         out["primary"] = capo_eventbridge.types.primary.deserialize_aws_json_1_1(
@@ -44,7 +44,7 @@ def deserialize_aws_json_1_1(data: dict) -> FailoverConfig:
         )
     else:
         raise DeserializationError("FailoverConfig.primary required")
-    if "Secondary" in data:
+    if data.get("Secondary") is not None:
         import capo_eventbridge.types.secondary
 
         out["secondary"] = capo_eventbridge.types.secondary.deserialize_aws_json_1_1(

@@ -35,11 +35,11 @@ def serialize_aws_json_1_0(value: Schedule) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Schedule:
     out: Schedule = {}  # type: ignore[typeddict-item]
-    if "Expression" in data:
+    if data.get("Expression") is not None:
         out["expression"] = data["Expression"]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
-    if "Timezone" in data:
+    if data.get("Timezone") is not None:
         out["timezone"] = data["Timezone"]
     return out
 

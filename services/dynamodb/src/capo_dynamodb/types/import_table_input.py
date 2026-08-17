@@ -79,9 +79,9 @@ def serialize_aws_json_1_0(value: ImportTableInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
     out: ImportTableInput = {}  # type: ignore[typeddict-item]
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "S3BucketSource" in data:
+    if data.get("S3BucketSource") is not None:
         import capo_dynamodb.types.s3_bucket_source
 
         out["s3_bucket_source"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
         )
     else:
         raise DeserializationError("ImportTableInput.s3_bucket_source required")
-    if "InputFormat" in data:
+    if data.get("InputFormat") is not None:
         import capo_dynamodb.types.input_format
 
         out["input_format"] = capo_dynamodb.types.input_format.deserialize_aws_json_1_0(
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
         )
     else:
         raise DeserializationError("ImportTableInput.input_format required")
-    if "InputFormatOptions" in data:
+    if data.get("InputFormatOptions") is not None:
         import capo_dynamodb.types.input_format_options
 
         out["input_format_options"] = (
@@ -107,7 +107,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
                 data["InputFormatOptions"]
             )
         )
-    if "InputCompressionType" in data:
+    if data.get("InputCompressionType") is not None:
         import capo_dynamodb.types.input_compression_type
 
         out["input_compression_type"] = (
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableInput:
                 data["InputCompressionType"]
             )
         )
-    if "TableCreationParameters" in data:
+    if data.get("TableCreationParameters") is not None:
         import capo_dynamodb.types.table_creation_parameters
 
         out["table_creation_parameters"] = (

@@ -33,15 +33,15 @@ def serialize_aws_json_1_1(value: GetDownloadUrlForLayerRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDownloadUrlForLayerRequest:
     out: GetDownloadUrlForLayerRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "GetDownloadUrlForLayerRequest.repository_name required"
         )
-    if "layerDigest" in data:
+    if data.get("layerDigest") is not None:
         out["layer_digest"] = data["layerDigest"]
     else:
         raise DeserializationError(

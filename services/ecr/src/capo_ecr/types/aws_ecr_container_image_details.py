@@ -77,36 +77,36 @@ def serialize_aws_json_1_1(value: AwsEcrContainerImageDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AwsEcrContainerImageDetails:
     out: AwsEcrContainerImageDetails = {}  # type: ignore[typeddict-item]
-    if "architecture" in data:
+    if data.get("architecture") is not None:
         out["architecture"] = data["architecture"]
-    if "author" in data:
+    if data.get("author") is not None:
         out["author"] = data["author"]
-    if "imageHash" in data:
+    if data.get("imageHash") is not None:
         out["image_hash"] = data["imageHash"]
-    if "imageTags" in data:
+    if data.get("imageTags") is not None:
         import capo_ecr.types.image_tags_list
 
         out["image_tags"] = capo_ecr.types.image_tags_list.deserialize_aws_json_1_1(
             data["imageTags"]
         )
-    if "platform" in data:
+    if data.get("platform") is not None:
         out["platform"] = data["platform"]
-    if "pushedAt" in data:
+    if data.get("pushedAt") is not None:
         import capo_ecr.types.date
 
         out["pushed_at"] = capo_ecr.types.date.deserialize_aws_json_1_1(
             data["pushedAt"]
         )
-    if "lastInUseAt" in data:
+    if data.get("lastInUseAt") is not None:
         import capo_ecr.types.date
 
         out["last_in_use_at"] = capo_ecr.types.date.deserialize_aws_json_1_1(
             data["lastInUseAt"]
         )
-    if "inUseCount" in data:
+    if data.get("inUseCount") is not None:
         out["in_use_count"] = data["inUseCount"]
-    if "registry" in data:
+    if data.get("registry") is not None:
         out["registry"] = data["registry"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     return out

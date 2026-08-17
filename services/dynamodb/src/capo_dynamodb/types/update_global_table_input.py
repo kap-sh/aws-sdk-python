@@ -34,11 +34,11 @@ def serialize_aws_json_1_0(value: UpdateGlobalTableInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableInput:
     out: UpdateGlobalTableInput = {}  # type: ignore[typeddict-item]
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
     else:
         raise DeserializationError("UpdateGlobalTableInput.global_table_name required")
-    if "ReplicaUpdates" in data:
+    if data.get("ReplicaUpdates") is not None:
         import capo_dynamodb.types.replica_update_list
 
         out["replica_updates"] = (

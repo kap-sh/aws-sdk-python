@@ -32,10 +32,10 @@ def serialize_aws_json_1_1(value: MountPoint) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MountPoint:
     out: MountPoint = {}  # type: ignore[typeddict-item]
-    if "sourceVolume" in data:
+    if data.get("sourceVolume") is not None:
         out["source_volume"] = data["sourceVolume"]
-    if "containerPath" in data:
+    if data.get("containerPath") is not None:
         out["container_path"] = data["containerPath"]
-    if "readOnly" in data:
+    if data.get("readOnly") is not None:
         out["read_only"] = data["readOnly"]
     return out

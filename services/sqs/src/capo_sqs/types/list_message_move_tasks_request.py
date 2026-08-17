@@ -29,10 +29,10 @@ def serialize_aws_json_1_0(value: ListMessageMoveTasksRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMessageMoveTasksRequest:
     out: ListMessageMoveTasksRequest = {}  # type: ignore[typeddict-item]
-    if "SourceArn" in data:
+    if data.get("SourceArn") is not None:
         out["source_arn"] = data["SourceArn"]
     else:
         raise DeserializationError("ListMessageMoveTasksRequest.source_arn required")
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

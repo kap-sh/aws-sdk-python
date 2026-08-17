@@ -33,11 +33,11 @@ def serialize_aws_json_1_1(value: DescribeKeyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeKeyRequest:
     out: DescribeKeyRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("DescribeKeyRequest.key_id required")
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(

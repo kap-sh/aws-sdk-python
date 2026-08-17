@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> DaemonTaskDefinitionSummaries:
 
     out: DaemonTaskDefinitionSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.daemon_task_definition_summary.deserialize_aws_json_1_1(item)
         )

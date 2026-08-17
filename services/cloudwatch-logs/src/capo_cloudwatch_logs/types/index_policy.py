@@ -51,15 +51,15 @@ def serialize_aws_json_1_1(value: IndexPolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> IndexPolicy:
     out: IndexPolicy = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "lastUpdateTime" in data:
+    if data.get("lastUpdateTime") is not None:
         out["last_update_time"] = data["lastUpdateTime"]
-    if "policyDocument" in data:
+    if data.get("policyDocument") is not None:
         out["policy_document"] = data["policyDocument"]
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_cloudwatch_logs.types.index_source
 
         out["source"] = (

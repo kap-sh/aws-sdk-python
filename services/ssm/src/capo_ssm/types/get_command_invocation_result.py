@@ -123,29 +123,29 @@ def serialize_aws_json_1_1(value: GetCommandInvocationResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetCommandInvocationResult:
     out: GetCommandInvocationResult = {}  # type: ignore[typeddict-item]
-    if "CommandId" in data:
+    if data.get("CommandId") is not None:
         out["command_id"] = data["CommandId"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         out["comment"] = data["Comment"]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "PluginName" in data:
+    if data.get("PluginName") is not None:
         out["plugin_name"] = data["PluginName"]
-    if "ResponseCode" in data:
+    if data.get("ResponseCode") is not None:
         out["response_code"] = data["ResponseCode"]
     else:
         out["response_code"] = 0
-    if "ExecutionStartDateTime" in data:
+    if data.get("ExecutionStartDateTime") is not None:
         out["execution_start_date_time"] = data["ExecutionStartDateTime"]
-    if "ExecutionElapsedTime" in data:
+    if data.get("ExecutionElapsedTime") is not None:
         out["execution_elapsed_time"] = data["ExecutionElapsedTime"]
-    if "ExecutionEndDateTime" in data:
+    if data.get("ExecutionEndDateTime") is not None:
         out["execution_end_date_time"] = data["ExecutionEndDateTime"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.command_invocation_status
 
         out["status"] = (
@@ -153,17 +153,17 @@ def deserialize_aws_json_1_1(data: dict) -> GetCommandInvocationResult:
                 data["Status"]
             )
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "StandardOutputContent" in data:
+    if data.get("StandardOutputContent") is not None:
         out["standard_output_content"] = data["StandardOutputContent"]
-    if "StandardOutputUrl" in data:
+    if data.get("StandardOutputUrl") is not None:
         out["standard_output_url"] = data["StandardOutputUrl"]
-    if "StandardErrorContent" in data:
+    if data.get("StandardErrorContent") is not None:
         out["standard_error_content"] = data["StandardErrorContent"]
-    if "StandardErrorUrl" in data:
+    if data.get("StandardErrorUrl") is not None:
         out["standard_error_url"] = data["StandardErrorUrl"]
-    if "CloudWatchOutputConfig" in data:
+    if data.get("CloudWatchOutputConfig") is not None:
         import capo_ssm.types.cloud_watch_output_config
 
         out["cloud_watch_output_config"] = (

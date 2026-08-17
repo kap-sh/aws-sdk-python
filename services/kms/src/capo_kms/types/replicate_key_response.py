@@ -41,7 +41,7 @@ def serialize_aws_json_1_1(value: ReplicateKeyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicateKeyResponse:
     out: ReplicateKeyResponse = {}  # type: ignore[typeddict-item]
-    if "ReplicaKeyMetadata" in data:
+    if data.get("ReplicaKeyMetadata") is not None:
         import capo_kms.types.key_metadata
 
         out["replica_key_metadata"] = (
@@ -49,9 +49,9 @@ def deserialize_aws_json_1_1(data: dict) -> ReplicateKeyResponse:
                 data["ReplicaKeyMetadata"]
             )
         )
-    if "ReplicaPolicy" in data:
+    if data.get("ReplicaPolicy") is not None:
         out["replica_policy"] = data["ReplicaPolicy"]
-    if "ReplicaTags" in data:
+    if data.get("ReplicaTags") is not None:
         import capo_kms.types.tag_list
 
         out["replica_tags"] = capo_kms.types.tag_list.deserialize_aws_json_1_1(

@@ -77,7 +77,7 @@ def serialize_aws_json_1_1(value: ImageScanFindings) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageScanFindings:
     out: ImageScanFindings = {}  # type: ignore[typeddict-item]
-    if "imageScanCompletedAt" in data:
+    if data.get("imageScanCompletedAt") is not None:
         import capo_ecr.types.scan_timestamp
 
         out["image_scan_completed_at"] = (
@@ -85,7 +85,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageScanFindings:
                 data["imageScanCompletedAt"]
             )
         )
-    if "vulnerabilitySourceUpdatedAt" in data:
+    if data.get("vulnerabilitySourceUpdatedAt") is not None:
         import capo_ecr.types.vulnerability_source_update_timestamp
 
         out["vulnerability_source_updated_at"] = (
@@ -93,7 +93,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageScanFindings:
                 data["vulnerabilitySourceUpdatedAt"]
             )
         )
-    if "findingSeverityCounts" in data:
+    if data.get("findingSeverityCounts") is not None:
         import capo_ecr.types.finding_severity_counts
 
         out["finding_severity_counts"] = (
@@ -101,7 +101,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageScanFindings:
                 data["findingSeverityCounts"]
             )
         )
-    if "findings" in data:
+    if data.get("findings") is not None:
         import capo_ecr.types.image_scan_finding_list
 
         out["findings"] = (
@@ -109,7 +109,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageScanFindings:
                 data["findings"]
             )
         )
-    if "enhancedFindings" in data:
+    if data.get("enhancedFindings") is not None:
         import capo_ecr.types.enhanced_image_scan_finding_list
 
         out["enhanced_findings"] = (

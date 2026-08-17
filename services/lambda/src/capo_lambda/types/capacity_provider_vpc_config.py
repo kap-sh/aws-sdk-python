@@ -40,7 +40,7 @@ def serialize_json(value: CapacityProviderVpcConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderVpcConfig:
     out: CapacityProviderVpcConfig = {}  # type: ignore[typeddict-item]
-    if "SubnetIds" in data:
+    if data.get("SubnetIds") is not None:
         import capo_lambda.types.capacity_provider_subnet_ids
 
         out["subnet_ids"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> CapacityProviderVpcConfig:
         )
     else:
         raise DeserializationError("CapacityProviderVpcConfig.subnet_ids required")
-    if "SecurityGroupIds" in data:
+    if data.get("SecurityGroupIds") is not None:
         import capo_lambda.types.capacity_provider_security_group_ids
 
         out["security_group_ids"] = (

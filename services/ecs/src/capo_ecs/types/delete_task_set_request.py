@@ -35,18 +35,18 @@ def serialize_aws_json_1_1(value: DeleteTaskSetRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteTaskSetRequest:
     out: DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError("DeleteTaskSetRequest.cluster required")
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError("DeleteTaskSetRequest.service required")
-    if "taskSet" in data:
+    if data.get("taskSet") is not None:
         out["task_set"] = data["taskSet"]
     else:
         raise DeserializationError("DeleteTaskSetRequest.task_set required")
-    if "force" in data:
+    if data.get("force") is not None:
         out["force"] = data["force"]
     return out

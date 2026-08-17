@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> DaemonContainerImages:
 
     out: DaemonContainerImages = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.daemon_container_image.deserialize_aws_json_1_1(item))
     return out

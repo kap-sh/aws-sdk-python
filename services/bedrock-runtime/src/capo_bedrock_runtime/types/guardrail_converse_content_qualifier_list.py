@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GuardrailConverseContentQualifierList:
 
     out: GuardrailConverseContentQualifierList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_converse_content_qualifier.deserialize_json(
                 item

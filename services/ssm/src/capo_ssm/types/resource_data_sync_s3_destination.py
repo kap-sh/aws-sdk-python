@@ -67,13 +67,13 @@ def serialize_aws_json_1_1(value: ResourceDataSyncS3Destination) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncS3Destination:
     out: ResourceDataSyncS3Destination = {}  # type: ignore[typeddict-item]
-    if "BucketName" in data:
+    if data.get("BucketName") is not None:
         out["bucket_name"] = data["BucketName"]
     else:
         raise DeserializationError("ResourceDataSyncS3Destination.bucket_name required")
-    if "Prefix" in data:
+    if data.get("Prefix") is not None:
         out["prefix"] = data["Prefix"]
-    if "SyncFormat" in data:
+    if data.get("SyncFormat") is not None:
         import capo_ssm.types.resource_data_sync_s3_format
 
         out["sync_format"] = (
@@ -83,13 +83,13 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncS3Destination:
         )
     else:
         raise DeserializationError("ResourceDataSyncS3Destination.sync_format required")
-    if "Region" in data:
+    if data.get("Region") is not None:
         out["region"] = data["Region"]
     else:
         raise DeserializationError("ResourceDataSyncS3Destination.region required")
-    if "AWSKMSKeyARN" in data:
+    if data.get("AWSKMSKeyARN") is not None:
         out["awskms_key_arn"] = data["AWSKMSKeyARN"]
-    if "DestinationDataSharing" in data:
+    if data.get("DestinationDataSharing") is not None:
         import capo_ssm.types.resource_data_sync_destination_data_sharing
 
         out["destination_data_sharing"] = (

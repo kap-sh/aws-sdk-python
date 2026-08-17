@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: DeleteResourceDataSyncRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteResourceDataSyncRequest:
     out: DeleteResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
     else:
         raise DeserializationError("DeleteResourceDataSyncRequest.sync_name required")
-    if "SyncType" in data:
+    if data.get("SyncType") is not None:
         out["sync_type"] = data["SyncType"]
     return out

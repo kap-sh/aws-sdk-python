@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> CustomKeyStoresList:
 
     out: CustomKeyStoresList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_kms.types.custom_key_stores_list_entry.deserialize_aws_json_1_1(item)
         )

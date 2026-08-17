@@ -223,15 +223,15 @@ def serialize_aws_json_1_1(value: ServiceRevision) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
     out: ServiceRevision = {}  # type: ignore[typeddict-item]
-    if "serviceRevisionArn" in data:
+    if data.get("serviceRevisionArn") is not None:
         out["service_revision_arn"] = data["serviceRevisionArn"]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -239,23 +239,23 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["capacityProviderStrategy"]
             )
         )
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "platformFamily" in data:
+    if data.get("platformFamily") is not None:
         out["platform_family"] = data["platformFamily"]
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.load_balancers
 
         out["load_balancers"] = capo_ecs.types.load_balancers.deserialize_aws_json_1_1(
             data["loadBalancers"]
         )
-    if "serviceRegistries" in data:
+    if data.get("serviceRegistries") is not None:
         import capo_ecs.types.service_registries
 
         out["service_registries"] = (
@@ -263,7 +263,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["serviceRegistries"]
             )
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -271,7 +271,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["networkConfiguration"]
             )
         )
-    if "containerImages" in data:
+    if data.get("containerImages") is not None:
         import capo_ecs.types.container_images
 
         out["container_images"] = (
@@ -279,11 +279,11 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["containerImages"]
             )
         )
-    if "guardDutyEnabled" in data:
+    if data.get("guardDutyEnabled") is not None:
         out["guard_duty_enabled"] = data["guardDutyEnabled"]
     else:
         out["guard_duty_enabled"] = False
-    if "serviceConnectConfiguration" in data:
+    if data.get("serviceConnectConfiguration") is not None:
         import capo_ecs.types.service_connect_configuration
 
         out["service_connect_configuration"] = (
@@ -291,7 +291,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["serviceConnectConfiguration"]
             )
         )
-    if "volumeConfigurations" in data:
+    if data.get("volumeConfigurations") is not None:
         import capo_ecs.types.service_volume_configurations
 
         out["volume_configurations"] = (
@@ -299,7 +299,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["volumeConfigurations"]
             )
         )
-    if "fargateEphemeralStorage" in data:
+    if data.get("fargateEphemeralStorage") is not None:
         import capo_ecs.types.deployment_ephemeral_storage
 
         out["fargate_ephemeral_storage"] = (
@@ -307,13 +307,13 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["fargateEphemeralStorage"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "vpcLatticeConfigurations" in data:
+    if data.get("vpcLatticeConfigurations") is not None:
         import capo_ecs.types.vpc_lattice_configurations
 
         out["vpc_lattice_configurations"] = (
@@ -321,7 +321,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["vpcLatticeConfigurations"]
             )
         )
-    if "resolvedConfiguration" in data:
+    if data.get("resolvedConfiguration") is not None:
         import capo_ecs.types.resolved_configuration
 
         out["resolved_configuration"] = (
@@ -329,7 +329,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["resolvedConfiguration"]
             )
         )
-    if "ecsManagedResources" in data:
+    if data.get("ecsManagedResources") is not None:
         import capo_ecs.types.ecs_managed_resources
 
         out["ecs_managed_resources"] = (
@@ -337,7 +337,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["ecsManagedResources"]
             )
         )
-    if "overrides" in data:
+    if data.get("overrides") is not None:
         import capo_ecs.types.service_revision_overrides
 
         out["overrides"] = (
@@ -345,7 +345,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevision:
                 data["overrides"]
             )
         )
-    if "monitoring" in data:
+    if data.get("monitoring") is not None:
         import capo_ecs.types.monitoring_configuration
 
         out["monitoring"] = (

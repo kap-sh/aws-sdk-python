@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: DiscoverPollEndpointRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DiscoverPollEndpointRequest:
     out: DiscoverPollEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "containerInstance" in data:
+    if data.get("containerInstance") is not None:
         out["container_instance"] = data["containerInstance"]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     return out

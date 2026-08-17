@@ -33,13 +33,13 @@ def serialize_aws_json_1_0(value: KmsInvalidStateException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> KmsInvalidStateException_:
     out: KmsInvalidStateException_ = {}  # type: ignore[typeddict-item]
-    if "kmsKeyState" in data:
+    if data.get("kmsKeyState") is not None:
         import capo_sfn.types.kms_key_state
 
         out["kms_key_state"] = capo_sfn.types.kms_key_state.deserialize_aws_json_1_0(
             data["kmsKeyState"]
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

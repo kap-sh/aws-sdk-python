@@ -32,8 +32,8 @@ def serialize_json(value: FilterCriteriaError) -> dict:
 
 def deserialize_json(data: dict) -> FilterCriteriaError:
     out: FilterCriteriaError = {}  # type: ignore[typeddict-item]
-    if "ErrorCode" in data:
+    if data.get("ErrorCode") is not None:
         out["error_code"] = data["ErrorCode"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out

@@ -38,13 +38,13 @@ def serialize_aws_json_1_0(value: EntityMetricData) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> EntityMetricData:
     out: EntityMetricData = {}  # type: ignore[typeddict-item]
-    if "Entity" in data:
+    if data.get("Entity") is not None:
         import capo_cloudwatch.types.entity
 
         out["entity"] = capo_cloudwatch.types.entity.deserialize_aws_json_1_0(
             data["Entity"]
         )
-    if "MetricData" in data:
+    if data.get("MetricData") is not None:
         import capo_cloudwatch.types.metric_data
 
         out["metric_data"] = capo_cloudwatch.types.metric_data.deserialize_aws_json_1_0(

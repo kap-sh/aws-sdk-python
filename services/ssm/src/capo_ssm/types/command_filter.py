@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: CommandFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CommandFilter:
     out: CommandFilter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         import capo_ssm.types.command_filter_key
 
         out["key"] = capo_ssm.types.command_filter_key.deserialize_aws_json_1_1(
@@ -38,7 +38,7 @@ def deserialize_aws_json_1_1(data: dict) -> CommandFilter:
         )
     else:
         raise DeserializationError("CommandFilter.key required")
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("CommandFilter.value required")

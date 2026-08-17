@@ -48,20 +48,20 @@ def serialize_aws_json_1_1(value: ScheduleKeyDeletionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScheduleKeyDeletionResponse:
     out: ScheduleKeyDeletionResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "DeletionDate" in data:
+    if data.get("DeletionDate") is not None:
         import capo_kms.types.date_type
 
         out["deletion_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["DeletionDate"]
         )
-    if "KeyState" in data:
+    if data.get("KeyState") is not None:
         import capo_kms.types.key_state
 
         out["key_state"] = capo_kms.types.key_state.deserialize_aws_json_1_1(
             data["KeyState"]
         )
-    if "PendingWindowInDays" in data:
+    if data.get("PendingWindowInDays") is not None:
         out["pending_window_in_days"] = data["PendingWindowInDays"]
     return out

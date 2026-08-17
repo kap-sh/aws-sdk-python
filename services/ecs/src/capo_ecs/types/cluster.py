@@ -132,11 +132,11 @@ def serialize_aws_json_1_1(value: Cluster) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Cluster:
     out: Cluster = {}  # type: ignore[typeddict-item]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "clusterName" in data:
+    if data.get("clusterName") is not None:
         out["cluster_name"] = data["clusterName"]
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         import capo_ecs.types.cluster_configuration
 
         out["configuration"] = (
@@ -144,49 +144,49 @@ def deserialize_aws_json_1_1(data: dict) -> Cluster:
                 data["configuration"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "registeredContainerInstancesCount" in data:
+    if data.get("registeredContainerInstancesCount") is not None:
         out["registered_container_instances_count"] = data[
             "registeredContainerInstancesCount"
         ]
     else:
         out["registered_container_instances_count"] = 0
-    if "runningTasksCount" in data:
+    if data.get("runningTasksCount") is not None:
         out["running_tasks_count"] = data["runningTasksCount"]
     else:
         out["running_tasks_count"] = 0
-    if "pendingTasksCount" in data:
+    if data.get("pendingTasksCount") is not None:
         out["pending_tasks_count"] = data["pendingTasksCount"]
     else:
         out["pending_tasks_count"] = 0
-    if "activeServicesCount" in data:
+    if data.get("activeServicesCount") is not None:
         out["active_services_count"] = data["activeServicesCount"]
     else:
         out["active_services_count"] = 0
-    if "statistics" in data:
+    if data.get("statistics") is not None:
         import capo_ecs.types.statistics
 
         out["statistics"] = capo_ecs.types.statistics.deserialize_aws_json_1_1(
             data["statistics"]
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "settings" in data:
+    if data.get("settings") is not None:
         import capo_ecs.types.cluster_settings
 
         out["settings"] = capo_ecs.types.cluster_settings.deserialize_aws_json_1_1(
             data["settings"]
         )
-    if "capacityProviders" in data:
+    if data.get("capacityProviders") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_providers"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["capacityProviders"]
         )
-    if "defaultCapacityProviderStrategy" in data:
+    if data.get("defaultCapacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["default_capacity_provider_strategy"] = (
@@ -194,15 +194,15 @@ def deserialize_aws_json_1_1(data: dict) -> Cluster:
                 data["defaultCapacityProviderStrategy"]
             )
         )
-    if "attachments" in data:
+    if data.get("attachments") is not None:
         import capo_ecs.types.attachments
 
         out["attachments"] = capo_ecs.types.attachments.deserialize_aws_json_1_1(
             data["attachments"]
         )
-    if "attachmentsStatus" in data:
+    if data.get("attachmentsStatus") is not None:
         out["attachments_status"] = data["attachmentsStatus"]
-    if "serviceConnectDefaults" in data:
+    if data.get("serviceConnectDefaults") is not None:
         import capo_ecs.types.cluster_service_connect_defaults
 
         out["service_connect_defaults"] = (

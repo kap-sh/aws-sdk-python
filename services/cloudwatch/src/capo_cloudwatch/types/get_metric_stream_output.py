@@ -122,11 +122,11 @@ def serialize_aws_json_1_0(value: GetMetricStreamOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
     out: GetMetricStreamOutput = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "IncludeFilters" in data:
+    if data.get("IncludeFilters") is not None:
         import capo_cloudwatch.types.metric_stream_filters
 
         out["include_filters"] = (
@@ -134,7 +134,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
                 data["IncludeFilters"]
             )
         )
-    if "ExcludeFilters" in data:
+    if data.get("ExcludeFilters") is not None:
         import capo_cloudwatch.types.metric_stream_filters
 
         out["exclude_filters"] = (
@@ -142,19 +142,19 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
                 data["ExcludeFilters"]
             )
         )
-    if "FirehoseArn" in data:
+    if data.get("FirehoseArn") is not None:
         out["firehose_arn"] = data["FirehoseArn"]
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["creation_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["CreationDate"]
         )
-    if "LastUpdateDate" in data:
+    if data.get("LastUpdateDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["last_update_date"] = (
@@ -162,7 +162,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
                 data["LastUpdateDate"]
             )
         )
-    if "OutputFormat" in data:
+    if data.get("OutputFormat") is not None:
         import capo_cloudwatch.types.metric_stream_output_format
 
         out["output_format"] = (
@@ -170,7 +170,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
                 data["OutputFormat"]
             )
         )
-    if "StatisticsConfigurations" in data:
+    if data.get("StatisticsConfigurations") is not None:
         import capo_cloudwatch.types.metric_stream_statistics_configurations
 
         out["statistics_configurations"] = (
@@ -178,7 +178,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricStreamOutput:
                 data["StatisticsConfigurations"]
             )
         )
-    if "IncludeLinkedAccountsMetrics" in data:
+    if data.get("IncludeLinkedAccountsMetrics") is not None:
         out["include_linked_accounts_metrics"] = data["IncludeLinkedAccountsMetrics"]
     return out
 

@@ -34,9 +34,9 @@ def serialize_aws_json_1_0(value: ConditionalCheckFailedException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ConditionalCheckFailedException_:
     out: ConditionalCheckFailedException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["item"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(

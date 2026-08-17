@@ -32,11 +32,11 @@ def serialize_aws_json_1_0(value: StartExecutionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartExecutionOutput:
     out: StartExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("StartExecutionOutput.execution_arn required")
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

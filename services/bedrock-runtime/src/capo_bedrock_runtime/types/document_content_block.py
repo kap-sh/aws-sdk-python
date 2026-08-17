@@ -23,7 +23,7 @@ def serialize_json(value: DocumentContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> DocumentContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError("DocumentContentBlock: no recognized variant key")

@@ -26,5 +26,7 @@ def deserialize_aws_json_1_1(data: dict) -> StepPreviewMap:
     for key, value in data.items():
         import capo_ssm.types.impact_type
 
+        if value is None:
+            continue
         out[capo_ssm.types.impact_type.deserialize_aws_json_1_1(key)] = value
     return out

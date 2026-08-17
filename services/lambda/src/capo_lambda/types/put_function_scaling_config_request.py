@@ -39,7 +39,7 @@ def serialize_json(value: PutFunctionScalingConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutFunctionScalingConfigRequest:
     out: PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-    if "FunctionScalingConfig" in data:
+    if data.get("FunctionScalingConfig") is not None:
         import capo_lambda.types.function_scaling_config
 
         out["function_scaling_config"] = (

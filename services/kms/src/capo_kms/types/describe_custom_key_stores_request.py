@@ -42,12 +42,12 @@ def serialize_aws_json_1_1(value: DescribeCustomKeyStoresRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeCustomKeyStoresRequest:
     out: DescribeCustomKeyStoresRequest = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
-    if "CustomKeyStoreName" in data:
+    if data.get("CustomKeyStoreName") is not None:
         out["custom_key_store_name"] = data["CustomKeyStoreName"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "Marker" in data:
+    if data.get("Marker") is not None:
         out["marker"] = data["Marker"]
     return out

@@ -37,18 +37,18 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DeregisterTargetFromMaintenanceWindowRequest:
     out: DeregisterTargetFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
     else:
         raise DeserializationError(
             "DeregisterTargetFromMaintenanceWindowRequest.window_id required"
         )
-    if "WindowTargetId" in data:
+    if data.get("WindowTargetId") is not None:
         out["window_target_id"] = data["WindowTargetId"]
     else:
         raise DeserializationError(
             "DeregisterTargetFromMaintenanceWindowRequest.window_target_id required"
         )
-    if "Safe" in data:
+    if data.get("Safe") is not None:
         out["safe"] = data["Safe"]
     return out

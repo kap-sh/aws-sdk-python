@@ -238,17 +238,17 @@ def serialize_aws_json_1_1(value: DaemonContainerDefinition) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
     out: DaemonContainerDefinition = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "image" in data:
+    if data.get("image") is not None:
         out["image"] = data["image"]
     else:
         raise DeserializationError("DaemonContainerDefinition.image required")
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "memoryReservation" in data:
+    if data.get("memoryReservation") is not None:
         out["memory_reservation"] = data["memoryReservation"]
-    if "repositoryCredentials" in data:
+    if data.get("repositoryCredentials") is not None:
         import capo_ecs.types.repository_credentials
 
         out["repository_credentials"] = (
@@ -256,33 +256,33 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["repositoryCredentials"]
             )
         )
-    if "healthCheck" in data:
+    if data.get("healthCheck") is not None:
         import capo_ecs.types.health_check
 
         out["health_check"] = capo_ecs.types.health_check.deserialize_aws_json_1_1(
             data["healthCheck"]
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
     else:
         out["cpu"] = 0
-    if "essential" in data:
+    if data.get("essential") is not None:
         out["essential"] = data["essential"]
-    if "entryPoint" in data:
+    if data.get("entryPoint") is not None:
         import capo_ecs.types.string_list
 
         out["entry_point"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["entryPoint"]
         )
-    if "command" in data:
+    if data.get("command") is not None:
         import capo_ecs.types.string_list
 
         out["command"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["command"]
         )
-    if "workingDirectory" in data:
+    if data.get("workingDirectory") is not None:
         out["working_directory"] = data["workingDirectory"]
-    if "environmentFiles" in data:
+    if data.get("environmentFiles") is not None:
         import capo_ecs.types.environment_files
 
         out["environment_files"] = (
@@ -290,7 +290,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["environmentFiles"]
             )
         )
-    if "environment" in data:
+    if data.get("environment") is not None:
         import capo_ecs.types.environment_variables
 
         out["environment"] = (
@@ -298,21 +298,21 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["environment"]
             )
         )
-    if "secrets" in data:
+    if data.get("secrets") is not None:
         import capo_ecs.types.secret_list
 
         out["secrets"] = capo_ecs.types.secret_list.deserialize_aws_json_1_1(
             data["secrets"]
         )
-    if "readonlyRootFilesystem" in data:
+    if data.get("readonlyRootFilesystem") is not None:
         out["readonly_root_filesystem"] = data["readonlyRootFilesystem"]
-    if "mountPoints" in data:
+    if data.get("mountPoints") is not None:
         import capo_ecs.types.mount_point_list
 
         out["mount_points"] = capo_ecs.types.mount_point_list.deserialize_aws_json_1_1(
             data["mountPoints"]
         )
-    if "logConfiguration" in data:
+    if data.get("logConfiguration") is not None:
         import capo_ecs.types.log_configuration
 
         out["log_configuration"] = (
@@ -320,7 +320,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["logConfiguration"]
             )
         )
-    if "firelensConfiguration" in data:
+    if data.get("firelensConfiguration") is not None:
         import capo_ecs.types.firelens_configuration
 
         out["firelens_configuration"] = (
@@ -328,17 +328,17 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["firelensConfiguration"]
             )
         )
-    if "privileged" in data:
+    if data.get("privileged") is not None:
         out["privileged"] = data["privileged"]
-    if "user" in data:
+    if data.get("user") is not None:
         out["user"] = data["user"]
-    if "ulimits" in data:
+    if data.get("ulimits") is not None:
         import capo_ecs.types.ulimit_list
 
         out["ulimits"] = capo_ecs.types.ulimit_list.deserialize_aws_json_1_1(
             data["ulimits"]
         )
-    if "linuxParameters" in data:
+    if data.get("linuxParameters") is not None:
         import capo_ecs.types.daemon_linux_parameters
 
         out["linux_parameters"] = (
@@ -346,7 +346,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["linuxParameters"]
             )
         )
-    if "dependsOn" in data:
+    if data.get("dependsOn") is not None:
         import capo_ecs.types.container_dependencies
 
         out["depends_on"] = (
@@ -354,11 +354,11 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["dependsOn"]
             )
         )
-    if "startTimeout" in data:
+    if data.get("startTimeout") is not None:
         out["start_timeout"] = data["startTimeout"]
-    if "stopTimeout" in data:
+    if data.get("stopTimeout") is not None:
         out["stop_timeout"] = data["stopTimeout"]
-    if "systemControls" in data:
+    if data.get("systemControls") is not None:
         import capo_ecs.types.system_controls
 
         out["system_controls"] = (
@@ -366,11 +366,11 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonContainerDefinition:
                 data["systemControls"]
             )
         )
-    if "interactive" in data:
+    if data.get("interactive") is not None:
         out["interactive"] = data["interactive"]
-    if "pseudoTerminal" in data:
+    if data.get("pseudoTerminal") is not None:
         out["pseudo_terminal"] = data["pseudoTerminal"]
-    if "restartPolicy" in data:
+    if data.get("restartPolicy") is not None:
         import capo_ecs.types.container_restart_policy
 
         out["restart_policy"] = (

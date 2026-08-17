@@ -62,15 +62,15 @@ def serialize_aws_json_1_1(value: ListInventoryEntriesResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListInventoryEntriesResult:
     out: ListInventoryEntriesResult = {}  # type: ignore[typeddict-item]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "SchemaVersion" in data:
+    if data.get("SchemaVersion") is not None:
         out["schema_version"] = data["SchemaVersion"]
-    if "CaptureTime" in data:
+    if data.get("CaptureTime") is not None:
         out["capture_time"] = data["CaptureTime"]
-    if "Entries" in data:
+    if data.get("Entries") is not None:
         import capo_ssm.types.inventory_item_entry_list
 
         out["entries"] = (
@@ -78,6 +78,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListInventoryEntriesResult:
                 data["Entries"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

@@ -36,7 +36,7 @@ def serialize_aws_json_1_0(value: ListContributorInsightsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListContributorInsightsOutput:
     out: ListContributorInsightsOutput = {}  # type: ignore[typeddict-item]
-    if "ContributorInsightsSummaries" in data:
+    if data.get("ContributorInsightsSummaries") is not None:
         import capo_dynamodb.types.contributor_insights_summaries
 
         out["contributor_insights_summaries"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListContributorInsightsOutput:
                 data["ContributorInsightsSummaries"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

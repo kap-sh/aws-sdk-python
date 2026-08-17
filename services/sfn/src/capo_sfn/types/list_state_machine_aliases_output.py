@@ -37,7 +37,7 @@ def serialize_aws_json_1_0(value: ListStateMachineAliasesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListStateMachineAliasesOutput:
     out: ListStateMachineAliasesOutput = {}  # type: ignore[typeddict-item]
-    if "stateMachineAliases" in data:
+    if data.get("stateMachineAliases") is not None:
         import capo_sfn.types.state_machine_alias_list
 
         out["state_machine_aliases"] = (
@@ -49,6 +49,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListStateMachineAliasesOutput:
         raise DeserializationError(
             "ListStateMachineAliasesOutput.state_machine_aliases required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

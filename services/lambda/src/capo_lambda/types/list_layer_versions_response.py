@@ -34,9 +34,9 @@ def serialize_json(value: ListLayerVersionsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListLayerVersionsResponse:
     out: ListLayerVersionsResponse = {}  # type: ignore[typeddict-item]
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "LayerVersions" in data:
+    if data.get("LayerVersions") is not None:
         import capo_lambda.types.layer_versions_list
 
         out["layer_versions"] = capo_lambda.types.layer_versions_list.deserialize_json(

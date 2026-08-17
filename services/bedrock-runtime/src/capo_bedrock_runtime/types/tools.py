@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> Tools:
 
     out: Tools = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_runtime.types.tool.deserialize_json(item))
     return out

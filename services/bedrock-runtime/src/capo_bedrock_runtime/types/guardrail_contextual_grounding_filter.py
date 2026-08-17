@@ -50,7 +50,7 @@ def serialize_json(value: GuardrailContextualGroundingFilter) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailContextualGroundingFilter:
     out: GuardrailContextualGroundingFilter = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_runtime.types.guardrail_contextual_grounding_filter_type
 
         out["type"] = (
@@ -60,17 +60,17 @@ def deserialize_json(data: dict) -> GuardrailContextualGroundingFilter:
         )
     else:
         raise DeserializationError("GuardrailContextualGroundingFilter.type required")
-    if "threshold" in data:
+    if data.get("threshold") is not None:
         out["threshold"] = data["threshold"]
     else:
         raise DeserializationError(
             "GuardrailContextualGroundingFilter.threshold required"
         )
-    if "score" in data:
+    if data.get("score") is not None:
         out["score"] = data["score"]
     else:
         raise DeserializationError("GuardrailContextualGroundingFilter.score required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_runtime.types.guardrail_contextual_grounding_policy_action
 
         out["action"] = (
@@ -80,6 +80,6 @@ def deserialize_json(data: dict) -> GuardrailContextualGroundingFilter:
         )
     else:
         raise DeserializationError("GuardrailContextualGroundingFilter.action required")
-    if "detected" in data:
+    if data.get("detected") is not None:
         out["detected"] = data["detected"]
     return out

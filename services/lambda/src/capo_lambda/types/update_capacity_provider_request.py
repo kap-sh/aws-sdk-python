@@ -57,7 +57,7 @@ def serialize_json(value: UpdateCapacityProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateCapacityProviderRequest:
     out: UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-    if "CapacityProviderScalingConfig" in data:
+    if data.get("CapacityProviderScalingConfig") is not None:
         import capo_lambda.types.capacity_provider_scaling_config
 
         out["capacity_provider_scaling_config"] = (
@@ -65,13 +65,13 @@ def deserialize_json(data: dict) -> UpdateCapacityProviderRequest:
                 data["CapacityProviderScalingConfig"]
             )
         )
-    if "PropagateTags" in data:
+    if data.get("PropagateTags") is not None:
         import capo_lambda.types.propagate_tags
 
         out["propagate_tags"] = capo_lambda.types.propagate_tags.deserialize_json(
             data["PropagateTags"]
         )
-    if "TelemetryConfig" in data:
+    if data.get("TelemetryConfig") is not None:
         import capo_lambda.types.capacity_provider_telemetry_config
 
         out["telemetry_config"] = (

@@ -140,51 +140,51 @@ def serialize_aws_json_1_1(value: ContainerInstance) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerInstance:
     out: ContainerInstance = {}  # type: ignore[typeddict-item]
-    if "containerInstanceArn" in data:
+    if data.get("containerInstanceArn") is not None:
         out["container_instance_arn"] = data["containerInstanceArn"]
-    if "ec2InstanceId" in data:
+    if data.get("ec2InstanceId") is not None:
         out["ec2_instance_id"] = data["ec2InstanceId"]
-    if "capacityProviderName" in data:
+    if data.get("capacityProviderName") is not None:
         out["capacity_provider_name"] = data["capacityProviderName"]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         out["version"] = 0
-    if "versionInfo" in data:
+    if data.get("versionInfo") is not None:
         import capo_ecs.types.version_info
 
         out["version_info"] = capo_ecs.types.version_info.deserialize_aws_json_1_1(
             data["versionInfo"]
         )
-    if "remainingResources" in data:
+    if data.get("remainingResources") is not None:
         import capo_ecs.types.resources
 
         out["remaining_resources"] = capo_ecs.types.resources.deserialize_aws_json_1_1(
             data["remainingResources"]
         )
-    if "registeredResources" in data:
+    if data.get("registeredResources") is not None:
         import capo_ecs.types.resources
 
         out["registered_resources"] = capo_ecs.types.resources.deserialize_aws_json_1_1(
             data["registeredResources"]
         )
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "agentConnected" in data:
+    if data.get("agentConnected") is not None:
         out["agent_connected"] = data["agentConnected"]
     else:
         out["agent_connected"] = False
-    if "runningTasksCount" in data:
+    if data.get("runningTasksCount") is not None:
         out["running_tasks_count"] = data["runningTasksCount"]
     else:
         out["running_tasks_count"] = 0
-    if "pendingTasksCount" in data:
+    if data.get("pendingTasksCount") is not None:
         out["pending_tasks_count"] = data["pendingTasksCount"]
     else:
         out["pending_tasks_count"] = 0
-    if "agentUpdateStatus" in data:
+    if data.get("agentUpdateStatus") is not None:
         import capo_ecs.types.agent_update_status
 
         out["agent_update_status"] = (
@@ -192,29 +192,29 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerInstance:
                 data["agentUpdateStatus"]
             )
         )
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecs.types.attributes
 
         out["attributes"] = capo_ecs.types.attributes.deserialize_aws_json_1_1(
             data["attributes"]
         )
-    if "registeredAt" in data:
+    if data.get("registeredAt") is not None:
         import capo_ecs.types.timestamp
 
         out["registered_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["registeredAt"]
         )
-    if "attachments" in data:
+    if data.get("attachments") is not None:
         import capo_ecs.types.attachments
 
         out["attachments"] = capo_ecs.types.attachments.deserialize_aws_json_1_1(
             data["attachments"]
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "healthStatus" in data:
+    if data.get("healthStatus") is not None:
         import capo_ecs.types.container_instance_health_status
 
         out["health_status"] = (

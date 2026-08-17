@@ -223,13 +223,13 @@ def serialize_aws_json_1_0(value: PutMetricAlarmInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
     out: PutMetricAlarmInput = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmDescription" in data:
+    if data.get("AlarmDescription") is not None:
         out["alarm_description"] = data["AlarmDescription"]
-    if "ActionsEnabled" in data:
+    if data.get("ActionsEnabled") is not None:
         out["actions_enabled"] = data["ActionsEnabled"]
-    if "OKActions" in data:
+    if data.get("OKActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["ok_actions"] = (
@@ -237,7 +237,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["OKActions"]
             )
         )
-    if "AlarmActions" in data:
+    if data.get("AlarmActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["alarm_actions"] = (
@@ -245,7 +245,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["AlarmActions"]
             )
         )
-    if "InsufficientDataActions" in data:
+    if data.get("InsufficientDataActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["insufficient_data_actions"] = (
@@ -253,39 +253,39 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["InsufficientDataActions"]
             )
         )
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "Statistic" in data:
+    if data.get("Statistic") is not None:
         import capo_cloudwatch.types.statistic
 
         out["statistic"] = capo_cloudwatch.types.statistic.deserialize_aws_json_1_0(
             data["Statistic"]
         )
-    if "ExtendedStatistic" in data:
+    if data.get("ExtendedStatistic") is not None:
         out["extended_statistic"] = data["ExtendedStatistic"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(
             data["Unit"]
         )
-    if "EvaluationPeriods" in data:
+    if data.get("EvaluationPeriods") is not None:
         out["evaluation_periods"] = data["EvaluationPeriods"]
-    if "DatapointsToAlarm" in data:
+    if data.get("DatapointsToAlarm") is not None:
         out["datapoints_to_alarm"] = data["DatapointsToAlarm"]
-    if "Threshold" in data:
+    if data.get("Threshold") is not None:
         out["threshold"] = data["Threshold"]
-    if "ComparisonOperator" in data:
+    if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 
         out["comparison_operator"] = (
@@ -293,13 +293,13 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["ComparisonOperator"]
             )
         )
-    if "TreatMissingData" in data:
+    if data.get("TreatMissingData") is not None:
         out["treat_missing_data"] = data["TreatMissingData"]
-    if "EvaluateLowSampleCountPercentile" in data:
+    if data.get("EvaluateLowSampleCountPercentile") is not None:
         out["evaluate_low_sample_count_percentile"] = data[
             "EvaluateLowSampleCountPercentile"
         ]
-    if "Metrics" in data:
+    if data.get("Metrics") is not None:
         import capo_cloudwatch.types.metric_data_queries
 
         out["metrics"] = (
@@ -307,15 +307,15 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["Metrics"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(
             data["Tags"]
         )
-    if "ThresholdMetricId" in data:
+    if data.get("ThresholdMetricId") is not None:
         out["threshold_metric_id"] = data["ThresholdMetricId"]
-    if "EvaluationWindow" in data:
+    if data.get("EvaluationWindow") is not None:
         import capo_cloudwatch.types.evaluation_window
 
         out["evaluation_window"] = (
@@ -323,7 +323,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["EvaluationWindow"]
             )
         )
-    if "EvaluationCriteria" in data:
+    if data.get("EvaluationCriteria") is not None:
         import capo_cloudwatch.types.evaluation_criteria
 
         out["evaluation_criteria"] = (
@@ -331,7 +331,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutMetricAlarmInput:
                 data["EvaluationCriteria"]
             )
         )
-    if "EvaluationInterval" in data:
+    if data.get("EvaluationInterval") is not None:
         out["evaluation_interval"] = data["EvaluationInterval"]
     return out
 

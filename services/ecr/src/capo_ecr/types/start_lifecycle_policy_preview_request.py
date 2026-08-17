@@ -36,14 +36,14 @@ def serialize_aws_json_1_1(value: StartLifecyclePolicyPreviewRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartLifecyclePolicyPreviewRequest:
     out: StartLifecyclePolicyPreviewRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "StartLifecyclePolicyPreviewRequest.repository_name required"
         )
-    if "lifecyclePolicyText" in data:
+    if data.get("lifecyclePolicyText") is not None:
         out["lifecycle_policy_text"] = data["lifecyclePolicyText"]
     return out

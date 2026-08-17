@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: DeleteMessageBatchResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteMessageBatchResult:
     out: DeleteMessageBatchResult = {}  # type: ignore[typeddict-item]
-    if "Successful" in data:
+    if data.get("Successful") is not None:
         import capo_sqs.types.delete_message_batch_result_entry_list
 
         out["successful"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_0(data: dict) -> DeleteMessageBatchResult:
         )
     else:
         raise DeserializationError("DeleteMessageBatchResult.successful required")
-    if "Failed" in data:
+    if data.get("Failed") is not None:
         import capo_sqs.types.batch_result_error_entry_list
 
         out["failed"] = (

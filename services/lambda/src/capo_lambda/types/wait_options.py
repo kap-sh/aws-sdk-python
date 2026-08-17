@@ -23,6 +23,6 @@ def serialize_json(value: WaitOptions) -> dict:
 
 def deserialize_json(data: dict) -> WaitOptions:
     out: WaitOptions = {}  # type: ignore[typeddict-item]
-    if "WaitSeconds" in data:
+    if data.get("WaitSeconds") is not None:
         out["wait_seconds"] = data["WaitSeconds"]
     return out

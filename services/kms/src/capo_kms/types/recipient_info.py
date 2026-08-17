@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: RecipientInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RecipientInfo:
     out: RecipientInfo = {}  # type: ignore[typeddict-item]
-    if "KeyEncryptionAlgorithm" in data:
+    if data.get("KeyEncryptionAlgorithm") is not None:
         import capo_kms.types.key_encryption_mechanism
 
         out["key_encryption_algorithm"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> RecipientInfo:
                 data["KeyEncryptionAlgorithm"]
             )
         )
-    if "AttestationDocument" in data:
+    if data.get("AttestationDocument") is not None:
         import capo_kms.types.attestation_document_type
 
         out["attestation_document"] = (

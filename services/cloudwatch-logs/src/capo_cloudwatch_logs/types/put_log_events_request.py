@@ -54,15 +54,15 @@ def serialize_aws_json_1_1(value: PutLogEventsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutLogEventsRequest:
     out: PutLogEventsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("PutLogEventsRequest.log_group_name required")
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
     else:
         raise DeserializationError("PutLogEventsRequest.log_stream_name required")
-    if "logEvents" in data:
+    if data.get("logEvents") is not None:
         import capo_cloudwatch_logs.types.input_log_events
 
         out["log_events"] = (
@@ -72,9 +72,9 @@ def deserialize_aws_json_1_1(data: dict) -> PutLogEventsRequest:
         )
     else:
         raise DeserializationError("PutLogEventsRequest.log_events required")
-    if "sequenceToken" in data:
+    if data.get("sequenceToken") is not None:
         out["sequence_token"] = data["sequenceToken"]
-    if "entity" in data:
+    if data.get("entity") is not None:
         import capo_cloudwatch_logs.types.entity
 
         out["entity"] = capo_cloudwatch_logs.types.entity.deserialize_aws_json_1_1(

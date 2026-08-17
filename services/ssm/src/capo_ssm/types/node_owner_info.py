@@ -37,10 +37,10 @@ def serialize_aws_json_1_1(value: NodeOwnerInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> NodeOwnerInfo:
     out: NodeOwnerInfo = {}  # type: ignore[typeddict-item]
-    if "AccountId" in data:
+    if data.get("AccountId") is not None:
         out["account_id"] = data["AccountId"]
-    if "OrganizationalUnitId" in data:
+    if data.get("OrganizationalUnitId") is not None:
         out["organizational_unit_id"] = data["OrganizationalUnitId"]
-    if "OrganizationalUnitPath" in data:
+    if data.get("OrganizationalUnitPath") is not None:
         out["organizational_unit_path"] = data["OrganizationalUnitPath"]
     return out

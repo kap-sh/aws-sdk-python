@@ -29,13 +29,13 @@ def serialize_json(value: CacheDetail) -> dict:
 
 def deserialize_json(data: dict) -> CacheDetail:
     out: CacheDetail = {}  # type: ignore[typeddict-item]
-    if "ttl" in data:
+    if data.get("ttl") is not None:
         import capo_bedrock_runtime.types.cache_ttl
 
         out["ttl"] = capo_bedrock_runtime.types.cache_ttl.deserialize_json(data["ttl"])
     else:
         raise DeserializationError("CacheDetail.ttl required")
-    if "inputTokens" in data:
+    if data.get("inputTokens") is not None:
         out["input_tokens"] = data["inputTokens"]
     else:
         raise DeserializationError("CacheDetail.input_tokens required")

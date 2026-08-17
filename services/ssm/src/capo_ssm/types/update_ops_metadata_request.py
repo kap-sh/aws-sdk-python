@@ -46,11 +46,11 @@ def serialize_aws_json_1_1(value: UpdateOpsMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateOpsMetadataRequest:
     out: UpdateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "OpsMetadataArn" in data:
+    if data.get("OpsMetadataArn") is not None:
         out["ops_metadata_arn"] = data["OpsMetadataArn"]
     else:
         raise DeserializationError("UpdateOpsMetadataRequest.ops_metadata_arn required")
-    if "MetadataToUpdate" in data:
+    if data.get("MetadataToUpdate") is not None:
         import capo_ssm.types.metadata_map
 
         out["metadata_to_update"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateOpsMetadataRequest:
                 data["MetadataToUpdate"]
             )
         )
-    if "KeysToDelete" in data:
+    if data.get("KeysToDelete") is not None:
         import capo_ssm.types.metadata_keys_to_delete_list
 
         out["keys_to_delete"] = (

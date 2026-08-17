@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: SubjectIdentifier) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubjectIdentifier:
     out: SubjectIdentifier = {}  # type: ignore[typeddict-item]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
     else:
         raise DeserializationError("SubjectIdentifier.image_digest required")

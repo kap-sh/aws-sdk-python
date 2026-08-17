@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: DeleteLogAnomalyDetectorRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteLogAnomalyDetectorRequest:
     out: DeleteLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
     else:
         raise DeserializationError(

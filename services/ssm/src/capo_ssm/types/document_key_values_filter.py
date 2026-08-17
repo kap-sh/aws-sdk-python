@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: DocumentKeyValuesFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentKeyValuesFilter:
     out: DocumentKeyValuesFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.document_key_values_filter_values
 
         out["values"] = (

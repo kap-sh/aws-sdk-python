@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: GenerateRandomResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateRandomResponse:
     out: GenerateRandomResponse = {}  # type: ignore[typeddict-item]
-    if "Plaintext" in data:
+    if data.get("Plaintext") is not None:
         import capo_kms.types.plaintext_type
 
         out["plaintext"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
             data["Plaintext"]
         )
-    if "CiphertextForRecipient" in data:
+    if data.get("CiphertextForRecipient") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_for_recipient"] = (

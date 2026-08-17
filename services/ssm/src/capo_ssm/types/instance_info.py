@@ -80,33 +80,33 @@ def serialize_aws_json_1_1(value: InstanceInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceInfo:
     out: InstanceInfo = {}  # type: ignore[typeddict-item]
-    if "AgentType" in data:
+    if data.get("AgentType") is not None:
         out["agent_type"] = data["AgentType"]
-    if "AgentVersion" in data:
+    if data.get("AgentVersion") is not None:
         out["agent_version"] = data["AgentVersion"]
-    if "ComputerName" in data:
+    if data.get("ComputerName") is not None:
         out["computer_name"] = data["ComputerName"]
-    if "InstanceStatus" in data:
+    if data.get("InstanceStatus") is not None:
         out["instance_status"] = data["InstanceStatus"]
-    if "IpAddress" in data:
+    if data.get("IpAddress") is not None:
         out["ip_address"] = data["IpAddress"]
-    if "ManagedStatus" in data:
+    if data.get("ManagedStatus") is not None:
         import capo_ssm.types.managed_status
 
         out["managed_status"] = capo_ssm.types.managed_status.deserialize_aws_json_1_1(
             data["ManagedStatus"]
         )
-    if "PlatformType" in data:
+    if data.get("PlatformType") is not None:
         import capo_ssm.types.platform_type
 
         out["platform_type"] = capo_ssm.types.platform_type.deserialize_aws_json_1_1(
             data["PlatformType"]
         )
-    if "PlatformName" in data:
+    if data.get("PlatformName") is not None:
         out["platform_name"] = data["PlatformName"]
-    if "PlatformVersion" in data:
+    if data.get("PlatformVersion") is not None:
         out["platform_version"] = data["PlatformVersion"]
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         import capo_ssm.types.resource_type
 
         out["resource_type"] = capo_ssm.types.resource_type.deserialize_aws_json_1_1(

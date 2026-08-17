@@ -18,7 +18,7 @@ def serialize_json(value: ResourceNotFoundException_) -> dict:
 
 def deserialize_json(data: dict) -> ResourceNotFoundException_:
     out: ResourceNotFoundException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("ResourceNotFoundException_.message required")

@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> RegistryScanningRuleList:
 
     out: RegistryScanningRuleList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecr.types.registry_scanning_rule.deserialize_aws_json_1_1(item))
     return out

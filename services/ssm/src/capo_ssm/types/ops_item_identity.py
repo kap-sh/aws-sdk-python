@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: OpsItemIdentity) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemIdentity:
     out: OpsItemIdentity = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
     return out

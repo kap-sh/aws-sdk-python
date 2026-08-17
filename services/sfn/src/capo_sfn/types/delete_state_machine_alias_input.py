@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DeleteStateMachineAliasInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteStateMachineAliasInput:
     out: DeleteStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
     else:
         raise DeserializationError(

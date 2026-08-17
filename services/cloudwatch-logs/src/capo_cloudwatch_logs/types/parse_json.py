@@ -30,8 +30,8 @@ def serialize_aws_json_1_1(value: ParseJSON) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParseJSON:
     out: ParseJSON = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "destination" in data:
+    if data.get("destination") is not None:
         out["destination"] = data["destination"]
     return out

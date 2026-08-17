@@ -48,11 +48,11 @@ def serialize_aws_json_1_1(value: PatchBaselineIdentity) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchBaselineIdentity:
     out: PatchBaselineIdentity = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
-    if "BaselineName" in data:
+    if data.get("BaselineName") is not None:
         out["baseline_name"] = data["BaselineName"]
-    if "OperatingSystem" in data:
+    if data.get("OperatingSystem") is not None:
         import capo_ssm.types.operating_system
 
         out["operating_system"] = (
@@ -60,9 +60,9 @@ def deserialize_aws_json_1_1(data: dict) -> PatchBaselineIdentity:
                 data["OperatingSystem"]
             )
         )
-    if "BaselineDescription" in data:
+    if data.get("BaselineDescription") is not None:
         out["baseline_description"] = data["BaselineDescription"]
-    if "DefaultBaseline" in data:
+    if data.get("DefaultBaseline") is not None:
         out["default_baseline"] = data["DefaultBaseline"]
     else:
         out["default_baseline"] = False

@@ -16,4 +16,4 @@ def serialize_json(value: CapacityProviderSecurityGroupIds) -> list:
 
 
 def deserialize_json(data: list) -> CapacityProviderSecurityGroupIds:
-    return list(data)
+    return [item for item in data if item is not None]

@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: GetAlarmMuteRuleInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleInput:
     out: GetAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-    if "AlarmMuteRuleName" in data:
+    if data.get("AlarmMuteRuleName") is not None:
         out["alarm_mute_rule_name"] = data["AlarmMuteRuleName"]
     return out
 

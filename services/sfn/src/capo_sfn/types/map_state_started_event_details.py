@@ -22,7 +22,7 @@ def serialize_aws_json_1_0(value: MapStateStartedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapStateStartedEventDetails:
     out: MapStateStartedEventDetails = {}  # type: ignore[typeddict-item]
-    if "length" in data:
+    if data.get("length") is not None:
         out["length"] = data["length"]
     else:
         out["length"] = 0

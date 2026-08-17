@@ -100,23 +100,23 @@ def serialize_aws_json_1_1(value: TaskManagedEBSVolumeConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TaskManagedEBSVolumeConfiguration:
     out: TaskManagedEBSVolumeConfiguration = {}  # type: ignore[typeddict-item]
-    if "encrypted" in data:
+    if data.get("encrypted") is not None:
         out["encrypted"] = data["encrypted"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "volumeType" in data:
+    if data.get("volumeType") is not None:
         out["volume_type"] = data["volumeType"]
-    if "sizeInGiB" in data:
+    if data.get("sizeInGiB") is not None:
         out["size_in_gi_b"] = data["sizeInGiB"]
-    if "snapshotId" in data:
+    if data.get("snapshotId") is not None:
         out["snapshot_id"] = data["snapshotId"]
-    if "volumeInitializationRate" in data:
+    if data.get("volumeInitializationRate") is not None:
         out["volume_initialization_rate"] = data["volumeInitializationRate"]
-    if "iops" in data:
+    if data.get("iops") is not None:
         out["iops"] = data["iops"]
-    if "throughput" in data:
+    if data.get("throughput") is not None:
         out["throughput"] = data["throughput"]
-    if "tagSpecifications" in data:
+    if data.get("tagSpecifications") is not None:
         import capo_ecs.types.ebs_tag_specifications
 
         out["tag_specifications"] = (
@@ -124,13 +124,13 @@ def deserialize_aws_json_1_1(data: dict) -> TaskManagedEBSVolumeConfiguration:
                 data["tagSpecifications"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError(
             "TaskManagedEBSVolumeConfiguration.role_arn required"
         )
-    if "terminationPolicy" in data:
+    if data.get("terminationPolicy") is not None:
         import capo_ecs.types.task_managed_ebs_volume_termination_policy
 
         out["termination_policy"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_1(data: dict) -> TaskManagedEBSVolumeConfiguration:
                 data["terminationPolicy"]
             )
         )
-    if "filesystemType" in data:
+    if data.get("filesystemType") is not None:
         import capo_ecs.types.task_filesystem_type
 
         out["filesystem_type"] = (

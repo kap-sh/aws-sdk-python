@@ -32,17 +32,17 @@ def serialize_json(value: StartDeviceAuthorizationRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartDeviceAuthorizationRequest:
     out: StartDeviceAuthorizationRequest = {}  # type: ignore[typeddict-item]
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     else:
         raise DeserializationError("StartDeviceAuthorizationRequest.client_id required")
-    if "clientSecret" in data:
+    if data.get("clientSecret") is not None:
         out["client_secret"] = data["clientSecret"]
     else:
         raise DeserializationError(
             "StartDeviceAuthorizationRequest.client_secret required"
         )
-    if "startUrl" in data:
+    if data.get("startUrl") is not None:
         out["start_url"] = data["startUrl"]
     else:
         raise DeserializationError("StartDeviceAuthorizationRequest.start_url required")

@@ -41,9 +41,9 @@ def serialize_aws_json_1_1(value: ListDaemonsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDaemonsRequest:
     out: ListDaemonsRequest = {}  # type: ignore[typeddict-item]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "capacityProviderArns" in data:
+    if data.get("capacityProviderArns") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_provider_arns"] = (
@@ -51,8 +51,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListDaemonsRequest:
                 data["capacityProviderArns"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

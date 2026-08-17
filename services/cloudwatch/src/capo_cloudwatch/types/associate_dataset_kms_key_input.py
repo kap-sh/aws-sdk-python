@@ -32,9 +32,9 @@ def serialize_aws_json_1_0(value: AssociateDatasetKmsKeyInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AssociateDatasetKmsKeyInput:
     out: AssociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-    if "DatasetIdentifier" in data:
+    if data.get("DatasetIdentifier") is not None:
         out["dataset_identifier"] = data["DatasetIdentifier"]
-    if "KmsKeyArn" in data:
+    if data.get("KmsKeyArn") is not None:
         out["kms_key_arn"] = data["KmsKeyArn"]
     return out
 

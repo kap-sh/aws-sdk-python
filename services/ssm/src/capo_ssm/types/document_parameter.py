@@ -46,16 +46,16 @@ def serialize_aws_json_1_1(value: DocumentParameter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentParameter:
     out: DocumentParameter = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.document_parameter_type
 
         out["type"] = capo_ssm.types.document_parameter_type.deserialize_aws_json_1_1(
             data["Type"]
         )
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "DefaultValue" in data:
+    if data.get("DefaultValue") is not None:
         out["default_value"] = data["DefaultValue"]
     return out

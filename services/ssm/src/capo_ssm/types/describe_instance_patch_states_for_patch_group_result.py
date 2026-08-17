@@ -40,7 +40,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeInstancePatchStatesForPatchGroupResult:
     out: DescribeInstancePatchStatesForPatchGroupResult = {}  # type: ignore[typeddict-item]
-    if "InstancePatchStates" in data:
+    if data.get("InstancePatchStates") is not None:
         import capo_ssm.types.instance_patch_states_list
 
         out["instance_patch_states"] = (
@@ -48,6 +48,6 @@ def deserialize_aws_json_1_1(
                 data["InstancePatchStates"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

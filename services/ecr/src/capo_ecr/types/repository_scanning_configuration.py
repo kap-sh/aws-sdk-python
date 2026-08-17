@@ -54,21 +54,21 @@ def serialize_aws_json_1_1(value: RepositoryScanningConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RepositoryScanningConfiguration:
     out: RepositoryScanningConfiguration = {}  # type: ignore[typeddict-item]
-    if "repositoryArn" in data:
+    if data.get("repositoryArn") is not None:
         out["repository_arn"] = data["repositoryArn"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "scanOnPush" in data:
+    if data.get("scanOnPush") is not None:
         out["scan_on_push"] = data["scanOnPush"]
     else:
         out["scan_on_push"] = False
-    if "scanFrequency" in data:
+    if data.get("scanFrequency") is not None:
         import capo_ecr.types.scan_frequency
 
         out["scan_frequency"] = capo_ecr.types.scan_frequency.deserialize_aws_json_1_1(
             data["scanFrequency"]
         )
-    if "appliedScanFilters" in data:
+    if data.get("appliedScanFilters") is not None:
         import capo_ecr.types.scanning_repository_filter_list
 
         out["applied_scan_filters"] = (

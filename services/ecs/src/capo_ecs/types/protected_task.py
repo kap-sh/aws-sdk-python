@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: ProtectedTask) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ProtectedTask:
     out: ProtectedTask = {}  # type: ignore[typeddict-item]
-    if "taskArn" in data:
+    if data.get("taskArn") is not None:
         out["task_arn"] = data["taskArn"]
-    if "protectionEnabled" in data:
+    if data.get("protectionEnabled") is not None:
         out["protection_enabled"] = data["protectionEnabled"]
     else:
         out["protection_enabled"] = False
-    if "expirationDate" in data:
+    if data.get("expirationDate") is not None:
         import capo_ecs.types.timestamp
 
         out["expiration_date"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

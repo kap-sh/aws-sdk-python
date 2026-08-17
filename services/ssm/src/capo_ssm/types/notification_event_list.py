@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> NotificationEventList:
 
     out: NotificationEventList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.notification_event.deserialize_aws_json_1_1(item))
     return out

@@ -33,14 +33,14 @@ def serialize_aws_json_1_1(value: DeregisterContainerInstanceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterContainerInstanceRequest:
     out: DeregisterContainerInstanceRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "containerInstance" in data:
+    if data.get("containerInstance") is not None:
         out["container_instance"] = data["containerInstance"]
     else:
         raise DeserializationError(
             "DeregisterContainerInstanceRequest.container_instance required"
         )
-    if "force" in data:
+    if data.get("force") is not None:
         out["force"] = data["force"]
     return out

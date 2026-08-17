@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: StopServiceDeploymentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopServiceDeploymentRequest:
     out: StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArn" in data:
+    if data.get("serviceDeploymentArn") is not None:
         out["service_deployment_arn"] = data["serviceDeploymentArn"]
     else:
         raise DeserializationError(
             "StopServiceDeploymentRequest.service_deployment_arn required"
         )
-    if "stopType" in data:
+    if data.get("stopType") is not None:
         import capo_ecs.types.stop_service_deployment_stop_type
 
         out["stop_type"] = (

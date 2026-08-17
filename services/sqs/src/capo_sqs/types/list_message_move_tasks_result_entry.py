@@ -64,29 +64,29 @@ def serialize_aws_json_1_0(value: ListMessageMoveTasksResultEntry) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMessageMoveTasksResultEntry:
     out: ListMessageMoveTasksResultEntry = {}  # type: ignore[typeddict-item]
-    if "TaskHandle" in data:
+    if data.get("TaskHandle") is not None:
         out["task_handle"] = data["TaskHandle"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         out["status"] = data["Status"]
-    if "SourceArn" in data:
+    if data.get("SourceArn") is not None:
         out["source_arn"] = data["SourceArn"]
-    if "DestinationArn" in data:
+    if data.get("DestinationArn") is not None:
         out["destination_arn"] = data["DestinationArn"]
-    if "MaxNumberOfMessagesPerSecond" in data:
+    if data.get("MaxNumberOfMessagesPerSecond") is not None:
         out["max_number_of_messages_per_second"] = data["MaxNumberOfMessagesPerSecond"]
-    if "ApproximateNumberOfMessagesMoved" in data:
+    if data.get("ApproximateNumberOfMessagesMoved") is not None:
         out["approximate_number_of_messages_moved"] = data[
             "ApproximateNumberOfMessagesMoved"
         ]
     else:
         out["approximate_number_of_messages_moved"] = 0
-    if "ApproximateNumberOfMessagesToMove" in data:
+    if data.get("ApproximateNumberOfMessagesToMove") is not None:
         out["approximate_number_of_messages_to_move"] = data[
             "ApproximateNumberOfMessagesToMove"
         ]
-    if "FailureReason" in data:
+    if data.get("FailureReason") is not None:
         out["failure_reason"] = data["FailureReason"]
-    if "StartedTimestamp" in data:
+    if data.get("StartedTimestamp") is not None:
         out["started_timestamp"] = data["StartedTimestamp"]
     else:
         out["started_timestamp"] = 0

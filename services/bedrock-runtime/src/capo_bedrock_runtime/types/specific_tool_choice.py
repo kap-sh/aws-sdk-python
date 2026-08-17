@@ -24,7 +24,7 @@ def serialize_json(value: SpecificToolChoice) -> dict:
 
 def deserialize_json(data: dict) -> SpecificToolChoice:
     out: SpecificToolChoice = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("SpecificToolChoice.name required")

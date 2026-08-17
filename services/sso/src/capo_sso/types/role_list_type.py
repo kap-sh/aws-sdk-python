@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> RoleListType:
 
     out: RoleListType = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_sso.types.role_info.deserialize_json(item))
     return out

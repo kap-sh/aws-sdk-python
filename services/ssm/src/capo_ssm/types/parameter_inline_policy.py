@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: ParameterInlinePolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParameterInlinePolicy:
     out: ParameterInlinePolicy = {}  # type: ignore[typeddict-item]
-    if "PolicyText" in data:
+    if data.get("PolicyText") is not None:
         out["policy_text"] = data["PolicyText"]
-    if "PolicyType" in data:
+    if data.get("PolicyType") is not None:
         out["policy_type"] = data["PolicyType"]
-    if "PolicyStatus" in data:
+    if data.get("PolicyStatus") is not None:
         out["policy_status"] = data["PolicyStatus"]
     return out

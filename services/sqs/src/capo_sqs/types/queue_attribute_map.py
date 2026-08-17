@@ -27,5 +27,7 @@ def deserialize_aws_json_1_0(data: dict) -> QueueAttributeMap:
     for key, value in data.items():
         import capo_sqs.types.queue_attribute_name
 
+        if value is None:
+            continue
         out[capo_sqs.types.queue_attribute_name.deserialize_aws_json_1_0(key)] = value
     return out

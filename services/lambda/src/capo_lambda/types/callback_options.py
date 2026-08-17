@@ -25,11 +25,11 @@ def serialize_json(value: CallbackOptions) -> dict:
 
 def deserialize_json(data: dict) -> CallbackOptions:
     out: CallbackOptions = {}  # type: ignore[typeddict-item]
-    if "TimeoutSeconds" in data:
+    if data.get("TimeoutSeconds") is not None:
         out["timeout_seconds"] = data["TimeoutSeconds"]
     else:
         out["timeout_seconds"] = 0
-    if "HeartbeatTimeoutSeconds" in data:
+    if data.get("HeartbeatTimeoutSeconds") is not None:
         out["heartbeat_timeout_seconds"] = data["HeartbeatTimeoutSeconds"]
     else:
         out["heartbeat_timeout_seconds"] = 0

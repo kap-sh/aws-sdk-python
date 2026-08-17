@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListDaemonTaskDefinitionsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsResponse:
     out: ListDaemonTaskDefinitionsResponse = {}  # type: ignore[typeddict-item]
-    if "daemonTaskDefinitions" in data:
+    if data.get("daemonTaskDefinitions") is not None:
         import capo_ecs.types.daemon_task_definition_summaries
 
         out["daemon_task_definitions"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListDaemonTaskDefinitionsResponse:
                 data["daemonTaskDefinitions"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

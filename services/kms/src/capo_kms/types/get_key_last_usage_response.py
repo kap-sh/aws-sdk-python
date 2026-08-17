@@ -49,9 +49,9 @@ def serialize_aws_json_1_1(value: GetKeyLastUsageResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetKeyLastUsageResponse:
     out: GetKeyLastUsageResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyLastUsage" in data:
+    if data.get("KeyLastUsage") is not None:
         import capo_kms.types.key_last_usage_data
 
         out["key_last_usage"] = (
@@ -59,13 +59,13 @@ def deserialize_aws_json_1_1(data: dict) -> GetKeyLastUsageResponse:
                 data["KeyLastUsage"]
             )
         )
-    if "TrackingStartDate" in data:
+    if data.get("TrackingStartDate") is not None:
         import capo_kms.types.date_type
 
         out["tracking_start_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["TrackingStartDate"]
         )
-    if "KeyCreationDate" in data:
+    if data.get("KeyCreationDate") is not None:
         import capo_kms.types.date_type
 
         out["key_creation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(

@@ -32,13 +32,13 @@ def serialize_aws_json_1_1(value: DescribeConnectionResourceParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeConnectionResourceParameters:
     out: DescribeConnectionResourceParameters = {}  # type: ignore[typeddict-item]
-    if "ResourceConfigurationArn" in data:
+    if data.get("ResourceConfigurationArn") is not None:
         out["resource_configuration_arn"] = data["ResourceConfigurationArn"]
     else:
         raise DeserializationError(
             "DescribeConnectionResourceParameters.resource_configuration_arn required"
         )
-    if "ResourceAssociationArn" in data:
+    if data.get("ResourceAssociationArn") is not None:
         out["resource_association_arn"] = data["ResourceAssociationArn"]
     else:
         raise DeserializationError(

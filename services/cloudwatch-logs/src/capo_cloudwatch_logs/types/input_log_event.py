@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: InputLogEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InputLogEvent:
     out: InputLogEvent = {}  # type: ignore[typeddict-item]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         out["timestamp"] = data["timestamp"]
     else:
         raise DeserializationError("InputLogEvent.timestamp required")
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("InputLogEvent.message required")

@@ -59,7 +59,7 @@ def serialize_json(value: ApplyGuardrailRequest) -> dict:
 
 def deserialize_json(data: dict) -> ApplyGuardrailRequest:
     out: ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.guardrail_content_source
 
         out["source"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> ApplyGuardrailRequest:
         )
     else:
         raise DeserializationError("ApplyGuardrailRequest.source required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_runtime.types.guardrail_content_block_list
 
         out["content"] = (
@@ -79,7 +79,7 @@ def deserialize_json(data: dict) -> ApplyGuardrailRequest:
         )
     else:
         raise DeserializationError("ApplyGuardrailRequest.content required")
-    if "outputScope" in data:
+    if data.get("outputScope") is not None:
         import capo_bedrock_runtime.types.guardrail_output_scope
 
         out["output_scope"] = (

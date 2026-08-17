@@ -39,11 +39,11 @@ def serialize_aws_json_1_0(value: PutDashboardInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutDashboardInput:
     out: PutDashboardInput = {}  # type: ignore[typeddict-item]
-    if "DashboardName" in data:
+    if data.get("DashboardName") is not None:
         out["dashboard_name"] = data["DashboardName"]
-    if "DashboardBody" in data:
+    if data.get("DashboardBody") is not None:
         out["dashboard_body"] = data["DashboardBody"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(

@@ -59,7 +59,7 @@ def serialize_aws_json_1_0(value: PointInTimeRecoveryDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PointInTimeRecoveryDescription:
     out: PointInTimeRecoveryDescription = {}  # type: ignore[typeddict-item]
-    if "PointInTimeRecoveryStatus" in data:
+    if data.get("PointInTimeRecoveryStatus") is not None:
         import capo_dynamodb.types.point_in_time_recovery_status
 
         out["point_in_time_recovery_status"] = (
@@ -67,9 +67,9 @@ def deserialize_aws_json_1_0(data: dict) -> PointInTimeRecoveryDescription:
                 data["PointInTimeRecoveryStatus"]
             )
         )
-    if "RecoveryPeriodInDays" in data:
+    if data.get("RecoveryPeriodInDays") is not None:
         out["recovery_period_in_days"] = data["RecoveryPeriodInDays"]
-    if "EarliestRestorableDateTime" in data:
+    if data.get("EarliestRestorableDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["earliest_restorable_date_time"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_0(data: dict) -> PointInTimeRecoveryDescription:
                 data["EarliestRestorableDateTime"]
             )
         )
-    if "LatestRestorableDateTime" in data:
+    if data.get("LatestRestorableDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["latest_restorable_date_time"] = (

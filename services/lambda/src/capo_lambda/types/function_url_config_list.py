@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> FunctionUrlConfigList:
 
     out: FunctionUrlConfigList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.function_url_config.deserialize_json(item))
     return out

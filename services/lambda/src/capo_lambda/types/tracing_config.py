@@ -25,7 +25,7 @@ def serialize_json(value: TracingConfig) -> dict:
 
 def deserialize_json(data: dict) -> TracingConfig:
     out: TracingConfig = {}  # type: ignore[typeddict-item]
-    if "Mode" in data:
+    if data.get("Mode") is not None:
         import capo_lambda.types.tracing_mode
 
         out["mode"] = capo_lambda.types.tracing_mode.deserialize_json(data["Mode"])

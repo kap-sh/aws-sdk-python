@@ -332,41 +332,41 @@ def serialize_json(value: FunctionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FunctionConfiguration:
     out: FunctionConfiguration = {}  # type: ignore[typeddict-item]
-    if "FunctionName" in data:
+    if data.get("FunctionName") is not None:
         out["function_name"] = data["FunctionName"]
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
-    if "Runtime" in data:
+    if data.get("Runtime") is not None:
         import capo_lambda.types.runtime
 
         out["runtime"] = capo_lambda.types.runtime.deserialize_json(data["Runtime"])
-    if "Role" in data:
+    if data.get("Role") is not None:
         out["role"] = data["Role"]
-    if "Handler" in data:
+    if data.get("Handler") is not None:
         out["handler"] = data["Handler"]
-    if "CodeSize" in data:
+    if data.get("CodeSize") is not None:
         out["code_size"] = data["CodeSize"]
     else:
         out["code_size"] = 0
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Timeout" in data:
+    if data.get("Timeout") is not None:
         out["timeout"] = data["Timeout"]
-    if "MemorySize" in data:
+    if data.get("MemorySize") is not None:
         out["memory_size"] = data["MemorySize"]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         out["last_modified"] = data["LastModified"]
-    if "CodeSha256" in data:
+    if data.get("CodeSha256") is not None:
         out["code_sha256"] = data["CodeSha256"]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
-    if "VpcConfig" in data:
+    if data.get("VpcConfig") is not None:
         import capo_lambda.types.vpc_config_response
 
         out["vpc_config"] = capo_lambda.types.vpc_config_response.deserialize_json(
             data["VpcConfig"]
         )
-    if "DeadLetterConfig" in data:
+    if data.get("DeadLetterConfig") is not None:
         import capo_lambda.types.dead_letter_config
 
         out["dead_letter_config"] = (
@@ -374,15 +374,15 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["DeadLetterConfig"]
             )
         )
-    if "Environment" in data:
+    if data.get("Environment") is not None:
         import capo_lambda.types.environment_response
 
         out["environment"] = capo_lambda.types.environment_response.deserialize_json(
             data["Environment"]
         )
-    if "KMSKeyArn" in data:
+    if data.get("KMSKeyArn") is not None:
         out["kms_key_arn"] = data["KMSKeyArn"]
-    if "TracingConfig" in data:
+    if data.get("TracingConfig") is not None:
         import capo_lambda.types.tracing_config_response
 
         out["tracing_config"] = (
@@ -390,29 +390,29 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["TracingConfig"]
             )
         )
-    if "MasterArn" in data:
+    if data.get("MasterArn") is not None:
         out["master_arn"] = data["MasterArn"]
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
-    if "Layers" in data:
+    if data.get("Layers") is not None:
         import capo_lambda.types.layers_reference_list
 
         out["layers"] = capo_lambda.types.layers_reference_list.deserialize_json(
             data["Layers"]
         )
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_lambda.types.state
 
         out["state"] = capo_lambda.types.state.deserialize_json(data["State"])
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateReasonCode" in data:
+    if data.get("StateReasonCode") is not None:
         import capo_lambda.types.state_reason_code
 
         out["state_reason_code"] = capo_lambda.types.state_reason_code.deserialize_json(
             data["StateReasonCode"]
         )
-    if "LastUpdateStatus" in data:
+    if data.get("LastUpdateStatus") is not None:
         import capo_lambda.types.last_update_status
 
         out["last_update_status"] = (
@@ -420,9 +420,9 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["LastUpdateStatus"]
             )
         )
-    if "LastUpdateStatusReason" in data:
+    if data.get("LastUpdateStatusReason") is not None:
         out["last_update_status_reason"] = data["LastUpdateStatusReason"]
-    if "LastUpdateStatusReasonCode" in data:
+    if data.get("LastUpdateStatusReasonCode") is not None:
         import capo_lambda.types.last_update_status_reason_code
 
         out["last_update_status_reason_code"] = (
@@ -430,7 +430,7 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["LastUpdateStatusReasonCode"]
             )
         )
-    if "FileSystemConfigs" in data:
+    if data.get("FileSystemConfigs") is not None:
         import capo_lambda.types.file_system_config_list
 
         out["file_system_configs"] = (
@@ -438,17 +438,17 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["FileSystemConfigs"]
             )
         )
-    if "SigningProfileVersionArn" in data:
+    if data.get("SigningProfileVersionArn") is not None:
         out["signing_profile_version_arn"] = data["SigningProfileVersionArn"]
-    if "SigningJobArn" in data:
+    if data.get("SigningJobArn") is not None:
         out["signing_job_arn"] = data["SigningJobArn"]
-    if "PackageType" in data:
+    if data.get("PackageType") is not None:
         import capo_lambda.types.package_type
 
         out["package_type"] = capo_lambda.types.package_type.deserialize_json(
             data["PackageType"]
         )
-    if "ImageConfigResponse" in data:
+    if data.get("ImageConfigResponse") is not None:
         import capo_lambda.types.image_config_response
 
         out["image_config_response"] = (
@@ -456,25 +456,25 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["ImageConfigResponse"]
             )
         )
-    if "Architectures" in data:
+    if data.get("Architectures") is not None:
         import capo_lambda.types.architectures_list
 
         out["architectures"] = capo_lambda.types.architectures_list.deserialize_json(
             data["Architectures"]
         )
-    if "EphemeralStorage" in data:
+    if data.get("EphemeralStorage") is not None:
         import capo_lambda.types.ephemeral_storage
 
         out["ephemeral_storage"] = capo_lambda.types.ephemeral_storage.deserialize_json(
             data["EphemeralStorage"]
         )
-    if "SnapStart" in data:
+    if data.get("SnapStart") is not None:
         import capo_lambda.types.snap_start_response
 
         out["snap_start"] = capo_lambda.types.snap_start_response.deserialize_json(
             data["SnapStart"]
         )
-    if "RuntimeVersionConfig" in data:
+    if data.get("RuntimeVersionConfig") is not None:
         import capo_lambda.types.runtime_version_config
 
         out["runtime_version_config"] = (
@@ -482,19 +482,19 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["RuntimeVersionConfig"]
             )
         )
-    if "LoggingConfig" in data:
+    if data.get("LoggingConfig") is not None:
         import capo_lambda.types.logging_config
 
         out["logging_config"] = capo_lambda.types.logging_config.deserialize_json(
             data["LoggingConfig"]
         )
-    if "TenancyConfig" in data:
+    if data.get("TenancyConfig") is not None:
         import capo_lambda.types.tenancy_config
 
         out["tenancy_config"] = capo_lambda.types.tenancy_config.deserialize_json(
             data["TenancyConfig"]
         )
-    if "CapacityProviderConfig" in data:
+    if data.get("CapacityProviderConfig") is not None:
         import capo_lambda.types.capacity_provider_config
 
         out["capacity_provider_config"] = (
@@ -502,9 +502,9 @@ def deserialize_json(data: dict) -> FunctionConfiguration:
                 data["CapacityProviderConfig"]
             )
         )
-    if "ConfigSha256" in data:
+    if data.get("ConfigSha256") is not None:
         out["config_sha256"] = data["ConfigSha256"]
-    if "DurableConfig" in data:
+    if data.get("DurableConfig") is not None:
         import capo_lambda.types.durable_config
 
         out["durable_config"] = capo_lambda.types.durable_config.deserialize_json(

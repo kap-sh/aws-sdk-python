@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> DocumentReviewCommentList:
 
     out: DocumentReviewCommentList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.document_review_comment_source.deserialize_aws_json_1_1(item)
         )

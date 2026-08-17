@@ -28,7 +28,7 @@ def serialize_aws_json_1_0(value: StopExecutionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StopExecutionOutput:
     out: StopExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

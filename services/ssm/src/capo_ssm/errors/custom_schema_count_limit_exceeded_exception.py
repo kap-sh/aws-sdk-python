@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: CustomSchemaCountLimitExceededException_) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> CustomSchemaCountLimitExceededException_:
     out: CustomSchemaCountLimitExceededException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

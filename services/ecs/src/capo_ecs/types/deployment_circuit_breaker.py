@@ -43,17 +43,17 @@ def serialize_aws_json_1_1(value: DeploymentCircuitBreaker) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeploymentCircuitBreaker:
     out: DeploymentCircuitBreaker = {}  # type: ignore[typeddict-item]
-    if "enable" in data:
+    if data.get("enable") is not None:
         out["enable"] = data["enable"]
     else:
         out["enable"] = False
-    if "rollback" in data:
+    if data.get("rollback") is not None:
         out["rollback"] = data["rollback"]
     else:
         out["rollback"] = False
-    if "resetOnHealthyTask" in data:
+    if data.get("resetOnHealthyTask") is not None:
         out["reset_on_healthy_task"] = data["resetOnHealthyTask"]
-    if "thresholdConfiguration" in data:
+    if data.get("thresholdConfiguration") is not None:
         import capo_ecs.types.threshold_configuration
 
         out["threshold_configuration"] = (

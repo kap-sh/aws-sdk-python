@@ -36,9 +36,9 @@ def serialize_aws_json_1_0(value: UpdateGlobalTableSettingsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsOutput:
     out: UpdateGlobalTableSettingsOutput = {}  # type: ignore[typeddict-item]
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
-    if "ReplicaSettings" in data:
+    if data.get("ReplicaSettings") is not None:
         import capo_dynamodb.types.replica_settings_description_list
 
         out["replica_settings"] = (

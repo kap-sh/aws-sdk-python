@@ -37,11 +37,11 @@ def serialize_json(value: GuardrailCustomWord) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailCustomWord:
     out: GuardrailCustomWord = {}  # type: ignore[typeddict-item]
-    if "match" in data:
+    if data.get("match") is not None:
         out["match"] = data["match"]
     else:
         raise DeserializationError("GuardrailCustomWord.match required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_runtime.types.guardrail_word_policy_action
 
         out["action"] = (
@@ -51,6 +51,6 @@ def deserialize_json(data: dict) -> GuardrailCustomWord:
         )
     else:
         raise DeserializationError("GuardrailCustomWord.action required")
-    if "detected" in data:
+    if data.get("detected") is not None:
         out["detected"] = data["detected"]
     return out

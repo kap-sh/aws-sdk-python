@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: MetricCharacteristics) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricCharacteristics:
     out: MetricCharacteristics = {}  # type: ignore[typeddict-item]
-    if "PeriodicSpikes" in data:
+    if data.get("PeriodicSpikes") is not None:
         out["periodic_spikes"] = data["PeriodicSpikes"]
     return out
 

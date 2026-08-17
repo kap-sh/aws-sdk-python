@@ -32,11 +32,11 @@ def serialize_aws_json_1_0(value: SetQueueAttributesRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SetQueueAttributesRequest:
     out: SetQueueAttributesRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("SetQueueAttributesRequest.queue_url required")
-    if "Attributes" in data:
+    if data.get("Attributes") is not None:
         import capo_sqs.types.queue_attribute_map
 
         out["attributes"] = capo_sqs.types.queue_attribute_map.deserialize_aws_json_1_0(

@@ -44,7 +44,7 @@ def serialize_aws_json_1_0(value: GlobalTableWitnessGroupUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalTableWitnessGroupUpdate:
     out: GlobalTableWitnessGroupUpdate = {}  # type: ignore[typeddict-item]
-    if "Create" in data:
+    if data.get("Create") is not None:
         import capo_dynamodb.types.create_global_table_witness_group_member_action
 
         out["create"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_0(data: dict) -> GlobalTableWitnessGroupUpdate:
                 data["Create"]
             )
         )
-    if "Delete" in data:
+    if data.get("Delete") is not None:
         import capo_dynamodb.types.delete_global_table_witness_group_member_action
 
         out["delete"] = (

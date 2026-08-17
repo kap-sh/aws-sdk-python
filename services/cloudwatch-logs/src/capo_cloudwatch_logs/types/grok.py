@@ -29,9 +29,9 @@ def serialize_aws_json_1_1(value: Grok) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Grok:
     out: Grok = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "match" in data:
+    if data.get("match") is not None:
         out["match"] = data["match"]
     else:
         raise DeserializationError("Grok.match required")

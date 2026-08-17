@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> PatchPropertiesList:
 
     out: PatchPropertiesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.patch_property_entry.deserialize_aws_json_1_1(item))
     return out

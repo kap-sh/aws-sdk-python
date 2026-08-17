@@ -41,9 +41,9 @@ def serialize_aws_json_1_1(value: DescribeRepositoryCreationTemplatesResponse) -
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeRepositoryCreationTemplatesResponse:
     out: DescribeRepositoryCreationTemplatesResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryCreationTemplates" in data:
+    if data.get("repositoryCreationTemplates") is not None:
         import capo_ecr.types.repository_creation_template_list
 
         out["repository_creation_templates"] = (
@@ -51,6 +51,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeRepositoryCreationTemplatesR
                 data["repositoryCreationTemplates"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

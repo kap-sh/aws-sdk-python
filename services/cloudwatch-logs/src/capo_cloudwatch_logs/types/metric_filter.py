@@ -80,11 +80,11 @@ def serialize_aws_json_1_1(value: MetricFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MetricFilter:
     out: MetricFilter = {}  # type: ignore[typeddict-item]
-    if "filterName" in data:
+    if data.get("filterName") is not None:
         out["filter_name"] = data["filterName"]
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
-    if "metricTransformations" in data:
+    if data.get("metricTransformations") is not None:
         import capo_cloudwatch_logs.types.metric_transformations
 
         out["metric_transformations"] = (
@@ -92,17 +92,17 @@ def deserialize_aws_json_1_1(data: dict) -> MetricFilter:
                 data["metricTransformations"]
             )
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "applyOnTransformedLogs" in data:
+    if data.get("applyOnTransformedLogs") is not None:
         out["apply_on_transformed_logs"] = data["applyOnTransformedLogs"]
     else:
         out["apply_on_transformed_logs"] = False
-    if "fieldSelectionCriteria" in data:
+    if data.get("fieldSelectionCriteria") is not None:
         out["field_selection_criteria"] = data["fieldSelectionCriteria"]
-    if "emitSystemFieldDimensions" in data:
+    if data.get("emitSystemFieldDimensions") is not None:
         import capo_cloudwatch_logs.types.emit_system_fields
 
         out["emit_system_field_dimensions"] = (

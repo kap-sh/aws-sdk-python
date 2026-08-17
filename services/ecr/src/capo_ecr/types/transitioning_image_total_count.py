@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: TransitioningImageTotalCount) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TransitioningImageTotalCount:
     out: TransitioningImageTotalCount = {}  # type: ignore[typeddict-item]
-    if "targetStorageClass" in data:
+    if data.get("targetStorageClass") is not None:
         import capo_ecr.types.lifecycle_policy_target_storage_class
 
         out["target_storage_class"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> TransitioningImageTotalCount:
                 data["targetStorageClass"]
             )
         )
-    if "imageTotalCount" in data:
+    if data.get("imageTotalCount") is not None:
         out["image_total_count"] = data["imageTotalCount"]
     return out

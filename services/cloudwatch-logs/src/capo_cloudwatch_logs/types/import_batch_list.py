@@ -23,6 +23,8 @@ def deserialize_aws_json_1_1(data: list) -> ImportBatchList:
 
     out: ImportBatchList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.import_batch.deserialize_aws_json_1_1(item)
         )

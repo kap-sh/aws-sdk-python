@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> CommandPluginList:
 
     out: CommandPluginList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.command_plugin.deserialize_aws_json_1_1(item))
     return out

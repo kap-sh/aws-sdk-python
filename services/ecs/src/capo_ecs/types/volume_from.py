@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: VolumeFrom) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VolumeFrom:
     out: VolumeFrom = {}  # type: ignore[typeddict-item]
-    if "sourceContainer" in data:
+    if data.get("sourceContainer") is not None:
         out["source_container"] = data["sourceContainer"]
-    if "readOnly" in data:
+    if data.get("readOnly") is not None:
         out["read_only"] = data["readOnly"]
     return out

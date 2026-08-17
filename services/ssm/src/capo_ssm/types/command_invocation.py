@@ -131,25 +131,25 @@ def serialize_aws_json_1_1(value: CommandInvocation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CommandInvocation:
     out: CommandInvocation = {}  # type: ignore[typeddict-item]
-    if "CommandId" in data:
+    if data.get("CommandId") is not None:
         out["command_id"] = data["CommandId"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "InstanceName" in data:
+    if data.get("InstanceName") is not None:
         out["instance_name"] = data["InstanceName"]
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         out["comment"] = data["Comment"]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "RequestedDateTime" in data:
+    if data.get("RequestedDateTime") is not None:
         import capo_ssm.types.date_time
 
         out["requested_date_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["RequestedDateTime"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.command_invocation_status
 
         out["status"] = (
@@ -157,15 +157,15 @@ def deserialize_aws_json_1_1(data: dict) -> CommandInvocation:
                 data["Status"]
             )
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "TraceOutput" in data:
+    if data.get("TraceOutput") is not None:
         out["trace_output"] = data["TraceOutput"]
-    if "StandardOutputUrl" in data:
+    if data.get("StandardOutputUrl") is not None:
         out["standard_output_url"] = data["StandardOutputUrl"]
-    if "StandardErrorUrl" in data:
+    if data.get("StandardErrorUrl") is not None:
         out["standard_error_url"] = data["StandardErrorUrl"]
-    if "CommandPlugins" in data:
+    if data.get("CommandPlugins") is not None:
         import capo_ssm.types.command_plugin_list
 
         out["command_plugins"] = (
@@ -173,9 +173,9 @@ def deserialize_aws_json_1_1(data: dict) -> CommandInvocation:
                 data["CommandPlugins"]
             )
         )
-    if "ServiceRole" in data:
+    if data.get("ServiceRole") is not None:
         out["service_role"] = data["ServiceRole"]
-    if "NotificationConfig" in data:
+    if data.get("NotificationConfig") is not None:
         import capo_ssm.types.notification_config
 
         out["notification_config"] = (
@@ -183,7 +183,7 @@ def deserialize_aws_json_1_1(data: dict) -> CommandInvocation:
                 data["NotificationConfig"]
             )
         )
-    if "CloudWatchOutputConfig" in data:
+    if data.get("CloudWatchOutputConfig") is not None:
         import capo_ssm.types.cloud_watch_output_config
 
         out["cloud_watch_output_config"] = (

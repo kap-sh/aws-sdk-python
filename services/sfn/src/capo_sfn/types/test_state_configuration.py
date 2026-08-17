@@ -44,12 +44,12 @@ def serialize_aws_json_1_0(value: TestStateConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TestStateConfiguration:
     out: TestStateConfiguration = {}  # type: ignore[typeddict-item]
-    if "retrierRetryCount" in data:
+    if data.get("retrierRetryCount") is not None:
         out["retrier_retry_count"] = data["retrierRetryCount"]
-    if "errorCausedByState" in data:
+    if data.get("errorCausedByState") is not None:
         out["error_caused_by_state"] = data["errorCausedByState"]
-    if "mapIterationFailureCount" in data:
+    if data.get("mapIterationFailureCount") is not None:
         out["map_iteration_failure_count"] = data["mapIterationFailureCount"]
-    if "mapItemReaderData" in data:
+    if data.get("mapItemReaderData") is not None:
         out["map_item_reader_data"] = data["mapItemReaderData"]
     return out

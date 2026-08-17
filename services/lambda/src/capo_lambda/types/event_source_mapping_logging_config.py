@@ -31,7 +31,7 @@ def serialize_json(value: EventSourceMappingLoggingConfig) -> dict:
 
 def deserialize_json(data: dict) -> EventSourceMappingLoggingConfig:
     out: EventSourceMappingLoggingConfig = {}  # type: ignore[typeddict-item]
-    if "SystemLogLevel" in data:
+    if data.get("SystemLogLevel") is not None:
         import capo_lambda.types.event_source_mapping_system_log_level
 
         out["system_log_level"] = (

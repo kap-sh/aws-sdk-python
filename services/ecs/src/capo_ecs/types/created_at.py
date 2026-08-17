@@ -31,13 +31,13 @@ def serialize_aws_json_1_1(value: CreatedAt) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreatedAt:
     out: CreatedAt = {}  # type: ignore[typeddict-item]
-    if "before" in data:
+    if data.get("before") is not None:
         import capo_ecs.types.timestamp
 
         out["before"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["before"]
         )
-    if "after" in data:
+    if data.get("after") is not None:
         import capo_ecs.types.timestamp
 
         out["after"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(data["after"])

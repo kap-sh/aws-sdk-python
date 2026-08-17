@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: DescribeClustersResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeClustersResponse:
     out: DescribeClustersResponse = {}  # type: ignore[typeddict-item]
-    if "clusters" in data:
+    if data.get("clusters") is not None:
         import capo_ecs.types.clusters
 
         out["clusters"] = capo_ecs.types.clusters.deserialize_aws_json_1_1(
             data["clusters"]
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(

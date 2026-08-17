@@ -40,14 +40,14 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeEffectivePatchesForPatchBaselineRequest:
     out: DescribeEffectivePatchesForPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
     else:
         raise DeserializationError(
             "DescribeEffectivePatchesForPatchBaselineRequest.baseline_id required"
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

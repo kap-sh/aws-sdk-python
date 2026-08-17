@@ -60,21 +60,21 @@ def serialize_aws_json_1_1(value: CreatePullThroughCacheRuleRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreatePullThroughCacheRuleRequest:
     out: CreatePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
-    if "ecrRepositoryPrefix" in data:
+    if data.get("ecrRepositoryPrefix") is not None:
         out["ecr_repository_prefix"] = data["ecrRepositoryPrefix"]
     else:
         raise DeserializationError(
             "CreatePullThroughCacheRuleRequest.ecr_repository_prefix required"
         )
-    if "upstreamRegistryUrl" in data:
+    if data.get("upstreamRegistryUrl") is not None:
         out["upstream_registry_url"] = data["upstreamRegistryUrl"]
     else:
         raise DeserializationError(
             "CreatePullThroughCacheRuleRequest.upstream_registry_url required"
         )
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "upstreamRegistry" in data:
+    if data.get("upstreamRegistry") is not None:
         import capo_ecr.types.upstream_registry
 
         out["upstream_registry"] = (
@@ -82,10 +82,10 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePullThroughCacheRuleRequest:
                 data["upstreamRegistry"]
             )
         )
-    if "credentialArn" in data:
+    if data.get("credentialArn") is not None:
         out["credential_arn"] = data["credentialArn"]
-    if "customRoleArn" in data:
+    if data.get("customRoleArn") is not None:
         out["custom_role_arn"] = data["customRoleArn"]
-    if "upstreamRepositoryPrefix" in data:
+    if data.get("upstreamRepositoryPrefix") is not None:
         out["upstream_repository_prefix"] = data["upstreamRepositoryPrefix"]
     return out

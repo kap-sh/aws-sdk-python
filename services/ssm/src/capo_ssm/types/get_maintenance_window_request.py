@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetMaintenanceWindowRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowRequest:
     out: GetMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
     else:
         raise DeserializationError("GetMaintenanceWindowRequest.window_id required")

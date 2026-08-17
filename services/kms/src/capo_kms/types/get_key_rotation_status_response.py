@@ -53,21 +53,21 @@ def serialize_aws_json_1_1(value: GetKeyRotationStatusResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetKeyRotationStatusResponse:
     out: GetKeyRotationStatusResponse = {}  # type: ignore[typeddict-item]
-    if "KeyRotationEnabled" in data:
+    if data.get("KeyRotationEnabled") is not None:
         out["key_rotation_enabled"] = data["KeyRotationEnabled"]
     else:
         out["key_rotation_enabled"] = False
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "RotationPeriodInDays" in data:
+    if data.get("RotationPeriodInDays") is not None:
         out["rotation_period_in_days"] = data["RotationPeriodInDays"]
-    if "NextRotationDate" in data:
+    if data.get("NextRotationDate") is not None:
         import capo_kms.types.date_type
 
         out["next_rotation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["NextRotationDate"]
         )
-    if "OnDemandRotationStartDate" in data:
+    if data.get("OnDemandRotationStartDate") is not None:
         import capo_kms.types.date_type
 
         out["on_demand_rotation_start_date"] = (

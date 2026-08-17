@@ -45,9 +45,9 @@ def serialize_aws_json_1_1(value: LogFieldType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogFieldType:
     out: LogFieldType = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "element" in data:
+    if data.get("element") is not None:
         import capo_cloudwatch_logs.types.log_field_type
 
         out["element"] = (
@@ -55,7 +55,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogFieldType:
                 data["element"]
             )
         )
-    if "fields" in data:
+    if data.get("fields") is not None:
         import capo_cloudwatch_logs.types.log_fields_list
 
         out["fields"] = (

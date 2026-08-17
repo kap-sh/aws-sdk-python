@@ -48,13 +48,13 @@ def serialize_aws_json_1_1(value: PutSecretValueResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutSecretValueResponse:
     out: PutSecretValueResponse = {}  # type: ignore[typeddict-item]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "VersionId" in data:
+    if data.get("VersionId") is not None:
         out["version_id"] = data["VersionId"]
-    if "VersionStages" in data:
+    if data.get("VersionStages") is not None:
         import capo_secrets_manager.types.secret_version_stages_type
 
         out["version_stages"] = (

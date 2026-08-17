@@ -32,9 +32,9 @@ def serialize_json(value: InvalidRedirectUriException_) -> dict:
 
 def deserialize_json(data: dict) -> InvalidRedirectUriException_:
     out: InvalidRedirectUriException_ = {}  # type: ignore[typeddict-item]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "error_description" in data:
+    if data.get("error_description") is not None:
         out["error_description"] = data["error_description"]
     return out
 

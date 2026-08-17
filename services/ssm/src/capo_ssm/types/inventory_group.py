@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: InventoryGroup) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryGroup:
     out: InventoryGroup = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("InventoryGroup.name required")
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.inventory_filter_list
 
         out["filters"] = capo_ssm.types.inventory_filter_list.deserialize_aws_json_1_1(

@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> LocalSecondaryIndexList:
 
     out: LocalSecondaryIndexList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.local_secondary_index.deserialize_aws_json_1_0(item)
         )

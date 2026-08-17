@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: SplitString) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SplitString:
     out: SplitString = {}  # type: ignore[typeddict-item]
-    if "entries" in data:
+    if data.get("entries") is not None:
         import capo_cloudwatch_logs.types.split_string_entries
 
         out["entries"] = (

@@ -39,10 +39,10 @@ def serialize_aws_json_1_0(value: ListGlobalTablesInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListGlobalTablesInput:
     out: ListGlobalTablesInput = {}  # type: ignore[typeddict-item]
-    if "ExclusiveStartGlobalTableName" in data:
+    if data.get("ExclusiveStartGlobalTableName") is not None:
         out["exclusive_start_global_table_name"] = data["ExclusiveStartGlobalTableName"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     return out

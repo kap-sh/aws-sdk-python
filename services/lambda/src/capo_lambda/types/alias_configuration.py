@@ -56,15 +56,15 @@ def serialize_json(value: AliasConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AliasConfiguration:
     out: AliasConfiguration = {}  # type: ignore[typeddict-item]
-    if "AliasArn" in data:
+    if data.get("AliasArn") is not None:
         out["alias_arn"] = data["AliasArn"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "FunctionVersion" in data:
+    if data.get("FunctionVersion") is not None:
         out["function_version"] = data["FunctionVersion"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "RoutingConfig" in data:
+    if data.get("RoutingConfig") is not None:
         import capo_lambda.types.alias_routing_configuration
 
         out["routing_config"] = (
@@ -72,6 +72,6 @@ def deserialize_json(data: dict) -> AliasConfiguration:
                 data["RoutingConfig"]
             )
         )
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
     return out

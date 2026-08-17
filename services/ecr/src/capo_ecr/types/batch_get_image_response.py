@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: BatchGetImageResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchGetImageResponse:
     out: BatchGetImageResponse = {}  # type: ignore[typeddict-item]
-    if "images" in data:
+    if data.get("images") is not None:
         import capo_ecr.types.image_list
 
         out["images"] = capo_ecr.types.image_list.deserialize_aws_json_1_1(
             data["images"]
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecr.types.image_failure_list
 
         out["failures"] = capo_ecr.types.image_failure_list.deserialize_aws_json_1_1(

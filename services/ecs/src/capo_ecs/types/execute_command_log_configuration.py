@@ -40,18 +40,18 @@ def serialize_aws_json_1_1(value: ExecuteCommandLogConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandLogConfiguration:
     out: ExecuteCommandLogConfiguration = {}  # type: ignore[typeddict-item]
-    if "cloudWatchLogGroupName" in data:
+    if data.get("cloudWatchLogGroupName") is not None:
         out["cloud_watch_log_group_name"] = data["cloudWatchLogGroupName"]
-    if "cloudWatchEncryptionEnabled" in data:
+    if data.get("cloudWatchEncryptionEnabled") is not None:
         out["cloud_watch_encryption_enabled"] = data["cloudWatchEncryptionEnabled"]
     else:
         out["cloud_watch_encryption_enabled"] = False
-    if "s3BucketName" in data:
+    if data.get("s3BucketName") is not None:
         out["s3_bucket_name"] = data["s3BucketName"]
-    if "s3EncryptionEnabled" in data:
+    if data.get("s3EncryptionEnabled") is not None:
         out["s3_encryption_enabled"] = data["s3EncryptionEnabled"]
     else:
         out["s3_encryption_enabled"] = False
-    if "s3KeyPrefix" in data:
+    if data.get("s3KeyPrefix") is not None:
         out["s3_key_prefix"] = data["s3KeyPrefix"]
     return out

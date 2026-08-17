@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribeAutomationExecutionsResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAutomationExecutionsResult:
     out: DescribeAutomationExecutionsResult = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionMetadataList" in data:
+    if data.get("AutomationExecutionMetadataList") is not None:
         import capo_ssm.types.automation_execution_metadata_list
 
         out["automation_execution_metadata_list"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAutomationExecutionsResult:
                 data["AutomationExecutionMetadataList"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

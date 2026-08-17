@@ -35,12 +35,12 @@ def serialize_aws_json_1_1(value: AdvancedConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AdvancedConfiguration:
     out: AdvancedConfiguration = {}  # type: ignore[typeddict-item]
-    if "alternateTargetGroupArn" in data:
+    if data.get("alternateTargetGroupArn") is not None:
         out["alternate_target_group_arn"] = data["alternateTargetGroupArn"]
-    if "productionListenerRule" in data:
+    if data.get("productionListenerRule") is not None:
         out["production_listener_rule"] = data["productionListenerRule"]
-    if "testListenerRule" in data:
+    if data.get("testListenerRule") is not None:
         out["test_listener_rule"] = data["testListenerRule"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     return out

@@ -40,7 +40,7 @@ def serialize_aws_json_1_0(value: AnomalyDetectorConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AnomalyDetectorConfiguration:
     out: AnomalyDetectorConfiguration = {}  # type: ignore[typeddict-item]
-    if "ExcludedTimeRanges" in data:
+    if data.get("ExcludedTimeRanges") is not None:
         import capo_cloudwatch.types.anomaly_detector_excluded_time_ranges
 
         out["excluded_time_ranges"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_0(data: dict) -> AnomalyDetectorConfiguration:
                 data["ExcludedTimeRanges"]
             )
         )
-    if "MetricTimezone" in data:
+    if data.get("MetricTimezone") is not None:
         out["metric_timezone"] = data["MetricTimezone"]
     return out
 

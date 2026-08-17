@@ -40,13 +40,13 @@ def serialize_aws_json_1_0(value: GetItemOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetItemOutput:
     out: GetItemOutput = {}  # type: ignore[typeddict-item]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["item"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(
             data["Item"]
         )
-    if "ConsumedCapacity" in data:
+    if data.get("ConsumedCapacity") is not None:
         import capo_dynamodb.types.consumed_capacity
 
         out["consumed_capacity"] = (

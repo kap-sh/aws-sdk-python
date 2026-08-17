@@ -36,25 +36,25 @@ def serialize_aws_json_1_1(value: AssociateOpsItemRelatedItemRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociateOpsItemRelatedItemRequest:
     out: AssociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
     else:
         raise DeserializationError(
             "AssociateOpsItemRelatedItemRequest.ops_item_id required"
         )
-    if "AssociationType" in data:
+    if data.get("AssociationType") is not None:
         out["association_type"] = data["AssociationType"]
     else:
         raise DeserializationError(
             "AssociateOpsItemRelatedItemRequest.association_type required"
         )
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
     else:
         raise DeserializationError(
             "AssociateOpsItemRelatedItemRequest.resource_type required"
         )
-    if "ResourceUri" in data:
+    if data.get("ResourceUri") is not None:
         out["resource_uri"] = data["ResourceUri"]
     else:
         raise DeserializationError(

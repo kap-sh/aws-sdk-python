@@ -67,9 +67,9 @@ def serialize_json(value: PublishLayerVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> PublishLayerVersionRequest:
     out: PublishLayerVersionRequest = {}  # type: ignore[typeddict-item]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Content" in data:
+    if data.get("Content") is not None:
         import capo_lambda.types.layer_version_content_input
 
         out["content"] = capo_lambda.types.layer_version_content_input.deserialize_json(
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> PublishLayerVersionRequest:
         )
     else:
         raise DeserializationError("PublishLayerVersionRequest.content required")
-    if "CompatibleArchitectures" in data:
+    if data.get("CompatibleArchitectures") is not None:
         import capo_lambda.types.compatible_architectures
 
         out["compatible_architectures"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> PublishLayerVersionRequest:
                 data["CompatibleArchitectures"]
             )
         )
-    if "CompatibleRuntimes" in data:
+    if data.get("CompatibleRuntimes") is not None:
         import capo_lambda.types.compatible_runtimes
 
         out["compatible_runtimes"] = (
@@ -93,6 +93,6 @@ def deserialize_json(data: dict) -> PublishLayerVersionRequest:
                 data["CompatibleRuntimes"]
             )
         )
-    if "LicenseInfo" in data:
+    if data.get("LicenseInfo") is not None:
         out["license_info"] = data["LicenseInfo"]
     return out

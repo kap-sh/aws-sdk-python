@@ -40,12 +40,12 @@ def serialize_aws_json_1_1(value: ListApiDestinationsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListApiDestinationsRequest:
     out: ListApiDestinationsRequest = {}  # type: ignore[typeddict-item]
-    if "NamePrefix" in data:
+    if data.get("NamePrefix") is not None:
         out["name_prefix"] = data["NamePrefix"]
-    if "ConnectionArn" in data:
+    if data.get("ConnectionArn") is not None:
         out["connection_arn"] = data["ConnectionArn"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     return out

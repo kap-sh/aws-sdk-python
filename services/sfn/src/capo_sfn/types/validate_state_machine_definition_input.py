@@ -50,19 +50,19 @@ def serialize_aws_json_1_0(value: ValidateStateMachineDefinitionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionInput:
     out: ValidateStateMachineDefinitionInput = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError(
             "ValidateStateMachineDefinitionInput.definition required"
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_sfn.types.state_machine_type
 
         out["type"] = capo_sfn.types.state_machine_type.deserialize_aws_json_1_0(
             data["type"]
         )
-    if "severity" in data:
+    if data.get("severity") is not None:
         import capo_sfn.types.validate_state_machine_definition_severity
 
         out["severity"] = (
@@ -70,7 +70,7 @@ def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionInput:
                 data["severity"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 0

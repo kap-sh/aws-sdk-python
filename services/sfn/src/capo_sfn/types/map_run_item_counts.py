@@ -52,40 +52,40 @@ def serialize_aws_json_1_0(value: MapRunItemCounts) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapRunItemCounts:
     out: MapRunItemCounts = {}  # type: ignore[typeddict-item]
-    if "pending" in data:
+    if data.get("pending") is not None:
         out["pending"] = data["pending"]
     else:
         out["pending"] = 0
-    if "running" in data:
+    if data.get("running") is not None:
         out["running"] = data["running"]
     else:
         out["running"] = 0
-    if "succeeded" in data:
+    if data.get("succeeded") is not None:
         out["succeeded"] = data["succeeded"]
     else:
         out["succeeded"] = 0
-    if "failed" in data:
+    if data.get("failed") is not None:
         out["failed"] = data["failed"]
     else:
         out["failed"] = 0
-    if "timedOut" in data:
+    if data.get("timedOut") is not None:
         out["timed_out"] = data["timedOut"]
     else:
         out["timed_out"] = 0
-    if "aborted" in data:
+    if data.get("aborted") is not None:
         out["aborted"] = data["aborted"]
     else:
         out["aborted"] = 0
-    if "total" in data:
+    if data.get("total") is not None:
         out["total"] = data["total"]
     else:
         out["total"] = 0
-    if "resultsWritten" in data:
+    if data.get("resultsWritten") is not None:
         out["results_written"] = data["resultsWritten"]
     else:
         out["results_written"] = 0
-    if "failuresNotRedrivable" in data:
+    if data.get("failuresNotRedrivable") is not None:
         out["failures_not_redrivable"] = data["failuresNotRedrivable"]
-    if "pendingRedrive" in data:
+    if data.get("pendingRedrive") is not None:
         out["pending_redrive"] = data["pendingRedrive"]
     return out

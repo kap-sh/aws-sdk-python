@@ -59,7 +59,7 @@ def serialize_aws_json_1_1(value: GenerateDataKeyPairWithoutPlaintextResponse) -
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyPairWithoutPlaintextResponse:
     out: GenerateDataKeyPairWithoutPlaintextResponse = {}  # type: ignore[typeddict-item]
-    if "PrivateKeyCiphertextBlob" in data:
+    if data.get("PrivateKeyCiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["private_key_ciphertext_blob"] = (
@@ -67,15 +67,15 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyPairWithoutPlaintextR
                 data["PrivateKeyCiphertextBlob"]
             )
         )
-    if "PublicKey" in data:
+    if data.get("PublicKey") is not None:
         import capo_kms.types.public_key_type
 
         out["public_key"] = capo_kms.types.public_key_type.deserialize_aws_json_1_1(
             data["PublicKey"]
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyPairSpec" in data:
+    if data.get("KeyPairSpec") is not None:
         import capo_kms.types.data_key_pair_spec
 
         out["key_pair_spec"] = (
@@ -83,6 +83,6 @@ def deserialize_aws_json_1_1(data: dict) -> GenerateDataKeyPairWithoutPlaintextR
                 data["KeyPairSpec"]
             )
         )
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

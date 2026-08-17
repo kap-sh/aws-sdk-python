@@ -33,11 +33,11 @@ def serialize_aws_json_1_1(value: NonCompliantSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> NonCompliantSummary:
     out: NonCompliantSummary = {}  # type: ignore[typeddict-item]
-    if "NonCompliantCount" in data:
+    if data.get("NonCompliantCount") is not None:
         out["non_compliant_count"] = data["NonCompliantCount"]
     else:
         out["non_compliant_count"] = 0
-    if "SeveritySummary" in data:
+    if data.get("SeveritySummary") is not None:
         import capo_ssm.types.severity_summary
 
         out["severity_summary"] = (

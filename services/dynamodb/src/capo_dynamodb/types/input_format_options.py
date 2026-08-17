@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: InputFormatOptions) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InputFormatOptions:
     out: InputFormatOptions = {}  # type: ignore[typeddict-item]
-    if "Csv" in data:
+    if data.get("Csv") is not None:
         import capo_dynamodb.types.csv_options
 
         out["csv"] = capo_dynamodb.types.csv_options.deserialize_aws_json_1_0(

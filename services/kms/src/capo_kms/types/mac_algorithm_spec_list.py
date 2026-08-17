@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> MacAlgorithmSpecList:
 
     out: MacAlgorithmSpecList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_kms.types.mac_algorithm_spec.deserialize_aws_json_1_1(item))
     return out

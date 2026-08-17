@@ -56,13 +56,13 @@ def serialize_aws_json_1_0(value: TestStateOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TestStateOutput:
     out: TestStateOutput = {}  # type: ignore[typeddict-item]
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
-    if "inspectionData" in data:
+    if data.get("inspectionData") is not None:
         import capo_sfn.types.inspection_data
 
         out["inspection_data"] = (
@@ -70,9 +70,9 @@ def deserialize_aws_json_1_0(data: dict) -> TestStateOutput:
                 data["inspectionData"]
             )
         )
-    if "nextState" in data:
+    if data.get("nextState") is not None:
         out["next_state"] = data["nextState"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_sfn.types.test_execution_status
 
         out["status"] = capo_sfn.types.test_execution_status.deserialize_aws_json_1_0(

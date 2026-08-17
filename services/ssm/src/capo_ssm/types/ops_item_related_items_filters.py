@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> OpsItemRelatedItemsFilters:
 
     out: OpsItemRelatedItemsFilters = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.ops_item_related_items_filter.deserialize_aws_json_1_1(item)
         )

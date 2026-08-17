@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: ContainerInstanceHealthStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerInstanceHealthStatus:
     out: ContainerInstanceHealthStatus = {}  # type: ignore[typeddict-item]
-    if "overallStatus" in data:
+    if data.get("overallStatus") is not None:
         import capo_ecs.types.instance_health_check_state
 
         out["overall_status"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerInstanceHealthStatus:
                 data["overallStatus"]
             )
         )
-    if "details" in data:
+    if data.get("details") is not None:
         import capo_ecs.types.instance_health_check_result_list
 
         out["details"] = (

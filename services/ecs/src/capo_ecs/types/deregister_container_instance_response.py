@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: DeregisterContainerInstanceResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterContainerInstanceResponse:
     out: DeregisterContainerInstanceResponse = {}  # type: ignore[typeddict-item]
-    if "containerInstance" in data:
+    if data.get("containerInstance") is not None:
         import capo_ecs.types.container_instance
 
         out["container_instance"] = (

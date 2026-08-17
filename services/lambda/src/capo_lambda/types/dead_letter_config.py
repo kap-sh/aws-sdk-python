@@ -23,6 +23,6 @@ def serialize_json(value: DeadLetterConfig) -> dict:
 
 def deserialize_json(data: dict) -> DeadLetterConfig:
     out: DeadLetterConfig = {}  # type: ignore[typeddict-item]
-    if "TargetArn" in data:
+    if data.get("TargetArn") is not None:
         out["target_arn"] = data["TargetArn"]
     return out

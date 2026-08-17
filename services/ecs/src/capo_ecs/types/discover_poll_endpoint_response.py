@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: DiscoverPollEndpointResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DiscoverPollEndpointResponse:
     out: DiscoverPollEndpointResponse = {}  # type: ignore[typeddict-item]
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
-    if "telemetryEndpoint" in data:
+    if data.get("telemetryEndpoint") is not None:
         out["telemetry_endpoint"] = data["telemetryEndpoint"]
-    if "serviceConnectEndpoint" in data:
+    if data.get("serviceConnectEndpoint") is not None:
         out["service_connect_endpoint"] = data["serviceConnectEndpoint"]
     return out

@@ -103,37 +103,37 @@ def serialize_aws_json_1_1(value: Session) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Session:
     out: Session = {}  # type: ignore[typeddict-item]
-    if "SessionId" in data:
+    if data.get("SessionId") is not None:
         out["session_id"] = data["SessionId"]
-    if "Target" in data:
+    if data.get("Target") is not None:
         out["target"] = data["Target"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.session_status
 
         out["status"] = capo_ssm.types.session_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         import capo_ssm.types.date_time
 
         out["start_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["StartDate"]
         )
-    if "EndDate" in data:
+    if data.get("EndDate") is not None:
         import capo_ssm.types.date_time
 
         out["end_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["EndDate"]
         )
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
-    if "Owner" in data:
+    if data.get("Owner") is not None:
         out["owner"] = data["Owner"]
-    if "Reason" in data:
+    if data.get("Reason") is not None:
         out["reason"] = data["Reason"]
-    if "Details" in data:
+    if data.get("Details") is not None:
         out["details"] = data["Details"]
-    if "OutputUrl" in data:
+    if data.get("OutputUrl") is not None:
         import capo_ssm.types.session_manager_output_url
 
         out["output_url"] = (
@@ -141,9 +141,9 @@ def deserialize_aws_json_1_1(data: dict) -> Session:
                 data["OutputUrl"]
             )
         )
-    if "MaxSessionDuration" in data:
+    if data.get("MaxSessionDuration") is not None:
         out["max_session_duration"] = data["MaxSessionDuration"]
-    if "AccessType" in data:
+    if data.get("AccessType") is not None:
         import capo_ssm.types.access_type
 
         out["access_type"] = capo_ssm.types.access_type.deserialize_aws_json_1_1(

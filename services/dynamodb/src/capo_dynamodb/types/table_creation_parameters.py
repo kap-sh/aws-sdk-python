@@ -102,11 +102,11 @@ def serialize_aws_json_1_0(value: TableCreationParameters) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
     out: TableCreationParameters = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("TableCreationParameters.table_name required")
-    if "AttributeDefinitions" in data:
+    if data.get("AttributeDefinitions") is not None:
         import capo_dynamodb.types.attribute_definitions
 
         out["attribute_definitions"] = (
@@ -118,7 +118,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
         raise DeserializationError(
             "TableCreationParameters.attribute_definitions required"
         )
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
@@ -126,13 +126,13 @@ def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
         )
     else:
         raise DeserializationError("TableCreationParameters.key_schema required")
-    if "BillingMode" in data:
+    if data.get("BillingMode") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["billing_mode"] = capo_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
             data["BillingMode"]
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput"] = (
@@ -140,7 +140,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
                 data["ProvisionedThroughput"]
             )
         )
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -148,7 +148,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
                 data["OnDemandThroughput"]
             )
         )
-    if "SSESpecification" in data:
+    if data.get("SSESpecification") is not None:
         import capo_dynamodb.types.sse_specification
 
         out["sse_specification"] = (
@@ -156,7 +156,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableCreationParameters:
                 data["SSESpecification"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.global_secondary_index_list
 
         out["global_secondary_indexes"] = (

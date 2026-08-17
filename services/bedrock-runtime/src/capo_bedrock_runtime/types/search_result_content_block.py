@@ -19,7 +19,7 @@ def serialize_json(value: SearchResultContentBlock) -> dict:
 
 def deserialize_json(data: dict) -> SearchResultContentBlock:
     out: SearchResultContentBlock = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("SearchResultContentBlock.text required")

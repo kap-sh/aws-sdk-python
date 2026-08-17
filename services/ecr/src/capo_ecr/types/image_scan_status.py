@@ -34,12 +34,12 @@ def serialize_aws_json_1_1(value: ImageScanStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageScanStatus:
     out: ImageScanStatus = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecr.types.scan_status
 
         out["status"] = capo_ecr.types.scan_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

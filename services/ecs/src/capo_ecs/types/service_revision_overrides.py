@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: ServiceRevisionOverrides) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceRevisionOverrides:
     out: ServiceRevisionOverrides = {}  # type: ignore[typeddict-item]
-    if "runtimePlatform" in data:
+    if data.get("runtimePlatform") is not None:
         import capo_ecs.types.runtime_platform_override
 
         out["runtime_platform"] = (

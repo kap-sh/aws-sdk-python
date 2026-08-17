@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> GlobalTableWitnessGroupUpdateList:
 
     out: GlobalTableWitnessGroupUpdateList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.global_table_witness_group_update.deserialize_aws_json_1_0(
                 item

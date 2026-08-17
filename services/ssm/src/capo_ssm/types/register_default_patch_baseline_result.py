@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: RegisterDefaultPatchBaselineResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterDefaultPatchBaselineResult:
     out: RegisterDefaultPatchBaselineResult = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
     return out

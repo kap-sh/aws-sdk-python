@@ -35,7 +35,7 @@ def serialize_json(value: ListCapacityProvidersResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListCapacityProvidersResponse:
     out: ListCapacityProvidersResponse = {}  # type: ignore[typeddict-item]
-    if "CapacityProviders" in data:
+    if data.get("CapacityProviders") is not None:
         import capo_lambda.types.capacity_providers_list
 
         out["capacity_providers"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListCapacityProvidersResponse:
         raise DeserializationError(
             "ListCapacityProvidersResponse.capacity_providers required"
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

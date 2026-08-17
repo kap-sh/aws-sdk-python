@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: GetDefaultPatchBaselineResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDefaultPatchBaselineResult:
     out: GetDefaultPatchBaselineResult = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
-    if "OperatingSystem" in data:
+    if data.get("OperatingSystem") is not None:
         import capo_ssm.types.operating_system
 
         out["operating_system"] = (

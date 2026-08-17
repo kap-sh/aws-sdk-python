@@ -25,6 +25,6 @@ def serialize_json(value: Concurrency) -> dict:
 
 def deserialize_json(data: dict) -> Concurrency:
     out: Concurrency = {}  # type: ignore[typeddict-item]
-    if "ReservedConcurrentExecutions" in data:
+    if data.get("ReservedConcurrentExecutions") is not None:
         out["reserved_concurrent_executions"] = data["ReservedConcurrentExecutions"]
     return out

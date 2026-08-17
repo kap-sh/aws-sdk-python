@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: UnsupportedOperationException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UnsupportedOperationException_:
     out: UnsupportedOperationException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: LogConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogConfig:
     out: LogConfig = {}  # type: ignore[typeddict-item]
-    if "IncludeDetail" in data:
+    if data.get("IncludeDetail") is not None:
         import capo_eventbridge.types.include_detail
 
         out["include_detail"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogConfig:
                 data["IncludeDetail"]
             )
         )
-    if "Level" in data:
+    if data.get("Level") is not None:
         import capo_eventbridge.types.level
 
         out["level"] = capo_eventbridge.types.level.deserialize_aws_json_1_1(

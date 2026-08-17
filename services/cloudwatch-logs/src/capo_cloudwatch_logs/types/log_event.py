@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: LogEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogEvent:
     out: LogEvent = {}  # type: ignore[typeddict-item]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         out["timestamp"] = data["timestamp"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

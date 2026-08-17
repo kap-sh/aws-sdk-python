@@ -46,9 +46,9 @@ def serialize_aws_json_1_1(value: DescribePullThroughCacheRulesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePullThroughCacheRulesRequest:
     out: DescribePullThroughCacheRulesRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "ecrRepositoryPrefixes" in data:
+    if data.get("ecrRepositoryPrefixes") is not None:
         import capo_ecr.types.pull_through_cache_rule_repository_prefix_list
 
         out["ecr_repository_prefixes"] = (
@@ -56,8 +56,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePullThroughCacheRulesRequest
                 data["ecrRepositoryPrefixes"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

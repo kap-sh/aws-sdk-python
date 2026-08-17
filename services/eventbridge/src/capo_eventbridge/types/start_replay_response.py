@@ -50,17 +50,17 @@ def serialize_aws_json_1_1(value: StartReplayResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartReplayResponse:
     out: StartReplayResponse = {}  # type: ignore[typeddict-item]
-    if "ReplayArn" in data:
+    if data.get("ReplayArn") is not None:
         out["replay_arn"] = data["ReplayArn"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.replay_state
 
         out["state"] = capo_eventbridge.types.replay_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "ReplayStartTime" in data:
+    if data.get("ReplayStartTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["replay_start_time"] = (

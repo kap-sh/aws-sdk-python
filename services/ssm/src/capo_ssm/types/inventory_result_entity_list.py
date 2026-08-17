@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> InventoryResultEntityList:
 
     out: InventoryResultEntityList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.inventory_result_entity.deserialize_aws_json_1_1(item)
         )

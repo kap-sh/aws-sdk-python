@@ -57,23 +57,23 @@ def serialize_aws_json_1_1(value: GetScheduledQueryHistoryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetScheduledQueryHistoryRequest:
     out: GetScheduledQueryHistoryRequest = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     else:
         raise DeserializationError(
             "GetScheduledQueryHistoryRequest.identifier required"
         )
-    if "startTime" in data:
+    if data.get("startTime") is not None:
         out["start_time"] = data["startTime"]
     else:
         raise DeserializationError(
             "GetScheduledQueryHistoryRequest.start_time required"
         )
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         out["end_time"] = data["endTime"]
     else:
         raise DeserializationError("GetScheduledQueryHistoryRequest.end_time required")
-    if "executionStatuses" in data:
+    if data.get("executionStatuses") is not None:
         import capo_cloudwatch_logs.types.execution_status_list
 
         out["execution_statuses"] = (
@@ -81,8 +81,8 @@ def deserialize_aws_json_1_1(data: dict) -> GetScheduledQueryHistoryRequest:
                 data["executionStatuses"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

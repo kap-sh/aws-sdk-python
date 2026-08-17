@@ -45,11 +45,11 @@ def serialize_aws_json_1_1(value: MaintenanceWindowLambdaParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowLambdaParameters:
     out: MaintenanceWindowLambdaParameters = {}  # type: ignore[typeddict-item]
-    if "ClientContext" in data:
+    if data.get("ClientContext") is not None:
         out["client_context"] = data["ClientContext"]
-    if "Qualifier" in data:
+    if data.get("Qualifier") is not None:
         out["qualifier"] = data["Qualifier"]
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         import capo_ssm.types.maintenance_window_lambda_payload
 
         out["payload"] = (

@@ -62,19 +62,19 @@ def serialize_aws_json_1_1(value: ParseKeyValue) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParseKeyValue:
     out: ParseKeyValue = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "destination" in data:
+    if data.get("destination") is not None:
         out["destination"] = data["destination"]
-    if "fieldDelimiter" in data:
+    if data.get("fieldDelimiter") is not None:
         out["field_delimiter"] = data["fieldDelimiter"]
-    if "keyValueDelimiter" in data:
+    if data.get("keyValueDelimiter") is not None:
         out["key_value_delimiter"] = data["keyValueDelimiter"]
-    if "keyPrefix" in data:
+    if data.get("keyPrefix") is not None:
         out["key_prefix"] = data["keyPrefix"]
-    if "nonMatchValue" in data:
+    if data.get("nonMatchValue") is not None:
         out["non_match_value"] = data["nonMatchValue"]
-    if "overwriteIfExists" in data:
+    if data.get("overwriteIfExists") is not None:
         out["overwrite_if_exists"] = data["overwriteIfExists"]
     else:
         out["overwrite_if_exists"] = False

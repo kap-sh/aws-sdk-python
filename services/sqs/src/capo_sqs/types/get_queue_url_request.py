@@ -28,10 +28,10 @@ def serialize_aws_json_1_0(value: GetQueueUrlRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetQueueUrlRequest:
     out: GetQueueUrlRequest = {}  # type: ignore[typeddict-item]
-    if "QueueName" in data:
+    if data.get("QueueName") is not None:
         out["queue_name"] = data["QueueName"]
     else:
         raise DeserializationError("GetQueueUrlRequest.queue_name required")
-    if "QueueOwnerAWSAccountId" in data:
+    if data.get("QueueOwnerAWSAccountId") is not None:
         out["queue_owner_aws_account_id"] = data["QueueOwnerAWSAccountId"]
     return out

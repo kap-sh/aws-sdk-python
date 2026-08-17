@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: AutoRepairConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutoRepairConfiguration:
     out: AutoRepairConfiguration = {}  # type: ignore[typeddict-item]
-    if "actionsStatus" in data:
+    if data.get("actionsStatus") is not None:
         import capo_ecs.types.auto_repair_actions_status
 
         out["actions_status"] = (

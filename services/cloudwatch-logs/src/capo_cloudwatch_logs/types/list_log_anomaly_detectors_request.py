@@ -36,10 +36,10 @@ def serialize_aws_json_1_1(value: ListLogAnomalyDetectorsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListLogAnomalyDetectorsRequest:
     out: ListLogAnomalyDetectorsRequest = {}  # type: ignore[typeddict-item]
-    if "filterLogGroupArn" in data:
+    if data.get("filterLogGroupArn") is not None:
         out["filter_log_group_arn"] = data["filterLogGroupArn"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

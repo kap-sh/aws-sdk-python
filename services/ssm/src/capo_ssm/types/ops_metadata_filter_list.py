@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> OpsMetadataFilterList:
 
     out: OpsMetadataFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.ops_metadata_filter.deserialize_aws_json_1_1(item))
     return out

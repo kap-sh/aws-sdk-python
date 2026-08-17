@@ -37,13 +37,13 @@ def serialize_aws_json_1_0(value: StatisticSet) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StatisticSet:
     out: StatisticSet = {}  # type: ignore[typeddict-item]
-    if "SampleCount" in data:
+    if data.get("SampleCount") is not None:
         out["sample_count"] = data["SampleCount"]
-    if "Sum" in data:
+    if data.get("Sum") is not None:
         out["sum"] = data["Sum"]
-    if "Minimum" in data:
+    if data.get("Minimum") is not None:
         out["minimum"] = data["Minimum"]
-    if "Maximum" in data:
+    if data.get("Maximum") is not None:
         out["maximum"] = data["Maximum"]
     return out
 

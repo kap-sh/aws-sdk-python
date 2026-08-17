@@ -108,19 +108,19 @@ def serialize_aws_json_1_1(value: ExpressGatewayServiceConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
     out: ExpressGatewayServiceConfiguration = {}  # type: ignore[typeddict-item]
-    if "serviceRevisionArn" in data:
+    if data.get("serviceRevisionArn") is not None:
         out["service_revision_arn"] = data["serviceRevisionArn"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "taskRoleArn" in data:
+    if data.get("taskRoleArn") is not None:
         out["task_role_arn"] = data["taskRoleArn"]
-    if "taskDefinitionArn" in data:
+    if data.get("taskDefinitionArn") is not None:
         out["task_definition_arn"] = data["taskDefinitionArn"]
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.express_gateway_service_network_configuration
 
         out["network_configuration"] = (
@@ -128,9 +128,9 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
                 data["networkConfiguration"]
             )
         )
-    if "healthCheckPath" in data:
+    if data.get("healthCheckPath") is not None:
         out["health_check_path"] = data["healthCheckPath"]
-    if "primaryContainer" in data:
+    if data.get("primaryContainer") is not None:
         import capo_ecs.types.express_gateway_container
 
         out["primary_container"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
                 data["primaryContainer"]
             )
         )
-    if "scalingTarget" in data:
+    if data.get("scalingTarget") is not None:
         import capo_ecs.types.express_gateway_scaling_target
 
         out["scaling_target"] = (
@@ -146,7 +146,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
                 data["scalingTarget"]
             )
         )
-    if "ingressPaths" in data:
+    if data.get("ingressPaths") is not None:
         import capo_ecs.types.ingress_path_summaries
 
         out["ingress_paths"] = (
@@ -154,7 +154,7 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayServiceConfiguration:
                 data["ingressPaths"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

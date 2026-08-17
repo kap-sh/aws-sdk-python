@@ -32,9 +32,9 @@ def serialize_aws_json_1_0(value: CsvOptions) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CsvOptions:
     out: CsvOptions = {}  # type: ignore[typeddict-item]
-    if "Delimiter" in data:
+    if data.get("Delimiter") is not None:
         out["delimiter"] = data["Delimiter"]
-    if "HeaderList" in data:
+    if data.get("HeaderList") is not None:
         import capo_dynamodb.types.csv_header_list
 
         out["header_list"] = (

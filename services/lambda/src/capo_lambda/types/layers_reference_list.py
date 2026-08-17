@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> LayersReferenceList:
 
     out: LayersReferenceList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.layer.deserialize_json(item))
     return out

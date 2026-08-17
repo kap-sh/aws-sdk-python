@@ -53,7 +53,7 @@ def serialize_aws_json_1_1(value: ScheduledQueryDestination) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScheduledQueryDestination:
     out: ScheduledQueryDestination = {}  # type: ignore[typeddict-item]
-    if "destinationType" in data:
+    if data.get("destinationType") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_destination_type
 
         out["destination_type"] = (
@@ -61,9 +61,9 @@ def deserialize_aws_json_1_1(data: dict) -> ScheduledQueryDestination:
                 data["destinationType"]
             )
         )
-    if "destinationIdentifier" in data:
+    if data.get("destinationIdentifier") is not None:
         out["destination_identifier"] = data["destinationIdentifier"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.action_status
 
         out["status"] = (
@@ -71,8 +71,8 @@ def deserialize_aws_json_1_1(data: dict) -> ScheduledQueryDestination:
                 data["status"]
             )
         )
-    if "processedIdentifier" in data:
+    if data.get("processedIdentifier") is not None:
         out["processed_identifier"] = data["processedIdentifier"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

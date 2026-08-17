@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: ListAggregateLogGroupSummariesResponse) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesResponse:
     out: ListAggregateLogGroupSummariesResponse = {}  # type: ignore[typeddict-item]
-    if "aggregateLogGroupSummaries" in data:
+    if data.get("aggregateLogGroupSummaries") is not None:
         import capo_cloudwatch_logs.types.aggregate_log_group_summaries
 
         out["aggregate_log_group_summaries"] = (
@@ -43,6 +43,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListAggregateLogGroupSummariesRespon
                 data["aggregateLogGroupSummaries"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

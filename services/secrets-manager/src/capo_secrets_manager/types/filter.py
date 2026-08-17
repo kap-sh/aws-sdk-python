@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: Filter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Filter:
     out: Filter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_secrets_manager.types.filter_name_string_type
 
         out["key"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> Filter:
                 data["Key"]
             )
         )
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_secrets_manager.types.filter_values_string_list
 
         out["values"] = (

@@ -36,14 +36,14 @@ def serialize_aws_json_1_1(value: GetCalendarStateResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetCalendarStateResponse:
     out: GetCalendarStateResponse = {}  # type: ignore[typeddict-item]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_ssm.types.calendar_state
 
         out["state"] = capo_ssm.types.calendar_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "AtTime" in data:
+    if data.get("AtTime") is not None:
         out["at_time"] = data["AtTime"]
-    if "NextTransitionTime" in data:
+    if data.get("NextTransitionTime") is not None:
         out["next_transition_time"] = data["NextTransitionTime"]
     return out

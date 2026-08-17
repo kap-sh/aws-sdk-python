@@ -43,15 +43,15 @@ def serialize_aws_json_1_0(value: AddPermissionRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AddPermissionRequest:
     out: AddPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("AddPermissionRequest.queue_url required")
-    if "Label" in data:
+    if data.get("Label") is not None:
         out["label"] = data["Label"]
     else:
         raise DeserializationError("AddPermissionRequest.label required")
-    if "AWSAccountIds" in data:
+    if data.get("AWSAccountIds") is not None:
         import capo_sqs.types.aws_account_id_list
 
         out["aws_account_ids"] = (
@@ -61,7 +61,7 @@ def deserialize_aws_json_1_0(data: dict) -> AddPermissionRequest:
         )
     else:
         raise DeserializationError("AddPermissionRequest.aws_account_ids required")
-    if "Actions" in data:
+    if data.get("Actions") is not None:
         import capo_sqs.types.action_name_list
 
         out["actions"] = capo_sqs.types.action_name_list.deserialize_aws_json_1_0(

@@ -38,13 +38,13 @@ def serialize_aws_json_1_0(value: WriteRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> WriteRequest:
     out: WriteRequest = {}  # type: ignore[typeddict-item]
-    if "PutRequest" in data:
+    if data.get("PutRequest") is not None:
         import capo_dynamodb.types.put_request
 
         out["put_request"] = capo_dynamodb.types.put_request.deserialize_aws_json_1_0(
             data["PutRequest"]
         )
-    if "DeleteRequest" in data:
+    if data.get("DeleteRequest") is not None:
         import capo_dynamodb.types.delete_request
 
         out["delete_request"] = (

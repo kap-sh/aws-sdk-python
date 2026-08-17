@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: InitiateLayerUploadResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InitiateLayerUploadResponse:
     out: InitiateLayerUploadResponse = {}  # type: ignore[typeddict-item]
-    if "uploadId" in data:
+    if data.get("uploadId") is not None:
         out["upload_id"] = data["uploadId"]
-    if "partSize" in data:
+    if data.get("partSize") is not None:
         out["part_size"] = data["partSize"]
     return out

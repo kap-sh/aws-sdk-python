@@ -60,7 +60,7 @@ def serialize_aws_json_1_1(value: VerifyMacRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VerifyMacRequest:
     out: VerifyMacRequest = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         import capo_kms.types.plaintext_type
 
         out["message"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
@@ -68,11 +68,11 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyMacRequest:
         )
     else:
         raise DeserializationError("VerifyMacRequest.message required")
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("VerifyMacRequest.key_id required")
-    if "MacAlgorithm" in data:
+    if data.get("MacAlgorithm") is not None:
         import capo_kms.types.mac_algorithm_spec
 
         out["mac_algorithm"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyMacRequest:
         )
     else:
         raise DeserializationError("VerifyMacRequest.mac_algorithm required")
-    if "Mac" in data:
+    if data.get("Mac") is not None:
         import capo_kms.types.ciphertext_type
 
         out["mac"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
@@ -90,12 +90,12 @@ def deserialize_aws_json_1_1(data: dict) -> VerifyMacRequest:
         )
     else:
         raise DeserializationError("VerifyMacRequest.mac required")
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

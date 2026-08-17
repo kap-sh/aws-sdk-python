@@ -30,12 +30,12 @@ def serialize_aws_json_1_0(value: ListTagsOfResourceOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListTagsOfResourceOutput:
     out: ListTagsOfResourceOutput = {}  # type: ignore[typeddict-item]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_dynamodb.types.tag_list
 
         out["tags"] = capo_dynamodb.types.tag_list.deserialize_aws_json_1_0(
             data["Tags"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

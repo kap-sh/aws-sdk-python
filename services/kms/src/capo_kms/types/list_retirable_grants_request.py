@@ -40,12 +40,12 @@ def serialize_aws_json_1_1(value: ListRetirableGrantsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListRetirableGrantsRequest:
     out: ListRetirableGrantsRequest = {}  # type: ignore[typeddict-item]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "Marker" in data:
+    if data.get("Marker") is not None:
         out["marker"] = data["Marker"]
-    if "RetiringPrincipal" in data:
+    if data.get("RetiringPrincipal") is not None:
         out["retiring_principal"] = data["RetiringPrincipal"]
-    if "RetiringServicePrincipal" in data:
+    if data.get("RetiringServicePrincipal") is not None:
         out["retiring_service_principal"] = data["RetiringServicePrincipal"]
     return out

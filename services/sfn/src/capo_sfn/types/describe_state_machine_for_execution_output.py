@@ -109,31 +109,31 @@ def serialize_aws_json_1_0(value: DescribeStateMachineForExecutionOutput) -> dic
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineForExecutionOutput:
     out: DescribeStateMachineForExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError(
             "DescribeStateMachineForExecutionOutput.state_machine_arn required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "DescribeStateMachineForExecutionOutput.name required"
         )
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError(
             "DescribeStateMachineForExecutionOutput.definition required"
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError(
             "DescribeStateMachineForExecutionOutput.role_arn required"
         )
-    if "updateDate" in data:
+    if data.get("updateDate") is not None:
         import capo_sfn.types.timestamp
 
         out["update_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -143,7 +143,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineForExecutionOutp
         raise DeserializationError(
             "DescribeStateMachineForExecutionOutput.update_date required"
         )
-    if "loggingConfiguration" in data:
+    if data.get("loggingConfiguration") is not None:
         import capo_sfn.types.logging_configuration
 
         out["logging_configuration"] = (
@@ -151,7 +151,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineForExecutionOutp
                 data["loggingConfiguration"]
             )
         )
-    if "tracingConfiguration" in data:
+    if data.get("tracingConfiguration") is not None:
         import capo_sfn.types.tracing_configuration
 
         out["tracing_configuration"] = (
@@ -159,13 +159,13 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineForExecutionOutp
                 data["tracingConfiguration"]
             )
         )
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
-    if "label" in data:
+    if data.get("label") is not None:
         out["label"] = data["label"]
-    if "revisionId" in data:
+    if data.get("revisionId") is not None:
         out["revision_id"] = data["revisionId"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_sfn.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -173,7 +173,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineForExecutionOutp
                 data["encryptionConfiguration"]
             )
         )
-    if "variableReferences" in data:
+    if data.get("variableReferences") is not None:
         import capo_sfn.types.variable_references
 
         out["variable_references"] = (

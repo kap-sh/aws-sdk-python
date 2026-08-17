@@ -23,5 +23,7 @@ def deserialize_aws_json_1_0(data: list) -> Endpoints:
 
     out: Endpoints = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_dynamodb.types.endpoint.deserialize_aws_json_1_0(item))
     return out

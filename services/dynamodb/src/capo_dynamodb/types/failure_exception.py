@@ -30,8 +30,8 @@ def serialize_aws_json_1_0(value: FailureException) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> FailureException:
     out: FailureException = {}  # type: ignore[typeddict-item]
-    if "ExceptionName" in data:
+    if data.get("ExceptionName") is not None:
         out["exception_name"] = data["ExceptionName"]
-    if "ExceptionDescription" in data:
+    if data.get("ExceptionDescription") is not None:
         out["exception_description"] = data["ExceptionDescription"]
     return out

@@ -123,21 +123,21 @@ def serialize_aws_json_1_0(value: InspectionData) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InspectionData:
     out: InspectionData = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "afterArguments" in data:
+    if data.get("afterArguments") is not None:
         out["after_arguments"] = data["afterArguments"]
-    if "afterInputPath" in data:
+    if data.get("afterInputPath") is not None:
         out["after_input_path"] = data["afterInputPath"]
-    if "afterParameters" in data:
+    if data.get("afterParameters") is not None:
         out["after_parameters"] = data["afterParameters"]
-    if "result" in data:
+    if data.get("result") is not None:
         out["result"] = data["result"]
-    if "afterResultSelector" in data:
+    if data.get("afterResultSelector") is not None:
         out["after_result_selector"] = data["afterResultSelector"]
-    if "afterResultPath" in data:
+    if data.get("afterResultPath") is not None:
         out["after_result_path"] = data["afterResultPath"]
-    if "request" in data:
+    if data.get("request") is not None:
         import capo_sfn.types.inspection_data_request
 
         out["request"] = (
@@ -145,7 +145,7 @@ def deserialize_aws_json_1_0(data: dict) -> InspectionData:
                 data["request"]
             )
         )
-    if "response" in data:
+    if data.get("response") is not None:
         import capo_sfn.types.inspection_data_response
 
         out["response"] = (
@@ -153,9 +153,9 @@ def deserialize_aws_json_1_0(data: dict) -> InspectionData:
                 data["response"]
             )
         )
-    if "variables" in data:
+    if data.get("variables") is not None:
         out["variables"] = data["variables"]
-    if "errorDetails" in data:
+    if data.get("errorDetails") is not None:
         import capo_sfn.types.inspection_error_details
 
         out["error_details"] = (
@@ -163,18 +163,18 @@ def deserialize_aws_json_1_0(data: dict) -> InspectionData:
                 data["errorDetails"]
             )
         )
-    if "afterItemsPath" in data:
+    if data.get("afterItemsPath") is not None:
         out["after_items_path"] = data["afterItemsPath"]
-    if "afterItemSelector" in data:
+    if data.get("afterItemSelector") is not None:
         out["after_item_selector"] = data["afterItemSelector"]
-    if "afterItemBatcher" in data:
+    if data.get("afterItemBatcher") is not None:
         out["after_item_batcher"] = data["afterItemBatcher"]
-    if "afterItemsPointer" in data:
+    if data.get("afterItemsPointer") is not None:
         out["after_items_pointer"] = data["afterItemsPointer"]
-    if "toleratedFailureCount" in data:
+    if data.get("toleratedFailureCount") is not None:
         out["tolerated_failure_count"] = data["toleratedFailureCount"]
-    if "toleratedFailurePercentage" in data:
+    if data.get("toleratedFailurePercentage") is not None:
         out["tolerated_failure_percentage"] = data["toleratedFailurePercentage"]
-    if "maxConcurrency" in data:
+    if data.get("maxConcurrency") is not None:
         out["max_concurrency"] = data["maxConcurrency"]
     return out

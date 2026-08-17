@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> AttachmentStateChanges:
 
     out: AttachmentStateChanges = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.attachment_state_change.deserialize_aws_json_1_1(item)
         )

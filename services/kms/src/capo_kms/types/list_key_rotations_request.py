@@ -47,11 +47,11 @@ def serialize_aws_json_1_1(value: ListKeyRotationsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListKeyRotationsRequest:
     out: ListKeyRotationsRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("ListKeyRotationsRequest.key_id required")
-    if "IncludeKeyMaterial" in data:
+    if data.get("IncludeKeyMaterial") is not None:
         import capo_kms.types.include_key_material
 
         out["include_key_material"] = (
@@ -59,8 +59,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListKeyRotationsRequest:
                 data["IncludeKeyMaterial"]
             )
         )
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "Marker" in data:
+    if data.get("Marker") is not None:
         out["marker"] = data["Marker"]
     return out

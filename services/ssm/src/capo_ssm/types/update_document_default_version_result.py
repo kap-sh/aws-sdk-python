@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: UpdateDocumentDefaultVersionResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentDefaultVersionResult:
     out: UpdateDocumentDefaultVersionResult = {}  # type: ignore[typeddict-item]
-    if "Description" in data:
+    if data.get("Description") is not None:
         import capo_ssm.types.document_default_version_description
 
         out["description"] = (

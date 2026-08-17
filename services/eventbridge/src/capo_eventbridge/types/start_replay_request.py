@@ -60,17 +60,17 @@ def serialize_aws_json_1_1(value: StartReplayRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartReplayRequest:
     out: StartReplayRequest = {}  # type: ignore[typeddict-item]
-    if "ReplayName" in data:
+    if data.get("ReplayName") is not None:
         out["replay_name"] = data["ReplayName"]
     else:
         raise DeserializationError("StartReplayRequest.replay_name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
     else:
         raise DeserializationError("StartReplayRequest.event_source_arn required")
-    if "EventStartTime" in data:
+    if data.get("EventStartTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["event_start_time"] = (
@@ -80,7 +80,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartReplayRequest:
         )
     else:
         raise DeserializationError("StartReplayRequest.event_start_time required")
-    if "EventEndTime" in data:
+    if data.get("EventEndTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["event_end_time"] = (
@@ -90,7 +90,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartReplayRequest:
         )
     else:
         raise DeserializationError("StartReplayRequest.event_end_time required")
-    if "Destination" in data:
+    if data.get("Destination") is not None:
         import capo_eventbridge.types.replay_destination
 
         out["destination"] = (

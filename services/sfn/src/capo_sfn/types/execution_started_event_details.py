@@ -49,9 +49,9 @@ def serialize_aws_json_1_0(value: ExecutionStartedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecutionStartedEventDetails:
     out: ExecutionStartedEventDetails = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["input_details"] = (
@@ -59,10 +59,10 @@ def deserialize_aws_json_1_0(data: dict) -> ExecutionStartedEventDetails:
                 data["inputDetails"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
     return out

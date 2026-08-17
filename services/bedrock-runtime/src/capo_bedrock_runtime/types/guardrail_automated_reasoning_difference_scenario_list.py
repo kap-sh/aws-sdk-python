@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GuardrailAutomatedReasoningDifferenceScenari
 
     out: GuardrailAutomatedReasoningDifferenceScenarioList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_automated_reasoning_scenario.deserialize_json(
                 item

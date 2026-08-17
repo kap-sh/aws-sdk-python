@@ -39,27 +39,27 @@ def serialize_aws_json_1_1(value: SeveritySummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SeveritySummary:
     out: SeveritySummary = {}  # type: ignore[typeddict-item]
-    if "CriticalCount" in data:
+    if data.get("CriticalCount") is not None:
         out["critical_count"] = data["CriticalCount"]
     else:
         out["critical_count"] = 0
-    if "HighCount" in data:
+    if data.get("HighCount") is not None:
         out["high_count"] = data["HighCount"]
     else:
         out["high_count"] = 0
-    if "MediumCount" in data:
+    if data.get("MediumCount") is not None:
         out["medium_count"] = data["MediumCount"]
     else:
         out["medium_count"] = 0
-    if "LowCount" in data:
+    if data.get("LowCount") is not None:
         out["low_count"] = data["LowCount"]
     else:
         out["low_count"] = 0
-    if "InformationalCount" in data:
+    if data.get("InformationalCount") is not None:
         out["informational_count"] = data["InformationalCount"]
     else:
         out["informational_count"] = 0
-    if "UnspecifiedCount" in data:
+    if data.get("UnspecifiedCount") is not None:
         out["unspecified_count"] = data["UnspecifiedCount"]
     else:
         out["unspecified_count"] = 0

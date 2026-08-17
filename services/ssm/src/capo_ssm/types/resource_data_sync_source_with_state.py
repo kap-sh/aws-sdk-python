@@ -64,9 +64,9 @@ def serialize_aws_json_1_1(value: ResourceDataSyncSourceWithState) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncSourceWithState:
     out: ResourceDataSyncSourceWithState = {}  # type: ignore[typeddict-item]
-    if "SourceType" in data:
+    if data.get("SourceType") is not None:
         out["source_type"] = data["SourceType"]
-    if "AwsOrganizationsSource" in data:
+    if data.get("AwsOrganizationsSource") is not None:
         import capo_ssm.types.resource_data_sync_aws_organizations_source
 
         out["aws_organizations_source"] = (
@@ -74,7 +74,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncSourceWithState:
                 data["AwsOrganizationsSource"]
             )
         )
-    if "SourceRegions" in data:
+    if data.get("SourceRegions") is not None:
         import capo_ssm.types.resource_data_sync_source_region_list
 
         out["source_regions"] = (
@@ -82,13 +82,13 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncSourceWithState:
                 data["SourceRegions"]
             )
         )
-    if "IncludeFutureRegions" in data:
+    if data.get("IncludeFutureRegions") is not None:
         out["include_future_regions"] = data["IncludeFutureRegions"]
     else:
         out["include_future_regions"] = False
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "EnableAllOpsDataSources" in data:
+    if data.get("EnableAllOpsDataSources") is not None:
         out["enable_all_ops_data_sources"] = data["EnableAllOpsDataSources"]
     else:
         out["enable_all_ops_data_sources"] = False

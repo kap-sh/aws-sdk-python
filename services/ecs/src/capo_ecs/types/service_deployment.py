@@ -184,43 +184,43 @@ def serialize_aws_json_1_1(value: ServiceDeployment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
     out: ServiceDeployment = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArn" in data:
+    if data.get("serviceDeploymentArn") is not None:
         out["service_deployment_arn"] = data["serviceDeploymentArn"]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "finishedAt" in data:
+    if data.get("finishedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["finished_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["finishedAt"]
         )
-    if "stoppedAt" in data:
+    if data.get("stoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["stoppedAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["updatedAt"]
         )
-    if "sourceServiceRevisions" in data:
+    if data.get("sourceServiceRevisions") is not None:
         import capo_ecs.types.service_revisions_summary_list
 
         out["source_service_revisions"] = (
@@ -228,7 +228,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["sourceServiceRevisions"]
             )
         )
-    if "targetServiceRevision" in data:
+    if data.get("targetServiceRevision") is not None:
         import capo_ecs.types.service_revision_summary
 
         out["target_service_revision"] = (
@@ -236,7 +236,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["targetServiceRevision"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.service_deployment_status
 
         out["status"] = (
@@ -244,9 +244,9 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "lifecycleStage" in data:
+    if data.get("lifecycleStage") is not None:
         import capo_ecs.types.service_deployment_lifecycle_stage
 
         out["lifecycle_stage"] = (
@@ -254,7 +254,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["lifecycleStage"]
             )
         )
-    if "lifecycleHookDetails" in data:
+    if data.get("lifecycleHookDetails") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_detail_list
 
         out["lifecycle_hook_details"] = (
@@ -262,7 +262,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["lifecycleHookDetails"]
             )
         )
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.deployment_configuration
 
         out["deployment_configuration"] = (
@@ -270,13 +270,13 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["deploymentConfiguration"]
             )
         )
-    if "rollback" in data:
+    if data.get("rollback") is not None:
         import capo_ecs.types.rollback
 
         out["rollback"] = capo_ecs.types.rollback.deserialize_aws_json_1_1(
             data["rollback"]
         )
-    if "deploymentCircuitBreaker" in data:
+    if data.get("deploymentCircuitBreaker") is not None:
         import capo_ecs.types.service_deployment_circuit_breaker
 
         out["deployment_circuit_breaker"] = (
@@ -284,7 +284,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeployment:
                 data["deploymentCircuitBreaker"]
             )
         )
-    if "alarms" in data:
+    if data.get("alarms") is not None:
         import capo_ecs.types.service_deployment_alarms
 
         out["alarms"] = (

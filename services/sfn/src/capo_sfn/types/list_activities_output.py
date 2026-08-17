@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: ListActivitiesOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListActivitiesOutput:
     out: ListActivitiesOutput = {}  # type: ignore[typeddict-item]
-    if "activities" in data:
+    if data.get("activities") is not None:
         import capo_sfn.types.activity_list
 
         out["activities"] = capo_sfn.types.activity_list.deserialize_aws_json_1_0(
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_0(data: dict) -> ListActivitiesOutput:
         )
     else:
         raise DeserializationError("ListActivitiesOutput.activities required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

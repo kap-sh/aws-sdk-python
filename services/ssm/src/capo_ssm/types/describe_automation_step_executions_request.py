@@ -54,13 +54,13 @@ def serialize_aws_json_1_1(value: DescribeAutomationStepExecutionsRequest) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAutomationStepExecutionsRequest:
     out: DescribeAutomationStepExecutionsRequest = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
     else:
         raise DeserializationError(
             "DescribeAutomationStepExecutionsRequest.automation_execution_id required"
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.step_execution_filter_list
 
         out["filters"] = (
@@ -68,10 +68,10 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAutomationStepExecutionsRequ
                 data["Filters"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "ReverseOrder" in data:
+    if data.get("ReverseOrder") is not None:
         out["reverse_order"] = data["ReverseOrder"]
     return out

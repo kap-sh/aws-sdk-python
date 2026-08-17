@@ -63,13 +63,13 @@ def serialize_aws_json_1_1(value: DeliverySourceConfigurationSchema) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeliverySourceConfigurationSchema:
     out: DeliverySourceConfigurationSchema = {}  # type: ignore[typeddict-item]
-    if "keyName" in data:
+    if data.get("keyName") is not None:
         out["key_name"] = data["keyName"]
     else:
         raise DeserializationError(
             "DeliverySourceConfigurationSchema.key_name required"
         )
-    if "valueType" in data:
+    if data.get("valueType") is not None:
         import capo_cloudwatch_logs.types.delivery_source_configuration_schema_value_type
 
         out["value_type"] = (
@@ -81,13 +81,13 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySourceConfigurationSchema:
         raise DeserializationError(
             "DeliverySourceConfigurationSchema.value_type required"
         )
-    if "defaultValue" in data:
+    if data.get("defaultValue") is not None:
         out["default_value"] = data["defaultValue"]
     else:
         raise DeserializationError(
             "DeliverySourceConfigurationSchema.default_value required"
         )
-    if "supportedValues" in data:
+    if data.get("supportedValues") is not None:
         import capo_cloudwatch_logs.types.delivery_source_configuration_supported_values
 
         out["supported_values"] = (
@@ -95,8 +95,8 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySourceConfigurationSchema:
                 data["supportedValues"]
             )
         )
-    if "minValue" in data:
+    if data.get("minValue") is not None:
         out["min_value"] = data["minValue"]
-    if "maxValue" in data:
+    if data.get("maxValue") is not None:
         out["max_value"] = data["maxValue"]
     return out

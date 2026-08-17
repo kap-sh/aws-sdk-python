@@ -39,7 +39,7 @@ def serialize_aws_json_1_1(value: ServiceConnectTlsConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectTlsConfiguration:
     out: ServiceConnectTlsConfiguration = {}  # type: ignore[typeddict-item]
-    if "issuerCertificateAuthority" in data:
+    if data.get("issuerCertificateAuthority") is not None:
         import capo_ecs.types.service_connect_tls_certificate_authority
 
         out["issuer_certificate_authority"] = (
@@ -51,8 +51,8 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceConnectTlsConfiguration:
         raise DeserializationError(
             "ServiceConnectTlsConfiguration.issuer_certificate_authority required"
         )
-    if "kmsKey" in data:
+    if data.get("kmsKey") is not None:
         out["kms_key"] = data["kmsKey"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     return out

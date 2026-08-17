@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: InfrastructureOptimization) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InfrastructureOptimization:
     out: InfrastructureOptimization = {}  # type: ignore[typeddict-item]
-    if "scaleInAfter" in data:
+    if data.get("scaleInAfter") is not None:
         out["scale_in_after"] = data["scaleInAfter"]
     return out

@@ -83,15 +83,15 @@ def serialize_aws_json_1_0(value: UpdateStateMachineInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineInput:
     out: UpdateStateMachineInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError("UpdateStateMachineInput.state_machine_arn required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "loggingConfiguration" in data:
+    if data.get("loggingConfiguration") is not None:
         import capo_sfn.types.logging_configuration
 
         out["logging_configuration"] = (
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineInput:
                 data["loggingConfiguration"]
             )
         )
-    if "tracingConfiguration" in data:
+    if data.get("tracingConfiguration") is not None:
         import capo_sfn.types.tracing_configuration
 
         out["tracing_configuration"] = (
@@ -107,13 +107,13 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineInput:
                 data["tracingConfiguration"]
             )
         )
-    if "publish" in data:
+    if data.get("publish") is not None:
         out["publish"] = data["publish"]
     else:
         out["publish"] = False
-    if "versionDescription" in data:
+    if data.get("versionDescription") is not None:
         out["version_description"] = data["versionDescription"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_sfn.types.encryption_configuration
 
         out["encryption_configuration"] = (

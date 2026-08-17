@@ -28,7 +28,7 @@ def serialize_json(value: UpdateCodeSigningConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateCodeSigningConfigResponse:
     out: UpdateCodeSigningConfigResponse = {}  # type: ignore[typeddict-item]
-    if "CodeSigningConfig" in data:
+    if data.get("CodeSigningConfig") is not None:
         import capo_lambda.types.code_signing_config
 
         out["code_signing_config"] = (

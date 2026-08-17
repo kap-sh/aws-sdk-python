@@ -70,17 +70,17 @@ def serialize_aws_json_1_1(value: DaemonDetail) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonDetail:
     out: DaemonDetail = {}  # type: ignore[typeddict-item]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_status
 
         out["status"] = capo_ecs.types.daemon_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "currentRevisions" in data:
+    if data.get("currentRevisions") is not None:
         import capo_ecs.types.daemon_revision_detail_list
 
         out["current_revisions"] = (
@@ -88,15 +88,15 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDetail:
                 data["currentRevisions"]
             )
         )
-    if "deploymentArn" in data:
+    if data.get("deploymentArn") is not None:
         out["deployment_arn"] = data["deploymentArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

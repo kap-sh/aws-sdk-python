@@ -27,11 +27,11 @@ def serialize_aws_json_1_0(value: TaskStartedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TaskStartedEventDetails:
     out: TaskStartedEventDetails = {}  # type: ignore[typeddict-item]
-    if "resourceType" in data:
+    if data.get("resourceType") is not None:
         out["resource_type"] = data["resourceType"]
     else:
         raise DeserializationError("TaskStartedEventDetails.resource_type required")
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     else:
         raise DeserializationError("TaskStartedEventDetails.resource required")

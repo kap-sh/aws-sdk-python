@@ -29,7 +29,7 @@ def serialize_json(value: Environment) -> dict:
 
 def deserialize_json(data: dict) -> Environment:
     out: Environment = {}  # type: ignore[typeddict-item]
-    if "Variables" in data:
+    if data.get("Variables") is not None:
         import capo_lambda.types.environment_variables
 
         out["variables"] = capo_lambda.types.environment_variables.deserialize_json(

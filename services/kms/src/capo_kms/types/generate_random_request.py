@@ -41,11 +41,11 @@ def serialize_aws_json_1_1(value: GenerateRandomRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GenerateRandomRequest:
     out: GenerateRandomRequest = {}  # type: ignore[typeddict-item]
-    if "NumberOfBytes" in data:
+    if data.get("NumberOfBytes") is not None:
         out["number_of_bytes"] = data["NumberOfBytes"]
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
-    if "Recipient" in data:
+    if data.get("Recipient") is not None:
         import capo_kms.types.recipient_info
 
         out["recipient"] = capo_kms.types.recipient_info.deserialize_aws_json_1_1(

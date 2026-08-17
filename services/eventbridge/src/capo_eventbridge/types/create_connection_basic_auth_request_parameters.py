@@ -28,13 +28,13 @@ def serialize_aws_json_1_1(value: CreateConnectionBasicAuthRequestParameters) ->
 
 def deserialize_aws_json_1_1(data: dict) -> CreateConnectionBasicAuthRequestParameters:
     out: CreateConnectionBasicAuthRequestParameters = {}  # type: ignore[typeddict-item]
-    if "Username" in data:
+    if data.get("Username") is not None:
         out["username"] = data["Username"]
     else:
         raise DeserializationError(
             "CreateConnectionBasicAuthRequestParameters.username required"
         )
-    if "Password" in data:
+    if data.get("Password") is not None:
         out["password"] = data["Password"]
     else:
         raise DeserializationError(

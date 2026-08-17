@@ -101,13 +101,13 @@ def serialize_aws_json_1_1(value: CapacityProvider) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CapacityProvider:
     out: CapacityProvider = {}  # type: ignore[typeddict-item]
-    if "capacityProviderArn" in data:
+    if data.get("capacityProviderArn") is not None:
         out["capacity_provider_arn"] = data["capacityProviderArn"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.capacity_provider_status
 
         out["status"] = (
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_1(data: dict) -> CapacityProvider:
                 data["status"]
             )
         )
-    if "autoScalingGroupProvider" in data:
+    if data.get("autoScalingGroupProvider") is not None:
         import capo_ecs.types.auto_scaling_group_provider
 
         out["auto_scaling_group_provider"] = (
@@ -123,7 +123,7 @@ def deserialize_aws_json_1_1(data: dict) -> CapacityProvider:
                 data["autoScalingGroupProvider"]
             )
         )
-    if "managedInstancesProvider" in data:
+    if data.get("managedInstancesProvider") is not None:
         import capo_ecs.types.managed_instances_provider
 
         out["managed_instances_provider"] = (
@@ -131,7 +131,7 @@ def deserialize_aws_json_1_1(data: dict) -> CapacityProvider:
                 data["managedInstancesProvider"]
             )
         )
-    if "updateStatus" in data:
+    if data.get("updateStatus") is not None:
         import capo_ecs.types.capacity_provider_update_status
 
         out["update_status"] = (
@@ -139,13 +139,13 @@ def deserialize_aws_json_1_1(data: dict) -> CapacityProvider:
                 data["updateStatus"]
             )
         )
-    if "updateStatusReason" in data:
+    if data.get("updateStatusReason") is not None:
         out["update_status_reason"] = data["updateStatusReason"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.capacity_provider_type
 
         out["type"] = capo_ecs.types.capacity_provider_type.deserialize_aws_json_1_1(

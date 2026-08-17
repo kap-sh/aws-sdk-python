@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ConnectCustomKeyStoreRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectCustomKeyStoreRequest:
     out: ConnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStoreId" in data:
+    if data.get("CustomKeyStoreId") is not None:
         out["custom_key_store_id"] = data["CustomKeyStoreId"]
     else:
         raise DeserializationError(

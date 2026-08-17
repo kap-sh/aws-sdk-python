@@ -58,15 +58,15 @@ def serialize_aws_json_1_0(value: LambdaFunctionScheduledEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LambdaFunctionScheduledEventDetails:
     out: LambdaFunctionScheduledEventDetails = {}  # type: ignore[typeddict-item]
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     else:
         raise DeserializationError(
             "LambdaFunctionScheduledEventDetails.resource required"
         )
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["input_details"] = (
@@ -74,9 +74,9 @@ def deserialize_aws_json_1_0(data: dict) -> LambdaFunctionScheduledEventDetails:
                 data["inputDetails"]
             )
         )
-    if "timeoutInSeconds" in data:
+    if data.get("timeoutInSeconds") is not None:
         out["timeout_in_seconds"] = data["timeoutInSeconds"]
-    if "taskCredentials" in data:
+    if data.get("taskCredentials") is not None:
         import capo_sfn.types.task_credentials
 
         out["task_credentials"] = (

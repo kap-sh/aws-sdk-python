@@ -35,10 +35,10 @@ def serialize_aws_json_1_0(value: ListImportsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListImportsInput:
     out: ListImportsInput = {}  # type: ignore[typeddict-item]
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "PageSize" in data:
+    if data.get("PageSize") is not None:
         out["page_size"] = data["PageSize"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

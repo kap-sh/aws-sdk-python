@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: ListQueueTagsRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListQueueTagsRequest:
     out: ListQueueTagsRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("ListQueueTagsRequest.queue_url required")

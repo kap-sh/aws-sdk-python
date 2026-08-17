@@ -47,15 +47,15 @@ def serialize_aws_json_1_1(value: ListCommandsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListCommandsRequest:
     out: ListCommandsRequest = {}  # type: ignore[typeddict-item]
-    if "CommandId" in data:
+    if data.get("CommandId") is not None:
         out["command_id"] = data["CommandId"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.command_filter_list
 
         out["filters"] = capo_ssm.types.command_filter_list.deserialize_aws_json_1_1(

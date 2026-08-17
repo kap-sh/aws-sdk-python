@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> OutputLogEvents:
 
     out: OutputLogEvents = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.output_log_event.deserialize_aws_json_1_1(item)
         )

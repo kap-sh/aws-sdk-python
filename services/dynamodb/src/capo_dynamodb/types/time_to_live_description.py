@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: TimeToLiveDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TimeToLiveDescription:
     out: TimeToLiveDescription = {}  # type: ignore[typeddict-item]
-    if "TimeToLiveStatus" in data:
+    if data.get("TimeToLiveStatus") is not None:
         import capo_dynamodb.types.time_to_live_status
 
         out["time_to_live_status"] = (
@@ -46,6 +46,6 @@ def deserialize_aws_json_1_0(data: dict) -> TimeToLiveDescription:
                 data["TimeToLiveStatus"]
             )
         )
-    if "AttributeName" in data:
+    if data.get("AttributeName") is not None:
         out["attribute_name"] = data["AttributeName"]
     return out

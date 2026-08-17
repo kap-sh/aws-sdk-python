@@ -96,17 +96,17 @@ def serialize_aws_json_1_0(value: GetAlarmMuteRuleOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleOutput:
     out: GetAlarmMuteRuleOutput = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "AlarmMuteRuleArn" in data:
+    if data.get("AlarmMuteRuleArn") is not None:
         out["alarm_mute_rule_arn"] = data["AlarmMuteRuleArn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Rule" in data:
+    if data.get("Rule") is not None:
         import capo_cloudwatch.types.rule
 
         out["rule"] = capo_cloudwatch.types.rule.deserialize_aws_json_1_0(data["Rule"])
-    if "MuteTargets" in data:
+    if data.get("MuteTargets") is not None:
         import capo_cloudwatch.types.mute_targets
 
         out["mute_targets"] = (
@@ -114,19 +114,19 @@ def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleOutput:
                 data["MuteTargets"]
             )
         )
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartDate"]
         )
-    if "ExpireDate" in data:
+    if data.get("ExpireDate") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["expire_date"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["ExpireDate"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_cloudwatch.types.alarm_mute_rule_status
 
         out["status"] = (
@@ -134,7 +134,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleOutput:
                 data["Status"]
             )
         )
-    if "LastUpdatedTimestamp" in data:
+    if data.get("LastUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["last_updated_timestamp"] = (
@@ -142,7 +142,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetAlarmMuteRuleOutput:
                 data["LastUpdatedTimestamp"]
             )
         )
-    if "MuteType" in data:
+    if data.get("MuteType") is not None:
         out["mute_type"] = data["MuteType"]
     return out
 

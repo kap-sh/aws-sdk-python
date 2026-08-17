@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: GetDatasetInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetDatasetInput:
     out: GetDatasetInput = {}  # type: ignore[typeddict-item]
-    if "DatasetIdentifier" in data:
+    if data.get("DatasetIdentifier") is not None:
         out["dataset_identifier"] = data["DatasetIdentifier"]
     return out
 

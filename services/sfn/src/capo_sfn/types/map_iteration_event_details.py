@@ -27,9 +27,9 @@ def serialize_aws_json_1_0(value: MapIterationEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapIterationEventDetails:
     out: MapIterationEventDetails = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "index" in data:
+    if data.get("index") is not None:
         out["index"] = data["index"]
     else:
         out["index"] = 0

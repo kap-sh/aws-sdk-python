@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: OpsItemInvalidParameterException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemInvalidParameterException_:
     out: OpsItemInvalidParameterException_ = {}  # type: ignore[typeddict-item]
-    if "ParameterNames" in data:
+    if data.get("ParameterNames") is not None:
         import capo_ssm.types.ops_item_parameter_names_list
 
         out["parameter_names"] = (
@@ -44,7 +44,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpsItemInvalidParameterException_:
                 data["ParameterNames"]
             )
         )
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

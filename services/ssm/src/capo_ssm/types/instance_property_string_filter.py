@@ -47,11 +47,11 @@ def serialize_aws_json_1_1(value: InstancePropertyStringFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstancePropertyStringFilter:
     out: InstancePropertyStringFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("InstancePropertyStringFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.instance_property_filter_value_set
 
         out["values"] = (
@@ -61,7 +61,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePropertyStringFilter:
         )
     else:
         raise DeserializationError("InstancePropertyStringFilter.values required")
-    if "Operator" in data:
+    if data.get("Operator") is not None:
         import capo_ssm.types.instance_property_filter_operator
 
         out["operator"] = (

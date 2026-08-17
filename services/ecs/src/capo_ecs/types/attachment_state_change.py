@@ -27,11 +27,11 @@ def serialize_aws_json_1_1(value: AttachmentStateChange) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AttachmentStateChange:
     out: AttachmentStateChange = {}  # type: ignore[typeddict-item]
-    if "attachmentArn" in data:
+    if data.get("attachmentArn") is not None:
         out["attachment_arn"] = data["attachmentArn"]
     else:
         raise DeserializationError("AttachmentStateChange.attachment_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
     else:
         raise DeserializationError("AttachmentStateChange.status required")

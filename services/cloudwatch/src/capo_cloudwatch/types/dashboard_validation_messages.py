@@ -82,6 +82,8 @@ def deserialize_aws_json_1_0(data: list) -> DashboardValidationMessages:
 
     out: DashboardValidationMessages = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch.types.dashboard_validation_message.deserialize_aws_json_1_0(
                 item

@@ -37,11 +37,11 @@ def serialize_json(value: DocumentDBEventSourceConfig) -> dict:
 
 def deserialize_json(data: dict) -> DocumentDBEventSourceConfig:
     out: DocumentDBEventSourceConfig = {}  # type: ignore[typeddict-item]
-    if "DatabaseName" in data:
+    if data.get("DatabaseName") is not None:
         out["database_name"] = data["DatabaseName"]
-    if "CollectionName" in data:
+    if data.get("CollectionName") is not None:
         out["collection_name"] = data["CollectionName"]
-    if "FullDocument" in data:
+    if data.get("FullDocument") is not None:
         import capo_lambda.types.full_document
 
         out["full_document"] = capo_lambda.types.full_document.deserialize_json(

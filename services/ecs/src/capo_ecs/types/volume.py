@@ -89,15 +89,15 @@ def serialize_aws_json_1_1(value: Volume) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Volume:
     out: Volume = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "host" in data:
+    if data.get("host") is not None:
         import capo_ecs.types.host_volume_properties
 
         out["host"] = capo_ecs.types.host_volume_properties.deserialize_aws_json_1_1(
             data["host"]
         )
-    if "dockerVolumeConfiguration" in data:
+    if data.get("dockerVolumeConfiguration") is not None:
         import capo_ecs.types.docker_volume_configuration
 
         out["docker_volume_configuration"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_1(data: dict) -> Volume:
                 data["dockerVolumeConfiguration"]
             )
         )
-    if "efsVolumeConfiguration" in data:
+    if data.get("efsVolumeConfiguration") is not None:
         import capo_ecs.types.efs_volume_configuration
 
         out["efs_volume_configuration"] = (
@@ -113,7 +113,7 @@ def deserialize_aws_json_1_1(data: dict) -> Volume:
                 data["efsVolumeConfiguration"]
             )
         )
-    if "s3filesVolumeConfiguration" in data:
+    if data.get("s3filesVolumeConfiguration") is not None:
         import capo_ecs.types.s3_files_volume_configuration
 
         out["s3files_volume_configuration"] = (
@@ -121,7 +121,7 @@ def deserialize_aws_json_1_1(data: dict) -> Volume:
                 data["s3filesVolumeConfiguration"]
             )
         )
-    if "fsxWindowsFileServerVolumeConfiguration" in data:
+    if data.get("fsxWindowsFileServerVolumeConfiguration") is not None:
         import capo_ecs.types.f_sx_windows_file_server_volume_configuration
 
         out["fsx_windows_file_server_volume_configuration"] = (
@@ -129,6 +129,6 @@ def deserialize_aws_json_1_1(data: dict) -> Volume:
                 data["fsxWindowsFileServerVolumeConfiguration"]
             )
         )
-    if "configuredAtLaunch" in data:
+    if data.get("configuredAtLaunch") is not None:
         out["configured_at_launch"] = data["configuredAtLaunch"]
     return out

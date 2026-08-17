@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: MoveKeys) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MoveKeys:
     out: MoveKeys = {}  # type: ignore[typeddict-item]
-    if "entries" in data:
+    if data.get("entries") is not None:
         import capo_cloudwatch_logs.types.move_key_entries
 
         out["entries"] = (

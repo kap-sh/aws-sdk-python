@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: UpdateOpsMetadataResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateOpsMetadataResult:
     out: UpdateOpsMetadataResult = {}  # type: ignore[typeddict-item]
-    if "OpsMetadataArn" in data:
+    if data.get("OpsMetadataArn") is not None:
         out["ops_metadata_arn"] = data["OpsMetadataArn"]
     return out

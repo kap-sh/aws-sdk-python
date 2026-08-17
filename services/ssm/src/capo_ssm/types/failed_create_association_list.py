@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> FailedCreateAssociationList:
 
     out: FailedCreateAssociationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.failed_create_association.deserialize_aws_json_1_1(item)
         )

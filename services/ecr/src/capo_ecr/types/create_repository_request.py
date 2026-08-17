@@ -88,17 +88,17 @@ def serialize_aws_json_1_1(value: CreateRepositoryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateRepositoryRequest:
     out: CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("CreateRepositoryRequest.repository_name required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecr.types.tag_list
 
         out["tags"] = capo_ecr.types.tag_list.deserialize_aws_json_1_1(data["tags"])
-    if "imageTagMutability" in data:
+    if data.get("imageTagMutability") is not None:
         import capo_ecr.types.image_tag_mutability
 
         out["image_tag_mutability"] = (
@@ -106,7 +106,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateRepositoryRequest:
                 data["imageTagMutability"]
             )
         )
-    if "imageTagMutabilityExclusionFilters" in data:
+    if data.get("imageTagMutabilityExclusionFilters") is not None:
         import capo_ecr.types.image_tag_mutability_exclusion_filters
 
         out["image_tag_mutability_exclusion_filters"] = (
@@ -114,7 +114,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateRepositoryRequest:
                 data["imageTagMutabilityExclusionFilters"]
             )
         )
-    if "imageScanningConfiguration" in data:
+    if data.get("imageScanningConfiguration") is not None:
         import capo_ecr.types.image_scanning_configuration
 
         out["image_scanning_configuration"] = (
@@ -122,7 +122,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateRepositoryRequest:
                 data["imageScanningConfiguration"]
             )
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_ecr.types.encryption_configuration
 
         out["encryption_configuration"] = (

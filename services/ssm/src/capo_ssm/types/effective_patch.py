@@ -34,11 +34,11 @@ def serialize_aws_json_1_1(value: EffectivePatch) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EffectivePatch:
     out: EffectivePatch = {}  # type: ignore[typeddict-item]
-    if "Patch" in data:
+    if data.get("Patch") is not None:
         import capo_ssm.types.patch
 
         out["patch"] = capo_ssm.types.patch.deserialize_aws_json_1_1(data["Patch"])
-    if "PatchStatus" in data:
+    if data.get("PatchStatus") is not None:
         import capo_ssm.types.patch_status
 
         out["patch_status"] = capo_ssm.types.patch_status.deserialize_aws_json_1_1(

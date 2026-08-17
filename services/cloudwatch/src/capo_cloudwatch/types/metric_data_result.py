@@ -70,29 +70,29 @@ def serialize_aws_json_1_0(value: MetricDataResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricDataResult:
     out: MetricDataResult = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Label" in data:
+    if data.get("Label") is not None:
         out["label"] = data["Label"]
-    if "Timestamps" in data:
+    if data.get("Timestamps") is not None:
         import capo_cloudwatch.types.timestamps
 
         out["timestamps"] = capo_cloudwatch.types.timestamps.deserialize_aws_json_1_0(
             data["Timestamps"]
         )
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_cloudwatch.types.datapoint_values
 
         out["values"] = capo_cloudwatch.types.datapoint_values.deserialize_aws_json_1_0(
             data["Values"]
         )
-    if "StatusCode" in data:
+    if data.get("StatusCode") is not None:
         import capo_cloudwatch.types.status_code
 
         out["status_code"] = capo_cloudwatch.types.status_code.deserialize_aws_json_1_0(
             data["StatusCode"]
         )
-    if "Messages" in data:
+    if data.get("Messages") is not None:
         import capo_cloudwatch.types.metric_data_result_messages
 
         out["messages"] = (

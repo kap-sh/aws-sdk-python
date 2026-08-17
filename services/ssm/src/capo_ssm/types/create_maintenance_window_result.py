@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: CreateMaintenanceWindowResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateMaintenanceWindowResult:
     out: CreateMaintenanceWindowResult = {}  # type: ignore[typeddict-item]
-    if "WindowId" in data:
+    if data.get("WindowId") is not None:
         out["window_id"] = data["WindowId"]
     return out

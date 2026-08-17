@@ -60,15 +60,15 @@ def serialize_aws_json_1_1(value: GetExecutionPreviewResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetExecutionPreviewResponse:
     out: GetExecutionPreviewResponse = {}  # type: ignore[typeddict-item]
-    if "ExecutionPreviewId" in data:
+    if data.get("ExecutionPreviewId") is not None:
         out["execution_preview_id"] = data["ExecutionPreviewId"]
-    if "EndedAt" in data:
+    if data.get("EndedAt") is not None:
         import capo_ssm.types.date_time
 
         out["ended_at"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["EndedAt"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.execution_preview_status
 
         out["status"] = (
@@ -76,9 +76,9 @@ def deserialize_aws_json_1_1(data: dict) -> GetExecutionPreviewResponse:
                 data["Status"]
             )
         )
-    if "StatusMessage" in data:
+    if data.get("StatusMessage") is not None:
         out["status_message"] = data["StatusMessage"]
-    if "ExecutionPreview" in data:
+    if data.get("ExecutionPreview") is not None:
         import capo_ssm.types.execution_preview
 
         out["execution_preview"] = (

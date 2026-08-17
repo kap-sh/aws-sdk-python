@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: ListEndpointsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListEndpointsResponse:
     out: ListEndpointsResponse = {}  # type: ignore[typeddict-item]
-    if "Endpoints" in data:
+    if data.get("Endpoints") is not None:
         import capo_eventbridge.types.endpoint_list
 
         out["endpoints"] = (
@@ -40,6 +40,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListEndpointsResponse:
                 data["Endpoints"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

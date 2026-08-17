@@ -25,7 +25,7 @@ def serialize_json(value: ServiceUnavailableException_) -> dict:
 
 def deserialize_json(data: dict) -> ServiceUnavailableException_:
     out: ServiceUnavailableException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

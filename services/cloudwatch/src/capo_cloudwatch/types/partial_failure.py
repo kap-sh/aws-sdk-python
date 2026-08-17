@@ -44,13 +44,13 @@ def serialize_aws_json_1_0(value: PartialFailure) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PartialFailure:
     out: PartialFailure = {}  # type: ignore[typeddict-item]
-    if "FailureResource" in data:
+    if data.get("FailureResource") is not None:
         out["failure_resource"] = data["FailureResource"]
-    if "ExceptionType" in data:
+    if data.get("ExceptionType") is not None:
         out["exception_type"] = data["ExceptionType"]
-    if "FailureCode" in data:
+    if data.get("FailureCode") is not None:
         out["failure_code"] = data["FailureCode"]
-    if "FailureDescription" in data:
+    if data.get("FailureDescription") is not None:
         out["failure_description"] = data["FailureDescription"]
     return out
 

@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: StopReplicationToReplicaResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopReplicationToReplicaResponse:
     out: StopReplicationToReplicaResponse = {}  # type: ignore[typeddict-item]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
     return out

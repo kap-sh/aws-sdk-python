@@ -35,11 +35,11 @@ def serialize_json(value: ContextDetails) -> dict:
 
 def deserialize_json(data: dict) -> ContextDetails:
     out: ContextDetails = {}  # type: ignore[typeddict-item]
-    if "ReplayChildren" in data:
+    if data.get("ReplayChildren") is not None:
         out["replay_children"] = data["ReplayChildren"]
-    if "Result" in data:
+    if data.get("Result") is not None:
         out["result"] = data["Result"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])

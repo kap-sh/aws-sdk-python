@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: ResourceDataSyncOrganizationalUnit) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncOrganizationalUnit:
     out: ResourceDataSyncOrganizationalUnit = {}  # type: ignore[typeddict-item]
-    if "OrganizationalUnitId" in data:
+    if data.get("OrganizationalUnitId") is not None:
         out["organizational_unit_id"] = data["OrganizationalUnitId"]
     return out

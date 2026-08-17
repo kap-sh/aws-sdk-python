@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> ScheduleGroupList:
 
     out: ScheduleGroupList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_scheduler.types.schedule_group_summary.deserialize_json(item))
     return out

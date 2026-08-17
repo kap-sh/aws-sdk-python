@@ -50,21 +50,21 @@ def serialize_aws_json_1_1(value: GetParametersForImportResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersForImportResponse:
     out: GetParametersForImportResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "ImportToken" in data:
+    if data.get("ImportToken") is not None:
         import capo_kms.types.ciphertext_type
 
         out["import_token"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
             data["ImportToken"]
         )
-    if "PublicKey" in data:
+    if data.get("PublicKey") is not None:
         import capo_kms.types.plaintext_type
 
         out["public_key"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
             data["PublicKey"]
         )
-    if "ParametersValidTo" in data:
+    if data.get("ParametersValidTo") is not None:
         import capo_kms.types.date_type
 
         out["parameters_valid_to"] = capo_kms.types.date_type.deserialize_aws_json_1_1(

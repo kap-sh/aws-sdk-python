@@ -58,13 +58,13 @@ def serialize_aws_json_1_1(value: ResourcePolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourcePolicy:
     out: ResourcePolicy = {}  # type: ignore[typeddict-item]
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
-    if "policyDocument" in data:
+    if data.get("policyDocument") is not None:
         out["policy_document"] = data["policyDocument"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
-    if "policyScope" in data:
+    if data.get("policyScope") is not None:
         import capo_cloudwatch_logs.types.policy_scope
 
         out["policy_scope"] = (
@@ -72,8 +72,8 @@ def deserialize_aws_json_1_1(data: dict) -> ResourcePolicy:
                 data["policyScope"]
             )
         )
-    if "resourceArn" in data:
+    if data.get("resourceArn") is not None:
         out["resource_arn"] = data["resourceArn"]
-    if "revisionId" in data:
+    if data.get("revisionId") is not None:
         out["revision_id"] = data["revisionId"]
     return out

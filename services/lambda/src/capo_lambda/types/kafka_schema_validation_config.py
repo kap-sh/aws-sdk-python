@@ -31,7 +31,7 @@ def serialize_json(value: KafkaSchemaValidationConfig) -> dict:
 
 def deserialize_json(data: dict) -> KafkaSchemaValidationConfig:
     out: KafkaSchemaValidationConfig = {}  # type: ignore[typeddict-item]
-    if "Attribute" in data:
+    if data.get("Attribute") is not None:
         import capo_lambda.types.kafka_schema_validation_attribute
 
         out["attribute"] = (

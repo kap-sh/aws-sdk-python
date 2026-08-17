@@ -48,13 +48,13 @@ def serialize_aws_json_1_1(value: BatchGetImageRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchGetImageRequest:
     out: BatchGetImageRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError("BatchGetImageRequest.repository_name required")
-    if "imageIds" in data:
+    if data.get("imageIds") is not None:
         import capo_ecr.types.image_identifier_list
 
         out["image_ids"] = (
@@ -64,7 +64,7 @@ def deserialize_aws_json_1_1(data: dict) -> BatchGetImageRequest:
         )
     else:
         raise DeserializationError("BatchGetImageRequest.image_ids required")
-    if "acceptedMediaTypes" in data:
+    if data.get("acceptedMediaTypes") is not None:
         import capo_ecr.types.media_type_list
 
         out["accepted_media_types"] = (

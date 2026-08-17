@@ -34,13 +34,13 @@ def serialize_json(value: StepFailedDetails) -> dict:
 
 def deserialize_json(data: dict) -> StepFailedDetails:
     out: StepFailedDetails = {}  # type: ignore[typeddict-item]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.event_error
 
         out["error"] = capo_lambda.types.event_error.deserialize_json(data["Error"])
     else:
         raise DeserializationError("StepFailedDetails.error required")
-    if "RetryDetails" in data:
+    if data.get("RetryDetails") is not None:
         import capo_lambda.types.retry_details
 
         out["retry_details"] = capo_lambda.types.retry_details.deserialize_json(

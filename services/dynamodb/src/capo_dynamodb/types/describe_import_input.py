@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeImportInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeImportInput:
     out: DescribeImportInput = {}  # type: ignore[typeddict-item]
-    if "ImportArn" in data:
+    if data.get("ImportArn") is not None:
         out["import_arn"] = data["ImportArn"]
     else:
         raise DeserializationError("DescribeImportInput.import_arn required")

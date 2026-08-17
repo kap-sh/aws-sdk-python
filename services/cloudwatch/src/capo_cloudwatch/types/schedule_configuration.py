@@ -39,11 +39,11 @@ def serialize_aws_json_1_0(value: ScheduleConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ScheduleConfiguration:
     out: ScheduleConfiguration = {}  # type: ignore[typeddict-item]
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
-    if "StartTimeOffset" in data:
+    if data.get("StartTimeOffset") is not None:
         out["start_time_offset"] = data["StartTimeOffset"]
-    if "EndTimeOffset" in data:
+    if data.get("EndTimeOffset") is not None:
         out["end_time_offset"] = data["EndTimeOffset"]
     return out
 

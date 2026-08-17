@@ -29,9 +29,9 @@ def serialize_json(value: S3FilesMountTimeoutException_) -> dict:
 
 def deserialize_json(data: dict) -> S3FilesMountTimeoutException_:
     out: S3FilesMountTimeoutException_ = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

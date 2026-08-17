@@ -52,19 +52,19 @@ def serialize_aws_json_1_1(value: OpsMetadata) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsMetadata:
     out: OpsMetadata = {}  # type: ignore[typeddict-item]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
-    if "OpsMetadataArn" in data:
+    if data.get("OpsMetadataArn") is not None:
         out["ops_metadata_arn"] = data["OpsMetadataArn"]
-    if "LastModifiedDate" in data:
+    if data.get("LastModifiedDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastModifiedDate"]
         )
-    if "LastModifiedUser" in data:
+    if data.get("LastModifiedUser") is not None:
         out["last_modified_user"] = data["LastModifiedUser"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_ssm.types.date_time
 
         out["creation_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

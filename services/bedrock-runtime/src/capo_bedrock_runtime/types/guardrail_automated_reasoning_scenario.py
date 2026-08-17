@@ -31,7 +31,7 @@ def serialize_json(value: GuardrailAutomatedReasoningScenario) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningScenario:
     out: GuardrailAutomatedReasoningScenario = {}  # type: ignore[typeddict-item]
-    if "statements" in data:
+    if data.get("statements") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
         out["statements"] = (

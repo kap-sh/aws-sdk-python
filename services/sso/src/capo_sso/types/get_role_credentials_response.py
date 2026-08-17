@@ -27,7 +27,7 @@ def serialize_json(value: GetRoleCredentialsResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetRoleCredentialsResponse:
     out: GetRoleCredentialsResponse = {}  # type: ignore[typeddict-item]
-    if "roleCredentials" in data:
+    if data.get("roleCredentials") is not None:
         import capo_sso.types.role_credentials
 
         out["role_credentials"] = capo_sso.types.role_credentials.deserialize_json(

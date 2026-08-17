@@ -56,27 +56,27 @@ def serialize_aws_json_1_0(value: QueryOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> QueryOutput:
     out: QueryOutput = {}  # type: ignore[typeddict-item]
-    if "Items" in data:
+    if data.get("Items") is not None:
         import capo_dynamodb.types.item_list
 
         out["items"] = capo_dynamodb.types.item_list.deserialize_aws_json_1_0(
             data["Items"]
         )
-    if "Count" in data:
+    if data.get("Count") is not None:
         out["count"] = data["Count"]
     else:
         out["count"] = 0
-    if "ScannedCount" in data:
+    if data.get("ScannedCount") is not None:
         out["scanned_count"] = data["ScannedCount"]
     else:
         out["scanned_count"] = 0
-    if "LastEvaluatedKey" in data:
+    if data.get("LastEvaluatedKey") is not None:
         import capo_dynamodb.types.key
 
         out["last_evaluated_key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(
             data["LastEvaluatedKey"]
         )
-    if "ConsumedCapacity" in data:
+    if data.get("ConsumedCapacity") is not None:
         import capo_dynamodb.types.consumed_capacity
 
         out["consumed_capacity"] = (

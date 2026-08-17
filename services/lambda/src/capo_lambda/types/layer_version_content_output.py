@@ -54,19 +54,19 @@ def serialize_json(value: LayerVersionContentOutput) -> dict:
 
 def deserialize_json(data: dict) -> LayerVersionContentOutput:
     out: LayerVersionContentOutput = {}  # type: ignore[typeddict-item]
-    if "Location" in data:
+    if data.get("Location") is not None:
         out["location"] = data["Location"]
-    if "CodeSha256" in data:
+    if data.get("CodeSha256") is not None:
         out["code_sha256"] = data["CodeSha256"]
-    if "CodeSize" in data:
+    if data.get("CodeSize") is not None:
         out["code_size"] = data["CodeSize"]
     else:
         out["code_size"] = 0
-    if "SigningProfileVersionArn" in data:
+    if data.get("SigningProfileVersionArn") is not None:
         out["signing_profile_version_arn"] = data["SigningProfileVersionArn"]
-    if "SigningJobArn" in data:
+    if data.get("SigningJobArn") is not None:
         out["signing_job_arn"] = data["SigningJobArn"]
-    if "ResolvedS3Object" in data:
+    if data.get("ResolvedS3Object") is not None:
         import capo_lambda.types.resolved_s3_object
 
         out["resolved_s3_object"] = (

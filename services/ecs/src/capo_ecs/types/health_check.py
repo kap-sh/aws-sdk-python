@@ -43,7 +43,7 @@ def serialize_aws_json_1_1(value: HealthCheck) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> HealthCheck:
     out: HealthCheck = {}  # type: ignore[typeddict-item]
-    if "command" in data:
+    if data.get("command") is not None:
         import capo_ecs.types.string_list
 
         out["command"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
@@ -51,12 +51,12 @@ def deserialize_aws_json_1_1(data: dict) -> HealthCheck:
         )
     else:
         raise DeserializationError("HealthCheck.command required")
-    if "interval" in data:
+    if data.get("interval") is not None:
         out["interval"] = data["interval"]
-    if "timeout" in data:
+    if data.get("timeout") is not None:
         out["timeout"] = data["timeout"]
-    if "retries" in data:
+    if data.get("retries") is not None:
         out["retries"] = data["retries"]
-    if "startPeriod" in data:
+    if data.get("startPeriod") is not None:
         out["start_period"] = data["startPeriod"]
     return out

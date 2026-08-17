@@ -48,9 +48,9 @@ def serialize_json(value: GetFunctionScalingConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFunctionScalingConfigResponse:
     out: GetFunctionScalingConfigResponse = {}  # type: ignore[typeddict-item]
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
-    if "AppliedFunctionScalingConfig" in data:
+    if data.get("AppliedFunctionScalingConfig") is not None:
         import capo_lambda.types.function_scaling_config
 
         out["applied_function_scaling_config"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> GetFunctionScalingConfigResponse:
                 data["AppliedFunctionScalingConfig"]
             )
         )
-    if "RequestedFunctionScalingConfig" in data:
+    if data.get("RequestedFunctionScalingConfig") is not None:
         import capo_lambda.types.function_scaling_config
 
         out["requested_function_scaling_config"] = (

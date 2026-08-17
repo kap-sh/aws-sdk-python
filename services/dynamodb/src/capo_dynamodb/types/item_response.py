@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: ItemResponse) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ItemResponse:
     out: ItemResponse = {}  # type: ignore[typeddict-item]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["item"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(

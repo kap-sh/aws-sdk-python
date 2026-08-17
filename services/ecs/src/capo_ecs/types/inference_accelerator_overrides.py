@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> InferenceAcceleratorOverrides:
 
     out: InferenceAcceleratorOverrides = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.inference_accelerator_override.deserialize_aws_json_1_1(item)
         )

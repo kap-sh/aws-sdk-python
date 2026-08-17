@@ -25,6 +25,6 @@ def serialize_json(value: SqsParameters) -> dict:
 
 def deserialize_json(data: dict) -> SqsParameters:
     out: SqsParameters = {}  # type: ignore[typeddict-item]
-    if "MessageGroupId" in data:
+    if data.get("MessageGroupId") is not None:
         out["message_group_id"] = data["MessageGroupId"]
     return out

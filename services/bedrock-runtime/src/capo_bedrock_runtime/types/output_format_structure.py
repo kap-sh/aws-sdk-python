@@ -32,7 +32,7 @@ def serialize_json(value: OutputFormatStructure) -> dict:
 
 
 def deserialize_json(data: dict) -> OutputFormatStructure:
-    if "jsonSchema" in data:
+    if data.get("jsonSchema") is not None:
         import capo_bedrock_runtime.types.json_schema_definition
 
         return {

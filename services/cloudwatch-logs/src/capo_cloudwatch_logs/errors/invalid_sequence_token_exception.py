@@ -30,9 +30,9 @@ def serialize_aws_json_1_1(value: InvalidSequenceTokenException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvalidSequenceTokenException_:
     out: InvalidSequenceTokenException_ = {}  # type: ignore[typeddict-item]
-    if "expectedSequenceToken" in data:
+    if data.get("expectedSequenceToken") is not None:
         out["expected_sequence_token"] = data["expectedSequenceToken"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

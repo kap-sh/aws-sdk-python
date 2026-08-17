@@ -43,14 +43,14 @@ def serialize_json(value: GetRuntimeManagementConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetRuntimeManagementConfigResponse:
     out: GetRuntimeManagementConfigResponse = {}  # type: ignore[typeddict-item]
-    if "UpdateRuntimeOn" in data:
+    if data.get("UpdateRuntimeOn") is not None:
         import capo_lambda.types.update_runtime_on
 
         out["update_runtime_on"] = capo_lambda.types.update_runtime_on.deserialize_json(
             data["UpdateRuntimeOn"]
         )
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
-    if "RuntimeVersionArn" in data:
+    if data.get("RuntimeVersionArn") is not None:
         out["runtime_version_arn"] = data["RuntimeVersionArn"]
     return out

@@ -30,10 +30,10 @@ def serialize_aws_json_1_1(value: ListNodesResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListNodesResult:
     out: ListNodesResult = {}  # type: ignore[typeddict-item]
-    if "Nodes" in data:
+    if data.get("Nodes") is not None:
         import capo_ssm.types.node_list
 
         out["nodes"] = capo_ssm.types.node_list.deserialize_aws_json_1_1(data["Nodes"])
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

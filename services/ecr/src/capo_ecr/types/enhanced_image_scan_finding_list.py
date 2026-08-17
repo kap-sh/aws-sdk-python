@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> EnhancedImageScanFindingList:
 
     out: EnhancedImageScanFindingList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.enhanced_image_scan_finding.deserialize_aws_json_1_1(item)
         )

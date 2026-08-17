@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ParseVPC) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParseVPC:
     out: ParseVPC = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     return out

@@ -25,7 +25,7 @@ def serialize_aws_json_1_1(value: StopTaskResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopTaskResponse:
     out: StopTaskResponse = {}  # type: ignore[typeddict-item]
-    if "task" in data:
+    if data.get("task") is not None:
         import capo_ecs.types.task
 
         out["task"] = capo_ecs.types.task.deserialize_aws_json_1_1(data["task"])

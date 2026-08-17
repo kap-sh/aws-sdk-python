@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: GetInventoryResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetInventoryResult:
     out: GetInventoryResult = {}  # type: ignore[typeddict-item]
-    if "Entities" in data:
+    if data.get("Entities") is not None:
         import capo_ssm.types.inventory_result_entity_list
 
         out["entities"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> GetInventoryResult:
                 data["Entities"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

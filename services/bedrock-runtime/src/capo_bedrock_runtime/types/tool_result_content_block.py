@@ -90,11 +90,11 @@ def serialize_json(value: ToolResultContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolResultContentBlock:
-    if "json" in data:
+    if data.get("json") is not None:
         return {"json": data["json"]}
-    elif "text" in data:
+    elif data.get("text") is not None:
         return {"text": data["text"]}
-    elif "image" in data:
+    elif data.get("image") is not None:
         import capo_bedrock_runtime.types.image_block
 
         return {
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> ToolResultContentBlock:
                 data["image"]
             )
         }
-    elif "document" in data:
+    elif data.get("document") is not None:
         import capo_bedrock_runtime.types.document_block
 
         return {
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> ToolResultContentBlock:
                 data["document"]
             )
         }
-    elif "video" in data:
+    elif data.get("video") is not None:
         import capo_bedrock_runtime.types.video_block
 
         return {
@@ -118,7 +118,7 @@ def deserialize_json(data: dict) -> ToolResultContentBlock:
                 data["video"]
             )
         }
-    elif "searchResult" in data:
+    elif data.get("searchResult") is not None:
         import capo_bedrock_runtime.types.search_result_block
 
         return {

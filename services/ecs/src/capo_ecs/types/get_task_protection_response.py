@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: GetTaskProtectionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetTaskProtectionResponse:
     out: GetTaskProtectionResponse = {}  # type: ignore[typeddict-item]
-    if "protectedTasks" in data:
+    if data.get("protectedTasks") is not None:
         import capo_ecs.types.protected_tasks
 
         out["protected_tasks"] = (
@@ -44,7 +44,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetTaskProtectionResponse:
                 data["protectedTasks"]
             )
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(

@@ -58,9 +58,9 @@ def serialize_aws_json_1_1(value: DescribeQueriesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeQueriesRequest:
     out: DescribeQueriesRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.query_status
 
         out["status"] = (
@@ -68,11 +68,11 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeQueriesRequest:
                 data["status"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (

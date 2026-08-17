@@ -77,7 +77,7 @@ def serialize_aws_json_1_0(value: DescribeAnomalyDetectorsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAnomalyDetectorsInput:
     out: DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
-    if "AnomalyDetectorIds" in data:
+    if data.get("AnomalyDetectorIds") is not None:
         import capo_cloudwatch.types.anomaly_detector_ids
 
         out["anomaly_detector_ids"] = (
@@ -85,21 +85,21 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeAnomalyDetectorsInput:
                 data["AnomalyDetectorIds"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "AnomalyDetectorTypes" in data:
+    if data.get("AnomalyDetectorTypes") is not None:
         import capo_cloudwatch.types.anomaly_detector_types
 
         out["anomaly_detector_types"] = (

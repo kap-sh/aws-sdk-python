@@ -98,19 +98,19 @@ def serialize_aws_json_1_1(value: ResourceComplianceSummaryItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceComplianceSummaryItem:
     out: ResourceComplianceSummaryItem = {}  # type: ignore[typeddict-item]
-    if "ComplianceType" in data:
+    if data.get("ComplianceType") is not None:
         out["compliance_type"] = data["ComplianceType"]
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.compliance_status
 
         out["status"] = capo_ssm.types.compliance_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "OverallSeverity" in data:
+    if data.get("OverallSeverity") is not None:
         import capo_ssm.types.compliance_severity
 
         out["overall_severity"] = (
@@ -118,7 +118,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceComplianceSummaryItem:
                 data["OverallSeverity"]
             )
         )
-    if "ExecutionSummary" in data:
+    if data.get("ExecutionSummary") is not None:
         import capo_ssm.types.compliance_execution_summary
 
         out["execution_summary"] = (
@@ -126,7 +126,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceComplianceSummaryItem:
                 data["ExecutionSummary"]
             )
         )
-    if "CompliantSummary" in data:
+    if data.get("CompliantSummary") is not None:
         import capo_ssm.types.compliant_summary
 
         out["compliant_summary"] = (
@@ -134,7 +134,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceComplianceSummaryItem:
                 data["CompliantSummary"]
             )
         )
-    if "NonCompliantSummary" in data:
+    if data.get("NonCompliantSummary") is not None:
         import capo_ssm.types.non_compliant_summary
 
         out["non_compliant_summary"] = (

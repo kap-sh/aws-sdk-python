@@ -37,11 +37,11 @@ def serialize_aws_json_1_1(value: ReplayDestination) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplayDestination:
     out: ReplayDestination = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
     else:
         raise DeserializationError("ReplayDestination.arn required")
-    if "FilterArns" in data:
+    if data.get("FilterArns") is not None:
         import capo_eventbridge.types.replay_destination_filters
 
         out["filter_arns"] = (

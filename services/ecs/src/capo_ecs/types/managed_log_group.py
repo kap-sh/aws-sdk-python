@@ -48,9 +48,9 @@ def serialize_aws_json_1_1(value: ManagedLogGroup) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedLogGroup:
     out: ManagedLogGroup = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.managed_resource_status
 
         out["status"] = capo_ecs.types.managed_resource_status.deserialize_aws_json_1_1(
@@ -58,9 +58,9 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedLogGroup:
         )
     else:
         raise DeserializationError("ManagedLogGroup.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
@@ -68,7 +68,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedLogGroup:
         )
     else:
         raise DeserializationError("ManagedLogGroup.updated_at required")
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("ManagedLogGroup.log_group_name required")

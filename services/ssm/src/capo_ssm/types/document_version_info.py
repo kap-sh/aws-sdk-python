@@ -89,25 +89,25 @@ def serialize_aws_json_1_1(value: DocumentVersionInfo) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentVersionInfo:
     out: DocumentVersionInfo = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "DisplayName" in data:
+    if data.get("DisplayName") is not None:
         out["display_name"] = data["DisplayName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_ssm.types.date_time
 
         out["created_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedDate"]
         )
-    if "IsDefaultVersion" in data:
+    if data.get("IsDefaultVersion") is not None:
         out["is_default_version"] = data["IsDefaultVersion"]
     else:
         out["is_default_version"] = False
-    if "DocumentFormat" in data:
+    if data.get("DocumentFormat") is not None:
         import capo_ssm.types.document_format
 
         out["document_format"] = (
@@ -115,15 +115,15 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentVersionInfo:
                 data["DocumentFormat"]
             )
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.document_status
 
         out["status"] = capo_ssm.types.document_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "StatusInformation" in data:
+    if data.get("StatusInformation") is not None:
         out["status_information"] = data["StatusInformation"]
-    if "ReviewStatus" in data:
+    if data.get("ReviewStatus") is not None:
         import capo_ssm.types.review_status
 
         out["review_status"] = capo_ssm.types.review_status.deserialize_aws_json_1_1(

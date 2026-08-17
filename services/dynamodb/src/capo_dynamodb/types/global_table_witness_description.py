@@ -34,9 +34,9 @@ def serialize_aws_json_1_0(value: GlobalTableWitnessDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GlobalTableWitnessDescription:
     out: GlobalTableWitnessDescription = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
-    if "WitnessStatus" in data:
+    if data.get("WitnessStatus") is not None:
         import capo_dynamodb.types.witness_status
 
         out["witness_status"] = (

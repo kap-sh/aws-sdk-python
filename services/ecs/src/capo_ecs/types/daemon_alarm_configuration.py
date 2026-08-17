@@ -31,13 +31,13 @@ def serialize_aws_json_1_1(value: DaemonAlarmConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonAlarmConfiguration:
     out: DaemonAlarmConfiguration = {}  # type: ignore[typeddict-item]
-    if "alarmNames" in data:
+    if data.get("alarmNames") is not None:
         import capo_ecs.types.string_list
 
         out["alarm_names"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["alarmNames"]
         )
-    if "enable" in data:
+    if data.get("enable") is not None:
         out["enable"] = data["enable"]
     else:
         out["enable"] = False

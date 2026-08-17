@@ -54,15 +54,15 @@ def serialize_aws_json_1_1(value: PutAccountPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutAccountPolicyRequest:
     out: PutAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
     else:
         raise DeserializationError("PutAccountPolicyRequest.policy_name required")
-    if "policyDocument" in data:
+    if data.get("policyDocument") is not None:
         out["policy_document"] = data["policyDocument"]
     else:
         raise DeserializationError("PutAccountPolicyRequest.policy_document required")
-    if "policyType" in data:
+    if data.get("policyType") is not None:
         import capo_cloudwatch_logs.types.policy_type
 
         out["policy_type"] = (
@@ -72,12 +72,12 @@ def deserialize_aws_json_1_1(data: dict) -> PutAccountPolicyRequest:
         )
     else:
         raise DeserializationError("PutAccountPolicyRequest.policy_type required")
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_cloudwatch_logs.types.scope
 
         out["scope"] = capo_cloudwatch_logs.types.scope.deserialize_aws_json_1_1(
             data["scope"]
         )
-    if "selectionCriteria" in data:
+    if data.get("selectionCriteria") is not None:
         out["selection_criteria"] = data["selectionCriteria"]
     return out

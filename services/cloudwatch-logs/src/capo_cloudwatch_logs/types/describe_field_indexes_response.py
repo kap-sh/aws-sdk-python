@@ -33,7 +33,7 @@ def serialize_aws_json_1_1(value: DescribeFieldIndexesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeFieldIndexesResponse:
     out: DescribeFieldIndexesResponse = {}  # type: ignore[typeddict-item]
-    if "fieldIndexes" in data:
+    if data.get("fieldIndexes") is not None:
         import capo_cloudwatch_logs.types.field_indexes
 
         out["field_indexes"] = (
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeFieldIndexesResponse:
                 data["fieldIndexes"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

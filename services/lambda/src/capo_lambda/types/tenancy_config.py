@@ -28,7 +28,7 @@ def serialize_json(value: TenancyConfig) -> dict:
 
 def deserialize_json(data: dict) -> TenancyConfig:
     out: TenancyConfig = {}  # type: ignore[typeddict-item]
-    if "TenantIsolationMode" in data:
+    if data.get("TenantIsolationMode") is not None:
         import capo_lambda.types.tenant_isolation_mode
 
         out["tenant_isolation_mode"] = (

@@ -43,12 +43,12 @@ def serialize_aws_json_1_0(value: DescribeLimitsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeLimitsOutput:
     out: DescribeLimitsOutput = {}  # type: ignore[typeddict-item]
-    if "AccountMaxReadCapacityUnits" in data:
+    if data.get("AccountMaxReadCapacityUnits") is not None:
         out["account_max_read_capacity_units"] = data["AccountMaxReadCapacityUnits"]
-    if "AccountMaxWriteCapacityUnits" in data:
+    if data.get("AccountMaxWriteCapacityUnits") is not None:
         out["account_max_write_capacity_units"] = data["AccountMaxWriteCapacityUnits"]
-    if "TableMaxReadCapacityUnits" in data:
+    if data.get("TableMaxReadCapacityUnits") is not None:
         out["table_max_read_capacity_units"] = data["TableMaxReadCapacityUnits"]
-    if "TableMaxWriteCapacityUnits" in data:
+    if data.get("TableMaxWriteCapacityUnits") is not None:
         out["table_max_write_capacity_units"] = data["TableMaxWriteCapacityUnits"]
     return out

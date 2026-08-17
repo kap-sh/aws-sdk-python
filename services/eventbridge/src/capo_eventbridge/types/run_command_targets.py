@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> RunCommandTargets:
 
     out: RunCommandTargets = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.run_command_target.deserialize_aws_json_1_1(item)
         )

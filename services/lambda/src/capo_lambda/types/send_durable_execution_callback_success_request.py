@@ -32,7 +32,7 @@ def serialize_json(value: SendDurableExecutionCallbackSuccessRequest) -> dict:
 
 def deserialize_json(data: dict) -> SendDurableExecutionCallbackSuccessRequest:
     out: SendDurableExecutionCallbackSuccessRequest = {}  # type: ignore[typeddict-item]
-    if "Result" in data:
+    if data.get("Result") is not None:
         import capo_lambda.types.binary_operation_payload
 
         out["result"] = capo_lambda.types.binary_operation_payload.deserialize_json(

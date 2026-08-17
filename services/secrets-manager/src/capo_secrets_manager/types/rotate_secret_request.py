@@ -80,15 +80,15 @@ def serialize_aws_json_1_1(value: RotateSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RotateSecretRequest:
     out: RotateSecretRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("RotateSecretRequest.secret_id required")
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
-    if "RotationLambdaARN" in data:
+    if data.get("RotationLambdaARN") is not None:
         out["rotation_lambda_arn"] = data["RotationLambdaARN"]
-    if "RotationRules" in data:
+    if data.get("RotationRules") is not None:
         import capo_secrets_manager.types.rotation_rules_type
 
         out["rotation_rules"] = (
@@ -96,7 +96,7 @@ def deserialize_aws_json_1_1(data: dict) -> RotateSecretRequest:
                 data["RotationRules"]
             )
         )
-    if "ExternalSecretRotationMetadata" in data:
+    if data.get("ExternalSecretRotationMetadata") is not None:
         import capo_secrets_manager.types.external_secret_rotation_metadata_type
 
         out["external_secret_rotation_metadata"] = (
@@ -104,8 +104,8 @@ def deserialize_aws_json_1_1(data: dict) -> RotateSecretRequest:
                 data["ExternalSecretRotationMetadata"]
             )
         )
-    if "ExternalSecretRotationRoleArn" in data:
+    if data.get("ExternalSecretRotationRoleArn") is not None:
         out["external_secret_rotation_role_arn"] = data["ExternalSecretRotationRoleArn"]
-    if "RotateImmediately" in data:
+    if data.get("RotateImmediately") is not None:
         out["rotate_immediately"] = data["RotateImmediately"]
     return out

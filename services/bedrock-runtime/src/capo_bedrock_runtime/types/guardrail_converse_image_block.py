@@ -40,7 +40,7 @@ def serialize_json(value: GuardrailConverseImageBlock) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailConverseImageBlock:
     out: GuardrailConverseImageBlock = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_runtime.types.guardrail_converse_image_format
 
         out["format"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> GuardrailConverseImageBlock:
         )
     else:
         raise DeserializationError("GuardrailConverseImageBlock.format required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_runtime.types.guardrail_converse_image_source
 
         out["source"] = (

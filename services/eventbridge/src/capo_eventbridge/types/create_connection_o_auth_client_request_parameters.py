@@ -30,13 +30,13 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> CreateConnectionOAuthClientRequestParameters:
     out: CreateConnectionOAuthClientRequestParameters = {}  # type: ignore[typeddict-item]
-    if "ClientID" in data:
+    if data.get("ClientID") is not None:
         out["client_id"] = data["ClientID"]
     else:
         raise DeserializationError(
             "CreateConnectionOAuthClientRequestParameters.client_id required"
         )
-    if "ClientSecret" in data:
+    if data.get("ClientSecret") is not None:
         out["client_secret"] = data["ClientSecret"]
     else:
         raise DeserializationError(

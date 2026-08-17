@@ -85,15 +85,15 @@ def serialize_aws_json_1_1(value: DescribeEventBusResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeEventBusResponse:
     out: DescribeEventBusResponse = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
-    if "DeadLetterConfig" in data:
+    if data.get("DeadLetterConfig") is not None:
         import capo_eventbridge.types.dead_letter_config
 
         out["dead_letter_config"] = (
@@ -101,15 +101,15 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeEventBusResponse:
                 data["DeadLetterConfig"]
             )
         )
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
-    if "LogConfig" in data:
+    if data.get("LogConfig") is not None:
         import capo_eventbridge.types.log_config
 
         out["log_config"] = capo_eventbridge.types.log_config.deserialize_aws_json_1_1(
             data["LogConfig"]
         )
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -117,7 +117,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeEventBusResponse:
                 data["CreationTime"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["last_modified_time"] = (

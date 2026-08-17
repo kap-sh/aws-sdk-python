@@ -43,7 +43,7 @@ def serialize_aws_json_1_1(value: FailedCreateAssociation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FailedCreateAssociation:
     out: FailedCreateAssociation = {}  # type: ignore[typeddict-item]
-    if "Entry" in data:
+    if data.get("Entry") is not None:
         import capo_ssm.types.create_association_batch_request_entry
 
         out["entry"] = (
@@ -51,9 +51,9 @@ def deserialize_aws_json_1_1(data: dict) -> FailedCreateAssociation:
                 data["Entry"]
             )
         )
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "Fault" in data:
+    if data.get("Fault") is not None:
         import capo_ssm.types.fault
 
         out["fault"] = capo_ssm.types.fault.deserialize_aws_json_1_1(data["Fault"])

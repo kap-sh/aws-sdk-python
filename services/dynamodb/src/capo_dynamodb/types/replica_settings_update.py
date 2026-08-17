@@ -70,15 +70,15 @@ def serialize_aws_json_1_0(value: ReplicaSettingsUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsUpdate:
     out: ReplicaSettingsUpdate = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     else:
         raise DeserializationError("ReplicaSettingsUpdate.region_name required")
-    if "ReplicaProvisionedReadCapacityUnits" in data:
+    if data.get("ReplicaProvisionedReadCapacityUnits") is not None:
         out["replica_provisioned_read_capacity_units"] = data[
             "ReplicaProvisionedReadCapacityUnits"
         ]
-    if "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" in data:
+    if data.get("ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate") is not None:
         import capo_dynamodb.types.auto_scaling_settings_update
 
         out["replica_provisioned_read_capacity_auto_scaling_settings_update"] = (
@@ -86,7 +86,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsUpdate:
                 data["ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"]
             )
         )
-    if "ReplicaGlobalSecondaryIndexSettingsUpdate" in data:
+    if data.get("ReplicaGlobalSecondaryIndexSettingsUpdate") is not None:
         import capo_dynamodb.types.replica_global_secondary_index_settings_update_list
 
         out["replica_global_secondary_index_settings_update"] = (
@@ -94,7 +94,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaSettingsUpdate:
                 data["ReplicaGlobalSecondaryIndexSettingsUpdate"]
             )
         )
-    if "ReplicaTableClass" in data:
+    if data.get("ReplicaTableClass") is not None:
         import capo_dynamodb.types.table_class
 
         out["replica_table_class"] = (

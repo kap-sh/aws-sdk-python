@@ -45,19 +45,19 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> GetDeployablePatchSnapshotForInstanceRequest:
     out: GetDeployablePatchSnapshotForInstanceRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError(
             "GetDeployablePatchSnapshotForInstanceRequest.instance_id required"
         )
-    if "SnapshotId" in data:
+    if data.get("SnapshotId") is not None:
         out["snapshot_id"] = data["SnapshotId"]
     else:
         raise DeserializationError(
             "GetDeployablePatchSnapshotForInstanceRequest.snapshot_id required"
         )
-    if "BaselineOverride" in data:
+    if data.get("BaselineOverride") is not None:
         import capo_ssm.types.baseline_override
 
         out["baseline_override"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_1(
                 data["BaselineOverride"]
             )
         )
-    if "UseS3DualStackEndpoint" in data:
+    if data.get("UseS3DualStackEndpoint") is not None:
         out["use_s3_dual_stack_endpoint"] = data["UseS3DualStackEndpoint"]
     else:
         out["use_s3_dual_stack_endpoint"] = False

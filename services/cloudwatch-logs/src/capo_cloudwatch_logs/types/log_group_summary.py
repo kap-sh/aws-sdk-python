@@ -43,11 +43,11 @@ def serialize_aws_json_1_1(value: LogGroupSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogGroupSummary:
     out: LogGroupSummary = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "logGroupArn" in data:
+    if data.get("logGroupArn") is not None:
         out["log_group_arn"] = data["logGroupArn"]
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (

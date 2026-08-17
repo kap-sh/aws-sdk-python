@@ -56,19 +56,19 @@ def serialize_json(value: CreateFunctionUrlConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateFunctionUrlConfigResponse:
     out: CreateFunctionUrlConfigResponse = {}  # type: ignore[typeddict-item]
-    if "FunctionUrl" in data:
+    if data.get("FunctionUrl") is not None:
         out["function_url"] = data["FunctionUrl"]
     else:
         raise DeserializationError(
             "CreateFunctionUrlConfigResponse.function_url required"
         )
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
     else:
         raise DeserializationError(
             "CreateFunctionUrlConfigResponse.function_arn required"
         )
-    if "AuthType" in data:
+    if data.get("AuthType") is not None:
         import capo_lambda.types.function_url_auth_type
 
         out["auth_type"] = capo_lambda.types.function_url_auth_type.deserialize_json(
@@ -76,17 +76,17 @@ def deserialize_json(data: dict) -> CreateFunctionUrlConfigResponse:
         )
     else:
         raise DeserializationError("CreateFunctionUrlConfigResponse.auth_type required")
-    if "Cors" in data:
+    if data.get("Cors") is not None:
         import capo_lambda.types.cors
 
         out["cors"] = capo_lambda.types.cors.deserialize_json(data["Cors"])
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         out["creation_time"] = data["CreationTime"]
     else:
         raise DeserializationError(
             "CreateFunctionUrlConfigResponse.creation_time required"
         )
-    if "InvokeMode" in data:
+    if data.get("InvokeMode") is not None:
         import capo_lambda.types.invoke_mode
 
         out["invoke_mode"] = capo_lambda.types.invoke_mode.deserialize_json(

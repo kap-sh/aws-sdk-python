@@ -83,19 +83,19 @@ def serialize_aws_json_1_1(value: CreateDaemonRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateDaemonRequest:
     out: CreateDaemonRequest = {}  # type: ignore[typeddict-item]
-    if "daemonName" in data:
+    if data.get("daemonName") is not None:
         out["daemon_name"] = data["daemonName"]
     else:
         raise DeserializationError("CreateDaemonRequest.daemon_name required")
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "daemonTaskDefinitionArn" in data:
+    if data.get("daemonTaskDefinitionArn") is not None:
         out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
     else:
         raise DeserializationError(
             "CreateDaemonRequest.daemon_task_definition_arn required"
         )
-    if "capacityProviderArns" in data:
+    if data.get("capacityProviderArns") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_provider_arns"] = (
@@ -107,7 +107,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDaemonRequest:
         raise DeserializationError(
             "CreateDaemonRequest.capacity_provider_arns required"
         )
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.daemon_deployment_configuration
 
         out["deployment_configuration"] = (
@@ -115,11 +115,11 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDaemonRequest:
                 data["deploymentConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.daemon_propagate_tags
 
         out["propagate_tags"] = (
@@ -127,14 +127,14 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDaemonRequest:
                 data["propagateTags"]
             )
         )
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

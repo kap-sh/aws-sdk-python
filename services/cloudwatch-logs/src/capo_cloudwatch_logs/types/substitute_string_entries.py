@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> SubstituteStringEntries:
 
     out: SubstituteStringEntries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.substitute_string_entry.deserialize_aws_json_1_1(
                 item

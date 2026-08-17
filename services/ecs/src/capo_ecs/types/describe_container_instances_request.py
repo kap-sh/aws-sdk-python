@@ -46,9 +46,9 @@ def serialize_aws_json_1_1(value: DescribeContainerInstancesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeContainerInstancesRequest:
     out: DescribeContainerInstancesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "containerInstances" in data:
+    if data.get("containerInstances") is not None:
         import capo_ecs.types.string_list
 
         out["container_instances"] = (
@@ -60,7 +60,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeContainerInstancesRequest:
         raise DeserializationError(
             "DescribeContainerInstancesRequest.container_instances required"
         )
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.container_instance_field_list
 
         out["include"] = (

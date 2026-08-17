@@ -75,9 +75,9 @@ def serialize_aws_json_1_1(value: DeploymentLifecycleHookDetail) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHookDetail:
     out: DeploymentLifecycleHookDetail = {}  # type: ignore[typeddict-item]
-    if "hookId" in data:
+    if data.get("hookId") is not None:
         out["hook_id"] = data["hookId"]
-    if "targetType" in data:
+    if data.get("targetType") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_target_type
 
         out["target_type"] = (
@@ -85,9 +85,9 @@ def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHookDetail:
                 data["targetType"]
             )
         )
-    if "targetArn" in data:
+    if data.get("targetArn") is not None:
         out["target_arn"] = data["targetArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_status
 
         out["status"] = (
@@ -95,13 +95,13 @@ def deserialize_aws_json_1_1(data: dict) -> DeploymentLifecycleHookDetail:
                 data["status"]
             )
         )
-    if "expiresAt" in data:
+    if data.get("expiresAt") is not None:
         import capo_ecs.types.timestamp
 
         out["expires_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["expiresAt"]
         )
-    if "timeoutAction" in data:
+    if data.get("timeoutAction") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_action
 
         out["timeout_action"] = (

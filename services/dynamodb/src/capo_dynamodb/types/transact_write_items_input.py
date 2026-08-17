@@ -62,7 +62,7 @@ def serialize_aws_json_1_0(value: TransactWriteItemsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TransactWriteItemsInput:
     out: TransactWriteItemsInput = {}  # type: ignore[typeddict-item]
-    if "TransactItems" in data:
+    if data.get("TransactItems") is not None:
         import capo_dynamodb.types.transact_write_item_list
 
         out["transact_items"] = (
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_0(data: dict) -> TransactWriteItemsInput:
         )
     else:
         raise DeserializationError("TransactWriteItemsInput.transact_items required")
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (
@@ -80,7 +80,7 @@ def deserialize_aws_json_1_0(data: dict) -> TransactWriteItemsInput:
                 data["ReturnConsumedCapacity"]
             )
         )
-    if "ReturnItemCollectionMetrics" in data:
+    if data.get("ReturnItemCollectionMetrics") is not None:
         import capo_dynamodb.types.return_item_collection_metrics
 
         out["return_item_collection_metrics"] = (
@@ -88,6 +88,6 @@ def deserialize_aws_json_1_0(data: dict) -> TransactWriteItemsInput:
                 data["ReturnItemCollectionMetrics"]
             )
         )
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
     return out

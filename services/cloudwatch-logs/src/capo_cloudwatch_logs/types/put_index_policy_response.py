@@ -29,7 +29,7 @@ def serialize_aws_json_1_1(value: PutIndexPolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutIndexPolicyResponse:
     out: PutIndexPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "indexPolicy" in data:
+    if data.get("indexPolicy") is not None:
         import capo_cloudwatch_logs.types.index_policy
 
         out["index_policy"] = (

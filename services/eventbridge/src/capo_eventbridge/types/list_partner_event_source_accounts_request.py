@@ -34,14 +34,14 @@ def serialize_aws_json_1_1(value: ListPartnerEventSourceAccountsRequest) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ListPartnerEventSourceAccountsRequest:
     out: ListPartnerEventSourceAccountsRequest = {}  # type: ignore[typeddict-item]
-    if "EventSourceName" in data:
+    if data.get("EventSourceName") is not None:
         out["event_source_name"] = data["EventSourceName"]
     else:
         raise DeserializationError(
             "ListPartnerEventSourceAccountsRequest.event_source_name required"
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     return out

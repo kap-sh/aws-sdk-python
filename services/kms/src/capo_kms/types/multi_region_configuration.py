@@ -51,7 +51,7 @@ def serialize_aws_json_1_1(value: MultiRegionConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MultiRegionConfiguration:
     out: MultiRegionConfiguration = {}  # type: ignore[typeddict-item]
-    if "MultiRegionKeyType" in data:
+    if data.get("MultiRegionKeyType") is not None:
         import capo_kms.types.multi_region_key_type
 
         out["multi_region_key_type"] = (
@@ -59,13 +59,13 @@ def deserialize_aws_json_1_1(data: dict) -> MultiRegionConfiguration:
                 data["MultiRegionKeyType"]
             )
         )
-    if "PrimaryKey" in data:
+    if data.get("PrimaryKey") is not None:
         import capo_kms.types.multi_region_key
 
         out["primary_key"] = capo_kms.types.multi_region_key.deserialize_aws_json_1_1(
             data["PrimaryKey"]
         )
-    if "ReplicaKeys" in data:
+    if data.get("ReplicaKeys") is not None:
         import capo_kms.types.multi_region_key_list
 
         out["replica_keys"] = (

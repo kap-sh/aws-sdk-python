@@ -89,15 +89,15 @@ def serialize_aws_json_1_1(value: ECSExpressGatewayService) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ECSExpressGatewayService:
     out: ECSExpressGatewayService = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "infrastructureRoleArn" in data:
+    if data.get("infrastructureRoleArn") is not None:
         out["infrastructure_role_arn"] = data["infrastructureRoleArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.express_gateway_service_status
 
         out["status"] = (
@@ -105,9 +105,9 @@ def deserialize_aws_json_1_1(data: dict) -> ECSExpressGatewayService:
                 data["status"]
             )
         )
-    if "currentDeployment" in data:
+    if data.get("currentDeployment") is not None:
         out["current_deployment"] = data["currentDeployment"]
-    if "activeConfigurations" in data:
+    if data.get("activeConfigurations") is not None:
         import capo_ecs.types.express_gateway_service_configurations
 
         out["active_configurations"] = (
@@ -115,17 +115,17 @@ def deserialize_aws_json_1_1(data: dict) -> ECSExpressGatewayService:
                 data["activeConfigurations"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

@@ -90,17 +90,17 @@ def serialize_aws_json_1_0(value: BackupSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BackupSummary:
     out: BackupSummary = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "TableId" in data:
+    if data.get("TableId") is not None:
         out["table_id"] = data["TableId"]
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "BackupArn" in data:
+    if data.get("BackupArn") is not None:
         out["backup_arn"] = data["BackupArn"]
-    if "BackupName" in data:
+    if data.get("BackupName") is not None:
         out["backup_name"] = data["BackupName"]
-    if "BackupCreationDateTime" in data:
+    if data.get("BackupCreationDateTime") is not None:
         import capo_dynamodb.types.backup_creation_date_time
 
         out["backup_creation_date_time"] = (
@@ -108,7 +108,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupSummary:
                 data["BackupCreationDateTime"]
             )
         )
-    if "BackupExpiryDateTime" in data:
+    if data.get("BackupExpiryDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["backup_expiry_date_time"] = (
@@ -116,7 +116,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupSummary:
                 data["BackupExpiryDateTime"]
             )
         )
-    if "BackupStatus" in data:
+    if data.get("BackupStatus") is not None:
         import capo_dynamodb.types.backup_status
 
         out["backup_status"] = (
@@ -124,12 +124,12 @@ def deserialize_aws_json_1_0(data: dict) -> BackupSummary:
                 data["BackupStatus"]
             )
         )
-    if "BackupType" in data:
+    if data.get("BackupType") is not None:
         import capo_dynamodb.types.backup_type
 
         out["backup_type"] = capo_dynamodb.types.backup_type.deserialize_aws_json_1_0(
             data["BackupType"]
         )
-    if "BackupSizeBytes" in data:
+    if data.get("BackupSizeBytes") is not None:
         out["backup_size_bytes"] = data["BackupSizeBytes"]
     return out

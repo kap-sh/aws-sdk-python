@@ -67,13 +67,13 @@ def serialize_aws_json_1_1(value: CreateEndpointRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateEndpointRequest:
     out: CreateEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateEndpointRequest.name required")
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "RoutingConfig" in data:
+    if data.get("RoutingConfig") is not None:
         import capo_eventbridge.types.routing_config
 
         out["routing_config"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateEndpointRequest:
         )
     else:
         raise DeserializationError("CreateEndpointRequest.routing_config required")
-    if "ReplicationConfig" in data:
+    if data.get("ReplicationConfig") is not None:
         import capo_eventbridge.types.replication_config
 
         out["replication_config"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateEndpointRequest:
                 data["ReplicationConfig"]
             )
         )
-    if "EventBuses" in data:
+    if data.get("EventBuses") is not None:
         import capo_eventbridge.types.endpoint_event_bus_list
 
         out["event_buses"] = (
@@ -101,6 +101,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateEndpointRequest:
         )
     else:
         raise DeserializationError("CreateEndpointRequest.event_buses required")
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
     return out

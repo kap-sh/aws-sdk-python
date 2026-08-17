@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: GetLogRecordResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogRecordResponse:
     out: GetLogRecordResponse = {}  # type: ignore[typeddict-item]
-    if "logRecord" in data:
+    if data.get("logRecord") is not None:
         import capo_cloudwatch_logs.types.log_record
 
         out["log_record"] = (

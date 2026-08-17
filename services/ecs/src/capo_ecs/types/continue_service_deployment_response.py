@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ContinueServiceDeploymentResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContinueServiceDeploymentResponse:
     out: ContinueServiceDeploymentResponse = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArn" in data:
+    if data.get("serviceDeploymentArn") is not None:
         out["service_deployment_arn"] = data["serviceDeploymentArn"]
     return out

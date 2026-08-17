@@ -44,11 +44,11 @@ def serialize_aws_json_1_1(value: ExpressGatewayScalingTarget) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayScalingTarget:
     out: ExpressGatewayScalingTarget = {}  # type: ignore[typeddict-item]
-    if "minTaskCount" in data:
+    if data.get("minTaskCount") is not None:
         out["min_task_count"] = data["minTaskCount"]
-    if "maxTaskCount" in data:
+    if data.get("maxTaskCount") is not None:
         out["max_task_count"] = data["maxTaskCount"]
-    if "autoScalingMetric" in data:
+    if data.get("autoScalingMetric") is not None:
         import capo_ecs.types.express_gateway_service_scaling_metric
 
         out["auto_scaling_metric"] = (
@@ -56,6 +56,6 @@ def deserialize_aws_json_1_1(data: dict) -> ExpressGatewayScalingTarget:
                 data["autoScalingMetric"]
             )
         )
-    if "autoScalingTargetValue" in data:
+    if data.get("autoScalingTargetValue") is not None:
         out["auto_scaling_target_value"] = data["autoScalingTargetValue"]
     return out

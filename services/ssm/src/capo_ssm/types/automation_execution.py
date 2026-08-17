@@ -291,25 +291,25 @@ def serialize_aws_json_1_1(value: AutomationExecution) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
     out: AutomationExecution = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "ExecutionStartTime" in data:
+    if data.get("ExecutionStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["execution_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ExecutionStartTime"]
         )
-    if "ExecutionEndTime" in data:
+    if data.get("ExecutionEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["execution_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ExecutionEndTime"]
         )
-    if "AutomationExecutionStatus" in data:
+    if data.get("AutomationExecutionStatus") is not None:
         import capo_ssm.types.automation_execution_status
 
         out["automation_execution_status"] = (
@@ -317,7 +317,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["AutomationExecutionStatus"]
             )
         )
-    if "StepExecutions" in data:
+    if data.get("StepExecutions") is not None:
         import capo_ssm.types.step_execution_list
 
         out["step_executions"] = (
@@ -325,11 +325,11 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["StepExecutions"]
             )
         )
-    if "StepExecutionsTruncated" in data:
+    if data.get("StepExecutionsTruncated") is not None:
         out["step_executions_truncated"] = data["StepExecutionsTruncated"]
     else:
         out["step_executions_truncated"] = False
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (
@@ -337,7 +337,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["Parameters"]
             )
         )
-    if "Outputs" in data:
+    if data.get("Outputs") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["outputs"] = (
@@ -345,37 +345,37 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["Outputs"]
             )
         )
-    if "FailureMessage" in data:
+    if data.get("FailureMessage") is not None:
         out["failure_message"] = data["FailureMessage"]
-    if "Mode" in data:
+    if data.get("Mode") is not None:
         import capo_ssm.types.execution_mode
 
         out["mode"] = capo_ssm.types.execution_mode.deserialize_aws_json_1_1(
             data["Mode"]
         )
-    if "ParentAutomationExecutionId" in data:
+    if data.get("ParentAutomationExecutionId") is not None:
         out["parent_automation_execution_id"] = data["ParentAutomationExecutionId"]
-    if "ExecutedBy" in data:
+    if data.get("ExecutedBy") is not None:
         out["executed_by"] = data["ExecutedBy"]
-    if "CurrentStepName" in data:
+    if data.get("CurrentStepName") is not None:
         out["current_step_name"] = data["CurrentStepName"]
-    if "CurrentAction" in data:
+    if data.get("CurrentAction") is not None:
         out["current_action"] = data["CurrentAction"]
-    if "TargetParameterName" in data:
+    if data.get("TargetParameterName") is not None:
         out["target_parameter_name"] = data["TargetParameterName"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(
             data["TargetMaps"]
         )
-    if "ResolvedTargets" in data:
+    if data.get("ResolvedTargets") is not None:
         import capo_ssm.types.resolved_targets
 
         out["resolved_targets"] = (
@@ -383,13 +383,13 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["ResolvedTargets"]
             )
         )
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "Target" in data:
+    if data.get("Target") is not None:
         out["target"] = data["Target"]
-    if "TargetLocations" in data:
+    if data.get("TargetLocations") is not None:
         import capo_ssm.types.target_locations
 
         out["target_locations"] = (
@@ -397,7 +397,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["TargetLocations"]
             )
         )
-    if "ProgressCounters" in data:
+    if data.get("ProgressCounters") is not None:
         import capo_ssm.types.progress_counters
 
         out["progress_counters"] = (
@@ -405,7 +405,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["ProgressCounters"]
             )
         )
-    if "AlarmConfiguration" in data:
+    if data.get("AlarmConfiguration") is not None:
         import capo_ssm.types.alarm_configuration
 
         out["alarm_configuration"] = (
@@ -413,7 +413,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["AlarmConfiguration"]
             )
         )
-    if "TriggeredAlarms" in data:
+    if data.get("TriggeredAlarms") is not None:
         import capo_ssm.types.alarm_state_information_list
 
         out["triggered_alarms"] = (
@@ -421,9 +421,9 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["TriggeredAlarms"]
             )
         )
-    if "TargetLocationsURL" in data:
+    if data.get("TargetLocationsURL") is not None:
         out["target_locations_url"] = data["TargetLocationsURL"]
-    if "AutomationSubtype" in data:
+    if data.get("AutomationSubtype") is not None:
         import capo_ssm.types.automation_subtype
 
         out["automation_subtype"] = (
@@ -431,25 +431,25 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecution:
                 data["AutomationSubtype"]
             )
         )
-    if "ScheduledTime" in data:
+    if data.get("ScheduledTime") is not None:
         import capo_ssm.types.date_time
 
         out["scheduled_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ScheduledTime"]
         )
-    if "Runbooks" in data:
+    if data.get("Runbooks") is not None:
         import capo_ssm.types.runbooks
 
         out["runbooks"] = capo_ssm.types.runbooks.deserialize_aws_json_1_1(
             data["Runbooks"]
         )
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "ChangeRequestName" in data:
+    if data.get("ChangeRequestName") is not None:
         out["change_request_name"] = data["ChangeRequestName"]
-    if "Variables" in data:
+    if data.get("Variables") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["variables"] = (

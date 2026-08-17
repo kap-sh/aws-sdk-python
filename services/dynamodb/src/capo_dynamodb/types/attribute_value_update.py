@@ -36,13 +36,13 @@ def serialize_aws_json_1_0(value: AttributeValueUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AttributeValueUpdate:
     out: AttributeValueUpdate = {}  # type: ignore[typeddict-item]
-    if "Value" in data:
+    if data.get("Value") is not None:
         import capo_dynamodb.types.attribute_value
 
         out["value"] = capo_dynamodb.types.attribute_value.deserialize_aws_json_1_0(
             data["Value"]
         )
-    if "Action" in data:
+    if data.get("Action") is not None:
         import capo_dynamodb.types.attribute_action
 
         out["action"] = capo_dynamodb.types.attribute_action.deserialize_aws_json_1_0(

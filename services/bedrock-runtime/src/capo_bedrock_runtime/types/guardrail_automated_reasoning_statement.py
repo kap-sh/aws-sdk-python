@@ -32,8 +32,8 @@ def serialize_json(value: GuardrailAutomatedReasoningStatement) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningStatement:
     out: GuardrailAutomatedReasoningStatement = {}  # type: ignore[typeddict-item]
-    if "logic" in data:
+    if data.get("logic") is not None:
         out["logic"] = data["logic"]
-    if "naturalLanguage" in data:
+    if data.get("naturalLanguage") is not None:
         out["natural_language"] = data["naturalLanguage"]
     return out

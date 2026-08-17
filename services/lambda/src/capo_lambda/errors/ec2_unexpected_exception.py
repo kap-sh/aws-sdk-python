@@ -30,11 +30,11 @@ def serialize_json(value: EC2UnexpectedException_) -> dict:
 
 def deserialize_json(data: dict) -> EC2UnexpectedException_:
     out: EC2UnexpectedException_ = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "EC2ErrorCode" in data:
+    if data.get("EC2ErrorCode") is not None:
         out["ec2_error_code"] = data["EC2ErrorCode"]
     return out
 

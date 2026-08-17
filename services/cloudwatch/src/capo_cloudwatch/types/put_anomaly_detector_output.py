@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: PutAnomalyDetectorOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutAnomalyDetectorOutput:
     out: PutAnomalyDetectorOutput = {}  # type: ignore[typeddict-item]
-    if "AnomalyDetectorId" in data:
+    if data.get("AnomalyDetectorId") is not None:
         out["anomaly_detector_id"] = data["AnomalyDetectorId"]
     return out
 

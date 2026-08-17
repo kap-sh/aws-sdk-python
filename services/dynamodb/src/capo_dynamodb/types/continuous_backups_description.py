@@ -45,7 +45,7 @@ def serialize_aws_json_1_0(value: ContinuousBackupsDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ContinuousBackupsDescription:
     out: ContinuousBackupsDescription = {}  # type: ignore[typeddict-item]
-    if "ContinuousBackupsStatus" in data:
+    if data.get("ContinuousBackupsStatus") is not None:
         import capo_dynamodb.types.continuous_backups_status
 
         out["continuous_backups_status"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_0(data: dict) -> ContinuousBackupsDescription:
         raise DeserializationError(
             "ContinuousBackupsDescription.continuous_backups_status required"
         )
-    if "PointInTimeRecoveryDescription" in data:
+    if data.get("PointInTimeRecoveryDescription") is not None:
         import capo_dynamodb.types.point_in_time_recovery_description
 
         out["point_in_time_recovery_description"] = (

@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: DeleteIntegrationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteIntegrationRequest:
     out: DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "integrationName" in data:
+    if data.get("integrationName") is not None:
         out["integration_name"] = data["integrationName"]
     else:
         raise DeserializationError("DeleteIntegrationRequest.integration_name required")
-    if "force" in data:
+    if data.get("force") is not None:
         out["force"] = data["force"]
     else:
         out["force"] = False

@@ -29,7 +29,7 @@ def serialize_aws_json_1_1(value: FieldsData) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FieldsData:
     out: FieldsData = {}  # type: ignore[typeddict-item]
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_cloudwatch_logs.types.data
 
         out["data"] = capo_cloudwatch_logs.types.data.deserialize_aws_json_1_1(

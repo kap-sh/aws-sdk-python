@@ -33,14 +33,14 @@ def serialize_aws_json_1_1(value: RevokeGrantRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RevokeGrantRequest:
     out: RevokeGrantRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("RevokeGrantRequest.key_id required")
-    if "GrantId" in data:
+    if data.get("GrantId") is not None:
         out["grant_id"] = data["GrantId"]
     else:
         raise DeserializationError("RevokeGrantRequest.grant_id required")
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

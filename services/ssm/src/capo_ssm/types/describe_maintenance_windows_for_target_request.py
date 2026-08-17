@@ -50,7 +50,7 @@ def serialize_aws_json_1_1(value: DescribeMaintenanceWindowsForTargetRequest) ->
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowsForTargetRequest:
     out: DescribeMaintenanceWindowsForTargetRequest = {}  # type: ignore[typeddict-item]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
@@ -60,7 +60,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowsForTargetR
         raise DeserializationError(
             "DescribeMaintenanceWindowsForTargetRequest.targets required"
         )
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         import capo_ssm.types.maintenance_window_resource_type
 
         out["resource_type"] = (
@@ -72,8 +72,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowsForTargetR
         raise DeserializationError(
             "DescribeMaintenanceWindowsForTargetRequest.resource_type required"
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

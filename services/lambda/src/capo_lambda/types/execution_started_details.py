@@ -30,13 +30,13 @@ def serialize_json(value: ExecutionStartedDetails) -> dict:
 
 def deserialize_json(data: dict) -> ExecutionStartedDetails:
     out: ExecutionStartedDetails = {}  # type: ignore[typeddict-item]
-    if "Input" in data:
+    if data.get("Input") is not None:
         import capo_lambda.types.event_input
 
         out["input"] = capo_lambda.types.event_input.deserialize_json(data["Input"])
     else:
         raise DeserializationError("ExecutionStartedDetails.input required")
-    if "ExecutionTimeout" in data:
+    if data.get("ExecutionTimeout") is not None:
         out["execution_timeout"] = data["ExecutionTimeout"]
     else:
         raise DeserializationError("ExecutionStartedDetails.execution_timeout required")

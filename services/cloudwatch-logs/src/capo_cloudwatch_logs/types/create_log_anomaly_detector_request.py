@@ -78,7 +78,7 @@ def serialize_aws_json_1_1(value: CreateLogAnomalyDetectorRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateLogAnomalyDetectorRequest:
     out: CreateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupArnList" in data:
+    if data.get("logGroupArnList") is not None:
         import capo_cloudwatch_logs.types.log_group_arn_list
 
         out["log_group_arn_list"] = (
@@ -90,9 +90,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateLogAnomalyDetectorRequest:
         raise DeserializationError(
             "CreateLogAnomalyDetectorRequest.log_group_arn_list required"
         )
-    if "detectorName" in data:
+    if data.get("detectorName") is not None:
         out["detector_name"] = data["detectorName"]
-    if "evaluationFrequency" in data:
+    if data.get("evaluationFrequency") is not None:
         import capo_cloudwatch_logs.types.evaluation_frequency
 
         out["evaluation_frequency"] = (
@@ -100,13 +100,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateLogAnomalyDetectorRequest:
                 data["evaluationFrequency"]
             )
         )
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "anomalyVisibilityTime" in data:
+    if data.get("anomalyVisibilityTime") is not None:
         out["anomaly_visibility_time"] = data["anomalyVisibilityTime"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

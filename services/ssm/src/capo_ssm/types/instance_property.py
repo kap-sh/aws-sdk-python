@@ -189,69 +189,69 @@ def serialize_aws_json_1_1(value: InstanceProperty) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceProperty:
     out: InstanceProperty = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "InstanceType" in data:
+    if data.get("InstanceType") is not None:
         out["instance_type"] = data["InstanceType"]
-    if "InstanceRole" in data:
+    if data.get("InstanceRole") is not None:
         out["instance_role"] = data["InstanceRole"]
-    if "KeyName" in data:
+    if data.get("KeyName") is not None:
         out["key_name"] = data["KeyName"]
-    if "InstanceState" in data:
+    if data.get("InstanceState") is not None:
         out["instance_state"] = data["InstanceState"]
-    if "Architecture" in data:
+    if data.get("Architecture") is not None:
         out["architecture"] = data["Architecture"]
-    if "IPAddress" in data:
+    if data.get("IPAddress") is not None:
         out["ip_address"] = data["IPAddress"]
-    if "LaunchTime" in data:
+    if data.get("LaunchTime") is not None:
         import capo_ssm.types.date_time
 
         out["launch_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LaunchTime"]
         )
-    if "PingStatus" in data:
+    if data.get("PingStatus") is not None:
         import capo_ssm.types.ping_status
 
         out["ping_status"] = capo_ssm.types.ping_status.deserialize_aws_json_1_1(
             data["PingStatus"]
         )
-    if "LastPingDateTime" in data:
+    if data.get("LastPingDateTime") is not None:
         import capo_ssm.types.date_time
 
         out["last_ping_date_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastPingDateTime"]
         )
-    if "AgentVersion" in data:
+    if data.get("AgentVersion") is not None:
         out["agent_version"] = data["AgentVersion"]
-    if "PlatformType" in data:
+    if data.get("PlatformType") is not None:
         import capo_ssm.types.platform_type
 
         out["platform_type"] = capo_ssm.types.platform_type.deserialize_aws_json_1_1(
             data["PlatformType"]
         )
-    if "PlatformName" in data:
+    if data.get("PlatformName") is not None:
         out["platform_name"] = data["PlatformName"]
-    if "PlatformVersion" in data:
+    if data.get("PlatformVersion") is not None:
         out["platform_version"] = data["PlatformVersion"]
-    if "ActivationId" in data:
+    if data.get("ActivationId") is not None:
         out["activation_id"] = data["ActivationId"]
-    if "IamRole" in data:
+    if data.get("IamRole") is not None:
         out["iam_role"] = data["IamRole"]
-    if "RegistrationDate" in data:
+    if data.get("RegistrationDate") is not None:
         import capo_ssm.types.date_time
 
         out["registration_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["RegistrationDate"]
         )
-    if "ResourceType" in data:
+    if data.get("ResourceType") is not None:
         out["resource_type"] = data["ResourceType"]
-    if "ComputerName" in data:
+    if data.get("ComputerName") is not None:
         out["computer_name"] = data["ComputerName"]
-    if "AssociationStatus" in data:
+    if data.get("AssociationStatus") is not None:
         out["association_status"] = data["AssociationStatus"]
-    if "LastAssociationExecutionDate" in data:
+    if data.get("LastAssociationExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_association_execution_date"] = (
@@ -259,7 +259,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceProperty:
                 data["LastAssociationExecutionDate"]
             )
         )
-    if "LastSuccessfulAssociationExecutionDate" in data:
+    if data.get("LastSuccessfulAssociationExecutionDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_successful_association_execution_date"] = (
@@ -267,7 +267,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceProperty:
                 data["LastSuccessfulAssociationExecutionDate"]
             )
         )
-    if "AssociationOverview" in data:
+    if data.get("AssociationOverview") is not None:
         import capo_ssm.types.instance_aggregated_association_overview
 
         out["association_overview"] = (
@@ -275,9 +275,9 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceProperty:
                 data["AssociationOverview"]
             )
         )
-    if "SourceId" in data:
+    if data.get("SourceId") is not None:
         out["source_id"] = data["SourceId"]
-    if "SourceType" in data:
+    if data.get("SourceType") is not None:
         import capo_ssm.types.source_type
 
         out["source_type"] = capo_ssm.types.source_type.deserialize_aws_json_1_1(

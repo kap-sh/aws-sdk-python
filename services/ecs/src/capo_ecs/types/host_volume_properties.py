@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: HostVolumeProperties) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> HostVolumeProperties:
     out: HostVolumeProperties = {}  # type: ignore[typeddict-item]
-    if "sourcePath" in data:
+    if data.get("sourcePath") is not None:
         out["source_path"] = data["sourcePath"]
     return out

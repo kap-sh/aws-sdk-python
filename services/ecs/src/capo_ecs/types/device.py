@@ -41,13 +41,13 @@ def serialize_aws_json_1_1(value: Device) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Device:
     out: Device = {}  # type: ignore[typeddict-item]
-    if "hostPath" in data:
+    if data.get("hostPath") is not None:
         out["host_path"] = data["hostPath"]
     else:
         raise DeserializationError("Device.host_path required")
-    if "containerPath" in data:
+    if data.get("containerPath") is not None:
         out["container_path"] = data["containerPath"]
-    if "permissions" in data:
+    if data.get("permissions") is not None:
         import capo_ecs.types.device_cgroup_permissions
 
         out["permissions"] = (

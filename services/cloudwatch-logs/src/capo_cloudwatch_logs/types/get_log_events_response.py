@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: GetLogEventsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLogEventsResponse:
     out: GetLogEventsResponse = {}  # type: ignore[typeddict-item]
-    if "events" in data:
+    if data.get("events") is not None:
         import capo_cloudwatch_logs.types.output_log_events
 
         out["events"] = (
@@ -46,8 +46,8 @@ def deserialize_aws_json_1_1(data: dict) -> GetLogEventsResponse:
                 data["events"]
             )
         )
-    if "nextForwardToken" in data:
+    if data.get("nextForwardToken") is not None:
         out["next_forward_token"] = data["nextForwardToken"]
-    if "nextBackwardToken" in data:
+    if data.get("nextBackwardToken") is not None:
         out["next_backward_token"] = data["nextBackwardToken"]
     return out

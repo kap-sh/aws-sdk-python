@@ -26,7 +26,7 @@ def serialize_json(value: ChainedInvokeSucceededDetails) -> dict:
 
 def deserialize_json(data: dict) -> ChainedInvokeSucceededDetails:
     out: ChainedInvokeSucceededDetails = {}  # type: ignore[typeddict-item]
-    if "Result" in data:
+    if data.get("Result") is not None:
         import capo_lambda.types.event_result
 
         out["result"] = capo_lambda.types.event_result.deserialize_json(data["Result"])

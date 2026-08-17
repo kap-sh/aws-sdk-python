@@ -33,12 +33,12 @@ def serialize_json(value: CallbackStartedDetails) -> dict:
 
 def deserialize_json(data: dict) -> CallbackStartedDetails:
     out: CallbackStartedDetails = {}  # type: ignore[typeddict-item]
-    if "CallbackId" in data:
+    if data.get("CallbackId") is not None:
         out["callback_id"] = data["CallbackId"]
     else:
         raise DeserializationError("CallbackStartedDetails.callback_id required")
-    if "HeartbeatTimeout" in data:
+    if data.get("HeartbeatTimeout") is not None:
         out["heartbeat_timeout"] = data["HeartbeatTimeout"]
-    if "Timeout" in data:
+    if data.get("Timeout") is not None:
         out["timeout"] = data["Timeout"]
     return out

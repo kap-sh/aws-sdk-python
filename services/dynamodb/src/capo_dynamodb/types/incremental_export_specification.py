@@ -49,7 +49,7 @@ def serialize_aws_json_1_0(value: IncrementalExportSpecification) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> IncrementalExportSpecification:
     out: IncrementalExportSpecification = {}  # type: ignore[typeddict-item]
-    if "ExportFromTime" in data:
+    if data.get("ExportFromTime") is not None:
         import capo_dynamodb.types.export_from_time
 
         out["export_from_time"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_0(data: dict) -> IncrementalExportSpecification:
                 data["ExportFromTime"]
             )
         )
-    if "ExportToTime" in data:
+    if data.get("ExportToTime") is not None:
         import capo_dynamodb.types.export_to_time
 
         out["export_to_time"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_0(data: dict) -> IncrementalExportSpecification:
                 data["ExportToTime"]
             )
         )
-    if "ExportViewType" in data:
+    if data.get("ExportViewType") is not None:
         import capo_dynamodb.types.export_view_type
 
         out["export_view_type"] = (

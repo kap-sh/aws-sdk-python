@@ -49,7 +49,7 @@ def serialize_aws_json_1_1(value: AutoScalingGroupProviderUpdate) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProviderUpdate:
     out: AutoScalingGroupProviderUpdate = {}  # type: ignore[typeddict-item]
-    if "managedScaling" in data:
+    if data.get("managedScaling") is not None:
         import capo_ecs.types.managed_scaling
 
         out["managed_scaling"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProviderUpdate:
                 data["managedScaling"]
             )
         )
-    if "managedTerminationProtection" in data:
+    if data.get("managedTerminationProtection") is not None:
         import capo_ecs.types.managed_termination_protection
 
         out["managed_termination_protection"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutoScalingGroupProviderUpdate:
                 data["managedTerminationProtection"]
             )
         )
-    if "managedDraining" in data:
+    if data.get("managedDraining") is not None:
         import capo_ecs.types.managed_draining
 
         out["managed_draining"] = (

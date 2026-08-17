@@ -69,26 +69,26 @@ def serialize_aws_json_1_1(value: Rule) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Rule:
     out: Rule = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "EventPattern" in data:
+    if data.get("EventPattern") is not None:
         out["event_pattern"] = data["EventPattern"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.rule_state
 
         out["state"] = capo_eventbridge.types.rule_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
-    if "ManagedBy" in data:
+    if data.get("ManagedBy") is not None:
         out["managed_by"] = data["ManagedBy"]
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
     return out

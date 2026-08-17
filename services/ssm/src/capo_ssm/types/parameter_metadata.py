@@ -94,46 +94,46 @@ def serialize_aws_json_1_1(value: ParameterMetadata) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParameterMetadata:
     out: ParameterMetadata = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.parameter_type
 
         out["type"] = capo_ssm.types.parameter_type.deserialize_aws_json_1_1(
             data["Type"]
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "LastModifiedDate" in data:
+    if data.get("LastModifiedDate") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastModifiedDate"]
         )
-    if "LastModifiedUser" in data:
+    if data.get("LastModifiedUser") is not None:
         out["last_modified_user"] = data["LastModifiedUser"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "AllowedPattern" in data:
+    if data.get("AllowedPattern") is not None:
         out["allowed_pattern"] = data["AllowedPattern"]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
     else:
         out["version"] = 0
-    if "Tier" in data:
+    if data.get("Tier") is not None:
         import capo_ssm.types.parameter_tier
 
         out["tier"] = capo_ssm.types.parameter_tier.deserialize_aws_json_1_1(
             data["Tier"]
         )
-    if "Policies" in data:
+    if data.get("Policies") is not None:
         import capo_ssm.types.parameter_policy_list
 
         out["policies"] = capo_ssm.types.parameter_policy_list.deserialize_aws_json_1_1(
             data["Policies"]
         )
-    if "DataType" in data:
+    if data.get("DataType") is not None:
         out["data_type"] = data["DataType"]
     return out

@@ -32,7 +32,7 @@ def serialize_aws_json_1_0(value: ImportTableOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ImportTableOutput:
     out: ImportTableOutput = {}  # type: ignore[typeddict-item]
-    if "ImportTableDescription" in data:
+    if data.get("ImportTableDescription") is not None:
         import capo_dynamodb.types.import_table_description
 
         out["import_table_description"] = (

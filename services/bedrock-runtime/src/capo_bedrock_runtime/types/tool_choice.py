@@ -58,7 +58,7 @@ def serialize_json(value: ToolChoice) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolChoice:
-    if "auto" in data:
+    if data.get("auto") is not None:
         import capo_bedrock_runtime.types.auto_tool_choice
 
         return {
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> ToolChoice:
                 data["auto"]
             )
         }
-    elif "any" in data:
+    elif data.get("any") is not None:
         import capo_bedrock_runtime.types.any_tool_choice
 
         return {
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> ToolChoice:
                 data["any"]
             )
         }
-    elif "tool" in data:
+    elif data.get("tool") is not None:
         import capo_bedrock_runtime.types.specific_tool_choice
 
         return {

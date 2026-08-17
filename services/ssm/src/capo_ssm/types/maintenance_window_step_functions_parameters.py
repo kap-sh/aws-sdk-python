@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: MaintenanceWindowStepFunctionsParameters) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowStepFunctionsParameters:
     out: MaintenanceWindowStepFunctionsParameters = {}  # type: ignore[typeddict-item]
-    if "Input" in data:
+    if data.get("Input") is not None:
         out["input"] = data["Input"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     return out

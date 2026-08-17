@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: UpdateSecretVersionStageResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateSecretVersionStageResponse:
     out: UpdateSecretVersionStageResponse = {}  # type: ignore[typeddict-item]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     return out

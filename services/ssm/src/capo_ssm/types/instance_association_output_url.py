@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: InstanceAssociationOutputUrl) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceAssociationOutputUrl:
     out: InstanceAssociationOutputUrl = {}  # type: ignore[typeddict-item]
-    if "S3OutputUrl" in data:
+    if data.get("S3OutputUrl") is not None:
         import capo_ssm.types.s3_output_url
 
         out["s3_output_url"] = capo_ssm.types.s3_output_url.deserialize_aws_json_1_1(

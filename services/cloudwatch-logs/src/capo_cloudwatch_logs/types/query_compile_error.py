@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: QueryCompileError) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> QueryCompileError:
     out: QueryCompileError = {}  # type: ignore[typeddict-item]
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_cloudwatch_logs.types.query_compile_error_location
 
         out["location"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> QueryCompileError:
                 data["location"]
             )
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

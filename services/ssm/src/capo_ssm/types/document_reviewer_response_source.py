@@ -62,25 +62,25 @@ def serialize_aws_json_1_1(value: DocumentReviewerResponseSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentReviewerResponseSource:
     out: DocumentReviewerResponseSource = {}  # type: ignore[typeddict-item]
-    if "CreateTime" in data:
+    if data.get("CreateTime") is not None:
         import capo_ssm.types.date_time
 
         out["create_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreateTime"]
         )
-    if "UpdatedTime" in data:
+    if data.get("UpdatedTime") is not None:
         import capo_ssm.types.date_time
 
         out["updated_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["UpdatedTime"]
         )
-    if "ReviewStatus" in data:
+    if data.get("ReviewStatus") is not None:
         import capo_ssm.types.review_status
 
         out["review_status"] = capo_ssm.types.review_status.deserialize_aws_json_1_1(
             data["ReviewStatus"]
         )
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         import capo_ssm.types.document_review_comment_list
 
         out["comment"] = (
@@ -88,6 +88,6 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentReviewerResponseSource:
                 data["Comment"]
             )
         )
-    if "Reviewer" in data:
+    if data.get("Reviewer") is not None:
         out["reviewer"] = data["Reviewer"]
     return out

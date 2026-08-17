@@ -45,13 +45,13 @@ def serialize_aws_json_1_1(value: AssociationStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociationStatus:
     out: AssociationStatus = {}  # type: ignore[typeddict-item]
-    if "Date" in data:
+    if data.get("Date") is not None:
         import capo_ssm.types.date_time
 
         out["date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(data["Date"])
     else:
         raise DeserializationError("AssociationStatus.date required")
-    if "Name" in data:
+    if data.get("Name") is not None:
         import capo_ssm.types.association_status_name
 
         out["name"] = capo_ssm.types.association_status_name.deserialize_aws_json_1_1(
@@ -59,10 +59,10 @@ def deserialize_aws_json_1_1(data: dict) -> AssociationStatus:
         )
     else:
         raise DeserializationError("AssociationStatus.name required")
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("AssociationStatus.message required")
-    if "AdditionalInfo" in data:
+    if data.get("AdditionalInfo") is not None:
         out["additional_info"] = data["AdditionalInfo"]
     return out

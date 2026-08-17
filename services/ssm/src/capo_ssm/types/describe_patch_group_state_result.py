@@ -100,59 +100,59 @@ def serialize_aws_json_1_1(value: DescribePatchGroupStateResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePatchGroupStateResult:
     out: DescribePatchGroupStateResult = {}  # type: ignore[typeddict-item]
-    if "Instances" in data:
+    if data.get("Instances") is not None:
         out["instances"] = data["Instances"]
     else:
         out["instances"] = 0
-    if "InstancesWithInstalledPatches" in data:
+    if data.get("InstancesWithInstalledPatches") is not None:
         out["instances_with_installed_patches"] = data["InstancesWithInstalledPatches"]
     else:
         out["instances_with_installed_patches"] = 0
-    if "InstancesWithInstalledOtherPatches" in data:
+    if data.get("InstancesWithInstalledOtherPatches") is not None:
         out["instances_with_installed_other_patches"] = data[
             "InstancesWithInstalledOtherPatches"
         ]
     else:
         out["instances_with_installed_other_patches"] = 0
-    if "InstancesWithInstalledPendingRebootPatches" in data:
+    if data.get("InstancesWithInstalledPendingRebootPatches") is not None:
         out["instances_with_installed_pending_reboot_patches"] = data[
             "InstancesWithInstalledPendingRebootPatches"
         ]
-    if "InstancesWithInstalledRejectedPatches" in data:
+    if data.get("InstancesWithInstalledRejectedPatches") is not None:
         out["instances_with_installed_rejected_patches"] = data[
             "InstancesWithInstalledRejectedPatches"
         ]
-    if "InstancesWithMissingPatches" in data:
+    if data.get("InstancesWithMissingPatches") is not None:
         out["instances_with_missing_patches"] = data["InstancesWithMissingPatches"]
     else:
         out["instances_with_missing_patches"] = 0
-    if "InstancesWithFailedPatches" in data:
+    if data.get("InstancesWithFailedPatches") is not None:
         out["instances_with_failed_patches"] = data["InstancesWithFailedPatches"]
     else:
         out["instances_with_failed_patches"] = 0
-    if "InstancesWithNotApplicablePatches" in data:
+    if data.get("InstancesWithNotApplicablePatches") is not None:
         out["instances_with_not_applicable_patches"] = data[
             "InstancesWithNotApplicablePatches"
         ]
     else:
         out["instances_with_not_applicable_patches"] = 0
-    if "InstancesWithUnreportedNotApplicablePatches" in data:
+    if data.get("InstancesWithUnreportedNotApplicablePatches") is not None:
         out["instances_with_unreported_not_applicable_patches"] = data[
             "InstancesWithUnreportedNotApplicablePatches"
         ]
-    if "InstancesWithCriticalNonCompliantPatches" in data:
+    if data.get("InstancesWithCriticalNonCompliantPatches") is not None:
         out["instances_with_critical_non_compliant_patches"] = data[
             "InstancesWithCriticalNonCompliantPatches"
         ]
-    if "InstancesWithSecurityNonCompliantPatches" in data:
+    if data.get("InstancesWithSecurityNonCompliantPatches") is not None:
         out["instances_with_security_non_compliant_patches"] = data[
             "InstancesWithSecurityNonCompliantPatches"
         ]
-    if "InstancesWithOtherNonCompliantPatches" in data:
+    if data.get("InstancesWithOtherNonCompliantPatches") is not None:
         out["instances_with_other_non_compliant_patches"] = data[
             "InstancesWithOtherNonCompliantPatches"
         ]
-    if "InstancesWithAvailableSecurityUpdates" in data:
+    if data.get("InstancesWithAvailableSecurityUpdates") is not None:
         out["instances_with_available_security_updates"] = data[
             "InstancesWithAvailableSecurityUpdates"
         ]

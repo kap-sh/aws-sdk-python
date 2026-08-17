@@ -37,15 +37,15 @@ def serialize_aws_json_1_1(value: Tmpfs) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Tmpfs:
     out: Tmpfs = {}  # type: ignore[typeddict-item]
-    if "containerPath" in data:
+    if data.get("containerPath") is not None:
         out["container_path"] = data["containerPath"]
     else:
         raise DeserializationError("Tmpfs.container_path required")
-    if "size" in data:
+    if data.get("size") is not None:
         out["size"] = data["size"]
     else:
         out["size"] = 0
-    if "mountOptions" in data:
+    if data.get("mountOptions") is not None:
         import capo_ecs.types.string_list
 
         out["mount_options"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(

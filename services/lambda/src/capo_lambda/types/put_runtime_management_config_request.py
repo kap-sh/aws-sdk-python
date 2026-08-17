@@ -43,7 +43,7 @@ def serialize_json(value: PutRuntimeManagementConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutRuntimeManagementConfigRequest:
     out: PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-    if "UpdateRuntimeOn" in data:
+    if data.get("UpdateRuntimeOn") is not None:
         import capo_lambda.types.update_runtime_on
 
         out["update_runtime_on"] = capo_lambda.types.update_runtime_on.deserialize_json(
@@ -53,6 +53,6 @@ def deserialize_json(data: dict) -> PutRuntimeManagementConfigRequest:
         raise DeserializationError(
             "PutRuntimeManagementConfigRequest.update_runtime_on required"
         )
-    if "RuntimeVersionArn" in data:
+    if data.get("RuntimeVersionArn") is not None:
         out["runtime_version_arn"] = data["RuntimeVersionArn"]
     return out

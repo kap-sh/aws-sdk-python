@@ -288,13 +288,13 @@ def serialize_aws_json_1_0(value: MetricAlarm) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
     out: MetricAlarm = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmArn" in data:
+    if data.get("AlarmArn") is not None:
         out["alarm_arn"] = data["AlarmArn"]
-    if "AlarmDescription" in data:
+    if data.get("AlarmDescription") is not None:
         out["alarm_description"] = data["AlarmDescription"]
-    if "AlarmConfigurationUpdatedTimestamp" in data:
+    if data.get("AlarmConfigurationUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["alarm_configuration_updated_timestamp"] = (
@@ -302,9 +302,9 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["AlarmConfigurationUpdatedTimestamp"]
             )
         )
-    if "ActionsEnabled" in data:
+    if data.get("ActionsEnabled") is not None:
         out["actions_enabled"] = data["ActionsEnabled"]
-    if "OKActions" in data:
+    if data.get("OKActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["ok_actions"] = (
@@ -312,7 +312,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["OKActions"]
             )
         )
-    if "AlarmActions" in data:
+    if data.get("AlarmActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["alarm_actions"] = (
@@ -320,7 +320,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["AlarmActions"]
             )
         )
-    if "InsufficientDataActions" in data:
+    if data.get("InsufficientDataActions") is not None:
         import capo_cloudwatch.types.resource_list
 
         out["insufficient_data_actions"] = (
@@ -328,17 +328,17 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["InsufficientDataActions"]
             )
         )
-    if "StateValue" in data:
+    if data.get("StateValue") is not None:
         import capo_cloudwatch.types.state_value
 
         out["state_value"] = capo_cloudwatch.types.state_value.deserialize_aws_json_1_0(
             data["StateValue"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "StateReasonData" in data:
+    if data.get("StateReasonData") is not None:
         out["state_reason_data"] = data["StateReasonData"]
-    if "StateUpdatedTimestamp" in data:
+    if data.get("StateUpdatedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_updated_timestamp"] = (
@@ -346,39 +346,39 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["StateUpdatedTimestamp"]
             )
         )
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "Statistic" in data:
+    if data.get("Statistic") is not None:
         import capo_cloudwatch.types.statistic
 
         out["statistic"] = capo_cloudwatch.types.statistic.deserialize_aws_json_1_0(
             data["Statistic"]
         )
-    if "ExtendedStatistic" in data:
+    if data.get("ExtendedStatistic") is not None:
         out["extended_statistic"] = data["ExtendedStatistic"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(
             data["Unit"]
         )
-    if "EvaluationPeriods" in data:
+    if data.get("EvaluationPeriods") is not None:
         out["evaluation_periods"] = data["EvaluationPeriods"]
-    if "DatapointsToAlarm" in data:
+    if data.get("DatapointsToAlarm") is not None:
         out["datapoints_to_alarm"] = data["DatapointsToAlarm"]
-    if "Threshold" in data:
+    if data.get("Threshold") is not None:
         out["threshold"] = data["Threshold"]
-    if "ComparisonOperator" in data:
+    if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 
         out["comparison_operator"] = (
@@ -386,13 +386,13 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["ComparisonOperator"]
             )
         )
-    if "TreatMissingData" in data:
+    if data.get("TreatMissingData") is not None:
         out["treat_missing_data"] = data["TreatMissingData"]
-    if "EvaluateLowSampleCountPercentile" in data:
+    if data.get("EvaluateLowSampleCountPercentile") is not None:
         out["evaluate_low_sample_count_percentile"] = data[
             "EvaluateLowSampleCountPercentile"
         ]
-    if "Metrics" in data:
+    if data.get("Metrics") is not None:
         import capo_cloudwatch.types.metric_data_queries
 
         out["metrics"] = (
@@ -400,9 +400,9 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["Metrics"]
             )
         )
-    if "ThresholdMetricId" in data:
+    if data.get("ThresholdMetricId") is not None:
         out["threshold_metric_id"] = data["ThresholdMetricId"]
-    if "EvaluationState" in data:
+    if data.get("EvaluationState") is not None:
         import capo_cloudwatch.types.evaluation_state
 
         out["evaluation_state"] = (
@@ -410,7 +410,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["EvaluationState"]
             )
         )
-    if "StateTransitionedTimestamp" in data:
+    if data.get("StateTransitionedTimestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["state_transitioned_timestamp"] = (
@@ -418,7 +418,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["StateTransitionedTimestamp"]
             )
         )
-    if "EvaluationWindow" in data:
+    if data.get("EvaluationWindow") is not None:
         import capo_cloudwatch.types.evaluation_window
 
         out["evaluation_window"] = (
@@ -426,7 +426,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["EvaluationWindow"]
             )
         )
-    if "EvaluationCriteria" in data:
+    if data.get("EvaluationCriteria") is not None:
         import capo_cloudwatch.types.evaluation_criteria
 
         out["evaluation_criteria"] = (
@@ -434,7 +434,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
                 data["EvaluationCriteria"]
             )
         )
-    if "EvaluationInterval" in data:
+    if data.get("EvaluationInterval") is not None:
         out["evaluation_interval"] = data["EvaluationInterval"]
     return out
 

@@ -25,6 +25,6 @@ def serialize_json(value: AwsAdditionalDetails) -> dict:
 
 def deserialize_json(data: dict) -> AwsAdditionalDetails:
     out: AwsAdditionalDetails = {}  # type: ignore[typeddict-item]
-    if "identityContext" in data:
+    if data.get("identityContext") is not None:
         out["identity_context"] = data["identityContext"]
     return out

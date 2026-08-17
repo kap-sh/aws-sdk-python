@@ -45,15 +45,15 @@ def serialize_aws_json_1_1(value: GetDocumentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDocumentRequest:
     out: GetDocumentRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("GetDocumentRequest.name required")
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "DocumentFormat" in data:
+    if data.get("DocumentFormat") is not None:
         import capo_ssm.types.document_format
 
         out["document_format"] = (

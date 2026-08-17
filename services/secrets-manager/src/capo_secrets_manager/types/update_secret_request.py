@@ -68,17 +68,17 @@ def serialize_aws_json_1_1(value: UpdateSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateSecretRequest:
     out: UpdateSecretRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("UpdateSecretRequest.secret_id required")
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyId" in data:
+    if data.get("KmsKeyId") is not None:
         out["kms_key_id"] = data["KmsKeyId"]
-    if "SecretBinary" in data:
+    if data.get("SecretBinary") is not None:
         import capo_secrets_manager.types.secret_binary_type
 
         out["secret_binary"] = (
@@ -86,8 +86,8 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateSecretRequest:
                 data["SecretBinary"]
             )
         )
-    if "SecretString" in data:
+    if data.get("SecretString") is not None:
         out["secret_string"] = data["SecretString"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
     return out

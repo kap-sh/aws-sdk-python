@@ -112,15 +112,15 @@ def serialize_aws_json_1_0(value: StartSyncExecutionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
     out: StartSyncExecutionOutput = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("StartSyncExecutionOutput.execution_arn required")
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_sfn.types.timestamp
 
         out["start_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -128,7 +128,7 @@ def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
         )
     else:
         raise DeserializationError("StartSyncExecutionOutput.start_date required")
-    if "stopDate" in data:
+    if data.get("stopDate") is not None:
         import capo_sfn.types.timestamp
 
         out["stop_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -136,7 +136,7 @@ def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
         )
     else:
         raise DeserializationError("StartSyncExecutionOutput.stop_date required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_sfn.types.sync_execution_status
 
         out["status"] = capo_sfn.types.sync_execution_status.deserialize_aws_json_1_0(
@@ -144,13 +144,13 @@ def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
         )
     else:
         raise DeserializationError("StartSyncExecutionOutput.status required")
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.cloud_watch_events_execution_data_details
 
         out["input_details"] = (
@@ -158,9 +158,9 @@ def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
                 data["inputDetails"]
             )
         )
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "outputDetails" in data:
+    if data.get("outputDetails") is not None:
         import capo_sfn.types.cloud_watch_events_execution_data_details
 
         out["output_details"] = (
@@ -168,9 +168,9 @@ def deserialize_aws_json_1_0(data: dict) -> StartSyncExecutionOutput:
                 data["outputDetails"]
             )
         )
-    if "traceHeader" in data:
+    if data.get("traceHeader") is not None:
         out["trace_header"] = data["traceHeader"]
-    if "billingDetails" in data:
+    if data.get("billingDetails") is not None:
         import capo_sfn.types.billing_details
 
         out["billing_details"] = (

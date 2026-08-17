@@ -40,12 +40,12 @@ def serialize_aws_json_1_1(value: InstanceAssociation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceAssociation:
     out: InstanceAssociation = {}  # type: ignore[typeddict-item]
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "Content" in data:
+    if data.get("Content") is not None:
         out["content"] = data["Content"]
-    if "AssociationVersion" in data:
+    if data.get("AssociationVersion") is not None:
         out["association_version"] = data["AssociationVersion"]
     return out

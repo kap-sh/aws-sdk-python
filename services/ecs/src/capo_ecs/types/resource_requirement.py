@@ -30,11 +30,11 @@ def serialize_aws_json_1_1(value: ResourceRequirement) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceRequirement:
     out: ResourceRequirement = {}  # type: ignore[typeddict-item]
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("ResourceRequirement.value required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.resource_type
 
         out["type"] = capo_ecs.types.resource_type.deserialize_aws_json_1_1(

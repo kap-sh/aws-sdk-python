@@ -45,7 +45,7 @@ def serialize_aws_json_1_0(value: BatchStatementError) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchStatementError:
     out: BatchStatementError = {}  # type: ignore[typeddict-item]
-    if "Code" in data:
+    if data.get("Code") is not None:
         import capo_dynamodb.types.batch_statement_error_code_enum
 
         out["code"] = (
@@ -53,9 +53,9 @@ def deserialize_aws_json_1_0(data: dict) -> BatchStatementError:
                 data["Code"]
             )
         )
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["item"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(

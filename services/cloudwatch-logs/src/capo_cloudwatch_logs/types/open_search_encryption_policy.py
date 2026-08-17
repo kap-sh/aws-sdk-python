@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: OpenSearchEncryptionPolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchEncryptionPolicy:
     out: OpenSearchEncryptionPolicy = {}  # type: ignore[typeddict-item]
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status
 
         out["status"] = (

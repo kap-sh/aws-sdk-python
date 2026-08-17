@@ -25,6 +25,8 @@ def deserialize_aws_json_1_0(data: list) -> BatchResultErrorEntryList:
 
     out: BatchResultErrorEntryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sqs.types.batch_result_error_entry.deserialize_aws_json_1_0(item)
         )

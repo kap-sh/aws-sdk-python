@@ -34,15 +34,15 @@ def serialize_aws_json_1_1(value: AddKeyEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AddKeyEntry:
     out: AddKeyEntry = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("AddKeyEntry.key required")
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("AddKeyEntry.value required")
-    if "overwriteIfExists" in data:
+    if data.get("overwriteIfExists") is not None:
         out["overwrite_if_exists"] = data["overwriteIfExists"]
     else:
         out["overwrite_if_exists"] = False

@@ -57,7 +57,7 @@ def serialize_aws_json_1_0(value: ReplicationGroupUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicationGroupUpdate:
     out: ReplicationGroupUpdate = {}  # type: ignore[typeddict-item]
-    if "Create" in data:
+    if data.get("Create") is not None:
         import capo_dynamodb.types.create_replication_group_member_action
 
         out["create"] = (
@@ -65,7 +65,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicationGroupUpdate:
                 data["Create"]
             )
         )
-    if "Update" in data:
+    if data.get("Update") is not None:
         import capo_dynamodb.types.update_replication_group_member_action
 
         out["update"] = (
@@ -73,7 +73,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicationGroupUpdate:
                 data["Update"]
             )
         )
-    if "Delete" in data:
+    if data.get("Delete") is not None:
         import capo_dynamodb.types.delete_replication_group_member_action
 
         out["delete"] = (

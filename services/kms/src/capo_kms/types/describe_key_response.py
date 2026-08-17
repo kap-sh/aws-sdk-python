@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: DescribeKeyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeKeyResponse:
     out: DescribeKeyResponse = {}  # type: ignore[typeddict-item]
-    if "KeyMetadata" in data:
+    if data.get("KeyMetadata") is not None:
         import capo_kms.types.key_metadata
 
         out["key_metadata"] = capo_kms.types.key_metadata.deserialize_aws_json_1_1(

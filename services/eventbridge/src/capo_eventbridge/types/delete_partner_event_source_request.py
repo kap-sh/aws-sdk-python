@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: DeletePartnerEventSourceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeletePartnerEventSourceRequest:
     out: DeletePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("DeletePartnerEventSourceRequest.name required")
-    if "Account" in data:
+    if data.get("Account") is not None:
         out["account"] = data["Account"]
     else:
         raise DeserializationError("DeletePartnerEventSourceRequest.account required")

@@ -40,11 +40,11 @@ def serialize_aws_json_1_1(value: GetParametersForImportRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersForImportRequest:
     out: GetParametersForImportRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("GetParametersForImportRequest.key_id required")
-    if "WrappingAlgorithm" in data:
+    if data.get("WrappingAlgorithm") is not None:
         import capo_kms.types.algorithm_spec
 
         out["wrapping_algorithm"] = (
@@ -56,7 +56,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetParametersForImportRequest:
         raise DeserializationError(
             "GetParametersForImportRequest.wrapping_algorithm required"
         )
-    if "WrappingKeySpec" in data:
+    if data.get("WrappingKeySpec") is not None:
         import capo_kms.types.wrapping_key_spec
 
         out["wrapping_key_spec"] = (

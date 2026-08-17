@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: RepositoryCredentials) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RepositoryCredentials:
     out: RepositoryCredentials = {}  # type: ignore[typeddict-item]
-    if "credentialsParameter" in data:
+    if data.get("credentialsParameter") is not None:
         out["credentials_parameter"] = data["credentialsParameter"]
     else:
         raise DeserializationError(

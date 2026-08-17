@@ -40,7 +40,7 @@ def serialize_aws_json_1_1(value: ListImageReferrersFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersFilter:
     out: ListImageReferrersFilter = {}  # type: ignore[typeddict-item]
-    if "artifactTypes" in data:
+    if data.get("artifactTypes") is not None:
         import capo_ecr.types.artifact_type_list
 
         out["artifact_types"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersFilter:
                 data["artifactTypes"]
             )
         )
-    if "artifactStatus" in data:
+    if data.get("artifactStatus") is not None:
         import capo_ecr.types.artifact_status_filter
 
         out["artifact_status"] = (

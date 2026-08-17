@@ -57,21 +57,21 @@ def serialize_aws_json_1_1(value: SubmitContainerStateChangeRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubmitContainerStateChangeRequest:
     out: SubmitContainerStateChangeRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "task" in data:
+    if data.get("task") is not None:
         out["task"] = data["task"]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
-    if "runtimeId" in data:
+    if data.get("runtimeId") is not None:
         out["runtime_id"] = data["runtimeId"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "exitCode" in data:
+    if data.get("exitCode") is not None:
         out["exit_code"] = data["exitCode"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "networkBindings" in data:
+    if data.get("networkBindings") is not None:
         import capo_ecs.types.network_bindings
 
         out["network_bindings"] = (

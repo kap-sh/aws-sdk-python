@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: Policy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Policy:
     out: Policy = {}  # type: ignore[typeddict-item]
-    if "deliveryDestinationPolicy" in data:
+    if data.get("deliveryDestinationPolicy") is not None:
         out["delivery_destination_policy"] = data["deliveryDestinationPolicy"]
     return out

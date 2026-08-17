@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: EndpointEventBus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EndpointEventBus:
     out: EndpointEventBus = {}  # type: ignore[typeddict-item]
-    if "EventBusArn" in data:
+    if data.get("EventBusArn") is not None:
         out["event_bus_arn"] = data["EventBusArn"]
     else:
         raise DeserializationError("EndpointEventBus.event_bus_arn required")

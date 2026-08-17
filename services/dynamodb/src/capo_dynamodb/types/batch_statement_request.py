@@ -55,11 +55,11 @@ def serialize_aws_json_1_0(value: BatchStatementRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchStatementRequest:
     out: BatchStatementRequest = {}  # type: ignore[typeddict-item]
-    if "Statement" in data:
+    if data.get("Statement") is not None:
         out["statement"] = data["Statement"]
     else:
         raise DeserializationError("BatchStatementRequest.statement required")
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_dynamodb.types.prepared_statement_parameters
 
         out["parameters"] = (
@@ -67,9 +67,9 @@ def deserialize_aws_json_1_0(data: dict) -> BatchStatementRequest:
                 data["Parameters"]
             )
         )
-    if "ConsistentRead" in data:
+    if data.get("ConsistentRead") is not None:
         out["consistent_read"] = data["ConsistentRead"]
-    if "ReturnValuesOnConditionCheckFailure" in data:
+    if data.get("ReturnValuesOnConditionCheckFailure") is not None:
         import capo_dynamodb.types.return_values_on_condition_check_failure
 
         out["return_values_on_condition_check_failure"] = (

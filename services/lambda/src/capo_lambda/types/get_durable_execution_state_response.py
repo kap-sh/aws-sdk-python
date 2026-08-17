@@ -31,7 +31,7 @@ def serialize_json(value: GetDurableExecutionStateResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDurableExecutionStateResponse:
     out: GetDurableExecutionStateResponse = {}  # type: ignore[typeddict-item]
-    if "Operations" in data:
+    if data.get("Operations") is not None:
         import capo_lambda.types.operations
 
         out["operations"] = capo_lambda.types.operations.deserialize_json(
@@ -41,6 +41,6 @@ def deserialize_json(data: dict) -> GetDurableExecutionStateResponse:
         raise DeserializationError(
             "GetDurableExecutionStateResponse.operations required"
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

@@ -51,7 +51,7 @@ def serialize_aws_json_1_1(value: AwsVpcConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AwsVpcConfiguration:
     out: AwsVpcConfiguration = {}  # type: ignore[typeddict-item]
-    if "Subnets" in data:
+    if data.get("Subnets") is not None:
         import capo_eventbridge.types.string_list
 
         out["subnets"] = capo_eventbridge.types.string_list.deserialize_aws_json_1_1(
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_1(data: dict) -> AwsVpcConfiguration:
         )
     else:
         raise DeserializationError("AwsVpcConfiguration.subnets required")
-    if "SecurityGroups" in data:
+    if data.get("SecurityGroups") is not None:
         import capo_eventbridge.types.string_list
 
         out["security_groups"] = (
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> AwsVpcConfiguration:
                 data["SecurityGroups"]
             )
         )
-    if "AssignPublicIp" in data:
+    if data.get("AssignPublicIp") is not None:
         import capo_eventbridge.types.assign_public_ip
 
         out["assign_public_ip"] = (

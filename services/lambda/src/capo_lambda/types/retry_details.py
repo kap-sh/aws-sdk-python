@@ -29,10 +29,10 @@ def serialize_json(value: RetryDetails) -> dict:
 
 def deserialize_json(data: dict) -> RetryDetails:
     out: RetryDetails = {}  # type: ignore[typeddict-item]
-    if "CurrentAttempt" in data:
+    if data.get("CurrentAttempt") is not None:
         out["current_attempt"] = data["CurrentAttempt"]
     else:
         out["current_attempt"] = 0
-    if "NextAttemptDelaySeconds" in data:
+    if data.get("NextAttemptDelaySeconds") is not None:
         out["next_attempt_delay_seconds"] = data["NextAttemptDelaySeconds"]
     return out

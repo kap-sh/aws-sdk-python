@@ -25,7 +25,7 @@ def serialize_aws_json_1_0(value: ListQueueTagsResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListQueueTagsResult:
     out: ListQueueTagsResult = {}  # type: ignore[typeddict-item]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_sqs.types.tag_map
 
         out["tags"] = capo_sqs.types.tag_map.deserialize_aws_json_1_0(data["Tags"])

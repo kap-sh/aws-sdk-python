@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> ManagedApplicationAutoScalingPolicie
 
     out: ManagedApplicationAutoScalingPolicies = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.managed_application_auto_scaling_policy.deserialize_aws_json_1_1(
                 item

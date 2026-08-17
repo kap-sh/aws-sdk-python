@@ -51,19 +51,19 @@ def serialize_aws_json_1_0(value: SingleMetricAnomalyDetector) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SingleMetricAnomalyDetector:
     out: SingleMetricAnomalyDetector = {}  # type: ignore[typeddict-item]
-    if "AccountId" in data:
+    if data.get("AccountId") is not None:
         out["account_id"] = data["AccountId"]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Stat" in data:
+    if data.get("Stat") is not None:
         out["stat"] = data["Stat"]
     return out
 

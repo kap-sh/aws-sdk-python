@@ -120,7 +120,7 @@ def serialize_json(value: GuardrailAutomatedReasoningFinding) -> dict:
 
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
-    if "valid" in data:
+    if data.get("valid") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_valid_finding
 
         return {
@@ -128,7 +128,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["valid"]
             )
         }
-    elif "invalid" in data:
+    elif data.get("invalid") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_invalid_finding
 
         return {
@@ -136,7 +136,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["invalid"]
             )
         }
-    elif "satisfiable" in data:
+    elif data.get("satisfiable") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_satisfiable_finding
 
         return {
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["satisfiable"]
             )
         }
-    elif "impossible" in data:
+    elif data.get("impossible") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_impossible_finding
 
         return {
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["impossible"]
             )
         }
-    elif "translationAmbiguous" in data:
+    elif data.get("translationAmbiguous") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation_ambiguous_finding
 
         return {
@@ -160,7 +160,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["translationAmbiguous"]
             )
         }
-    elif "tooComplex" in data:
+    elif data.get("tooComplex") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_too_complex_finding
 
         return {
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningFinding:
                 data["tooComplex"]
             )
         }
-    elif "noTranslations" in data:
+    elif data.get("noTranslations") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_no_translations_finding
 
         return {

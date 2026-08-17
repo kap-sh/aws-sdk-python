@@ -45,17 +45,17 @@ def serialize_aws_json_1_0(value: TaskSucceededEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TaskSucceededEventDetails:
     out: TaskSucceededEventDetails = {}  # type: ignore[typeddict-item]
-    if "resourceType" in data:
+    if data.get("resourceType") is not None:
         out["resource_type"] = data["resourceType"]
     else:
         raise DeserializationError("TaskSucceededEventDetails.resource_type required")
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     else:
         raise DeserializationError("TaskSucceededEventDetails.resource required")
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "outputDetails" in data:
+    if data.get("outputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["output_details"] = (

@@ -31,7 +31,7 @@ def serialize_json(value: CodeSigningPolicies) -> dict:
 
 def deserialize_json(data: dict) -> CodeSigningPolicies:
     out: CodeSigningPolicies = {}  # type: ignore[typeddict-item]
-    if "UntrustedArtifactOnDeployment" in data:
+    if data.get("UntrustedArtifactOnDeployment") is not None:
         import capo_lambda.types.code_signing_policy
 
         out["untrusted_artifact_on_deployment"] = (

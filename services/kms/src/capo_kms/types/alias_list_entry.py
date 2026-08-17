@@ -50,19 +50,19 @@ def serialize_aws_json_1_1(value: AliasListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AliasListEntry:
     out: AliasListEntry = {}  # type: ignore[typeddict-item]
-    if "AliasName" in data:
+    if data.get("AliasName") is not None:
         out["alias_name"] = data["AliasName"]
-    if "AliasArn" in data:
+    if data.get("AliasArn") is not None:
         out["alias_arn"] = data["AliasArn"]
-    if "TargetKeyId" in data:
+    if data.get("TargetKeyId") is not None:
         out["target_key_id"] = data["TargetKeyId"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_kms.types.date_type
 
         out["creation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["CreationDate"]
         )
-    if "LastUpdatedDate" in data:
+    if data.get("LastUpdatedDate") is not None:
         import capo_kms.types.date_type
 
         out["last_updated_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(

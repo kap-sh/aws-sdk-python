@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> RenameKeyEntries:
 
     out: RenameKeyEntries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.rename_key_entry.deserialize_aws_json_1_1(item)
         )

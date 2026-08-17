@@ -31,11 +31,11 @@ def serialize_aws_json_1_1(value: PutParameterResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutParameterResult:
     out: PutParameterResult = {}  # type: ignore[typeddict-item]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
     else:
         out["version"] = 0
-    if "Tier" in data:
+    if data.get("Tier") is not None:
         import capo_ssm.types.parameter_tier
 
         out["tier"] = capo_ssm.types.parameter_tier.deserialize_aws_json_1_1(

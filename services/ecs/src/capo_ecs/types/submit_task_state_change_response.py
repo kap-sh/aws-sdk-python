@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: SubmitTaskStateChangeResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubmitTaskStateChangeResponse:
     out: SubmitTaskStateChangeResponse = {}  # type: ignore[typeddict-item]
-    if "acknowledgment" in data:
+    if data.get("acknowledgment") is not None:
         out["acknowledgment"] = data["acknowledgment"]
     return out

@@ -47,9 +47,9 @@ def serialize_aws_json_1_1(value: InventoryAggregator) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryAggregator:
     out: InventoryAggregator = {}  # type: ignore[typeddict-item]
-    if "Expression" in data:
+    if data.get("Expression") is not None:
         out["expression"] = data["Expression"]
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.inventory_aggregator_list
 
         out["aggregators"] = (
@@ -57,7 +57,7 @@ def deserialize_aws_json_1_1(data: dict) -> InventoryAggregator:
                 data["Aggregators"]
             )
         )
-    if "Groups" in data:
+    if data.get("Groups") is not None:
         import capo_ssm.types.inventory_group_list
 
         out["groups"] = capo_ssm.types.inventory_group_list.deserialize_aws_json_1_1(

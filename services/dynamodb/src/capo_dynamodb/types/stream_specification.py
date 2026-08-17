@@ -35,11 +35,11 @@ def serialize_aws_json_1_0(value: StreamSpecification) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StreamSpecification:
     out: StreamSpecification = {}  # type: ignore[typeddict-item]
-    if "StreamEnabled" in data:
+    if data.get("StreamEnabled") is not None:
         out["stream_enabled"] = data["StreamEnabled"]
     else:
         raise DeserializationError("StreamSpecification.stream_enabled required")
-    if "StreamViewType" in data:
+    if data.get("StreamViewType") is not None:
         import capo_dynamodb.types.stream_view_type
 
         out["stream_view_type"] = (

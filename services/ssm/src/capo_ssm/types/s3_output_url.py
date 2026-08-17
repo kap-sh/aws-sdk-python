@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: S3OutputUrl) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> S3OutputUrl:
     out: S3OutputUrl = {}  # type: ignore[typeddict-item]
-    if "OutputUrl" in data:
+    if data.get("OutputUrl") is not None:
         out["output_url"] = data["OutputUrl"]
     return out

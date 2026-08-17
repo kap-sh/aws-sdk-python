@@ -31,6 +31,8 @@ def deserialize_aws_json_1_0(
 
     out: ValidateStateMachineDefinitionDiagnosticList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sfn.types.validate_state_machine_definition_diagnostic.deserialize_aws_json_1_0(
                 item

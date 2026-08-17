@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> CapacityProviderStrategy:
 
     out: CapacityProviderStrategy = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.capacity_provider_strategy_item.deserialize_aws_json_1_1(
                 item

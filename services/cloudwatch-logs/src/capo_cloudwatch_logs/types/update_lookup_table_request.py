@@ -40,16 +40,16 @@ def serialize_aws_json_1_1(value: UpdateLookupTableRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateLookupTableRequest:
     out: UpdateLookupTableRequest = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
     else:
         raise DeserializationError("UpdateLookupTableRequest.lookup_table_arn required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "tableBody" in data:
+    if data.get("tableBody") is not None:
         out["table_body"] = data["tableBody"]
     else:
         raise DeserializationError("UpdateLookupTableRequest.table_body required")
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

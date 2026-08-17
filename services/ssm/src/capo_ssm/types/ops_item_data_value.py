@@ -34,9 +34,9 @@ def serialize_aws_json_1_1(value: OpsItemDataValue) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemDataValue:
     out: OpsItemDataValue = {}  # type: ignore[typeddict-item]
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.ops_item_data_type
 
         out["type"] = capo_ssm.types.ops_item_data_type.deserialize_aws_json_1_1(

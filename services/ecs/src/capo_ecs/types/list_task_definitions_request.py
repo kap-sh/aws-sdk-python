@@ -48,20 +48,20 @@ def serialize_aws_json_1_1(value: ListTaskDefinitionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTaskDefinitionsRequest:
     out: ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-    if "familyPrefix" in data:
+    if data.get("familyPrefix") is not None:
         out["family_prefix"] = data["familyPrefix"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.task_definition_status
 
         out["status"] = capo_ecs.types.task_definition_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "sort" in data:
+    if data.get("sort") is not None:
         import capo_ecs.types.sort_order
 
         out["sort"] = capo_ecs.types.sort_order.deserialize_aws_json_1_1(data["sort"])
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

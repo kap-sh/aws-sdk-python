@@ -52,16 +52,16 @@ def serialize_aws_json_1_1(value: DescribeMetricFiltersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeMetricFiltersRequest:
     out: DescribeMetricFiltersRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "filterNamePrefix" in data:
+    if data.get("filterNamePrefix") is not None:
         out["filter_name_prefix"] = data["filterNamePrefix"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "metricName" in data:
+    if data.get("metricName") is not None:
         out["metric_name"] = data["metricName"]
-    if "metricNamespace" in data:
+    if data.get("metricNamespace") is not None:
         out["metric_namespace"] = data["metricNamespace"]
     return out

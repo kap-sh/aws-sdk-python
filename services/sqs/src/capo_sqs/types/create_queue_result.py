@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: CreateQueueResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateQueueResult:
     out: CreateQueueResult = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     return out

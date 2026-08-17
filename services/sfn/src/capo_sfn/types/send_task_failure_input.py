@@ -34,12 +34,12 @@ def serialize_aws_json_1_0(value: SendTaskFailureInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SendTaskFailureInput:
     out: SendTaskFailureInput = {}  # type: ignore[typeddict-item]
-    if "taskToken" in data:
+    if data.get("taskToken") is not None:
         out["task_token"] = data["taskToken"]
     else:
         raise DeserializationError("SendTaskFailureInput.task_token required")
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
     return out

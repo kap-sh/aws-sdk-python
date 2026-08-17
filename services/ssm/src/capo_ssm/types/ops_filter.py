@@ -41,11 +41,11 @@ def serialize_aws_json_1_1(value: OpsFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsFilter:
     out: OpsFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("OpsFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.ops_filter_value_list
 
         out["values"] = capo_ssm.types.ops_filter_value_list.deserialize_aws_json_1_1(
@@ -53,7 +53,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpsFilter:
         )
     else:
         raise DeserializationError("OpsFilter.values required")
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.ops_filter_operator_type
 
         out["type"] = capo_ssm.types.ops_filter_operator_type.deserialize_aws_json_1_1(

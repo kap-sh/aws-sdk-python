@@ -45,13 +45,13 @@ def serialize_json(value: VpcConfig) -> dict:
 
 def deserialize_json(data: dict) -> VpcConfig:
     out: VpcConfig = {}  # type: ignore[typeddict-item]
-    if "SubnetIds" in data:
+    if data.get("SubnetIds") is not None:
         import capo_lambda.types.subnet_ids
 
         out["subnet_ids"] = capo_lambda.types.subnet_ids.deserialize_json(
             data["SubnetIds"]
         )
-    if "SecurityGroupIds" in data:
+    if data.get("SecurityGroupIds") is not None:
         import capo_lambda.types.security_group_ids
 
         out["security_group_ids"] = (
@@ -59,6 +59,6 @@ def deserialize_json(data: dict) -> VpcConfig:
                 data["SecurityGroupIds"]
             )
         )
-    if "Ipv6AllowedForDualStack" in data:
+    if data.get("Ipv6AllowedForDualStack") is not None:
         out["ipv6_allowed_for_dual_stack"] = data["Ipv6AllowedForDualStack"]
     return out

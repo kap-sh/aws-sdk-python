@@ -81,15 +81,15 @@ def serialize_aws_json_1_0(value: CreateReplicationGroupMemberAction) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateReplicationGroupMemberAction:
     out: CreateReplicationGroupMemberAction = {}  # type: ignore[typeddict-item]
-    if "RegionName" in data:
+    if data.get("RegionName") is not None:
         out["region_name"] = data["RegionName"]
     else:
         raise DeserializationError(
             "CreateReplicationGroupMemberAction.region_name required"
         )
-    if "KMSMasterKeyId" in data:
+    if data.get("KMSMasterKeyId") is not None:
         out["kms_master_key_id"] = data["KMSMasterKeyId"]
-    if "ProvisionedThroughputOverride" in data:
+    if data.get("ProvisionedThroughputOverride") is not None:
         import capo_dynamodb.types.provisioned_throughput_override
 
         out["provisioned_throughput_override"] = (
@@ -97,7 +97,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateReplicationGroupMemberAction:
                 data["ProvisionedThroughputOverride"]
             )
         )
-    if "OnDemandThroughputOverride" in data:
+    if data.get("OnDemandThroughputOverride") is not None:
         import capo_dynamodb.types.on_demand_throughput_override
 
         out["on_demand_throughput_override"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateReplicationGroupMemberAction:
                 data["OnDemandThroughputOverride"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.replica_global_secondary_index_list
 
         out["global_secondary_indexes"] = (
@@ -113,7 +113,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateReplicationGroupMemberAction:
                 data["GlobalSecondaryIndexes"]
             )
         )
-    if "TableClassOverride" in data:
+    if data.get("TableClassOverride") is not None:
         import capo_dynamodb.types.table_class
 
         out["table_class_override"] = (

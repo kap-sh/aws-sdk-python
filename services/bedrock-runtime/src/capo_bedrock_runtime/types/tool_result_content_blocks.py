@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ToolResultContentBlocks:
 
     out: ToolResultContentBlocks = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.tool_result_content_block.deserialize_json(item)
         )

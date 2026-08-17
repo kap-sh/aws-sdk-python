@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> MessageSystemAttributeList:
 
     out: MessageSystemAttributeList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sqs.types.message_system_attribute_name.deserialize_aws_json_1_0(item)
         )

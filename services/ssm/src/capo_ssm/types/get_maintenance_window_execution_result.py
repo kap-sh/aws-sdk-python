@@ -75,9 +75,9 @@ def serialize_aws_json_1_1(value: GetMaintenanceWindowExecutionResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionResult:
     out: GetMaintenanceWindowExecutionResult = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionId" in data:
+    if data.get("WindowExecutionId") is not None:
         out["window_execution_id"] = data["WindowExecutionId"]
-    if "TaskIds" in data:
+    if data.get("TaskIds") is not None:
         import capo_ssm.types.maintenance_window_execution_task_id_list
 
         out["task_ids"] = (
@@ -85,7 +85,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionResult:
                 data["TaskIds"]
             )
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.maintenance_window_execution_status
 
         out["status"] = (
@@ -93,15 +93,15 @@ def deserialize_aws_json_1_1(data: dict) -> GetMaintenanceWindowExecutionResult:
                 data["Status"]
             )
         )
-    if "StatusDetails" in data:
+    if data.get("StatusDetails") is not None:
         out["status_details"] = data["StatusDetails"]
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_ssm.types.date_time
 
         out["start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_ssm.types.date_time
 
         out["end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

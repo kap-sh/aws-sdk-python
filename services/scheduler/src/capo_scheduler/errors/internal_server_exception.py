@@ -18,7 +18,7 @@ def serialize_json(value: InternalServerException_) -> dict:
 
 def deserialize_json(data: dict) -> InternalServerException_:
     out: InternalServerException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("InternalServerException_.message required")

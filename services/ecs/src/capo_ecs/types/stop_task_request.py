@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: StopTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopTaskRequest:
     out: StopTaskRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "task" in data:
+    if data.get("task") is not None:
         out["task"] = data["task"]
     else:
         raise DeserializationError("StopTaskRequest.task required")
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
     return out

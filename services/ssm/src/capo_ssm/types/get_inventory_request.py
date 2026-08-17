@@ -63,13 +63,13 @@ def serialize_aws_json_1_1(value: GetInventoryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetInventoryRequest:
     out: GetInventoryRequest = {}  # type: ignore[typeddict-item]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.inventory_filter_list
 
         out["filters"] = capo_ssm.types.inventory_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "Aggregators" in data:
+    if data.get("Aggregators") is not None:
         import capo_ssm.types.inventory_aggregator_list
 
         out["aggregators"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetInventoryRequest:
                 data["Aggregators"]
             )
         )
-    if "ResultAttributes" in data:
+    if data.get("ResultAttributes") is not None:
         import capo_ssm.types.result_attribute_list
 
         out["result_attributes"] = (
@@ -85,8 +85,8 @@ def deserialize_aws_json_1_1(data: dict) -> GetInventoryRequest:
                 data["ResultAttributes"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

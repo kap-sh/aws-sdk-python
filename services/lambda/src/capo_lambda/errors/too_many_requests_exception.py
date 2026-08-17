@@ -37,11 +37,11 @@ def serialize_json(value: TooManyRequestsException_) -> dict:
 
 def deserialize_json(data: dict) -> TooManyRequestsException_:
     out: TooManyRequestsException_ = {}  # type: ignore[typeddict-item]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "Reason" in data:
+    if data.get("Reason") is not None:
         import capo_lambda.types.throttle_reason
 
         out["reason"] = capo_lambda.types.throttle_reason.deserialize_json(

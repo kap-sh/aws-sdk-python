@@ -298,19 +298,19 @@ def serialize_aws_json_1_1(value: Service) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Service:
     out: Service = {}  # type: ignore[typeddict-item]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.load_balancers
 
         out["load_balancers"] = capo_ecs.types.load_balancers.deserialize_aws_json_1_1(
             data["loadBalancers"]
         )
-    if "serviceRegistries" in data:
+    if data.get("serviceRegistries") is not None:
         import capo_ecs.types.service_registries
 
         out["service_registries"] = (
@@ -318,27 +318,27 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["serviceRegistries"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "desiredCount" in data:
+    if data.get("desiredCount") is not None:
         out["desired_count"] = data["desiredCount"]
     else:
         out["desired_count"] = 0
-    if "runningCount" in data:
+    if data.get("runningCount") is not None:
         out["running_count"] = data["runningCount"]
     else:
         out["running_count"] = 0
-    if "pendingCount" in data:
+    if data.get("pendingCount") is not None:
         out["pending_count"] = data["pendingCount"]
     else:
         out["pending_count"] = 0
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -346,13 +346,13 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["capacityProviderStrategy"]
             )
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "platformFamily" in data:
+    if data.get("platformFamily") is not None:
         out["platform_family"] = data["platformFamily"]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.deployment_configuration
 
         out["deployment_configuration"] = (
@@ -360,35 +360,35 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["deploymentConfiguration"]
             )
         )
-    if "taskSets" in data:
+    if data.get("taskSets") is not None:
         import capo_ecs.types.task_sets
 
         out["task_sets"] = capo_ecs.types.task_sets.deserialize_aws_json_1_1(
             data["taskSets"]
         )
-    if "deployments" in data:
+    if data.get("deployments") is not None:
         import capo_ecs.types.deployments
 
         out["deployments"] = capo_ecs.types.deployments.deserialize_aws_json_1_1(
             data["deployments"]
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "events" in data:
+    if data.get("events") is not None:
         import capo_ecs.types.service_events
 
         out["events"] = capo_ecs.types.service_events.deserialize_aws_json_1_1(
             data["events"]
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "currentServiceDeployment" in data:
+    if data.get("currentServiceDeployment") is not None:
         out["current_service_deployment"] = data["currentServiceDeployment"]
-    if "currentServiceRevisions" in data:
+    if data.get("currentServiceRevisions") is not None:
         import capo_ecs.types.service_current_revision_summary_list
 
         out["current_service_revisions"] = (
@@ -396,7 +396,7 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["currentServiceRevisions"]
             )
         )
-    if "placementConstraints" in data:
+    if data.get("placementConstraints") is not None:
         import capo_ecs.types.placement_constraints
 
         out["placement_constraints"] = (
@@ -404,7 +404,7 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["placementConstraints"]
             )
         )
-    if "placementStrategy" in data:
+    if data.get("placementStrategy") is not None:
         import capo_ecs.types.placement_strategies
 
         out["placement_strategy"] = (
@@ -412,7 +412,7 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["placementStrategy"]
             )
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -420,9 +420,9 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["networkConfiguration"]
             )
         )
-    if "healthCheckGracePeriodSeconds" in data:
+    if data.get("healthCheckGracePeriodSeconds") is not None:
         out["health_check_grace_period_seconds"] = data["healthCheckGracePeriodSeconds"]
-    if "schedulingStrategy" in data:
+    if data.get("schedulingStrategy") is not None:
         import capo_ecs.types.scheduling_strategy
 
         out["scheduling_strategy"] = (
@@ -430,7 +430,7 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["schedulingStrategy"]
             )
         )
-    if "deploymentController" in data:
+    if data.get("deploymentController") is not None:
         import capo_ecs.types.deployment_controller
 
         out["deployment_controller"] = (
@@ -438,27 +438,27 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["deploymentController"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "createdBy" in data:
+    if data.get("createdBy") is not None:
         out["created_by"] = data["createdBy"]
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_tags
 
         out["propagate_tags"] = capo_ecs.types.propagate_tags.deserialize_aws_json_1_1(
             data["propagateTags"]
         )
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "availabilityZoneRebalancing" in data:
+    if data.get("availabilityZoneRebalancing") is not None:
         import capo_ecs.types.availability_zone_rebalancing
 
         out["availability_zone_rebalancing"] = (
@@ -466,7 +466,7 @@ def deserialize_aws_json_1_1(data: dict) -> Service:
                 data["availabilityZoneRebalancing"]
             )
         )
-    if "resourceManagementType" in data:
+    if data.get("resourceManagementType") is not None:
         import capo_ecs.types.resource_management_type
 
         out["resource_management_type"] = (

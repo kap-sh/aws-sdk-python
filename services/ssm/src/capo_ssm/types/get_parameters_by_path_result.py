@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: GetParametersByPathResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersByPathResult:
     out: GetParametersByPathResult = {}  # type: ignore[typeddict-item]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.parameter_list
 
         out["parameters"] = capo_ssm.types.parameter_list.deserialize_aws_json_1_1(
             data["Parameters"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

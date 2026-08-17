@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> SearchedLogStreams:
 
     out: SearchedLogStreams = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.searched_log_stream.deserialize_aws_json_1_1(
                 item

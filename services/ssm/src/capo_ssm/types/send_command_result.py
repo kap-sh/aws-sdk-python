@@ -25,7 +25,7 @@ def serialize_aws_json_1_1(value: SendCommandResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SendCommandResult:
     out: SendCommandResult = {}  # type: ignore[typeddict-item]
-    if "Command" in data:
+    if data.get("Command") is not None:
         import capo_ssm.types.command
 
         out["command"] = capo_ssm.types.command.deserialize_aws_json_1_1(

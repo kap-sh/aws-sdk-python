@@ -25,7 +25,7 @@ def serialize_aws_json_1_1(value: PutImageResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutImageResponse:
     out: PutImageResponse = {}  # type: ignore[typeddict-item]
-    if "image" in data:
+    if data.get("image") is not None:
         import capo_ecr.types.image
 
         out["image"] = capo_ecr.types.image.deserialize_aws_json_1_1(data["image"])

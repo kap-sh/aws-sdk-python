@@ -24,7 +24,7 @@ def serialize_json(value: CreateScheduleOutput) -> dict:
 
 def deserialize_json(data: dict) -> CreateScheduleOutput:
     out: CreateScheduleOutput = {}  # type: ignore[typeddict-item]
-    if "ScheduleArn" in data:
+    if data.get("ScheduleArn") is not None:
         out["schedule_arn"] = data["ScheduleArn"]
     else:
         raise DeserializationError("CreateScheduleOutput.schedule_arn required")

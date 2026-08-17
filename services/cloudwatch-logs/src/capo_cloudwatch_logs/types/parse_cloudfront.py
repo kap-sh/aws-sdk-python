@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ParseCloudfront) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParseCloudfront:
     out: ParseCloudfront = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     return out

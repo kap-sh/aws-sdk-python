@@ -33,14 +33,14 @@ def serialize_aws_json_1_1(value: GetCommandInvocationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetCommandInvocationRequest:
     out: GetCommandInvocationRequest = {}  # type: ignore[typeddict-item]
-    if "CommandId" in data:
+    if data.get("CommandId") is not None:
         out["command_id"] = data["CommandId"]
     else:
         raise DeserializationError("GetCommandInvocationRequest.command_id required")
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError("GetCommandInvocationRequest.instance_id required")
-    if "PluginName" in data:
+    if data.get("PluginName") is not None:
         out["plugin_name"] = data["PluginName"]
     return out

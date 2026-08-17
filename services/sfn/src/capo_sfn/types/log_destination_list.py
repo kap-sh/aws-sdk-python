@@ -23,5 +23,7 @@ def deserialize_aws_json_1_0(data: list) -> LogDestinationList:
 
     out: LogDestinationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_sfn.types.log_destination.deserialize_aws_json_1_0(item))
     return out

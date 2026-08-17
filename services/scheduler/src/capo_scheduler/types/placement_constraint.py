@@ -32,8 +32,8 @@ def serialize_json(value: PlacementConstraint) -> dict:
 
 def deserialize_json(data: dict) -> PlacementConstraint:
     out: PlacementConstraint = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     return out

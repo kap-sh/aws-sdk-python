@@ -33,13 +33,13 @@ def serialize_aws_json_1_0(value: DescribeStateMachineInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeStateMachineInput:
     out: DescribeStateMachineInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError(
             "DescribeStateMachineInput.state_machine_arn required"
         )
-    if "includedData" in data:
+    if data.get("includedData") is not None:
         import capo_sfn.types.included_data
 
         out["included_data"] = capo_sfn.types.included_data.deserialize_aws_json_1_0(

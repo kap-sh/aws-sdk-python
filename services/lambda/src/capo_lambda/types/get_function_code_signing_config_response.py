@@ -30,13 +30,13 @@ def serialize_json(value: GetFunctionCodeSigningConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFunctionCodeSigningConfigResponse:
     out: GetFunctionCodeSigningConfigResponse = {}  # type: ignore[typeddict-item]
-    if "CodeSigningConfigArn" in data:
+    if data.get("CodeSigningConfigArn") is not None:
         out["code_signing_config_arn"] = data["CodeSigningConfigArn"]
     else:
         raise DeserializationError(
             "GetFunctionCodeSigningConfigResponse.code_signing_config_arn required"
         )
-    if "FunctionName" in data:
+    if data.get("FunctionName") is not None:
         out["function_name"] = data["FunctionName"]
     else:
         raise DeserializationError(

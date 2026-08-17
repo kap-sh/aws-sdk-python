@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: MonitoringConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MonitoringConfiguration:
     out: MonitoringConfiguration = {}  # type: ignore[typeddict-item]
-    if "metricConfigurations" in data:
+    if data.get("metricConfigurations") is not None:
         import capo_ecs.types.metric_configuration_list
 
         out["metric_configurations"] = (

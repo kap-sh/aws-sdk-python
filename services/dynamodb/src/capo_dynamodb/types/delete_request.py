@@ -26,7 +26,7 @@ def serialize_aws_json_1_0(value: DeleteRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteRequest:
     out: DeleteRequest = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_dynamodb.types.key
 
         out["key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])

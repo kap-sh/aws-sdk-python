@@ -23,6 +23,6 @@ def serialize_json(value: ContextOptions) -> dict:
 
 def deserialize_json(data: dict) -> ContextOptions:
     out: ContextOptions = {}  # type: ignore[typeddict-item]
-    if "ReplayChildren" in data:
+    if data.get("ReplayChildren") is not None:
         out["replay_children"] = data["ReplayChildren"]
     return out

@@ -56,9 +56,9 @@ def serialize_json(value: SystemContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> SystemContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "guardContent" in data:
+    elif data.get("guardContent") is not None:
         import capo_bedrock_runtime.types.guardrail_converse_content_block
 
         return {
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> SystemContentBlock:
                 data["guardContent"]
             )
         }
-    elif "cachePoint" in data:
+    elif data.get("cachePoint") is not None:
         import capo_bedrock_runtime.types.cache_point_block
 
         return {

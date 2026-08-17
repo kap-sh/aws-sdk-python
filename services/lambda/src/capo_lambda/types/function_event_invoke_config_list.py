@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> FunctionEventInvokeConfigList:
 
     out: FunctionEventInvokeConfigList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_lambda.types.function_event_invoke_config.deserialize_json(item)
         )

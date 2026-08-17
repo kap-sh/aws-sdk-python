@@ -365,31 +365,31 @@ def serialize_json(value: Event) -> dict:
 
 def deserialize_json(data: dict) -> Event:
     out: Event = {}  # type: ignore[typeddict-item]
-    if "EventType" in data:
+    if data.get("EventType") is not None:
         import capo_lambda.types.event_type
 
         out["event_type"] = capo_lambda.types.event_type.deserialize_json(
             data["EventType"]
         )
-    if "SubType" in data:
+    if data.get("SubType") is not None:
         out["sub_type"] = data["SubType"]
-    if "EventId" in data:
+    if data.get("EventId") is not None:
         out["event_id"] = data["EventId"]
     else:
         out["event_id"] = 1
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "EventTimestamp" in data:
+    if data.get("EventTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["event_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
             data["EventTimestamp"]
         )
-    if "ParentId" in data:
+    if data.get("ParentId") is not None:
         out["parent_id"] = data["ParentId"]
-    if "ExecutionStartedDetails" in data:
+    if data.get("ExecutionStartedDetails") is not None:
         import capo_lambda.types.execution_started_details
 
         out["execution_started_details"] = (
@@ -397,7 +397,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ExecutionStartedDetails"]
             )
         )
-    if "ExecutionSucceededDetails" in data:
+    if data.get("ExecutionSucceededDetails") is not None:
         import capo_lambda.types.execution_succeeded_details
 
         out["execution_succeeded_details"] = (
@@ -405,7 +405,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ExecutionSucceededDetails"]
             )
         )
-    if "ExecutionFailedDetails" in data:
+    if data.get("ExecutionFailedDetails") is not None:
         import capo_lambda.types.execution_failed_details
 
         out["execution_failed_details"] = (
@@ -413,7 +413,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ExecutionFailedDetails"]
             )
         )
-    if "ExecutionTimedOutDetails" in data:
+    if data.get("ExecutionTimedOutDetails") is not None:
         import capo_lambda.types.execution_timed_out_details
 
         out["execution_timed_out_details"] = (
@@ -421,7 +421,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ExecutionTimedOutDetails"]
             )
         )
-    if "ExecutionStoppedDetails" in data:
+    if data.get("ExecutionStoppedDetails") is not None:
         import capo_lambda.types.execution_stopped_details
 
         out["execution_stopped_details"] = (
@@ -429,7 +429,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ExecutionStoppedDetails"]
             )
         )
-    if "ContextStartedDetails" in data:
+    if data.get("ContextStartedDetails") is not None:
         import capo_lambda.types.context_started_details
 
         out["context_started_details"] = (
@@ -437,7 +437,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ContextStartedDetails"]
             )
         )
-    if "ContextSucceededDetails" in data:
+    if data.get("ContextSucceededDetails") is not None:
         import capo_lambda.types.context_succeeded_details
 
         out["context_succeeded_details"] = (
@@ -445,7 +445,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ContextSucceededDetails"]
             )
         )
-    if "ContextFailedDetails" in data:
+    if data.get("ContextFailedDetails") is not None:
         import capo_lambda.types.context_failed_details
 
         out["context_failed_details"] = (
@@ -453,7 +453,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ContextFailedDetails"]
             )
         )
-    if "WaitStartedDetails" in data:
+    if data.get("WaitStartedDetails") is not None:
         import capo_lambda.types.wait_started_details
 
         out["wait_started_details"] = (
@@ -461,7 +461,7 @@ def deserialize_json(data: dict) -> Event:
                 data["WaitStartedDetails"]
             )
         )
-    if "WaitSucceededDetails" in data:
+    if data.get("WaitSucceededDetails") is not None:
         import capo_lambda.types.wait_succeeded_details
 
         out["wait_succeeded_details"] = (
@@ -469,7 +469,7 @@ def deserialize_json(data: dict) -> Event:
                 data["WaitSucceededDetails"]
             )
         )
-    if "WaitCancelledDetails" in data:
+    if data.get("WaitCancelledDetails") is not None:
         import capo_lambda.types.wait_cancelled_details
 
         out["wait_cancelled_details"] = (
@@ -477,7 +477,7 @@ def deserialize_json(data: dict) -> Event:
                 data["WaitCancelledDetails"]
             )
         )
-    if "StepStartedDetails" in data:
+    if data.get("StepStartedDetails") is not None:
         import capo_lambda.types.step_started_details
 
         out["step_started_details"] = (
@@ -485,7 +485,7 @@ def deserialize_json(data: dict) -> Event:
                 data["StepStartedDetails"]
             )
         )
-    if "StepSucceededDetails" in data:
+    if data.get("StepSucceededDetails") is not None:
         import capo_lambda.types.step_succeeded_details
 
         out["step_succeeded_details"] = (
@@ -493,7 +493,7 @@ def deserialize_json(data: dict) -> Event:
                 data["StepSucceededDetails"]
             )
         )
-    if "StepFailedDetails" in data:
+    if data.get("StepFailedDetails") is not None:
         import capo_lambda.types.step_failed_details
 
         out["step_failed_details"] = (
@@ -501,7 +501,7 @@ def deserialize_json(data: dict) -> Event:
                 data["StepFailedDetails"]
             )
         )
-    if "ChainedInvokeStartedDetails" in data:
+    if data.get("ChainedInvokeStartedDetails") is not None:
         import capo_lambda.types.chained_invoke_started_details
 
         out["chained_invoke_started_details"] = (
@@ -509,7 +509,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ChainedInvokeStartedDetails"]
             )
         )
-    if "ChainedInvokeSucceededDetails" in data:
+    if data.get("ChainedInvokeSucceededDetails") is not None:
         import capo_lambda.types.chained_invoke_succeeded_details
 
         out["chained_invoke_succeeded_details"] = (
@@ -517,7 +517,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ChainedInvokeSucceededDetails"]
             )
         )
-    if "ChainedInvokeFailedDetails" in data:
+    if data.get("ChainedInvokeFailedDetails") is not None:
         import capo_lambda.types.chained_invoke_failed_details
 
         out["chained_invoke_failed_details"] = (
@@ -525,7 +525,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ChainedInvokeFailedDetails"]
             )
         )
-    if "ChainedInvokeTimedOutDetails" in data:
+    if data.get("ChainedInvokeTimedOutDetails") is not None:
         import capo_lambda.types.chained_invoke_timed_out_details
 
         out["chained_invoke_timed_out_details"] = (
@@ -533,7 +533,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ChainedInvokeTimedOutDetails"]
             )
         )
-    if "ChainedInvokeStoppedDetails" in data:
+    if data.get("ChainedInvokeStoppedDetails") is not None:
         import capo_lambda.types.chained_invoke_stopped_details
 
         out["chained_invoke_stopped_details"] = (
@@ -541,7 +541,7 @@ def deserialize_json(data: dict) -> Event:
                 data["ChainedInvokeStoppedDetails"]
             )
         )
-    if "CallbackStartedDetails" in data:
+    if data.get("CallbackStartedDetails") is not None:
         import capo_lambda.types.callback_started_details
 
         out["callback_started_details"] = (
@@ -549,7 +549,7 @@ def deserialize_json(data: dict) -> Event:
                 data["CallbackStartedDetails"]
             )
         )
-    if "CallbackSucceededDetails" in data:
+    if data.get("CallbackSucceededDetails") is not None:
         import capo_lambda.types.callback_succeeded_details
 
         out["callback_succeeded_details"] = (
@@ -557,7 +557,7 @@ def deserialize_json(data: dict) -> Event:
                 data["CallbackSucceededDetails"]
             )
         )
-    if "CallbackFailedDetails" in data:
+    if data.get("CallbackFailedDetails") is not None:
         import capo_lambda.types.callback_failed_details
 
         out["callback_failed_details"] = (
@@ -565,7 +565,7 @@ def deserialize_json(data: dict) -> Event:
                 data["CallbackFailedDetails"]
             )
         )
-    if "CallbackTimedOutDetails" in data:
+    if data.get("CallbackTimedOutDetails") is not None:
         import capo_lambda.types.callback_timed_out_details
 
         out["callback_timed_out_details"] = (
@@ -573,7 +573,7 @@ def deserialize_json(data: dict) -> Event:
                 data["CallbackTimedOutDetails"]
             )
         )
-    if "InvocationCompletedDetails" in data:
+    if data.get("InvocationCompletedDetails") is not None:
         import capo_lambda.types.invocation_completed_details
 
         out["invocation_completed_details"] = (

@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: CancelMessageMoveTaskResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CancelMessageMoveTaskResult:
     out: CancelMessageMoveTaskResult = {}  # type: ignore[typeddict-item]
-    if "ApproximateNumberOfMessagesMoved" in data:
+    if data.get("ApproximateNumberOfMessagesMoved") is not None:
         out["approximate_number_of_messages_moved"] = data[
             "ApproximateNumberOfMessagesMoved"
         ]

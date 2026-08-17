@@ -56,13 +56,13 @@ def serialize_aws_json_1_1(value: UpdateLogAnomalyDetectorRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateLogAnomalyDetectorRequest:
     out: UpdateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
     else:
         raise DeserializationError(
             "UpdateLogAnomalyDetectorRequest.anomaly_detector_arn required"
         )
-    if "evaluationFrequency" in data:
+    if data.get("evaluationFrequency") is not None:
         import capo_cloudwatch_logs.types.evaluation_frequency
 
         out["evaluation_frequency"] = (
@@ -70,11 +70,11 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateLogAnomalyDetectorRequest:
                 data["evaluationFrequency"]
             )
         )
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
-    if "anomalyVisibilityTime" in data:
+    if data.get("anomalyVisibilityTime") is not None:
         out["anomaly_visibility_time"] = data["anomalyVisibilityTime"]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         raise DeserializationError("UpdateLogAnomalyDetectorRequest.enabled required")

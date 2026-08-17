@@ -42,7 +42,7 @@ def serialize_aws_json_1_0(value: BatchExecuteStatementInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BatchExecuteStatementInput:
     out: BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
-    if "Statements" in data:
+    if data.get("Statements") is not None:
         import capo_dynamodb.types.parti_ql_batch_request
 
         out["statements"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_0(data: dict) -> BatchExecuteStatementInput:
         )
     else:
         raise DeserializationError("BatchExecuteStatementInput.statements required")
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (

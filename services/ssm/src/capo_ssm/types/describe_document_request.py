@@ -36,12 +36,12 @@ def serialize_aws_json_1_1(value: DescribeDocumentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentRequest:
     out: DescribeDocumentRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("DescribeDocumentRequest.name required")
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
     return out

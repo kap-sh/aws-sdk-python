@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> S3TableIntegrationSources:
 
     out: S3TableIntegrationSources = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.s3_table_integration_source.deserialize_aws_json_1_1(
                 item

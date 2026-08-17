@@ -34,7 +34,7 @@ def serialize_aws_json_1_1(value: ListContainerInstancesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListContainerInstancesResponse:
     out: ListContainerInstancesResponse = {}  # type: ignore[typeddict-item]
-    if "containerInstanceArns" in data:
+    if data.get("containerInstanceArns") is not None:
         import capo_ecs.types.string_list
 
         out["container_instance_arns"] = (
@@ -42,6 +42,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListContainerInstancesResponse:
                 data["containerInstanceArns"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

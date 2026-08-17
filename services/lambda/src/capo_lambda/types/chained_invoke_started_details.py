@@ -50,18 +50,18 @@ def serialize_json(value: ChainedInvokeStartedDetails) -> dict:
 
 def deserialize_json(data: dict) -> ChainedInvokeStartedDetails:
     out: ChainedInvokeStartedDetails = {}  # type: ignore[typeddict-item]
-    if "FunctionName" in data:
+    if data.get("FunctionName") is not None:
         out["function_name"] = data["FunctionName"]
     else:
         raise DeserializationError("ChainedInvokeStartedDetails.function_name required")
-    if "TenantId" in data:
+    if data.get("TenantId") is not None:
         out["tenant_id"] = data["TenantId"]
-    if "Input" in data:
+    if data.get("Input") is not None:
         import capo_lambda.types.event_input
 
         out["input"] = capo_lambda.types.event_input.deserialize_json(data["Input"])
-    if "ExecutedVersion" in data:
+    if data.get("ExecutedVersion") is not None:
         out["executed_version"] = data["ExecutedVersion"]
-    if "DurableExecutionArn" in data:
+    if data.get("DurableExecutionArn") is not None:
         out["durable_execution_arn"] = data["DurableExecutionArn"]
     return out

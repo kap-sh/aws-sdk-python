@@ -25,6 +25,8 @@ def serialize_aws_json_1_0(input_to_serialize: FilterConditionMap) -> dict:
 def deserialize_aws_json_1_0(data: dict) -> FilterConditionMap:
     out: FilterConditionMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_dynamodb.types.condition
 
         out[key] = capo_dynamodb.types.condition.deserialize_aws_json_1_0(value)

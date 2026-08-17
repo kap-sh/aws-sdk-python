@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteEventBusRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteEventBusRequest:
     out: DeleteEventBusRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("DeleteEventBusRequest.name required")

@@ -56,15 +56,15 @@ def serialize_aws_json_1_0(value: AutoScalingSettingsDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AutoScalingSettingsDescription:
     out: AutoScalingSettingsDescription = {}  # type: ignore[typeddict-item]
-    if "MinimumUnits" in data:
+    if data.get("MinimumUnits") is not None:
         out["minimum_units"] = data["MinimumUnits"]
-    if "MaximumUnits" in data:
+    if data.get("MaximumUnits") is not None:
         out["maximum_units"] = data["MaximumUnits"]
-    if "AutoScalingDisabled" in data:
+    if data.get("AutoScalingDisabled") is not None:
         out["auto_scaling_disabled"] = data["AutoScalingDisabled"]
-    if "AutoScalingRoleArn" in data:
+    if data.get("AutoScalingRoleArn") is not None:
         out["auto_scaling_role_arn"] = data["AutoScalingRoleArn"]
-    if "ScalingPolicies" in data:
+    if data.get("ScalingPolicies") is not None:
         import capo_dynamodb.types.auto_scaling_policy_description_list
 
         out["scaling_policies"] = (

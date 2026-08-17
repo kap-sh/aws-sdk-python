@@ -38,11 +38,11 @@ def serialize_aws_json_1_1(value: FailureDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FailureDetails:
     out: FailureDetails = {}  # type: ignore[typeddict-item]
-    if "FailureStage" in data:
+    if data.get("FailureStage") is not None:
         out["failure_stage"] = data["FailureStage"]
-    if "FailureType" in data:
+    if data.get("FailureType") is not None:
         out["failure_type"] = data["FailureType"]
-    if "Details" in data:
+    if data.get("Details") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["details"] = (

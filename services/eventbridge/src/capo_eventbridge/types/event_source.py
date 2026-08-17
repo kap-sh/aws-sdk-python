@@ -57,11 +57,11 @@ def serialize_aws_json_1_1(value: EventSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EventSource:
     out: EventSource = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
-    if "CreatedBy" in data:
+    if data.get("CreatedBy") is not None:
         out["created_by"] = data["CreatedBy"]
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -69,7 +69,7 @@ def deserialize_aws_json_1_1(data: dict) -> EventSource:
                 data["CreationTime"]
             )
         )
-    if "ExpirationTime" in data:
+    if data.get("ExpirationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["expiration_time"] = (
@@ -77,9 +77,9 @@ def deserialize_aws_json_1_1(data: dict) -> EventSource:
                 data["ExpirationTime"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.event_source_state
 
         out["state"] = (

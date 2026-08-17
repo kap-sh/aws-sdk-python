@@ -41,22 +41,22 @@ def serialize_json(value: AccountLimit) -> dict:
 
 def deserialize_json(data: dict) -> AccountLimit:
     out: AccountLimit = {}  # type: ignore[typeddict-item]
-    if "TotalCodeSize" in data:
+    if data.get("TotalCodeSize") is not None:
         out["total_code_size"] = data["TotalCodeSize"]
     else:
         out["total_code_size"] = 0
-    if "CodeSizeUnzipped" in data:
+    if data.get("CodeSizeUnzipped") is not None:
         out["code_size_unzipped"] = data["CodeSizeUnzipped"]
     else:
         out["code_size_unzipped"] = 0
-    if "CodeSizeZipped" in data:
+    if data.get("CodeSizeZipped") is not None:
         out["code_size_zipped"] = data["CodeSizeZipped"]
     else:
         out["code_size_zipped"] = 0
-    if "ConcurrentExecutions" in data:
+    if data.get("ConcurrentExecutions") is not None:
         out["concurrent_executions"] = data["ConcurrentExecutions"]
     else:
         out["concurrent_executions"] = 0
-    if "UnreservedConcurrentExecutions" in data:
+    if data.get("UnreservedConcurrentExecutions") is not None:
         out["unreserved_concurrent_executions"] = data["UnreservedConcurrentExecutions"]
     return out

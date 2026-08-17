@@ -36,9 +36,9 @@ def serialize_aws_json_1_0(value: UntagResourceInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UntagResourceInput:
     out: UntagResourceInput = {}  # type: ignore[typeddict-item]
-    if "ResourceARN" in data:
+    if data.get("ResourceARN") is not None:
         out["resource_arn"] = data["ResourceARN"]
-    if "TagKeys" in data:
+    if data.get("TagKeys") is not None:
         import capo_cloudwatch.types.tag_key_list
 
         out["tag_keys"] = capo_cloudwatch.types.tag_key_list.deserialize_aws_json_1_0(

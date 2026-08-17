@@ -134,13 +134,13 @@ def serialize_aws_json_1_1(value: CreateOpsItemRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateOpsItemRequest:
     out: CreateOpsItemRequest = {}  # type: ignore[typeddict-item]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
     else:
         raise DeserializationError("CreateOpsItemRequest.description required")
-    if "OpsItemType" in data:
+    if data.get("OpsItemType") is not None:
         out["ops_item_type"] = data["OpsItemType"]
-    if "OperationalData" in data:
+    if data.get("OperationalData") is not None:
         import capo_ssm.types.ops_item_operational_data
 
         out["operational_data"] = (
@@ -148,7 +148,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateOpsItemRequest:
                 data["OperationalData"]
             )
         )
-    if "Notifications" in data:
+    if data.get("Notifications") is not None:
         import capo_ssm.types.ops_item_notifications
 
         out["notifications"] = (
@@ -156,9 +156,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateOpsItemRequest:
                 data["Notifications"]
             )
         )
-    if "Priority" in data:
+    if data.get("Priority") is not None:
         out["priority"] = data["Priority"]
-    if "RelatedOpsItems" in data:
+    if data.get("RelatedOpsItems") is not None:
         import capo_ssm.types.related_ops_items
 
         out["related_ops_items"] = (
@@ -166,46 +166,46 @@ def deserialize_aws_json_1_1(data: dict) -> CreateOpsItemRequest:
                 data["RelatedOpsItems"]
             )
         )
-    if "Source" in data:
+    if data.get("Source") is not None:
         out["source"] = data["Source"]
     else:
         raise DeserializationError("CreateOpsItemRequest.source required")
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
     else:
         raise DeserializationError("CreateOpsItemRequest.title required")
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "Category" in data:
+    if data.get("Category") is not None:
         out["category"] = data["Category"]
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         out["severity"] = data["Severity"]
-    if "ActualStartTime" in data:
+    if data.get("ActualStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["actual_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ActualStartTime"]
         )
-    if "ActualEndTime" in data:
+    if data.get("ActualEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["actual_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ActualEndTime"]
         )
-    if "PlannedStartTime" in data:
+    if data.get("PlannedStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["planned_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["PlannedStartTime"]
         )
-    if "PlannedEndTime" in data:
+    if data.get("PlannedEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["planned_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["PlannedEndTime"]
         )
-    if "AccountId" in data:
+    if data.get("AccountId") is not None:
         out["account_id"] = data["AccountId"]
     return out

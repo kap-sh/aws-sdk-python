@@ -36,15 +36,15 @@ def serialize_aws_json_1_1(value: ListKeyPoliciesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListKeyPoliciesResponse:
     out: ListKeyPoliciesResponse = {}  # type: ignore[typeddict-item]
-    if "PolicyNames" in data:
+    if data.get("PolicyNames") is not None:
         import capo_kms.types.policy_name_list
 
         out["policy_names"] = capo_kms.types.policy_name_list.deserialize_aws_json_1_1(
             data["PolicyNames"]
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

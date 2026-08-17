@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribeMaintenanceWindowScheduleResult) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowScheduleResult:
     out: DescribeMaintenanceWindowScheduleResult = {}  # type: ignore[typeddict-item]
-    if "ScheduledWindowExecutions" in data:
+    if data.get("ScheduledWindowExecutions") is not None:
         import capo_ssm.types.scheduled_window_execution_list
 
         out["scheduled_window_executions"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeMaintenanceWindowScheduleRes
                 data["ScheduledWindowExecutions"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

@@ -42,13 +42,13 @@ def serialize_json(value: InvalidRequestRegionException_) -> dict:
 
 def deserialize_json(data: dict) -> InvalidRequestRegionException_:
     out: InvalidRequestRegionException_ = {}  # type: ignore[typeddict-item]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "error_description" in data:
+    if data.get("error_description") is not None:
         out["error_description"] = data["error_description"]
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
     return out
 

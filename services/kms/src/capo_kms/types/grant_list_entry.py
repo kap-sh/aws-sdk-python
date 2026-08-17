@@ -86,25 +86,25 @@ def serialize_aws_json_1_1(value: GrantListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GrantListEntry:
     out: GrantListEntry = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "GrantId" in data:
+    if data.get("GrantId") is not None:
         out["grant_id"] = data["GrantId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "CreationDate" in data:
+    if data.get("CreationDate") is not None:
         import capo_kms.types.date_type
 
         out["creation_date"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["CreationDate"]
         )
-    if "GranteePrincipal" in data:
+    if data.get("GranteePrincipal") is not None:
         out["grantee_principal"] = data["GranteePrincipal"]
-    if "RetiringPrincipal" in data:
+    if data.get("RetiringPrincipal") is not None:
         out["retiring_principal"] = data["RetiringPrincipal"]
-    if "IssuingAccount" in data:
+    if data.get("IssuingAccount") is not None:
         out["issuing_account"] = data["IssuingAccount"]
-    if "Operations" in data:
+    if data.get("Operations") is not None:
         import capo_kms.types.grant_operation_list
 
         out["operations"] = (
@@ -112,14 +112,14 @@ def deserialize_aws_json_1_1(data: dict) -> GrantListEntry:
                 data["Operations"]
             )
         )
-    if "Constraints" in data:
+    if data.get("Constraints") is not None:
         import capo_kms.types.grant_constraints
 
         out["constraints"] = capo_kms.types.grant_constraints.deserialize_aws_json_1_1(
             data["Constraints"]
         )
-    if "GranteeServicePrincipal" in data:
+    if data.get("GranteeServicePrincipal") is not None:
         out["grantee_service_principal"] = data["GranteeServicePrincipal"]
-    if "RetiringServicePrincipal" in data:
+    if data.get("RetiringServicePrincipal") is not None:
         out["retiring_service_principal"] = data["RetiringServicePrincipal"]
     return out

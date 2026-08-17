@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> ParameterizedStatements:
 
     out: ParameterizedStatements = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.parameterized_statement.deserialize_aws_json_1_0(item)
         )

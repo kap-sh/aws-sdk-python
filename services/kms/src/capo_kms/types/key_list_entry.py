@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: KeyListEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KeyListEntry:
     out: KeyListEntry = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "KeyArn" in data:
+    if data.get("KeyArn") is not None:
         out["key_arn"] = data["KeyArn"]
     return out

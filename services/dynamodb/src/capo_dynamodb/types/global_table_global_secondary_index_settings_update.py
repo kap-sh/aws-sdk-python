@@ -48,15 +48,15 @@ def deserialize_aws_json_1_0(
     data: dict,
 ) -> GlobalTableGlobalSecondaryIndexSettingsUpdate:
     out: GlobalTableGlobalSecondaryIndexSettingsUpdate = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     else:
         raise DeserializationError(
             "GlobalTableGlobalSecondaryIndexSettingsUpdate.index_name required"
         )
-    if "ProvisionedWriteCapacityUnits" in data:
+    if data.get("ProvisionedWriteCapacityUnits") is not None:
         out["provisioned_write_capacity_units"] = data["ProvisionedWriteCapacityUnits"]
-    if "ProvisionedWriteCapacityAutoScalingSettingsUpdate" in data:
+    if data.get("ProvisionedWriteCapacityAutoScalingSettingsUpdate") is not None:
         import capo_dynamodb.types.auto_scaling_settings_update
 
         out["provisioned_write_capacity_auto_scaling_settings_update"] = (

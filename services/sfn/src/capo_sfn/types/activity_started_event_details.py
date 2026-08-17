@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: ActivityStartedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ActivityStartedEventDetails:
     out: ActivityStartedEventDetails = {}  # type: ignore[typeddict-item]
-    if "workerName" in data:
+    if data.get("workerName") is not None:
         out["worker_name"] = data["workerName"]
     return out

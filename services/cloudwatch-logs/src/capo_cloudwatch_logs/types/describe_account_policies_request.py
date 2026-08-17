@@ -51,7 +51,7 @@ def serialize_aws_json_1_1(value: DescribeAccountPoliciesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAccountPoliciesRequest:
     out: DescribeAccountPoliciesRequest = {}  # type: ignore[typeddict-item]
-    if "policyType" in data:
+    if data.get("policyType") is not None:
         import capo_cloudwatch_logs.types.policy_type
 
         out["policy_type"] = (
@@ -63,9 +63,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAccountPoliciesRequest:
         raise DeserializationError(
             "DescribeAccountPoliciesRequest.policy_type required"
         )
-    if "policyName" in data:
+    if data.get("policyName") is not None:
         out["policy_name"] = data["policyName"]
-    if "accountIdentifiers" in data:
+    if data.get("accountIdentifiers") is not None:
         import capo_cloudwatch_logs.types.account_ids
 
         out["account_identifiers"] = (
@@ -73,6 +73,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAccountPoliciesRequest:
                 data["accountIdentifiers"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

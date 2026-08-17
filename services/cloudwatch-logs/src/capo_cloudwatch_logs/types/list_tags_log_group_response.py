@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: ListTagsLogGroupResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTagsLogGroupResponse:
     out: ListTagsLogGroupResponse = {}  # type: ignore[typeddict-item]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

@@ -14,4 +14,4 @@ def serialize_json(value: Scopes) -> list:
 
 
 def deserialize_json(data: list) -> Scopes:
-    return list(data)
+    return [item for item in data if item is not None]

@@ -39,15 +39,15 @@ def serialize_aws_json_1_1(value: CreateImportTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateImportTaskRequest:
     out: CreateImportTaskRequest = {}  # type: ignore[typeddict-item]
-    if "importSourceArn" in data:
+    if data.get("importSourceArn") is not None:
         out["import_source_arn"] = data["importSourceArn"]
     else:
         raise DeserializationError("CreateImportTaskRequest.import_source_arn required")
-    if "importRoleArn" in data:
+    if data.get("importRoleArn") is not None:
         out["import_role_arn"] = data["importRoleArn"]
     else:
         raise DeserializationError("CreateImportTaskRequest.import_role_arn required")
-    if "importFilter" in data:
+    if data.get("importFilter") is not None:
         import capo_cloudwatch_logs.types.import_filter
 
         out["import_filter"] = (

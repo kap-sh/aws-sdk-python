@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: InvalidNotificationConfig_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvalidNotificationConfig_:
     out: InvalidNotificationConfig_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

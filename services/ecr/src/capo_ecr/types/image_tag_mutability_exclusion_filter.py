@@ -34,7 +34,7 @@ def serialize_aws_json_1_1(value: ImageTagMutabilityExclusionFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageTagMutabilityExclusionFilter:
     out: ImageTagMutabilityExclusionFilter = {}  # type: ignore[typeddict-item]
-    if "filterType" in data:
+    if data.get("filterType") is not None:
         import capo_ecr.types.image_tag_mutability_exclusion_filter_type
 
         out["filter_type"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageTagMutabilityExclusionFilter:
         raise DeserializationError(
             "ImageTagMutabilityExclusionFilter.filter_type required"
         )
-    if "filter" in data:
+    if data.get("filter") is not None:
         out["filter"] = data["filter"]
     else:
         raise DeserializationError("ImageTagMutabilityExclusionFilter.filter required")

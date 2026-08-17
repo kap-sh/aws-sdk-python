@@ -35,12 +35,12 @@ def serialize_aws_json_1_0(value: StartMessageMoveTaskRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartMessageMoveTaskRequest:
     out: StartMessageMoveTaskRequest = {}  # type: ignore[typeddict-item]
-    if "SourceArn" in data:
+    if data.get("SourceArn") is not None:
         out["source_arn"] = data["SourceArn"]
     else:
         raise DeserializationError("StartMessageMoveTaskRequest.source_arn required")
-    if "DestinationArn" in data:
+    if data.get("DestinationArn") is not None:
         out["destination_arn"] = data["DestinationArn"]
-    if "MaxNumberOfMessagesPerSecond" in data:
+    if data.get("MaxNumberOfMessagesPerSecond") is not None:
         out["max_number_of_messages_per_second"] = data["MaxNumberOfMessagesPerSecond"]
     return out

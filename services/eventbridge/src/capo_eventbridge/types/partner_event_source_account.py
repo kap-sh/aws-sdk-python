@@ -49,9 +49,9 @@ def serialize_aws_json_1_1(value: PartnerEventSourceAccount) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PartnerEventSourceAccount:
     out: PartnerEventSourceAccount = {}  # type: ignore[typeddict-item]
-    if "Account" in data:
+    if data.get("Account") is not None:
         out["account"] = data["Account"]
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_1(data: dict) -> PartnerEventSourceAccount:
                 data["CreationTime"]
             )
         )
-    if "ExpirationTime" in data:
+    if data.get("ExpirationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["expiration_time"] = (
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> PartnerEventSourceAccount:
                 data["ExpirationTime"]
             )
         )
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.event_source_state
 
         out["state"] = (

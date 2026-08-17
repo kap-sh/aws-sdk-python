@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: DeleteRepositoryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteRepositoryResponse:
     out: DeleteRepositoryResponse = {}  # type: ignore[typeddict-item]
-    if "repository" in data:
+    if data.get("repository") is not None:
         import capo_ecr.types.repository
 
         out["repository"] = capo_ecr.types.repository.deserialize_aws_json_1_1(

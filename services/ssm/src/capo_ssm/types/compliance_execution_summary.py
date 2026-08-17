@@ -42,7 +42,7 @@ def serialize_aws_json_1_1(value: ComplianceExecutionSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ComplianceExecutionSummary:
     out: ComplianceExecutionSummary = {}  # type: ignore[typeddict-item]
-    if "ExecutionTime" in data:
+    if data.get("ExecutionTime") is not None:
         import capo_ssm.types.date_time
 
         out["execution_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
@@ -50,8 +50,8 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceExecutionSummary:
         )
     else:
         raise DeserializationError("ComplianceExecutionSummary.execution_time required")
-    if "ExecutionId" in data:
+    if data.get("ExecutionId") is not None:
         out["execution_id"] = data["ExecutionId"]
-    if "ExecutionType" in data:
+    if data.get("ExecutionType") is not None:
         out["execution_type"] = data["ExecutionType"]
     return out

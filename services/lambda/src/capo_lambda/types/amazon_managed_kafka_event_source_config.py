@@ -36,9 +36,9 @@ def serialize_json(value: AmazonManagedKafkaEventSourceConfig) -> dict:
 
 def deserialize_json(data: dict) -> AmazonManagedKafkaEventSourceConfig:
     out: AmazonManagedKafkaEventSourceConfig = {}  # type: ignore[typeddict-item]
-    if "ConsumerGroupId" in data:
+    if data.get("ConsumerGroupId") is not None:
         out["consumer_group_id"] = data["ConsumerGroupId"]
-    if "SchemaRegistryConfig" in data:
+    if data.get("SchemaRegistryConfig") is not None:
         import capo_lambda.types.kafka_schema_registry_config
 
         out["schema_registry_config"] = (

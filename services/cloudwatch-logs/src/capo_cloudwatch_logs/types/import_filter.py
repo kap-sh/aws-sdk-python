@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: ImportFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImportFilter:
     out: ImportFilter = {}  # type: ignore[typeddict-item]
-    if "startEventTime" in data:
+    if data.get("startEventTime") is not None:
         out["start_event_time"] = data["startEventTime"]
-    if "endEventTime" in data:
+    if data.get("endEventTime") is not None:
         out["end_event_time"] = data["endEventTime"]
     return out

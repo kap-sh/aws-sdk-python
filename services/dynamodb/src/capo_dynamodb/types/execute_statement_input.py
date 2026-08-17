@@ -79,11 +79,11 @@ def serialize_aws_json_1_0(value: ExecuteStatementInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecuteStatementInput:
     out: ExecuteStatementInput = {}  # type: ignore[typeddict-item]
-    if "Statement" in data:
+    if data.get("Statement") is not None:
         out["statement"] = data["Statement"]
     else:
         raise DeserializationError("ExecuteStatementInput.statement required")
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_dynamodb.types.prepared_statement_parameters
 
         out["parameters"] = (
@@ -91,11 +91,11 @@ def deserialize_aws_json_1_0(data: dict) -> ExecuteStatementInput:
                 data["Parameters"]
             )
         )
-    if "ConsistentRead" in data:
+    if data.get("ConsistentRead") is not None:
         out["consistent_read"] = data["ConsistentRead"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (
@@ -103,9 +103,9 @@ def deserialize_aws_json_1_0(data: dict) -> ExecuteStatementInput:
                 data["ReturnConsumedCapacity"]
             )
         )
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "ReturnValuesOnConditionCheckFailure" in data:
+    if data.get("ReturnValuesOnConditionCheckFailure") is not None:
         import capo_dynamodb.types.return_values_on_condition_check_failure
 
         out["return_values_on_condition_check_failure"] = (

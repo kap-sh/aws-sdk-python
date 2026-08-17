@@ -57,23 +57,23 @@ def serialize_aws_json_1_1(value: PatchComplianceData) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchComplianceData:
     out: PatchComplianceData = {}  # type: ignore[typeddict-item]
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
     else:
         raise DeserializationError("PatchComplianceData.title required")
-    if "KBId" in data:
+    if data.get("KBId") is not None:
         out["kb_id"] = data["KBId"]
     else:
         raise DeserializationError("PatchComplianceData.kb_id required")
-    if "Classification" in data:
+    if data.get("Classification") is not None:
         out["classification"] = data["Classification"]
     else:
         raise DeserializationError("PatchComplianceData.classification required")
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         out["severity"] = data["Severity"]
     else:
         raise DeserializationError("PatchComplianceData.severity required")
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_ssm.types.patch_compliance_data_state
 
         out["state"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> PatchComplianceData:
         )
     else:
         raise DeserializationError("PatchComplianceData.state required")
-    if "InstalledTime" in data:
+    if data.get("InstalledTime") is not None:
         import capo_ssm.types.date_time
 
         out["installed_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
@@ -91,6 +91,6 @@ def deserialize_aws_json_1_1(data: dict) -> PatchComplianceData:
         )
     else:
         raise DeserializationError("PatchComplianceData.installed_time required")
-    if "CVEIds" in data:
+    if data.get("CVEIds") is not None:
         out["cve_ids"] = data["CVEIds"]
     return out

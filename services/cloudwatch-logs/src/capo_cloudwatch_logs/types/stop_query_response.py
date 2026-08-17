@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: StopQueryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StopQueryResponse:
     out: StopQueryResponse = {}  # type: ignore[typeddict-item]
-    if "success" in data:
+    if data.get("success") is not None:
         out["success"] = data["success"]
     else:
         out["success"] = False

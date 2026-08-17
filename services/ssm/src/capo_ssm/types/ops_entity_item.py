@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: OpsEntityItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsEntityItem:
     out: OpsEntityItem = {}  # type: ignore[typeddict-item]
-    if "CaptureTime" in data:
+    if data.get("CaptureTime") is not None:
         out["capture_time"] = data["CaptureTime"]
-    if "Content" in data:
+    if data.get("Content") is not None:
         import capo_ssm.types.ops_entity_item_entry_list
 
         out["content"] = (

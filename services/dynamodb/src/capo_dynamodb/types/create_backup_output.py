@@ -29,7 +29,7 @@ def serialize_aws_json_1_0(value: CreateBackupOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateBackupOutput:
     out: CreateBackupOutput = {}  # type: ignore[typeddict-item]
-    if "BackupDetails" in data:
+    if data.get("BackupDetails") is not None:
         import capo_dynamodb.types.backup_details
 
         out["backup_details"] = (

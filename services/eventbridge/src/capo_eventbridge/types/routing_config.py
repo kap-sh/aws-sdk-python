@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: RoutingConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RoutingConfig:
     out: RoutingConfig = {}  # type: ignore[typeddict-item]
-    if "FailoverConfig" in data:
+    if data.get("FailoverConfig") is not None:
         import capo_eventbridge.types.failover_config
 
         out["failover_config"] = (

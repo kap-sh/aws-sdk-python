@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> KeyAgreementAlgorithmSpecList:
 
     out: KeyAgreementAlgorithmSpecList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_kms.types.key_agreement_algorithm_spec.deserialize_aws_json_1_1(item)
         )

@@ -35,7 +35,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> MaintenanceWindowTaskParameterValueExpression:
     out: MaintenanceWindowTaskParameterValueExpression = {}  # type: ignore[typeddict-item]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.maintenance_window_task_parameter_value_list
 
         out["values"] = (

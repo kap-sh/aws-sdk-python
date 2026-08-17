@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: ListImageReferrersResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListImageReferrersResponse:
     out: ListImageReferrersResponse = {}  # type: ignore[typeddict-item]
-    if "referrers" in data:
+    if data.get("referrers") is not None:
         import capo_ecr.types.image_referrer_list
 
         out["referrers"] = capo_ecr.types.image_referrer_list.deserialize_aws_json_1_1(
             data["referrers"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

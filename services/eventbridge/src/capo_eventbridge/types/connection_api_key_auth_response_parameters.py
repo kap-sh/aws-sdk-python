@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: ConnectionApiKeyAuthResponseParameters) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectionApiKeyAuthResponseParameters:
     out: ConnectionApiKeyAuthResponseParameters = {}  # type: ignore[typeddict-item]
-    if "ApiKeyName" in data:
+    if data.get("ApiKeyName") is not None:
         out["api_key_name"] = data["ApiKeyName"]
     return out

@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListPartnerEventSourcesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListPartnerEventSourcesResponse:
     out: ListPartnerEventSourcesResponse = {}  # type: ignore[typeddict-item]
-    if "PartnerEventSources" in data:
+    if data.get("PartnerEventSources") is not None:
         import capo_eventbridge.types.partner_event_source_list
 
         out["partner_event_sources"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListPartnerEventSourcesResponse:
                 data["PartnerEventSources"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

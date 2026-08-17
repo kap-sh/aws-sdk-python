@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: ListAccountSettingsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAccountSettingsResponse:
     out: ListAccountSettingsResponse = {}  # type: ignore[typeddict-item]
-    if "settings" in data:
+    if data.get("settings") is not None:
         import capo_ecs.types.settings
 
         out["settings"] = capo_ecs.types.settings.deserialize_aws_json_1_1(
             data["settings"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

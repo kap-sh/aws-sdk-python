@@ -113,21 +113,21 @@ def serialize_aws_json_1_1(value: CreateTaskSetRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateTaskSetRequest:
     out: CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError("CreateTaskSetRequest.service required")
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError("CreateTaskSetRequest.cluster required")
-    if "externalId" in data:
+    if data.get("externalId") is not None:
         out["external_id"] = data["externalId"]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
     else:
         raise DeserializationError("CreateTaskSetRequest.task_definition required")
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -135,13 +135,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateTaskSetRequest:
                 data["networkConfiguration"]
             )
         )
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.load_balancers
 
         out["load_balancers"] = capo_ecs.types.load_balancers.deserialize_aws_json_1_1(
             data["loadBalancers"]
         )
-    if "serviceRegistries" in data:
+    if data.get("serviceRegistries") is not None:
         import capo_ecs.types.service_registries
 
         out["service_registries"] = (
@@ -149,13 +149,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateTaskSetRequest:
                 data["serviceRegistries"]
             )
         )
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -163,15 +163,15 @@ def deserialize_aws_json_1_1(data: dict) -> CreateTaskSetRequest:
                 data["capacityProviderStrategy"]
             )
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "scale" in data:
+    if data.get("scale") is not None:
         import capo_ecs.types.scale
 
         out["scale"] = capo_ecs.types.scale.deserialize_aws_json_1_1(data["scale"])
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])

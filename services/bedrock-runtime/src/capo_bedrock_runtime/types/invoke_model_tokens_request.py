@@ -26,7 +26,7 @@ def serialize_json(value: InvokeModelTokensRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeModelTokensRequest:
     out: InvokeModelTokensRequest = {}  # type: ignore[typeddict-item]
-    if "body" in data:
+    if data.get("body") is not None:
         import capo_bedrock_runtime.types.body
 
         out["body"] = capo_bedrock_runtime.types.body.deserialize_json(data["body"])

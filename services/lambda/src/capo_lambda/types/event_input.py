@@ -28,8 +28,8 @@ def serialize_json(value: EventInput) -> dict:
 
 def deserialize_json(data: dict) -> EventInput:
     out: EventInput = {}  # type: ignore[typeddict-item]
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         out["payload"] = data["Payload"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     return out

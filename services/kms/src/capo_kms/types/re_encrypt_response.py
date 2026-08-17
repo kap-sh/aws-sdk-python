@@ -74,7 +74,7 @@ def serialize_aws_json_1_1(value: ReEncryptResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReEncryptResponse:
     out: ReEncryptResponse = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -82,11 +82,11 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptResponse:
                 data["CiphertextBlob"]
             )
         )
-    if "SourceKeyId" in data:
+    if data.get("SourceKeyId") is not None:
         out["source_key_id"] = data["SourceKeyId"]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "SourceEncryptionAlgorithm" in data:
+    if data.get("SourceEncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["source_encryption_algorithm"] = (
@@ -94,7 +94,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptResponse:
                 data["SourceEncryptionAlgorithm"]
             )
         )
-    if "DestinationEncryptionAlgorithm" in data:
+    if data.get("DestinationEncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["destination_encryption_algorithm"] = (
@@ -102,8 +102,8 @@ def deserialize_aws_json_1_1(data: dict) -> ReEncryptResponse:
                 data["DestinationEncryptionAlgorithm"]
             )
         )
-    if "SourceKeyMaterialId" in data:
+    if data.get("SourceKeyMaterialId") is not None:
         out["source_key_material_id"] = data["SourceKeyMaterialId"]
-    if "DestinationKeyMaterialId" in data:
+    if data.get("DestinationKeyMaterialId") is not None:
         out["destination_key_material_id"] = data["DestinationKeyMaterialId"]
     return out

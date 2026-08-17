@@ -27,6 +27,8 @@ def serialize_aws_json_1_0(input_to_serialize: AttributeUpdates) -> dict:
 def deserialize_aws_json_1_0(data: dict) -> AttributeUpdates:
     out: AttributeUpdates = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_dynamodb.types.attribute_value_update
 
         out[key] = capo_dynamodb.types.attribute_value_update.deserialize_aws_json_1_0(

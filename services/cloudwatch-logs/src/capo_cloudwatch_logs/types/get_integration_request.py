@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetIntegrationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetIntegrationRequest:
     out: GetIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "integrationName" in data:
+    if data.get("integrationName") is not None:
         out["integration_name"] = data["integrationName"]
     else:
         raise DeserializationError("GetIntegrationRequest.integration_name required")

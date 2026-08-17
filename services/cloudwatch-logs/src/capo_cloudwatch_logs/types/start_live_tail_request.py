@@ -62,7 +62,7 @@ def serialize_aws_json_1_1(value: StartLiveTailRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartLiveTailRequest:
     out: StartLiveTailRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.start_live_tail_log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -74,7 +74,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartLiveTailRequest:
         raise DeserializationError(
             "StartLiveTailRequest.log_group_identifiers required"
         )
-    if "logStreamNames" in data:
+    if data.get("logStreamNames") is not None:
         import capo_cloudwatch_logs.types.input_log_stream_names
 
         out["log_stream_names"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartLiveTailRequest:
                 data["logStreamNames"]
             )
         )
-    if "logStreamNamePrefixes" in data:
+    if data.get("logStreamNamePrefixes") is not None:
         import capo_cloudwatch_logs.types.input_log_stream_names
 
         out["log_stream_name_prefixes"] = (
@@ -90,6 +90,6 @@ def deserialize_aws_json_1_1(data: dict) -> StartLiveTailRequest:
                 data["logStreamNamePrefixes"]
             )
         )
-    if "logEventFilterPattern" in data:
+    if data.get("logEventFilterPattern") is not None:
         out["log_event_filter_pattern"] = data["logEventFilterPattern"]
     return out

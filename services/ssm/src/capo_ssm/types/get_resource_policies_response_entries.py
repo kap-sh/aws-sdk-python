@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> GetResourcePoliciesResponseEntries:
 
     out: GetResourcePoliciesResponseEntries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.get_resource_policies_response_entry.deserialize_aws_json_1_1(
                 item

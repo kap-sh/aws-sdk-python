@@ -50,19 +50,19 @@ def serialize_aws_json_1_0(value: Get) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Get:
     out: Get = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_dynamodb.types.key
 
         out["key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
     else:
         raise DeserializationError("Get.key required")
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("Get.table_name required")
-    if "ProjectionExpression" in data:
+    if data.get("ProjectionExpression") is not None:
         out["projection_expression"] = data["ProjectionExpression"]
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (

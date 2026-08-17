@@ -65,15 +65,15 @@ def serialize_aws_json_1_0(value: Message) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Message:
     out: Message = {}  # type: ignore[typeddict-item]
-    if "MessageId" in data:
+    if data.get("MessageId") is not None:
         out["message_id"] = data["MessageId"]
-    if "ReceiptHandle" in data:
+    if data.get("ReceiptHandle") is not None:
         out["receipt_handle"] = data["ReceiptHandle"]
-    if "MD5OfBody" in data:
+    if data.get("MD5OfBody") is not None:
         out["md5_of_body"] = data["MD5OfBody"]
-    if "Body" in data:
+    if data.get("Body") is not None:
         out["body"] = data["Body"]
-    if "Attributes" in data:
+    if data.get("Attributes") is not None:
         import capo_sqs.types.message_system_attribute_map
 
         out["attributes"] = (
@@ -81,9 +81,9 @@ def deserialize_aws_json_1_0(data: dict) -> Message:
                 data["Attributes"]
             )
         )
-    if "MD5OfMessageAttributes" in data:
+    if data.get("MD5OfMessageAttributes") is not None:
         out["md5_of_message_attributes"] = data["MD5OfMessageAttributes"]
-    if "MessageAttributes" in data:
+    if data.get("MessageAttributes") is not None:
         import capo_sqs.types.message_body_attribute_map
 
         out["message_attributes"] = (

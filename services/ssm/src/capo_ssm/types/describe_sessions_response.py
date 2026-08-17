@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: DescribeSessionsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeSessionsResponse:
     out: DescribeSessionsResponse = {}  # type: ignore[typeddict-item]
-    if "Sessions" in data:
+    if data.get("Sessions") is not None:
         import capo_ssm.types.session_list
 
         out["sessions"] = capo_ssm.types.session_list.deserialize_aws_json_1_1(
             data["Sessions"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

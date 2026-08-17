@@ -39,14 +39,14 @@ def serialize_aws_json_1_1(value: GetOpsMetadataResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetOpsMetadataResult:
     out: GetOpsMetadataResult = {}  # type: ignore[typeddict-item]
-    if "ResourceId" in data:
+    if data.get("ResourceId") is not None:
         out["resource_id"] = data["ResourceId"]
-    if "Metadata" in data:
+    if data.get("Metadata") is not None:
         import capo_ssm.types.metadata_map
 
         out["metadata"] = capo_ssm.types.metadata_map.deserialize_aws_json_1_1(
             data["Metadata"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

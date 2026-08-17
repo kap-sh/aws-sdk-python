@@ -27,7 +27,7 @@ def serialize_aws_json_1_0(value: LabelOptions) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LabelOptions:
     out: LabelOptions = {}  # type: ignore[typeddict-item]
-    if "Timezone" in data:
+    if data.get("Timezone") is not None:
         out["timezone"] = data["Timezone"]
     return out
 

@@ -57,7 +57,7 @@ def serialize_json(value: GuardrailAutomatedReasoningInvalidFinding) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningInvalidFinding:
     out: GuardrailAutomatedReasoningInvalidFinding = {}  # type: ignore[typeddict-item]
-    if "translation" in data:
+    if data.get("translation") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation
 
         out["translation"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningInvalidFinding:
                 data["translation"]
             )
         )
-    if "contradictingRules" in data:
+    if data.get("contradictingRules") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_rule_list
 
         out["contradicting_rules"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningInvalidFinding:
                 data["contradictingRules"]
             )
         )
-    if "logicWarning" in data:
+    if data.get("logicWarning") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
 
         out["logic_warning"] = (

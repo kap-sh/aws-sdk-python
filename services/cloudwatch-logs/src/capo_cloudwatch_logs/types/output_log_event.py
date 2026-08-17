@@ -32,10 +32,10 @@ def serialize_aws_json_1_1(value: OutputLogEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OutputLogEvent:
     out: OutputLogEvent = {}  # type: ignore[typeddict-item]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         out["timestamp"] = data["timestamp"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "ingestionTime" in data:
+    if data.get("ingestionTime") is not None:
         out["ingestion_time"] = data["ingestionTime"]
     return out

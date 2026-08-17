@@ -112,15 +112,15 @@ def serialize_json(value: Target) -> dict:
 
 def deserialize_json(data: dict) -> Target:
     out: Target = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
     else:
         raise DeserializationError("Target.arn required")
-    if "RoleArn" in data:
+    if data.get("RoleArn") is not None:
         out["role_arn"] = data["RoleArn"]
     else:
         raise DeserializationError("Target.role_arn required")
-    if "DeadLetterConfig" in data:
+    if data.get("DeadLetterConfig") is not None:
         import capo_scheduler.types.dead_letter_config
 
         out["dead_letter_config"] = (
@@ -128,21 +128,21 @@ def deserialize_json(data: dict) -> Target:
                 data["DeadLetterConfig"]
             )
         )
-    if "RetryPolicy" in data:
+    if data.get("RetryPolicy") is not None:
         import capo_scheduler.types.retry_policy
 
         out["retry_policy"] = capo_scheduler.types.retry_policy.deserialize_json(
             data["RetryPolicy"]
         )
-    if "Input" in data:
+    if data.get("Input") is not None:
         out["input"] = data["Input"]
-    if "EcsParameters" in data:
+    if data.get("EcsParameters") is not None:
         import capo_scheduler.types.ecs_parameters
 
         out["ecs_parameters"] = capo_scheduler.types.ecs_parameters.deserialize_json(
             data["EcsParameters"]
         )
-    if "EventBridgeParameters" in data:
+    if data.get("EventBridgeParameters") is not None:
         import capo_scheduler.types.event_bridge_parameters
 
         out["event_bridge_parameters"] = (
@@ -150,7 +150,7 @@ def deserialize_json(data: dict) -> Target:
                 data["EventBridgeParameters"]
             )
         )
-    if "KinesisParameters" in data:
+    if data.get("KinesisParameters") is not None:
         import capo_scheduler.types.kinesis_parameters
 
         out["kinesis_parameters"] = (
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> Target:
                 data["KinesisParameters"]
             )
         )
-    if "SageMakerPipelineParameters" in data:
+    if data.get("SageMakerPipelineParameters") is not None:
         import capo_scheduler.types.sage_maker_pipeline_parameters
 
         out["sage_maker_pipeline_parameters"] = (
@@ -166,7 +166,7 @@ def deserialize_json(data: dict) -> Target:
                 data["SageMakerPipelineParameters"]
             )
         )
-    if "SqsParameters" in data:
+    if data.get("SqsParameters") is not None:
         import capo_scheduler.types.sqs_parameters
 
         out["sqs_parameters"] = capo_scheduler.types.sqs_parameters.deserialize_json(

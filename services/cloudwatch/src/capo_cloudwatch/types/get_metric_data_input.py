@@ -82,7 +82,7 @@ def serialize_aws_json_1_0(value: GetMetricDataInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricDataInput:
     out: GetMetricDataInput = {}  # type: ignore[typeddict-item]
-    if "MetricDataQueries" in data:
+    if data.get("MetricDataQueries") is not None:
         import capo_cloudwatch.types.metric_data_queries
 
         out["metric_data_queries"] = (
@@ -90,29 +90,29 @@ def deserialize_aws_json_1_0(data: dict) -> GetMetricDataInput:
                 data["MetricDataQueries"]
             )
         )
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["start_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["StartTime"]
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["end_time"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["EndTime"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "ScanBy" in data:
+    if data.get("ScanBy") is not None:
         import capo_cloudwatch.types.scan_by
 
         out["scan_by"] = capo_cloudwatch.types.scan_by.deserialize_aws_json_1_0(
             data["ScanBy"]
         )
-    if "MaxDatapoints" in data:
+    if data.get("MaxDatapoints") is not None:
         out["max_datapoints"] = data["MaxDatapoints"]
-    if "LabelOptions" in data:
+    if data.get("LabelOptions") is not None:
         import capo_cloudwatch.types.label_options
 
         out["label_options"] = (

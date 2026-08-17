@@ -25,6 +25,6 @@ def serialize_json(value: StepOptions) -> dict:
 
 def deserialize_json(data: dict) -> StepOptions:
     out: StepOptions = {}  # type: ignore[typeddict-item]
-    if "NextAttemptDelaySeconds" in data:
+    if data.get("NextAttemptDelaySeconds") is not None:
         out["next_attempt_delay_seconds"] = data["NextAttemptDelaySeconds"]
     return out

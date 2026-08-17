@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: DescribeRegistryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeRegistryResponse:
     out: DescribeRegistryResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "replicationConfiguration" in data:
+    if data.get("replicationConfiguration") is not None:
         import capo_ecr.types.replication_configuration
 
         out["replication_configuration"] = (

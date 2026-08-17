@@ -43,11 +43,11 @@ def serialize_aws_json_1_0(value: ManagedRuleDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ManagedRuleDescription:
     out: ManagedRuleDescription = {}  # type: ignore[typeddict-item]
-    if "TemplateName" in data:
+    if data.get("TemplateName") is not None:
         out["template_name"] = data["TemplateName"]
-    if "ResourceARN" in data:
+    if data.get("ResourceARN") is not None:
         out["resource_arn"] = data["ResourceARN"]
-    if "RuleState" in data:
+    if data.get("RuleState") is not None:
         import capo_cloudwatch.types.managed_rule_state
 
         out["rule_state"] = (

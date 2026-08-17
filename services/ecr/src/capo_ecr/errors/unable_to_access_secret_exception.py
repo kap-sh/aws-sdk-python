@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: UnableToAccessSecretException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UnableToAccessSecretException_:
     out: UnableToAccessSecretException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

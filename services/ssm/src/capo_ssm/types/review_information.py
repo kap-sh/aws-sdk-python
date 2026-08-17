@@ -41,18 +41,18 @@ def serialize_aws_json_1_1(value: ReviewInformation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReviewInformation:
     out: ReviewInformation = {}  # type: ignore[typeddict-item]
-    if "ReviewedTime" in data:
+    if data.get("ReviewedTime") is not None:
         import capo_ssm.types.date_time
 
         out["reviewed_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ReviewedTime"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.review_status
 
         out["status"] = capo_ssm.types.review_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "Reviewer" in data:
+    if data.get("Reviewer") is not None:
         out["reviewer"] = data["Reviewer"]
     return out

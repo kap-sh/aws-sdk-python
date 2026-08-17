@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: ClusterServiceConnectDefaultsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ClusterServiceConnectDefaultsRequest:
     out: ClusterServiceConnectDefaultsRequest = {}  # type: ignore[typeddict-item]
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
     else:
         raise DeserializationError(

@@ -40,9 +40,9 @@ def serialize_aws_json_1_1(value: DaemonDeploymentConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentConfiguration:
     out: DaemonDeploymentConfiguration = {}  # type: ignore[typeddict-item]
-    if "drainPercent" in data:
+    if data.get("drainPercent") is not None:
         out["drain_percent"] = data["drainPercent"]
-    if "alarms" in data:
+    if data.get("alarms") is not None:
         import capo_ecs.types.daemon_alarm_configuration
 
         out["alarms"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentConfiguration:
                 data["alarms"]
             )
         )
-    if "bakeTimeInMinutes" in data:
+    if data.get("bakeTimeInMinutes") is not None:
         out["bake_time_in_minutes"] = data["bakeTimeInMinutes"]
     else:
         out["bake_time_in_minutes"] = 0

@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> ManagedTargetGroups:
 
     out: ManagedTargetGroups = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.managed_target_group.deserialize_aws_json_1_1(item))
     return out

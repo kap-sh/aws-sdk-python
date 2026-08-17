@@ -29,7 +29,7 @@ def serialize_json(value: GuardrailImageSource) -> dict:
 
 
 def deserialize_json(data: dict) -> GuardrailImageSource:
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_runtime.types._prelude.blob
 
         return {

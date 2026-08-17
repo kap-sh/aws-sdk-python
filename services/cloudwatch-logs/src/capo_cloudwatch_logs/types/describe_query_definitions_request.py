@@ -49,7 +49,7 @@ def serialize_aws_json_1_1(value: DescribeQueryDefinitionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeQueryDefinitionsRequest:
     out: DescribeQueryDefinitionsRequest = {}  # type: ignore[typeddict-item]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -57,10 +57,10 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeQueryDefinitionsRequest:
                 data["queryLanguage"]
             )
         )
-    if "queryDefinitionNamePrefix" in data:
+    if data.get("queryDefinitionNamePrefix") is not None:
         out["query_definition_name_prefix"] = data["queryDefinitionNamePrefix"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

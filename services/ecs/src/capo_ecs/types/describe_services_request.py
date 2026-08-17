@@ -42,9 +42,9 @@ def serialize_aws_json_1_1(value: DescribeServicesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeServicesRequest:
     out: DescribeServicesRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "services" in data:
+    if data.get("services") is not None:
         import capo_ecs.types.string_list
 
         out["services"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeServicesRequest:
         )
     else:
         raise DeserializationError("DescribeServicesRequest.services required")
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.service_field_list
 
         out["include"] = capo_ecs.types.service_field_list.deserialize_aws_json_1_1(

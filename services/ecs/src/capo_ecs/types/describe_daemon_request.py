@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DescribeDaemonRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDaemonRequest:
     out: DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
     else:
         raise DeserializationError("DescribeDaemonRequest.daemon_arn required")

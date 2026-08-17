@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeTableInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeTableInput:
     out: DescribeTableInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("DescribeTableInput.table_name required")

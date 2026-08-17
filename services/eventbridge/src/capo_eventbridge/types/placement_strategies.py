@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> PlacementStrategies:
 
     out: PlacementStrategies = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_eventbridge.types.placement_strategy.deserialize_aws_json_1_1(item)
         )

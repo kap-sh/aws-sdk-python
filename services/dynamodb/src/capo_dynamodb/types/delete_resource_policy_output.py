@@ -23,6 +23,6 @@ def serialize_aws_json_1_0(value: DeleteResourcePolicyOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteResourcePolicyOutput:
     out: DeleteResourcePolicyOutput = {}  # type: ignore[typeddict-item]
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
     return out

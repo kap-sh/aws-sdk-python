@@ -63,15 +63,15 @@ def serialize_aws_json_1_1(value: DecryptResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DecryptResponse:
     out: DecryptResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "Plaintext" in data:
+    if data.get("Plaintext") is not None:
         import capo_kms.types.plaintext_type
 
         out["plaintext"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
             data["Plaintext"]
         )
-    if "EncryptionAlgorithm" in data:
+    if data.get("EncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["encryption_algorithm"] = (
@@ -79,7 +79,7 @@ def deserialize_aws_json_1_1(data: dict) -> DecryptResponse:
                 data["EncryptionAlgorithm"]
             )
         )
-    if "CiphertextForRecipient" in data:
+    if data.get("CiphertextForRecipient") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_for_recipient"] = (
@@ -87,6 +87,6 @@ def deserialize_aws_json_1_1(data: dict) -> DecryptResponse:
                 data["CiphertextForRecipient"]
             )
         )
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

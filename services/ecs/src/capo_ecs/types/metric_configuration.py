@@ -34,7 +34,7 @@ def serialize_aws_json_1_1(value: MetricConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MetricConfiguration:
     out: MetricConfiguration = {}  # type: ignore[typeddict-item]
-    if "metricNames" in data:
+    if data.get("metricNames") is not None:
         import capo_ecs.types.metric_names_list
 
         out["metric_names"] = capo_ecs.types.metric_names_list.deserialize_aws_json_1_1(
@@ -42,7 +42,7 @@ def deserialize_aws_json_1_1(data: dict) -> MetricConfiguration:
         )
     else:
         raise DeserializationError("MetricConfiguration.metric_names required")
-    if "resolutionSeconds" in data:
+    if data.get("resolutionSeconds") is not None:
         out["resolution_seconds"] = data["resolutionSeconds"]
     else:
         raise DeserializationError("MetricConfiguration.resolution_seconds required")

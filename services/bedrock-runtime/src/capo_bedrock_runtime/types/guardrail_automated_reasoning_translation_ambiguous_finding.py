@@ -48,7 +48,7 @@ def deserialize_json(
     data: dict,
 ) -> GuardrailAutomatedReasoningTranslationAmbiguousFinding:
     out: GuardrailAutomatedReasoningTranslationAmbiguousFinding = {}  # type: ignore[typeddict-item]
-    if "options" in data:
+    if data.get("options") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_translation_option_list
 
         out["options"] = (
@@ -56,7 +56,7 @@ def deserialize_json(
                 data["options"]
             )
         )
-    if "differenceScenarios" in data:
+    if data.get("differenceScenarios") is not None:
         import capo_bedrock_runtime.types.guardrail_automated_reasoning_difference_scenario_list
 
         out["difference_scenarios"] = (

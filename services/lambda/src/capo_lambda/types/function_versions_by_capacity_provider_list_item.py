@@ -30,13 +30,13 @@ def serialize_json(value: FunctionVersionsByCapacityProviderListItem) -> dict:
 
 def deserialize_json(data: dict) -> FunctionVersionsByCapacityProviderListItem:
     out: FunctionVersionsByCapacityProviderListItem = {}  # type: ignore[typeddict-item]
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
     else:
         raise DeserializationError(
             "FunctionVersionsByCapacityProviderListItem.function_arn required"
         )
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_lambda.types.state
 
         out["state"] = capo_lambda.types.state.deserialize_json(data["State"])

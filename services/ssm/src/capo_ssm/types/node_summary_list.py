@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> NodeSummaryList:
 
     out: NodeSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ssm.types.node_summary.deserialize_aws_json_1_1(item))
     return out

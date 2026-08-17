@@ -27,8 +27,8 @@ def serialize_aws_json_1_0(value: OnDemandThroughput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> OnDemandThroughput:
     out: OnDemandThroughput = {}  # type: ignore[typeddict-item]
-    if "MaxReadRequestUnits" in data:
+    if data.get("MaxReadRequestUnits") is not None:
         out["max_read_request_units"] = data["MaxReadRequestUnits"]
-    if "MaxWriteRequestUnits" in data:
+    if data.get("MaxWriteRequestUnits") is not None:
         out["max_write_request_units"] = data["MaxWriteRequestUnits"]
     return out

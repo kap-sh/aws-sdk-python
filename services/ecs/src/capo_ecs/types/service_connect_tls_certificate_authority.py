@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ServiceConnectTlsCertificateAuthority) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectTlsCertificateAuthority:
     out: ServiceConnectTlsCertificateAuthority = {}  # type: ignore[typeddict-item]
-    if "awsPcaAuthorityArn" in data:
+    if data.get("awsPcaAuthorityArn") is not None:
         out["aws_pca_authority_arn"] = data["awsPcaAuthorityArn"]
     return out

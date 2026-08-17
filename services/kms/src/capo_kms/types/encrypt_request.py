@@ -72,11 +72,11 @@ def serialize_aws_json_1_1(value: EncryptRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EncryptRequest:
     out: EncryptRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("EncryptRequest.key_id required")
-    if "Plaintext" in data:
+    if data.get("Plaintext") is not None:
         import capo_kms.types.plaintext_type
 
         out["plaintext"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
@@ -84,7 +84,7 @@ def deserialize_aws_json_1_1(data: dict) -> EncryptRequest:
         )
     else:
         raise DeserializationError("EncryptRequest.plaintext required")
-    if "EncryptionContext" in data:
+    if data.get("EncryptionContext") is not None:
         import capo_kms.types.encryption_context_type
 
         out["encryption_context"] = (
@@ -92,13 +92,13 @@ def deserialize_aws_json_1_1(data: dict) -> EncryptRequest:
                 data["EncryptionContext"]
             )
         )
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "EncryptionAlgorithm" in data:
+    if data.get("EncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["encryption_algorithm"] = (
@@ -106,6 +106,6 @@ def deserialize_aws_json_1_1(data: dict) -> EncryptRequest:
                 data["EncryptionAlgorithm"]
             )
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     return out

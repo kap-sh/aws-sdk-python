@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: RecordField) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RecordField:
     out: RecordField = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "mandatory" in data:
+    if data.get("mandatory") is not None:
         out["mandatory"] = data["mandatory"]
     return out

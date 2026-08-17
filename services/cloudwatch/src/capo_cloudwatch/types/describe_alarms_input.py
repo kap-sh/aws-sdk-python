@@ -78,35 +78,35 @@ def serialize_aws_json_1_0(value: DescribeAlarmsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeAlarmsInput:
     out: DescribeAlarmsInput = {}  # type: ignore[typeddict-item]
-    if "AlarmNames" in data:
+    if data.get("AlarmNames") is not None:
         import capo_cloudwatch.types.alarm_names
 
         out["alarm_names"] = capo_cloudwatch.types.alarm_names.deserialize_aws_json_1_0(
             data["AlarmNames"]
         )
-    if "AlarmNamePrefix" in data:
+    if data.get("AlarmNamePrefix") is not None:
         out["alarm_name_prefix"] = data["AlarmNamePrefix"]
-    if "AlarmTypes" in data:
+    if data.get("AlarmTypes") is not None:
         import capo_cloudwatch.types.alarm_types
 
         out["alarm_types"] = capo_cloudwatch.types.alarm_types.deserialize_aws_json_1_0(
             data["AlarmTypes"]
         )
-    if "ChildrenOfAlarmName" in data:
+    if data.get("ChildrenOfAlarmName") is not None:
         out["children_of_alarm_name"] = data["ChildrenOfAlarmName"]
-    if "ParentsOfAlarmName" in data:
+    if data.get("ParentsOfAlarmName") is not None:
         out["parents_of_alarm_name"] = data["ParentsOfAlarmName"]
-    if "StateValue" in data:
+    if data.get("StateValue") is not None:
         import capo_cloudwatch.types.state_value
 
         out["state_value"] = capo_cloudwatch.types.state_value.deserialize_aws_json_1_0(
             data["StateValue"]
         )
-    if "ActionPrefix" in data:
+    if data.get("ActionPrefix") is not None:
         out["action_prefix"] = data["ActionPrefix"]
-    if "MaxRecords" in data:
+    if data.get("MaxRecords") is not None:
         out["max_records"] = data["MaxRecords"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

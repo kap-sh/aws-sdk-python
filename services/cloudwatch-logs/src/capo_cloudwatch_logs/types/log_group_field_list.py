@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> LogGroupFieldList:
 
     out: LogGroupFieldList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.log_group_field.deserialize_aws_json_1_1(item)
         )

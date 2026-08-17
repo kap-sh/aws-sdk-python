@@ -72,29 +72,29 @@ def serialize_aws_json_1_0(value: Datapoint) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Datapoint:
     out: Datapoint = {}  # type: ignore[typeddict-item]
-    if "Timestamp" in data:
+    if data.get("Timestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["timestamp"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["Timestamp"]
         )
-    if "SampleCount" in data:
+    if data.get("SampleCount") is not None:
         out["sample_count"] = data["SampleCount"]
-    if "Average" in data:
+    if data.get("Average") is not None:
         out["average"] = data["Average"]
-    if "Sum" in data:
+    if data.get("Sum") is not None:
         out["sum"] = data["Sum"]
-    if "Minimum" in data:
+    if data.get("Minimum") is not None:
         out["minimum"] = data["Minimum"]
-    if "Maximum" in data:
+    if data.get("Maximum") is not None:
         out["maximum"] = data["Maximum"]
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(
             data["Unit"]
         )
-    if "ExtendedStatistics" in data:
+    if data.get("ExtendedStatistics") is not None:
         import capo_cloudwatch.types.datapoint_value_map
 
         out["extended_statistics"] = (

@@ -89,11 +89,11 @@ def serialize_aws_json_1_1(value: InventoryDeletionStatusItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionStatusItem:
     out: InventoryDeletionStatusItem = {}  # type: ignore[typeddict-item]
-    if "DeletionId" in data:
+    if data.get("DeletionId") is not None:
         out["deletion_id"] = data["DeletionId"]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
-    if "DeletionStartTime" in data:
+    if data.get("DeletionStartTime") is not None:
         import capo_ssm.types.inventory_deletion_start_time
 
         out["deletion_start_time"] = (
@@ -101,7 +101,7 @@ def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionStatusItem:
                 data["DeletionStartTime"]
             )
         )
-    if "LastStatus" in data:
+    if data.get("LastStatus") is not None:
         import capo_ssm.types.inventory_deletion_status
 
         out["last_status"] = (
@@ -109,9 +109,9 @@ def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionStatusItem:
                 data["LastStatus"]
             )
         )
-    if "LastStatusMessage" in data:
+    if data.get("LastStatusMessage") is not None:
         out["last_status_message"] = data["LastStatusMessage"]
-    if "DeletionSummary" in data:
+    if data.get("DeletionSummary") is not None:
         import capo_ssm.types.inventory_deletion_summary
 
         out["deletion_summary"] = (
@@ -119,7 +119,7 @@ def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionStatusItem:
                 data["DeletionSummary"]
             )
         )
-    if "LastStatusUpdateTime" in data:
+    if data.get("LastStatusUpdateTime") is not None:
         import capo_ssm.types.inventory_deletion_last_status_update_time
 
         out["last_status_update_time"] = (

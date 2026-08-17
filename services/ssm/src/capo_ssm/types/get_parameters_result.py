@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: GetParametersResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParametersResult:
     out: GetParametersResult = {}  # type: ignore[typeddict-item]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.parameter_list
 
         out["parameters"] = capo_ssm.types.parameter_list.deserialize_aws_json_1_1(
             data["Parameters"]
         )
-    if "InvalidParameters" in data:
+    if data.get("InvalidParameters") is not None:
         import capo_ssm.types.parameter_name_list
 
         out["invalid_parameters"] = (

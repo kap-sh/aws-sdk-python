@@ -98,17 +98,17 @@ def serialize_aws_json_1_1(value: CreateSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateSecretRequest:
     out: CreateSecretRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateSecretRequest.name required")
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyId" in data:
+    if data.get("KmsKeyId") is not None:
         out["kms_key_id"] = data["KmsKeyId"]
-    if "SecretBinary" in data:
+    if data.get("SecretBinary") is not None:
         import capo_secrets_manager.types.secret_binary_type
 
         out["secret_binary"] = (
@@ -116,15 +116,15 @@ def deserialize_aws_json_1_1(data: dict) -> CreateSecretRequest:
                 data["SecretBinary"]
             )
         )
-    if "SecretString" in data:
+    if data.get("SecretString") is not None:
         out["secret_string"] = data["SecretString"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_secrets_manager.types.tag_list_type
 
         out["tags"] = capo_secrets_manager.types.tag_list_type.deserialize_aws_json_1_1(
             data["Tags"]
         )
-    if "AddReplicaRegions" in data:
+    if data.get("AddReplicaRegions") is not None:
         import capo_secrets_manager.types.add_replica_region_list_type
 
         out["add_replica_regions"] = (
@@ -132,10 +132,10 @@ def deserialize_aws_json_1_1(data: dict) -> CreateSecretRequest:
                 data["AddReplicaRegions"]
             )
         )
-    if "ForceOverwriteReplicaSecret" in data:
+    if data.get("ForceOverwriteReplicaSecret") is not None:
         out["force_overwrite_replica_secret"] = data["ForceOverwriteReplicaSecret"]
     else:
         out["force_overwrite_replica_secret"] = False
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
     return out

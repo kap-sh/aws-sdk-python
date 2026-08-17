@@ -68,13 +68,13 @@ def serialize_aws_json_1_1(value: ListSecretsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListSecretsRequest:
     out: ListSecretsRequest = {}  # type: ignore[typeddict-item]
-    if "IncludePlannedDeletion" in data:
+    if data.get("IncludePlannedDeletion") is not None:
         out["include_planned_deletion"] = data["IncludePlannedDeletion"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_secrets_manager.types.filters_list_type
 
         out["filters"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListSecretsRequest:
                 data["Filters"]
             )
         )
-    if "SortOrder" in data:
+    if data.get("SortOrder") is not None:
         import capo_secrets_manager.types.sort_order_type
 
         out["sort_order"] = (
@@ -90,7 +90,7 @@ def deserialize_aws_json_1_1(data: dict) -> ListSecretsRequest:
                 data["SortOrder"]
             )
         )
-    if "SortBy" in data:
+    if data.get("SortBy") is not None:
         import capo_secrets_manager.types.sort_by_type
 
         out["sort_by"] = (

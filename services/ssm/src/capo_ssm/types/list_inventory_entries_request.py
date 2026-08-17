@@ -47,22 +47,22 @@ def serialize_aws_json_1_1(value: ListInventoryEntriesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListInventoryEntriesRequest:
     out: ListInventoryEntriesRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError("ListInventoryEntriesRequest.instance_id required")
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
     else:
         raise DeserializationError("ListInventoryEntriesRequest.type_name required")
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.inventory_filter_list
 
         out["filters"] = capo_ssm.types.inventory_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

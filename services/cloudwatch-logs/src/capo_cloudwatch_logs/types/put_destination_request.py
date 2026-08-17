@@ -41,19 +41,19 @@ def serialize_aws_json_1_1(value: PutDestinationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDestinationRequest:
     out: PutDestinationRequest = {}  # type: ignore[typeddict-item]
-    if "destinationName" in data:
+    if data.get("destinationName") is not None:
         out["destination_name"] = data["destinationName"]
     else:
         raise DeserializationError("PutDestinationRequest.destination_name required")
-    if "targetArn" in data:
+    if data.get("targetArn") is not None:
         out["target_arn"] = data["targetArn"]
     else:
         raise DeserializationError("PutDestinationRequest.target_arn required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("PutDestinationRequest.role_arn required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

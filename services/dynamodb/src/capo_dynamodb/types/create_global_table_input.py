@@ -32,11 +32,11 @@ def serialize_aws_json_1_0(value: CreateGlobalTableInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateGlobalTableInput:
     out: CreateGlobalTableInput = {}  # type: ignore[typeddict-item]
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
     else:
         raise DeserializationError("CreateGlobalTableInput.global_table_name required")
-    if "ReplicationGroup" in data:
+    if data.get("ReplicationGroup") is not None:
         import capo_dynamodb.types.replica_list
 
         out["replication_group"] = (

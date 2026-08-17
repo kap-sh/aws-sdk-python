@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: ListImagesFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListImagesFilter:
     out: ListImagesFilter = {}  # type: ignore[typeddict-item]
-    if "tagStatus" in data:
+    if data.get("tagStatus") is not None:
         import capo_ecr.types.tag_status
 
         out["tag_status"] = capo_ecr.types.tag_status.deserialize_aws_json_1_1(
             data["tagStatus"]
         )
-    if "imageStatus" in data:
+    if data.get("imageStatus") is not None:
         import capo_ecr.types.image_status_filter
 
         out["image_status"] = (

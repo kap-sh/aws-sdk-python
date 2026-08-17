@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: StartAssociationsOnceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartAssociationsOnceRequest:
     out: StartAssociationsOnceRequest = {}  # type: ignore[typeddict-item]
-    if "AssociationIds" in data:
+    if data.get("AssociationIds") is not None:
         import capo_ssm.types.association_id_list
 
         out["association_ids"] = (

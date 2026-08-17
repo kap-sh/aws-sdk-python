@@ -92,15 +92,15 @@ def serialize_aws_json_1_1(value: Delivery) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Delivery:
     out: Delivery = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "deliverySourceName" in data:
+    if data.get("deliverySourceName") is not None:
         out["delivery_source_name"] = data["deliverySourceName"]
-    if "deliveryDestinationArn" in data:
+    if data.get("deliveryDestinationArn") is not None:
         out["delivery_destination_arn"] = data["deliveryDestinationArn"]
-    if "deliveryDestinationType" in data:
+    if data.get("deliveryDestinationType") is not None:
         import capo_cloudwatch_logs.types.delivery_destination_type
 
         out["delivery_destination_type"] = (
@@ -108,7 +108,7 @@ def deserialize_aws_json_1_1(data: dict) -> Delivery:
                 data["deliveryDestinationType"]
             )
         )
-    if "recordFields" in data:
+    if data.get("recordFields") is not None:
         import capo_cloudwatch_logs.types.record_fields
 
         out["record_fields"] = (
@@ -116,9 +116,9 @@ def deserialize_aws_json_1_1(data: dict) -> Delivery:
                 data["recordFields"]
             )
         )
-    if "fieldDelimiter" in data:
+    if data.get("fieldDelimiter") is not None:
         out["field_delimiter"] = data["fieldDelimiter"]
-    if "s3DeliveryConfiguration" in data:
+    if data.get("s3DeliveryConfiguration") is not None:
         import capo_cloudwatch_logs.types.s3_delivery_configuration
 
         out["s3_delivery_configuration"] = (
@@ -126,7 +126,7 @@ def deserialize_aws_json_1_1(data: dict) -> Delivery:
                 data["s3DeliveryConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

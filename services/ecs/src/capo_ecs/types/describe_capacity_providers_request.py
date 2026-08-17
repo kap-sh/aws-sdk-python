@@ -54,15 +54,15 @@ def serialize_aws_json_1_1(value: DescribeCapacityProvidersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeCapacityProvidersRequest:
     out: DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
-    if "capacityProviders" in data:
+    if data.get("capacityProviders") is not None:
         import capo_ecs.types.string_list
 
         out["capacity_providers"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["capacityProviders"]
         )
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.capacity_provider_field_list
 
         out["include"] = (
@@ -70,8 +70,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeCapacityProvidersRequest:
                 data["include"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

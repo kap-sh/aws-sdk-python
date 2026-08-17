@@ -45,19 +45,19 @@ def serialize_json(value: StartDeviceAuthorizationResponse) -> dict:
 
 def deserialize_json(data: dict) -> StartDeviceAuthorizationResponse:
     out: StartDeviceAuthorizationResponse = {}  # type: ignore[typeddict-item]
-    if "deviceCode" in data:
+    if data.get("deviceCode") is not None:
         out["device_code"] = data["deviceCode"]
-    if "userCode" in data:
+    if data.get("userCode") is not None:
         out["user_code"] = data["userCode"]
-    if "verificationUri" in data:
+    if data.get("verificationUri") is not None:
         out["verification_uri"] = data["verificationUri"]
-    if "verificationUriComplete" in data:
+    if data.get("verificationUriComplete") is not None:
         out["verification_uri_complete"] = data["verificationUriComplete"]
-    if "expiresIn" in data:
+    if data.get("expiresIn") is not None:
         out["expires_in"] = data["expiresIn"]
     else:
         out["expires_in"] = 0
-    if "interval" in data:
+    if data.get("interval") is not None:
         out["interval"] = data["interval"]
     else:
         out["interval"] = 0

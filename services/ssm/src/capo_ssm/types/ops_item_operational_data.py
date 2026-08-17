@@ -25,6 +25,8 @@ def serialize_aws_json_1_1(input_to_serialize: OpsItemOperationalData) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> OpsItemOperationalData:
     out: OpsItemOperationalData = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_ssm.types.ops_item_data_value
 
         out[key] = capo_ssm.types.ops_item_data_value.deserialize_aws_json_1_1(value)

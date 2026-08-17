@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: ListMessageMoveTasksResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMessageMoveTasksResult:
     out: ListMessageMoveTasksResult = {}  # type: ignore[typeddict-item]
-    if "Results" in data:
+    if data.get("Results") is not None:
         import capo_sqs.types.list_message_move_tasks_result_entry_list
 
         out["results"] = (

@@ -29,10 +29,10 @@ def serialize_aws_json_1_1(value: DataSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DataSource:
     out: DataSource = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DataSource.name required")
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
     return out

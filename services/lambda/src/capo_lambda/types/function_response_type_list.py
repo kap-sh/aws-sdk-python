@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> FunctionResponseTypeList:
 
     out: FunctionResponseTypeList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.function_response_type.deserialize_json(item))
     return out

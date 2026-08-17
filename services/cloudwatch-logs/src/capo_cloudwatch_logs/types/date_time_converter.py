@@ -62,17 +62,17 @@ def serialize_aws_json_1_1(value: DateTimeConverter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DateTimeConverter:
     out: DateTimeConverter = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("DateTimeConverter.source required")
-    if "target" in data:
+    if data.get("target") is not None:
         out["target"] = data["target"]
     else:
         raise DeserializationError("DateTimeConverter.target required")
-    if "targetFormat" in data:
+    if data.get("targetFormat") is not None:
         out["target_format"] = data["targetFormat"]
-    if "matchPatterns" in data:
+    if data.get("matchPatterns") is not None:
         import capo_cloudwatch_logs.types.match_patterns
 
         out["match_patterns"] = (
@@ -82,10 +82,10 @@ def deserialize_aws_json_1_1(data: dict) -> DateTimeConverter:
         )
     else:
         raise DeserializationError("DateTimeConverter.match_patterns required")
-    if "sourceTimezone" in data:
+    if data.get("sourceTimezone") is not None:
         out["source_timezone"] = data["sourceTimezone"]
-    if "targetTimezone" in data:
+    if data.get("targetTimezone") is not None:
         out["target_timezone"] = data["targetTimezone"]
-    if "locale" in data:
+    if data.get("locale") is not None:
         out["locale"] = data["locale"]
     return out

@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: AppSyncParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AppSyncParameters:
     out: AppSyncParameters = {}  # type: ignore[typeddict-item]
-    if "GraphQLOperation" in data:
+    if data.get("GraphQLOperation") is not None:
         out["graph_ql_operation"] = data["GraphQLOperation"]
     return out

@@ -64,30 +64,30 @@ def serialize_json(value: CreateTokenRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateTokenRequest:
     out: CreateTokenRequest = {}  # type: ignore[typeddict-item]
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     else:
         raise DeserializationError("CreateTokenRequest.client_id required")
-    if "clientSecret" in data:
+    if data.get("clientSecret") is not None:
         out["client_secret"] = data["clientSecret"]
     else:
         raise DeserializationError("CreateTokenRequest.client_secret required")
-    if "grantType" in data:
+    if data.get("grantType") is not None:
         out["grant_type"] = data["grantType"]
     else:
         raise DeserializationError("CreateTokenRequest.grant_type required")
-    if "deviceCode" in data:
+    if data.get("deviceCode") is not None:
         out["device_code"] = data["deviceCode"]
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
-    if "refreshToken" in data:
+    if data.get("refreshToken") is not None:
         out["refresh_token"] = data["refreshToken"]
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_sso_oidc.types.scopes
 
         out["scope"] = capo_sso_oidc.types.scopes.deserialize_json(data["scope"])
-    if "redirectUri" in data:
+    if data.get("redirectUri") is not None:
         out["redirect_uri"] = data["redirectUri"]
-    if "codeVerifier" in data:
+    if data.get("codeVerifier") is not None:
         out["code_verifier"] = data["codeVerifier"]
     return out

@@ -109,11 +109,11 @@ def serialize_json(value: CapacityProvider) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProvider:
     out: CapacityProvider = {}  # type: ignore[typeddict-item]
-    if "CapacityProviderArn" in data:
+    if data.get("CapacityProviderArn") is not None:
         out["capacity_provider_arn"] = data["CapacityProviderArn"]
     else:
         raise DeserializationError("CapacityProvider.capacity_provider_arn required")
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_lambda.types.capacity_provider_state
 
         out["state"] = capo_lambda.types.capacity_provider_state.deserialize_json(
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> CapacityProvider:
         )
     else:
         raise DeserializationError("CapacityProvider.state required")
-    if "VpcConfig" in data:
+    if data.get("VpcConfig") is not None:
         import capo_lambda.types.capacity_provider_vpc_config
 
         out["vpc_config"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> CapacityProvider:
         )
     else:
         raise DeserializationError("CapacityProvider.vpc_config required")
-    if "PermissionsConfig" in data:
+    if data.get("PermissionsConfig") is not None:
         import capo_lambda.types.capacity_provider_permissions_config
 
         out["permissions_config"] = (
@@ -141,7 +141,7 @@ def deserialize_json(data: dict) -> CapacityProvider:
         )
     else:
         raise DeserializationError("CapacityProvider.permissions_config required")
-    if "InstanceRequirements" in data:
+    if data.get("InstanceRequirements") is not None:
         import capo_lambda.types.instance_requirements
 
         out["instance_requirements"] = (
@@ -149,7 +149,7 @@ def deserialize_json(data: dict) -> CapacityProvider:
                 data["InstanceRequirements"]
             )
         )
-    if "CapacityProviderScalingConfig" in data:
+    if data.get("CapacityProviderScalingConfig") is not None:
         import capo_lambda.types.capacity_provider_scaling_config
 
         out["capacity_provider_scaling_config"] = (
@@ -157,17 +157,17 @@ def deserialize_json(data: dict) -> CapacityProvider:
                 data["CapacityProviderScalingConfig"]
             )
         )
-    if "KmsKeyArn" in data:
+    if data.get("KmsKeyArn") is not None:
         out["kms_key_arn"] = data["KmsKeyArn"]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         out["last_modified"] = data["LastModified"]
-    if "PropagateTags" in data:
+    if data.get("PropagateTags") is not None:
         import capo_lambda.types.propagate_tags
 
         out["propagate_tags"] = capo_lambda.types.propagate_tags.deserialize_json(
             data["PropagateTags"]
         )
-    if "TelemetryConfig" in data:
+    if data.get("TelemetryConfig") is not None:
         import capo_lambda.types.capacity_provider_telemetry_config
 
         out["telemetry_config"] = (

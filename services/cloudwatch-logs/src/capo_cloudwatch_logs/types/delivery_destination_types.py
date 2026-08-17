@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> DeliveryDestinationTypes:
 
     out: DeliveryDestinationTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.delivery_destination_type.deserialize_aws_json_1_1(
                 item

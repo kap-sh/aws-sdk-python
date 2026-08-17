@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> RoutingConfigurationList:
 
     out: RoutingConfigurationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sfn.types.routing_configuration_list_item.deserialize_aws_json_1_0(
                 item

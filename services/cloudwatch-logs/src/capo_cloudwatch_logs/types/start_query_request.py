@@ -84,7 +84,7 @@ def serialize_aws_json_1_1(value: StartQueryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartQueryRequest:
     out: StartQueryRequest = {}  # type: ignore[typeddict-item]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -92,9 +92,9 @@ def deserialize_aws_json_1_1(data: dict) -> StartQueryRequest:
                 data["queryLanguage"]
             )
         )
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "logGroupNames" in data:
+    if data.get("logGroupNames") is not None:
         import capo_cloudwatch_logs.types.log_group_names
 
         out["log_group_names"] = (
@@ -102,7 +102,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartQueryRequest:
                 data["logGroupNames"]
             )
         )
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -110,18 +110,18 @@ def deserialize_aws_json_1_1(data: dict) -> StartQueryRequest:
                 data["logGroupIdentifiers"]
             )
         )
-    if "startTime" in data:
+    if data.get("startTime") is not None:
         out["start_time"] = data["startTime"]
     else:
         raise DeserializationError("StartQueryRequest.start_time required")
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         out["end_time"] = data["endTime"]
     else:
         raise DeserializationError("StartQueryRequest.end_time required")
-    if "queryString" in data:
+    if data.get("queryString") is not None:
         out["query_string"] = data["queryString"]
     else:
         raise DeserializationError("StartQueryRequest.query_string required")
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
     return out

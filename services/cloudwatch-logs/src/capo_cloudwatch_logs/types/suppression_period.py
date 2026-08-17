@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: SuppressionPeriod) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SuppressionPeriod:
     out: SuppressionPeriod = {}  # type: ignore[typeddict-item]
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         out["value"] = 0
-    if "suppressionUnit" in data:
+    if data.get("suppressionUnit") is not None:
         import capo_cloudwatch_logs.types.suppression_unit
 
         out["suppression_unit"] = (

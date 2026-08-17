@@ -29,7 +29,7 @@ def serialize_aws_json_1_0(value: Rule) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Rule:
     out: Rule = {}  # type: ignore[typeddict-item]
-    if "Schedule" in data:
+    if data.get("Schedule") is not None:
         import capo_cloudwatch.types.schedule
 
         out["schedule"] = capo_cloudwatch.types.schedule.deserialize_aws_json_1_0(

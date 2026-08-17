@@ -48,17 +48,17 @@ def serialize_aws_json_1_0(value: MetricStat) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MetricStat:
     out: MetricStat = {}  # type: ignore[typeddict-item]
-    if "Metric" in data:
+    if data.get("Metric") is not None:
         import capo_cloudwatch.types.metric
 
         out["metric"] = capo_cloudwatch.types.metric.deserialize_aws_json_1_0(
             data["Metric"]
         )
-    if "Period" in data:
+    if data.get("Period") is not None:
         out["period"] = data["Period"]
-    if "Stat" in data:
+    if data.get("Stat") is not None:
         out["stat"] = data["Stat"]
-    if "Unit" in data:
+    if data.get("Unit") is not None:
         import capo_cloudwatch.types.standard_unit
 
         out["unit"] = capo_cloudwatch.types.standard_unit.deserialize_aws_json_1_0(

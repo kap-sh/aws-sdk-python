@@ -55,24 +55,24 @@ def serialize_aws_json_1_0(value: LocalSecondaryIndexDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LocalSecondaryIndexDescription:
     out: LocalSecondaryIndexDescription = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
             data["KeySchema"]
         )
-    if "Projection" in data:
+    if data.get("Projection") is not None:
         import capo_dynamodb.types.projection
 
         out["projection"] = capo_dynamodb.types.projection.deserialize_aws_json_1_0(
             data["Projection"]
         )
-    if "IndexSizeBytes" in data:
+    if data.get("IndexSizeBytes") is not None:
         out["index_size_bytes"] = data["IndexSizeBytes"]
-    if "ItemCount" in data:
+    if data.get("ItemCount") is not None:
         out["item_count"] = data["ItemCount"]
-    if "IndexArn" in data:
+    if data.get("IndexArn") is not None:
         out["index_arn"] = data["IndexArn"]
     return out

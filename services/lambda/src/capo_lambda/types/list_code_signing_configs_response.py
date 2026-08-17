@@ -36,9 +36,9 @@ def serialize_json(value: ListCodeSigningConfigsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListCodeSigningConfigsResponse:
     out: ListCodeSigningConfigsResponse = {}  # type: ignore[typeddict-item]
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "CodeSigningConfigs" in data:
+    if data.get("CodeSigningConfigs") is not None:
         import capo_lambda.types.code_signing_config_list
 
         out["code_signing_configs"] = (

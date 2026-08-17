@@ -30,12 +30,12 @@ def serialize_json(value: EventError) -> dict:
 
 def deserialize_json(data: dict) -> EventError:
     out: EventError = {}  # type: ignore[typeddict-item]
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         import capo_lambda.types.error_object
 
         out["payload"] = capo_lambda.types.error_object.deserialize_json(
             data["Payload"]
         )
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     return out

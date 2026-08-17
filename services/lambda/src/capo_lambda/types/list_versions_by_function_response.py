@@ -32,9 +32,9 @@ def serialize_json(value: ListVersionsByFunctionResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListVersionsByFunctionResponse:
     out: ListVersionsByFunctionResponse = {}  # type: ignore[typeddict-item]
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Versions" in data:
+    if data.get("Versions") is not None:
         import capo_lambda.types.function_list
 
         out["versions"] = capo_lambda.types.function_list.deserialize_json(

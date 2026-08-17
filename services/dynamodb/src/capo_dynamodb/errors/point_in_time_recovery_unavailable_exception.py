@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: PointInTimeRecoveryUnavailableException_) -> d
 
 def deserialize_aws_json_1_0(data: dict) -> PointInTimeRecoveryUnavailableException_:
     out: PointInTimeRecoveryUnavailableException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

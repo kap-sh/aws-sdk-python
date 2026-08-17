@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: DescribeDaemonDeploymentsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDaemonDeploymentsResponse:
     out: DescribeDaemonDeploymentsResponse = {}  # type: ignore[typeddict-item]
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(
             data["failures"]
         )
-    if "daemonDeployments" in data:
+    if data.get("daemonDeployments") is not None:
         import capo_ecs.types.daemon_deployment_list
 
         out["daemon_deployments"] = (

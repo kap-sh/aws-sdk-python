@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: PutRegistryPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutRegistryPolicyRequest:
     out: PutRegistryPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "policyText" in data:
+    if data.get("policyText") is not None:
         out["policy_text"] = data["policyText"]
     else:
         raise DeserializationError("PutRegistryPolicyRequest.policy_text required")

@@ -81,11 +81,11 @@ def serialize_aws_json_1_1(value: Import) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Import:
     out: Import = {}  # type: ignore[typeddict-item]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
-    if "importSourceArn" in data:
+    if data.get("importSourceArn") is not None:
         out["import_source_arn"] = data["importSourceArn"]
-    if "importStatus" in data:
+    if data.get("importStatus") is not None:
         import capo_cloudwatch_logs.types.import_status
 
         out["import_status"] = (
@@ -93,9 +93,9 @@ def deserialize_aws_json_1_1(data: dict) -> Import:
                 data["importStatus"]
             )
         )
-    if "importDestinationArn" in data:
+    if data.get("importDestinationArn") is not None:
         out["import_destination_arn"] = data["importDestinationArn"]
-    if "importStatistics" in data:
+    if data.get("importStatistics") is not None:
         import capo_cloudwatch_logs.types.import_statistics
 
         out["import_statistics"] = (
@@ -103,7 +103,7 @@ def deserialize_aws_json_1_1(data: dict) -> Import:
                 data["importStatistics"]
             )
         )
-    if "importFilter" in data:
+    if data.get("importFilter") is not None:
         import capo_cloudwatch_logs.types.import_filter
 
         out["import_filter"] = (
@@ -111,10 +111,10 @@ def deserialize_aws_json_1_1(data: dict) -> Import:
                 data["importFilter"]
             )
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

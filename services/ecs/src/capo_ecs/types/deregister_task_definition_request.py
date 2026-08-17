@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeregisterTaskDefinitionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterTaskDefinitionRequest:
     out: DeregisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
     else:
         raise DeserializationError(

@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> InstancePropertyStringFilterList:
 
     out: InstancePropertyStringFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.instance_property_string_filter.deserialize_aws_json_1_1(
                 item

@@ -30,9 +30,9 @@ def serialize_json(value: ChainedInvokeDetails) -> dict:
 
 def deserialize_json(data: dict) -> ChainedInvokeDetails:
     out: ChainedInvokeDetails = {}  # type: ignore[typeddict-item]
-    if "Result" in data:
+    if data.get("Result") is not None:
         out["result"] = data["Result"]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])

@@ -18,7 +18,7 @@ def serialize_json(value: ServiceQuotaExceededException_) -> dict:
 
 def deserialize_json(data: dict) -> ServiceQuotaExceededException_:
     out: ServiceQuotaExceededException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("ServiceQuotaExceededException_.message required")

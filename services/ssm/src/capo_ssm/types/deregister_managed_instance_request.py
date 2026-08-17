@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeregisterManagedInstanceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeregisterManagedInstanceRequest:
     out: DeregisterManagedInstanceRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError(

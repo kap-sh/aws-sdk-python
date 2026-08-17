@@ -51,9 +51,9 @@ def serialize_aws_json_1_1(value: ComplianceStringFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ComplianceStringFilter:
     out: ComplianceStringFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.compliance_string_filter_value_list
 
         out["values"] = (
@@ -61,7 +61,7 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceStringFilter:
                 data["Values"]
             )
         )
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.compliance_query_operator_type
 
         out["type"] = (

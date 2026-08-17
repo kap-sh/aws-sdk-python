@@ -44,13 +44,13 @@ def deserialize_aws_json_1_0(
     data: dict,
 ) -> AutoScalingTargetTrackingScalingPolicyConfigurationDescription:
     out: AutoScalingTargetTrackingScalingPolicyConfigurationDescription = {}  # type: ignore[typeddict-item]
-    if "DisableScaleIn" in data:
+    if data.get("DisableScaleIn") is not None:
         out["disable_scale_in"] = data["DisableScaleIn"]
-    if "ScaleInCooldown" in data:
+    if data.get("ScaleInCooldown") is not None:
         out["scale_in_cooldown"] = data["ScaleInCooldown"]
-    if "ScaleOutCooldown" in data:
+    if data.get("ScaleOutCooldown") is not None:
         out["scale_out_cooldown"] = data["ScaleOutCooldown"]
-    if "TargetValue" in data:
+    if data.get("TargetValue") is not None:
         out["target_value"] = data["TargetValue"]
     else:
         raise DeserializationError(

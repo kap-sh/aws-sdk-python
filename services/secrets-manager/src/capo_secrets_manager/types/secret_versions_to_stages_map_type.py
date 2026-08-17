@@ -29,6 +29,8 @@ def serialize_aws_json_1_1(input_to_serialize: SecretVersionsToStagesMapType) ->
 def deserialize_aws_json_1_1(data: dict) -> SecretVersionsToStagesMapType:
     out: SecretVersionsToStagesMapType = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_secrets_manager.types.secret_version_stages_type
 
         out[key] = (

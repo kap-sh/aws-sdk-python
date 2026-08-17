@@ -51,25 +51,25 @@ def serialize_aws_json_1_1(value: ReplicateKeyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicateKeyRequest:
     out: ReplicateKeyRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("ReplicateKeyRequest.key_id required")
-    if "ReplicaRegion" in data:
+    if data.get("ReplicaRegion") is not None:
         out["replica_region"] = data["ReplicaRegion"]
     else:
         raise DeserializationError("ReplicateKeyRequest.replica_region required")
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
-    if "BypassPolicyLockoutSafetyCheck" in data:
+    if data.get("BypassPolicyLockoutSafetyCheck") is not None:
         out["bypass_policy_lockout_safety_check"] = data[
             "BypassPolicyLockoutSafetyCheck"
         ]
     else:
         out["bypass_policy_lockout_safety_check"] = False
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_kms.types.tag_list
 
         out["tags"] = capo_kms.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

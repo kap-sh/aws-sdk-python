@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeleteOpsMetadataRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteOpsMetadataRequest:
     out: DeleteOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-    if "OpsMetadataArn" in data:
+    if data.get("OpsMetadataArn") is not None:
         out["ops_metadata_arn"] = data["OpsMetadataArn"]
     else:
         raise DeserializationError("DeleteOpsMetadataRequest.ops_metadata_arn required")

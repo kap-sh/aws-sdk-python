@@ -30,8 +30,8 @@ def serialize_aws_json_1_1(value: OutputSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OutputSource:
     out: OutputSource = {}  # type: ignore[typeddict-item]
-    if "OutputSourceId" in data:
+    if data.get("OutputSourceId") is not None:
         out["output_source_id"] = data["OutputSourceId"]
-    if "OutputSourceType" in data:
+    if data.get("OutputSourceType") is not None:
         out["output_source_type"] = data["OutputSourceType"]
     return out

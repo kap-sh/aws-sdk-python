@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: CapacityReservationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CapacityReservationRequest:
     out: CapacityReservationRequest = {}  # type: ignore[typeddict-item]
-    if "reservationGroupArn" in data:
+    if data.get("reservationGroupArn") is not None:
         out["reservation_group_arn"] = data["reservationGroupArn"]
-    if "reservationPreference" in data:
+    if data.get("reservationPreference") is not None:
         import capo_ecs.types.capacity_reservation_preference
 
         out["reservation_preference"] = (

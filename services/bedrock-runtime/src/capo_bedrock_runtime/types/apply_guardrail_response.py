@@ -75,7 +75,7 @@ def serialize_json(value: ApplyGuardrailResponse) -> dict:
 
 def deserialize_json(data: dict) -> ApplyGuardrailResponse:
     out: ApplyGuardrailResponse = {}  # type: ignore[typeddict-item]
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_runtime.types.guardrail_usage
 
         out["usage"] = capo_bedrock_runtime.types.guardrail_usage.deserialize_json(
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> ApplyGuardrailResponse:
         )
     else:
         raise DeserializationError("ApplyGuardrailResponse.usage required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_runtime.types.guardrail_action
 
         out["action"] = capo_bedrock_runtime.types.guardrail_action.deserialize_json(
@@ -91,9 +91,9 @@ def deserialize_json(data: dict) -> ApplyGuardrailResponse:
         )
     else:
         raise DeserializationError("ApplyGuardrailResponse.action required")
-    if "actionReason" in data:
+    if data.get("actionReason") is not None:
         out["action_reason"] = data["actionReason"]
-    if "outputs" in data:
+    if data.get("outputs") is not None:
         import capo_bedrock_runtime.types.guardrail_output_content_list
 
         out["outputs"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> ApplyGuardrailResponse:
         )
     else:
         raise DeserializationError("ApplyGuardrailResponse.outputs required")
-    if "assessments" in data:
+    if data.get("assessments") is not None:
         import capo_bedrock_runtime.types.guardrail_assessment_list
 
         out["assessments"] = (
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> ApplyGuardrailResponse:
         )
     else:
         raise DeserializationError("ApplyGuardrailResponse.assessments required")
-    if "guardrailCoverage" in data:
+    if data.get("guardrailCoverage") is not None:
         import capo_bedrock_runtime.types.guardrail_coverage
 
         out["guardrail_coverage"] = (

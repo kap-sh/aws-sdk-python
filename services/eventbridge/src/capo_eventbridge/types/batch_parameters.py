@@ -53,15 +53,15 @@ def serialize_aws_json_1_1(value: BatchParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchParameters:
     out: BatchParameters = {}  # type: ignore[typeddict-item]
-    if "JobDefinition" in data:
+    if data.get("JobDefinition") is not None:
         out["job_definition"] = data["JobDefinition"]
     else:
         raise DeserializationError("BatchParameters.job_definition required")
-    if "JobName" in data:
+    if data.get("JobName") is not None:
         out["job_name"] = data["JobName"]
     else:
         raise DeserializationError("BatchParameters.job_name required")
-    if "ArrayProperties" in data:
+    if data.get("ArrayProperties") is not None:
         import capo_eventbridge.types.batch_array_properties
 
         out["array_properties"] = (
@@ -69,7 +69,7 @@ def deserialize_aws_json_1_1(data: dict) -> BatchParameters:
                 data["ArrayProperties"]
             )
         )
-    if "RetryStrategy" in data:
+    if data.get("RetryStrategy") is not None:
         import capo_eventbridge.types.batch_retry_strategy
 
         out["retry_strategy"] = (

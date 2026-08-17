@@ -74,11 +74,11 @@ def serialize_aws_json_1_1(value: UpdateDocumentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentRequest:
     out: UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
-    if "Content" in data:
+    if data.get("Content") is not None:
         out["content"] = data["Content"]
     else:
         raise DeserializationError("UpdateDocumentRequest.content required")
-    if "Attachments" in data:
+    if data.get("Attachments") is not None:
         import capo_ssm.types.attachments_source_list
 
         out["attachments"] = (
@@ -86,17 +86,17 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentRequest:
                 data["Attachments"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UpdateDocumentRequest.name required")
-    if "DisplayName" in data:
+    if data.get("DisplayName") is not None:
         out["display_name"] = data["DisplayName"]
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "DocumentFormat" in data:
+    if data.get("DocumentFormat") is not None:
         import capo_ssm.types.document_format
 
         out["document_format"] = (
@@ -104,6 +104,6 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentRequest:
                 data["DocumentFormat"]
             )
         )
-    if "TargetType" in data:
+    if data.get("TargetType") is not None:
         out["target_type"] = data["TargetType"]
     return out

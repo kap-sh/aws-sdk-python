@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> TaskSets:
 
     out: TaskSets = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.task_set.deserialize_aws_json_1_1(item))
     return out

@@ -36,13 +36,13 @@ def serialize_json(value: PropagateTags) -> dict:
 
 def deserialize_json(data: dict) -> PropagateTags:
     out: PropagateTags = {}  # type: ignore[typeddict-item]
-    if "Mode" in data:
+    if data.get("Mode") is not None:
         import capo_lambda.types.propagate_tags_mode
 
         out["mode"] = capo_lambda.types.propagate_tags_mode.deserialize_json(
             data["Mode"]
         )
-    if "ExplicitTags" in data:
+    if data.get("ExplicitTags") is not None:
         import capo_lambda.types.tags
 
         out["explicit_tags"] = capo_lambda.types.tags.deserialize_json(

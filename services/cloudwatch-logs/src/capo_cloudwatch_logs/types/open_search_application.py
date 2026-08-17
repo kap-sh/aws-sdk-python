@@ -50,13 +50,13 @@ def serialize_aws_json_1_1(value: OpenSearchApplication) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchApplication:
     out: OpenSearchApplication = {}  # type: ignore[typeddict-item]
-    if "applicationEndpoint" in data:
+    if data.get("applicationEndpoint") is not None:
         out["application_endpoint"] = data["applicationEndpoint"]
-    if "applicationArn" in data:
+    if data.get("applicationArn") is not None:
         out["application_arn"] = data["applicationArn"]
-    if "applicationId" in data:
+    if data.get("applicationId") is not None:
         out["application_id"] = data["applicationId"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status
 
         out["status"] = (

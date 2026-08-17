@@ -55,11 +55,11 @@ def serialize_aws_json_1_1(value: UpdateDeliveryConfigurationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDeliveryConfigurationRequest:
     out: UpdateDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("UpdateDeliveryConfigurationRequest.id required")
-    if "recordFields" in data:
+    if data.get("recordFields") is not None:
         import capo_cloudwatch_logs.types.record_fields
 
         out["record_fields"] = (
@@ -67,9 +67,9 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateDeliveryConfigurationRequest:
                 data["recordFields"]
             )
         )
-    if "fieldDelimiter" in data:
+    if data.get("fieldDelimiter") is not None:
         out["field_delimiter"] = data["fieldDelimiter"]
-    if "s3DeliveryConfiguration" in data:
+    if data.get("s3DeliveryConfiguration") is not None:
         import capo_cloudwatch_logs.types.s3_delivery_configuration
 
         out["s3_delivery_configuration"] = (

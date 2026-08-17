@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: CreateScheduledQueryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateScheduledQueryResponse:
     out: CreateScheduledQueryResponse = {}  # type: ignore[typeddict-item]
-    if "scheduledQueryArn" in data:
+    if data.get("scheduledQueryArn") is not None:
         out["scheduled_query_arn"] = data["scheduledQueryArn"]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_state
 
         out["state"] = (

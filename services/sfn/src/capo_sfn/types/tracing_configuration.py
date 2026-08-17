@@ -22,7 +22,7 @@ def serialize_aws_json_1_0(value: TracingConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TracingConfiguration:
     out: TracingConfiguration = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         out["enabled"] = False

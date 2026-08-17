@@ -187,53 +187,53 @@ def serialize_aws_json_1_1(value: TaskSet) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TaskSet:
     out: TaskSet = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "taskSetArn" in data:
+    if data.get("taskSetArn") is not None:
         out["task_set_arn"] = data["taskSetArn"]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "startedBy" in data:
+    if data.get("startedBy") is not None:
         out["started_by"] = data["startedBy"]
-    if "externalId" in data:
+    if data.get("externalId") is not None:
         out["external_id"] = data["externalId"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
-    if "computedDesiredCount" in data:
+    if data.get("computedDesiredCount") is not None:
         out["computed_desired_count"] = data["computedDesiredCount"]
     else:
         out["computed_desired_count"] = 0
-    if "pendingCount" in data:
+    if data.get("pendingCount") is not None:
         out["pending_count"] = data["pendingCount"]
     else:
         out["pending_count"] = 0
-    if "runningCount" in data:
+    if data.get("runningCount") is not None:
         out["running_count"] = data["runningCount"]
     else:
         out["running_count"] = 0
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["updatedAt"]
         )
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -241,11 +241,11 @@ def deserialize_aws_json_1_1(data: dict) -> TaskSet:
                 data["capacityProviderStrategy"]
             )
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "platformFamily" in data:
+    if data.get("platformFamily") is not None:
         out["platform_family"] = data["platformFamily"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -253,13 +253,13 @@ def deserialize_aws_json_1_1(data: dict) -> TaskSet:
                 data["networkConfiguration"]
             )
         )
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.load_balancers
 
         out["load_balancers"] = capo_ecs.types.load_balancers.deserialize_aws_json_1_1(
             data["loadBalancers"]
         )
-    if "serviceRegistries" in data:
+    if data.get("serviceRegistries") is not None:
         import capo_ecs.types.service_registries
 
         out["service_registries"] = (
@@ -267,11 +267,11 @@ def deserialize_aws_json_1_1(data: dict) -> TaskSet:
                 data["serviceRegistries"]
             )
         )
-    if "scale" in data:
+    if data.get("scale") is not None:
         import capo_ecs.types.scale
 
         out["scale"] = capo_ecs.types.scale.deserialize_aws_json_1_1(data["scale"])
-    if "stabilityStatus" in data:
+    if data.get("stabilityStatus") is not None:
         import capo_ecs.types.stability_status
 
         out["stability_status"] = (
@@ -279,17 +279,17 @@ def deserialize_aws_json_1_1(data: dict) -> TaskSet:
                 data["stabilityStatus"]
             )
         )
-    if "stabilityStatusAt" in data:
+    if data.get("stabilityStatusAt") is not None:
         import capo_ecs.types.timestamp
 
         out["stability_status_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["stabilityStatusAt"]
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "fargateEphemeralStorage" in data:
+    if data.get("fargateEphemeralStorage") is not None:
         import capo_ecs.types.deployment_ephemeral_storage
 
         out["fargate_ephemeral_storage"] = (

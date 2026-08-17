@@ -63,32 +63,32 @@ def serialize_json(value: RegisterClientRequest) -> dict:
 
 def deserialize_json(data: dict) -> RegisterClientRequest:
     out: RegisterClientRequest = {}  # type: ignore[typeddict-item]
-    if "clientName" in data:
+    if data.get("clientName") is not None:
         out["client_name"] = data["clientName"]
     else:
         raise DeserializationError("RegisterClientRequest.client_name required")
-    if "clientType" in data:
+    if data.get("clientType") is not None:
         out["client_type"] = data["clientType"]
     else:
         raise DeserializationError("RegisterClientRequest.client_type required")
-    if "scopes" in data:
+    if data.get("scopes") is not None:
         import capo_sso_oidc.types.scopes
 
         out["scopes"] = capo_sso_oidc.types.scopes.deserialize_json(data["scopes"])
-    if "redirectUris" in data:
+    if data.get("redirectUris") is not None:
         import capo_sso_oidc.types.redirect_uris
 
         out["redirect_uris"] = capo_sso_oidc.types.redirect_uris.deserialize_json(
             data["redirectUris"]
         )
-    if "grantTypes" in data:
+    if data.get("grantTypes") is not None:
         import capo_sso_oidc.types.grant_types
 
         out["grant_types"] = capo_sso_oidc.types.grant_types.deserialize_json(
             data["grantTypes"]
         )
-    if "issuerUrl" in data:
+    if data.get("issuerUrl") is not None:
         out["issuer_url"] = data["issuerUrl"]
-    if "entitledApplicationArn" in data:
+    if data.get("entitledApplicationArn") is not None:
         out["entitled_application_arn"] = data["entitledApplicationArn"]
     return out

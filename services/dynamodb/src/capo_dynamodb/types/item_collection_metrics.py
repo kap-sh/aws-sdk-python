@@ -44,7 +44,7 @@ def serialize_aws_json_1_0(value: ItemCollectionMetrics) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ItemCollectionMetrics:
     out: ItemCollectionMetrics = {}  # type: ignore[typeddict-item]
-    if "ItemCollectionKey" in data:
+    if data.get("ItemCollectionKey") is not None:
         import capo_dynamodb.types.item_collection_key_attribute_map
 
         out["item_collection_key"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_0(data: dict) -> ItemCollectionMetrics:
                 data["ItemCollectionKey"]
             )
         )
-    if "SizeEstimateRangeGB" in data:
+    if data.get("SizeEstimateRangeGB") is not None:
         import capo_dynamodb.types.item_collection_size_estimate_range
 
         out["size_estimate_range_gb"] = (

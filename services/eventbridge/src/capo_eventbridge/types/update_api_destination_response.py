@@ -57,9 +57,9 @@ def serialize_aws_json_1_1(value: UpdateApiDestinationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateApiDestinationResponse:
     out: UpdateApiDestinationResponse = {}  # type: ignore[typeddict-item]
-    if "ApiDestinationArn" in data:
+    if data.get("ApiDestinationArn") is not None:
         out["api_destination_arn"] = data["ApiDestinationArn"]
-    if "ApiDestinationState" in data:
+    if data.get("ApiDestinationState") is not None:
         import capo_eventbridge.types.api_destination_state
 
         out["api_destination_state"] = (
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateApiDestinationResponse:
                 data["ApiDestinationState"]
             )
         )
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_1(data: dict) -> UpdateApiDestinationResponse:
                 data["CreationTime"]
             )
         )
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["last_modified_time"] = (

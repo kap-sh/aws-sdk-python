@@ -30,9 +30,9 @@ def serialize_aws_json_1_0(value: ManagedRuleState) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ManagedRuleState:
     out: ManagedRuleState = {}  # type: ignore[typeddict-item]
-    if "RuleName" in data:
+    if data.get("RuleName") is not None:
         out["rule_name"] = data["RuleName"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
     return out
 

@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: AlarmStateInformation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AlarmStateInformation:
     out: AlarmStateInformation = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("AlarmStateInformation.name required")
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_ssm.types.external_alarm_state
 
         out["state"] = capo_ssm.types.external_alarm_state.deserialize_aws_json_1_1(

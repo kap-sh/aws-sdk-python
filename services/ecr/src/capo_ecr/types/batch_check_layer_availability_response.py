@@ -36,13 +36,13 @@ def serialize_aws_json_1_1(value: BatchCheckLayerAvailabilityResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> BatchCheckLayerAvailabilityResponse:
     out: BatchCheckLayerAvailabilityResponse = {}  # type: ignore[typeddict-item]
-    if "layers" in data:
+    if data.get("layers") is not None:
         import capo_ecr.types.layer_list
 
         out["layers"] = capo_ecr.types.layer_list.deserialize_aws_json_1_1(
             data["layers"]
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecr.types.layer_failure_list
 
         out["failures"] = capo_ecr.types.layer_failure_list.deserialize_aws_json_1_1(

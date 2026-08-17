@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> ExpressGatewayServiceIncludeList:
 
     out: ExpressGatewayServiceIncludeList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.express_gateway_service_include.deserialize_aws_json_1_1(
                 item

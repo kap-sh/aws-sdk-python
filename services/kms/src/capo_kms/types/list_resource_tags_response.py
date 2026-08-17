@@ -34,13 +34,13 @@ def serialize_aws_json_1_1(value: ListResourceTagsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListResourceTagsResponse:
     out: ListResourceTagsResponse = {}  # type: ignore[typeddict-item]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_kms.types.tag_list
 
         out["tags"] = capo_kms.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

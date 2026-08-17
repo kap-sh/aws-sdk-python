@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: GetAutomationExecutionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetAutomationExecutionRequest:
     out: GetAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
     else:
         raise DeserializationError(

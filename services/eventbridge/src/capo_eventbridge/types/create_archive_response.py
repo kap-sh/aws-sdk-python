@@ -48,17 +48,17 @@ def serialize_aws_json_1_1(value: CreateArchiveResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateArchiveResponse:
     out: CreateArchiveResponse = {}  # type: ignore[typeddict-item]
-    if "ArchiveArn" in data:
+    if data.get("ArchiveArn") is not None:
         out["archive_arn"] = data["ArchiveArn"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.archive_state
 
         out["state"] = capo_eventbridge.types.archive_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "CreationTime" in data:
+    if data.get("CreationTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["creation_time"] = (

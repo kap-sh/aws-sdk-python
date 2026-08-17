@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> MaintenanceWindowTaskList:
 
     out: MaintenanceWindowTaskList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.maintenance_window_task.deserialize_aws_json_1_1(item)
         )

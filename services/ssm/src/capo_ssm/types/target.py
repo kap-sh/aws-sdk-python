@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: Target) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Target:
     out: Target = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.target_values
 
         out["values"] = capo_ssm.types.target_values.deserialize_aws_json_1_1(

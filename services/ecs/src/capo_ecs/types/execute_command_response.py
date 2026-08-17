@@ -46,22 +46,22 @@ def serialize_aws_json_1_1(value: ExecuteCommandResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandResponse:
     out: ExecuteCommandResponse = {}  # type: ignore[typeddict-item]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "containerArn" in data:
+    if data.get("containerArn") is not None:
         out["container_arn"] = data["containerArn"]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
-    if "interactive" in data:
+    if data.get("interactive") is not None:
         out["interactive"] = data["interactive"]
     else:
         out["interactive"] = False
-    if "session" in data:
+    if data.get("session") is not None:
         import capo_ecs.types.session
 
         out["session"] = capo_ecs.types.session.deserialize_aws_json_1_1(
             data["session"]
         )
-    if "taskArn" in data:
+    if data.get("taskArn") is not None:
         out["task_arn"] = data["taskArn"]
     return out

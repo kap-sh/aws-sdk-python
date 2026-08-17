@@ -46,16 +46,16 @@ def serialize_aws_json_1_1(value: GetInventorySchemaRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetInventorySchemaRequest:
     out: GetInventorySchemaRequest = {}  # type: ignore[typeddict-item]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "Aggregator" in data:
+    if data.get("Aggregator") is not None:
         out["aggregator"] = data["Aggregator"]
     else:
         out["aggregator"] = False
-    if "SubType" in data:
+    if data.get("SubType") is not None:
         out["sub_type"] = data["SubType"]
     return out

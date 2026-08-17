@@ -33,11 +33,11 @@ def serialize_json(value: InvokeWithResponseStreamCompleteEvent) -> dict:
 
 def deserialize_json(data: dict) -> InvokeWithResponseStreamCompleteEvent:
     out: InvokeWithResponseStreamCompleteEvent = {}  # type: ignore[typeddict-item]
-    if "ErrorCode" in data:
+    if data.get("ErrorCode") is not None:
         out["error_code"] = data["ErrorCode"]
-    if "ErrorDetails" in data:
+    if data.get("ErrorDetails") is not None:
         out["error_details"] = data["ErrorDetails"]
-    if "LogResult" in data:
+    if data.get("LogResult") is not None:
         out["log_result"] = data["LogResult"]
     return out
 

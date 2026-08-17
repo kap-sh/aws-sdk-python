@@ -96,19 +96,19 @@ def serialize_aws_json_1_0(value: SourceTableDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SourceTableDetails:
     out: SourceTableDetails = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("SourceTableDetails.table_name required")
-    if "TableId" in data:
+    if data.get("TableId") is not None:
         out["table_id"] = data["TableId"]
     else:
         raise DeserializationError("SourceTableDetails.table_id required")
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "TableSizeBytes" in data:
+    if data.get("TableSizeBytes") is not None:
         out["table_size_bytes"] = data["TableSizeBytes"]
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
@@ -116,7 +116,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableDetails:
         )
     else:
         raise DeserializationError("SourceTableDetails.key_schema required")
-    if "TableCreationDateTime" in data:
+    if data.get("TableCreationDateTime") is not None:
         import capo_dynamodb.types.table_creation_date_time
 
         out["table_creation_date_time"] = (
@@ -128,7 +128,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableDetails:
         raise DeserializationError(
             "SourceTableDetails.table_creation_date_time required"
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableDetails:
         )
     else:
         raise DeserializationError("SourceTableDetails.provisioned_throughput required")
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -146,9 +146,9 @@ def deserialize_aws_json_1_0(data: dict) -> SourceTableDetails:
                 data["OnDemandThroughput"]
             )
         )
-    if "ItemCount" in data:
+    if data.get("ItemCount") is not None:
         out["item_count"] = data["ItemCount"]
-    if "BillingMode" in data:
+    if data.get("BillingMode") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["billing_mode"] = capo_dynamodb.types.billing_mode.deserialize_aws_json_1_0(

@@ -31,11 +31,11 @@ def serialize_aws_json_1_1(value: GetTaskProtectionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetTaskProtectionRequest:
     out: GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError("GetTaskProtectionRequest.cluster required")
-    if "tasks" in data:
+    if data.get("tasks") is not None:
         import capo_ecs.types.string_list
 
         out["tasks"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(

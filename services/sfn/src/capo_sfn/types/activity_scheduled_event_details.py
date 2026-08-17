@@ -55,13 +55,13 @@ def serialize_aws_json_1_0(value: ActivityScheduledEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ActivityScheduledEventDetails:
     out: ActivityScheduledEventDetails = {}  # type: ignore[typeddict-item]
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     else:
         raise DeserializationError("ActivityScheduledEventDetails.resource required")
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["input_details"] = (
@@ -69,8 +69,8 @@ def deserialize_aws_json_1_0(data: dict) -> ActivityScheduledEventDetails:
                 data["inputDetails"]
             )
         )
-    if "timeoutInSeconds" in data:
+    if data.get("timeoutInSeconds") is not None:
         out["timeout_in_seconds"] = data["timeoutInSeconds"]
-    if "heartbeatInSeconds" in data:
+    if data.get("heartbeatInSeconds") is not None:
         out["heartbeat_in_seconds"] = data["heartbeatInSeconds"]
     return out

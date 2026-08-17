@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: ReplicationConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicationConfig:
     out: ReplicationConfig = {}  # type: ignore[typeddict-item]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.replication_state
 
         out["state"] = (

@@ -52,7 +52,7 @@ def serialize_aws_json_1_0(value: ExecuteTransactionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecuteTransactionInput:
     out: ExecuteTransactionInput = {}  # type: ignore[typeddict-item]
-    if "TransactStatements" in data:
+    if data.get("TransactStatements") is not None:
         import capo_dynamodb.types.parameterized_statements
 
         out["transact_statements"] = (
@@ -64,9 +64,9 @@ def deserialize_aws_json_1_0(data: dict) -> ExecuteTransactionInput:
         raise DeserializationError(
             "ExecuteTransactionInput.transact_statements required"
         )
-    if "ClientRequestToken" in data:
+    if data.get("ClientRequestToken") is not None:
         out["client_request_token"] = data["ClientRequestToken"]
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (

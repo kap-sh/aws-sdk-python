@@ -98,19 +98,19 @@ def serialize_aws_json_1_0(value: PutAnomalyDetectorInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutAnomalyDetectorInput:
     out: PutAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
-    if "Namespace" in data:
+    if data.get("Namespace") is not None:
         out["namespace"] = data["Namespace"]
-    if "MetricName" in data:
+    if data.get("MetricName") is not None:
         out["metric_name"] = data["MetricName"]
-    if "Dimensions" in data:
+    if data.get("Dimensions") is not None:
         import capo_cloudwatch.types.dimensions
 
         out["dimensions"] = capo_cloudwatch.types.dimensions.deserialize_aws_json_1_0(
             data["Dimensions"]
         )
-    if "Stat" in data:
+    if data.get("Stat") is not None:
         out["stat"] = data["Stat"]
-    if "Configuration" in data:
+    if data.get("Configuration") is not None:
         import capo_cloudwatch.types.anomaly_detector_configuration
 
         out["configuration"] = (
@@ -118,7 +118,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutAnomalyDetectorInput:
                 data["Configuration"]
             )
         )
-    if "MetricCharacteristics" in data:
+    if data.get("MetricCharacteristics") is not None:
         import capo_cloudwatch.types.metric_characteristics
 
         out["metric_characteristics"] = (
@@ -126,7 +126,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutAnomalyDetectorInput:
                 data["MetricCharacteristics"]
             )
         )
-    if "SingleMetricAnomalyDetector" in data:
+    if data.get("SingleMetricAnomalyDetector") is not None:
         import capo_cloudwatch.types.single_metric_anomaly_detector
 
         out["single_metric_anomaly_detector"] = (
@@ -134,7 +134,7 @@ def deserialize_aws_json_1_0(data: dict) -> PutAnomalyDetectorInput:
                 data["SingleMetricAnomalyDetector"]
             )
         )
-    if "MetricMathAnomalyDetector" in data:
+    if data.get("MetricMathAnomalyDetector") is not None:
         import capo_cloudwatch.types.metric_math_anomaly_detector
 
         out["metric_math_anomaly_detector"] = (

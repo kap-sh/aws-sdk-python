@@ -41,11 +41,11 @@ def serialize_json(value: LayersListItem) -> dict:
 
 def deserialize_json(data: dict) -> LayersListItem:
     out: LayersListItem = {}  # type: ignore[typeddict-item]
-    if "LayerName" in data:
+    if data.get("LayerName") is not None:
         out["layer_name"] = data["LayerName"]
-    if "LayerArn" in data:
+    if data.get("LayerArn") is not None:
         out["layer_arn"] = data["LayerArn"]
-    if "LatestMatchingVersion" in data:
+    if data.get("LatestMatchingVersion") is not None:
         import capo_lambda.types.layer_versions_list_item
 
         out["latest_matching_version"] = (

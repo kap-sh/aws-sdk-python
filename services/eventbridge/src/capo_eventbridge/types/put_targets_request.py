@@ -39,13 +39,13 @@ def serialize_aws_json_1_1(value: PutTargetsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutTargetsRequest:
     out: PutTargetsRequest = {}  # type: ignore[typeddict-item]
-    if "Rule" in data:
+    if data.get("Rule") is not None:
         out["rule"] = data["Rule"]
     else:
         raise DeserializationError("PutTargetsRequest.rule required")
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_eventbridge.types.target_list
 
         out["targets"] = capo_eventbridge.types.target_list.deserialize_aws_json_1_1(

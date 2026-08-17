@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> PartiQLBatchResponse:
 
     out: PartiQLBatchResponse = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.batch_statement_response.deserialize_aws_json_1_0(item)
         )

@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> RepositoryCreationTemplateList:
 
     out: RepositoryCreationTemplateList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecr.types.repository_creation_template.deserialize_aws_json_1_1(item)
         )

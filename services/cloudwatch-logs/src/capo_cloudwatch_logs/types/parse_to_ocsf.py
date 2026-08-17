@@ -48,9 +48,9 @@ def serialize_aws_json_1_1(value: ParseToOCSF) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ParseToOCSF:
     out: ParseToOCSF = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "eventSource" in data:
+    if data.get("eventSource") is not None:
         import capo_cloudwatch_logs.types.event_source
 
         out["event_source"] = (
@@ -60,7 +60,7 @@ def deserialize_aws_json_1_1(data: dict) -> ParseToOCSF:
         )
     else:
         raise DeserializationError("ParseToOCSF.event_source required")
-    if "ocsfVersion" in data:
+    if data.get("ocsfVersion") is not None:
         import capo_cloudwatch_logs.types.ocsf_version
 
         out["ocsf_version"] = (
@@ -70,6 +70,6 @@ def deserialize_aws_json_1_1(data: dict) -> ParseToOCSF:
         )
     else:
         raise DeserializationError("ParseToOCSF.ocsf_version required")
-    if "mappingVersion" in data:
+    if data.get("mappingVersion") is not None:
         out["mapping_version"] = data["mappingVersion"]
     return out

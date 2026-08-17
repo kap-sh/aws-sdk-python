@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: ListEndpointsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListEndpointsRequest:
     out: ListEndpointsRequest = {}  # type: ignore[typeddict-item]
-    if "NamePrefix" in data:
+    if data.get("NamePrefix") is not None:
         out["name_prefix"] = data["NamePrefix"]
-    if "HomeRegion" in data:
+    if data.get("HomeRegion") is not None:
         out["home_region"] = data["HomeRegion"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

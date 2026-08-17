@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: DescribeLogGroupsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeLogGroupsResponse:
     out: DescribeLogGroupsResponse = {}  # type: ignore[typeddict-item]
-    if "logGroups" in data:
+    if data.get("logGroups") is not None:
         import capo_cloudwatch_logs.types.log_groups
 
         out["log_groups"] = (
@@ -39,6 +39,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeLogGroupsResponse:
                 data["logGroups"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

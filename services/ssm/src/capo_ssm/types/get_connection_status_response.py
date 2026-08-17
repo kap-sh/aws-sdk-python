@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: GetConnectionStatusResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetConnectionStatusResponse:
     out: GetConnectionStatusResponse = {}  # type: ignore[typeddict-item]
-    if "Target" in data:
+    if data.get("Target") is not None:
         out["target"] = data["Target"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.connection_status
 
         out["status"] = capo_ssm.types.connection_status.deserialize_aws_json_1_1(

@@ -293,7 +293,7 @@ def serialize_aws_json_1_0(value: TableDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TableDescription:
     out: TableDescription = {}  # type: ignore[typeddict-item]
-    if "AttributeDefinitions" in data:
+    if data.get("AttributeDefinitions") is not None:
         import capo_dynamodb.types.attribute_definitions
 
         out["attribute_definitions"] = (
@@ -301,27 +301,27 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["AttributeDefinitions"]
             )
         )
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
             data["KeySchema"]
         )
-    if "TableStatus" in data:
+    if data.get("TableStatus") is not None:
         import capo_dynamodb.types.table_status
 
         out["table_status"] = capo_dynamodb.types.table_status.deserialize_aws_json_1_0(
             data["TableStatus"]
         )
-    if "CreationDateTime" in data:
+    if data.get("CreationDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["creation_date_time"] = capo_dynamodb.types.date.deserialize_aws_json_1_0(
             data["CreationDateTime"]
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput_description
 
         out["provisioned_throughput"] = (
@@ -329,15 +329,15 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["ProvisionedThroughput"]
             )
         )
-    if "TableSizeBytes" in data:
+    if data.get("TableSizeBytes") is not None:
         out["table_size_bytes"] = data["TableSizeBytes"]
-    if "ItemCount" in data:
+    if data.get("ItemCount") is not None:
         out["item_count"] = data["ItemCount"]
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "TableId" in data:
+    if data.get("TableId") is not None:
         out["table_id"] = data["TableId"]
-    if "BillingModeSummary" in data:
+    if data.get("BillingModeSummary") is not None:
         import capo_dynamodb.types.billing_mode_summary
 
         out["billing_mode_summary"] = (
@@ -345,7 +345,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["BillingModeSummary"]
             )
         )
-    if "LocalSecondaryIndexes" in data:
+    if data.get("LocalSecondaryIndexes") is not None:
         import capo_dynamodb.types.local_secondary_index_description_list
 
         out["local_secondary_indexes"] = (
@@ -353,7 +353,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["LocalSecondaryIndexes"]
             )
         )
-    if "GlobalSecondaryIndexes" in data:
+    if data.get("GlobalSecondaryIndexes") is not None:
         import capo_dynamodb.types.global_secondary_index_description_list
 
         out["global_secondary_indexes"] = (
@@ -361,7 +361,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["GlobalSecondaryIndexes"]
             )
         )
-    if "StreamSpecification" in data:
+    if data.get("StreamSpecification") is not None:
         import capo_dynamodb.types.stream_specification
 
         out["stream_specification"] = (
@@ -369,13 +369,13 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["StreamSpecification"]
             )
         )
-    if "LatestStreamLabel" in data:
+    if data.get("LatestStreamLabel") is not None:
         out["latest_stream_label"] = data["LatestStreamLabel"]
-    if "LatestStreamArn" in data:
+    if data.get("LatestStreamArn") is not None:
         out["latest_stream_arn"] = data["LatestStreamArn"]
-    if "GlobalTableVersion" in data:
+    if data.get("GlobalTableVersion") is not None:
         out["global_table_version"] = data["GlobalTableVersion"]
-    if "Replicas" in data:
+    if data.get("Replicas") is not None:
         import capo_dynamodb.types.replica_description_list
 
         out["replicas"] = (
@@ -383,7 +383,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["Replicas"]
             )
         )
-    if "GlobalTableWitnesses" in data:
+    if data.get("GlobalTableWitnesses") is not None:
         import capo_dynamodb.types.global_table_witness_description_list
 
         out["global_table_witnesses"] = (
@@ -391,7 +391,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["GlobalTableWitnesses"]
             )
         )
-    if "GlobalTableSettingsReplicationMode" in data:
+    if data.get("GlobalTableSettingsReplicationMode") is not None:
         import capo_dynamodb.types.global_table_settings_replication_mode
 
         out["global_table_settings_replication_mode"] = (
@@ -399,7 +399,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["GlobalTableSettingsReplicationMode"]
             )
         )
-    if "RestoreSummary" in data:
+    if data.get("RestoreSummary") is not None:
         import capo_dynamodb.types.restore_summary
 
         out["restore_summary"] = (
@@ -407,7 +407,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["RestoreSummary"]
             )
         )
-    if "SSEDescription" in data:
+    if data.get("SSEDescription") is not None:
         import capo_dynamodb.types.sse_description
 
         out["sse_description"] = (
@@ -415,7 +415,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["SSEDescription"]
             )
         )
-    if "ArchivalSummary" in data:
+    if data.get("ArchivalSummary") is not None:
         import capo_dynamodb.types.archival_summary
 
         out["archival_summary"] = (
@@ -423,7 +423,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["ArchivalSummary"]
             )
         )
-    if "TableClassSummary" in data:
+    if data.get("TableClassSummary") is not None:
         import capo_dynamodb.types.table_class_summary
 
         out["table_class_summary"] = (
@@ -431,9 +431,9 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["TableClassSummary"]
             )
         )
-    if "DeletionProtectionEnabled" in data:
+    if data.get("DeletionProtectionEnabled") is not None:
         out["deletion_protection_enabled"] = data["DeletionProtectionEnabled"]
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -441,7 +441,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["OnDemandThroughput"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.table_warm_throughput_description
 
         out["warm_throughput"] = (
@@ -449,7 +449,7 @@ def deserialize_aws_json_1_0(data: dict) -> TableDescription:
                 data["WarmThroughput"]
             )
         )
-    if "MultiRegionConsistency" in data:
+    if data.get("MultiRegionConsistency") is not None:
         import capo_dynamodb.types.multi_region_consistency
 
         out["multi_region_consistency"] = (

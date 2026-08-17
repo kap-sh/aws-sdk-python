@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: RegisterPullTimeUpdateExclusionResponse) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterPullTimeUpdateExclusionResponse:
     out: RegisterPullTimeUpdateExclusionResponse = {}  # type: ignore[typeddict-item]
-    if "principalArn" in data:
+    if data.get("principalArn") is not None:
         out["principal_arn"] = data["principalArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecr.types.creation_timestamp
 
         out["created_at"] = capo_ecr.types.creation_timestamp.deserialize_aws_json_1_1(

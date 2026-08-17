@@ -70,11 +70,11 @@ def serialize_aws_json_1_0(value: ListBackupsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListBackupsInput:
     out: ListBackupsInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "TimeRangeLowerBound" in data:
+    if data.get("TimeRangeLowerBound") is not None:
         import capo_dynamodb.types.time_range_lower_bound
 
         out["time_range_lower_bound"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_0(data: dict) -> ListBackupsInput:
                 data["TimeRangeLowerBound"]
             )
         )
-    if "TimeRangeUpperBound" in data:
+    if data.get("TimeRangeUpperBound") is not None:
         import capo_dynamodb.types.time_range_upper_bound
 
         out["time_range_upper_bound"] = (
@@ -90,9 +90,9 @@ def deserialize_aws_json_1_0(data: dict) -> ListBackupsInput:
                 data["TimeRangeUpperBound"]
             )
         )
-    if "ExclusiveStartBackupArn" in data:
+    if data.get("ExclusiveStartBackupArn") is not None:
         out["exclusive_start_backup_arn"] = data["ExclusiveStartBackupArn"]
-    if "BackupType" in data:
+    if data.get("BackupType") is not None:
         import capo_dynamodb.types.backup_type_filter
 
         out["backup_type"] = (

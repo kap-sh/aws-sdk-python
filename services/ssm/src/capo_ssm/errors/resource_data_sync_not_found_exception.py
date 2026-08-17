@@ -36,11 +36,11 @@ def serialize_aws_json_1_1(value: ResourceDataSyncNotFoundException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncNotFoundException_:
     out: ResourceDataSyncNotFoundException_ = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
-    if "SyncType" in data:
+    if data.get("SyncType") is not None:
         out["sync_type"] = data["SyncType"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

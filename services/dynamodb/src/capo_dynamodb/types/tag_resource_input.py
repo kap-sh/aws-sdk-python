@@ -30,11 +30,11 @@ def serialize_aws_json_1_0(value: TagResourceInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TagResourceInput:
     out: TagResourceInput = {}  # type: ignore[typeddict-item]
-    if "ResourceArn" in data:
+    if data.get("ResourceArn") is not None:
         out["resource_arn"] = data["ResourceArn"]
     else:
         raise DeserializationError("TagResourceInput.resource_arn required")
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_dynamodb.types.tag_list
 
         out["tags"] = capo_dynamodb.types.tag_list.deserialize_aws_json_1_0(

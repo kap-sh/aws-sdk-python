@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: UpdateServiceSettingRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateServiceSettingRequest:
     out: UpdateServiceSettingRequest = {}  # type: ignore[typeddict-item]
-    if "SettingId" in data:
+    if data.get("SettingId") is not None:
         out["setting_id"] = data["SettingId"]
     else:
         raise DeserializationError("UpdateServiceSettingRequest.setting_id required")
-    if "SettingValue" in data:
+    if data.get("SettingValue") is not None:
         out["setting_value"] = data["SettingValue"]
     else:
         raise DeserializationError("UpdateServiceSettingRequest.setting_value required")

@@ -29,11 +29,11 @@ def serialize_aws_json_1_1(value: Scale) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Scale:
     out: Scale = {}  # type: ignore[typeddict-item]
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         out["value"] = 0
-    if "unit" in data:
+    if data.get("unit") is not None:
         import capo_ecs.types.scale_unit
 
         out["unit"] = capo_ecs.types.scale_unit.deserialize_aws_json_1_1(data["unit"])

@@ -118,19 +118,19 @@ def serialize_aws_json_1_1(value: CreateCustomKeyStoreRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateCustomKeyStoreRequest:
     out: CreateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStoreName" in data:
+    if data.get("CustomKeyStoreName") is not None:
         out["custom_key_store_name"] = data["CustomKeyStoreName"]
     else:
         raise DeserializationError(
             "CreateCustomKeyStoreRequest.custom_key_store_name required"
         )
-    if "CloudHsmClusterId" in data:
+    if data.get("CloudHsmClusterId") is not None:
         out["cloud_hsm_cluster_id"] = data["CloudHsmClusterId"]
-    if "TrustAnchorCertificate" in data:
+    if data.get("TrustAnchorCertificate") is not None:
         out["trust_anchor_certificate"] = data["TrustAnchorCertificate"]
-    if "KeyStorePassword" in data:
+    if data.get("KeyStorePassword") is not None:
         out["key_store_password"] = data["KeyStorePassword"]
-    if "CustomKeyStoreType" in data:
+    if data.get("CustomKeyStoreType") is not None:
         import capo_kms.types.custom_key_store_type
 
         out["custom_key_store_type"] = (
@@ -138,19 +138,19 @@ def deserialize_aws_json_1_1(data: dict) -> CreateCustomKeyStoreRequest:
                 data["CustomKeyStoreType"]
             )
         )
-    if "XksProxyUriEndpoint" in data:
+    if data.get("XksProxyUriEndpoint") is not None:
         out["xks_proxy_uri_endpoint"] = data["XksProxyUriEndpoint"]
-    if "XksProxyUriPath" in data:
+    if data.get("XksProxyUriPath") is not None:
         out["xks_proxy_uri_path"] = data["XksProxyUriPath"]
-    if "XksProxyVpcEndpointServiceName" in data:
+    if data.get("XksProxyVpcEndpointServiceName") is not None:
         out["xks_proxy_vpc_endpoint_service_name"] = data[
             "XksProxyVpcEndpointServiceName"
         ]
-    if "XksProxyVpcEndpointServiceOwner" in data:
+    if data.get("XksProxyVpcEndpointServiceOwner") is not None:
         out["xks_proxy_vpc_endpoint_service_owner"] = data[
             "XksProxyVpcEndpointServiceOwner"
         ]
-    if "XksProxyAuthenticationCredential" in data:
+    if data.get("XksProxyAuthenticationCredential") is not None:
         import capo_kms.types.xks_proxy_authentication_credential_type
 
         out["xks_proxy_authentication_credential"] = (
@@ -158,7 +158,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateCustomKeyStoreRequest:
                 data["XksProxyAuthenticationCredential"]
             )
         )
-    if "XksProxyConnectivity" in data:
+    if data.get("XksProxyConnectivity") is not None:
         import capo_kms.types.xks_proxy_connectivity_type
 
         out["xks_proxy_connectivity"] = (

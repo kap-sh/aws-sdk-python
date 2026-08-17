@@ -29,9 +29,9 @@ def serialize_aws_json_1_1(value: ManagedStorageConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedStorageConfiguration:
     out: ManagedStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "fargateEphemeralStorageKmsKeyId" in data:
+    if data.get("fargateEphemeralStorageKmsKeyId") is not None:
         out["fargate_ephemeral_storage_kms_key_id"] = data[
             "fargateEphemeralStorageKmsKeyId"
         ]

@@ -126,23 +126,23 @@ def serialize_json(value: Operation) -> dict:
 
 def deserialize_json(data: dict) -> Operation:
     out: Operation = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
     else:
         raise DeserializationError("Operation.id required")
-    if "ParentId" in data:
+    if data.get("ParentId") is not None:
         out["parent_id"] = data["ParentId"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_lambda.types.operation_type
 
         out["type"] = capo_lambda.types.operation_type.deserialize_json(data["Type"])
     else:
         raise DeserializationError("Operation.type required")
-    if "SubType" in data:
+    if data.get("SubType") is not None:
         out["sub_type"] = data["SubType"]
-    if "StartTimestamp" in data:
+    if data.get("StartTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["start_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
@@ -150,13 +150,13 @@ def deserialize_json(data: dict) -> Operation:
         )
     else:
         raise DeserializationError("Operation.start_timestamp required")
-    if "EndTimestamp" in data:
+    if data.get("EndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["end_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
             data["EndTimestamp"]
         )
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_lambda.types.operation_status
 
         out["status"] = capo_lambda.types.operation_status.deserialize_json(
@@ -164,37 +164,37 @@ def deserialize_json(data: dict) -> Operation:
         )
     else:
         raise DeserializationError("Operation.status required")
-    if "ExecutionDetails" in data:
+    if data.get("ExecutionDetails") is not None:
         import capo_lambda.types.execution_details
 
         out["execution_details"] = capo_lambda.types.execution_details.deserialize_json(
             data["ExecutionDetails"]
         )
-    if "ContextDetails" in data:
+    if data.get("ContextDetails") is not None:
         import capo_lambda.types.context_details
 
         out["context_details"] = capo_lambda.types.context_details.deserialize_json(
             data["ContextDetails"]
         )
-    if "StepDetails" in data:
+    if data.get("StepDetails") is not None:
         import capo_lambda.types.step_details
 
         out["step_details"] = capo_lambda.types.step_details.deserialize_json(
             data["StepDetails"]
         )
-    if "WaitDetails" in data:
+    if data.get("WaitDetails") is not None:
         import capo_lambda.types.wait_details
 
         out["wait_details"] = capo_lambda.types.wait_details.deserialize_json(
             data["WaitDetails"]
         )
-    if "CallbackDetails" in data:
+    if data.get("CallbackDetails") is not None:
         import capo_lambda.types.callback_details
 
         out["callback_details"] = capo_lambda.types.callback_details.deserialize_json(
             data["CallbackDetails"]
         )
-    if "ChainedInvokeDetails" in data:
+    if data.get("ChainedInvokeDetails") is not None:
         import capo_lambda.types.chained_invoke_details
 
         out["chained_invoke_details"] = (

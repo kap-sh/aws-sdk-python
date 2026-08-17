@@ -34,12 +34,12 @@ def serialize_aws_json_1_1(value: RemovePermissionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RemovePermissionRequest:
     out: RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-    if "StatementId" in data:
+    if data.get("StatementId") is not None:
         out["statement_id"] = data["StatementId"]
-    if "RemoveAllPermissions" in data:
+    if data.get("RemoveAllPermissions") is not None:
         out["remove_all_permissions"] = data["RemoveAllPermissions"]
     else:
         out["remove_all_permissions"] = False
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
     return out

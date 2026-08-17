@@ -98,7 +98,7 @@ def serialize_aws_json_1_1(value: ManagedIngressPath) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedIngressPath:
     out: ManagedIngressPath = {}  # type: ignore[typeddict-item]
-    if "accessType" in data:
+    if data.get("accessType") is not None:
         import capo_ecs.types.access_type
 
         out["access_type"] = capo_ecs.types.access_type.deserialize_aws_json_1_1(
@@ -106,11 +106,11 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedIngressPath:
         )
     else:
         raise DeserializationError("ManagedIngressPath.access_type required")
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
     else:
         raise DeserializationError("ManagedIngressPath.endpoint required")
-    if "loadBalancer" in data:
+    if data.get("loadBalancer") is not None:
         import capo_ecs.types.managed_load_balancer
 
         out["load_balancer"] = (
@@ -118,7 +118,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedIngressPath:
                 data["loadBalancer"]
             )
         )
-    if "loadBalancerSecurityGroups" in data:
+    if data.get("loadBalancerSecurityGroups") is not None:
         import capo_ecs.types.managed_security_groups
 
         out["load_balancer_security_groups"] = (
@@ -126,7 +126,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedIngressPath:
                 data["loadBalancerSecurityGroups"]
             )
         )
-    if "certificate" in data:
+    if data.get("certificate") is not None:
         import capo_ecs.types.managed_certificate
 
         out["certificate"] = (
@@ -134,19 +134,19 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedIngressPath:
                 data["certificate"]
             )
         )
-    if "listener" in data:
+    if data.get("listener") is not None:
         import capo_ecs.types.managed_listener
 
         out["listener"] = capo_ecs.types.managed_listener.deserialize_aws_json_1_1(
             data["listener"]
         )
-    if "rule" in data:
+    if data.get("rule") is not None:
         import capo_ecs.types.managed_listener_rule
 
         out["rule"] = capo_ecs.types.managed_listener_rule.deserialize_aws_json_1_1(
             data["rule"]
         )
-    if "targetGroups" in data:
+    if data.get("targetGroups") is not None:
         import capo_ecs.types.managed_target_groups
 
         out["target_groups"] = (

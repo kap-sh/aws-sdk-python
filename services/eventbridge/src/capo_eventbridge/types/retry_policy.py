@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: RetryPolicy) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RetryPolicy:
     out: RetryPolicy = {}  # type: ignore[typeddict-item]
-    if "MaximumRetryAttempts" in data:
+    if data.get("MaximumRetryAttempts") is not None:
         out["maximum_retry_attempts"] = data["MaximumRetryAttempts"]
-    if "MaximumEventAgeInSeconds" in data:
+    if data.get("MaximumEventAgeInSeconds") is not None:
         out["maximum_event_age_in_seconds"] = data["MaximumEventAgeInSeconds"]
     return out

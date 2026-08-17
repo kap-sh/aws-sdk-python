@@ -37,14 +37,14 @@ def serialize_aws_json_1_0(value: CancellationReason) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CancellationReason:
     out: CancellationReason = {}  # type: ignore[typeddict-item]
-    if "Item" in data:
+    if data.get("Item") is not None:
         import capo_dynamodb.types.attribute_map
 
         out["item"] = capo_dynamodb.types.attribute_map.deserialize_aws_json_1_0(
             data["Item"]
         )
-    if "Code" in data:
+    if data.get("Code") is not None:
         out["code"] = data["Code"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out

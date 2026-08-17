@@ -102,15 +102,15 @@ def serialize_aws_json_1_1(value: GetPublicKeyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetPublicKeyResponse:
     out: GetPublicKeyResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "PublicKey" in data:
+    if data.get("PublicKey") is not None:
         import capo_kms.types.public_key_type
 
         out["public_key"] = capo_kms.types.public_key_type.deserialize_aws_json_1_1(
             data["PublicKey"]
         )
-    if "CustomerMasterKeySpec" in data:
+    if data.get("CustomerMasterKeySpec") is not None:
         import capo_kms.types.customer_master_key_spec
 
         out["customer_master_key_spec"] = (
@@ -118,19 +118,19 @@ def deserialize_aws_json_1_1(data: dict) -> GetPublicKeyResponse:
                 data["CustomerMasterKeySpec"]
             )
         )
-    if "KeySpec" in data:
+    if data.get("KeySpec") is not None:
         import capo_kms.types.key_spec
 
         out["key_spec"] = capo_kms.types.key_spec.deserialize_aws_json_1_1(
             data["KeySpec"]
         )
-    if "KeyUsage" in data:
+    if data.get("KeyUsage") is not None:
         import capo_kms.types.key_usage_type
 
         out["key_usage"] = capo_kms.types.key_usage_type.deserialize_aws_json_1_1(
             data["KeyUsage"]
         )
-    if "EncryptionAlgorithms" in data:
+    if data.get("EncryptionAlgorithms") is not None:
         import capo_kms.types.encryption_algorithm_spec_list
 
         out["encryption_algorithms"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetPublicKeyResponse:
                 data["EncryptionAlgorithms"]
             )
         )
-    if "SigningAlgorithms" in data:
+    if data.get("SigningAlgorithms") is not None:
         import capo_kms.types.signing_algorithm_spec_list
 
         out["signing_algorithms"] = (
@@ -146,7 +146,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetPublicKeyResponse:
                 data["SigningAlgorithms"]
             )
         )
-    if "KeyAgreementAlgorithms" in data:
+    if data.get("KeyAgreementAlgorithms") is not None:
         import capo_kms.types.key_agreement_algorithm_spec_list
 
         out["key_agreement_algorithms"] = (

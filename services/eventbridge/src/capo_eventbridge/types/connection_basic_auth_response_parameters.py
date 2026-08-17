@@ -25,6 +25,6 @@ def serialize_aws_json_1_1(value: ConnectionBasicAuthResponseParameters) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ConnectionBasicAuthResponseParameters:
     out: ConnectionBasicAuthResponseParameters = {}  # type: ignore[typeddict-item]
-    if "Username" in data:
+    if data.get("Username") is not None:
         out["username"] = data["Username"]
     return out

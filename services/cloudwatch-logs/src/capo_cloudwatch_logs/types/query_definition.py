@@ -81,7 +81,7 @@ def serialize_aws_json_1_1(value: QueryDefinition) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> QueryDefinition:
     out: QueryDefinition = {}  # type: ignore[typeddict-item]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -89,15 +89,15 @@ def deserialize_aws_json_1_1(data: dict) -> QueryDefinition:
                 data["queryLanguage"]
             )
         )
-    if "queryDefinitionId" in data:
+    if data.get("queryDefinitionId") is not None:
         out["query_definition_id"] = data["queryDefinitionId"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "queryString" in data:
+    if data.get("queryString") is not None:
         out["query_string"] = data["queryString"]
-    if "lastModified" in data:
+    if data.get("lastModified") is not None:
         out["last_modified"] = data["lastModified"]
-    if "logGroupNames" in data:
+    if data.get("logGroupNames") is not None:
         import capo_cloudwatch_logs.types.log_group_names
 
         out["log_group_names"] = (
@@ -105,7 +105,7 @@ def deserialize_aws_json_1_1(data: dict) -> QueryDefinition:
                 data["logGroupNames"]
             )
         )
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         import capo_cloudwatch_logs.types.query_parameter_list
 
         out["parameters"] = (

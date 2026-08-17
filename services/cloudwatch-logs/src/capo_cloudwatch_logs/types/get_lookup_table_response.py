@@ -57,18 +57,18 @@ def serialize_aws_json_1_1(value: GetLookupTableResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLookupTableResponse:
     out: GetLookupTableResponse = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
-    if "lookupTableName" in data:
+    if data.get("lookupTableName") is not None:
         out["lookup_table_name"] = data["lookupTableName"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "tableBody" in data:
+    if data.get("tableBody") is not None:
         out["table_body"] = data["tableBody"]
-    if "sizeBytes" in data:
+    if data.get("sizeBytes") is not None:
         out["size_bytes"] = data["sizeBytes"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

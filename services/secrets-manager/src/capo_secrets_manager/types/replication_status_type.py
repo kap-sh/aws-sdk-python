@@ -57,19 +57,19 @@ def serialize_aws_json_1_1(value: ReplicationStatusType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicationStatusType:
     out: ReplicationStatusType = {}  # type: ignore[typeddict-item]
-    if "Region" in data:
+    if data.get("Region") is not None:
         out["region"] = data["Region"]
-    if "KmsKeyId" in data:
+    if data.get("KmsKeyId") is not None:
         out["kms_key_id"] = data["KmsKeyId"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_secrets_manager.types.status_type
 
         out["status"] = capo_secrets_manager.types.status_type.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "StatusMessage" in data:
+    if data.get("StatusMessage") is not None:
         out["status_message"] = data["StatusMessage"]
-    if "LastAccessedDate" in data:
+    if data.get("LastAccessedDate") is not None:
         import capo_secrets_manager.types.last_accessed_date_type
 
         out["last_accessed_date"] = (

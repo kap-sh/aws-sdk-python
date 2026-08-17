@@ -33,11 +33,11 @@ def serialize_aws_json_1_1(value: CancelCommandRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelCommandRequest:
     out: CancelCommandRequest = {}  # type: ignore[typeddict-item]
-    if "CommandId" in data:
+    if data.get("CommandId") is not None:
         out["command_id"] = data["CommandId"]
     else:
         raise DeserializationError("CancelCommandRequest.command_id required")
-    if "InstanceIds" in data:
+    if data.get("InstanceIds") is not None:
         import capo_ssm.types.instance_id_list
 
         out["instance_ids"] = capo_ssm.types.instance_id_list.deserialize_aws_json_1_1(

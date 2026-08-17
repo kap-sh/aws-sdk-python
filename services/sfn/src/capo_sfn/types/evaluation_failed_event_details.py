@@ -41,13 +41,13 @@ def serialize_aws_json_1_0(value: EvaluationFailedEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> EvaluationFailedEventDetails:
     out: EvaluationFailedEventDetails = {}  # type: ignore[typeddict-item]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
-    if "location" in data:
+    if data.get("location") is not None:
         out["location"] = data["location"]
-    if "state" in data:
+    if data.get("state") is not None:
         out["state"] = data["state"]
     else:
         raise DeserializationError("EvaluationFailedEventDetails.state required")

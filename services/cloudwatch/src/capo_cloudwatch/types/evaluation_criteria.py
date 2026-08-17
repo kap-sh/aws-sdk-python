@@ -60,7 +60,7 @@ def serialize_aws_json_1_0(value: EvaluationCriteria) -> dict:
 
 
 def deserialize_aws_json_1_0(data: dict) -> EvaluationCriteria:
-    if "PromQLCriteria" in data:
+    if data.get("PromQLCriteria") is not None:
         import capo_cloudwatch.types.alarm_prom_ql_criteria
 
         return {

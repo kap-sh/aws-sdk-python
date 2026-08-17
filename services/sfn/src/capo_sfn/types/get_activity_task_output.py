@@ -28,8 +28,8 @@ def serialize_aws_json_1_0(value: GetActivityTaskOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetActivityTaskOutput:
     out: GetActivityTaskOutput = {}  # type: ignore[typeddict-item]
-    if "taskToken" in data:
+    if data.get("taskToken") is not None:
         out["task_token"] = data["taskToken"]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     return out

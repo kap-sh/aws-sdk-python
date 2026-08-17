@@ -45,13 +45,13 @@ def serialize_aws_json_1_1(value: DescribeDocumentPermissionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentPermissionResponse:
     out: DescribeDocumentPermissionResponse = {}  # type: ignore[typeddict-item]
-    if "AccountIds" in data:
+    if data.get("AccountIds") is not None:
         import capo_ssm.types.account_id_list
 
         out["account_ids"] = capo_ssm.types.account_id_list.deserialize_aws_json_1_1(
             data["AccountIds"]
         )
-    if "AccountSharingInfoList" in data:
+    if data.get("AccountSharingInfoList") is not None:
         import capo_ssm.types.account_sharing_info_list
 
         out["account_sharing_info_list"] = (
@@ -59,6 +59,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeDocumentPermissionResponse:
                 data["AccountSharingInfoList"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

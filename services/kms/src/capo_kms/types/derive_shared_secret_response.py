@@ -67,15 +67,15 @@ def serialize_aws_json_1_1(value: DeriveSharedSecretResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretResponse:
     out: DeriveSharedSecretResponse = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "SharedSecret" in data:
+    if data.get("SharedSecret") is not None:
         import capo_kms.types.plaintext_type
 
         out["shared_secret"] = capo_kms.types.plaintext_type.deserialize_aws_json_1_1(
             data["SharedSecret"]
         )
-    if "CiphertextForRecipient" in data:
+    if data.get("CiphertextForRecipient") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_for_recipient"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretResponse:
                 data["CiphertextForRecipient"]
             )
         )
-    if "KeyAgreementAlgorithm" in data:
+    if data.get("KeyAgreementAlgorithm") is not None:
         import capo_kms.types.key_agreement_algorithm_spec
 
         out["key_agreement_algorithm"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretResponse:
                 data["KeyAgreementAlgorithm"]
             )
         )
-    if "KeyOrigin" in data:
+    if data.get("KeyOrigin") is not None:
         import capo_kms.types.origin_type
 
         out["key_origin"] = capo_kms.types.origin_type.deserialize_aws_json_1_1(

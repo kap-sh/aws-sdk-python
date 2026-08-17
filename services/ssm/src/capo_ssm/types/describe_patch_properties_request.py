@@ -55,7 +55,7 @@ def serialize_aws_json_1_1(value: DescribePatchPropertiesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePatchPropertiesRequest:
     out: DescribePatchPropertiesRequest = {}  # type: ignore[typeddict-item]
-    if "OperatingSystem" in data:
+    if data.get("OperatingSystem") is not None:
         import capo_ssm.types.operating_system
 
         out["operating_system"] = (
@@ -67,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePatchPropertiesRequest:
         raise DeserializationError(
             "DescribePatchPropertiesRequest.operating_system required"
         )
-    if "Property" in data:
+    if data.get("Property") is not None:
         import capo_ssm.types.patch_property
 
         out["property"] = capo_ssm.types.patch_property.deserialize_aws_json_1_1(
@@ -75,14 +75,14 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePatchPropertiesRequest:
         )
     else:
         raise DeserializationError("DescribePatchPropertiesRequest.property required")
-    if "PatchSet" in data:
+    if data.get("PatchSet") is not None:
         import capo_ssm.types.patch_set
 
         out["patch_set"] = capo_ssm.types.patch_set.deserialize_aws_json_1_1(
             data["PatchSet"]
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

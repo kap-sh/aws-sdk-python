@@ -27,5 +27,7 @@ def deserialize_aws_json_1_1(data: dict) -> FindingSeverityCounts:
     for key, value in data.items():
         import capo_ecr.types.finding_severity
 
+        if value is None:
+            continue
         out[capo_ecr.types.finding_severity.deserialize_aws_json_1_1(key)] = value
     return out

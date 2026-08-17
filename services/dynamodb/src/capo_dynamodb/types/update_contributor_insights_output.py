@@ -54,11 +54,11 @@ def serialize_aws_json_1_0(value: UpdateContributorInsightsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateContributorInsightsOutput:
     out: UpdateContributorInsightsOutput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "ContributorInsightsStatus" in data:
+    if data.get("ContributorInsightsStatus") is not None:
         import capo_dynamodb.types.contributor_insights_status
 
         out["contributor_insights_status"] = (
@@ -66,7 +66,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateContributorInsightsOutput:
                 data["ContributorInsightsStatus"]
             )
         )
-    if "ContributorInsightsMode" in data:
+    if data.get("ContributorInsightsMode") is not None:
         import capo_dynamodb.types.contributor_insights_mode
 
         out["contributor_insights_mode"] = (

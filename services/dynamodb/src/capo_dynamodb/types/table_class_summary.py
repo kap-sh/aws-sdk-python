@@ -36,13 +36,13 @@ def serialize_aws_json_1_0(value: TableClassSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TableClassSummary:
     out: TableClassSummary = {}  # type: ignore[typeddict-item]
-    if "TableClass" in data:
+    if data.get("TableClass") is not None:
         import capo_dynamodb.types.table_class
 
         out["table_class"] = capo_dynamodb.types.table_class.deserialize_aws_json_1_0(
             data["TableClass"]
         )
-    if "LastUpdateDateTime" in data:
+    if data.get("LastUpdateDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["last_update_date_time"] = (

@@ -267,15 +267,15 @@ def serialize_aws_json_1_1(value: CreateServiceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
     out: CreateServiceRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
     else:
         raise DeserializationError("CreateServiceRequest.service_name required")
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
-    if "availabilityZoneRebalancing" in data:
+    if data.get("availabilityZoneRebalancing") is not None:
         import capo_ecs.types.availability_zone_rebalancing
 
         out["availability_zone_rebalancing"] = (
@@ -283,13 +283,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["availabilityZoneRebalancing"]
             )
         )
-    if "loadBalancers" in data:
+    if data.get("loadBalancers") is not None:
         import capo_ecs.types.load_balancers
 
         out["load_balancers"] = capo_ecs.types.load_balancers.deserialize_aws_json_1_1(
             data["loadBalancers"]
         )
-    if "serviceRegistries" in data:
+    if data.get("serviceRegistries") is not None:
         import capo_ecs.types.service_registries
 
         out["service_registries"] = (
@@ -297,17 +297,17 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["serviceRegistries"]
             )
         )
-    if "desiredCount" in data:
+    if data.get("desiredCount") is not None:
         out["desired_count"] = data["desiredCount"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -315,11 +315,11 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["capacityProviderStrategy"]
             )
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "role" in data:
+    if data.get("role") is not None:
         out["role"] = data["role"]
-    if "deploymentConfiguration" in data:
+    if data.get("deploymentConfiguration") is not None:
         import capo_ecs.types.deployment_configuration
 
         out["deployment_configuration"] = (
@@ -327,7 +327,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["deploymentConfiguration"]
             )
         )
-    if "placementConstraints" in data:
+    if data.get("placementConstraints") is not None:
         import capo_ecs.types.placement_constraints
 
         out["placement_constraints"] = (
@@ -335,7 +335,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["placementConstraints"]
             )
         )
-    if "placementStrategy" in data:
+    if data.get("placementStrategy") is not None:
         import capo_ecs.types.placement_strategies
 
         out["placement_strategy"] = (
@@ -343,7 +343,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["placementStrategy"]
             )
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -351,9 +351,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["networkConfiguration"]
             )
         )
-    if "healthCheckGracePeriodSeconds" in data:
+    if data.get("healthCheckGracePeriodSeconds") is not None:
         out["health_check_grace_period_seconds"] = data["healthCheckGracePeriodSeconds"]
-    if "schedulingStrategy" in data:
+    if data.get("schedulingStrategy") is not None:
         import capo_ecs.types.scheduling_strategy
 
         out["scheduling_strategy"] = (
@@ -361,7 +361,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["schedulingStrategy"]
             )
         )
-    if "deploymentController" in data:
+    if data.get("deploymentController") is not None:
         import capo_ecs.types.deployment_controller
 
         out["deployment_controller"] = (
@@ -369,25 +369,25 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["deploymentController"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_tags
 
         out["propagate_tags"] = capo_ecs.types.propagate_tags.deserialize_aws_json_1_1(
             data["propagateTags"]
         )
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "serviceConnectConfiguration" in data:
+    if data.get("serviceConnectConfiguration") is not None:
         import capo_ecs.types.service_connect_configuration
 
         out["service_connect_configuration"] = (
@@ -395,7 +395,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["serviceConnectConfiguration"]
             )
         )
-    if "volumeConfigurations" in data:
+    if data.get("volumeConfigurations") is not None:
         import capo_ecs.types.service_volume_configurations
 
         out["volume_configurations"] = (
@@ -403,7 +403,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["volumeConfigurations"]
             )
         )
-    if "vpcLatticeConfigurations" in data:
+    if data.get("vpcLatticeConfigurations") is not None:
         import capo_ecs.types.vpc_lattice_configurations
 
         out["vpc_lattice_configurations"] = (
@@ -411,7 +411,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateServiceRequest:
                 data["vpcLatticeConfigurations"]
             )
         )
-    if "monitoring" in data:
+    if data.get("monitoring") is not None:
         import capo_ecs.types.monitoring_configuration
 
         out["monitoring"] = (

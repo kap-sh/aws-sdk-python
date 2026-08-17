@@ -25,6 +25,6 @@ def serialize_json(value: ScalingConfig) -> dict:
 
 def deserialize_json(data: dict) -> ScalingConfig:
     out: ScalingConfig = {}  # type: ignore[typeddict-item]
-    if "MaximumConcurrency" in data:
+    if data.get("MaximumConcurrency") is not None:
         out["maximum_concurrency"] = data["MaximumConcurrency"]
     return out

@@ -27,11 +27,11 @@ def serialize_aws_json_1_1(value: InferenceAccelerator) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InferenceAccelerator:
     out: InferenceAccelerator = {}  # type: ignore[typeddict-item]
-    if "deviceName" in data:
+    if data.get("deviceName") is not None:
         out["device_name"] = data["deviceName"]
     else:
         raise DeserializationError("InferenceAccelerator.device_name required")
-    if "deviceType" in data:
+    if data.get("deviceType") is not None:
         out["device_type"] = data["deviceType"]
     else:
         raise DeserializationError("InferenceAccelerator.device_type required")

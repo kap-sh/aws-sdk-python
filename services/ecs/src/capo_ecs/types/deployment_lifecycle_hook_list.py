@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> DeploymentLifecycleHookList:
 
     out: DeploymentLifecycleHookList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.deployment_lifecycle_hook.deserialize_aws_json_1_1(item)
         )

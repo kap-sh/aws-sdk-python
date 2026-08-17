@@ -310,9 +310,9 @@ def serialize_json(value: EventSourceMappingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
     out: EventSourceMappingConfiguration = {}  # type: ignore[typeddict-item]
-    if "UUID" in data:
+    if data.get("UUID") is not None:
         out["uuid"] = data["UUID"]
-    if "StartingPosition" in data:
+    if data.get("StartingPosition") is not None:
         import capo_lambda.types.event_source_position
 
         out["starting_position"] = (
@@ -320,29 +320,29 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["StartingPosition"]
             )
         )
-    if "StartingPositionTimestamp" in data:
+    if data.get("StartingPositionTimestamp") is not None:
         import capo_lambda.types.date
 
         out["starting_position_timestamp"] = capo_lambda.types.date.deserialize_json(
             data["StartingPositionTimestamp"]
         )
-    if "BatchSize" in data:
+    if data.get("BatchSize") is not None:
         out["batch_size"] = data["BatchSize"]
-    if "MaximumBatchingWindowInSeconds" in data:
+    if data.get("MaximumBatchingWindowInSeconds") is not None:
         out["maximum_batching_window_in_seconds"] = data[
             "MaximumBatchingWindowInSeconds"
         ]
-    if "ParallelizationFactor" in data:
+    if data.get("ParallelizationFactor") is not None:
         out["parallelization_factor"] = data["ParallelizationFactor"]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
-    if "FilterCriteria" in data:
+    if data.get("FilterCriteria") is not None:
         import capo_lambda.types.filter_criteria
 
         out["filter_criteria"] = capo_lambda.types.filter_criteria.deserialize_json(
             data["FilterCriteria"]
         )
-    if "FilterCriteriaError" in data:
+    if data.get("FilterCriteriaError") is not None:
         import capo_lambda.types.filter_criteria_error
 
         out["filter_criteria_error"] = (
@@ -350,9 +350,9 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["FilterCriteriaError"]
             )
         )
-    if "KMSKeyArn" in data:
+    if data.get("KMSKeyArn") is not None:
         out["kms_key_arn"] = data["KMSKeyArn"]
-    if "MetricsConfig" in data:
+    if data.get("MetricsConfig") is not None:
         import capo_lambda.types.event_source_mapping_metrics_config
 
         out["metrics_config"] = (
@@ -360,7 +360,7 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["MetricsConfig"]
             )
         )
-    if "LoggingConfig" in data:
+    if data.get("LoggingConfig") is not None:
         import capo_lambda.types.event_source_mapping_logging_config
 
         out["logging_config"] = (
@@ -368,27 +368,27 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["LoggingConfig"]
             )
         )
-    if "ScalingConfig" in data:
+    if data.get("ScalingConfig") is not None:
         import capo_lambda.types.scaling_config
 
         out["scaling_config"] = capo_lambda.types.scaling_config.deserialize_json(
             data["ScalingConfig"]
         )
-    if "FunctionArn" in data:
+    if data.get("FunctionArn") is not None:
         out["function_arn"] = data["FunctionArn"]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         import capo_lambda.types.date
 
         out["last_modified"] = capo_lambda.types.date.deserialize_json(
             data["LastModified"]
         )
-    if "LastProcessingResult" in data:
+    if data.get("LastProcessingResult") is not None:
         out["last_processing_result"] = data["LastProcessingResult"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "StateTransitionReason" in data:
+    if data.get("StateTransitionReason") is not None:
         out["state_transition_reason"] = data["StateTransitionReason"]
-    if "DestinationConfig" in data:
+    if data.get("DestinationConfig") is not None:
         import capo_lambda.types.destination_config
 
         out["destination_config"] = (
@@ -396,15 +396,15 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["DestinationConfig"]
             )
         )
-    if "Topics" in data:
+    if data.get("Topics") is not None:
         import capo_lambda.types.topics
 
         out["topics"] = capo_lambda.types.topics.deserialize_json(data["Topics"])
-    if "Queues" in data:
+    if data.get("Queues") is not None:
         import capo_lambda.types.queues
 
         out["queues"] = capo_lambda.types.queues.deserialize_json(data["Queues"])
-    if "SourceAccessConfigurations" in data:
+    if data.get("SourceAccessConfigurations") is not None:
         import capo_lambda.types.source_access_configurations
 
         out["source_access_configurations"] = (
@@ -412,7 +412,7 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["SourceAccessConfigurations"]
             )
         )
-    if "SelfManagedEventSource" in data:
+    if data.get("SelfManagedEventSource") is not None:
         import capo_lambda.types.self_managed_event_source
 
         out["self_managed_event_source"] = (
@@ -420,15 +420,15 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["SelfManagedEventSource"]
             )
         )
-    if "MaximumRecordAgeInSeconds" in data:
+    if data.get("MaximumRecordAgeInSeconds") is not None:
         out["maximum_record_age_in_seconds"] = data["MaximumRecordAgeInSeconds"]
-    if "BisectBatchOnFunctionError" in data:
+    if data.get("BisectBatchOnFunctionError") is not None:
         out["bisect_batch_on_function_error"] = data["BisectBatchOnFunctionError"]
-    if "MaximumRetryAttempts" in data:
+    if data.get("MaximumRetryAttempts") is not None:
         out["maximum_retry_attempts"] = data["MaximumRetryAttempts"]
-    if "TumblingWindowInSeconds" in data:
+    if data.get("TumblingWindowInSeconds") is not None:
         out["tumbling_window_in_seconds"] = data["TumblingWindowInSeconds"]
-    if "FunctionResponseTypes" in data:
+    if data.get("FunctionResponseTypes") is not None:
         import capo_lambda.types.function_response_type_list
 
         out["function_response_types"] = (
@@ -436,7 +436,7 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["FunctionResponseTypes"]
             )
         )
-    if "AmazonManagedKafkaEventSourceConfig" in data:
+    if data.get("AmazonManagedKafkaEventSourceConfig") is not None:
         import capo_lambda.types.amazon_managed_kafka_event_source_config
 
         out["amazon_managed_kafka_event_source_config"] = (
@@ -444,7 +444,7 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["AmazonManagedKafkaEventSourceConfig"]
             )
         )
-    if "SelfManagedKafkaEventSourceConfig" in data:
+    if data.get("SelfManagedKafkaEventSourceConfig") is not None:
         import capo_lambda.types.self_managed_kafka_event_source_config
 
         out["self_managed_kafka_event_source_config"] = (
@@ -452,7 +452,7 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["SelfManagedKafkaEventSourceConfig"]
             )
         )
-    if "DocumentDBEventSourceConfig" in data:
+    if data.get("DocumentDBEventSourceConfig") is not None:
         import capo_lambda.types.document_db_event_source_config
 
         out["document_db_event_source_config"] = (
@@ -460,9 +460,9 @@ def deserialize_json(data: dict) -> EventSourceMappingConfiguration:
                 data["DocumentDBEventSourceConfig"]
             )
         )
-    if "EventSourceMappingArn" in data:
+    if data.get("EventSourceMappingArn") is not None:
         out["event_source_mapping_arn"] = data["EventSourceMappingArn"]
-    if "ProvisionedPollerConfig" in data:
+    if data.get("ProvisionedPollerConfig") is not None:
         import capo_lambda.types.provisioned_poller_config
 
         out["provisioned_poller_config"] = (

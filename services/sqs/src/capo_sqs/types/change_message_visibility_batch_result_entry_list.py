@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> ChangeMessageVisibilityBatchResultEn
 
     out: ChangeMessageVisibilityBatchResultEntryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_sqs.types.change_message_visibility_batch_result_entry.deserialize_aws_json_1_0(
                 item

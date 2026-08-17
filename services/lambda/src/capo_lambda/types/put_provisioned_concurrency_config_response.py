@@ -67,19 +67,19 @@ def serialize_json(value: PutProvisionedConcurrencyConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> PutProvisionedConcurrencyConfigResponse:
     out: PutProvisionedConcurrencyConfigResponse = {}  # type: ignore[typeddict-item]
-    if "RequestedProvisionedConcurrentExecutions" in data:
+    if data.get("RequestedProvisionedConcurrentExecutions") is not None:
         out["requested_provisioned_concurrent_executions"] = data[
             "RequestedProvisionedConcurrentExecutions"
         ]
-    if "AllocatedProvisionedConcurrentExecutions" in data:
+    if data.get("AllocatedProvisionedConcurrentExecutions") is not None:
         out["allocated_provisioned_concurrent_executions"] = data[
             "AllocatedProvisionedConcurrentExecutions"
         ]
-    if "AvailableProvisionedConcurrentExecutions" in data:
+    if data.get("AvailableProvisionedConcurrentExecutions") is not None:
         out["available_provisioned_concurrent_executions"] = data[
             "AvailableProvisionedConcurrentExecutions"
         ]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_lambda.types.provisioned_concurrency_status_enum
 
         out["status"] = (
@@ -87,8 +87,8 @@ def deserialize_json(data: dict) -> PutProvisionedConcurrencyConfigResponse:
                 data["Status"]
             )
         )
-    if "StatusReason" in data:
+    if data.get("StatusReason") is not None:
         out["status_reason"] = data["StatusReason"]
-    if "LastModified" in data:
+    if data.get("LastModified") is not None:
         out["last_modified"] = data["LastModified"]
     return out

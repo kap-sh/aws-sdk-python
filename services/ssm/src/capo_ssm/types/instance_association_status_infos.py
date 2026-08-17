@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> InstanceAssociationStatusInfos:
 
     out: InstanceAssociationStatusInfos = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.instance_association_status_info.deserialize_aws_json_1_1(
                 item

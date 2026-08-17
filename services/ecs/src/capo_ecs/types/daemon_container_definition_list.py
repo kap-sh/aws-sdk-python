@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> DaemonContainerDefinitionList:
 
     out: DaemonContainerDefinitionList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.daemon_container_definition.deserialize_aws_json_1_1(item)
         )

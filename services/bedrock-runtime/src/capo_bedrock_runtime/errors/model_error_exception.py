@@ -37,11 +37,11 @@ def serialize_json(value: ModelErrorException_) -> dict:
 
 def deserialize_json(data: dict) -> ModelErrorException_:
     out: ModelErrorException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "originalStatusCode" in data:
+    if data.get("originalStatusCode") is not None:
         out["original_status_code"] = data["originalStatusCode"]
-    if "resourceName" in data:
+    if data.get("resourceName") is not None:
         out["resource_name"] = data["resourceName"]
     return out
 

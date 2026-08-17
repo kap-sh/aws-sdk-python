@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: ImageScanningConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageScanningConfiguration:
     out: ImageScanningConfiguration = {}  # type: ignore[typeddict-item]
-    if "scanOnPush" in data:
+    if data.get("scanOnPush") is not None:
         out["scan_on_push"] = data["scanOnPush"]
     else:
         out["scan_on_push"] = False

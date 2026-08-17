@@ -46,9 +46,9 @@ def serialize_aws_json_1_1(value: Layer) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Layer:
     out: Layer = {}  # type: ignore[typeddict-item]
-    if "layerDigest" in data:
+    if data.get("layerDigest") is not None:
         out["layer_digest"] = data["layerDigest"]
-    if "layerAvailability" in data:
+    if data.get("layerAvailability") is not None:
         import capo_ecr.types.layer_availability
 
         out["layer_availability"] = (
@@ -56,8 +56,8 @@ def deserialize_aws_json_1_1(data: dict) -> Layer:
                 data["layerAvailability"]
             )
         )
-    if "layerSize" in data:
+    if data.get("layerSize") is not None:
         out["layer_size"] = data["layerSize"]
-    if "mediaType" in data:
+    if data.get("mediaType") is not None:
         out["media_type"] = data["mediaType"]
     return out

@@ -45,13 +45,13 @@ def serialize_aws_json_1_1(value: SendAutomationSignalRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SendAutomationSignalRequest:
     out: SendAutomationSignalRequest = {}  # type: ignore[typeddict-item]
-    if "AutomationExecutionId" in data:
+    if data.get("AutomationExecutionId") is not None:
         out["automation_execution_id"] = data["AutomationExecutionId"]
     else:
         raise DeserializationError(
             "SendAutomationSignalRequest.automation_execution_id required"
         )
-    if "SignalType" in data:
+    if data.get("SignalType") is not None:
         import capo_ssm.types.signal_type
 
         out["signal_type"] = capo_ssm.types.signal_type.deserialize_aws_json_1_1(
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_1(data: dict) -> SendAutomationSignalRequest:
         )
     else:
         raise DeserializationError("SendAutomationSignalRequest.signal_type required")
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["payload"] = (

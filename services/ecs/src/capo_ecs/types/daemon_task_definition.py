@@ -121,19 +121,19 @@ def serialize_aws_json_1_1(value: DaemonTaskDefinition) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonTaskDefinition:
     out: DaemonTaskDefinition = {}  # type: ignore[typeddict-item]
-    if "daemonTaskDefinitionArn" in data:
+    if data.get("daemonTaskDefinitionArn") is not None:
         out["daemon_task_definition_arn"] = data["daemonTaskDefinitionArn"]
-    if "family" in data:
+    if data.get("family") is not None:
         out["family"] = data["family"]
-    if "revision" in data:
+    if data.get("revision") is not None:
         out["revision"] = data["revision"]
     else:
         out["revision"] = 0
-    if "taskRoleArn" in data:
+    if data.get("taskRoleArn") is not None:
         out["task_role_arn"] = data["taskRoleArn"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "containerDefinitions" in data:
+    if data.get("containerDefinitions") is not None:
         import capo_ecs.types.daemon_container_definition_list
 
         out["container_definitions"] = (
@@ -141,17 +141,17 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonTaskDefinition:
                 data["containerDefinitions"]
             )
         )
-    if "volumes" in data:
+    if data.get("volumes") is not None:
         import capo_ecs.types.daemon_volume_list
 
         out["volumes"] = capo_ecs.types.daemon_volume_list.deserialize_aws_json_1_1(
             data["volumes"]
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_task_definition_status
 
         out["status"] = (
@@ -159,27 +159,27 @@ def deserialize_aws_json_1_1(data: dict) -> DaemonTaskDefinition:
                 data["status"]
             )
         )
-    if "registeredAt" in data:
+    if data.get("registeredAt") is not None:
         import capo_ecs.types.timestamp
 
         out["registered_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["registeredAt"]
         )
-    if "deleteRequestedAt" in data:
+    if data.get("deleteRequestedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["delete_requested_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["deleteRequestedAt"]
         )
-    if "registeredBy" in data:
+    if data.get("registeredBy") is not None:
         out["registered_by"] = data["registeredBy"]
-    if "pidMode" in data:
+    if data.get("pidMode") is not None:
         import capo_ecs.types.daemon_pid_mode
 
         out["pid_mode"] = capo_ecs.types.daemon_pid_mode.deserialize_aws_json_1_1(
             data["pidMode"]
         )
-    if "ipcMode" in data:
+    if data.get("ipcMode") is not None:
         import capo_ecs.types.daemon_ipc_mode
 
         out["ipc_mode"] = capo_ecs.types.daemon_ipc_mode.deserialize_aws_json_1_1(

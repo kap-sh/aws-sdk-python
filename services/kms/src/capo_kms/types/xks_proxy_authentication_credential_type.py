@@ -28,13 +28,13 @@ def serialize_aws_json_1_1(value: XksProxyAuthenticationCredentialType) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> XksProxyAuthenticationCredentialType:
     out: XksProxyAuthenticationCredentialType = {}  # type: ignore[typeddict-item]
-    if "AccessKeyId" in data:
+    if data.get("AccessKeyId") is not None:
         out["access_key_id"] = data["AccessKeyId"]
     else:
         raise DeserializationError(
             "XksProxyAuthenticationCredentialType.access_key_id required"
         )
-    if "RawSecretAccessKey" in data:
+    if data.get("RawSecretAccessKey") is not None:
         out["raw_secret_access_key"] = data["RawSecretAccessKey"]
     else:
         raise DeserializationError(

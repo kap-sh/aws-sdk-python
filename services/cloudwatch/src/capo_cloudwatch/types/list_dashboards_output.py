@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: ListDashboardsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListDashboardsOutput:
     out: ListDashboardsOutput = {}  # type: ignore[typeddict-item]
-    if "DashboardEntries" in data:
+    if data.get("DashboardEntries") is not None:
         import capo_cloudwatch.types.dashboard_entries
 
         out["dashboard_entries"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_0(data: dict) -> ListDashboardsOutput:
                 data["DashboardEntries"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

@@ -50,7 +50,7 @@ def serialize_aws_json_1_1(value: CvssScoreDetails) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CvssScoreDetails:
     out: CvssScoreDetails = {}  # type: ignore[typeddict-item]
-    if "adjustments" in data:
+    if data.get("adjustments") is not None:
         import capo_ecr.types.cvss_score_adjustment_list
 
         out["adjustments"] = (
@@ -58,14 +58,14 @@ def deserialize_aws_json_1_1(data: dict) -> CvssScoreDetails:
                 data["adjustments"]
             )
         )
-    if "score" in data:
+    if data.get("score") is not None:
         out["score"] = data["score"]
     else:
         out["score"] = 0
-    if "scoreSource" in data:
+    if data.get("scoreSource") is not None:
         out["score_source"] = data["scoreSource"]
-    if "scoringVector" in data:
+    if data.get("scoringVector") is not None:
         out["scoring_vector"] = data["scoringVector"]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     return out

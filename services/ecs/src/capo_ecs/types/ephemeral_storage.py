@@ -22,7 +22,7 @@ def serialize_aws_json_1_1(value: EphemeralStorage) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EphemeralStorage:
     out: EphemeralStorage = {}  # type: ignore[typeddict-item]
-    if "sizeInGiB" in data:
+    if data.get("sizeInGiB") is not None:
         out["size_in_gi_b"] = data["sizeInGiB"]
     else:
         out["size_in_gi_b"] = 0

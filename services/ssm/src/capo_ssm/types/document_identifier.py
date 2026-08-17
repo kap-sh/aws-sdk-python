@@ -125,21 +125,21 @@ def serialize_aws_json_1_1(value: DocumentIdentifier) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentIdentifier:
     out: DocumentIdentifier = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_ssm.types.date_time
 
         out["created_date"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedDate"]
         )
-    if "DisplayName" in data:
+    if data.get("DisplayName") is not None:
         out["display_name"] = data["DisplayName"]
-    if "Owner" in data:
+    if data.get("Owner") is not None:
         out["owner"] = data["Owner"]
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
-    if "PlatformTypes" in data:
+    if data.get("PlatformTypes") is not None:
         import capo_ssm.types.platform_type_list
 
         out["platform_types"] = (
@@ -147,17 +147,17 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentIdentifier:
                 data["PlatformTypes"]
             )
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "DocumentType" in data:
+    if data.get("DocumentType") is not None:
         import capo_ssm.types.document_type
 
         out["document_type"] = capo_ssm.types.document_type.deserialize_aws_json_1_1(
             data["DocumentType"]
         )
-    if "SchemaVersion" in data:
+    if data.get("SchemaVersion") is not None:
         out["schema_version"] = data["SchemaVersion"]
-    if "DocumentFormat" in data:
+    if data.get("DocumentFormat") is not None:
         import capo_ssm.types.document_format
 
         out["document_format"] = (
@@ -165,13 +165,13 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentIdentifier:
                 data["DocumentFormat"]
             )
         )
-    if "TargetType" in data:
+    if data.get("TargetType") is not None:
         out["target_type"] = data["TargetType"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])
-    if "Requires" in data:
+    if data.get("Requires") is not None:
         import capo_ssm.types.document_requires_list
 
         out["requires"] = (
@@ -179,12 +179,12 @@ def deserialize_aws_json_1_1(data: dict) -> DocumentIdentifier:
                 data["Requires"]
             )
         )
-    if "ReviewStatus" in data:
+    if data.get("ReviewStatus") is not None:
         import capo_ssm.types.review_status
 
         out["review_status"] = capo_ssm.types.review_status.deserialize_aws_json_1_1(
             data["ReviewStatus"]
         )
-    if "Author" in data:
+    if data.get("Author") is not None:
         out["author"] = data["Author"]
     return out

@@ -46,14 +46,14 @@ def serialize_aws_json_1_1(value: LiveTailSessionLogEvent) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionLogEvent:
     out: LiveTailSessionLogEvent = {}  # type: ignore[typeddict-item]
-    if "logStreamName" in data:
+    if data.get("logStreamName") is not None:
         out["log_stream_name"] = data["logStreamName"]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         out["timestamp"] = data["timestamp"]
-    if "ingestionTime" in data:
+    if data.get("ingestionTime") is not None:
         out["ingestion_time"] = data["ingestionTime"]
     return out

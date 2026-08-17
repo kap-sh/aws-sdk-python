@@ -80,9 +80,9 @@ def serialize_aws_json_1_0(value: ScheduledQueryConfiguration) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ScheduledQueryConfiguration:
     out: ScheduledQueryConfiguration = {}  # type: ignore[typeddict-item]
-    if "QueryString" in data:
+    if data.get("QueryString") is not None:
         out["query_string"] = data["QueryString"]
-    if "LogGroupIdentifiers" in data:
+    if data.get("LogGroupIdentifiers") is not None:
         import capo_cloudwatch.types.log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -90,11 +90,11 @@ def deserialize_aws_json_1_0(data: dict) -> ScheduledQueryConfiguration:
                 data["LogGroupIdentifiers"]
             )
         )
-    if "QueryARN" in data:
+    if data.get("QueryARN") is not None:
         out["query_arn"] = data["QueryARN"]
-    if "ScheduledQueryRoleARN" in data:
+    if data.get("ScheduledQueryRoleARN") is not None:
         out["scheduled_query_role_arn"] = data["ScheduledQueryRoleARN"]
-    if "ScheduleConfiguration" in data:
+    if data.get("ScheduleConfiguration") is not None:
         import capo_cloudwatch.types.schedule_configuration
 
         out["schedule_configuration"] = (
@@ -102,9 +102,9 @@ def deserialize_aws_json_1_0(data: dict) -> ScheduledQueryConfiguration:
                 data["ScheduleConfiguration"]
             )
         )
-    if "AggregationExpression" in data:
+    if data.get("AggregationExpression") is not None:
         out["aggregation_expression"] = data["AggregationExpression"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_cloudwatch.types.tag_list
 
         out["tags"] = capo_cloudwatch.types.tag_list.deserialize_aws_json_1_0(

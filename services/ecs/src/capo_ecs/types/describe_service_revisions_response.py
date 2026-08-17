@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: DescribeServiceRevisionsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeServiceRevisionsResponse:
     out: DescribeServiceRevisionsResponse = {}  # type: ignore[typeddict-item]
-    if "serviceRevisions" in data:
+    if data.get("serviceRevisions") is not None:
         import capo_ecs.types.service_revisions
 
         out["service_revisions"] = (
@@ -46,7 +46,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeServiceRevisionsResponse:
                 data["serviceRevisions"]
             )
         )
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(

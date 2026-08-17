@@ -37,11 +37,11 @@ def serialize_aws_json_1_1(value: SigningRule) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SigningRule:
     out: SigningRule = {}  # type: ignore[typeddict-item]
-    if "signingProfileArn" in data:
+    if data.get("signingProfileArn") is not None:
         out["signing_profile_arn"] = data["signingProfileArn"]
     else:
         raise DeserializationError("SigningRule.signing_profile_arn required")
-    if "repositoryFilters" in data:
+    if data.get("repositoryFilters") is not None:
         import capo_ecr.types.signing_repository_filter_list
 
         out["repository_filters"] = (

@@ -44,11 +44,11 @@ def serialize_aws_json_1_1(value: PutIntegrationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutIntegrationRequest:
     out: PutIntegrationRequest = {}  # type: ignore[typeddict-item]
-    if "integrationName" in data:
+    if data.get("integrationName") is not None:
         out["integration_name"] = data["integrationName"]
     else:
         raise DeserializationError("PutIntegrationRequest.integration_name required")
-    if "resourceConfig" in data:
+    if data.get("resourceConfig") is not None:
         import capo_cloudwatch_logs.types.resource_config
 
         out["resource_config"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutIntegrationRequest:
         )
     else:
         raise DeserializationError("PutIntegrationRequest.resource_config required")
-    if "integrationType" in data:
+    if data.get("integrationType") is not None:
         import capo_cloudwatch_logs.types.integration_type
 
         out["integration_type"] = (

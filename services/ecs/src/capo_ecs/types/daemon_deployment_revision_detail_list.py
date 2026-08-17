@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> DaemonDeploymentRevisionDetailList:
 
     out: DaemonDeploymentRevisionDetailList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.daemon_deployment_revision_detail.deserialize_aws_json_1_1(
                 item

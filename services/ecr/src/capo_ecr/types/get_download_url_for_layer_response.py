@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: GetDownloadUrlForLayerResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDownloadUrlForLayerResponse:
     out: GetDownloadUrlForLayerResponse = {}  # type: ignore[typeddict-item]
-    if "downloadUrl" in data:
+    if data.get("downloadUrl") is not None:
         out["download_url"] = data["downloadUrl"]
-    if "layerDigest" in data:
+    if data.get("layerDigest") is not None:
         out["layer_digest"] = data["layerDigest"]
     return out

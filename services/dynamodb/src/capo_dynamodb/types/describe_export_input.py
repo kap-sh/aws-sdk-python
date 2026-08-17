@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeExportInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeExportInput:
     out: DescribeExportInput = {}  # type: ignore[typeddict-item]
-    if "ExportArn" in data:
+    if data.get("ExportArn") is not None:
         out["export_arn"] = data["ExportArn"]
     else:
         raise DeserializationError("DescribeExportInput.export_arn required")

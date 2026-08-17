@@ -50,11 +50,11 @@ def serialize_aws_json_1_0(value: ReplicaGlobalSecondaryIndex) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicaGlobalSecondaryIndex:
     out: ReplicaGlobalSecondaryIndex = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     else:
         raise DeserializationError("ReplicaGlobalSecondaryIndex.index_name required")
-    if "ProvisionedThroughputOverride" in data:
+    if data.get("ProvisionedThroughputOverride") is not None:
         import capo_dynamodb.types.provisioned_throughput_override
 
         out["provisioned_throughput_override"] = (
@@ -62,7 +62,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaGlobalSecondaryIndex:
                 data["ProvisionedThroughputOverride"]
             )
         )
-    if "OnDemandThroughputOverride" in data:
+    if data.get("OnDemandThroughputOverride") is not None:
         import capo_dynamodb.types.on_demand_throughput_override
 
         out["on_demand_throughput_override"] = (

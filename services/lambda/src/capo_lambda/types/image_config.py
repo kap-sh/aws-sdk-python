@@ -40,16 +40,16 @@ def serialize_json(value: ImageConfig) -> dict:
 
 def deserialize_json(data: dict) -> ImageConfig:
     out: ImageConfig = {}  # type: ignore[typeddict-item]
-    if "EntryPoint" in data:
+    if data.get("EntryPoint") is not None:
         import capo_lambda.types.string_list
 
         out["entry_point"] = capo_lambda.types.string_list.deserialize_json(
             data["EntryPoint"]
         )
-    if "Command" in data:
+    if data.get("Command") is not None:
         import capo_lambda.types.string_list
 
         out["command"] = capo_lambda.types.string_list.deserialize_json(data["Command"])
-    if "WorkingDirectory" in data:
+    if data.get("WorkingDirectory") is not None:
         out["working_directory"] = data["WorkingDirectory"]
     return out

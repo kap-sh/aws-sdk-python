@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: ExportTableToPointInTimeOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExportTableToPointInTimeOutput:
     out: ExportTableToPointInTimeOutput = {}  # type: ignore[typeddict-item]
-    if "ExportDescription" in data:
+    if data.get("ExportDescription") is not None:
         import capo_dynamodb.types.export_description
 
         out["export_description"] = (

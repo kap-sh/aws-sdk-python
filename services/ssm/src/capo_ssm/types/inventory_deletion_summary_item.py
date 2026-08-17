@@ -33,13 +33,13 @@ def serialize_aws_json_1_1(value: InventoryDeletionSummaryItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryDeletionSummaryItem:
     out: InventoryDeletionSummaryItem = {}  # type: ignore[typeddict-item]
-    if "Version" in data:
+    if data.get("Version") is not None:
         out["version"] = data["Version"]
-    if "Count" in data:
+    if data.get("Count") is not None:
         out["count"] = data["Count"]
     else:
         out["count"] = 0
-    if "RemainingCount" in data:
+    if data.get("RemainingCount") is not None:
         out["remaining_count"] = data["RemainingCount"]
     else:
         out["remaining_count"] = 0

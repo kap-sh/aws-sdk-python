@@ -292,7 +292,7 @@ def serialize_aws_json_1_1(value: InstanceRequirementsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
     out: InstanceRequirementsRequest = {}  # type: ignore[typeddict-item]
-    if "vCpuCount" in data:
+    if data.get("vCpuCount") is not None:
         import capo_ecs.types.v_cpu_count_range_request
 
         out["v_cpu_count"] = (
@@ -302,7 +302,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
         )
     else:
         raise DeserializationError("InstanceRequirementsRequest.v_cpu_count required")
-    if "memoryMiB" in data:
+    if data.get("memoryMiB") is not None:
         import capo_ecs.types.memory_mi_b_request
 
         out["memory_mi_b"] = (
@@ -312,7 +312,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
         )
     else:
         raise DeserializationError("InstanceRequirementsRequest.memory_mi_b required")
-    if "cpuManufacturers" in data:
+    if data.get("cpuManufacturers") is not None:
         import capo_ecs.types.cpu_manufacturer_set
 
         out["cpu_manufacturers"] = (
@@ -320,7 +320,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["cpuManufacturers"]
             )
         )
-    if "memoryGiBPerVCpu" in data:
+    if data.get("memoryGiBPerVCpu") is not None:
         import capo_ecs.types.memory_gi_b_per_v_cpu_request
 
         out["memory_gi_b_per_v_cpu"] = (
@@ -328,7 +328,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["memoryGiBPerVCpu"]
             )
         )
-    if "excludedInstanceTypes" in data:
+    if data.get("excludedInstanceTypes") is not None:
         import capo_ecs.types.excluded_instance_type_set
 
         out["excluded_instance_types"] = (
@@ -336,7 +336,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["excludedInstanceTypes"]
             )
         )
-    if "instanceGenerations" in data:
+    if data.get("instanceGenerations") is not None:
         import capo_ecs.types.instance_generation_set
 
         out["instance_generations"] = (
@@ -344,21 +344,21 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["instanceGenerations"]
             )
         )
-    if "spotMaxPricePercentageOverLowestPrice" in data:
+    if data.get("spotMaxPricePercentageOverLowestPrice") is not None:
         out["spot_max_price_percentage_over_lowest_price"] = data[
             "spotMaxPricePercentageOverLowestPrice"
         ]
-    if "onDemandMaxPricePercentageOverLowestPrice" in data:
+    if data.get("onDemandMaxPricePercentageOverLowestPrice") is not None:
         out["on_demand_max_price_percentage_over_lowest_price"] = data[
             "onDemandMaxPricePercentageOverLowestPrice"
         ]
-    if "bareMetal" in data:
+    if data.get("bareMetal") is not None:
         import capo_ecs.types.bare_metal
 
         out["bare_metal"] = capo_ecs.types.bare_metal.deserialize_aws_json_1_1(
             data["bareMetal"]
         )
-    if "burstablePerformance" in data:
+    if data.get("burstablePerformance") is not None:
         import capo_ecs.types.burstable_performance
 
         out["burstable_performance"] = (
@@ -366,9 +366,9 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["burstablePerformance"]
             )
         )
-    if "requireHibernateSupport" in data:
+    if data.get("requireHibernateSupport") is not None:
         out["require_hibernate_support"] = data["requireHibernateSupport"]
-    if "networkInterfaceCount" in data:
+    if data.get("networkInterfaceCount") is not None:
         import capo_ecs.types.network_interface_count_request
 
         out["network_interface_count"] = (
@@ -376,13 +376,13 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["networkInterfaceCount"]
             )
         )
-    if "localStorage" in data:
+    if data.get("localStorage") is not None:
         import capo_ecs.types.local_storage
 
         out["local_storage"] = capo_ecs.types.local_storage.deserialize_aws_json_1_1(
             data["localStorage"]
         )
-    if "localStorageTypes" in data:
+    if data.get("localStorageTypes") is not None:
         import capo_ecs.types.local_storage_type_set
 
         out["local_storage_types"] = (
@@ -390,7 +390,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["localStorageTypes"]
             )
         )
-    if "totalLocalStorageGB" in data:
+    if data.get("totalLocalStorageGB") is not None:
         import capo_ecs.types.total_local_storage_gb_request
 
         out["total_local_storage_gb"] = (
@@ -398,7 +398,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["totalLocalStorageGB"]
             )
         )
-    if "baselineEbsBandwidthMbps" in data:
+    if data.get("baselineEbsBandwidthMbps") is not None:
         import capo_ecs.types.baseline_ebs_bandwidth_mbps_request
 
         out["baseline_ebs_bandwidth_mbps"] = (
@@ -406,7 +406,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["baselineEbsBandwidthMbps"]
             )
         )
-    if "acceleratorTypes" in data:
+    if data.get("acceleratorTypes") is not None:
         import capo_ecs.types.accelerator_type_set
 
         out["accelerator_types"] = (
@@ -414,7 +414,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["acceleratorTypes"]
             )
         )
-    if "acceleratorCount" in data:
+    if data.get("acceleratorCount") is not None:
         import capo_ecs.types.accelerator_count_request
 
         out["accelerator_count"] = (
@@ -422,7 +422,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["acceleratorCount"]
             )
         )
-    if "acceleratorManufacturers" in data:
+    if data.get("acceleratorManufacturers") is not None:
         import capo_ecs.types.accelerator_manufacturer_set
 
         out["accelerator_manufacturers"] = (
@@ -430,7 +430,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["acceleratorManufacturers"]
             )
         )
-    if "acceleratorNames" in data:
+    if data.get("acceleratorNames") is not None:
         import capo_ecs.types.accelerator_name_set
 
         out["accelerator_names"] = (
@@ -438,7 +438,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["acceleratorNames"]
             )
         )
-    if "acceleratorTotalMemoryMiB" in data:
+    if data.get("acceleratorTotalMemoryMiB") is not None:
         import capo_ecs.types.accelerator_total_memory_mi_b_request
 
         out["accelerator_total_memory_mi_b"] = (
@@ -446,7 +446,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["acceleratorTotalMemoryMiB"]
             )
         )
-    if "networkBandwidthGbps" in data:
+    if data.get("networkBandwidthGbps") is not None:
         import capo_ecs.types.network_bandwidth_gbps_request
 
         out["network_bandwidth_gbps"] = (
@@ -454,7 +454,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["networkBandwidthGbps"]
             )
         )
-    if "allowedInstanceTypes" in data:
+    if data.get("allowedInstanceTypes") is not None:
         import capo_ecs.types.allowed_instance_type_set
 
         out["allowed_instance_types"] = (
@@ -462,7 +462,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstanceRequirementsRequest:
                 data["allowedInstanceTypes"]
             )
         )
-    if "maxSpotPriceAsPercentageOfOptimalOnDemandPrice" in data:
+    if data.get("maxSpotPriceAsPercentageOfOptimalOnDemandPrice") is not None:
         out["max_spot_price_as_percentage_of_optimal_on_demand_price"] = data[
             "maxSpotPriceAsPercentageOfOptimalOnDemandPrice"
         ]

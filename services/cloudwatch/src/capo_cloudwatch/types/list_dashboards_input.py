@@ -32,9 +32,9 @@ def serialize_aws_json_1_0(value: ListDashboardsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListDashboardsInput:
     out: ListDashboardsInput = {}  # type: ignore[typeddict-item]
-    if "DashboardNamePrefix" in data:
+    if data.get("DashboardNamePrefix") is not None:
         out["dashboard_name_prefix"] = data["DashboardNamePrefix"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out
 

@@ -30,11 +30,11 @@ def serialize_aws_json_1_1(value: TagLogGroupRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TagLogGroupRequest:
     out: TagLogGroupRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("TagLogGroupRequest.log_group_name required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

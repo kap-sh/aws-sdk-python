@@ -34,15 +34,15 @@ def serialize_aws_json_1_1(value: RenameKeyEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RenameKeyEntry:
     out: RenameKeyEntry = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("RenameKeyEntry.key required")
-    if "renameTo" in data:
+    if data.get("renameTo") is not None:
         out["rename_to"] = data["renameTo"]
     else:
         raise DeserializationError("RenameKeyEntry.rename_to required")
-    if "overwriteIfExists" in data:
+    if data.get("overwriteIfExists") is not None:
         out["overwrite_if_exists"] = data["overwriteIfExists"]
     else:
         out["overwrite_if_exists"] = False

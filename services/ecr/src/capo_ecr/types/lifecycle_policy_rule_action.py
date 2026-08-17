@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: LifecyclePolicyRuleAction) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LifecyclePolicyRuleAction:
     out: LifecyclePolicyRuleAction = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecr.types.image_action_type
 
         out["type"] = capo_ecr.types.image_action_type.deserialize_aws_json_1_1(
             data["type"]
         )
-    if "targetStorageClass" in data:
+    if data.get("targetStorageClass") is not None:
         import capo_ecr.types.lifecycle_policy_target_storage_class
 
         out["target_storage_class"] = (

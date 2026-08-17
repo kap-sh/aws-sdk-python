@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: TableInUseException_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TableInUseException_:
     out: TableInUseException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

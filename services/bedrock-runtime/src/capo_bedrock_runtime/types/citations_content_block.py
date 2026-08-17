@@ -40,7 +40,7 @@ def serialize_json(value: CitationsContentBlock) -> dict:
 
 def deserialize_json(data: dict) -> CitationsContentBlock:
     out: CitationsContentBlock = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_runtime.types.citation_generated_content_list
 
         out["content"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> CitationsContentBlock:
                 data["content"]
             )
         )
-    if "citations" in data:
+    if data.get("citations") is not None:
         import capo_bedrock_runtime.types.citations
 
         out["citations"] = capo_bedrock_runtime.types.citations.deserialize_json(

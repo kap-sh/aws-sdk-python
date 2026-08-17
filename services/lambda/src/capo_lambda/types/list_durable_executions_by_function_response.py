@@ -34,7 +34,7 @@ def serialize_json(value: ListDurableExecutionsByFunctionResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListDurableExecutionsByFunctionResponse:
     out: ListDurableExecutionsByFunctionResponse = {}  # type: ignore[typeddict-item]
-    if "DurableExecutions" in data:
+    if data.get("DurableExecutions") is not None:
         import capo_lambda.types.durable_executions
 
         out["durable_executions"] = (
@@ -42,6 +42,6 @@ def deserialize_json(data: dict) -> ListDurableExecutionsByFunctionResponse:
                 data["DurableExecutions"]
             )
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
     return out

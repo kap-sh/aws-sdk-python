@@ -43,13 +43,13 @@ def serialize_json(value: InferenceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> InferenceConfiguration:
     out: InferenceConfiguration = {}  # type: ignore[typeddict-item]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "temperature" in data:
+    if data.get("temperature") is not None:
         out["temperature"] = data["temperature"]
-    if "topP" in data:
+    if data.get("topP") is not None:
         out["top_p"] = data["topP"]
-    if "stopSequences" in data:
+    if data.get("stopSequences") is not None:
         import capo_bedrock_runtime.types.non_empty_string_list
 
         out["stop_sequences"] = (

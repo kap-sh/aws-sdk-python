@@ -138,7 +138,7 @@ def serialize_aws_json_1_1(value: CreatePatchBaselineRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
     out: CreatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-    if "OperatingSystem" in data:
+    if data.get("OperatingSystem") is not None:
         import capo_ssm.types.operating_system
 
         out["operating_system"] = (
@@ -146,11 +146,11 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["OperatingSystem"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreatePatchBaselineRequest.name required")
-    if "GlobalFilters" in data:
+    if data.get("GlobalFilters") is not None:
         import capo_ssm.types.patch_filter_group
 
         out["global_filters"] = (
@@ -158,7 +158,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["GlobalFilters"]
             )
         )
-    if "ApprovalRules" in data:
+    if data.get("ApprovalRules") is not None:
         import capo_ssm.types.patch_rule_group
 
         out["approval_rules"] = (
@@ -166,13 +166,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["ApprovalRules"]
             )
         )
-    if "ApprovedPatches" in data:
+    if data.get("ApprovedPatches") is not None:
         import capo_ssm.types.patch_id_list
 
         out["approved_patches"] = capo_ssm.types.patch_id_list.deserialize_aws_json_1_1(
             data["ApprovedPatches"]
         )
-    if "ApprovedPatchesComplianceLevel" in data:
+    if data.get("ApprovedPatchesComplianceLevel") is not None:
         import capo_ssm.types.patch_compliance_level
 
         out["approved_patches_compliance_level"] = (
@@ -180,17 +180,17 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["ApprovedPatchesComplianceLevel"]
             )
         )
-    if "ApprovedPatchesEnableNonSecurity" in data:
+    if data.get("ApprovedPatchesEnableNonSecurity") is not None:
         out["approved_patches_enable_non_security"] = data[
             "ApprovedPatchesEnableNonSecurity"
         ]
-    if "RejectedPatches" in data:
+    if data.get("RejectedPatches") is not None:
         import capo_ssm.types.patch_id_list
 
         out["rejected_patches"] = capo_ssm.types.patch_id_list.deserialize_aws_json_1_1(
             data["RejectedPatches"]
         )
-    if "RejectedPatchesAction" in data:
+    if data.get("RejectedPatchesAction") is not None:
         import capo_ssm.types.patch_action
 
         out["rejected_patches_action"] = (
@@ -198,15 +198,15 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["RejectedPatchesAction"]
             )
         )
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "Sources" in data:
+    if data.get("Sources") is not None:
         import capo_ssm.types.patch_source_list
 
         out["sources"] = capo_ssm.types.patch_source_list.deserialize_aws_json_1_1(
             data["Sources"]
         )
-    if "AvailableSecurityUpdatesComplianceStatus" in data:
+    if data.get("AvailableSecurityUpdatesComplianceStatus") is not None:
         import capo_ssm.types.patch_compliance_status
 
         out["available_security_updates_compliance_status"] = (
@@ -214,9 +214,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreatePatchBaselineRequest:
                 data["AvailableSecurityUpdatesComplianceStatus"]
             )
         )
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

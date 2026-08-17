@@ -59,9 +59,9 @@ def serialize_aws_json_1_1(value: TriggerHistoryRecord) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TriggerHistoryRecord:
     out: TriggerHistoryRecord = {}  # type: ignore[typeddict-item]
-    if "queryId" in data:
+    if data.get("queryId") is not None:
         out["query_id"] = data["queryId"]
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_cloudwatch_logs.types.execution_status
 
         out["execution_status"] = (
@@ -69,11 +69,11 @@ def deserialize_aws_json_1_1(data: dict) -> TriggerHistoryRecord:
                 data["executionStatus"]
             )
         )
-    if "triggeredTimestamp" in data:
+    if data.get("triggeredTimestamp") is not None:
         out["triggered_timestamp"] = data["triggeredTimestamp"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
-    if "destinations" in data:
+    if data.get("destinations") is not None:
         import capo_cloudwatch_logs.types.scheduled_query_destination_list
 
         out["destinations"] = (

@@ -55,23 +55,23 @@ def serialize_aws_json_1_1(value: ListToMap) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListToMap:
     out: ListToMap = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("ListToMap.source required")
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("ListToMap.key required")
-    if "valueKey" in data:
+    if data.get("valueKey") is not None:
         out["value_key"] = data["valueKey"]
-    if "target" in data:
+    if data.get("target") is not None:
         out["target"] = data["target"]
-    if "flatten" in data:
+    if data.get("flatten") is not None:
         out["flatten"] = data["flatten"]
     else:
         out["flatten"] = False
-    if "flattenedElement" in data:
+    if data.get("flattenedElement") is not None:
         import capo_cloudwatch_logs.types.flattened_element
 
         out["flattened_element"] = (

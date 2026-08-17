@@ -35,11 +35,11 @@ def serialize_aws_json_1_0(value: AlarmPromQLCriteria) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AlarmPromQLCriteria:
     out: AlarmPromQLCriteria = {}  # type: ignore[typeddict-item]
-    if "Query" in data:
+    if data.get("Query") is not None:
         out["query"] = data["Query"]
-    if "PendingPeriod" in data:
+    if data.get("PendingPeriod") is not None:
         out["pending_period"] = data["PendingPeriod"]
-    if "RecoveryPeriod" in data:
+    if data.get("RecoveryPeriod") is not None:
         out["recovery_period"] = data["RecoveryPeriod"]
     return out
 

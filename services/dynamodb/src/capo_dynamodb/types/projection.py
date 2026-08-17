@@ -42,7 +42,7 @@ def serialize_aws_json_1_0(value: Projection) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> Projection:
     out: Projection = {}  # type: ignore[typeddict-item]
-    if "ProjectionType" in data:
+    if data.get("ProjectionType") is not None:
         import capo_dynamodb.types.projection_type
 
         out["projection_type"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_0(data: dict) -> Projection:
                 data["ProjectionType"]
             )
         )
-    if "NonKeyAttributes" in data:
+    if data.get("NonKeyAttributes") is not None:
         import capo_dynamodb.types.non_key_attribute_name_list
 
         out["non_key_attributes"] = (

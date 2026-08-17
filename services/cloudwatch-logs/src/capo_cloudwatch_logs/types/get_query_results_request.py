@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: GetQueryResultsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsRequest:
     out: GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
-    if "queryId" in data:
+    if data.get("queryId") is not None:
         out["query_id"] = data["queryId"]
     else:
         raise DeserializationError("GetQueryResultsRequest.query_id required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxItems" in data:
+    if data.get("maxItems") is not None:
         out["max_items"] = data["maxItems"]
     return out

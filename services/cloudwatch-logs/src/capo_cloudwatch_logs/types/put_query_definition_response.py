@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: PutQueryDefinitionResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutQueryDefinitionResponse:
     out: PutQueryDefinitionResponse = {}  # type: ignore[typeddict-item]
-    if "queryDefinitionId" in data:
+    if data.get("queryDefinitionId") is not None:
         out["query_definition_id"] = data["queryDefinitionId"]
     return out

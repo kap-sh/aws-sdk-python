@@ -37,11 +37,11 @@ def serialize_aws_json_1_1(value: StartAccessRequestRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartAccessRequestRequest:
     out: StartAccessRequestRequest = {}  # type: ignore[typeddict-item]
-    if "Reason" in data:
+    if data.get("Reason") is not None:
         out["reason"] = data["Reason"]
     else:
         raise DeserializationError("StartAccessRequestRequest.reason required")
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
@@ -49,7 +49,7 @@ def deserialize_aws_json_1_1(data: dict) -> StartAccessRequestRequest:
         )
     else:
         raise DeserializationError("StartAccessRequestRequest.targets required")
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

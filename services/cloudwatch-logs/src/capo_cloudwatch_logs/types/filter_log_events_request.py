@@ -87,11 +87,11 @@ def serialize_aws_json_1_1(value: FilterLogEventsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> FilterLogEventsRequest:
     out: FilterLogEventsRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "logGroupIdentifier" in data:
+    if data.get("logGroupIdentifier") is not None:
         out["log_group_identifier"] = data["logGroupIdentifier"]
-    if "logStreamNames" in data:
+    if data.get("logStreamNames") is not None:
         import capo_cloudwatch_logs.types.input_log_stream_names
 
         out["log_stream_names"] = (
@@ -99,21 +99,21 @@ def deserialize_aws_json_1_1(data: dict) -> FilterLogEventsRequest:
                 data["logStreamNames"]
             )
         )
-    if "logStreamNamePrefix" in data:
+    if data.get("logStreamNamePrefix") is not None:
         out["log_stream_name_prefix"] = data["logStreamNamePrefix"]
-    if "startTime" in data:
+    if data.get("startTime") is not None:
         out["start_time"] = data["startTime"]
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         out["end_time"] = data["endTime"]
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "interleaved" in data:
+    if data.get("interleaved") is not None:
         out["interleaved"] = data["interleaved"]
-    if "unmask" in data:
+    if data.get("unmask") is not None:
         out["unmask"] = data["unmask"]
     else:
         out["unmask"] = False

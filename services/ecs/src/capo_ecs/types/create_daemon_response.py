@@ -45,20 +45,20 @@ def serialize_aws_json_1_1(value: CreateDaemonResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateDaemonResponse:
     out: CreateDaemonResponse = {}  # type: ignore[typeddict-item]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_status
 
         out["status"] = capo_ecs.types.daemon_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "deploymentArn" in data:
+    if data.get("deploymentArn") is not None:
         out["deployment_arn"] = data["deploymentArn"]
     return out

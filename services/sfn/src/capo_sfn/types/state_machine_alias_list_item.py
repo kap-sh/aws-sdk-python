@@ -32,13 +32,13 @@ def serialize_aws_json_1_0(value: StateMachineAliasListItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StateMachineAliasListItem:
     out: StateMachineAliasListItem = {}  # type: ignore[typeddict-item]
-    if "stateMachineAliasArn" in data:
+    if data.get("stateMachineAliasArn") is not None:
         out["state_machine_alias_arn"] = data["stateMachineAliasArn"]
     else:
         raise DeserializationError(
             "StateMachineAliasListItem.state_machine_alias_arn required"
         )
-    if "creationDate" in data:
+    if data.get("creationDate") is not None:
         import capo_sfn.types.timestamp
 
         out["creation_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(

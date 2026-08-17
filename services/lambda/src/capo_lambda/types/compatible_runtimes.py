@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> CompatibleRuntimes:
 
     out: CompatibleRuntimes = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.runtime.deserialize_json(item))
     return out

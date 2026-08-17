@@ -51,18 +51,18 @@ def serialize_aws_json_1_1(value: ListGrantsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListGrantsRequest:
     out: ListGrantsRequest = {}  # type: ignore[typeddict-item]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "Marker" in data:
+    if data.get("Marker") is not None:
         out["marker"] = data["Marker"]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("ListGrantsRequest.key_id required")
-    if "GrantId" in data:
+    if data.get("GrantId") is not None:
         out["grant_id"] = data["GrantId"]
-    if "GranteePrincipal" in data:
+    if data.get("GranteePrincipal") is not None:
         out["grantee_principal"] = data["GranteePrincipal"]
-    if "GranteeServicePrincipal" in data:
+    if data.get("GranteeServicePrincipal") is not None:
         out["grantee_service_principal"] = data["GranteeServicePrincipal"]
     return out

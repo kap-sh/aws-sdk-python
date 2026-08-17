@@ -28,8 +28,8 @@ def serialize_aws_json_1_0(value: MapRunRedrivenEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MapRunRedrivenEventDetails:
     out: MapRunRedrivenEventDetails = {}  # type: ignore[typeddict-item]
-    if "mapRunArn" in data:
+    if data.get("mapRunArn") is not None:
         out["map_run_arn"] = data["mapRunArn"]
-    if "redriveCount" in data:
+    if data.get("redriveCount") is not None:
         out["redrive_count"] = data["redriveCount"]
     return out

@@ -136,11 +136,11 @@ def serialize_aws_json_1_0(value: AttributeValue) -> dict:
 
 
 def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
-    if "S" in data:
+    if data.get("S") is not None:
         return {"S": data["S"]}
-    elif "N" in data:
+    elif data.get("N") is not None:
         return {"N": data["N"]}
-    elif "B" in data:
+    elif data.get("B") is not None:
         import capo_dynamodb.types.binary_attribute_value
 
         return {
@@ -148,7 +148,7 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["B"]
             )
         }
-    elif "SS" in data:
+    elif data.get("SS") is not None:
         import capo_dynamodb.types.string_set_attribute_value
 
         return {
@@ -156,7 +156,7 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["SS"]
             )
         }
-    elif "NS" in data:
+    elif data.get("NS") is not None:
         import capo_dynamodb.types.number_set_attribute_value
 
         return {
@@ -164,7 +164,7 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["NS"]
             )
         }
-    elif "BS" in data:
+    elif data.get("BS") is not None:
         import capo_dynamodb.types.binary_set_attribute_value
 
         return {
@@ -172,7 +172,7 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["BS"]
             )
         }
-    elif "M" in data:
+    elif data.get("M") is not None:
         import capo_dynamodb.types.map_attribute_value
 
         return {
@@ -180,7 +180,7 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["M"]
             )
         }
-    elif "L" in data:
+    elif data.get("L") is not None:
         import capo_dynamodb.types.list_attribute_value
 
         return {
@@ -188,9 +188,9 @@ def deserialize_aws_json_1_0(data: dict) -> AttributeValue:
                 data["L"]
             )
         }
-    elif "NULL" in data:
+    elif data.get("NULL") is not None:
         return {"NULL": data["NULL"]}
-    elif "BOOL" in data:
+    elif data.get("BOOL") is not None:
         return {"BOOL": data["BOOL"]}
     else:
         raise DeserializationError("AttributeValue: no recognized variant key")

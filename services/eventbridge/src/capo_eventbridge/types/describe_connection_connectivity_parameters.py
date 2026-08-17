@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: DescribeConnectionConnectivityParameters) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeConnectionConnectivityParameters:
     out: DescribeConnectionConnectivityParameters = {}  # type: ignore[typeddict-item]
-    if "ResourceParameters" in data:
+    if data.get("ResourceParameters") is not None:
         import capo_eventbridge.types.describe_connection_resource_parameters
 
         out["resource_parameters"] = (

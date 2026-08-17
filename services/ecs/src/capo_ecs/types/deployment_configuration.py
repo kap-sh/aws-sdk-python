@@ -101,7 +101,7 @@ def serialize_aws_json_1_1(value: DeploymentConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeploymentConfiguration:
     out: DeploymentConfiguration = {}  # type: ignore[typeddict-item]
-    if "deploymentCircuitBreaker" in data:
+    if data.get("deploymentCircuitBreaker") is not None:
         import capo_ecs.types.deployment_circuit_breaker
 
         out["deployment_circuit_breaker"] = (
@@ -109,25 +109,25 @@ def deserialize_aws_json_1_1(data: dict) -> DeploymentConfiguration:
                 data["deploymentCircuitBreaker"]
             )
         )
-    if "maximumPercent" in data:
+    if data.get("maximumPercent") is not None:
         out["maximum_percent"] = data["maximumPercent"]
-    if "minimumHealthyPercent" in data:
+    if data.get("minimumHealthyPercent") is not None:
         out["minimum_healthy_percent"] = data["minimumHealthyPercent"]
-    if "alarms" in data:
+    if data.get("alarms") is not None:
         import capo_ecs.types.deployment_alarms
 
         out["alarms"] = capo_ecs.types.deployment_alarms.deserialize_aws_json_1_1(
             data["alarms"]
         )
-    if "strategy" in data:
+    if data.get("strategy") is not None:
         import capo_ecs.types.deployment_strategy
 
         out["strategy"] = capo_ecs.types.deployment_strategy.deserialize_aws_json_1_1(
             data["strategy"]
         )
-    if "bakeTimeInMinutes" in data:
+    if data.get("bakeTimeInMinutes") is not None:
         out["bake_time_in_minutes"] = data["bakeTimeInMinutes"]
-    if "lifecycleHooks" in data:
+    if data.get("lifecycleHooks") is not None:
         import capo_ecs.types.deployment_lifecycle_hook_list
 
         out["lifecycle_hooks"] = (
@@ -135,7 +135,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeploymentConfiguration:
                 data["lifecycleHooks"]
             )
         )
-    if "linearConfiguration" in data:
+    if data.get("linearConfiguration") is not None:
         import capo_ecs.types.linear_configuration
 
         out["linear_configuration"] = (
@@ -143,7 +143,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeploymentConfiguration:
                 data["linearConfiguration"]
             )
         )
-    if "canaryConfiguration" in data:
+    if data.get("canaryConfiguration") is not None:
         import capo_ecs.types.canary_configuration
 
         out["canary_configuration"] = (

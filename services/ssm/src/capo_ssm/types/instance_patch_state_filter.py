@@ -44,11 +44,11 @@ def serialize_aws_json_1_1(value: InstancePatchStateFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InstancePatchStateFilter:
     out: InstancePatchStateFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("InstancePatchStateFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.instance_patch_state_filter_values
 
         out["values"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> InstancePatchStateFilter:
         )
     else:
         raise DeserializationError("InstancePatchStateFilter.values required")
-    if "Type" in data:
+    if data.get("Type") is not None:
         import capo_ssm.types.instance_patch_state_operator_type
 
         out["type"] = (

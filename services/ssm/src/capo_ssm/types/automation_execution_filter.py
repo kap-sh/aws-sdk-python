@@ -38,7 +38,7 @@ def serialize_aws_json_1_1(value: AutomationExecutionFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionFilter:
     out: AutomationExecutionFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_ssm.types.automation_execution_filter_key
 
         out["key"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(data: dict) -> AutomationExecutionFilter:
         )
     else:
         raise DeserializationError("AutomationExecutionFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.automation_execution_filter_value_list
 
         out["values"] = (

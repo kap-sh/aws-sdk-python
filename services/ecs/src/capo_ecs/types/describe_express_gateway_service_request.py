@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: DescribeExpressGatewayServiceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeExpressGatewayServiceRequest:
     out: DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
     else:
         raise DeserializationError(
             "DescribeExpressGatewayServiceRequest.service_arn required"
         )
-    if "include" in data:
+    if data.get("include") is not None:
         import capo_ecs.types.express_gateway_service_include_list
 
         out["include"] = (

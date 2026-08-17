@@ -505,7 +505,7 @@ def serialize_aws_json_1_0(value: HistoryEvent) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
     out: HistoryEvent = {}  # type: ignore[typeddict-item]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_sfn.types.timestamp
 
         out["timestamp"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -513,7 +513,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
         )
     else:
         raise DeserializationError("HistoryEvent.timestamp required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_sfn.types.history_event_type
 
         out["type"] = capo_sfn.types.history_event_type.deserialize_aws_json_1_0(
@@ -521,15 +521,15 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
         )
     else:
         raise DeserializationError("HistoryEvent.type required")
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         out["id"] = 0
-    if "previousEventId" in data:
+    if data.get("previousEventId") is not None:
         out["previous_event_id"] = data["previousEventId"]
     else:
         out["previous_event_id"] = 0
-    if "activityFailedEventDetails" in data:
+    if data.get("activityFailedEventDetails") is not None:
         import capo_sfn.types.activity_failed_event_details
 
         out["activity_failed_event_details"] = (
@@ -537,7 +537,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activityFailedEventDetails"]
             )
         )
-    if "activityScheduleFailedEventDetails" in data:
+    if data.get("activityScheduleFailedEventDetails") is not None:
         import capo_sfn.types.activity_schedule_failed_event_details
 
         out["activity_schedule_failed_event_details"] = (
@@ -545,7 +545,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activityScheduleFailedEventDetails"]
             )
         )
-    if "activityScheduledEventDetails" in data:
+    if data.get("activityScheduledEventDetails") is not None:
         import capo_sfn.types.activity_scheduled_event_details
 
         out["activity_scheduled_event_details"] = (
@@ -553,7 +553,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activityScheduledEventDetails"]
             )
         )
-    if "activityStartedEventDetails" in data:
+    if data.get("activityStartedEventDetails") is not None:
         import capo_sfn.types.activity_started_event_details
 
         out["activity_started_event_details"] = (
@@ -561,7 +561,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activityStartedEventDetails"]
             )
         )
-    if "activitySucceededEventDetails" in data:
+    if data.get("activitySucceededEventDetails") is not None:
         import capo_sfn.types.activity_succeeded_event_details
 
         out["activity_succeeded_event_details"] = (
@@ -569,7 +569,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activitySucceededEventDetails"]
             )
         )
-    if "activityTimedOutEventDetails" in data:
+    if data.get("activityTimedOutEventDetails") is not None:
         import capo_sfn.types.activity_timed_out_event_details
 
         out["activity_timed_out_event_details"] = (
@@ -577,7 +577,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["activityTimedOutEventDetails"]
             )
         )
-    if "taskFailedEventDetails" in data:
+    if data.get("taskFailedEventDetails") is not None:
         import capo_sfn.types.task_failed_event_details
 
         out["task_failed_event_details"] = (
@@ -585,7 +585,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskFailedEventDetails"]
             )
         )
-    if "taskScheduledEventDetails" in data:
+    if data.get("taskScheduledEventDetails") is not None:
         import capo_sfn.types.task_scheduled_event_details
 
         out["task_scheduled_event_details"] = (
@@ -593,7 +593,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskScheduledEventDetails"]
             )
         )
-    if "taskStartFailedEventDetails" in data:
+    if data.get("taskStartFailedEventDetails") is not None:
         import capo_sfn.types.task_start_failed_event_details
 
         out["task_start_failed_event_details"] = (
@@ -601,7 +601,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskStartFailedEventDetails"]
             )
         )
-    if "taskStartedEventDetails" in data:
+    if data.get("taskStartedEventDetails") is not None:
         import capo_sfn.types.task_started_event_details
 
         out["task_started_event_details"] = (
@@ -609,7 +609,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskStartedEventDetails"]
             )
         )
-    if "taskSubmitFailedEventDetails" in data:
+    if data.get("taskSubmitFailedEventDetails") is not None:
         import capo_sfn.types.task_submit_failed_event_details
 
         out["task_submit_failed_event_details"] = (
@@ -617,7 +617,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskSubmitFailedEventDetails"]
             )
         )
-    if "taskSubmittedEventDetails" in data:
+    if data.get("taskSubmittedEventDetails") is not None:
         import capo_sfn.types.task_submitted_event_details
 
         out["task_submitted_event_details"] = (
@@ -625,7 +625,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskSubmittedEventDetails"]
             )
         )
-    if "taskSucceededEventDetails" in data:
+    if data.get("taskSucceededEventDetails") is not None:
         import capo_sfn.types.task_succeeded_event_details
 
         out["task_succeeded_event_details"] = (
@@ -633,7 +633,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskSucceededEventDetails"]
             )
         )
-    if "taskTimedOutEventDetails" in data:
+    if data.get("taskTimedOutEventDetails") is not None:
         import capo_sfn.types.task_timed_out_event_details
 
         out["task_timed_out_event_details"] = (
@@ -641,7 +641,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["taskTimedOutEventDetails"]
             )
         )
-    if "executionFailedEventDetails" in data:
+    if data.get("executionFailedEventDetails") is not None:
         import capo_sfn.types.execution_failed_event_details
 
         out["execution_failed_event_details"] = (
@@ -649,7 +649,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionFailedEventDetails"]
             )
         )
-    if "executionStartedEventDetails" in data:
+    if data.get("executionStartedEventDetails") is not None:
         import capo_sfn.types.execution_started_event_details
 
         out["execution_started_event_details"] = (
@@ -657,7 +657,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionStartedEventDetails"]
             )
         )
-    if "executionSucceededEventDetails" in data:
+    if data.get("executionSucceededEventDetails") is not None:
         import capo_sfn.types.execution_succeeded_event_details
 
         out["execution_succeeded_event_details"] = (
@@ -665,7 +665,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionSucceededEventDetails"]
             )
         )
-    if "executionAbortedEventDetails" in data:
+    if data.get("executionAbortedEventDetails") is not None:
         import capo_sfn.types.execution_aborted_event_details
 
         out["execution_aborted_event_details"] = (
@@ -673,7 +673,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionAbortedEventDetails"]
             )
         )
-    if "executionTimedOutEventDetails" in data:
+    if data.get("executionTimedOutEventDetails") is not None:
         import capo_sfn.types.execution_timed_out_event_details
 
         out["execution_timed_out_event_details"] = (
@@ -681,7 +681,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionTimedOutEventDetails"]
             )
         )
-    if "executionRedrivenEventDetails" in data:
+    if data.get("executionRedrivenEventDetails") is not None:
         import capo_sfn.types.execution_redriven_event_details
 
         out["execution_redriven_event_details"] = (
@@ -689,7 +689,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["executionRedrivenEventDetails"]
             )
         )
-    if "mapStateStartedEventDetails" in data:
+    if data.get("mapStateStartedEventDetails") is not None:
         import capo_sfn.types.map_state_started_event_details
 
         out["map_state_started_event_details"] = (
@@ -697,7 +697,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapStateStartedEventDetails"]
             )
         )
-    if "mapIterationStartedEventDetails" in data:
+    if data.get("mapIterationStartedEventDetails") is not None:
         import capo_sfn.types.map_iteration_event_details
 
         out["map_iteration_started_event_details"] = (
@@ -705,7 +705,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapIterationStartedEventDetails"]
             )
         )
-    if "mapIterationSucceededEventDetails" in data:
+    if data.get("mapIterationSucceededEventDetails") is not None:
         import capo_sfn.types.map_iteration_event_details
 
         out["map_iteration_succeeded_event_details"] = (
@@ -713,7 +713,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapIterationSucceededEventDetails"]
             )
         )
-    if "mapIterationFailedEventDetails" in data:
+    if data.get("mapIterationFailedEventDetails") is not None:
         import capo_sfn.types.map_iteration_event_details
 
         out["map_iteration_failed_event_details"] = (
@@ -721,7 +721,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapIterationFailedEventDetails"]
             )
         )
-    if "mapIterationAbortedEventDetails" in data:
+    if data.get("mapIterationAbortedEventDetails") is not None:
         import capo_sfn.types.map_iteration_event_details
 
         out["map_iteration_aborted_event_details"] = (
@@ -729,7 +729,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapIterationAbortedEventDetails"]
             )
         )
-    if "lambdaFunctionFailedEventDetails" in data:
+    if data.get("lambdaFunctionFailedEventDetails") is not None:
         import capo_sfn.types.lambda_function_failed_event_details
 
         out["lambda_function_failed_event_details"] = (
@@ -737,7 +737,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionFailedEventDetails"]
             )
         )
-    if "lambdaFunctionScheduleFailedEventDetails" in data:
+    if data.get("lambdaFunctionScheduleFailedEventDetails") is not None:
         import capo_sfn.types.lambda_function_schedule_failed_event_details
 
         out["lambda_function_schedule_failed_event_details"] = (
@@ -745,7 +745,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionScheduleFailedEventDetails"]
             )
         )
-    if "lambdaFunctionScheduledEventDetails" in data:
+    if data.get("lambdaFunctionScheduledEventDetails") is not None:
         import capo_sfn.types.lambda_function_scheduled_event_details
 
         out["lambda_function_scheduled_event_details"] = (
@@ -753,7 +753,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionScheduledEventDetails"]
             )
         )
-    if "lambdaFunctionStartFailedEventDetails" in data:
+    if data.get("lambdaFunctionStartFailedEventDetails") is not None:
         import capo_sfn.types.lambda_function_start_failed_event_details
 
         out["lambda_function_start_failed_event_details"] = (
@@ -761,7 +761,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionStartFailedEventDetails"]
             )
         )
-    if "lambdaFunctionSucceededEventDetails" in data:
+    if data.get("lambdaFunctionSucceededEventDetails") is not None:
         import capo_sfn.types.lambda_function_succeeded_event_details
 
         out["lambda_function_succeeded_event_details"] = (
@@ -769,7 +769,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionSucceededEventDetails"]
             )
         )
-    if "lambdaFunctionTimedOutEventDetails" in data:
+    if data.get("lambdaFunctionTimedOutEventDetails") is not None:
         import capo_sfn.types.lambda_function_timed_out_event_details
 
         out["lambda_function_timed_out_event_details"] = (
@@ -777,7 +777,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["lambdaFunctionTimedOutEventDetails"]
             )
         )
-    if "stateEnteredEventDetails" in data:
+    if data.get("stateEnteredEventDetails") is not None:
         import capo_sfn.types.state_entered_event_details
 
         out["state_entered_event_details"] = (
@@ -785,7 +785,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["stateEnteredEventDetails"]
             )
         )
-    if "stateExitedEventDetails" in data:
+    if data.get("stateExitedEventDetails") is not None:
         import capo_sfn.types.state_exited_event_details
 
         out["state_exited_event_details"] = (
@@ -793,7 +793,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["stateExitedEventDetails"]
             )
         )
-    if "mapRunStartedEventDetails" in data:
+    if data.get("mapRunStartedEventDetails") is not None:
         import capo_sfn.types.map_run_started_event_details
 
         out["map_run_started_event_details"] = (
@@ -801,7 +801,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapRunStartedEventDetails"]
             )
         )
-    if "mapRunFailedEventDetails" in data:
+    if data.get("mapRunFailedEventDetails") is not None:
         import capo_sfn.types.map_run_failed_event_details
 
         out["map_run_failed_event_details"] = (
@@ -809,7 +809,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapRunFailedEventDetails"]
             )
         )
-    if "mapRunRedrivenEventDetails" in data:
+    if data.get("mapRunRedrivenEventDetails") is not None:
         import capo_sfn.types.map_run_redriven_event_details
 
         out["map_run_redriven_event_details"] = (
@@ -817,7 +817,7 @@ def deserialize_aws_json_1_0(data: dict) -> HistoryEvent:
                 data["mapRunRedrivenEventDetails"]
             )
         )
-    if "evaluationFailedEventDetails" in data:
+    if data.get("evaluationFailedEventDetails") is not None:
         import capo_sfn.types.evaluation_failed_event_details
 
         out["evaluation_failed_event_details"] = (

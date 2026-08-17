@@ -190,7 +190,7 @@ def serialize_aws_json_1_0(value: UpdateTableInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
     out: UpdateTableInput = {}  # type: ignore[typeddict-item]
-    if "AttributeDefinitions" in data:
+    if data.get("AttributeDefinitions") is not None:
         import capo_dynamodb.types.attribute_definitions
 
         out["attribute_definitions"] = (
@@ -198,17 +198,17 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["AttributeDefinitions"]
             )
         )
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("UpdateTableInput.table_name required")
-    if "BillingMode" in data:
+    if data.get("BillingMode") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["billing_mode"] = capo_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
             data["BillingMode"]
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput"] = (
@@ -216,7 +216,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["ProvisionedThroughput"]
             )
         )
-    if "GlobalSecondaryIndexUpdates" in data:
+    if data.get("GlobalSecondaryIndexUpdates") is not None:
         import capo_dynamodb.types.global_secondary_index_update_list
 
         out["global_secondary_index_updates"] = (
@@ -224,7 +224,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["GlobalSecondaryIndexUpdates"]
             )
         )
-    if "StreamSpecification" in data:
+    if data.get("StreamSpecification") is not None:
         import capo_dynamodb.types.stream_specification
 
         out["stream_specification"] = (
@@ -232,7 +232,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["StreamSpecification"]
             )
         )
-    if "SSESpecification" in data:
+    if data.get("SSESpecification") is not None:
         import capo_dynamodb.types.sse_specification
 
         out["sse_specification"] = (
@@ -240,7 +240,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["SSESpecification"]
             )
         )
-    if "ReplicaUpdates" in data:
+    if data.get("ReplicaUpdates") is not None:
         import capo_dynamodb.types.replication_group_update_list
 
         out["replica_updates"] = (
@@ -248,15 +248,15 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["ReplicaUpdates"]
             )
         )
-    if "TableClass" in data:
+    if data.get("TableClass") is not None:
         import capo_dynamodb.types.table_class
 
         out["table_class"] = capo_dynamodb.types.table_class.deserialize_aws_json_1_0(
             data["TableClass"]
         )
-    if "DeletionProtectionEnabled" in data:
+    if data.get("DeletionProtectionEnabled") is not None:
         out["deletion_protection_enabled"] = data["DeletionProtectionEnabled"]
-    if "MultiRegionConsistency" in data:
+    if data.get("MultiRegionConsistency") is not None:
         import capo_dynamodb.types.multi_region_consistency
 
         out["multi_region_consistency"] = (
@@ -264,7 +264,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["MultiRegionConsistency"]
             )
         )
-    if "GlobalTableWitnessUpdates" in data:
+    if data.get("GlobalTableWitnessUpdates") is not None:
         import capo_dynamodb.types.global_table_witness_group_update_list
 
         out["global_table_witness_updates"] = (
@@ -272,7 +272,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["GlobalTableWitnessUpdates"]
             )
         )
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -280,7 +280,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["OnDemandThroughput"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.warm_throughput
 
         out["warm_throughput"] = (
@@ -288,7 +288,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateTableInput:
                 data["WarmThroughput"]
             )
         )
-    if "GlobalTableSettingsReplicationMode" in data:
+    if data.get("GlobalTableSettingsReplicationMode") is not None:
         import capo_dynamodb.types.global_table_settings_replication_mode
 
         out["global_table_settings_replication_mode"] = (

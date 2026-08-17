@@ -54,18 +54,18 @@ def serialize_aws_json_1_1(value: ManagedScaling) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedScaling:
     out: ManagedScaling = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.managed_scaling_status
 
         out["status"] = capo_ecs.types.managed_scaling_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "targetCapacity" in data:
+    if data.get("targetCapacity") is not None:
         out["target_capacity"] = data["targetCapacity"]
-    if "minimumScalingStepSize" in data:
+    if data.get("minimumScalingStepSize") is not None:
         out["minimum_scaling_step_size"] = data["minimumScalingStepSize"]
-    if "maximumScalingStepSize" in data:
+    if data.get("maximumScalingStepSize") is not None:
         out["maximum_scaling_step_size"] = data["maximumScalingStepSize"]
-    if "instanceWarmupPeriod" in data:
+    if data.get("instanceWarmupPeriod") is not None:
         out["instance_warmup_period"] = data["instanceWarmupPeriod"]
     return out

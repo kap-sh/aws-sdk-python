@@ -27,8 +27,8 @@ def serialize_json(value: AddLayerVersionPermissionResponse) -> dict:
 
 def deserialize_json(data: dict) -> AddLayerVersionPermissionResponse:
     out: AddLayerVersionPermissionResponse = {}  # type: ignore[typeddict-item]
-    if "Statement" in data:
+    if data.get("Statement") is not None:
         out["statement"] = data["Statement"]
-    if "RevisionId" in data:
+    if data.get("RevisionId") is not None:
         out["revision_id"] = data["RevisionId"]
     return out

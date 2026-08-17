@@ -25,6 +25,8 @@ def serialize_aws_json_1_0(input_to_serialize: MapAttributeValue) -> dict:
 def deserialize_aws_json_1_0(data: dict) -> MapAttributeValue:
     out: MapAttributeValue = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_dynamodb.types.attribute_value
 
         out[key] = capo_dynamodb.types.attribute_value.deserialize_aws_json_1_0(value)

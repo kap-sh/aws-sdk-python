@@ -33,6 +33,8 @@ def deserialize_aws_json_1_1(
 
     out: MaintenanceWindowExecutionTaskInvocationIdentityList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ssm.types.maintenance_window_execution_task_invocation_identity.deserialize_aws_json_1_1(
                 item

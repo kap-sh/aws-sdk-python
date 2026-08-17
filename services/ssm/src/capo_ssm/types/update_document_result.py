@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: UpdateDocumentResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentResult:
     out: UpdateDocumentResult = {}  # type: ignore[typeddict-item]
-    if "DocumentDescription" in data:
+    if data.get("DocumentDescription") is not None:
         import capo_ssm.types.document_description
 
         out["document_description"] = (

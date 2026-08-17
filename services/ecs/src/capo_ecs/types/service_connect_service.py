@@ -68,13 +68,13 @@ def serialize_aws_json_1_1(value: ServiceConnectService) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectService:
     out: ServiceConnectService = {}  # type: ignore[typeddict-item]
-    if "portName" in data:
+    if data.get("portName") is not None:
         out["port_name"] = data["portName"]
     else:
         raise DeserializationError("ServiceConnectService.port_name required")
-    if "discoveryName" in data:
+    if data.get("discoveryName") is not None:
         out["discovery_name"] = data["discoveryName"]
-    if "clientAliases" in data:
+    if data.get("clientAliases") is not None:
         import capo_ecs.types.service_connect_client_alias_list
 
         out["client_aliases"] = (
@@ -82,15 +82,15 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceConnectService:
                 data["clientAliases"]
             )
         )
-    if "ingressPortOverride" in data:
+    if data.get("ingressPortOverride") is not None:
         out["ingress_port_override"] = data["ingressPortOverride"]
-    if "timeout" in data:
+    if data.get("timeout") is not None:
         import capo_ecs.types.timeout_configuration
 
         out["timeout"] = capo_ecs.types.timeout_configuration.deserialize_aws_json_1_1(
             data["timeout"]
         )
-    if "tls" in data:
+    if data.get("tls") is not None:
         import capo_ecs.types.service_connect_tls_configuration
 
         out["tls"] = (

@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListPullTimeUpdateExclusionsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListPullTimeUpdateExclusionsResponse:
     out: ListPullTimeUpdateExclusionsResponse = {}  # type: ignore[typeddict-item]
-    if "pullTimeUpdateExclusions" in data:
+    if data.get("pullTimeUpdateExclusions") is not None:
         import capo_ecr.types.pull_time_update_exclusion_list
 
         out["pull_time_update_exclusions"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListPullTimeUpdateExclusionsResponse
                 data["pullTimeUpdateExclusions"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

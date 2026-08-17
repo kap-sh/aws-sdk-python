@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> LiveTailSessionResults:
 
     out: LiveTailSessionResults = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.live_tail_session_log_event.deserialize_aws_json_1_1(
                 item

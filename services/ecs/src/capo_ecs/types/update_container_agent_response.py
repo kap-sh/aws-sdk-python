@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: UpdateContainerAgentResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateContainerAgentResponse:
     out: UpdateContainerAgentResponse = {}  # type: ignore[typeddict-item]
-    if "containerInstance" in data:
+    if data.get("containerInstance") is not None:
         import capo_ecs.types.container_instance
 
         out["container_instance"] = (

@@ -23,5 +23,7 @@ def deserialize_aws_json_1_1(data: list) -> CompatibilityList:
 
     out: CompatibilityList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.compatibility.deserialize_aws_json_1_1(item))
     return out

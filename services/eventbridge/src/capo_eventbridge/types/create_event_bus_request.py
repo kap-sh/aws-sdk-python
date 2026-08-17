@@ -75,17 +75,17 @@ def serialize_aws_json_1_1(value: CreateEventBusRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateEventBusRequest:
     out: CreateEventBusRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateEventBusRequest.name required")
-    if "EventSourceName" in data:
+    if data.get("EventSourceName") is not None:
         out["event_source_name"] = data["EventSourceName"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
-    if "DeadLetterConfig" in data:
+    if data.get("DeadLetterConfig") is not None:
         import capo_eventbridge.types.dead_letter_config
 
         out["dead_letter_config"] = (
@@ -93,13 +93,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateEventBusRequest:
                 data["DeadLetterConfig"]
             )
         )
-    if "LogConfig" in data:
+    if data.get("LogConfig") is not None:
         import capo_eventbridge.types.log_config
 
         out["log_config"] = capo_eventbridge.types.log_config.deserialize_aws_json_1_1(
             data["LogConfig"]
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_eventbridge.types.tag_list
 
         out["tags"] = capo_eventbridge.types.tag_list.deserialize_aws_json_1_1(

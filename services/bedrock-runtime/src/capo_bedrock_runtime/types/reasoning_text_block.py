@@ -23,10 +23,10 @@ def serialize_json(value: ReasoningTextBlock) -> dict:
 
 def deserialize_json(data: dict) -> ReasoningTextBlock:
     out: ReasoningTextBlock = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("ReasoningTextBlock.text required")
-    if "signature" in data:
+    if data.get("signature") is not None:
         out["signature"] = data["signature"]
     return out

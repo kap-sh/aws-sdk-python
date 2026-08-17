@@ -36,17 +36,17 @@ def serialize_aws_json_1_1(value: UnlabelParameterVersionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UnlabelParameterVersionRequest:
     out: UnlabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UnlabelParameterVersionRequest.name required")
-    if "ParameterVersion" in data:
+    if data.get("ParameterVersion") is not None:
         out["parameter_version"] = data["ParameterVersion"]
     else:
         raise DeserializationError(
             "UnlabelParameterVersionRequest.parameter_version required"
         )
-    if "Labels" in data:
+    if data.get("Labels") is not None:
         import capo_ssm.types.parameter_label_list
 
         out["labels"] = capo_ssm.types.parameter_label_list.deserialize_aws_json_1_1(

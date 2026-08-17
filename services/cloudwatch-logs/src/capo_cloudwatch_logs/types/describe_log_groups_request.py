@@ -88,7 +88,7 @@ def serialize_aws_json_1_1(value: DescribeLogGroupsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeLogGroupsRequest:
     out: DescribeLogGroupsRequest = {}  # type: ignore[typeddict-item]
-    if "accountIdentifiers" in data:
+    if data.get("accountIdentifiers") is not None:
         import capo_cloudwatch_logs.types.account_ids
 
         out["account_identifiers"] = (
@@ -96,17 +96,17 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeLogGroupsRequest:
                 data["accountIdentifiers"]
             )
         )
-    if "logGroupNamePrefix" in data:
+    if data.get("logGroupNamePrefix") is not None:
         out["log_group_name_prefix"] = data["logGroupNamePrefix"]
-    if "logGroupNamePattern" in data:
+    if data.get("logGroupNamePattern") is not None:
         out["log_group_name_pattern"] = data["logGroupNamePattern"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "includeLinkedAccounts" in data:
+    if data.get("includeLinkedAccounts") is not None:
         out["include_linked_accounts"] = data["includeLinkedAccounts"]
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (
@@ -114,7 +114,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeLogGroupsRequest:
                 data["logGroupClass"]
             )
         )
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.describe_log_groups_log_group_identifiers
 
         out["log_group_identifiers"] = (

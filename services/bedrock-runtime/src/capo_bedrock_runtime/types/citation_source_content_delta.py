@@ -18,6 +18,6 @@ def serialize_json(value: CitationSourceContentDelta) -> dict:
 
 def deserialize_json(data: dict) -> CitationSourceContentDelta:
     out: CitationSourceContentDelta = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     return out

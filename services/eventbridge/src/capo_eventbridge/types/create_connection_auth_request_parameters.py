@@ -83,7 +83,7 @@ def serialize_aws_json_1_1(value: CreateConnectionAuthRequestParameters) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> CreateConnectionAuthRequestParameters:
     out: CreateConnectionAuthRequestParameters = {}  # type: ignore[typeddict-item]
-    if "BasicAuthParameters" in data:
+    if data.get("BasicAuthParameters") is not None:
         import capo_eventbridge.types.create_connection_basic_auth_request_parameters
 
         out["basic_auth_parameters"] = (
@@ -91,7 +91,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionAuthRequestParameter
                 data["BasicAuthParameters"]
             )
         )
-    if "OAuthParameters" in data:
+    if data.get("OAuthParameters") is not None:
         import capo_eventbridge.types.create_connection_o_auth_request_parameters
 
         out["o_auth_parameters"] = (
@@ -99,7 +99,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionAuthRequestParameter
                 data["OAuthParameters"]
             )
         )
-    if "ApiKeyAuthParameters" in data:
+    if data.get("ApiKeyAuthParameters") is not None:
         import capo_eventbridge.types.create_connection_api_key_auth_request_parameters
 
         out["api_key_auth_parameters"] = (
@@ -107,7 +107,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionAuthRequestParameter
                 data["ApiKeyAuthParameters"]
             )
         )
-    if "InvocationHttpParameters" in data:
+    if data.get("InvocationHttpParameters") is not None:
         import capo_eventbridge.types.connection_http_parameters
 
         out["invocation_http_parameters"] = (
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionAuthRequestParameter
                 data["InvocationHttpParameters"]
             )
         )
-    if "ConnectivityParameters" in data:
+    if data.get("ConnectivityParameters") is not None:
         import capo_eventbridge.types.connectivity_resource_parameters
 
         out["connectivity_parameters"] = (

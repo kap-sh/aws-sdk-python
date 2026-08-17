@@ -115,21 +115,21 @@ def serialize_aws_json_1_1(value: LogGroup) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LogGroup:
     out: LogGroup = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "retentionInDays" in data:
+    if data.get("retentionInDays") is not None:
         out["retention_in_days"] = data["retentionInDays"]
-    if "metricFilterCount" in data:
+    if data.get("metricFilterCount") is not None:
         out["metric_filter_count"] = data["metricFilterCount"]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "storedBytes" in data:
+    if data.get("storedBytes") is not None:
         out["stored_bytes"] = data["storedBytes"]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "dataProtectionStatus" in data:
+    if data.get("dataProtectionStatus") is not None:
         import capo_cloudwatch_logs.types.data_protection_status
 
         out["data_protection_status"] = (
@@ -137,7 +137,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogGroup:
                 data["dataProtectionStatus"]
             )
         )
-    if "inheritedProperties" in data:
+    if data.get("inheritedProperties") is not None:
         import capo_cloudwatch_logs.types.inherited_properties
 
         out["inherited_properties"] = (
@@ -145,7 +145,7 @@ def deserialize_aws_json_1_1(data: dict) -> LogGroup:
                 data["inheritedProperties"]
             )
         )
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (
@@ -153,11 +153,11 @@ def deserialize_aws_json_1_1(data: dict) -> LogGroup:
                 data["logGroupClass"]
             )
         )
-    if "logGroupArn" in data:
+    if data.get("logGroupArn") is not None:
         out["log_group_arn"] = data["logGroupArn"]
-    if "deletionProtectionEnabled" in data:
+    if data.get("deletionProtectionEnabled") is not None:
         out["deletion_protection_enabled"] = data["deletionProtectionEnabled"]
-    if "bearerTokenAuthenticationEnabled" in data:
+    if data.get("bearerTokenAuthenticationEnabled") is not None:
         out["bearer_token_authentication_enabled"] = data[
             "bearerTokenAuthenticationEnabled"
         ]

@@ -41,14 +41,14 @@ def serialize_aws_json_1_1(value: ListRuleNamesByTargetRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListRuleNamesByTargetRequest:
     out: ListRuleNamesByTargetRequest = {}  # type: ignore[typeddict-item]
-    if "TargetArn" in data:
+    if data.get("TargetArn") is not None:
         out["target_arn"] = data["TargetArn"]
     else:
         raise DeserializationError("ListRuleNamesByTargetRequest.target_arn required")
-    if "EventBusName" in data:
+    if data.get("EventBusName") is not None:
         out["event_bus_name"] = data["EventBusName"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     return out

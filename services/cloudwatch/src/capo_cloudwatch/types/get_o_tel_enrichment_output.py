@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: GetOTelEnrichmentOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetOTelEnrichmentOutput:
     out: GetOTelEnrichmentOutput = {}  # type: ignore[typeddict-item]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_cloudwatch.types.o_tel_enrichment_status
 
         out["status"] = (

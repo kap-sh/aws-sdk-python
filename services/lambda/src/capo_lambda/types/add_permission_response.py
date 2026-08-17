@@ -23,6 +23,6 @@ def serialize_json(value: AddPermissionResponse) -> dict:
 
 def deserialize_json(data: dict) -> AddPermissionResponse:
     out: AddPermissionResponse = {}  # type: ignore[typeddict-item]
-    if "Statement" in data:
+    if data.get("Statement") is not None:
         out["statement"] = data["Statement"]
     return out

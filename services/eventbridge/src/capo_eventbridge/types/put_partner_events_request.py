@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: PutPartnerEventsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutPartnerEventsRequest:
     out: PutPartnerEventsRequest = {}  # type: ignore[typeddict-item]
-    if "Entries" in data:
+    if data.get("Entries") is not None:
         import capo_eventbridge.types.put_partner_events_request_entry_list
 
         out["entries"] = (

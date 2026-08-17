@@ -87,25 +87,25 @@ def serialize_json(value: AsyncInvokeSummary) -> dict:
 
 def deserialize_json(data: dict) -> AsyncInvokeSummary:
     out: AsyncInvokeSummary = {}  # type: ignore[typeddict-item]
-    if "invocationArn" in data:
+    if data.get("invocationArn") is not None:
         out["invocation_arn"] = data["invocationArn"]
     else:
         raise DeserializationError("AsyncInvokeSummary.invocation_arn required")
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("AsyncInvokeSummary.model_arn required")
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_runtime.types.async_invoke_status
 
         out["status"] = capo_bedrock_runtime.types.async_invoke_status.deserialize_json(
             data["status"]
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
-    if "submitTime" in data:
+    if data.get("submitTime") is not None:
         import capo_bedrock_runtime.types.timestamp
 
         out["submit_time"] = capo_bedrock_runtime.types.timestamp.deserialize_json(
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> AsyncInvokeSummary:
         )
     else:
         raise DeserializationError("AsyncInvokeSummary.submit_time required")
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock_runtime.types.timestamp
 
         out["last_modified_time"] = (
@@ -121,13 +121,13 @@ def deserialize_json(data: dict) -> AsyncInvokeSummary:
                 data["lastModifiedTime"]
             )
         )
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         import capo_bedrock_runtime.types.timestamp
 
         out["end_time"] = capo_bedrock_runtime.types.timestamp.deserialize_json(
             data["endTime"]
         )
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock_runtime.types.async_invoke_output_data_config
 
         out["output_data_config"] = (

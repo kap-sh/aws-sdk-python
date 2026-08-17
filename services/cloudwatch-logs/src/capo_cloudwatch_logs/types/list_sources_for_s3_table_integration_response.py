@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: ListSourcesForS3TableIntegrationResponse) -> d
 
 def deserialize_aws_json_1_1(data: dict) -> ListSourcesForS3TableIntegrationResponse:
     out: ListSourcesForS3TableIntegrationResponse = {}  # type: ignore[typeddict-item]
-    if "sources" in data:
+    if data.get("sources") is not None:
         import capo_cloudwatch_logs.types.s3_table_integration_sources
 
         out["sources"] = (
@@ -43,6 +43,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListSourcesForS3TableIntegrationResp
                 data["sources"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

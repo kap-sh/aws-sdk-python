@@ -45,15 +45,15 @@ def serialize_aws_json_1_0(value: ListMetricsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListMetricsOutput:
     out: ListMetricsOutput = {}  # type: ignore[typeddict-item]
-    if "Metrics" in data:
+    if data.get("Metrics") is not None:
         import capo_cloudwatch.types.metrics
 
         out["metrics"] = capo_cloudwatch.types.metrics.deserialize_aws_json_1_0(
             data["Metrics"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "OwningAccounts" in data:
+    if data.get("OwningAccounts") is not None:
         import capo_cloudwatch.types.owning_accounts
 
         out["owning_accounts"] = (

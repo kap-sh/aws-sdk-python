@@ -27,8 +27,8 @@ def serialize_aws_json_1_1(value: ServiceConnectServiceResource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectServiceResource:
     out: ServiceConnectServiceResource = {}  # type: ignore[typeddict-item]
-    if "discoveryName" in data:
+    if data.get("discoveryName") is not None:
         out["discovery_name"] = data["discoveryName"]
-    if "discoveryArn" in data:
+    if data.get("discoveryArn") is not None:
         out["discovery_arn"] = data["discoveryArn"]
     return out

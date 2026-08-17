@@ -49,13 +49,13 @@ def serialize_aws_json_1_1(value: DescribeInstancePatchesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePatchesRequest:
     out: DescribeInstancePatchesRequest = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
     else:
         raise DeserializationError(
             "DescribeInstancePatchesRequest.instance_id required"
         )
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.patch_orchestrator_filter_list
 
         out["filters"] = (
@@ -63,8 +63,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePatchesRequest:
                 data["Filters"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

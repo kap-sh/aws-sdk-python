@@ -49,9 +49,9 @@ def serialize_aws_json_1_1(value: ComplianceSummaryItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ComplianceSummaryItem:
     out: ComplianceSummaryItem = {}  # type: ignore[typeddict-item]
-    if "ComplianceType" in data:
+    if data.get("ComplianceType") is not None:
         out["compliance_type"] = data["ComplianceType"]
-    if "CompliantSummary" in data:
+    if data.get("CompliantSummary") is not None:
         import capo_ssm.types.compliant_summary
 
         out["compliant_summary"] = (
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_1(data: dict) -> ComplianceSummaryItem:
                 data["CompliantSummary"]
             )
         )
-    if "NonCompliantSummary" in data:
+    if data.get("NonCompliantSummary") is not None:
         import capo_ssm.types.non_compliant_summary
 
         out["non_compliant_summary"] = (

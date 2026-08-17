@@ -31,10 +31,10 @@ def serialize_aws_json_1_1(value: ScheduleKeyDeletionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ScheduleKeyDeletionRequest:
     out: ScheduleKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("ScheduleKeyDeletionRequest.key_id required")
-    if "PendingWindowInDays" in data:
+    if data.get("PendingWindowInDays") is not None:
         out["pending_window_in_days"] = data["PendingWindowInDays"]
     return out

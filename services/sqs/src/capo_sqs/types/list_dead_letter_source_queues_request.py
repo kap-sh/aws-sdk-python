@@ -34,14 +34,14 @@ def serialize_aws_json_1_0(value: ListDeadLetterSourceQueuesRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListDeadLetterSourceQueuesRequest:
     out: ListDeadLetterSourceQueuesRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError(
             "ListDeadLetterSourceQueuesRequest.queue_url required"
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     return out

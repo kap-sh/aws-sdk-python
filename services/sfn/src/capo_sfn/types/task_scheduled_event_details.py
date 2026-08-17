@@ -56,27 +56,27 @@ def serialize_aws_json_1_0(value: TaskScheduledEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TaskScheduledEventDetails:
     out: TaskScheduledEventDetails = {}  # type: ignore[typeddict-item]
-    if "resourceType" in data:
+    if data.get("resourceType") is not None:
         out["resource_type"] = data["resourceType"]
     else:
         raise DeserializationError("TaskScheduledEventDetails.resource_type required")
-    if "resource" in data:
+    if data.get("resource") is not None:
         out["resource"] = data["resource"]
     else:
         raise DeserializationError("TaskScheduledEventDetails.resource required")
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
     else:
         raise DeserializationError("TaskScheduledEventDetails.region required")
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         out["parameters"] = data["parameters"]
     else:
         raise DeserializationError("TaskScheduledEventDetails.parameters required")
-    if "timeoutInSeconds" in data:
+    if data.get("timeoutInSeconds") is not None:
         out["timeout_in_seconds"] = data["timeoutInSeconds"]
-    if "heartbeatInSeconds" in data:
+    if data.get("heartbeatInSeconds") is not None:
         out["heartbeat_in_seconds"] = data["heartbeatInSeconds"]
-    if "taskCredentials" in data:
+    if data.get("taskCredentials") is not None:
         import capo_sfn.types.task_credentials
 
         out["task_credentials"] = (

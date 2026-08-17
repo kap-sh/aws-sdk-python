@@ -46,9 +46,9 @@ def serialize_aws_json_1_1(value: DescribeRepositoriesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeRepositoriesRequest:
     out: DescribeRepositoriesRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryNames" in data:
+    if data.get("repositoryNames") is not None:
         import capo_ecr.types.repository_name_list
 
         out["repository_names"] = (
@@ -56,8 +56,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeRepositoriesRequest:
                 data["repositoryNames"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: KinesisParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> KinesisParameters:
     out: KinesisParameters = {}  # type: ignore[typeddict-item]
-    if "PartitionKeyPath" in data:
+    if data.get("PartitionKeyPath") is not None:
         out["partition_key_path"] = data["PartitionKeyPath"]
     else:
         raise DeserializationError("KinesisParameters.partition_key_path required")

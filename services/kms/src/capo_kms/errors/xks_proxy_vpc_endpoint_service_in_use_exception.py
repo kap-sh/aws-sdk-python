@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: XksProxyVpcEndpointServiceInUseException_) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> XksProxyVpcEndpointServiceInUseException_:
     out: XksProxyVpcEndpointServiceInUseException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

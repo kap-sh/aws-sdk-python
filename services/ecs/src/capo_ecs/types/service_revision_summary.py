@@ -44,23 +44,23 @@ def serialize_aws_json_1_1(value: ServiceRevisionSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceRevisionSummary:
     out: ServiceRevisionSummary = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "requestedTaskCount" in data:
+    if data.get("requestedTaskCount") is not None:
         out["requested_task_count"] = data["requestedTaskCount"]
     else:
         out["requested_task_count"] = 0
-    if "runningTaskCount" in data:
+    if data.get("runningTaskCount") is not None:
         out["running_task_count"] = data["runningTaskCount"]
     else:
         out["running_task_count"] = 0
-    if "pendingTaskCount" in data:
+    if data.get("pendingTaskCount") is not None:
         out["pending_task_count"] = data["pendingTaskCount"]
     else:
         out["pending_task_count"] = 0
-    if "requestedTestTrafficWeight" in data:
+    if data.get("requestedTestTrafficWeight") is not None:
         out["requested_test_traffic_weight"] = data["requestedTestTrafficWeight"]
-    if "requestedProductionTrafficWeight" in data:
+    if data.get("requestedProductionTrafficWeight") is not None:
         out["requested_production_traffic_weight"] = data[
             "requestedProductionTrafficWeight"
         ]

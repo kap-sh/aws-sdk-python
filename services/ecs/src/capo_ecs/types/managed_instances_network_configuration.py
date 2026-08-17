@@ -35,13 +35,13 @@ def serialize_aws_json_1_1(value: ManagedInstancesNetworkConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ManagedInstancesNetworkConfiguration:
     out: ManagedInstancesNetworkConfiguration = {}  # type: ignore[typeddict-item]
-    if "subnets" in data:
+    if data.get("subnets") is not None:
         import capo_ecs.types.string_list
 
         out["subnets"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["subnets"]
         )
-    if "securityGroups" in data:
+    if data.get("securityGroups") is not None:
         import capo_ecs.types.string_list
 
         out["security_groups"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(

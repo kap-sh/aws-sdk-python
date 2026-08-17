@@ -98,25 +98,25 @@ def serialize_aws_json_1_0(value: CreateStateMachineInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateStateMachineInput:
     out: CreateStateMachineInput = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateStateMachineInput.name required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("CreateStateMachineInput.definition required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateStateMachineInput.role_arn required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_sfn.types.state_machine_type
 
         out["type"] = capo_sfn.types.state_machine_type.deserialize_aws_json_1_0(
             data["type"]
         )
-    if "loggingConfiguration" in data:
+    if data.get("loggingConfiguration") is not None:
         import capo_sfn.types.logging_configuration
 
         out["logging_configuration"] = (
@@ -124,11 +124,11 @@ def deserialize_aws_json_1_0(data: dict) -> CreateStateMachineInput:
                 data["loggingConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_sfn.types.tag_list
 
         out["tags"] = capo_sfn.types.tag_list.deserialize_aws_json_1_0(data["tags"])
-    if "tracingConfiguration" in data:
+    if data.get("tracingConfiguration") is not None:
         import capo_sfn.types.tracing_configuration
 
         out["tracing_configuration"] = (
@@ -136,13 +136,13 @@ def deserialize_aws_json_1_0(data: dict) -> CreateStateMachineInput:
                 data["tracingConfiguration"]
             )
         )
-    if "publish" in data:
+    if data.get("publish") is not None:
         out["publish"] = data["publish"]
     else:
         out["publish"] = False
-    if "versionDescription" in data:
+    if data.get("versionDescription") is not None:
         out["version_description"] = data["versionDescription"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_sfn.types.encryption_configuration
 
         out["encryption_configuration"] = (

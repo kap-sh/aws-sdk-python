@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: CreatePartnerEventSourceResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreatePartnerEventSourceResponse:
     out: CreatePartnerEventSourceResponse = {}  # type: ignore[typeddict-item]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
     return out

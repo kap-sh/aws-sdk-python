@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: RegistryScanningConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegistryScanningConfiguration:
     out: RegistryScanningConfiguration = {}  # type: ignore[typeddict-item]
-    if "scanType" in data:
+    if data.get("scanType") is not None:
         import capo_ecr.types.scan_type
 
         out["scan_type"] = capo_ecr.types.scan_type.deserialize_aws_json_1_1(
             data["scanType"]
         )
-    if "rules" in data:
+    if data.get("rules") is not None:
         import capo_ecr.types.registry_scanning_rule_list
 
         out["rules"] = (

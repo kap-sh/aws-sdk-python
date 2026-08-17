@@ -25,6 +25,6 @@ def serialize_json(value: GetFunctionConcurrencyResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFunctionConcurrencyResponse:
     out: GetFunctionConcurrencyResponse = {}  # type: ignore[typeddict-item]
-    if "ReservedConcurrentExecutions" in data:
+    if data.get("ReservedConcurrentExecutions") is not None:
         out["reserved_concurrent_executions"] = data["ReservedConcurrentExecutions"]
     return out

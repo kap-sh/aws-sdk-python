@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> FunctionVersionsByCapacityProviderList:
 
     out: FunctionVersionsByCapacityProviderList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_lambda.types.function_versions_by_capacity_provider_list_item.deserialize_json(
                 item

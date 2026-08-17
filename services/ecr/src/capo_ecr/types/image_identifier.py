@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: ImageIdentifier) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageIdentifier:
     out: ImageIdentifier = {}  # type: ignore[typeddict-item]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
-    if "imageTag" in data:
+    if data.get("imageTag") is not None:
         out["image_tag"] = data["imageTag"]
     return out

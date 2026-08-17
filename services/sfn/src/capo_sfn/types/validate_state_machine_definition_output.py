@@ -47,7 +47,7 @@ def serialize_aws_json_1_0(value: ValidateStateMachineDefinitionOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionOutput:
     out: ValidateStateMachineDefinitionOutput = {}  # type: ignore[typeddict-item]
-    if "result" in data:
+    if data.get("result") is not None:
         import capo_sfn.types.validate_state_machine_definition_result_code
 
         out["result"] = (
@@ -59,7 +59,7 @@ def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionOutput
         raise DeserializationError(
             "ValidateStateMachineDefinitionOutput.result required"
         )
-    if "diagnostics" in data:
+    if data.get("diagnostics") is not None:
         import capo_sfn.types.validate_state_machine_definition_diagnostic_list
 
         out["diagnostics"] = (
@@ -71,6 +71,6 @@ def deserialize_aws_json_1_0(data: dict) -> ValidateStateMachineDefinitionOutput
         raise DeserializationError(
             "ValidateStateMachineDefinitionOutput.diagnostics required"
         )
-    if "truncated" in data:
+    if data.get("truncated") is not None:
         out["truncated"] = data["truncated"]
     return out

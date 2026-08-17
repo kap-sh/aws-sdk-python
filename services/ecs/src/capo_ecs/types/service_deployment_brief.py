@@ -75,33 +75,33 @@ def serialize_aws_json_1_1(value: ServiceDeploymentBrief) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceDeploymentBrief:
     out: ServiceDeploymentBrief = {}  # type: ignore[typeddict-item]
-    if "serviceDeploymentArn" in data:
+    if data.get("serviceDeploymentArn") is not None:
         out["service_deployment_arn"] = data["serviceDeploymentArn"]
-    if "serviceArn" in data:
+    if data.get("serviceArn") is not None:
         out["service_arn"] = data["serviceArn"]
-    if "clusterArn" in data:
+    if data.get("clusterArn") is not None:
         out["cluster_arn"] = data["clusterArn"]
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["startedAt"]
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "finishedAt" in data:
+    if data.get("finishedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["finished_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["finishedAt"]
         )
-    if "targetServiceRevisionArn" in data:
+    if data.get("targetServiceRevisionArn") is not None:
         out["target_service_revision_arn"] = data["targetServiceRevisionArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.service_deployment_status
 
         out["status"] = (
@@ -109,6 +109,6 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeploymentBrief:
                 data["status"]
             )
         )
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
     return out

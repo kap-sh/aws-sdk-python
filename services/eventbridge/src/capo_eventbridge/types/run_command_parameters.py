@@ -30,7 +30,7 @@ def serialize_aws_json_1_1(value: RunCommandParameters) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RunCommandParameters:
     out: RunCommandParameters = {}  # type: ignore[typeddict-item]
-    if "RunCommandTargets" in data:
+    if data.get("RunCommandTargets") is not None:
         import capo_eventbridge.types.run_command_targets
 
         out["run_command_targets"] = (

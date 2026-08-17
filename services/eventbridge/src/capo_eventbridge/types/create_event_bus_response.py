@@ -58,13 +58,13 @@ def serialize_aws_json_1_1(value: CreateEventBusResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateEventBusResponse:
     out: CreateEventBusResponse = {}  # type: ignore[typeddict-item]
-    if "EventBusArn" in data:
+    if data.get("EventBusArn") is not None:
         out["event_bus_arn"] = data["EventBusArn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyIdentifier" in data:
+    if data.get("KmsKeyIdentifier") is not None:
         out["kms_key_identifier"] = data["KmsKeyIdentifier"]
-    if "DeadLetterConfig" in data:
+    if data.get("DeadLetterConfig") is not None:
         import capo_eventbridge.types.dead_letter_config
 
         out["dead_letter_config"] = (
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateEventBusResponse:
                 data["DeadLetterConfig"]
             )
         )
-    if "LogConfig" in data:
+    if data.get("LogConfig") is not None:
         import capo_eventbridge.types.log_config
 
         out["log_config"] = capo_eventbridge.types.log_config.deserialize_aws_json_1_1(

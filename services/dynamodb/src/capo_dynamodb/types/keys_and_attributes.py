@@ -64,7 +64,7 @@ def serialize_aws_json_1_0(value: KeysAndAttributes) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> KeysAndAttributes:
     out: KeysAndAttributes = {}  # type: ignore[typeddict-item]
-    if "Keys" in data:
+    if data.get("Keys") is not None:
         import capo_dynamodb.types.key_list
 
         out["keys"] = capo_dynamodb.types.key_list.deserialize_aws_json_1_0(
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_0(data: dict) -> KeysAndAttributes:
         )
     else:
         raise DeserializationError("KeysAndAttributes.keys required")
-    if "AttributesToGet" in data:
+    if data.get("AttributesToGet") is not None:
         import capo_dynamodb.types.attribute_name_list
 
         out["attributes_to_get"] = (
@@ -80,11 +80,11 @@ def deserialize_aws_json_1_0(data: dict) -> KeysAndAttributes:
                 data["AttributesToGet"]
             )
         )
-    if "ConsistentRead" in data:
+    if data.get("ConsistentRead") is not None:
         out["consistent_read"] = data["ConsistentRead"]
-    if "ProjectionExpression" in data:
+    if data.get("ProjectionExpression") is not None:
         out["projection_expression"] = data["ProjectionExpression"]
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (

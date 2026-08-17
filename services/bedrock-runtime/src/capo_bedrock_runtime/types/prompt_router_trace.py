@@ -25,6 +25,6 @@ def serialize_json(value: PromptRouterTrace) -> dict:
 
 def deserialize_json(data: dict) -> PromptRouterTrace:
     out: PromptRouterTrace = {}  # type: ignore[typeddict-item]
-    if "invokedModelId" in data:
+    if data.get("invokedModelId") is not None:
         out["invoked_model_id"] = data["invokedModelId"]
     return out

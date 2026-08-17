@@ -38,9 +38,9 @@ def serialize_json(value: ListAsyncInvokesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListAsyncInvokesResponse:
     out: ListAsyncInvokesResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "asyncInvokeSummaries" in data:
+    if data.get("asyncInvokeSummaries") is not None:
         import capo_bedrock_runtime.types.async_invoke_summaries
 
         out["async_invoke_summaries"] = (

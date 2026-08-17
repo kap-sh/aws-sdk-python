@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListResourceComplianceSummariesResult) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> ListResourceComplianceSummariesResult:
     out: ListResourceComplianceSummariesResult = {}  # type: ignore[typeddict-item]
-    if "ResourceComplianceSummaryItems" in data:
+    if data.get("ResourceComplianceSummaryItems") is not None:
         import capo_ssm.types.resource_compliance_summary_item_list
 
         out["resource_compliance_summary_items"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListResourceComplianceSummariesResul
                 data["ResourceComplianceSummaryItems"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

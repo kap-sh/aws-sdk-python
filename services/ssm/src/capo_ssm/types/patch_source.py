@@ -36,11 +36,11 @@ def serialize_aws_json_1_1(value: PatchSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PatchSource:
     out: PatchSource = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("PatchSource.name required")
-    if "Products" in data:
+    if data.get("Products") is not None:
         import capo_ssm.types.patch_source_product_list
 
         out["products"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_1(data: dict) -> PatchSource:
         )
     else:
         raise DeserializationError("PatchSource.products required")
-    if "Configuration" in data:
+    if data.get("Configuration") is not None:
         out["configuration"] = data["Configuration"]
     else:
         raise DeserializationError("PatchSource.configuration required")

@@ -57,23 +57,23 @@ def serialize_aws_json_1_1(value: OpsItemEventSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemEventSummary:
     out: OpsItemEventSummary = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "EventId" in data:
+    if data.get("EventId") is not None:
         out["event_id"] = data["EventId"]
-    if "Source" in data:
+    if data.get("Source") is not None:
         out["source"] = data["Source"]
-    if "DetailType" in data:
+    if data.get("DetailType") is not None:
         out["detail_type"] = data["DetailType"]
-    if "Detail" in data:
+    if data.get("Detail") is not None:
         out["detail"] = data["Detail"]
-    if "CreatedBy" in data:
+    if data.get("CreatedBy") is not None:
         import capo_ssm.types.ops_item_identity
 
         out["created_by"] = capo_ssm.types.ops_item_identity.deserialize_aws_json_1_1(
             data["CreatedBy"]
         )
-    if "CreatedTime" in data:
+    if data.get("CreatedTime") is not None:
         import capo_ssm.types.date_time
 
         out["created_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

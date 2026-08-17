@@ -28,7 +28,7 @@ def serialize_json(value: StopDurableExecutionRequest) -> dict:
 
 def deserialize_json(data: dict) -> StopDurableExecutionRequest:
     out: StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.error_object
 
         out["error"] = capo_lambda.types.error_object.deserialize_json(data["Error"])

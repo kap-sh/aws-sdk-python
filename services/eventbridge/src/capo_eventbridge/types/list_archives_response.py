@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: ListArchivesResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListArchivesResponse:
     out: ListArchivesResponse = {}  # type: ignore[typeddict-item]
-    if "Archives" in data:
+    if data.get("Archives") is not None:
         import capo_eventbridge.types.archive_response_list
 
         out["archives"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListArchivesResponse:
                 data["Archives"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

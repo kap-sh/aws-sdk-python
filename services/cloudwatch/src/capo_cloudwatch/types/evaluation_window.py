@@ -89,7 +89,7 @@ def serialize_aws_json_1_0(value: EvaluationWindow) -> dict:
 
 
 def deserialize_aws_json_1_0(data: dict) -> EvaluationWindow:
-    if "WallClockWindow" in data:
+    if data.get("WallClockWindow") is not None:
         import capo_cloudwatch.types.wall_clock_window
 
         return {
@@ -97,7 +97,7 @@ def deserialize_aws_json_1_0(data: dict) -> EvaluationWindow:
                 data["WallClockWindow"]
             )
         }
-    elif "SlidingWindow" in data:
+    elif data.get("SlidingWindow") is not None:
         import capo_cloudwatch.types.sliding_window
 
         return {

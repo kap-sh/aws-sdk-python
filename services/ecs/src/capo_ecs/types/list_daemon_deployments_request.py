@@ -55,11 +55,11 @@ def serialize_aws_json_1_1(value: ListDaemonDeploymentsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListDaemonDeploymentsRequest:
     out: ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-    if "daemonArn" in data:
+    if data.get("daemonArn") is not None:
         out["daemon_arn"] = data["daemonArn"]
     else:
         raise DeserializationError("ListDaemonDeploymentsRequest.daemon_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_deployment_status_list
 
         out["status"] = (
@@ -67,14 +67,14 @@ def deserialize_aws_json_1_1(data: dict) -> ListDaemonDeploymentsRequest:
                 data["status"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.created_at
 
         out["created_at"] = capo_ecs.types.created_at.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

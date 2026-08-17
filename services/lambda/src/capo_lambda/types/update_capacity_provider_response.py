@@ -28,7 +28,7 @@ def serialize_json(value: UpdateCapacityProviderResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateCapacityProviderResponse:
     out: UpdateCapacityProviderResponse = {}  # type: ignore[typeddict-item]
-    if "CapacityProvider" in data:
+    if data.get("CapacityProvider") is not None:
         import capo_lambda.types.capacity_provider
 
         out["capacity_provider"] = capo_lambda.types.capacity_provider.deserialize_json(

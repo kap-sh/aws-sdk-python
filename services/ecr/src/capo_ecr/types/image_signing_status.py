@@ -48,13 +48,13 @@ def serialize_aws_json_1_1(value: ImageSigningStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageSigningStatus:
     out: ImageSigningStatus = {}  # type: ignore[typeddict-item]
-    if "signingProfileArn" in data:
+    if data.get("signingProfileArn") is not None:
         out["signing_profile_arn"] = data["signingProfileArn"]
-    if "failureCode" in data:
+    if data.get("failureCode") is not None:
         out["failure_code"] = data["failureCode"]
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecr.types.signing_status
 
         out["status"] = capo_ecr.types.signing_status.deserialize_aws_json_1_1(

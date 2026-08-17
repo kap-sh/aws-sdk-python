@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> ProvisionedConcurrencyConfigList:
 
     out: ProvisionedConcurrencyConfigList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_lambda.types.provisioned_concurrency_config_list_item.deserialize_json(
                 item

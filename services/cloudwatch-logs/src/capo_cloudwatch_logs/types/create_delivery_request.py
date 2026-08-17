@@ -70,19 +70,19 @@ def serialize_aws_json_1_1(value: CreateDeliveryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateDeliveryRequest:
     out: CreateDeliveryRequest = {}  # type: ignore[typeddict-item]
-    if "deliverySourceName" in data:
+    if data.get("deliverySourceName") is not None:
         out["delivery_source_name"] = data["deliverySourceName"]
     else:
         raise DeserializationError(
             "CreateDeliveryRequest.delivery_source_name required"
         )
-    if "deliveryDestinationArn" in data:
+    if data.get("deliveryDestinationArn") is not None:
         out["delivery_destination_arn"] = data["deliveryDestinationArn"]
     else:
         raise DeserializationError(
             "CreateDeliveryRequest.delivery_destination_arn required"
         )
-    if "recordFields" in data:
+    if data.get("recordFields") is not None:
         import capo_cloudwatch_logs.types.record_fields
 
         out["record_fields"] = (
@@ -90,9 +90,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDeliveryRequest:
                 data["recordFields"]
             )
         )
-    if "fieldDelimiter" in data:
+    if data.get("fieldDelimiter") is not None:
         out["field_delimiter"] = data["fieldDelimiter"]
-    if "s3DeliveryConfiguration" in data:
+    if data.get("s3DeliveryConfiguration") is not None:
         import capo_cloudwatch_logs.types.s3_delivery_configuration
 
         out["s3_delivery_configuration"] = (
@@ -100,7 +100,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDeliveryRequest:
                 data["s3DeliveryConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

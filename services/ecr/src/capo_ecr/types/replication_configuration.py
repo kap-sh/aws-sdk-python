@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: ReplicationConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicationConfiguration:
     out: ReplicationConfiguration = {}  # type: ignore[typeddict-item]
-    if "rules" in data:
+    if data.get("rules") is not None:
         import capo_ecr.types.replication_rule_list
 
         out["rules"] = capo_ecr.types.replication_rule_list.deserialize_aws_json_1_1(

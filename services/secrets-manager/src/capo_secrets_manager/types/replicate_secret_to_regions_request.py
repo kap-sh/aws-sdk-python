@@ -42,11 +42,11 @@ def serialize_aws_json_1_1(value: ReplicateSecretToRegionsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicateSecretToRegionsRequest:
     out: ReplicateSecretToRegionsRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("ReplicateSecretToRegionsRequest.secret_id required")
-    if "AddReplicaRegions" in data:
+    if data.get("AddReplicaRegions") is not None:
         import capo_secrets_manager.types.add_replica_region_list_type
 
         out["add_replica_regions"] = (
@@ -58,7 +58,7 @@ def deserialize_aws_json_1_1(data: dict) -> ReplicateSecretToRegionsRequest:
         raise DeserializationError(
             "ReplicateSecretToRegionsRequest.add_replica_regions required"
         )
-    if "ForceOverwriteReplicaSecret" in data:
+    if data.get("ForceOverwriteReplicaSecret") is not None:
         out["force_overwrite_replica_secret"] = data["ForceOverwriteReplicaSecret"]
     else:
         out["force_overwrite_replica_secret"] = False

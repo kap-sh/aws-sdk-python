@@ -186,41 +186,41 @@ def serialize_aws_json_1_1(value: Deployment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Deployment:
     out: Deployment = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
-    if "desiredCount" in data:
+    if data.get("desiredCount") is not None:
         out["desired_count"] = data["desiredCount"]
     else:
         out["desired_count"] = 0
-    if "pendingCount" in data:
+    if data.get("pendingCount") is not None:
         out["pending_count"] = data["pendingCount"]
     else:
         out["pending_count"] = 0
-    if "runningCount" in data:
+    if data.get("runningCount") is not None:
         out["running_count"] = data["runningCount"]
     else:
         out["running_count"] = 0
-    if "failedTasks" in data:
+    if data.get("failedTasks") is not None:
         out["failed_tasks"] = data["failedTasks"]
     else:
         out["failed_tasks"] = 0
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_ecs.types.timestamp
 
         out["created_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["updated_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["updatedAt"]
         )
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -228,17 +228,17 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["capacityProviderStrategy"]
             )
         )
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "platformFamily" in data:
+    if data.get("platformFamily") is not None:
         out["platform_family"] = data["platformFamily"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -246,7 +246,7 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["networkConfiguration"]
             )
         )
-    if "rolloutState" in data:
+    if data.get("rolloutState") is not None:
         import capo_ecs.types.deployment_rollout_state
 
         out["rollout_state"] = (
@@ -254,9 +254,9 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["rolloutState"]
             )
         )
-    if "rolloutStateReason" in data:
+    if data.get("rolloutStateReason") is not None:
         out["rollout_state_reason"] = data["rolloutStateReason"]
-    if "serviceConnectConfiguration" in data:
+    if data.get("serviceConnectConfiguration") is not None:
         import capo_ecs.types.service_connect_configuration
 
         out["service_connect_configuration"] = (
@@ -264,7 +264,7 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["serviceConnectConfiguration"]
             )
         )
-    if "serviceConnectResources" in data:
+    if data.get("serviceConnectResources") is not None:
         import capo_ecs.types.service_connect_service_resource_list
 
         out["service_connect_resources"] = (
@@ -272,7 +272,7 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["serviceConnectResources"]
             )
         )
-    if "volumeConfigurations" in data:
+    if data.get("volumeConfigurations") is not None:
         import capo_ecs.types.service_volume_configurations
 
         out["volume_configurations"] = (
@@ -280,7 +280,7 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["volumeConfigurations"]
             )
         )
-    if "fargateEphemeralStorage" in data:
+    if data.get("fargateEphemeralStorage") is not None:
         import capo_ecs.types.deployment_ephemeral_storage
 
         out["fargate_ephemeral_storage"] = (
@@ -288,7 +288,7 @@ def deserialize_aws_json_1_1(data: dict) -> Deployment:
                 data["fargateEphemeralStorage"]
             )
         )
-    if "vpcLatticeConfigurations" in data:
+    if data.get("vpcLatticeConfigurations") is not None:
         import capo_ecs.types.vpc_lattice_configurations
 
         out["vpc_lattice_configurations"] = (

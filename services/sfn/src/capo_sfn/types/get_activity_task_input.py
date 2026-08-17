@@ -29,10 +29,10 @@ def serialize_aws_json_1_0(value: GetActivityTaskInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetActivityTaskInput:
     out: GetActivityTaskInput = {}  # type: ignore[typeddict-item]
-    if "activityArn" in data:
+    if data.get("activityArn") is not None:
         out["activity_arn"] = data["activityArn"]
     else:
         raise DeserializationError("GetActivityTaskInput.activity_arn required")
-    if "workerName" in data:
+    if data.get("workerName") is not None:
         out["worker_name"] = data["workerName"]
     return out

@@ -77,13 +77,13 @@ def serialize_aws_json_1_0(value: CreateGlobalSecondaryIndexAction) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateGlobalSecondaryIndexAction:
     out: CreateGlobalSecondaryIndexAction = {}  # type: ignore[typeddict-item]
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
     else:
         raise DeserializationError(
             "CreateGlobalSecondaryIndexAction.index_name required"
         )
-    if "KeySchema" in data:
+    if data.get("KeySchema") is not None:
         import capo_dynamodb.types.key_schema
 
         out["key_schema"] = capo_dynamodb.types.key_schema.deserialize_aws_json_1_0(
@@ -93,7 +93,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateGlobalSecondaryIndexAction:
         raise DeserializationError(
             "CreateGlobalSecondaryIndexAction.key_schema required"
         )
-    if "Projection" in data:
+    if data.get("Projection") is not None:
         import capo_dynamodb.types.projection
 
         out["projection"] = capo_dynamodb.types.projection.deserialize_aws_json_1_0(
@@ -103,7 +103,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateGlobalSecondaryIndexAction:
         raise DeserializationError(
             "CreateGlobalSecondaryIndexAction.projection required"
         )
-    if "ProvisionedThroughput" in data:
+    if data.get("ProvisionedThroughput") is not None:
         import capo_dynamodb.types.provisioned_throughput
 
         out["provisioned_throughput"] = (
@@ -111,7 +111,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateGlobalSecondaryIndexAction:
                 data["ProvisionedThroughput"]
             )
         )
-    if "OnDemandThroughput" in data:
+    if data.get("OnDemandThroughput") is not None:
         import capo_dynamodb.types.on_demand_throughput
 
         out["on_demand_throughput"] = (
@@ -119,7 +119,7 @@ def deserialize_aws_json_1_0(data: dict) -> CreateGlobalSecondaryIndexAction:
                 data["OnDemandThroughput"]
             )
         )
-    if "WarmThroughput" in data:
+    if data.get("WarmThroughput") is not None:
         import capo_dynamodb.types.warm_throughput
 
         out["warm_throughput"] = (

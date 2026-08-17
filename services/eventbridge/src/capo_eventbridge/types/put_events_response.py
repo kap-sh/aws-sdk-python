@@ -35,11 +35,11 @@ def serialize_aws_json_1_1(value: PutEventsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutEventsResponse:
     out: PutEventsResponse = {}  # type: ignore[typeddict-item]
-    if "FailedEntryCount" in data:
+    if data.get("FailedEntryCount") is not None:
         out["failed_entry_count"] = data["FailedEntryCount"]
     else:
         out["failed_entry_count"] = 0
-    if "Entries" in data:
+    if data.get("Entries") is not None:
         import capo_eventbridge.types.put_events_result_entry_list
 
         out["entries"] = (

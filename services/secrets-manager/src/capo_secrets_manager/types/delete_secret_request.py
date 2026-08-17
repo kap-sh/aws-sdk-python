@@ -38,12 +38,12 @@ def serialize_aws_json_1_1(value: DeleteSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteSecretRequest:
     out: DeleteSecretRequest = {}  # type: ignore[typeddict-item]
-    if "SecretId" in data:
+    if data.get("SecretId") is not None:
         out["secret_id"] = data["SecretId"]
     else:
         raise DeserializationError("DeleteSecretRequest.secret_id required")
-    if "RecoveryWindowInDays" in data:
+    if data.get("RecoveryWindowInDays") is not None:
         out["recovery_window_in_days"] = data["RecoveryWindowInDays"]
-    if "ForceDeleteWithoutRecovery" in data:
+    if data.get("ForceDeleteWithoutRecovery") is not None:
         out["force_delete_without_recovery"] = data["ForceDeleteWithoutRecovery"]
     return out

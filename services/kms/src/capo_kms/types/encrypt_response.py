@@ -45,7 +45,7 @@ def serialize_aws_json_1_1(value: EncryptResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EncryptResponse:
     out: EncryptResponse = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -53,9 +53,9 @@ def deserialize_aws_json_1_1(data: dict) -> EncryptResponse:
                 data["CiphertextBlob"]
             )
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "EncryptionAlgorithm" in data:
+    if data.get("EncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["encryption_algorithm"] = (

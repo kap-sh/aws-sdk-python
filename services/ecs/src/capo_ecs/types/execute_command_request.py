@@ -39,19 +39,19 @@ def serialize_aws_json_1_1(value: ExecuteCommandRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ExecuteCommandRequest:
     out: ExecuteCommandRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "container" in data:
+    if data.get("container") is not None:
         out["container"] = data["container"]
-    if "command" in data:
+    if data.get("command") is not None:
         out["command"] = data["command"]
     else:
         raise DeserializationError("ExecuteCommandRequest.command required")
-    if "interactive" in data:
+    if data.get("interactive") is not None:
         out["interactive"] = data["interactive"]
     else:
         out["interactive"] = False
-    if "task" in data:
+    if data.get("task") is not None:
         out["task"] = data["task"]
     else:
         raise DeserializationError("ExecuteCommandRequest.task required")

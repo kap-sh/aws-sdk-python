@@ -55,13 +55,13 @@ def serialize_json(value: ConverseTokensRequest) -> dict:
 
 def deserialize_json(data: dict) -> ConverseTokensRequest:
     out: ConverseTokensRequest = {}  # type: ignore[typeddict-item]
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_runtime.types.messages
 
         out["messages"] = capo_bedrock_runtime.types.messages.deserialize_json(
             data["messages"]
         )
-    if "system" in data:
+    if data.get("system") is not None:
         import capo_bedrock_runtime.types.system_content_blocks
 
         out["system"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> ConverseTokensRequest:
                 data["system"]
             )
         )
-    if "toolConfig" in data:
+    if data.get("toolConfig") is not None:
         import capo_bedrock_runtime.types.tool_configuration
 
         out["tool_config"] = (
@@ -77,6 +77,6 @@ def deserialize_json(data: dict) -> ConverseTokensRequest:
                 data["toolConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
     return out

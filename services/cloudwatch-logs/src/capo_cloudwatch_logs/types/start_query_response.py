@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: StartQueryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartQueryResponse:
     out: StartQueryResponse = {}  # type: ignore[typeddict-item]
-    if "queryId" in data:
+    if data.get("queryId") is not None:
         out["query_id"] = data["queryId"]
     return out

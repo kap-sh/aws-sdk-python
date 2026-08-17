@@ -39,14 +39,14 @@ def serialize_aws_json_1_0(value: SendMessageResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SendMessageResult:
     out: SendMessageResult = {}  # type: ignore[typeddict-item]
-    if "MD5OfMessageBody" in data:
+    if data.get("MD5OfMessageBody") is not None:
         out["md5_of_message_body"] = data["MD5OfMessageBody"]
-    if "MD5OfMessageAttributes" in data:
+    if data.get("MD5OfMessageAttributes") is not None:
         out["md5_of_message_attributes"] = data["MD5OfMessageAttributes"]
-    if "MD5OfMessageSystemAttributes" in data:
+    if data.get("MD5OfMessageSystemAttributes") is not None:
         out["md5_of_message_system_attributes"] = data["MD5OfMessageSystemAttributes"]
-    if "MessageId" in data:
+    if data.get("MessageId") is not None:
         out["message_id"] = data["MessageId"]
-    if "SequenceNumber" in data:
+    if data.get("SequenceNumber") is not None:
         out["sequence_number"] = data["SequenceNumber"]
     return out

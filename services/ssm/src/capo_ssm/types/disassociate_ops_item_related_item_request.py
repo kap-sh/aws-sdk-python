@@ -28,13 +28,13 @@ def serialize_aws_json_1_1(value: DisassociateOpsItemRelatedItemRequest) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> DisassociateOpsItemRelatedItemRequest:
     out: DisassociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
     else:
         raise DeserializationError(
             "DisassociateOpsItemRelatedItemRequest.ops_item_id required"
         )
-    if "AssociationId" in data:
+    if data.get("AssociationId") is not None:
         out["association_id"] = data["AssociationId"]
     else:
         raise DeserializationError(

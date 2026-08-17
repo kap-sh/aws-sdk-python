@@ -37,14 +37,14 @@ def serialize_aws_json_1_0(value: ArchivalSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ArchivalSummary:
     out: ArchivalSummary = {}  # type: ignore[typeddict-item]
-    if "ArchivalDateTime" in data:
+    if data.get("ArchivalDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["archival_date_time"] = capo_dynamodb.types.date.deserialize_aws_json_1_0(
             data["ArchivalDateTime"]
         )
-    if "ArchivalReason" in data:
+    if data.get("ArchivalReason") is not None:
         out["archival_reason"] = data["ArchivalReason"]
-    if "ArchivalBackupArn" in data:
+    if data.get("ArchivalBackupArn") is not None:
         out["archival_backup_arn"] = data["ArchivalBackupArn"]
     return out

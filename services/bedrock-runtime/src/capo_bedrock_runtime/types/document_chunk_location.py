@@ -26,10 +26,10 @@ def serialize_json(value: DocumentChunkLocation) -> dict:
 
 def deserialize_json(data: dict) -> DocumentChunkLocation:
     out: DocumentChunkLocation = {}  # type: ignore[typeddict-item]
-    if "documentIndex" in data:
+    if data.get("documentIndex") is not None:
         out["document_index"] = data["documentIndex"]
-    if "start" in data:
+    if data.get("start") is not None:
         out["start"] = data["start"]
-    if "end" in data:
+    if data.get("end") is not None:
         out["end"] = data["end"]
     return out

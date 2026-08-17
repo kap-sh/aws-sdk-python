@@ -50,11 +50,11 @@ def serialize_json(value: Citation) -> dict:
 
 def deserialize_json(data: dict) -> Citation:
     out: Citation = {}  # type: ignore[typeddict-item]
-    if "title" in data:
+    if data.get("title") is not None:
         out["title"] = data["title"]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "sourceContent" in data:
+    if data.get("sourceContent") is not None:
         import capo_bedrock_runtime.types.citation_source_content_list
 
         out["source_content"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> Citation:
                 data["sourceContent"]
             )
         )
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_runtime.types.citation_location
 
         out["location"] = capo_bedrock_runtime.types.citation_location.deserialize_json(

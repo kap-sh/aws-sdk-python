@@ -67,11 +67,11 @@ def serialize_aws_json_1_1(value: DeriveSharedSecretRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretRequest:
     out: DeriveSharedSecretRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("DeriveSharedSecretRequest.key_id required")
-    if "KeyAgreementAlgorithm" in data:
+    if data.get("KeyAgreementAlgorithm") is not None:
         import capo_kms.types.key_agreement_algorithm_spec
 
         out["key_agreement_algorithm"] = (
@@ -83,7 +83,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretRequest:
         raise DeserializationError(
             "DeriveSharedSecretRequest.key_agreement_algorithm required"
         )
-    if "PublicKey" in data:
+    if data.get("PublicKey") is not None:
         import capo_kms.types.public_key_type
 
         out["public_key"] = capo_kms.types.public_key_type.deserialize_aws_json_1_1(
@@ -91,15 +91,15 @@ def deserialize_aws_json_1_1(data: dict) -> DeriveSharedSecretRequest:
         )
     else:
         raise DeserializationError("DeriveSharedSecretRequest.public_key required")
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
-    if "Recipient" in data:
+    if data.get("Recipient") is not None:
         import capo_kms.types.recipient_info
 
         out["recipient"] = capo_kms.types.recipient_info.deserialize_aws_json_1_1(

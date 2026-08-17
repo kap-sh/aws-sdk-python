@@ -72,17 +72,17 @@ def serialize_aws_json_1_0(value: BackupDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BackupDetails:
     out: BackupDetails = {}  # type: ignore[typeddict-item]
-    if "BackupArn" in data:
+    if data.get("BackupArn") is not None:
         out["backup_arn"] = data["BackupArn"]
     else:
         raise DeserializationError("BackupDetails.backup_arn required")
-    if "BackupName" in data:
+    if data.get("BackupName") is not None:
         out["backup_name"] = data["BackupName"]
     else:
         raise DeserializationError("BackupDetails.backup_name required")
-    if "BackupSizeBytes" in data:
+    if data.get("BackupSizeBytes") is not None:
         out["backup_size_bytes"] = data["BackupSizeBytes"]
-    if "BackupStatus" in data:
+    if data.get("BackupStatus") is not None:
         import capo_dynamodb.types.backup_status
 
         out["backup_status"] = (
@@ -92,7 +92,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupDetails:
         )
     else:
         raise DeserializationError("BackupDetails.backup_status required")
-    if "BackupType" in data:
+    if data.get("BackupType") is not None:
         import capo_dynamodb.types.backup_type
 
         out["backup_type"] = capo_dynamodb.types.backup_type.deserialize_aws_json_1_0(
@@ -100,7 +100,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupDetails:
         )
     else:
         raise DeserializationError("BackupDetails.backup_type required")
-    if "BackupCreationDateTime" in data:
+    if data.get("BackupCreationDateTime") is not None:
         import capo_dynamodb.types.backup_creation_date_time
 
         out["backup_creation_date_time"] = (
@@ -110,7 +110,7 @@ def deserialize_aws_json_1_0(data: dict) -> BackupDetails:
         )
     else:
         raise DeserializationError("BackupDetails.backup_creation_date_time required")
-    if "BackupExpiryDateTime" in data:
+    if data.get("BackupExpiryDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["backup_expiry_date_time"] = (

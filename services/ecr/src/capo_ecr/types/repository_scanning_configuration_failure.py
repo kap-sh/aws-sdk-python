@@ -43,9 +43,9 @@ def serialize_aws_json_1_1(value: RepositoryScanningConfigurationFailure) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> RepositoryScanningConfigurationFailure:
     out: RepositoryScanningConfigurationFailure = {}  # type: ignore[typeddict-item]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "failureCode" in data:
+    if data.get("failureCode") is not None:
         import capo_ecr.types.scanning_configuration_failure_code
 
         out["failure_code"] = (
@@ -53,6 +53,6 @@ def deserialize_aws_json_1_1(data: dict) -> RepositoryScanningConfigurationFailu
                 data["failureCode"]
             )
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
     return out

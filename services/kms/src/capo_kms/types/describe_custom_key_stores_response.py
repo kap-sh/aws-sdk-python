@@ -40,7 +40,7 @@ def serialize_aws_json_1_1(value: DescribeCustomKeyStoresResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeCustomKeyStoresResponse:
     out: DescribeCustomKeyStoresResponse = {}  # type: ignore[typeddict-item]
-    if "CustomKeyStores" in data:
+    if data.get("CustomKeyStores") is not None:
         import capo_kms.types.custom_key_stores_list
 
         out["custom_key_stores"] = (
@@ -48,9 +48,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeCustomKeyStoresResponse:
                 data["CustomKeyStores"]
             )
         )
-    if "NextMarker" in data:
+    if data.get("NextMarker") is not None:
         out["next_marker"] = data["NextMarker"]
-    if "Truncated" in data:
+    if data.get("Truncated") is not None:
         out["truncated"] = data["Truncated"]
     else:
         out["truncated"] = False

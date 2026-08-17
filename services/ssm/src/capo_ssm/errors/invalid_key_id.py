@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: InvalidKeyId_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvalidKeyId_:
     out: InvalidKeyId_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

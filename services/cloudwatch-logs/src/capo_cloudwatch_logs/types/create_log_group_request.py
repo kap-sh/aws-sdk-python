@@ -58,19 +58,19 @@ def serialize_aws_json_1_1(value: CreateLogGroupRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateLogGroupRequest:
     out: CreateLogGroupRequest = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("CreateLogGroupRequest.log_group_name required")
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(
             data["tags"]
         )
-    if "logGroupClass" in data:
+    if data.get("logGroupClass") is not None:
         import capo_cloudwatch_logs.types.log_group_class
 
         out["log_group_class"] = (
@@ -78,6 +78,6 @@ def deserialize_aws_json_1_1(data: dict) -> CreateLogGroupRequest:
                 data["logGroupClass"]
             )
         )
-    if "deletionProtectionEnabled" in data:
+    if data.get("deletionProtectionEnabled") is not None:
         out["deletion_protection_enabled"] = data["deletionProtectionEnabled"]
     return out

@@ -44,7 +44,7 @@ def serialize_aws_json_1_1(value: CreateAssociationBatchResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateAssociationBatchResult:
     out: CreateAssociationBatchResult = {}  # type: ignore[typeddict-item]
-    if "Successful" in data:
+    if data.get("Successful") is not None:
         import capo_ssm.types.association_description_list
 
         out["successful"] = (
@@ -52,7 +52,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateAssociationBatchResult:
                 data["Successful"]
             )
         )
-    if "Failed" in data:
+    if data.get("Failed") is not None:
         import capo_ssm.types.failed_create_association_list
 
         out["failed"] = (

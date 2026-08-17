@@ -94,7 +94,7 @@ def serialize_aws_json_1_1(value: DecryptRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DecryptRequest:
     out: DecryptRequest = {}  # type: ignore[typeddict-item]
-    if "CiphertextBlob" in data:
+    if data.get("CiphertextBlob") is not None:
         import capo_kms.types.ciphertext_type
 
         out["ciphertext_blob"] = (
@@ -102,7 +102,7 @@ def deserialize_aws_json_1_1(data: dict) -> DecryptRequest:
                 data["CiphertextBlob"]
             )
         )
-    if "EncryptionContext" in data:
+    if data.get("EncryptionContext") is not None:
         import capo_kms.types.encryption_context_type
 
         out["encryption_context"] = (
@@ -110,15 +110,15 @@ def deserialize_aws_json_1_1(data: dict) -> DecryptRequest:
                 data["EncryptionContext"]
             )
         )
-    if "GrantTokens" in data:
+    if data.get("GrantTokens") is not None:
         import capo_kms.types.grant_token_list
 
         out["grant_tokens"] = capo_kms.types.grant_token_list.deserialize_aws_json_1_1(
             data["GrantTokens"]
         )
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
-    if "EncryptionAlgorithm" in data:
+    if data.get("EncryptionAlgorithm") is not None:
         import capo_kms.types.encryption_algorithm_spec
 
         out["encryption_algorithm"] = (
@@ -126,15 +126,15 @@ def deserialize_aws_json_1_1(data: dict) -> DecryptRequest:
                 data["EncryptionAlgorithm"]
             )
         )
-    if "Recipient" in data:
+    if data.get("Recipient") is not None:
         import capo_kms.types.recipient_info
 
         out["recipient"] = capo_kms.types.recipient_info.deserialize_aws_json_1_1(
             data["Recipient"]
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
-    if "DryRunModifiers" in data:
+    if data.get("DryRunModifiers") is not None:
         import capo_kms.types.dry_run_modifier_list
 
         out["dry_run_modifiers"] = (

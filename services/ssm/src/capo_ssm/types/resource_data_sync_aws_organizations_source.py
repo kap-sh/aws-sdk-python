@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: ResourceDataSyncAwsOrganizationsSource) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncAwsOrganizationsSource:
     out: ResourceDataSyncAwsOrganizationsSource = {}  # type: ignore[typeddict-item]
-    if "OrganizationSourceType" in data:
+    if data.get("OrganizationSourceType") is not None:
         out["organization_source_type"] = data["OrganizationSourceType"]
     else:
         raise DeserializationError(
             "ResourceDataSyncAwsOrganizationsSource.organization_source_type required"
         )
-    if "OrganizationalUnits" in data:
+    if data.get("OrganizationalUnits") is not None:
         import capo_ssm.types.resource_data_sync_organizational_unit_list
 
         out["organizational_units"] = (

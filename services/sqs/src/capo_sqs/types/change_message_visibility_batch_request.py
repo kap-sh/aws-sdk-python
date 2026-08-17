@@ -34,13 +34,13 @@ def serialize_aws_json_1_0(value: ChangeMessageVisibilityBatchRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ChangeMessageVisibilityBatchRequest:
     out: ChangeMessageVisibilityBatchRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError(
             "ChangeMessageVisibilityBatchRequest.queue_url required"
         )
-    if "Entries" in data:
+    if data.get("Entries") is not None:
         import capo_sqs.types.change_message_visibility_batch_request_entry_list
 
         out["entries"] = (

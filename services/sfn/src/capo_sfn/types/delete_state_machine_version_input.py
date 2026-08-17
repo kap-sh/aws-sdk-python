@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DeleteStateMachineVersionInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DeleteStateMachineVersionInput:
     out: DeleteStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
     else:
         raise DeserializationError(

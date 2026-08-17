@@ -40,7 +40,7 @@ def serialize_aws_json_1_0(value: ReplicaUpdate) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReplicaUpdate:
     out: ReplicaUpdate = {}  # type: ignore[typeddict-item]
-    if "Create" in data:
+    if data.get("Create") is not None:
         import capo_dynamodb.types.create_replica_action
 
         out["create"] = (
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReplicaUpdate:
                 data["Create"]
             )
         )
-    if "Delete" in data:
+    if data.get("Delete") is not None:
         import capo_dynamodb.types.delete_replica_action
 
         out["delete"] = (

@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: PutSigningConfigurationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutSigningConfigurationResponse:
     out: PutSigningConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "signingConfiguration" in data:
+    if data.get("signingConfiguration") is not None:
         import capo_ecr.types.signing_configuration
 
         out["signing_configuration"] = (

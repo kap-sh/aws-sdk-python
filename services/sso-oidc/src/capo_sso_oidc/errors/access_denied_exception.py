@@ -45,9 +45,9 @@ def serialize_json(value: AccessDeniedException_) -> dict:
 
 def deserialize_json(data: dict) -> AccessDeniedException_:
     out: AccessDeniedException_ = {}  # type: ignore[typeddict-item]
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         import capo_sso_oidc.types.access_denied_exception_reason
 
         out["reason"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> AccessDeniedException_:
                 data["reason"]
             )
         )
-    if "error_description" in data:
+    if data.get("error_description") is not None:
         out["error_description"] = data["error_description"]
     return out
 

@@ -42,13 +42,13 @@ def serialize_aws_json_1_0(value: StateEnteredEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StateEnteredEventDetails:
     out: StateEnteredEventDetails = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("StateEnteredEventDetails.name required")
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inputDetails" in data:
+    if data.get("inputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["input_details"] = (

@@ -40,13 +40,13 @@ def serialize_aws_json_1_0(value: BillingModeSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> BillingModeSummary:
     out: BillingModeSummary = {}  # type: ignore[typeddict-item]
-    if "BillingMode" in data:
+    if data.get("BillingMode") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["billing_mode"] = capo_dynamodb.types.billing_mode.deserialize_aws_json_1_0(
             data["BillingMode"]
         )
-    if "LastUpdateToPayPerRequestDateTime" in data:
+    if data.get("LastUpdateToPayPerRequestDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["last_update_to_pay_per_request_date_time"] = (

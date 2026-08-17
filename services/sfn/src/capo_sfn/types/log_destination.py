@@ -31,7 +31,7 @@ def serialize_aws_json_1_0(value: LogDestination) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> LogDestination:
     out: LogDestination = {}  # type: ignore[typeddict-item]
-    if "cloudWatchLogsLogGroup" in data:
+    if data.get("cloudWatchLogsLogGroup") is not None:
         import capo_sfn.types.cloud_watch_logs_log_group
 
         out["cloud_watch_logs_log_group"] = (

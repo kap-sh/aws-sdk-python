@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> CacheDetailsList:
 
     out: CacheDetailsList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_runtime.types.cache_detail.deserialize_json(item))
     return out

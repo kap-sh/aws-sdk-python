@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: ReplicateSecretToRegionsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ReplicateSecretToRegionsResponse:
     out: ReplicateSecretToRegionsResponse = {}  # type: ignore[typeddict-item]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "ReplicationStatus" in data:
+    if data.get("ReplicationStatus") is not None:
         import capo_secrets_manager.types.replication_status_list_type
 
         out["replication_status"] = (

@@ -146,13 +146,13 @@ def serialize_aws_json_1_1(value: ConfigurationTemplate) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
     out: ConfigurationTemplate = {}  # type: ignore[typeddict-item]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
-    if "logType" in data:
+    if data.get("logType") is not None:
         out["log_type"] = data["logType"]
-    if "resourceType" in data:
+    if data.get("resourceType") is not None:
         out["resource_type"] = data["resourceType"]
-    if "deliveryDestinationType" in data:
+    if data.get("deliveryDestinationType") is not None:
         import capo_cloudwatch_logs.types.delivery_destination_type
 
         out["delivery_destination_type"] = (
@@ -160,7 +160,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["deliveryDestinationType"]
             )
         )
-    if "defaultDeliveryConfigValues" in data:
+    if data.get("defaultDeliveryConfigValues") is not None:
         import capo_cloudwatch_logs.types.configuration_template_delivery_config_values
 
         out["default_delivery_config_values"] = (
@@ -168,7 +168,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["defaultDeliveryConfigValues"]
             )
         )
-    if "allowedFields" in data:
+    if data.get("allowedFields") is not None:
         import capo_cloudwatch_logs.types.allowed_fields
 
         out["allowed_fields"] = (
@@ -176,7 +176,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["allowedFields"]
             )
         )
-    if "allowedOutputFormats" in data:
+    if data.get("allowedOutputFormats") is not None:
         import capo_cloudwatch_logs.types.output_formats
 
         out["allowed_output_formats"] = (
@@ -184,11 +184,11 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["allowedOutputFormats"]
             )
         )
-    if "allowedActionForAllowVendedLogsDeliveryForResource" in data:
+    if data.get("allowedActionForAllowVendedLogsDeliveryForResource") is not None:
         out["allowed_action_for_allow_vended_logs_delivery_for_resource"] = data[
             "allowedActionForAllowVendedLogsDeliveryForResource"
         ]
-    if "allowedFieldDelimiters" in data:
+    if data.get("allowedFieldDelimiters") is not None:
         import capo_cloudwatch_logs.types.allowed_field_delimiters
 
         out["allowed_field_delimiters"] = (
@@ -196,7 +196,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["allowedFieldDelimiters"]
             )
         )
-    if "allowedSuffixPathFields" in data:
+    if data.get("allowedSuffixPathFields") is not None:
         import capo_cloudwatch_logs.types.record_fields
 
         out["allowed_suffix_path_fields"] = (
@@ -204,7 +204,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["allowedSuffixPathFields"]
             )
         )
-    if "deliverySourceConfiguration" in data:
+    if data.get("deliverySourceConfiguration") is not None:
         import capo_cloudwatch_logs.types.delivery_source_configuration_schemas
 
         out["delivery_source_configuration"] = (
@@ -212,7 +212,7 @@ def deserialize_aws_json_1_1(data: dict) -> ConfigurationTemplate:
                 data["deliverySourceConfiguration"]
             )
         )
-    if "s3TablesIntegration" in data:
+    if data.get("s3TablesIntegration") is not None:
         import capo_cloudwatch_logs.types.s3_tables_integration
 
         out["s3_tables_integration"] = (

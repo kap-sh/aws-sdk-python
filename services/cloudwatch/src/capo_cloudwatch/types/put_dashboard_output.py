@@ -33,7 +33,7 @@ def serialize_aws_json_1_0(value: PutDashboardOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PutDashboardOutput:
     out: PutDashboardOutput = {}  # type: ignore[typeddict-item]
-    if "DashboardValidationMessages" in data:
+    if data.get("DashboardValidationMessages") is not None:
         import capo_cloudwatch.types.dashboard_validation_messages
 
         out["dashboard_validation_messages"] = (

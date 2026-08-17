@@ -29,7 +29,7 @@ def serialize_aws_json_1_1(value: DeleteCapacityProviderResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteCapacityProviderResponse:
     out: DeleteCapacityProviderResponse = {}  # type: ignore[typeddict-item]
-    if "capacityProvider" in data:
+    if data.get("capacityProvider") is not None:
         import capo_ecs.types.capacity_provider
 
         out["capacity_provider"] = (

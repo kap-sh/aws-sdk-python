@@ -36,13 +36,13 @@ def serialize_json(value: GetAccountSettingsResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAccountSettingsResponse:
     out: GetAccountSettingsResponse = {}  # type: ignore[typeddict-item]
-    if "AccountLimit" in data:
+    if data.get("AccountLimit") is not None:
         import capo_lambda.types.account_limit
 
         out["account_limit"] = capo_lambda.types.account_limit.deserialize_json(
             data["AccountLimit"]
         )
-    if "AccountUsage" in data:
+    if data.get("AccountUsage") is not None:
         import capo_lambda.types.account_usage
 
         out["account_usage"] = capo_lambda.types.account_usage.deserialize_json(

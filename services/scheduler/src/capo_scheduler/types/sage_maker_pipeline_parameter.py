@@ -28,11 +28,11 @@ def serialize_json(value: SageMakerPipelineParameter) -> dict:
 
 def deserialize_json(data: dict) -> SageMakerPipelineParameter:
     out: SageMakerPipelineParameter = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("SageMakerPipelineParameter.name required")
-    if "Value" in data:
+    if data.get("Value") is not None:
         out["value"] = data["Value"]
     else:
         raise DeserializationError("SageMakerPipelineParameter.value required")

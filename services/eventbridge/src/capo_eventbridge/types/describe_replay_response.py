@@ -114,23 +114,23 @@ def serialize_aws_json_1_1(value: DescribeReplayResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
     out: DescribeReplayResponse = {}  # type: ignore[typeddict-item]
-    if "ReplayName" in data:
+    if data.get("ReplayName") is not None:
         out["replay_name"] = data["ReplayName"]
-    if "ReplayArn" in data:
+    if data.get("ReplayArn") is not None:
         out["replay_arn"] = data["ReplayArn"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.replay_state
 
         out["state"] = capo_eventbridge.types.replay_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "StateReason" in data:
+    if data.get("StateReason") is not None:
         out["state_reason"] = data["StateReason"]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
-    if "Destination" in data:
+    if data.get("Destination") is not None:
         import capo_eventbridge.types.replay_destination
 
         out["destination"] = (
@@ -138,7 +138,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
                 data["Destination"]
             )
         )
-    if "EventStartTime" in data:
+    if data.get("EventStartTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["event_start_time"] = (
@@ -146,7 +146,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
                 data["EventStartTime"]
             )
         )
-    if "EventEndTime" in data:
+    if data.get("EventEndTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["event_end_time"] = (
@@ -154,7 +154,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
                 data["EventEndTime"]
             )
         )
-    if "EventLastReplayedTime" in data:
+    if data.get("EventLastReplayedTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["event_last_replayed_time"] = (
@@ -162,7 +162,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
                 data["EventLastReplayedTime"]
             )
         )
-    if "ReplayStartTime" in data:
+    if data.get("ReplayStartTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["replay_start_time"] = (
@@ -170,7 +170,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeReplayResponse:
                 data["ReplayStartTime"]
             )
         )
-    if "ReplayEndTime" in data:
+    if data.get("ReplayEndTime") is not None:
         import capo_eventbridge.types.timestamp
 
         out["replay_end_time"] = (

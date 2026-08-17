@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: GetAutomationExecutionResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetAutomationExecutionResult:
     out: GetAutomationExecutionResult = {}  # type: ignore[typeddict-item]
-    if "AutomationExecution" in data:
+    if data.get("AutomationExecution") is not None:
         import capo_ssm.types.automation_execution
 
         out["automation_execution"] = (

@@ -46,7 +46,7 @@ def serialize_json(value: InvocationCompletedDetails) -> dict:
 
 def deserialize_json(data: dict) -> InvocationCompletedDetails:
     out: InvocationCompletedDetails = {}  # type: ignore[typeddict-item]
-    if "StartTimestamp" in data:
+    if data.get("StartTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["start_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> InvocationCompletedDetails:
         raise DeserializationError(
             "InvocationCompletedDetails.start_timestamp required"
         )
-    if "EndTimestamp" in data:
+    if data.get("EndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["end_timestamp"] = capo_lambda.types.execution_timestamp.deserialize_json(
@@ -64,11 +64,11 @@ def deserialize_json(data: dict) -> InvocationCompletedDetails:
         )
     else:
         raise DeserializationError("InvocationCompletedDetails.end_timestamp required")
-    if "RequestId" in data:
+    if data.get("RequestId") is not None:
         out["request_id"] = data["RequestId"]
     else:
         raise DeserializationError("InvocationCompletedDetails.request_id required")
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.event_error
 
         out["error"] = capo_lambda.types.event_error.deserialize_json(data["Error"])

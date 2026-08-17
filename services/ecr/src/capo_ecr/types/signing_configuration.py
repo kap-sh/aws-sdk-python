@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: SigningConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SigningConfiguration:
     out: SigningConfiguration = {}  # type: ignore[typeddict-item]
-    if "rules" in data:
+    if data.get("rules") is not None:
         import capo_ecr.types.signing_rule_list
 
         out["rules"] = capo_ecr.types.signing_rule_list.deserialize_aws_json_1_1(

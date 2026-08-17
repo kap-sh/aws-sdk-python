@@ -46,20 +46,20 @@ def serialize_json(value: RegisterClientResponse) -> dict:
 
 def deserialize_json(data: dict) -> RegisterClientResponse:
     out: RegisterClientResponse = {}  # type: ignore[typeddict-item]
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
-    if "clientSecret" in data:
+    if data.get("clientSecret") is not None:
         out["client_secret"] = data["clientSecret"]
-    if "clientIdIssuedAt" in data:
+    if data.get("clientIdIssuedAt") is not None:
         out["client_id_issued_at"] = data["clientIdIssuedAt"]
     else:
         out["client_id_issued_at"] = 0
-    if "clientSecretExpiresAt" in data:
+    if data.get("clientSecretExpiresAt") is not None:
         out["client_secret_expires_at"] = data["clientSecretExpiresAt"]
     else:
         out["client_secret_expires_at"] = 0
-    if "authorizationEndpoint" in data:
+    if data.get("authorizationEndpoint") is not None:
         out["authorization_endpoint"] = data["authorizationEndpoint"]
-    if "tokenEndpoint" in data:
+    if data.get("tokenEndpoint") is not None:
         out["token_endpoint"] = data["tokenEndpoint"]
     return out

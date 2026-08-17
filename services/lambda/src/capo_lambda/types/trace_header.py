@@ -23,6 +23,6 @@ def serialize_json(value: TraceHeader) -> dict:
 
 def deserialize_json(data: dict) -> TraceHeader:
     out: TraceHeader = {}  # type: ignore[typeddict-item]
-    if "XAmznTraceId" in data:
+    if data.get("XAmznTraceId") is not None:
         out["x_amzn_trace_id"] = data["XAmznTraceId"]
     return out

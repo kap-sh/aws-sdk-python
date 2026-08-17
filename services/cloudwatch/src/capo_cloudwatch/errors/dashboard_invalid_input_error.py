@@ -39,9 +39,9 @@ def serialize_aws_json_1_0(value: DashboardInvalidInputError_) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DashboardInvalidInputError_:
     out: DashboardInvalidInputError_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "dashboardValidationMessages" in data:
+    if data.get("dashboardValidationMessages") is not None:
         import capo_cloudwatch.types.dashboard_validation_messages
 
         out["dashboard_validation_messages"] = (

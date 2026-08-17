@@ -45,9 +45,9 @@ def serialize_json(value: ReasoningContentBlockDelta) -> dict:
 
 
 def deserialize_json(data: dict) -> ReasoningContentBlockDelta:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "redactedContent" in data:
+    elif data.get("redactedContent") is not None:
         import capo_bedrock_runtime.types._prelude.blob
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> ReasoningContentBlockDelta:
                 data["redactedContent"]
             )
         }
-    elif "signature" in data:
+    elif data.get("signature") is not None:
         return {"signature": data["signature"]}
     else:
         raise DeserializationError(

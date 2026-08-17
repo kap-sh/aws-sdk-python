@@ -37,14 +37,14 @@ def serialize_aws_json_1_1(value: CvssScore) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CvssScore:
     out: CvssScore = {}  # type: ignore[typeddict-item]
-    if "baseScore" in data:
+    if data.get("baseScore") is not None:
         out["base_score"] = data["baseScore"]
     else:
         out["base_score"] = 0
-    if "scoringVector" in data:
+    if data.get("scoringVector") is not None:
         out["scoring_vector"] = data["scoringVector"]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     return out

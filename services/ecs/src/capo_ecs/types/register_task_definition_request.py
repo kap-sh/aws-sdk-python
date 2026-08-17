@@ -170,21 +170,21 @@ def serialize_aws_json_1_1(value: RegisterTaskDefinitionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
     out: RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "family" in data:
+    if data.get("family") is not None:
         out["family"] = data["family"]
     else:
         raise DeserializationError("RegisterTaskDefinitionRequest.family required")
-    if "taskRoleArn" in data:
+    if data.get("taskRoleArn") is not None:
         out["task_role_arn"] = data["taskRoleArn"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "networkMode" in data:
+    if data.get("networkMode") is not None:
         import capo_ecs.types.network_mode
 
         out["network_mode"] = capo_ecs.types.network_mode.deserialize_aws_json_1_1(
             data["networkMode"]
         )
-    if "containerDefinitions" in data:
+    if data.get("containerDefinitions") is not None:
         import capo_ecs.types.container_definitions
 
         out["container_definitions"] = (
@@ -196,13 +196,13 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
         raise DeserializationError(
             "RegisterTaskDefinitionRequest.container_definitions required"
         )
-    if "volumes" in data:
+    if data.get("volumes") is not None:
         import capo_ecs.types.volume_list
 
         out["volumes"] = capo_ecs.types.volume_list.deserialize_aws_json_1_1(
             data["volumes"]
         )
-    if "placementConstraints" in data:
+    if data.get("placementConstraints") is not None:
         import capo_ecs.types.task_definition_placement_constraints
 
         out["placement_constraints"] = (
@@ -210,7 +210,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["placementConstraints"]
             )
         )
-    if "requiresCompatibilities" in data:
+    if data.get("requiresCompatibilities") is not None:
         import capo_ecs.types.compatibility_list
 
         out["requires_compatibilities"] = (
@@ -218,27 +218,27 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["requiresCompatibilities"]
             )
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "pidMode" in data:
+    if data.get("pidMode") is not None:
         import capo_ecs.types.pid_mode
 
         out["pid_mode"] = capo_ecs.types.pid_mode.deserialize_aws_json_1_1(
             data["pidMode"]
         )
-    if "ipcMode" in data:
+    if data.get("ipcMode") is not None:
         import capo_ecs.types.ipc_mode
 
         out["ipc_mode"] = capo_ecs.types.ipc_mode.deserialize_aws_json_1_1(
             data["ipcMode"]
         )
-    if "proxyConfiguration" in data:
+    if data.get("proxyConfiguration") is not None:
         import capo_ecs.types.proxy_configuration
 
         out["proxy_configuration"] = (
@@ -246,7 +246,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["proxyConfiguration"]
             )
         )
-    if "inferenceAccelerators" in data:
+    if data.get("inferenceAccelerators") is not None:
         import capo_ecs.types.inference_accelerators
 
         out["inference_accelerators"] = (
@@ -254,7 +254,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["inferenceAccelerators"]
             )
         )
-    if "ephemeralStorage" in data:
+    if data.get("ephemeralStorage") is not None:
         import capo_ecs.types.ephemeral_storage
 
         out["ephemeral_storage"] = (
@@ -262,7 +262,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["ephemeralStorage"]
             )
         )
-    if "runtimePlatform" in data:
+    if data.get("runtimePlatform") is not None:
         import capo_ecs.types.runtime_platform
 
         out["runtime_platform"] = (
@@ -270,6 +270,6 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterTaskDefinitionRequest:
                 data["runtimePlatform"]
             )
         )
-    if "enableFaultInjection" in data:
+    if data.get("enableFaultInjection") is not None:
         out["enable_fault_injection"] = data["enableFaultInjection"]
     return out

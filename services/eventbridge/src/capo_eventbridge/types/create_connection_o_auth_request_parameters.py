@@ -59,7 +59,7 @@ def serialize_aws_json_1_1(value: CreateConnectionOAuthRequestParameters) -> dic
 
 def deserialize_aws_json_1_1(data: dict) -> CreateConnectionOAuthRequestParameters:
     out: CreateConnectionOAuthRequestParameters = {}  # type: ignore[typeddict-item]
-    if "ClientParameters" in data:
+    if data.get("ClientParameters") is not None:
         import capo_eventbridge.types.create_connection_o_auth_client_request_parameters
 
         out["client_parameters"] = (
@@ -71,13 +71,13 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionOAuthRequestParamete
         raise DeserializationError(
             "CreateConnectionOAuthRequestParameters.client_parameters required"
         )
-    if "AuthorizationEndpoint" in data:
+    if data.get("AuthorizationEndpoint") is not None:
         out["authorization_endpoint"] = data["AuthorizationEndpoint"]
     else:
         raise DeserializationError(
             "CreateConnectionOAuthRequestParameters.authorization_endpoint required"
         )
-    if "HttpMethod" in data:
+    if data.get("HttpMethod") is not None:
         import capo_eventbridge.types.connection_o_auth_http_method
 
         out["http_method"] = (
@@ -89,7 +89,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateConnectionOAuthRequestParamete
         raise DeserializationError(
             "CreateConnectionOAuthRequestParameters.http_method required"
         )
-    if "OAuthHttpParameters" in data:
+    if data.get("OAuthHttpParameters") is not None:
         import capo_eventbridge.types.connection_http_parameters
 
         out["o_auth_http_parameters"] = (

@@ -156,17 +156,17 @@ def serialize_aws_json_1_0(value: UpdateItemInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
     out: UpdateItemInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("UpdateItemInput.table_name required")
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_dynamodb.types.key
 
         out["key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(data["Key"])
     else:
         raise DeserializationError("UpdateItemInput.key required")
-    if "AttributeUpdates" in data:
+    if data.get("AttributeUpdates") is not None:
         import capo_dynamodb.types.attribute_updates
 
         out["attribute_updates"] = (
@@ -174,7 +174,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["AttributeUpdates"]
             )
         )
-    if "Expected" in data:
+    if data.get("Expected") is not None:
         import capo_dynamodb.types.expected_attribute_map
 
         out["expected"] = (
@@ -182,7 +182,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["Expected"]
             )
         )
-    if "ConditionalOperator" in data:
+    if data.get("ConditionalOperator") is not None:
         import capo_dynamodb.types.conditional_operator
 
         out["conditional_operator"] = (
@@ -190,7 +190,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ConditionalOperator"]
             )
         )
-    if "ReturnValues" in data:
+    if data.get("ReturnValues") is not None:
         import capo_dynamodb.types.return_value
 
         out["return_values"] = (
@@ -198,7 +198,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ReturnValues"]
             )
         )
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (
@@ -206,7 +206,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ReturnConsumedCapacity"]
             )
         )
-    if "ReturnItemCollectionMetrics" in data:
+    if data.get("ReturnItemCollectionMetrics") is not None:
         import capo_dynamodb.types.return_item_collection_metrics
 
         out["return_item_collection_metrics"] = (
@@ -214,11 +214,11 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ReturnItemCollectionMetrics"]
             )
         )
-    if "UpdateExpression" in data:
+    if data.get("UpdateExpression") is not None:
         out["update_expression"] = data["UpdateExpression"]
-    if "ConditionExpression" in data:
+    if data.get("ConditionExpression") is not None:
         out["condition_expression"] = data["ConditionExpression"]
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (
@@ -226,7 +226,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ExpressionAttributeNames"]
             )
         )
-    if "ExpressionAttributeValues" in data:
+    if data.get("ExpressionAttributeValues") is not None:
         import capo_dynamodb.types.expression_attribute_value_map
 
         out["expression_attribute_values"] = (
@@ -234,7 +234,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateItemInput:
                 data["ExpressionAttributeValues"]
             )
         )
-    if "ReturnValuesOnConditionCheckFailure" in data:
+    if data.get("ReturnValuesOnConditionCheckFailure") is not None:
         import capo_dynamodb.types.return_values_on_condition_check_failure
 
         out["return_values_on_condition_check_failure"] = (

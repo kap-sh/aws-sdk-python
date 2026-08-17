@@ -54,13 +54,13 @@ def serialize_aws_json_1_0(value: UpdateContributorInsightsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateContributorInsightsInput:
     out: UpdateContributorInsightsInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("UpdateContributorInsightsInput.table_name required")
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "ContributorInsightsAction" in data:
+    if data.get("ContributorInsightsAction") is not None:
         import capo_dynamodb.types.contributor_insights_action
 
         out["contributor_insights_action"] = (
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateContributorInsightsInput:
         raise DeserializationError(
             "UpdateContributorInsightsInput.contributor_insights_action required"
         )
-    if "ContributorInsightsMode" in data:
+    if data.get("ContributorInsightsMode") is not None:
         import capo_dynamodb.types.contributor_insights_mode
 
         out["contributor_insights_mode"] = (

@@ -80,15 +80,15 @@ def serialize_aws_json_1_0(value: TestStateInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TestStateInput:
     out: TestStateInput = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("TestStateInput.definition required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
-    if "inspectionLevel" in data:
+    if data.get("inspectionLevel") is not None:
         import capo_sfn.types.inspection_level
 
         out["inspection_level"] = (
@@ -96,21 +96,21 @@ def deserialize_aws_json_1_0(data: dict) -> TestStateInput:
                 data["inspectionLevel"]
             )
         )
-    if "revealSecrets" in data:
+    if data.get("revealSecrets") is not None:
         out["reveal_secrets"] = data["revealSecrets"]
     else:
         out["reveal_secrets"] = False
-    if "variables" in data:
+    if data.get("variables") is not None:
         out["variables"] = data["variables"]
-    if "stateName" in data:
+    if data.get("stateName") is not None:
         out["state_name"] = data["stateName"]
-    if "mock" in data:
+    if data.get("mock") is not None:
         import capo_sfn.types.mock_input
 
         out["mock"] = capo_sfn.types.mock_input.deserialize_aws_json_1_0(data["mock"])
-    if "context" in data:
+    if data.get("context") is not None:
         out["context"] = data["context"]
-    if "stateConfiguration" in data:
+    if data.get("stateConfiguration") is not None:
         import capo_sfn.types.test_state_configuration
 
         out["state_configuration"] = (

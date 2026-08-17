@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: GetLookupTableRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetLookupTableRequest:
     out: GetLookupTableRequest = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
     else:
         raise DeserializationError("GetLookupTableRequest.lookup_table_arn required")

@@ -53,15 +53,15 @@ def serialize_aws_json_1_1(value: ContainerStateChange) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ContainerStateChange:
     out: ContainerStateChange = {}  # type: ignore[typeddict-item]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
-    if "runtimeId" in data:
+    if data.get("runtimeId") is not None:
         out["runtime_id"] = data["runtimeId"]
-    if "exitCode" in data:
+    if data.get("exitCode") is not None:
         out["exit_code"] = data["exitCode"]
-    if "networkBindings" in data:
+    if data.get("networkBindings") is not None:
         import capo_ecs.types.network_bindings
 
         out["network_bindings"] = (
@@ -69,8 +69,8 @@ def deserialize_aws_json_1_1(data: dict) -> ContainerStateChange:
                 data["networkBindings"]
             )
         )
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
     return out

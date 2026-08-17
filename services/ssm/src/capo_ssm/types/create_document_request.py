@@ -94,11 +94,11 @@ def serialize_aws_json_1_1(value: CreateDocumentRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateDocumentRequest:
     out: CreateDocumentRequest = {}  # type: ignore[typeddict-item]
-    if "Content" in data:
+    if data.get("Content") is not None:
         out["content"] = data["Content"]
     else:
         raise DeserializationError("CreateDocumentRequest.content required")
-    if "Requires" in data:
+    if data.get("Requires") is not None:
         import capo_ssm.types.document_requires_list
 
         out["requires"] = (
@@ -106,7 +106,7 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDocumentRequest:
                 data["Requires"]
             )
         )
-    if "Attachments" in data:
+    if data.get("Attachments") is not None:
         import capo_ssm.types.attachments_source_list
 
         out["attachments"] = (
@@ -114,21 +114,21 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDocumentRequest:
                 data["Attachments"]
             )
         )
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("CreateDocumentRequest.name required")
-    if "DisplayName" in data:
+    if data.get("DisplayName") is not None:
         out["display_name"] = data["DisplayName"]
-    if "VersionName" in data:
+    if data.get("VersionName") is not None:
         out["version_name"] = data["VersionName"]
-    if "DocumentType" in data:
+    if data.get("DocumentType") is not None:
         import capo_ssm.types.document_type
 
         out["document_type"] = capo_ssm.types.document_type.deserialize_aws_json_1_1(
             data["DocumentType"]
         )
-    if "DocumentFormat" in data:
+    if data.get("DocumentFormat") is not None:
         import capo_ssm.types.document_format
 
         out["document_format"] = (
@@ -136,9 +136,9 @@ def deserialize_aws_json_1_1(data: dict) -> CreateDocumentRequest:
                 data["DocumentFormat"]
             )
         )
-    if "TargetType" in data:
+    if data.get("TargetType") is not None:
         out["target_type"] = data["TargetType"]
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

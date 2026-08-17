@@ -36,9 +36,9 @@ def serialize_aws_json_1_0(value: ActivitySucceededEventDetails) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ActivitySucceededEventDetails:
     out: ActivitySucceededEventDetails = {}  # type: ignore[typeddict-item]
-    if "output" in data:
+    if data.get("output") is not None:
         out["output"] = data["output"]
-    if "outputDetails" in data:
+    if data.get("outputDetails") is not None:
         import capo_sfn.types.history_event_execution_data_details
 
         out["output_details"] = (

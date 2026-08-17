@@ -37,27 +37,27 @@ def serialize_aws_json_1_1(value: QueryStatistics) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> QueryStatistics:
     out: QueryStatistics = {}  # type: ignore[typeddict-item]
-    if "recordsMatched" in data:
+    if data.get("recordsMatched") is not None:
         out["records_matched"] = data["recordsMatched"]
     else:
         out["records_matched"] = 0
-    if "recordsScanned" in data:
+    if data.get("recordsScanned") is not None:
         out["records_scanned"] = data["recordsScanned"]
     else:
         out["records_scanned"] = 0
-    if "estimatedRecordsSkipped" in data:
+    if data.get("estimatedRecordsSkipped") is not None:
         out["estimated_records_skipped"] = data["estimatedRecordsSkipped"]
     else:
         out["estimated_records_skipped"] = 0
-    if "bytesScanned" in data:
+    if data.get("bytesScanned") is not None:
         out["bytes_scanned"] = data["bytesScanned"]
     else:
         out["bytes_scanned"] = 0
-    if "estimatedBytesSkipped" in data:
+    if data.get("estimatedBytesSkipped") is not None:
         out["estimated_bytes_skipped"] = data["estimatedBytesSkipped"]
     else:
         out["estimated_bytes_skipped"] = 0
-    if "logGroupsScanned" in data:
+    if data.get("logGroupsScanned") is not None:
         out["log_groups_scanned"] = data["logGroupsScanned"]
     else:
         out["log_groups_scanned"] = 0

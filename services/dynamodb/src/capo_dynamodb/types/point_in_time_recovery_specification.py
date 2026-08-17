@@ -31,12 +31,12 @@ def serialize_aws_json_1_0(value: PointInTimeRecoverySpecification) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> PointInTimeRecoverySpecification:
     out: PointInTimeRecoverySpecification = {}  # type: ignore[typeddict-item]
-    if "PointInTimeRecoveryEnabled" in data:
+    if data.get("PointInTimeRecoveryEnabled") is not None:
         out["point_in_time_recovery_enabled"] = data["PointInTimeRecoveryEnabled"]
     else:
         raise DeserializationError(
             "PointInTimeRecoverySpecification.point_in_time_recovery_enabled required"
         )
-    if "RecoveryPeriodInDays" in data:
+    if data.get("RecoveryPeriodInDays") is not None:
         out["recovery_period_in_days"] = data["RecoveryPeriodInDays"]
     return out

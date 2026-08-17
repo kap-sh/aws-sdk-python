@@ -78,7 +78,7 @@ def serialize_aws_json_1_1(value: GetQueryResultsResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsResponse:
     out: GetQueryResultsResponse = {}  # type: ignore[typeddict-item]
-    if "queryLanguage" in data:
+    if data.get("queryLanguage") is not None:
         import capo_cloudwatch_logs.types.query_language
 
         out["query_language"] = (
@@ -86,7 +86,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsResponse:
                 data["queryLanguage"]
             )
         )
-    if "results" in data:
+    if data.get("results") is not None:
         import capo_cloudwatch_logs.types.query_results
 
         out["results"] = (
@@ -94,7 +94,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsResponse:
                 data["results"]
             )
         )
-    if "statistics" in data:
+    if data.get("statistics") is not None:
         import capo_cloudwatch_logs.types.query_statistics
 
         out["statistics"] = (
@@ -102,7 +102,7 @@ def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsResponse:
                 data["statistics"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.query_status
 
         out["status"] = (
@@ -110,8 +110,8 @@ def deserialize_aws_json_1_1(data: dict) -> GetQueryResultsResponse:
                 data["status"]
             )
         )
-    if "encryptionKey" in data:
+    if data.get("encryptionKey") is not None:
         out["encryption_key"] = data["encryptionKey"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

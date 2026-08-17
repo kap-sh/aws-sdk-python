@@ -56,9 +56,9 @@ def serialize_aws_json_1_1(value: CancelImportTaskResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CancelImportTaskResponse:
     out: CancelImportTaskResponse = {}  # type: ignore[typeddict-item]
-    if "importId" in data:
+    if data.get("importId") is not None:
         out["import_id"] = data["importId"]
-    if "importStatistics" in data:
+    if data.get("importStatistics") is not None:
         import capo_cloudwatch_logs.types.import_statistics
 
         out["import_statistics"] = (
@@ -66,7 +66,7 @@ def deserialize_aws_json_1_1(data: dict) -> CancelImportTaskResponse:
                 data["importStatistics"]
             )
         )
-    if "importStatus" in data:
+    if data.get("importStatus") is not None:
         import capo_cloudwatch_logs.types.import_status
 
         out["import_status"] = (
@@ -74,8 +74,8 @@ def deserialize_aws_json_1_1(data: dict) -> CancelImportTaskResponse:
                 data["importStatus"]
             )
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         out["creation_time"] = data["creationTime"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
     return out

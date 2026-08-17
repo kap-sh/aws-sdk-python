@@ -35,10 +35,10 @@ def serialize_aws_json_1_1(value: DocumentDefaultVersionDescription) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DocumentDefaultVersionDescription:
     out: DocumentDefaultVersionDescription = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "DefaultVersion" in data:
+    if data.get("DefaultVersion") is not None:
         out["default_version"] = data["DefaultVersion"]
-    if "DefaultVersionName" in data:
+    if data.get("DefaultVersionName") is not None:
         out["default_version_name"] = data["DefaultVersionName"]
     return out

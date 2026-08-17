@@ -34,11 +34,11 @@ def serialize_aws_json_1_1(value: OpsMetadataFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsMetadataFilter:
     out: OpsMetadataFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         out["key"] = data["Key"]
     else:
         raise DeserializationError("OpsMetadataFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.ops_metadata_filter_value_list
 
         out["values"] = (

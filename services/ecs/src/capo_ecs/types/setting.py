@@ -41,15 +41,15 @@ def serialize_aws_json_1_1(value: Setting) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Setting:
     out: Setting = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.setting_name
 
         out["name"] = capo_ecs.types.setting_name.deserialize_aws_json_1_1(data["name"])
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
-    if "principalArn" in data:
+    if data.get("principalArn") is not None:
         out["principal_arn"] = data["principalArn"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.setting_type
 
         out["type"] = capo_ecs.types.setting_type.deserialize_aws_json_1_1(data["type"])

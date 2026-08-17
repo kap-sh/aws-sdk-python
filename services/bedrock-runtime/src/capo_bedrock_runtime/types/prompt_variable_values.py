@@ -23,7 +23,7 @@ def serialize_json(value: PromptVariableValues) -> dict:
 
 
 def deserialize_json(data: dict) -> PromptVariableValues:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError("PromptVariableValues: no recognized variant key")

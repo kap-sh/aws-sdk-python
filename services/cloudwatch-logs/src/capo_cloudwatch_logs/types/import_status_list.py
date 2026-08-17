@@ -27,6 +27,8 @@ def deserialize_aws_json_1_1(data: list) -> ImportStatusList:
 
     out: ImportStatusList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.import_status.deserialize_aws_json_1_1(item)
         )

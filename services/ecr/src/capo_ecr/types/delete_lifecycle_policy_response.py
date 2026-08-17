@@ -48,13 +48,13 @@ def serialize_aws_json_1_1(value: DeleteLifecyclePolicyResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteLifecyclePolicyResponse:
     out: DeleteLifecyclePolicyResponse = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "lifecyclePolicyText" in data:
+    if data.get("lifecyclePolicyText") is not None:
         out["lifecycle_policy_text"] = data["lifecyclePolicyText"]
-    if "lastEvaluatedAt" in data:
+    if data.get("lastEvaluatedAt") is not None:
         import capo_ecr.types.evaluation_timestamp
 
         out["last_evaluated_at"] = (

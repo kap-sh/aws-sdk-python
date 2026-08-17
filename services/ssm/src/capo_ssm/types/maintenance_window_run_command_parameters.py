@@ -100,9 +100,9 @@ def serialize_aws_json_1_1(value: MaintenanceWindowRunCommandParameters) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowRunCommandParameters:
     out: MaintenanceWindowRunCommandParameters = {}  # type: ignore[typeddict-item]
-    if "Comment" in data:
+    if data.get("Comment") is not None:
         out["comment"] = data["Comment"]
-    if "CloudWatchOutputConfig" in data:
+    if data.get("CloudWatchOutputConfig") is not None:
         import capo_ssm.types.cloud_watch_output_config
 
         out["cloud_watch_output_config"] = (
@@ -110,9 +110,9 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowRunCommandParameter
                 data["CloudWatchOutputConfig"]
             )
         )
-    if "DocumentHash" in data:
+    if data.get("DocumentHash") is not None:
         out["document_hash"] = data["DocumentHash"]
-    if "DocumentHashType" in data:
+    if data.get("DocumentHashType") is not None:
         import capo_ssm.types.document_hash_type
 
         out["document_hash_type"] = (
@@ -120,9 +120,9 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowRunCommandParameter
                 data["DocumentHashType"]
             )
         )
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "NotificationConfig" in data:
+    if data.get("NotificationConfig") is not None:
         import capo_ssm.types.notification_config
 
         out["notification_config"] = (
@@ -130,18 +130,18 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowRunCommandParameter
                 data["NotificationConfig"]
             )
         )
-    if "OutputS3BucketName" in data:
+    if data.get("OutputS3BucketName") is not None:
         out["output_s3_bucket_name"] = data["OutputS3BucketName"]
-    if "OutputS3KeyPrefix" in data:
+    if data.get("OutputS3KeyPrefix") is not None:
         out["output_s3_key_prefix"] = data["OutputS3KeyPrefix"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.parameters
 
         out["parameters"] = capo_ssm.types.parameters.deserialize_aws_json_1_1(
             data["Parameters"]
         )
-    if "ServiceRoleArn" in data:
+    if data.get("ServiceRoleArn") is not None:
         out["service_role_arn"] = data["ServiceRoleArn"]
-    if "TimeoutSeconds" in data:
+    if data.get("TimeoutSeconds") is not None:
         out["timeout_seconds"] = data["TimeoutSeconds"]
     return out

@@ -80,11 +80,11 @@ def serialize_aws_json_1_0(value: ReceiveMessageRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ReceiveMessageRequest:
     out: ReceiveMessageRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("ReceiveMessageRequest.queue_url required")
-    if "AttributeNames" in data:
+    if data.get("AttributeNames") is not None:
         import capo_sqs.types.attribute_name_list
 
         out["attribute_names"] = (
@@ -92,7 +92,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReceiveMessageRequest:
                 data["AttributeNames"]
             )
         )
-    if "MessageSystemAttributeNames" in data:
+    if data.get("MessageSystemAttributeNames") is not None:
         import capo_sqs.types.message_system_attribute_list
 
         out["message_system_attribute_names"] = (
@@ -100,7 +100,7 @@ def deserialize_aws_json_1_0(data: dict) -> ReceiveMessageRequest:
                 data["MessageSystemAttributeNames"]
             )
         )
-    if "MessageAttributeNames" in data:
+    if data.get("MessageAttributeNames") is not None:
         import capo_sqs.types.message_attribute_name_list
 
         out["message_attribute_names"] = (
@@ -108,12 +108,12 @@ def deserialize_aws_json_1_0(data: dict) -> ReceiveMessageRequest:
                 data["MessageAttributeNames"]
             )
         )
-    if "MaxNumberOfMessages" in data:
+    if data.get("MaxNumberOfMessages") is not None:
         out["max_number_of_messages"] = data["MaxNumberOfMessages"]
-    if "VisibilityTimeout" in data:
+    if data.get("VisibilityTimeout") is not None:
         out["visibility_timeout"] = data["VisibilityTimeout"]
-    if "WaitTimeSeconds" in data:
+    if data.get("WaitTimeSeconds") is not None:
         out["wait_time_seconds"] = data["WaitTimeSeconds"]
-    if "ReceiveRequestAttemptId" in data:
+    if data.get("ReceiveRequestAttemptId") is not None:
         out["receive_request_attempt_id"] = data["ReceiveRequestAttemptId"]
     return out

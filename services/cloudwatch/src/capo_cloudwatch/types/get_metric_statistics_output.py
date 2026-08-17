@@ -34,9 +34,9 @@ def serialize_aws_json_1_0(value: GetMetricStatisticsOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> GetMetricStatisticsOutput:
     out: GetMetricStatisticsOutput = {}  # type: ignore[typeddict-item]
-    if "Label" in data:
+    if data.get("Label") is not None:
         out["label"] = data["Label"]
-    if "Datapoints" in data:
+    if data.get("Datapoints") is not None:
         import capo_cloudwatch.types.datapoints
 
         out["datapoints"] = capo_cloudwatch.types.datapoints.deserialize_aws_json_1_0(

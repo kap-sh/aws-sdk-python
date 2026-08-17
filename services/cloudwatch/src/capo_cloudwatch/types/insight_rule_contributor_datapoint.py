@@ -36,13 +36,13 @@ def serialize_aws_json_1_0(value: InsightRuleContributorDatapoint) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributorDatapoint:
     out: InsightRuleContributorDatapoint = {}  # type: ignore[typeddict-item]
-    if "Timestamp" in data:
+    if data.get("Timestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["timestamp"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["Timestamp"]
         )
-    if "ApproximateValue" in data:
+    if data.get("ApproximateValue") is not None:
         out["approximate_value"] = data["ApproximateValue"]
     return out
 

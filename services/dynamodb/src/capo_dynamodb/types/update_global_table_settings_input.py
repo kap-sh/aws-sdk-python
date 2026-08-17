@@ -87,13 +87,13 @@ def serialize_aws_json_1_0(value: UpdateGlobalTableSettingsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsInput:
     out: UpdateGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-    if "GlobalTableName" in data:
+    if data.get("GlobalTableName") is not None:
         out["global_table_name"] = data["GlobalTableName"]
     else:
         raise DeserializationError(
             "UpdateGlobalTableSettingsInput.global_table_name required"
         )
-    if "GlobalTableBillingMode" in data:
+    if data.get("GlobalTableBillingMode") is not None:
         import capo_dynamodb.types.billing_mode
 
         out["global_table_billing_mode"] = (
@@ -101,11 +101,14 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsInput:
                 data["GlobalTableBillingMode"]
             )
         )
-    if "GlobalTableProvisionedWriteCapacityUnits" in data:
+    if data.get("GlobalTableProvisionedWriteCapacityUnits") is not None:
         out["global_table_provisioned_write_capacity_units"] = data[
             "GlobalTableProvisionedWriteCapacityUnits"
         ]
-    if "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate" in data:
+    if (
+        data.get("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate")
+        is not None
+    ):
         import capo_dynamodb.types.auto_scaling_settings_update
 
         out["global_table_provisioned_write_capacity_auto_scaling_settings_update"] = (
@@ -113,7 +116,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsInput:
                 data["GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"]
             )
         )
-    if "GlobalTableGlobalSecondaryIndexSettingsUpdate" in data:
+    if data.get("GlobalTableGlobalSecondaryIndexSettingsUpdate") is not None:
         import capo_dynamodb.types.global_table_global_secondary_index_settings_update_list
 
         out["global_table_global_secondary_index_settings_update"] = (
@@ -121,7 +124,7 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateGlobalTableSettingsInput:
                 data["GlobalTableGlobalSecondaryIndexSettingsUpdate"]
             )
         )
-    if "ReplicaSettingsUpdate" in data:
+    if data.get("ReplicaSettingsUpdate") is not None:
         import capo_dynamodb.types.replica_settings_update_list
 
         out["replica_settings_update"] = (

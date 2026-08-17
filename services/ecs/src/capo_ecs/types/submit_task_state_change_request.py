@@ -99,15 +99,15 @@ def serialize_aws_json_1_1(value: SubmitTaskStateChangeRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubmitTaskStateChangeRequest:
     out: SubmitTaskStateChangeRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "task" in data:
+    if data.get("task") is not None:
         out["task"] = data["task"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "reason" in data:
+    if data.get("reason") is not None:
         out["reason"] = data["reason"]
-    if "containers" in data:
+    if data.get("containers") is not None:
         import capo_ecs.types.container_state_changes
 
         out["containers"] = (
@@ -115,7 +115,7 @@ def deserialize_aws_json_1_1(data: dict) -> SubmitTaskStateChangeRequest:
                 data["containers"]
             )
         )
-    if "attachments" in data:
+    if data.get("attachments") is not None:
         import capo_ecs.types.attachment_state_changes
 
         out["attachments"] = (
@@ -123,7 +123,7 @@ def deserialize_aws_json_1_1(data: dict) -> SubmitTaskStateChangeRequest:
                 data["attachments"]
             )
         )
-    if "managedAgents" in data:
+    if data.get("managedAgents") is not None:
         import capo_ecs.types.managed_agent_state_changes
 
         out["managed_agents"] = (
@@ -131,19 +131,19 @@ def deserialize_aws_json_1_1(data: dict) -> SubmitTaskStateChangeRequest:
                 data["managedAgents"]
             )
         )
-    if "pullStartedAt" in data:
+    if data.get("pullStartedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["pull_started_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["pullStartedAt"]
         )
-    if "pullStoppedAt" in data:
+    if data.get("pullStoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["pull_stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["pullStoppedAt"]
         )
-    if "executionStoppedAt" in data:
+    if data.get("executionStoppedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["execution_stopped_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(

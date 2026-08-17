@@ -27,7 +27,7 @@ def serialize_json(value: SelfManagedEventSource) -> dict:
 
 def deserialize_json(data: dict) -> SelfManagedEventSource:
     out: SelfManagedEventSource = {}  # type: ignore[typeddict-item]
-    if "Endpoints" in data:
+    if data.get("Endpoints") is not None:
         import capo_lambda.types.endpoints
 
         out["endpoints"] = capo_lambda.types.endpoints.deserialize_json(

@@ -100,39 +100,39 @@ def serialize_json(value: UpdateScheduleInput) -> dict:
 
 def deserialize_json(data: dict) -> UpdateScheduleInput:
     out: UpdateScheduleInput = {}  # type: ignore[typeddict-item]
-    if "GroupName" in data:
+    if data.get("GroupName") is not None:
         out["group_name"] = data["GroupName"]
-    if "ScheduleExpression" in data:
+    if data.get("ScheduleExpression") is not None:
         out["schedule_expression"] = data["ScheduleExpression"]
     else:
         raise DeserializationError("UpdateScheduleInput.schedule_expression required")
-    if "StartDate" in data:
+    if data.get("StartDate") is not None:
         import capo_scheduler.types.start_date
 
         out["start_date"] = capo_scheduler.types.start_date.deserialize_json(
             data["StartDate"]
         )
-    if "EndDate" in data:
+    if data.get("EndDate") is not None:
         import capo_scheduler.types.end_date
 
         out["end_date"] = capo_scheduler.types.end_date.deserialize_json(
             data["EndDate"]
         )
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "ScheduleExpressionTimezone" in data:
+    if data.get("ScheduleExpressionTimezone") is not None:
         out["schedule_expression_timezone"] = data["ScheduleExpressionTimezone"]
-    if "State" in data:
+    if data.get("State") is not None:
         out["state"] = data["State"]
-    if "KmsKeyArn" in data:
+    if data.get("KmsKeyArn") is not None:
         out["kms_key_arn"] = data["KmsKeyArn"]
-    if "Target" in data:
+    if data.get("Target") is not None:
         import capo_scheduler.types.target
 
         out["target"] = capo_scheduler.types.target.deserialize_json(data["Target"])
     else:
         raise DeserializationError("UpdateScheduleInput.target required")
-    if "FlexibleTimeWindow" in data:
+    if data.get("FlexibleTimeWindow") is not None:
         import capo_scheduler.types.flexible_time_window
 
         out["flexible_time_window"] = (
@@ -142,8 +142,8 @@ def deserialize_json(data: dict) -> UpdateScheduleInput:
         )
     else:
         raise DeserializationError("UpdateScheduleInput.flexible_time_window required")
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "ActionAfterCompletion" in data:
+    if data.get("ActionAfterCompletion") is not None:
         out["action_after_completion"] = data["ActionAfterCompletion"]
     return out

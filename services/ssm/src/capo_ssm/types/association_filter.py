@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: AssociationFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssociationFilter:
     out: AssociationFilter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         import capo_ssm.types.association_filter_key
 
         out["key"] = capo_ssm.types.association_filter_key.deserialize_aws_json_1_1(
@@ -40,7 +40,7 @@ def deserialize_aws_json_1_1(data: dict) -> AssociationFilter:
         )
     else:
         raise DeserializationError("AssociationFilter.key required")
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("AssociationFilter.value required")

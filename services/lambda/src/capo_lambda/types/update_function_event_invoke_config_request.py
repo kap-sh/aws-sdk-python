@@ -51,11 +51,11 @@ def serialize_json(value: UpdateFunctionEventInvokeConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateFunctionEventInvokeConfigRequest:
     out: UpdateFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
-    if "MaximumRetryAttempts" in data:
+    if data.get("MaximumRetryAttempts") is not None:
         out["maximum_retry_attempts"] = data["MaximumRetryAttempts"]
-    if "MaximumEventAgeInSeconds" in data:
+    if data.get("MaximumEventAgeInSeconds") is not None:
         out["maximum_event_age_in_seconds"] = data["MaximumEventAgeInSeconds"]
-    if "DestinationConfig" in data:
+    if data.get("DestinationConfig") is not None:
         import capo_lambda.types.destination_config
 
         out["destination_config"] = (

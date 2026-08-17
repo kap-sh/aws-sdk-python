@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribePullThroughCacheRulesResponse) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> DescribePullThroughCacheRulesResponse:
     out: DescribePullThroughCacheRulesResponse = {}  # type: ignore[typeddict-item]
-    if "pullThroughCacheRules" in data:
+    if data.get("pullThroughCacheRules") is not None:
         import capo_ecr.types.pull_through_cache_rule_list
 
         out["pull_through_cache_rules"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribePullThroughCacheRulesRespons
                 data["pullThroughCacheRules"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

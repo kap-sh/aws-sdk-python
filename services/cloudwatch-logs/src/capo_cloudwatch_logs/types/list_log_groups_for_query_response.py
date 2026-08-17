@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: ListLogGroupsForQueryResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsForQueryResponse:
     out: ListLogGroupsForQueryResponse = {}  # type: ignore[typeddict-item]
-    if "logGroupIdentifiers" in data:
+    if data.get("logGroupIdentifiers") is not None:
         import capo_cloudwatch_logs.types.log_group_identifiers
 
         out["log_group_identifiers"] = (
@@ -43,6 +43,6 @@ def deserialize_aws_json_1_1(data: dict) -> ListLogGroupsForQueryResponse:
                 data["logGroupIdentifiers"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

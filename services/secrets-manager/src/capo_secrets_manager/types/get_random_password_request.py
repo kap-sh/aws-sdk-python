@@ -74,20 +74,20 @@ def serialize_aws_json_1_1(value: GetRandomPasswordRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetRandomPasswordRequest:
     out: GetRandomPasswordRequest = {}  # type: ignore[typeddict-item]
-    if "PasswordLength" in data:
+    if data.get("PasswordLength") is not None:
         out["password_length"] = data["PasswordLength"]
-    if "ExcludeCharacters" in data:
+    if data.get("ExcludeCharacters") is not None:
         out["exclude_characters"] = data["ExcludeCharacters"]
-    if "ExcludeNumbers" in data:
+    if data.get("ExcludeNumbers") is not None:
         out["exclude_numbers"] = data["ExcludeNumbers"]
-    if "ExcludePunctuation" in data:
+    if data.get("ExcludePunctuation") is not None:
         out["exclude_punctuation"] = data["ExcludePunctuation"]
-    if "ExcludeUppercase" in data:
+    if data.get("ExcludeUppercase") is not None:
         out["exclude_uppercase"] = data["ExcludeUppercase"]
-    if "ExcludeLowercase" in data:
+    if data.get("ExcludeLowercase") is not None:
         out["exclude_lowercase"] = data["ExcludeLowercase"]
-    if "IncludeSpace" in data:
+    if data.get("IncludeSpace") is not None:
         out["include_space"] = data["IncludeSpace"]
-    if "RequireEachIncludedType" in data:
+    if data.get("RequireEachIncludedType") is not None:
         out["require_each_included_type"] = data["RequireEachIncludedType"]
     return out

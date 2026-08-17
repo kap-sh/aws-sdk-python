@@ -44,7 +44,7 @@ def serialize_json(value: GuardrailCoverage) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailCoverage:
     out: GuardrailCoverage = {}  # type: ignore[typeddict-item]
-    if "textCharacters" in data:
+    if data.get("textCharacters") is not None:
         import capo_bedrock_runtime.types.guardrail_text_characters_coverage
 
         out["text_characters"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> GuardrailCoverage:
                 data["textCharacters"]
             )
         )
-    if "images" in data:
+    if data.get("images") is not None:
         import capo_bedrock_runtime.types.guardrail_image_coverage
 
         out["images"] = (

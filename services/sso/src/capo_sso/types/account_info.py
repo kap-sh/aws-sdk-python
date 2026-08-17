@@ -33,10 +33,10 @@ def serialize_json(value: AccountInfo) -> dict:
 
 def deserialize_json(data: dict) -> AccountInfo:
     out: AccountInfo = {}  # type: ignore[typeddict-item]
-    if "accountId" in data:
+    if data.get("accountId") is not None:
         out["account_id"] = data["accountId"]
-    if "accountName" in data:
+    if data.get("accountName") is not None:
         out["account_name"] = data["accountName"]
-    if "emailAddress" in data:
+    if data.get("emailAddress") is not None:
         out["email_address"] = data["emailAddress"]
     return out

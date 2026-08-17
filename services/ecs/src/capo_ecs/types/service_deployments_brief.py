@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> ServiceDeploymentsBrief:
 
     out: ServiceDeploymentsBrief = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.service_deployment_brief.deserialize_aws_json_1_1(item)
         )

@@ -27,13 +27,13 @@ def serialize_aws_json_1_1(value: FSxWindowsFileServerAuthorizationConfig) -> di
 
 def deserialize_aws_json_1_1(data: dict) -> FSxWindowsFileServerAuthorizationConfig:
     out: FSxWindowsFileServerAuthorizationConfig = {}  # type: ignore[typeddict-item]
-    if "credentialsParameter" in data:
+    if data.get("credentialsParameter") is not None:
         out["credentials_parameter"] = data["credentialsParameter"]
     else:
         raise DeserializationError(
             "FSxWindowsFileServerAuthorizationConfig.credentials_parameter required"
         )
-    if "domain" in data:
+    if data.get("domain") is not None:
         out["domain"] = data["domain"]
     else:
         raise DeserializationError(

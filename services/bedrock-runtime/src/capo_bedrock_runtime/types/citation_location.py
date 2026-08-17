@@ -96,13 +96,13 @@ def serialize_json(value: CitationLocation) -> dict:
 
 
 def deserialize_json(data: dict) -> CitationLocation:
-    if "web" in data:
+    if data.get("web") is not None:
         import capo_bedrock_runtime.types.web_location
 
         return {
             "web": capo_bedrock_runtime.types.web_location.deserialize_json(data["web"])
         }
-    elif "documentChar" in data:
+    elif data.get("documentChar") is not None:
         import capo_bedrock_runtime.types.document_char_location
 
         return {
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> CitationLocation:
                 data["documentChar"]
             )
         }
-    elif "documentPage" in data:
+    elif data.get("documentPage") is not None:
         import capo_bedrock_runtime.types.document_page_location
 
         return {
@@ -118,7 +118,7 @@ def deserialize_json(data: dict) -> CitationLocation:
                 data["documentPage"]
             )
         }
-    elif "documentChunk" in data:
+    elif data.get("documentChunk") is not None:
         import capo_bedrock_runtime.types.document_chunk_location
 
         return {
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> CitationLocation:
                 data["documentChunk"]
             )
         }
-    elif "searchResultLocation" in data:
+    elif data.get("searchResultLocation") is not None:
         import capo_bedrock_runtime.types.search_result_location
 
         return {

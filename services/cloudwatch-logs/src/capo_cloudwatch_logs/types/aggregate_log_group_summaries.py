@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> AggregateLogGroupSummaries:
 
     out: AggregateLogGroupSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_cloudwatch_logs.types.aggregate_log_group_summary.deserialize_aws_json_1_1(
                 item

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> GuardrailPiiEntityFilterList:
 
     out: GuardrailPiiEntityFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_runtime.types.guardrail_pii_entity_filter.deserialize_json(
                 item

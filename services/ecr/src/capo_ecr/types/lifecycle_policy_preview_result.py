@@ -74,21 +74,21 @@ def serialize_aws_json_1_1(value: LifecyclePolicyPreviewResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LifecyclePolicyPreviewResult:
     out: LifecyclePolicyPreviewResult = {}  # type: ignore[typeddict-item]
-    if "imageTags" in data:
+    if data.get("imageTags") is not None:
         import capo_ecr.types.image_tag_list
 
         out["image_tags"] = capo_ecr.types.image_tag_list.deserialize_aws_json_1_1(
             data["imageTags"]
         )
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
-    if "imagePushedAt" in data:
+    if data.get("imagePushedAt") is not None:
         import capo_ecr.types.push_timestamp
 
         out["image_pushed_at"] = capo_ecr.types.push_timestamp.deserialize_aws_json_1_1(
             data["imagePushedAt"]
         )
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_ecr.types.lifecycle_policy_rule_action
 
         out["action"] = (
@@ -96,9 +96,9 @@ def deserialize_aws_json_1_1(data: dict) -> LifecyclePolicyPreviewResult:
                 data["action"]
             )
         )
-    if "appliedRulePriority" in data:
+    if data.get("appliedRulePriority") is not None:
         out["applied_rule_priority"] = data["appliedRulePriority"]
-    if "storageClass" in data:
+    if data.get("storageClass") is not None:
         import capo_ecr.types.lifecycle_policy_storage_class
 
         out["storage_class"] = (

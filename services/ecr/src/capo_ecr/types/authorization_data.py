@@ -37,9 +37,9 @@ def serialize_aws_json_1_1(value: AuthorizationData) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AuthorizationData:
     out: AuthorizationData = {}  # type: ignore[typeddict-item]
-    if "authorizationToken" in data:
+    if data.get("authorizationToken") is not None:
         out["authorization_token"] = data["authorizationToken"]
-    if "expiresAt" in data:
+    if data.get("expiresAt") is not None:
         import capo_ecr.types.expiration_timestamp
 
         out["expires_at"] = (
@@ -47,6 +47,6 @@ def deserialize_aws_json_1_1(data: dict) -> AuthorizationData:
                 data["expiresAt"]
             )
         )
-    if "proxyEndpoint" in data:
+    if data.get("proxyEndpoint") is not None:
         out["proxy_endpoint"] = data["proxyEndpoint"]
     return out

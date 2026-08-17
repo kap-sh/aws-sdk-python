@@ -25,5 +25,7 @@ def deserialize_aws_json_1_1(data: list) -> InstanceGenerationSet:
 
     out: InstanceGenerationSet = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_ecs.types.instance_generation.deserialize_aws_json_1_1(item))
     return out

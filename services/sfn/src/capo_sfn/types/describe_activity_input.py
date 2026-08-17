@@ -24,7 +24,7 @@ def serialize_aws_json_1_0(value: DescribeActivityInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> DescribeActivityInput:
     out: DescribeActivityInput = {}  # type: ignore[typeddict-item]
-    if "activityArn" in data:
+    if data.get("activityArn") is not None:
         out["activity_arn"] = data["activityArn"]
     else:
         raise DeserializationError("DescribeActivityInput.activity_arn required")

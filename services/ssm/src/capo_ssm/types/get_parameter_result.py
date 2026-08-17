@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: GetParameterResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParameterResult:
     out: GetParameterResult = {}  # type: ignore[typeddict-item]
-    if "Parameter" in data:
+    if data.get("Parameter") is not None:
         import capo_ssm.types.parameter
 
         out["parameter"] = capo_ssm.types.parameter.deserialize_aws_json_1_1(

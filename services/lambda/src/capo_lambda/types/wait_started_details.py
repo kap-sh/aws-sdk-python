@@ -32,11 +32,11 @@ def serialize_json(value: WaitStartedDetails) -> dict:
 
 def deserialize_json(data: dict) -> WaitStartedDetails:
     out: WaitStartedDetails = {}  # type: ignore[typeddict-item]
-    if "Duration" in data:
+    if data.get("Duration") is not None:
         out["duration"] = data["Duration"]
     else:
         raise DeserializationError("WaitStartedDetails.duration required")
-    if "ScheduledEndTimestamp" in data:
+    if data.get("ScheduledEndTimestamp") is not None:
         import capo_lambda.types.execution_timestamp
 
         out["scheduled_end_timestamp"] = (

@@ -27,11 +27,11 @@ def serialize_aws_json_1_0(value: RemovePermissionRequest) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RemovePermissionRequest:
     out: RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-    if "QueueUrl" in data:
+    if data.get("QueueUrl") is not None:
         out["queue_url"] = data["QueueUrl"]
     else:
         raise DeserializationError("RemovePermissionRequest.queue_url required")
-    if "Label" in data:
+    if data.get("Label") is not None:
         out["label"] = data["Label"]
     else:
         raise DeserializationError("RemovePermissionRequest.label required")

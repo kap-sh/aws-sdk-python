@@ -26,7 +26,7 @@ def serialize_aws_json_1_1(value: DeleteScheduledQueryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteScheduledQueryRequest:
     out: DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     else:
         raise DeserializationError("DeleteScheduledQueryRequest.identifier required")

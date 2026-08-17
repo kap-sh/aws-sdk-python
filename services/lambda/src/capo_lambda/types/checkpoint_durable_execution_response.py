@@ -35,9 +35,9 @@ def serialize_json(value: CheckpointDurableExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> CheckpointDurableExecutionResponse:
     out: CheckpointDurableExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "CheckpointToken" in data:
+    if data.get("CheckpointToken") is not None:
         out["checkpoint_token"] = data["CheckpointToken"]
-    if "NewExecutionState" in data:
+    if data.get("NewExecutionState") is not None:
         import capo_lambda.types.checkpoint_updated_execution_state
 
         out["new_execution_state"] = (

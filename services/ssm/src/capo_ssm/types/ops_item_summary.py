@@ -133,37 +133,37 @@ def serialize_aws_json_1_1(value: OpsItemSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemSummary:
     out: OpsItemSummary = {}  # type: ignore[typeddict-item]
-    if "CreatedBy" in data:
+    if data.get("CreatedBy") is not None:
         out["created_by"] = data["CreatedBy"]
-    if "CreatedTime" in data:
+    if data.get("CreatedTime") is not None:
         import capo_ssm.types.date_time
 
         out["created_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["CreatedTime"]
         )
-    if "LastModifiedBy" in data:
+    if data.get("LastModifiedBy") is not None:
         out["last_modified_by"] = data["LastModifiedBy"]
-    if "LastModifiedTime" in data:
+    if data.get("LastModifiedTime") is not None:
         import capo_ssm.types.date_time
 
         out["last_modified_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["LastModifiedTime"]
         )
-    if "Priority" in data:
+    if data.get("Priority") is not None:
         out["priority"] = data["Priority"]
-    if "Source" in data:
+    if data.get("Source") is not None:
         out["source"] = data["Source"]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_ssm.types.ops_item_status
 
         out["status"] = capo_ssm.types.ops_item_status.deserialize_aws_json_1_1(
             data["Status"]
         )
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
-    if "Title" in data:
+    if data.get("Title") is not None:
         out["title"] = data["Title"]
-    if "OperationalData" in data:
+    if data.get("OperationalData") is not None:
         import capo_ssm.types.ops_item_operational_data
 
         out["operational_data"] = (
@@ -171,31 +171,31 @@ def deserialize_aws_json_1_1(data: dict) -> OpsItemSummary:
                 data["OperationalData"]
             )
         )
-    if "Category" in data:
+    if data.get("Category") is not None:
         out["category"] = data["Category"]
-    if "Severity" in data:
+    if data.get("Severity") is not None:
         out["severity"] = data["Severity"]
-    if "OpsItemType" in data:
+    if data.get("OpsItemType") is not None:
         out["ops_item_type"] = data["OpsItemType"]
-    if "ActualStartTime" in data:
+    if data.get("ActualStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["actual_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ActualStartTime"]
         )
-    if "ActualEndTime" in data:
+    if data.get("ActualEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["actual_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["ActualEndTime"]
         )
-    if "PlannedStartTime" in data:
+    if data.get("PlannedStartTime") is not None:
         import capo_ssm.types.date_time
 
         out["planned_start_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(
             data["PlannedStartTime"]
         )
-    if "PlannedEndTime" in data:
+    if data.get("PlannedEndTime") is not None:
         import capo_ssm.types.date_time
 
         out["planned_end_time"] = capo_ssm.types.date_time.deserialize_aws_json_1_1(

@@ -159,7 +159,7 @@ def serialize_aws_json_1_1(value: RunTaskRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RunTaskRequest:
     out: RunTaskRequest = {}  # type: ignore[typeddict-item]
-    if "capacityProviderStrategy" in data:
+    if data.get("capacityProviderStrategy") is not None:
         import capo_ecs.types.capacity_provider_strategy
 
         out["capacity_provider_strategy"] = (
@@ -167,27 +167,27 @@ def deserialize_aws_json_1_1(data: dict) -> RunTaskRequest:
                 data["capacityProviderStrategy"]
             )
         )
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
-    if "count" in data:
+    if data.get("count") is not None:
         out["count"] = data["count"]
-    if "enableECSManagedTags" in data:
+    if data.get("enableECSManagedTags") is not None:
         out["enable_ecs_managed_tags"] = data["enableECSManagedTags"]
     else:
         out["enable_ecs_managed_tags"] = False
-    if "enableExecuteCommand" in data:
+    if data.get("enableExecuteCommand") is not None:
         out["enable_execute_command"] = data["enableExecuteCommand"]
     else:
         out["enable_execute_command"] = False
-    if "group" in data:
+    if data.get("group") is not None:
         out["group"] = data["group"]
-    if "launchType" in data:
+    if data.get("launchType") is not None:
         import capo_ecs.types.launch_type
 
         out["launch_type"] = capo_ecs.types.launch_type.deserialize_aws_json_1_1(
             data["launchType"]
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_ecs.types.network_configuration
 
         out["network_configuration"] = (
@@ -195,13 +195,13 @@ def deserialize_aws_json_1_1(data: dict) -> RunTaskRequest:
                 data["networkConfiguration"]
             )
         )
-    if "overrides" in data:
+    if data.get("overrides") is not None:
         import capo_ecs.types.task_override
 
         out["overrides"] = capo_ecs.types.task_override.deserialize_aws_json_1_1(
             data["overrides"]
         )
-    if "placementConstraints" in data:
+    if data.get("placementConstraints") is not None:
         import capo_ecs.types.placement_constraints
 
         out["placement_constraints"] = (
@@ -209,7 +209,7 @@ def deserialize_aws_json_1_1(data: dict) -> RunTaskRequest:
                 data["placementConstraints"]
             )
         )
-    if "placementStrategy" in data:
+    if data.get("placementStrategy") is not None:
         import capo_ecs.types.placement_strategies
 
         out["placement_strategy"] = (
@@ -217,29 +217,29 @@ def deserialize_aws_json_1_1(data: dict) -> RunTaskRequest:
                 data["placementStrategy"]
             )
         )
-    if "platformVersion" in data:
+    if data.get("platformVersion") is not None:
         out["platform_version"] = data["platformVersion"]
-    if "propagateTags" in data:
+    if data.get("propagateTags") is not None:
         import capo_ecs.types.propagate_tags
 
         out["propagate_tags"] = capo_ecs.types.propagate_tags.deserialize_aws_json_1_1(
             data["propagateTags"]
         )
-    if "referenceId" in data:
+    if data.get("referenceId") is not None:
         out["reference_id"] = data["referenceId"]
-    if "startedBy" in data:
+    if data.get("startedBy") is not None:
         out["started_by"] = data["startedBy"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "taskDefinition" in data:
+    if data.get("taskDefinition") is not None:
         out["task_definition"] = data["taskDefinition"]
     else:
         raise DeserializationError("RunTaskRequest.task_definition required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "volumeConfigurations" in data:
+    if data.get("volumeConfigurations") is not None:
         import capo_ecs.types.task_volume_configurations
 
         out["volume_configurations"] = (

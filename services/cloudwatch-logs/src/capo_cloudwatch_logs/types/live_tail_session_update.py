@@ -46,7 +46,7 @@ def serialize_aws_json_1_1(value: LiveTailSessionUpdate) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionUpdate:
     out: LiveTailSessionUpdate = {}  # type: ignore[typeddict-item]
-    if "sessionMetadata" in data:
+    if data.get("sessionMetadata") is not None:
         import capo_cloudwatch_logs.types.live_tail_session_metadata
 
         out["session_metadata"] = (
@@ -54,7 +54,7 @@ def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionUpdate:
                 data["sessionMetadata"]
             )
         )
-    if "sessionResults" in data:
+    if data.get("sessionResults") is not None:
         import capo_cloudwatch_logs.types.live_tail_session_results
 
         out["session_results"] = (

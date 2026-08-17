@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: DescribeAvailablePatchesResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAvailablePatchesResult:
     out: DescribeAvailablePatchesResult = {}  # type: ignore[typeddict-item]
-    if "Patches" in data:
+    if data.get("Patches") is not None:
         import capo_ssm.types.patch_list
 
         out["patches"] = capo_ssm.types.patch_list.deserialize_aws_json_1_1(
             data["Patches"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

@@ -28,11 +28,11 @@ def serialize_aws_json_1_1(value: UpdateDocumentDefaultVersionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateDocumentDefaultVersionRequest:
     out: UpdateDocumentDefaultVersionRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("UpdateDocumentDefaultVersionRequest.name required")
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
     else:
         raise DeserializationError(

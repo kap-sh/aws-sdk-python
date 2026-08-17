@@ -33,15 +33,15 @@ def serialize_aws_json_1_1(value: SubstituteStringEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SubstituteStringEntry:
     out: SubstituteStringEntry = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError("SubstituteStringEntry.source required")
-    if "from" in data:
+    if data.get("from") is not None:
         out["from"] = data["from"]
     else:
         raise DeserializationError("SubstituteStringEntry.from required")
-    if "to" in data:
+    if data.get("to") is not None:
         out["to"] = data["to"]
     else:
         raise DeserializationError("SubstituteStringEntry.to required")

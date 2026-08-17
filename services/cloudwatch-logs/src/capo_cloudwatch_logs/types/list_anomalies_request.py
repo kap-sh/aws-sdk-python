@@ -49,9 +49,9 @@ def serialize_aws_json_1_1(value: ListAnomaliesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAnomaliesRequest:
     out: ListAnomaliesRequest = {}  # type: ignore[typeddict-item]
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
-    if "suppressionState" in data:
+    if data.get("suppressionState") is not None:
         import capo_cloudwatch_logs.types.suppression_state
 
         out["suppression_state"] = (
@@ -59,8 +59,8 @@ def deserialize_aws_json_1_1(data: dict) -> ListAnomaliesRequest:
                 data["suppressionState"]
             )
         )
-    if "limit" in data:
+    if data.get("limit") is not None:
         out["limit"] = data["limit"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

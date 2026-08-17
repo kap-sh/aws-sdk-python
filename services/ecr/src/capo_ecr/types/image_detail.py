@@ -143,27 +143,27 @@ def serialize_aws_json_1_1(value: ImageDetail) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageDetail:
     out: ImageDetail = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
-    if "imageDigest" in data:
+    if data.get("imageDigest") is not None:
         out["image_digest"] = data["imageDigest"]
-    if "imageTags" in data:
+    if data.get("imageTags") is not None:
         import capo_ecr.types.image_tag_list
 
         out["image_tags"] = capo_ecr.types.image_tag_list.deserialize_aws_json_1_1(
             data["imageTags"]
         )
-    if "imageSizeInBytes" in data:
+    if data.get("imageSizeInBytes") is not None:
         out["image_size_in_bytes"] = data["imageSizeInBytes"]
-    if "imagePushedAt" in data:
+    if data.get("imagePushedAt") is not None:
         import capo_ecr.types.push_timestamp
 
         out["image_pushed_at"] = capo_ecr.types.push_timestamp.deserialize_aws_json_1_1(
             data["imagePushedAt"]
         )
-    if "imageScanStatus" in data:
+    if data.get("imageScanStatus") is not None:
         import capo_ecr.types.image_scan_status
 
         out["image_scan_status"] = (
@@ -171,7 +171,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageDetail:
                 data["imageScanStatus"]
             )
         )
-    if "imageScanFindingsSummary" in data:
+    if data.get("imageScanFindingsSummary") is not None:
         import capo_ecr.types.image_scan_findings_summary
 
         out["image_scan_findings_summary"] = (
@@ -179,11 +179,11 @@ def deserialize_aws_json_1_1(data: dict) -> ImageDetail:
                 data["imageScanFindingsSummary"]
             )
         )
-    if "imageManifestMediaType" in data:
+    if data.get("imageManifestMediaType") is not None:
         out["image_manifest_media_type"] = data["imageManifestMediaType"]
-    if "artifactMediaType" in data:
+    if data.get("artifactMediaType") is not None:
         out["artifact_media_type"] = data["artifactMediaType"]
-    if "lastRecordedPullTime" in data:
+    if data.get("lastRecordedPullTime") is not None:
         import capo_ecr.types.recorded_pull_timestamp
 
         out["last_recorded_pull_time"] = (
@@ -191,15 +191,15 @@ def deserialize_aws_json_1_1(data: dict) -> ImageDetail:
                 data["lastRecordedPullTime"]
             )
         )
-    if "subjectManifestDigest" in data:
+    if data.get("subjectManifestDigest") is not None:
         out["subject_manifest_digest"] = data["subjectManifestDigest"]
-    if "imageStatus" in data:
+    if data.get("imageStatus") is not None:
         import capo_ecr.types.image_status
 
         out["image_status"] = capo_ecr.types.image_status.deserialize_aws_json_1_1(
             data["imageStatus"]
         )
-    if "lastArchivedAt" in data:
+    if data.get("lastArchivedAt") is not None:
         import capo_ecr.types.last_archived_at_timestamp
 
         out["last_archived_at"] = (
@@ -207,7 +207,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImageDetail:
                 data["lastArchivedAt"]
             )
         )
-    if "lastActivatedAt" in data:
+    if data.get("lastActivatedAt") is not None:
         import capo_ecr.types.last_activated_at_timestamp
 
         out["last_activated_at"] = (

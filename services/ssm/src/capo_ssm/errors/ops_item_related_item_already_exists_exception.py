@@ -34,11 +34,11 @@ def serialize_aws_json_1_1(value: OpsItemRelatedItemAlreadyExistsException_) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemRelatedItemAlreadyExistsException_:
     out: OpsItemRelatedItemAlreadyExistsException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
-    if "ResourceUri" in data:
+    if data.get("ResourceUri") is not None:
         out["resource_uri"] = data["ResourceUri"]
-    if "OpsItemId" in data:
+    if data.get("OpsItemId") is not None:
         out["ops_item_id"] = data["OpsItemId"]
     return out
 

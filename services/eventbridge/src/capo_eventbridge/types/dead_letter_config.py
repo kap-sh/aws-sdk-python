@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: DeadLetterConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeadLetterConfig:
     out: DeadLetterConfig = {}  # type: ignore[typeddict-item]
-    if "Arn" in data:
+    if data.get("Arn") is not None:
         out["arn"] = data["Arn"]
     return out

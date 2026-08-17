@@ -46,21 +46,21 @@ def serialize_aws_json_1_1(value: ListAccountSettingsRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListAccountSettingsRequest:
     out: ListAccountSettingsRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.setting_name
 
         out["name"] = capo_ecs.types.setting_name.deserialize_aws_json_1_1(data["name"])
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
-    if "principalArn" in data:
+    if data.get("principalArn") is not None:
         out["principal_arn"] = data["principalArn"]
-    if "effectiveSettings" in data:
+    if data.get("effectiveSettings") is not None:
         out["effective_settings"] = data["effectiveSettings"]
     else:
         out["effective_settings"] = False
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 0

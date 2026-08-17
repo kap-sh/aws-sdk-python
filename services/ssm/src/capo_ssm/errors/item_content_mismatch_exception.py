@@ -30,9 +30,9 @@ def serialize_aws_json_1_1(value: ItemContentMismatchException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ItemContentMismatchException_:
     out: ItemContentMismatchException_ = {}  # type: ignore[typeddict-item]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     return out
 

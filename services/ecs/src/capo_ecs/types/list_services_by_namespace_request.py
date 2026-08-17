@@ -33,12 +33,12 @@ def serialize_aws_json_1_1(value: ListServicesByNamespaceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListServicesByNamespaceRequest:
     out: ListServicesByNamespaceRequest = {}  # type: ignore[typeddict-item]
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
     else:
         raise DeserializationError("ListServicesByNamespaceRequest.namespace required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

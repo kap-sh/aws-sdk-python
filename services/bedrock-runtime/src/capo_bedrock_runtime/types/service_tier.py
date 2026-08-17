@@ -28,7 +28,7 @@ def serialize_json(value: ServiceTier) -> dict:
 
 def deserialize_json(data: dict) -> ServiceTier:
     out: ServiceTier = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_runtime.types.service_tier_type
 
         out["type"] = capo_bedrock_runtime.types.service_tier_type.deserialize_json(

@@ -26,7 +26,7 @@ def serialize_json(value: ExecutionFailedDetails) -> dict:
 
 def deserialize_json(data: dict) -> ExecutionFailedDetails:
     out: ExecutionFailedDetails = {}  # type: ignore[typeddict-item]
-    if "Error" in data:
+    if data.get("Error") is not None:
         import capo_lambda.types.event_error
 
         out["error"] = capo_lambda.types.event_error.deserialize_json(data["Error"])

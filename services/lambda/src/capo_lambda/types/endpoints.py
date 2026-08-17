@@ -29,6 +29,9 @@ def deserialize_json(data: dict) -> Endpoints:
     out: Endpoints = {}
     for key, value in data.items():
         import capo_lambda.types.end_point_type
+
+        if value is None:
+            continue
         import capo_lambda.types.endpoint_lists
 
         out[capo_lambda.types.end_point_type.deserialize_json(key)] = (

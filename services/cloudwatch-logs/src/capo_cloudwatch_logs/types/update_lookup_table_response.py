@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: UpdateLookupTableResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateLookupTableResponse:
     out: UpdateLookupTableResponse = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         out["last_updated_time"] = data["lastUpdatedTime"]
     return out

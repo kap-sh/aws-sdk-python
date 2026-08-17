@@ -70,7 +70,7 @@ def serialize_aws_json_1_1(value: MaintenanceWindowTaskInvocationParameters) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowTaskInvocationParameters:
     out: MaintenanceWindowTaskInvocationParameters = {}  # type: ignore[typeddict-item]
-    if "RunCommand" in data:
+    if data.get("RunCommand") is not None:
         import capo_ssm.types.maintenance_window_run_command_parameters
 
         out["run_command"] = (
@@ -78,7 +78,7 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowTaskInvocationParam
                 data["RunCommand"]
             )
         )
-    if "Automation" in data:
+    if data.get("Automation") is not None:
         import capo_ssm.types.maintenance_window_automation_parameters
 
         out["automation"] = (
@@ -86,7 +86,7 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowTaskInvocationParam
                 data["Automation"]
             )
         )
-    if "StepFunctions" in data:
+    if data.get("StepFunctions") is not None:
         import capo_ssm.types.maintenance_window_step_functions_parameters
 
         out["step_functions"] = (
@@ -94,7 +94,7 @@ def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowTaskInvocationParam
                 data["StepFunctions"]
             )
         )
-    if "Lambda" in data:
+    if data.get("Lambda") is not None:
         import capo_ssm.types.maintenance_window_lambda_parameters
 
         out["lambda"] = (

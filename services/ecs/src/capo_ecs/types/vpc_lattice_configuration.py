@@ -31,15 +31,15 @@ def serialize_aws_json_1_1(value: VpcLatticeConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> VpcLatticeConfiguration:
     out: VpcLatticeConfiguration = {}  # type: ignore[typeddict-item]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("VpcLatticeConfiguration.role_arn required")
-    if "targetGroupArn" in data:
+    if data.get("targetGroupArn") is not None:
         out["target_group_arn"] = data["targetGroupArn"]
     else:
         raise DeserializationError("VpcLatticeConfiguration.target_group_arn required")
-    if "portName" in data:
+    if data.get("portName") is not None:
         out["port_name"] = data["portName"]
     else:
         raise DeserializationError("VpcLatticeConfiguration.port_name required")

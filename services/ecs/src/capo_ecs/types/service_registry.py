@@ -36,12 +36,12 @@ def serialize_aws_json_1_1(value: ServiceRegistry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceRegistry:
     out: ServiceRegistry = {}  # type: ignore[typeddict-item]
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
-    if "port" in data:
+    if data.get("port") is not None:
         out["port"] = data["port"]
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
-    if "containerPort" in data:
+    if data.get("containerPort") is not None:
         out["container_port"] = data["containerPort"]
     return out

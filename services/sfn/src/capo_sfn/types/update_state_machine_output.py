@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: UpdateStateMachineOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineOutput:
     out: UpdateStateMachineOutput = {}  # type: ignore[typeddict-item]
-    if "updateDate" in data:
+    if data.get("updateDate") is not None:
         import capo_sfn.types.timestamp
 
         out["update_date"] = capo_sfn.types.timestamp.deserialize_aws_json_1_0(
@@ -46,8 +46,8 @@ def deserialize_aws_json_1_0(data: dict) -> UpdateStateMachineOutput:
         )
     else:
         raise DeserializationError("UpdateStateMachineOutput.update_date required")
-    if "revisionId" in data:
+    if data.get("revisionId") is not None:
         out["revision_id"] = data["revisionId"]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
     return out

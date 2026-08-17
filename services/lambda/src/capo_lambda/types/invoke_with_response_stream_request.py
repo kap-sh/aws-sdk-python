@@ -47,7 +47,7 @@ def serialize_json(value: InvokeWithResponseStreamRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeWithResponseStreamRequest:
     out: InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-    if "Payload" in data:
+    if data.get("Payload") is not None:
         import capo_lambda.types.blob
 
         out["payload"] = capo_lambda.types.blob.deserialize_json(data["Payload"])

@@ -29,10 +29,10 @@ def serialize_aws_json_1_1(value: GetParameterRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetParameterRequest:
     out: GetParameterRequest = {}  # type: ignore[typeddict-item]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
     else:
         raise DeserializationError("GetParameterRequest.name required")
-    if "WithDecryption" in data:
+    if data.get("WithDecryption") is not None:
         out["with_decryption"] = data["WithDecryption"]
     return out

@@ -29,7 +29,7 @@ def serialize_aws_json_1_0(value: StartMetricStreamsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> StartMetricStreamsInput:
     out: StartMetricStreamsInput = {}  # type: ignore[typeddict-item]
-    if "Names" in data:
+    if data.get("Names") is not None:
         import capo_cloudwatch.types.metric_stream_names
 
         out["names"] = (

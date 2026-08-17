@@ -29,7 +29,7 @@ def serialize_json(value: MessageStartEvent) -> dict:
 
 def deserialize_json(data: dict) -> MessageStartEvent:
     out: MessageStartEvent = {}  # type: ignore[typeddict-item]
-    if "role" in data:
+    if data.get("role") is not None:
         import capo_bedrock_runtime.types.conversation_role
 
         out["role"] = capo_bedrock_runtime.types.conversation_role.deserialize_json(

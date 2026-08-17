@@ -57,23 +57,23 @@ def serialize_aws_json_1_1(value: DaemonTaskDefinitionSummary) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DaemonTaskDefinitionSummary:
     out: DaemonTaskDefinitionSummary = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "registeredAt" in data:
+    if data.get("registeredAt") is not None:
         import capo_ecs.types.timestamp
 
         out["registered_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["registeredAt"]
         )
-    if "registeredBy" in data:
+    if data.get("registeredBy") is not None:
         out["registered_by"] = data["registeredBy"]
-    if "deleteRequestedAt" in data:
+    if data.get("deleteRequestedAt") is not None:
         import capo_ecs.types.timestamp
 
         out["delete_requested_at"] = capo_ecs.types.timestamp.deserialize_aws_json_1_1(
             data["deleteRequestedAt"]
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.daemon_task_definition_status
 
         out["status"] = (

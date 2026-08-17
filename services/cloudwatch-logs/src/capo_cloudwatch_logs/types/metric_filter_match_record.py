@@ -40,13 +40,13 @@ def serialize_aws_json_1_1(value: MetricFilterMatchRecord) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> MetricFilterMatchRecord:
     out: MetricFilterMatchRecord = {}  # type: ignore[typeddict-item]
-    if "eventNumber" in data:
+    if data.get("eventNumber") is not None:
         out["event_number"] = data["eventNumber"]
     else:
         out["event_number"] = 0
-    if "eventMessage" in data:
+    if data.get("eventMessage") is not None:
         out["event_message"] = data["eventMessage"]
-    if "extractedValues" in data:
+    if data.get("extractedValues") is not None:
         import capo_cloudwatch_logs.types.extracted_values
 
         out["extracted_values"] = (

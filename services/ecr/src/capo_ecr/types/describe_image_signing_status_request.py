@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: DescribeImageSigningStatusRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeImageSigningStatusRequest:
     out: DescribeImageSigningStatusRequest = {}  # type: ignore[typeddict-item]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "DescribeImageSigningStatusRequest.repository_name required"
         )
-    if "imageId" in data:
+    if data.get("imageId") is not None:
         import capo_ecr.types.image_identifier
 
         out["image_id"] = capo_ecr.types.image_identifier.deserialize_aws_json_1_1(
@@ -53,6 +53,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeImageSigningStatusRequest:
         raise DeserializationError(
             "DescribeImageSigningStatusRequest.image_id required"
         )
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
     return out

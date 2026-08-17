@@ -39,17 +39,17 @@ def serialize_aws_json_1_1(value: PutKeyPolicyRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutKeyPolicyRequest:
     out: PutKeyPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("PutKeyPolicyRequest.key_id required")
-    if "PolicyName" in data:
+    if data.get("PolicyName") is not None:
         out["policy_name"] = data["PolicyName"]
-    if "Policy" in data:
+    if data.get("Policy") is not None:
         out["policy"] = data["Policy"]
     else:
         raise DeserializationError("PutKeyPolicyRequest.policy required")
-    if "BypassPolicyLockoutSafetyCheck" in data:
+    if data.get("BypassPolicyLockoutSafetyCheck") is not None:
         out["bypass_policy_lockout_safety_check"] = data[
             "BypassPolicyLockoutSafetyCheck"
         ]

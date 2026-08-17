@@ -32,7 +32,7 @@ def serialize_aws_json_1_1(value: ExecutionInputs) -> dict:
 
 
 def deserialize_aws_json_1_1(data: dict) -> ExecutionInputs:
-    if "Automation" in data:
+    if data.get("Automation") is not None:
         import capo_ssm.types.automation_execution_inputs
 
         return {

@@ -28,7 +28,7 @@ def serialize_json(value: ImageBlockStart) -> dict:
 
 def deserialize_json(data: dict) -> ImageBlockStart:
     out: ImageBlockStart = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_runtime.types.image_format
 
         out["format"] = capo_bedrock_runtime.types.image_format.deserialize_json(

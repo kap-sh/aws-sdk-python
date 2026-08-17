@@ -54,21 +54,21 @@ def serialize_aws_json_1_0(value: SSEDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> SSEDescription:
     out: SSEDescription = {}  # type: ignore[typeddict-item]
-    if "Status" in data:
+    if data.get("Status") is not None:
         import capo_dynamodb.types.sse_status
 
         out["status"] = capo_dynamodb.types.sse_status.deserialize_aws_json_1_0(
             data["Status"]
         )
-    if "SSEType" in data:
+    if data.get("SSEType") is not None:
         import capo_dynamodb.types.sse_type
 
         out["sse_type"] = capo_dynamodb.types.sse_type.deserialize_aws_json_1_0(
             data["SSEType"]
         )
-    if "KMSMasterKeyArn" in data:
+    if data.get("KMSMasterKeyArn") is not None:
         out["kms_master_key_arn"] = data["KMSMasterKeyArn"]
-    if "InaccessibleEncryptionDateTime" in data:
+    if data.get("InaccessibleEncryptionDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["inaccessible_encryption_date_time"] = (

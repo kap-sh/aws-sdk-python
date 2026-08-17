@@ -40,7 +40,7 @@ def deserialize_aws_json_1_1(
     data: dict,
 ) -> DescribeMaintenanceWindowExecutionTaskInvocationsResult:
     out: DescribeMaintenanceWindowExecutionTaskInvocationsResult = {}  # type: ignore[typeddict-item]
-    if "WindowExecutionTaskInvocationIdentities" in data:
+    if data.get("WindowExecutionTaskInvocationIdentities") is not None:
         import capo_ssm.types.maintenance_window_execution_task_invocation_identity_list
 
         out["window_execution_task_invocation_identities"] = (
@@ -48,6 +48,6 @@ def deserialize_aws_json_1_1(
                 data["WindowExecutionTaskInvocationIdentities"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

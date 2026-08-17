@@ -23,6 +23,6 @@ def serialize_aws_json_1_1(value: ImportStatistics) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImportStatistics:
     out: ImportStatistics = {}  # type: ignore[typeddict-item]
-    if "bytesImported" in data:
+    if data.get("bytesImported") is not None:
         out["bytes_imported"] = data["bytesImported"]
     return out

@@ -40,12 +40,12 @@ def serialize_aws_json_1_1(value: GetDeployablePatchSnapshotForInstanceResult) -
 
 def deserialize_aws_json_1_1(data: dict) -> GetDeployablePatchSnapshotForInstanceResult:
     out: GetDeployablePatchSnapshotForInstanceResult = {}  # type: ignore[typeddict-item]
-    if "InstanceId" in data:
+    if data.get("InstanceId") is not None:
         out["instance_id"] = data["InstanceId"]
-    if "SnapshotId" in data:
+    if data.get("SnapshotId") is not None:
         out["snapshot_id"] = data["SnapshotId"]
-    if "SnapshotDownloadUrl" in data:
+    if data.get("SnapshotDownloadUrl") is not None:
         out["snapshot_download_url"] = data["SnapshotDownloadUrl"]
-    if "Product" in data:
+    if data.get("Product") is not None:
         out["product"] = data["Product"]
     return out

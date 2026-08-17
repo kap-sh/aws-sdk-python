@@ -30,19 +30,19 @@ def serialize_aws_json_1_1(value: UpdateServicePrimaryTaskSetRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateServicePrimaryTaskSetRequest:
     out: UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
-    if "cluster" in data:
+    if data.get("cluster") is not None:
         out["cluster"] = data["cluster"]
     else:
         raise DeserializationError(
             "UpdateServicePrimaryTaskSetRequest.cluster required"
         )
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError(
             "UpdateServicePrimaryTaskSetRequest.service required"
         )
-    if "primaryTaskSet" in data:
+    if data.get("primaryTaskSet") is not None:
         out["primary_task_set"] = data["primaryTaskSet"]
     else:
         raise DeserializationError(

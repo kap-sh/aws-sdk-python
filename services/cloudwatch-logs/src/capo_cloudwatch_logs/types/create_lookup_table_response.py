@@ -28,8 +28,8 @@ def serialize_aws_json_1_1(value: CreateLookupTableResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> CreateLookupTableResponse:
     out: CreateLookupTableResponse = {}  # type: ignore[typeddict-item]
-    if "lookupTableArn" in data:
+    if data.get("lookupTableArn") is not None:
         out["lookup_table_arn"] = data["lookupTableArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         out["created_at"] = data["createdAt"]
     return out

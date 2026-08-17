@@ -38,7 +38,7 @@ def serialize_aws_json_1_0(value: ChangeMessageVisibilityBatchResult) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ChangeMessageVisibilityBatchResult:
     out: ChangeMessageVisibilityBatchResult = {}  # type: ignore[typeddict-item]
-    if "Successful" in data:
+    if data.get("Successful") is not None:
         import capo_sqs.types.change_message_visibility_batch_result_entry_list
 
         out["successful"] = (
@@ -50,7 +50,7 @@ def deserialize_aws_json_1_0(data: dict) -> ChangeMessageVisibilityBatchResult:
         raise DeserializationError(
             "ChangeMessageVisibilityBatchResult.successful required"
         )
-    if "Failed" in data:
+    if data.get("Failed") is not None:
         import capo_sqs.types.batch_result_error_entry_list
 
         out["failed"] = (

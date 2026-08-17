@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: DescribeAssociationExecutionTargetsResult) -> 
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeAssociationExecutionTargetsResult:
     out: DescribeAssociationExecutionTargetsResult = {}  # type: ignore[typeddict-item]
-    if "AssociationExecutionTargets" in data:
+    if data.get("AssociationExecutionTargets") is not None:
         import capo_ssm.types.association_execution_targets_list
 
         out["association_execution_targets"] = (
@@ -44,6 +44,6 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeAssociationExecutionTargetsR
                 data["AssociationExecutionTargets"]
             )
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

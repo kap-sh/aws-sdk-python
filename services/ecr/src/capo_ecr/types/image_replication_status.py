@@ -42,16 +42,16 @@ def serialize_aws_json_1_1(value: ImageReplicationStatus) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageReplicationStatus:
     out: ImageReplicationStatus = {}  # type: ignore[typeddict-item]
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecr.types.replication_status
 
         out["status"] = capo_ecr.types.replication_status.deserialize_aws_json_1_1(
             data["status"]
         )
-    if "failureCode" in data:
+    if data.get("failureCode") is not None:
         out["failure_code"] = data["failureCode"]
     return out

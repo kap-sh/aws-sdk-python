@@ -44,15 +44,15 @@ def serialize_aws_json_1_0(value: CreateActivityInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateActivityInput:
     out: CreateActivityInput = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateActivityInput.name required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_sfn.types.tag_list
 
         out["tags"] = capo_sfn.types.tag_list.deserialize_aws_json_1_0(data["tags"])
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_sfn.types.encryption_configuration
 
         out["encryption_configuration"] = (

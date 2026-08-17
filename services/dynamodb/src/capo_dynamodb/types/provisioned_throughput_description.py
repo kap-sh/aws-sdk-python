@@ -55,7 +55,7 @@ def serialize_aws_json_1_0(value: ProvisionedThroughputDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughputDescription:
     out: ProvisionedThroughputDescription = {}  # type: ignore[typeddict-item]
-    if "LastIncreaseDateTime" in data:
+    if data.get("LastIncreaseDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["last_increase_date_time"] = (
@@ -63,7 +63,7 @@ def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughputDescription:
                 data["LastIncreaseDateTime"]
             )
         )
-    if "LastDecreaseDateTime" in data:
+    if data.get("LastDecreaseDateTime") is not None:
         import capo_dynamodb.types.date
 
         out["last_decrease_date_time"] = (
@@ -71,10 +71,10 @@ def deserialize_aws_json_1_0(data: dict) -> ProvisionedThroughputDescription:
                 data["LastDecreaseDateTime"]
             )
         )
-    if "NumberOfDecreasesToday" in data:
+    if data.get("NumberOfDecreasesToday") is not None:
         out["number_of_decreases_today"] = data["NumberOfDecreasesToday"]
-    if "ReadCapacityUnits" in data:
+    if data.get("ReadCapacityUnits") is not None:
         out["read_capacity_units"] = data["ReadCapacityUnits"]
-    if "WriteCapacityUnits" in data:
+    if data.get("WriteCapacityUnits") is not None:
         out["write_capacity_units"] = data["WriteCapacityUnits"]
     return out

@@ -29,6 +29,8 @@ def deserialize_aws_json_1_0(data: list) -> KinesisDataStreamDestinations:
 
     out: KinesisDataStreamDestinations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.kinesis_data_stream_destination.deserialize_aws_json_1_0(
                 item

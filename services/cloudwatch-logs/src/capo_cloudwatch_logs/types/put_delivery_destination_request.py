@@ -70,11 +70,11 @@ def serialize_aws_json_1_1(value: PutDeliveryDestinationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationRequest:
     out: PutDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PutDeliveryDestinationRequest.name required")
-    if "outputFormat" in data:
+    if data.get("outputFormat") is not None:
         import capo_cloudwatch_logs.types.output_format
 
         out["output_format"] = (
@@ -82,7 +82,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationRequest:
                 data["outputFormat"]
             )
         )
-    if "deliveryDestinationConfiguration" in data:
+    if data.get("deliveryDestinationConfiguration") is not None:
         import capo_cloudwatch_logs.types.delivery_destination_configuration
 
         out["delivery_destination_configuration"] = (
@@ -90,7 +90,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationRequest:
                 data["deliveryDestinationConfiguration"]
             )
         )
-    if "deliveryDestinationType" in data:
+    if data.get("deliveryDestinationType") is not None:
         import capo_cloudwatch_logs.types.delivery_destination_type
 
         out["delivery_destination_type"] = (
@@ -98,7 +98,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutDeliveryDestinationRequest:
                 data["deliveryDestinationType"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_cloudwatch_logs.types.tags
 
         out["tags"] = capo_cloudwatch_logs.types.tags.deserialize_aws_json_1_1(

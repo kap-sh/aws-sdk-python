@@ -28,11 +28,11 @@ def serialize_aws_json_1_0(value: CreateBackupInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> CreateBackupInput:
     out: CreateBackupInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("CreateBackupInput.table_name required")
-    if "BackupName" in data:
+    if data.get("BackupName") is not None:
         out["backup_name"] = data["BackupName"]
     else:
         raise DeserializationError("CreateBackupInput.backup_name required")

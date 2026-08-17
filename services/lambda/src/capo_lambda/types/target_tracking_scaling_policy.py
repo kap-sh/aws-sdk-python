@@ -34,7 +34,7 @@ def serialize_json(value: TargetTrackingScalingPolicy) -> dict:
 
 def deserialize_json(data: dict) -> TargetTrackingScalingPolicy:
     out: TargetTrackingScalingPolicy = {}  # type: ignore[typeddict-item]
-    if "PredefinedMetricType" in data:
+    if data.get("PredefinedMetricType") is not None:
         import capo_lambda.types.capacity_provider_predefined_metric_type
 
         out["predefined_metric_type"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> TargetTrackingScalingPolicy:
         raise DeserializationError(
             "TargetTrackingScalingPolicy.predefined_metric_type required"
         )
-    if "TargetValue" in data:
+    if data.get("TargetValue") is not None:
         out["target_value"] = data["TargetValue"]
     else:
         raise DeserializationError("TargetTrackingScalingPolicy.target_value required")

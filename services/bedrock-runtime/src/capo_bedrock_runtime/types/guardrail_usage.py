@@ -67,19 +67,19 @@ def serialize_json(value: GuardrailUsage) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailUsage:
     out: GuardrailUsage = {}  # type: ignore[typeddict-item]
-    if "topicPolicyUnits" in data:
+    if data.get("topicPolicyUnits") is not None:
         out["topic_policy_units"] = data["topicPolicyUnits"]
     else:
         raise DeserializationError("GuardrailUsage.topic_policy_units required")
-    if "contentPolicyUnits" in data:
+    if data.get("contentPolicyUnits") is not None:
         out["content_policy_units"] = data["contentPolicyUnits"]
     else:
         raise DeserializationError("GuardrailUsage.content_policy_units required")
-    if "wordPolicyUnits" in data:
+    if data.get("wordPolicyUnits") is not None:
         out["word_policy_units"] = data["wordPolicyUnits"]
     else:
         raise DeserializationError("GuardrailUsage.word_policy_units required")
-    if "sensitiveInformationPolicyUnits" in data:
+    if data.get("sensitiveInformationPolicyUnits") is not None:
         out["sensitive_information_policy_units"] = data[
             "sensitiveInformationPolicyUnits"
         ]
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> GuardrailUsage:
         raise DeserializationError(
             "GuardrailUsage.sensitive_information_policy_units required"
         )
-    if "sensitiveInformationPolicyFreeUnits" in data:
+    if data.get("sensitiveInformationPolicyFreeUnits") is not None:
         out["sensitive_information_policy_free_units"] = data[
             "sensitiveInformationPolicyFreeUnits"
         ]
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> GuardrailUsage:
         raise DeserializationError(
             "GuardrailUsage.sensitive_information_policy_free_units required"
         )
-    if "contextualGroundingPolicyUnits" in data:
+    if data.get("contextualGroundingPolicyUnits") is not None:
         out["contextual_grounding_policy_units"] = data[
             "contextualGroundingPolicyUnits"
         ]
@@ -103,10 +103,10 @@ def deserialize_json(data: dict) -> GuardrailUsage:
         raise DeserializationError(
             "GuardrailUsage.contextual_grounding_policy_units required"
         )
-    if "contentPolicyImageUnits" in data:
+    if data.get("contentPolicyImageUnits") is not None:
         out["content_policy_image_units"] = data["contentPolicyImageUnits"]
-    if "automatedReasoningPolicyUnits" in data:
+    if data.get("automatedReasoningPolicyUnits") is not None:
         out["automated_reasoning_policy_units"] = data["automatedReasoningPolicyUnits"]
-    if "automatedReasoningPolicies" in data:
+    if data.get("automatedReasoningPolicies") is not None:
         out["automated_reasoning_policies"] = data["automatedReasoningPolicies"]
     return out

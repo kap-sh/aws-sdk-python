@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: GetCalendarStateRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetCalendarStateRequest:
     out: GetCalendarStateRequest = {}  # type: ignore[typeddict-item]
-    if "CalendarNames" in data:
+    if data.get("CalendarNames") is not None:
         import capo_ssm.types.calendar_name_or_arn_list
 
         out["calendar_names"] = (
@@ -45,6 +45,6 @@ def deserialize_aws_json_1_1(data: dict) -> GetCalendarStateRequest:
         )
     else:
         raise DeserializationError("GetCalendarStateRequest.calendar_names required")
-    if "AtTime" in data:
+    if data.get("AtTime") is not None:
         out["at_time"] = data["AtTime"]
     return out

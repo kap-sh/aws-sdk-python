@@ -130,11 +130,11 @@ def serialize_aws_json_1_1(value: ResourceDataSyncItem) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
     out: ResourceDataSyncItem = {}  # type: ignore[typeddict-item]
-    if "SyncName" in data:
+    if data.get("SyncName") is not None:
         out["sync_name"] = data["SyncName"]
-    if "SyncType" in data:
+    if data.get("SyncType") is not None:
         out["sync_type"] = data["SyncType"]
-    if "SyncSource" in data:
+    if data.get("SyncSource") is not None:
         import capo_ssm.types.resource_data_sync_source_with_state
 
         out["sync_source"] = (
@@ -142,7 +142,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["SyncSource"]
             )
         )
-    if "S3Destination" in data:
+    if data.get("S3Destination") is not None:
         import capo_ssm.types.resource_data_sync_s3_destination
 
         out["s3_destination"] = (
@@ -150,7 +150,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["S3Destination"]
             )
         )
-    if "LastSyncTime" in data:
+    if data.get("LastSyncTime") is not None:
         import capo_ssm.types.last_resource_data_sync_time
 
         out["last_sync_time"] = (
@@ -158,7 +158,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["LastSyncTime"]
             )
         )
-    if "LastSuccessfulSyncTime" in data:
+    if data.get("LastSuccessfulSyncTime") is not None:
         import capo_ssm.types.last_successful_resource_data_sync_time
 
         out["last_successful_sync_time"] = (
@@ -166,7 +166,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["LastSuccessfulSyncTime"]
             )
         )
-    if "SyncLastModifiedTime" in data:
+    if data.get("SyncLastModifiedTime") is not None:
         import capo_ssm.types.resource_data_sync_last_modified_time
 
         out["sync_last_modified_time"] = (
@@ -174,7 +174,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["SyncLastModifiedTime"]
             )
         )
-    if "LastStatus" in data:
+    if data.get("LastStatus") is not None:
         import capo_ssm.types.last_resource_data_sync_status
 
         out["last_status"] = (
@@ -182,7 +182,7 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["LastStatus"]
             )
         )
-    if "SyncCreatedTime" in data:
+    if data.get("SyncCreatedTime") is not None:
         import capo_ssm.types.resource_data_sync_created_time
 
         out["sync_created_time"] = (
@@ -190,6 +190,6 @@ def deserialize_aws_json_1_1(data: dict) -> ResourceDataSyncItem:
                 data["SyncCreatedTime"]
             )
         )
-    if "LastSyncStatusMessage" in data:
+    if data.get("LastSyncStatusMessage") is not None:
         out["last_sync_status_message"] = data["LastSyncStatusMessage"]
     return out

@@ -27,7 +27,7 @@ def serialize_json(value: GetFunctionRecursionConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFunctionRecursionConfigResponse:
     out: GetFunctionRecursionConfigResponse = {}  # type: ignore[typeddict-item]
-    if "RecursiveLoop" in data:
+    if data.get("RecursiveLoop") is not None:
         import capo_lambda.types.recursive_loop
 
         out["recursive_loop"] = capo_lambda.types.recursive_loop.deserialize_json(

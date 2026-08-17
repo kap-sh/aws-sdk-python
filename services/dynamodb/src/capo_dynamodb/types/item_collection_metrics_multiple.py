@@ -27,6 +27,8 @@ def deserialize_aws_json_1_0(data: list) -> ItemCollectionMetricsMultiple:
 
     out: ItemCollectionMetricsMultiple = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_dynamodb.types.item_collection_metrics.deserialize_aws_json_1_0(item)
         )

@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: DeletePatchBaselineRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeletePatchBaselineRequest:
     out: DeletePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-    if "BaselineId" in data:
+    if data.get("BaselineId") is not None:
         out["baseline_id"] = data["BaselineId"]
     else:
         raise DeserializationError("DeletePatchBaselineRequest.baseline_id required")

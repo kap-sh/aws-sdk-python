@@ -25,6 +25,8 @@ def deserialize_aws_json_1_1(data: list) -> CapacityProviderFieldList:
 
     out: CapacityProviderFieldList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.capacity_provider_field.deserialize_aws_json_1_1(item)
         )

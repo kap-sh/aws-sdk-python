@@ -123,43 +123,43 @@ def serialize_aws_json_1_1(value: Anomaly) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Anomaly:
     out: Anomaly = {}  # type: ignore[typeddict-item]
-    if "anomalyId" in data:
+    if data.get("anomalyId") is not None:
         out["anomaly_id"] = data["anomalyId"]
     else:
         raise DeserializationError("Anomaly.anomaly_id required")
-    if "patternId" in data:
+    if data.get("patternId") is not None:
         out["pattern_id"] = data["patternId"]
     else:
         raise DeserializationError("Anomaly.pattern_id required")
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
     else:
         raise DeserializationError("Anomaly.anomaly_detector_arn required")
-    if "patternString" in data:
+    if data.get("patternString") is not None:
         out["pattern_string"] = data["patternString"]
     else:
         raise DeserializationError("Anomaly.pattern_string required")
-    if "patternRegex" in data:
+    if data.get("patternRegex") is not None:
         out["pattern_regex"] = data["patternRegex"]
-    if "priority" in data:
+    if data.get("priority") is not None:
         out["priority"] = data["priority"]
-    if "firstSeen" in data:
+    if data.get("firstSeen") is not None:
         out["first_seen"] = data["firstSeen"]
     else:
         out["first_seen"] = 0
-    if "lastSeen" in data:
+    if data.get("lastSeen") is not None:
         out["last_seen"] = data["lastSeen"]
     else:
         out["last_seen"] = 0
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("Anomaly.description required")
-    if "active" in data:
+    if data.get("active") is not None:
         out["active"] = data["active"]
     else:
         raise DeserializationError("Anomaly.active required")
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_cloudwatch_logs.types.state
 
         out["state"] = capo_cloudwatch_logs.types.state.deserialize_aws_json_1_1(
@@ -167,7 +167,7 @@ def deserialize_aws_json_1_1(data: dict) -> Anomaly:
         )
     else:
         raise DeserializationError("Anomaly.state required")
-    if "histogram" in data:
+    if data.get("histogram") is not None:
         import capo_cloudwatch_logs.types.histogram
 
         out["histogram"] = (
@@ -177,7 +177,7 @@ def deserialize_aws_json_1_1(data: dict) -> Anomaly:
         )
     else:
         raise DeserializationError("Anomaly.histogram required")
-    if "logSamples" in data:
+    if data.get("logSamples") is not None:
         import capo_cloudwatch_logs.types.log_samples
 
         out["log_samples"] = (
@@ -187,7 +187,7 @@ def deserialize_aws_json_1_1(data: dict) -> Anomaly:
         )
     else:
         raise DeserializationError("Anomaly.log_samples required")
-    if "patternTokens" in data:
+    if data.get("patternTokens") is not None:
         import capo_cloudwatch_logs.types.pattern_tokens
 
         out["pattern_tokens"] = (
@@ -197,7 +197,7 @@ def deserialize_aws_json_1_1(data: dict) -> Anomaly:
         )
     else:
         raise DeserializationError("Anomaly.pattern_tokens required")
-    if "logGroupArnList" in data:
+    if data.get("logGroupArnList") is not None:
         import capo_cloudwatch_logs.types.log_group_arn_list
 
         out["log_group_arn_list"] = (
@@ -207,16 +207,16 @@ def deserialize_aws_json_1_1(data: dict) -> Anomaly:
         )
     else:
         raise DeserializationError("Anomaly.log_group_arn_list required")
-    if "suppressed" in data:
+    if data.get("suppressed") is not None:
         out["suppressed"] = data["suppressed"]
-    if "suppressedDate" in data:
+    if data.get("suppressedDate") is not None:
         out["suppressed_date"] = data["suppressedDate"]
     else:
         out["suppressed_date"] = 0
-    if "suppressedUntil" in data:
+    if data.get("suppressedUntil") is not None:
         out["suppressed_until"] = data["suppressedUntil"]
     else:
         out["suppressed_until"] = 0
-    if "isPatternLevelSuppression" in data:
+    if data.get("isPatternLevelSuppression") is not None:
         out["is_pattern_level_suppression"] = data["isPatternLevelSuppression"]
     return out

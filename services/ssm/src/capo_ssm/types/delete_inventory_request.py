@@ -46,11 +46,11 @@ def serialize_aws_json_1_1(value: DeleteInventoryRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DeleteInventoryRequest:
     out: DeleteInventoryRequest = {}  # type: ignore[typeddict-item]
-    if "TypeName" in data:
+    if data.get("TypeName") is not None:
         out["type_name"] = data["TypeName"]
     else:
         raise DeserializationError("DeleteInventoryRequest.type_name required")
-    if "SchemaDeleteOption" in data:
+    if data.get("SchemaDeleteOption") is not None:
         import capo_ssm.types.inventory_schema_delete_option
 
         out["schema_delete_option"] = (
@@ -58,10 +58,10 @@ def deserialize_aws_json_1_1(data: dict) -> DeleteInventoryRequest:
                 data["SchemaDeleteOption"]
             )
         )
-    if "DryRun" in data:
+    if data.get("DryRun") is not None:
         out["dry_run"] = data["DryRun"]
     else:
         out["dry_run"] = False
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
     return out

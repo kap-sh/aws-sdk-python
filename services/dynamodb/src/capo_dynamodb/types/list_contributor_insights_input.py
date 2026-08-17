@@ -32,11 +32,11 @@ def serialize_aws_json_1_0(value: ListContributorInsightsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListContributorInsightsInput:
     out: ListContributorInsightsInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
     else:
         out["max_results"] = 0

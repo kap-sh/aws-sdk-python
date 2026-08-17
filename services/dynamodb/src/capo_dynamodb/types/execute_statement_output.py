@@ -53,15 +53,15 @@ def serialize_aws_json_1_0(value: ExecuteStatementOutput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ExecuteStatementOutput:
     out: ExecuteStatementOutput = {}  # type: ignore[typeddict-item]
-    if "Items" in data:
+    if data.get("Items") is not None:
         import capo_dynamodb.types.item_list
 
         out["items"] = capo_dynamodb.types.item_list.deserialize_aws_json_1_0(
             data["Items"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "ConsumedCapacity" in data:
+    if data.get("ConsumedCapacity") is not None:
         import capo_dynamodb.types.consumed_capacity
 
         out["consumed_capacity"] = (
@@ -69,7 +69,7 @@ def deserialize_aws_json_1_0(data: dict) -> ExecuteStatementOutput:
                 data["ConsumedCapacity"]
             )
         )
-    if "LastEvaluatedKey" in data:
+    if data.get("LastEvaluatedKey") is not None:
         import capo_dynamodb.types.key
 
         out["last_evaluated_key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(

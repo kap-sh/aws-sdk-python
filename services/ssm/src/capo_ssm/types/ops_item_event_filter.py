@@ -46,7 +46,7 @@ def serialize_aws_json_1_1(value: OpsItemEventFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpsItemEventFilter:
     out: OpsItemEventFilter = {}  # type: ignore[typeddict-item]
-    if "Key" in data:
+    if data.get("Key") is not None:
         import capo_ssm.types.ops_item_event_filter_key
 
         out["key"] = capo_ssm.types.ops_item_event_filter_key.deserialize_aws_json_1_1(
@@ -54,7 +54,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpsItemEventFilter:
         )
     else:
         raise DeserializationError("OpsItemEventFilter.key required")
-    if "Values" in data:
+    if data.get("Values") is not None:
         import capo_ssm.types.ops_item_event_filter_values
 
         out["values"] = (
@@ -64,7 +64,7 @@ def deserialize_aws_json_1_1(data: dict) -> OpsItemEventFilter:
         )
     else:
         raise DeserializationError("OpsItemEventFilter.values required")
-    if "Operator" in data:
+    if data.get("Operator") is not None:
         import capo_ssm.types.ops_item_event_filter_operator
 
         out["operator"] = (

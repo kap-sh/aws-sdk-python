@@ -132,25 +132,25 @@ def serialize_aws_json_1_1(value: EnhancedImageScanFinding) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> EnhancedImageScanFinding:
     out: EnhancedImageScanFinding = {}  # type: ignore[typeddict-item]
-    if "awsAccountId" in data:
+    if data.get("awsAccountId") is not None:
         out["aws_account_id"] = data["awsAccountId"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "findingArn" in data:
+    if data.get("findingArn") is not None:
         out["finding_arn"] = data["findingArn"]
-    if "firstObservedAt" in data:
+    if data.get("firstObservedAt") is not None:
         import capo_ecr.types.date
 
         out["first_observed_at"] = capo_ecr.types.date.deserialize_aws_json_1_1(
             data["firstObservedAt"]
         )
-    if "lastObservedAt" in data:
+    if data.get("lastObservedAt") is not None:
         import capo_ecr.types.date
 
         out["last_observed_at"] = capo_ecr.types.date.deserialize_aws_json_1_1(
             data["lastObservedAt"]
         )
-    if "packageVulnerabilityDetails" in data:
+    if data.get("packageVulnerabilityDetails") is not None:
         import capo_ecr.types.package_vulnerability_details
 
         out["package_vulnerability_details"] = (
@@ -158,44 +158,44 @@ def deserialize_aws_json_1_1(data: dict) -> EnhancedImageScanFinding:
                 data["packageVulnerabilityDetails"]
             )
         )
-    if "remediation" in data:
+    if data.get("remediation") is not None:
         import capo_ecr.types.remediation
 
         out["remediation"] = capo_ecr.types.remediation.deserialize_aws_json_1_1(
             data["remediation"]
         )
-    if "resources" in data:
+    if data.get("resources") is not None:
         import capo_ecr.types.resource_list
 
         out["resources"] = capo_ecr.types.resource_list.deserialize_aws_json_1_1(
             data["resources"]
         )
-    if "score" in data:
+    if data.get("score") is not None:
         out["score"] = data["score"]
     else:
         out["score"] = 0
-    if "scoreDetails" in data:
+    if data.get("scoreDetails") is not None:
         import capo_ecr.types.score_details
 
         out["score_details"] = capo_ecr.types.score_details.deserialize_aws_json_1_1(
             data["scoreDetails"]
         )
-    if "severity" in data:
+    if data.get("severity") is not None:
         out["severity"] = data["severity"]
-    if "status" in data:
+    if data.get("status") is not None:
         out["status"] = data["status"]
-    if "title" in data:
+    if data.get("title") is not None:
         out["title"] = data["title"]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_ecr.types.date
 
         out["updated_at"] = capo_ecr.types.date.deserialize_aws_json_1_1(
             data["updatedAt"]
         )
-    if "fixAvailable" in data:
+    if data.get("fixAvailable") is not None:
         out["fix_available"] = data["fixAvailable"]
-    if "exploitAvailable" in data:
+    if data.get("exploitAvailable") is not None:
         out["exploit_available"] = data["exploitAvailable"]
     return out

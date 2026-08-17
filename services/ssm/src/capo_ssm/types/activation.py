@@ -85,19 +85,19 @@ def serialize_aws_json_1_1(value: Activation) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Activation:
     out: Activation = {}  # type: ignore[typeddict-item]
-    if "ActivationId" in data:
+    if data.get("ActivationId") is not None:
         out["activation_id"] = data["ActivationId"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "DefaultInstanceName" in data:
+    if data.get("DefaultInstanceName") is not None:
         out["default_instance_name"] = data["DefaultInstanceName"]
-    if "IamRole" in data:
+    if data.get("IamRole") is not None:
         out["iam_role"] = data["IamRole"]
-    if "RegistrationLimit" in data:
+    if data.get("RegistrationLimit") is not None:
         out["registration_limit"] = data["RegistrationLimit"]
-    if "RegistrationsCount" in data:
+    if data.get("RegistrationsCount") is not None:
         out["registrations_count"] = data["RegistrationsCount"]
-    if "ExpirationDate" in data:
+    if data.get("ExpirationDate") is not None:
         import capo_ssm.types.expiration_date
 
         out["expiration_date"] = (
@@ -105,17 +105,17 @@ def deserialize_aws_json_1_1(data: dict) -> Activation:
                 data["ExpirationDate"]
             )
         )
-    if "Expired" in data:
+    if data.get("Expired") is not None:
         out["expired"] = data["Expired"]
     else:
         out["expired"] = False
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_ssm.types.created_date
 
         out["created_date"] = capo_ssm.types.created_date.deserialize_aws_json_1_1(
             data["CreatedDate"]
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_ssm.types.tag_list
 
         out["tags"] = capo_ssm.types.tag_list.deserialize_aws_json_1_1(data["Tags"])

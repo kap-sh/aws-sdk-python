@@ -52,15 +52,15 @@ def serialize_aws_json_1_1(value: PutImageTagMutabilityRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutImageTagMutabilityRequest:
     out: PutImageTagMutabilityRequest = {}  # type: ignore[typeddict-item]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
-    if "repositoryName" in data:
+    if data.get("repositoryName") is not None:
         out["repository_name"] = data["repositoryName"]
     else:
         raise DeserializationError(
             "PutImageTagMutabilityRequest.repository_name required"
         )
-    if "imageTagMutability" in data:
+    if data.get("imageTagMutability") is not None:
         import capo_ecr.types.image_tag_mutability
 
         out["image_tag_mutability"] = (
@@ -72,7 +72,7 @@ def deserialize_aws_json_1_1(data: dict) -> PutImageTagMutabilityRequest:
         raise DeserializationError(
             "PutImageTagMutabilityRequest.image_tag_mutability required"
         )
-    if "imageTagMutabilityExclusionFilters" in data:
+    if data.get("imageTagMutabilityExclusionFilters") is not None:
         import capo_ecr.types.image_tag_mutability_exclusion_filters
 
         out["image_tag_mutability_exclusion_filters"] = (

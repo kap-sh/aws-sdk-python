@@ -82,11 +82,11 @@ def serialize_aws_json_1_1(value: ImportKeyMaterialRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialRequest:
     out: ImportKeyMaterialRequest = {}  # type: ignore[typeddict-item]
-    if "KeyId" in data:
+    if data.get("KeyId") is not None:
         out["key_id"] = data["KeyId"]
     else:
         raise DeserializationError("ImportKeyMaterialRequest.key_id required")
-    if "ImportToken" in data:
+    if data.get("ImportToken") is not None:
         import capo_kms.types.ciphertext_type
 
         out["import_token"] = capo_kms.types.ciphertext_type.deserialize_aws_json_1_1(
@@ -94,7 +94,7 @@ def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialRequest:
         )
     else:
         raise DeserializationError("ImportKeyMaterialRequest.import_token required")
-    if "EncryptedKeyMaterial" in data:
+    if data.get("EncryptedKeyMaterial") is not None:
         import capo_kms.types.ciphertext_type
 
         out["encrypted_key_material"] = (
@@ -106,13 +106,13 @@ def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialRequest:
         raise DeserializationError(
             "ImportKeyMaterialRequest.encrypted_key_material required"
         )
-    if "ValidTo" in data:
+    if data.get("ValidTo") is not None:
         import capo_kms.types.date_type
 
         out["valid_to"] = capo_kms.types.date_type.deserialize_aws_json_1_1(
             data["ValidTo"]
         )
-    if "ExpirationModel" in data:
+    if data.get("ExpirationModel") is not None:
         import capo_kms.types.expiration_model_type
 
         out["expiration_model"] = (
@@ -120,14 +120,14 @@ def deserialize_aws_json_1_1(data: dict) -> ImportKeyMaterialRequest:
                 data["ExpirationModel"]
             )
         )
-    if "ImportType" in data:
+    if data.get("ImportType") is not None:
         import capo_kms.types.import_type
 
         out["import_type"] = capo_kms.types.import_type.deserialize_aws_json_1_1(
             data["ImportType"]
         )
-    if "KeyMaterialDescription" in data:
+    if data.get("KeyMaterialDescription") is not None:
         out["key_material_description"] = data["KeyMaterialDescription"]
-    if "KeyMaterialId" in data:
+    if data.get("KeyMaterialId") is not None:
         out["key_material_id"] = data["KeyMaterialId"]
     return out

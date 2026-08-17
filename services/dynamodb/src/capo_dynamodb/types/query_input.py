@@ -173,19 +173,19 @@ def serialize_aws_json_1_0(value: QueryInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> QueryInput:
     out: QueryInput = {}  # type: ignore[typeddict-item]
-    if "TableName" in data:
+    if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     else:
         raise DeserializationError("QueryInput.table_name required")
-    if "IndexName" in data:
+    if data.get("IndexName") is not None:
         out["index_name"] = data["IndexName"]
-    if "Select" in data:
+    if data.get("Select") is not None:
         import capo_dynamodb.types.select
 
         out["select"] = capo_dynamodb.types.select.deserialize_aws_json_1_0(
             data["Select"]
         )
-    if "AttributesToGet" in data:
+    if data.get("AttributesToGet") is not None:
         import capo_dynamodb.types.attribute_name_list
 
         out["attributes_to_get"] = (
@@ -193,11 +193,11 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["AttributesToGet"]
             )
         )
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
-    if "ConsistentRead" in data:
+    if data.get("ConsistentRead") is not None:
         out["consistent_read"] = data["ConsistentRead"]
-    if "KeyConditions" in data:
+    if data.get("KeyConditions") is not None:
         import capo_dynamodb.types.key_conditions
 
         out["key_conditions"] = (
@@ -205,7 +205,7 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["KeyConditions"]
             )
         )
-    if "QueryFilter" in data:
+    if data.get("QueryFilter") is not None:
         import capo_dynamodb.types.filter_condition_map
 
         out["query_filter"] = (
@@ -213,7 +213,7 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["QueryFilter"]
             )
         )
-    if "ConditionalOperator" in data:
+    if data.get("ConditionalOperator") is not None:
         import capo_dynamodb.types.conditional_operator
 
         out["conditional_operator"] = (
@@ -221,15 +221,15 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["ConditionalOperator"]
             )
         )
-    if "ScanIndexForward" in data:
+    if data.get("ScanIndexForward") is not None:
         out["scan_index_forward"] = data["ScanIndexForward"]
-    if "ExclusiveStartKey" in data:
+    if data.get("ExclusiveStartKey") is not None:
         import capo_dynamodb.types.key
 
         out["exclusive_start_key"] = capo_dynamodb.types.key.deserialize_aws_json_1_0(
             data["ExclusiveStartKey"]
         )
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (
@@ -237,13 +237,13 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["ReturnConsumedCapacity"]
             )
         )
-    if "ProjectionExpression" in data:
+    if data.get("ProjectionExpression") is not None:
         out["projection_expression"] = data["ProjectionExpression"]
-    if "FilterExpression" in data:
+    if data.get("FilterExpression") is not None:
         out["filter_expression"] = data["FilterExpression"]
-    if "KeyConditionExpression" in data:
+    if data.get("KeyConditionExpression") is not None:
         out["key_condition_expression"] = data["KeyConditionExpression"]
-    if "ExpressionAttributeNames" in data:
+    if data.get("ExpressionAttributeNames") is not None:
         import capo_dynamodb.types.expression_attribute_name_map
 
         out["expression_attribute_names"] = (
@@ -251,7 +251,7 @@ def deserialize_aws_json_1_0(data: dict) -> QueryInput:
                 data["ExpressionAttributeNames"]
             )
         )
-    if "ExpressionAttributeValues" in data:
+    if data.get("ExpressionAttributeValues") is not None:
         import capo_dynamodb.types.expression_attribute_value_map
 
         out["expression_attribute_values"] = (

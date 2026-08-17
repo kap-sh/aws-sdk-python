@@ -51,19 +51,19 @@ def serialize_aws_json_1_1(value: ImageScanFinding) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ImageScanFinding:
     out: ImageScanFinding = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
-    if "severity" in data:
+    if data.get("severity") is not None:
         import capo_ecr.types.finding_severity
 
         out["severity"] = capo_ecr.types.finding_severity.deserialize_aws_json_1_1(
             data["severity"]
         )
-    if "attributes" in data:
+    if data.get("attributes") is not None:
         import capo_ecr.types.attribute_list
 
         out["attributes"] = capo_ecr.types.attribute_list.deserialize_aws_json_1_1(

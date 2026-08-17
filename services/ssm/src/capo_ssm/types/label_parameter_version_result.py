@@ -35,7 +35,7 @@ def serialize_aws_json_1_1(value: LabelParameterVersionResult) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LabelParameterVersionResult:
     out: LabelParameterVersionResult = {}  # type: ignore[typeddict-item]
-    if "InvalidLabels" in data:
+    if data.get("InvalidLabels") is not None:
         import capo_ssm.types.parameter_label_list
 
         out["invalid_labels"] = (
@@ -43,7 +43,7 @@ def deserialize_aws_json_1_1(data: dict) -> LabelParameterVersionResult:
                 data["InvalidLabels"]
             )
         )
-    if "ParameterVersion" in data:
+    if data.get("ParameterVersion") is not None:
         out["parameter_version"] = data["ParameterVersion"]
     else:
         out["parameter_version"] = 0

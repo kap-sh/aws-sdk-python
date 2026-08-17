@@ -63,13 +63,13 @@ def serialize_aws_json_1_1(value: ServiceConnectConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceConnectConfiguration:
     out: ServiceConnectConfiguration = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         out["enabled"] = False
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
-    if "services" in data:
+    if data.get("services") is not None:
         import capo_ecs.types.service_connect_service_list
 
         out["services"] = (
@@ -77,7 +77,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceConnectConfiguration:
                 data["services"]
             )
         )
-    if "logConfiguration" in data:
+    if data.get("logConfiguration") is not None:
         import capo_ecs.types.log_configuration
 
         out["log_configuration"] = (
@@ -85,7 +85,7 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceConnectConfiguration:
                 data["logConfiguration"]
             )
         )
-    if "accessLogConfiguration" in data:
+    if data.get("accessLogConfiguration") is not None:
         import capo_ecs.types.service_connect_access_log_configuration
 
         out["access_log_configuration"] = (

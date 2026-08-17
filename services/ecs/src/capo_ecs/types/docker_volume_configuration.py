@@ -52,21 +52,21 @@ def serialize_aws_json_1_1(value: DockerVolumeConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DockerVolumeConfiguration:
     out: DockerVolumeConfiguration = {}  # type: ignore[typeddict-item]
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_ecs.types.scope
 
         out["scope"] = capo_ecs.types.scope.deserialize_aws_json_1_1(data["scope"])
-    if "autoprovision" in data:
+    if data.get("autoprovision") is not None:
         out["autoprovision"] = data["autoprovision"]
-    if "driver" in data:
+    if data.get("driver") is not None:
         out["driver"] = data["driver"]
-    if "driverOpts" in data:
+    if data.get("driverOpts") is not None:
         import capo_ecs.types.string_map
 
         out["driver_opts"] = capo_ecs.types.string_map.deserialize_aws_json_1_1(
             data["driverOpts"]
         )
-    if "labels" in data:
+    if data.get("labels") is not None:
         import capo_ecs.types.string_map
 
         out["labels"] = capo_ecs.types.string_map.deserialize_aws_json_1_1(

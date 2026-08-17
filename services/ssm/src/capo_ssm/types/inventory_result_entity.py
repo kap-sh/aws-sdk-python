@@ -32,9 +32,9 @@ def serialize_aws_json_1_1(value: InventoryResultEntity) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InventoryResultEntity:
     out: InventoryResultEntity = {}  # type: ignore[typeddict-item]
-    if "Id" in data:
+    if data.get("Id") is not None:
         out["id"] = data["Id"]
-    if "Data" in data:
+    if data.get("Data") is not None:
         import capo_ssm.types.inventory_result_item_map
 
         out["data"] = capo_ssm.types.inventory_result_item_map.deserialize_aws_json_1_1(

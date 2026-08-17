@@ -40,7 +40,7 @@ def serialize_aws_json_1_1(value: RegistryScanningRule) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegistryScanningRule:
     out: RegistryScanningRule = {}  # type: ignore[typeddict-item]
-    if "scanFrequency" in data:
+    if data.get("scanFrequency") is not None:
         import capo_ecr.types.scan_frequency
 
         out["scan_frequency"] = capo_ecr.types.scan_frequency.deserialize_aws_json_1_1(
@@ -48,7 +48,7 @@ def deserialize_aws_json_1_1(data: dict) -> RegistryScanningRule:
         )
     else:
         raise DeserializationError("RegistryScanningRule.scan_frequency required")
-    if "repositoryFilters" in data:
+    if data.get("repositoryFilters") is not None:
         import capo_ecr.types.scanning_repository_filter_list
 
         out["repository_filters"] = (

@@ -28,13 +28,13 @@ def serialize_aws_json_1_0(value: RoutingConfigurationListItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> RoutingConfigurationListItem:
     out: RoutingConfigurationListItem = {}  # type: ignore[typeddict-item]
-    if "stateMachineVersionArn" in data:
+    if data.get("stateMachineVersionArn") is not None:
         out["state_machine_version_arn"] = data["stateMachineVersionArn"]
     else:
         raise DeserializationError(
             "RoutingConfigurationListItem.state_machine_version_arn required"
         )
-    if "weight" in data:
+    if data.get("weight") is not None:
         out["weight"] = data["weight"]
     else:
         out["weight"] = 0

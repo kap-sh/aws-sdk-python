@@ -74,5 +74,7 @@ def deserialize_aws_json_1_0(data: list) -> CompositeAlarms:
 
     out: CompositeAlarms = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_cloudwatch.types.composite_alarm.deserialize_aws_json_1_0(item))
     return out

@@ -25,7 +25,7 @@ def serialize_aws_json_1_1(value: PutAccountSettingDefaultResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutAccountSettingDefaultResponse:
     out: PutAccountSettingDefaultResponse = {}  # type: ignore[typeddict-item]
-    if "setting" in data:
+    if data.get("setting") is not None:
         import capo_ecs.types.setting
 
         out["setting"] = capo_ecs.types.setting.deserialize_aws_json_1_1(

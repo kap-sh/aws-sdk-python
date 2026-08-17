@@ -36,13 +36,13 @@ def serialize_json(value: DestinationConfig) -> dict:
 
 def deserialize_json(data: dict) -> DestinationConfig:
     out: DestinationConfig = {}  # type: ignore[typeddict-item]
-    if "OnSuccess" in data:
+    if data.get("OnSuccess") is not None:
         import capo_lambda.types.on_success
 
         out["on_success"] = capo_lambda.types.on_success.deserialize_json(
             data["OnSuccess"]
         )
-    if "OnFailure" in data:
+    if data.get("OnFailure") is not None:
         import capo_lambda.types.on_failure
 
         out["on_failure"] = capo_lambda.types.on_failure.deserialize_json(

@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: OpenSearchDataSource) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchDataSource:
     out: OpenSearchDataSource = {}  # type: ignore[typeddict-item]
-    if "dataSourceName" in data:
+    if data.get("dataSourceName") is not None:
         out["data_source_name"] = data["dataSourceName"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status
 
         out["status"] = (

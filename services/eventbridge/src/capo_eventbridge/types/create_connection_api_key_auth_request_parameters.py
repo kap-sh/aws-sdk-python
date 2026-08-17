@@ -28,13 +28,13 @@ def serialize_aws_json_1_1(value: CreateConnectionApiKeyAuthRequestParameters) -
 
 def deserialize_aws_json_1_1(data: dict) -> CreateConnectionApiKeyAuthRequestParameters:
     out: CreateConnectionApiKeyAuthRequestParameters = {}  # type: ignore[typeddict-item]
-    if "ApiKeyName" in data:
+    if data.get("ApiKeyName") is not None:
         out["api_key_name"] = data["ApiKeyName"]
     else:
         raise DeserializationError(
             "CreateConnectionApiKeyAuthRequestParameters.api_key_name required"
         )
-    if "ApiKeyValue" in data:
+    if data.get("ApiKeyValue") is not None:
         out["api_key_value"] = data["ApiKeyValue"]
     else:
         raise DeserializationError(

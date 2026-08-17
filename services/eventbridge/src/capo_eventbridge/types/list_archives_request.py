@@ -47,18 +47,18 @@ def serialize_aws_json_1_1(value: ListArchivesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListArchivesRequest:
     out: ListArchivesRequest = {}  # type: ignore[typeddict-item]
-    if "NamePrefix" in data:
+    if data.get("NamePrefix") is not None:
         out["name_prefix"] = data["NamePrefix"]
-    if "EventSourceArn" in data:
+    if data.get("EventSourceArn") is not None:
         out["event_source_arn"] = data["EventSourceArn"]
-    if "State" in data:
+    if data.get("State") is not None:
         import capo_eventbridge.types.archive_state
 
         out["state"] = capo_eventbridge.types.archive_state.deserialize_aws_json_1_1(
             data["State"]
         )
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Limit" in data:
+    if data.get("Limit") is not None:
         out["limit"] = data["Limit"]
     return out

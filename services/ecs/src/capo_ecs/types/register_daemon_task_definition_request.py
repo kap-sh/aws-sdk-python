@@ -86,17 +86,17 @@ def serialize_aws_json_1_1(value: RegisterDaemonTaskDefinitionRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RegisterDaemonTaskDefinitionRequest:
     out: RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "family" in data:
+    if data.get("family") is not None:
         out["family"] = data["family"]
     else:
         raise DeserializationError(
             "RegisterDaemonTaskDefinitionRequest.family required"
         )
-    if "taskRoleArn" in data:
+    if data.get("taskRoleArn") is not None:
         out["task_role_arn"] = data["taskRoleArn"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "containerDefinitions" in data:
+    if data.get("containerDefinitions") is not None:
         import capo_ecs.types.daemon_container_definition_list
 
         out["container_definitions"] = (
@@ -108,27 +108,27 @@ def deserialize_aws_json_1_1(data: dict) -> RegisterDaemonTaskDefinitionRequest:
         raise DeserializationError(
             "RegisterDaemonTaskDefinitionRequest.container_definitions required"
         )
-    if "cpu" in data:
+    if data.get("cpu") is not None:
         out["cpu"] = data["cpu"]
-    if "memory" in data:
+    if data.get("memory") is not None:
         out["memory"] = data["memory"]
-    if "volumes" in data:
+    if data.get("volumes") is not None:
         import capo_ecs.types.daemon_volume_list
 
         out["volumes"] = capo_ecs.types.daemon_volume_list.deserialize_aws_json_1_1(
             data["volumes"]
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_ecs.types.tags
 
         out["tags"] = capo_ecs.types.tags.deserialize_aws_json_1_1(data["tags"])
-    if "pidMode" in data:
+    if data.get("pidMode") is not None:
         import capo_ecs.types.daemon_pid_mode
 
         out["pid_mode"] = capo_ecs.types.daemon_pid_mode.deserialize_aws_json_1_1(
             data["pidMode"]
         )
-    if "ipcMode" in data:
+    if data.get("ipcMode") is not None:
         import capo_ecs.types.daemon_ipc_mode
 
         out["ipc_mode"] = capo_ecs.types.daemon_ipc_mode.deserialize_aws_json_1_1(

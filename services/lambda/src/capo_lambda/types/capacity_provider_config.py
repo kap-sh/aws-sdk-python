@@ -30,7 +30,7 @@ def serialize_json(value: CapacityProviderConfig) -> dict:
 
 def deserialize_json(data: dict) -> CapacityProviderConfig:
     out: CapacityProviderConfig = {}  # type: ignore[typeddict-item]
-    if "LambdaManagedInstancesCapacityProviderConfig" in data:
+    if data.get("LambdaManagedInstancesCapacityProviderConfig") is not None:
         import capo_lambda.types.lambda_managed_instances_capacity_provider_config
 
         out["lambda_managed_instances_capacity_provider_config"] = (

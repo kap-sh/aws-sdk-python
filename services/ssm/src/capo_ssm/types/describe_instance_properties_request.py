@@ -56,7 +56,7 @@ def serialize_aws_json_1_1(value: DescribeInstancePropertiesRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePropertiesRequest:
     out: DescribeInstancePropertiesRequest = {}  # type: ignore[typeddict-item]
-    if "InstancePropertyFilterList" in data:
+    if data.get("InstancePropertyFilterList") is not None:
         import capo_ssm.types.instance_property_filter_list
 
         out["instance_property_filter_list"] = (
@@ -64,7 +64,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePropertiesRequest:
                 data["InstancePropertyFilterList"]
             )
         )
-    if "FiltersWithOperator" in data:
+    if data.get("FiltersWithOperator") is not None:
         import capo_ssm.types.instance_property_string_filter_list
 
         out["filters_with_operator"] = (
@@ -72,8 +72,8 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeInstancePropertiesRequest:
                 data["FiltersWithOperator"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
     return out

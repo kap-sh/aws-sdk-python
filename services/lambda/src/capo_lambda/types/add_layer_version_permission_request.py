@@ -48,22 +48,22 @@ def serialize_json(value: AddLayerVersionPermissionRequest) -> dict:
 
 def deserialize_json(data: dict) -> AddLayerVersionPermissionRequest:
     out: AddLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
-    if "StatementId" in data:
+    if data.get("StatementId") is not None:
         out["statement_id"] = data["StatementId"]
     else:
         raise DeserializationError(
             "AddLayerVersionPermissionRequest.statement_id required"
         )
-    if "Action" in data:
+    if data.get("Action") is not None:
         out["action"] = data["Action"]
     else:
         raise DeserializationError("AddLayerVersionPermissionRequest.action required")
-    if "Principal" in data:
+    if data.get("Principal") is not None:
         out["principal"] = data["Principal"]
     else:
         raise DeserializationError(
             "AddLayerVersionPermissionRequest.principal required"
         )
-    if "OrganizationId" in data:
+    if data.get("OrganizationId") is not None:
         out["organization_id"] = data["OrganizationId"]
     return out

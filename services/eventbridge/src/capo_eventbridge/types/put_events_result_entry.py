@@ -33,10 +33,10 @@ def serialize_aws_json_1_1(value: PutEventsResultEntry) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> PutEventsResultEntry:
     out: PutEventsResultEntry = {}  # type: ignore[typeddict-item]
-    if "EventId" in data:
+    if data.get("EventId") is not None:
         out["event_id"] = data["EventId"]
-    if "ErrorCode" in data:
+    if data.get("ErrorCode") is not None:
         out["error_code"] = data["ErrorCode"]
-    if "ErrorMessage" in data:
+    if data.get("ErrorMessage") is not None:
         out["error_message"] = data["ErrorMessage"]
     return out

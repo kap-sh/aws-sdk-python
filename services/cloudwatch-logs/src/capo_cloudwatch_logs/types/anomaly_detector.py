@@ -94,11 +94,11 @@ def serialize_aws_json_1_1(value: AnomalyDetector) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AnomalyDetector:
     out: AnomalyDetector = {}  # type: ignore[typeddict-item]
-    if "anomalyDetectorArn" in data:
+    if data.get("anomalyDetectorArn") is not None:
         out["anomaly_detector_arn"] = data["anomalyDetectorArn"]
-    if "detectorName" in data:
+    if data.get("detectorName") is not None:
         out["detector_name"] = data["detectorName"]
-    if "logGroupArnList" in data:
+    if data.get("logGroupArnList") is not None:
         import capo_cloudwatch_logs.types.log_group_arn_list
 
         out["log_group_arn_list"] = (
@@ -106,7 +106,7 @@ def deserialize_aws_json_1_1(data: dict) -> AnomalyDetector:
                 data["logGroupArnList"]
             )
         )
-    if "evaluationFrequency" in data:
+    if data.get("evaluationFrequency") is not None:
         import capo_cloudwatch_logs.types.evaluation_frequency
 
         out["evaluation_frequency"] = (
@@ -114,9 +114,9 @@ def deserialize_aws_json_1_1(data: dict) -> AnomalyDetector:
                 data["evaluationFrequency"]
             )
         )
-    if "filterPattern" in data:
+    if data.get("filterPattern") is not None:
         out["filter_pattern"] = data["filterPattern"]
-    if "anomalyDetectorStatus" in data:
+    if data.get("anomalyDetectorStatus") is not None:
         import capo_cloudwatch_logs.types.anomaly_detector_status
 
         out["anomaly_detector_status"] = (
@@ -124,16 +124,16 @@ def deserialize_aws_json_1_1(data: dict) -> AnomalyDetector:
                 data["anomalyDetectorStatus"]
             )
         )
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "creationTimeStamp" in data:
+    if data.get("creationTimeStamp") is not None:
         out["creation_time_stamp"] = data["creationTimeStamp"]
     else:
         out["creation_time_stamp"] = 0
-    if "lastModifiedTimeStamp" in data:
+    if data.get("lastModifiedTimeStamp") is not None:
         out["last_modified_time_stamp"] = data["lastModifiedTimeStamp"]
     else:
         out["last_modified_time_stamp"] = 0
-    if "anomalyVisibilityTime" in data:
+    if data.get("anomalyVisibilityTime") is not None:
         out["anomaly_visibility_time"] = data["anomalyVisibilityTime"]
     return out

@@ -23,7 +23,7 @@ def serialize_aws_json_1_1(value: AccessDeniedException_) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AccessDeniedException_:
     out: AccessDeniedException_ = {}  # type: ignore[typeddict-item]
-    if "Message" in data:
+    if data.get("Message") is not None:
         out["message"] = data["Message"]
     else:
         raise DeserializationError("AccessDeniedException_.message required")

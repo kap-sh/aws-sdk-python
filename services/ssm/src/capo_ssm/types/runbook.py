@@ -84,13 +84,13 @@ def serialize_aws_json_1_1(value: Runbook) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Runbook:
     out: Runbook = {}  # type: ignore[typeddict-item]
-    if "DocumentName" in data:
+    if data.get("DocumentName") is not None:
         out["document_name"] = data["DocumentName"]
     else:
         raise DeserializationError("Runbook.document_name required")
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (
@@ -98,25 +98,25 @@ def deserialize_aws_json_1_1(data: dict) -> Runbook:
                 data["Parameters"]
             )
         )
-    if "TargetParameterName" in data:
+    if data.get("TargetParameterName") is not None:
         out["target_parameter_name"] = data["TargetParameterName"]
-    if "Targets" in data:
+    if data.get("Targets") is not None:
         import capo_ssm.types.targets
 
         out["targets"] = capo_ssm.types.targets.deserialize_aws_json_1_1(
             data["Targets"]
         )
-    if "TargetMaps" in data:
+    if data.get("TargetMaps") is not None:
         import capo_ssm.types.target_maps
 
         out["target_maps"] = capo_ssm.types.target_maps.deserialize_aws_json_1_1(
             data["TargetMaps"]
         )
-    if "MaxConcurrency" in data:
+    if data.get("MaxConcurrency") is not None:
         out["max_concurrency"] = data["MaxConcurrency"]
-    if "MaxErrors" in data:
+    if data.get("MaxErrors") is not None:
         out["max_errors"] = data["MaxErrors"]
-    if "TargetLocations" in data:
+    if data.get("TargetLocations") is not None:
         import capo_ssm.types.target_locations
 
         out["target_locations"] = (

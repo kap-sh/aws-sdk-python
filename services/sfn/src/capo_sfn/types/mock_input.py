@@ -45,15 +45,15 @@ def serialize_aws_json_1_0(value: MockInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> MockInput:
     out: MockInput = {}  # type: ignore[typeddict-item]
-    if "result" in data:
+    if data.get("result") is not None:
         out["result"] = data["result"]
-    if "errorOutput" in data:
+    if data.get("errorOutput") is not None:
         import capo_sfn.types.mock_error_output
 
         out["error_output"] = capo_sfn.types.mock_error_output.deserialize_aws_json_1_0(
             data["errorOutput"]
         )
-    if "fieldValidationMode" in data:
+    if data.get("fieldValidationMode") is not None:
         import capo_sfn.types.mock_response_validation_mode
 
         out["field_validation_mode"] = (

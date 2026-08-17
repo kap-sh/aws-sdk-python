@@ -32,12 +32,12 @@ def serialize_aws_json_1_1(value: ClusterSetting) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ClusterSetting:
     out: ClusterSetting = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_ecs.types.cluster_setting_name
 
         out["name"] = capo_ecs.types.cluster_setting_name.deserialize_aws_json_1_1(
             data["name"]
         )
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     return out

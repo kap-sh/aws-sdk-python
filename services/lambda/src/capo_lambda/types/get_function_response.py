@@ -63,7 +63,7 @@ def serialize_json(value: GetFunctionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFunctionResponse:
     out: GetFunctionResponse = {}  # type: ignore[typeddict-item]
-    if "Configuration" in data:
+    if data.get("Configuration") is not None:
         import capo_lambda.types.function_configuration
 
         out["configuration"] = (
@@ -71,23 +71,23 @@ def deserialize_json(data: dict) -> GetFunctionResponse:
                 data["Configuration"]
             )
         )
-    if "Code" in data:
+    if data.get("Code") is not None:
         import capo_lambda.types.function_code_location
 
         out["code"] = capo_lambda.types.function_code_location.deserialize_json(
             data["Code"]
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_lambda.types.tags
 
         out["tags"] = capo_lambda.types.tags.deserialize_json(data["Tags"])
-    if "TagsError" in data:
+    if data.get("TagsError") is not None:
         import capo_lambda.types.tags_error
 
         out["tags_error"] = capo_lambda.types.tags_error.deserialize_json(
             data["TagsError"]
         )
-    if "Concurrency" in data:
+    if data.get("Concurrency") is not None:
         import capo_lambda.types.concurrency
 
         out["concurrency"] = capo_lambda.types.concurrency.deserialize_json(

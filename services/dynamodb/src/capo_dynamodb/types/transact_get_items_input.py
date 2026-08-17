@@ -43,7 +43,7 @@ def serialize_aws_json_1_0(value: TransactGetItemsInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> TransactGetItemsInput:
     out: TransactGetItemsInput = {}  # type: ignore[typeddict-item]
-    if "TransactItems" in data:
+    if data.get("TransactItems") is not None:
         import capo_dynamodb.types.transact_get_item_list
 
         out["transact_items"] = (
@@ -53,7 +53,7 @@ def deserialize_aws_json_1_0(data: dict) -> TransactGetItemsInput:
         )
     else:
         raise DeserializationError("TransactGetItemsInput.transact_items required")
-    if "ReturnConsumedCapacity" in data:
+    if data.get("ReturnConsumedCapacity") is not None:
         import capo_dynamodb.types.return_consumed_capacity
 
         out["return_consumed_capacity"] = (

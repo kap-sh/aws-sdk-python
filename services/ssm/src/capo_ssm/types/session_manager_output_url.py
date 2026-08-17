@@ -32,8 +32,8 @@ def serialize_aws_json_1_1(value: SessionManagerOutputUrl) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SessionManagerOutputUrl:
     out: SessionManagerOutputUrl = {}  # type: ignore[typeddict-item]
-    if "S3OutputUrl" in data:
+    if data.get("S3OutputUrl") is not None:
         out["s3_output_url"] = data["S3OutputUrl"]
-    if "CloudWatchOutputUrl" in data:
+    if data.get("CloudWatchOutputUrl") is not None:
         out["cloud_watch_output_url"] = data["CloudWatchOutputUrl"]
     return out

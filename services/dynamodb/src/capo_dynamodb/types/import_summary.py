@@ -82,9 +82,9 @@ def serialize_aws_json_1_0(value: ImportSummary) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ImportSummary:
     out: ImportSummary = {}  # type: ignore[typeddict-item]
-    if "ImportArn" in data:
+    if data.get("ImportArn") is not None:
         out["import_arn"] = data["ImportArn"]
-    if "ImportStatus" in data:
+    if data.get("ImportStatus") is not None:
         import capo_dynamodb.types.import_status
 
         out["import_status"] = (
@@ -92,9 +92,9 @@ def deserialize_aws_json_1_0(data: dict) -> ImportSummary:
                 data["ImportStatus"]
             )
         )
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "S3BucketSource" in data:
+    if data.get("S3BucketSource") is not None:
         import capo_dynamodb.types.s3_bucket_source
 
         out["s3_bucket_source"] = (
@@ -102,15 +102,15 @@ def deserialize_aws_json_1_0(data: dict) -> ImportSummary:
                 data["S3BucketSource"]
             )
         )
-    if "CloudWatchLogGroupArn" in data:
+    if data.get("CloudWatchLogGroupArn") is not None:
         out["cloud_watch_log_group_arn"] = data["CloudWatchLogGroupArn"]
-    if "InputFormat" in data:
+    if data.get("InputFormat") is not None:
         import capo_dynamodb.types.input_format
 
         out["input_format"] = capo_dynamodb.types.input_format.deserialize_aws_json_1_0(
             data["InputFormat"]
         )
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_dynamodb.types.import_start_time
 
         out["start_time"] = (
@@ -118,7 +118,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportSummary:
                 data["StartTime"]
             )
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_dynamodb.types.import_end_time
 
         out["end_time"] = capo_dynamodb.types.import_end_time.deserialize_aws_json_1_0(

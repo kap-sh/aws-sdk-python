@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: LifecyclePolicyPreviewFilter) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> LifecyclePolicyPreviewFilter:
     out: LifecyclePolicyPreviewFilter = {}  # type: ignore[typeddict-item]
-    if "tagStatus" in data:
+    if data.get("tagStatus") is not None:
         import capo_ecr.types.tag_status
 
         out["tag_status"] = capo_ecr.types.tag_status.deserialize_aws_json_1_1(

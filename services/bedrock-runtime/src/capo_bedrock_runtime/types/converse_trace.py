@@ -44,7 +44,7 @@ def serialize_json(value: ConverseTrace) -> dict:
 
 def deserialize_json(data: dict) -> ConverseTrace:
     out: ConverseTrace = {}  # type: ignore[typeddict-item]
-    if "guardrail" in data:
+    if data.get("guardrail") is not None:
         import capo_bedrock_runtime.types.guardrail_trace_assessment
 
         out["guardrail"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> ConverseTrace:
                 data["guardrail"]
             )
         )
-    if "promptRouter" in data:
+    if data.get("promptRouter") is not None:
         import capo_bedrock_runtime.types.prompt_router_trace
 
         out["prompt_router"] = (

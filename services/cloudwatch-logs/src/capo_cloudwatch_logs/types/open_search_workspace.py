@@ -38,9 +38,9 @@ def serialize_aws_json_1_1(value: OpenSearchWorkspace) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchWorkspace:
     out: OpenSearchWorkspace = {}  # type: ignore[typeddict-item]
-    if "workspaceId" in data:
+    if data.get("workspaceId") is not None:
         out["workspace_id"] = data["workspaceId"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_cloudwatch_logs.types.open_search_resource_status
 
         out["status"] = (

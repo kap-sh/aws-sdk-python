@@ -36,7 +36,7 @@ def serialize_aws_json_1_1(value: RuntimePlatform) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> RuntimePlatform:
     out: RuntimePlatform = {}  # type: ignore[typeddict-item]
-    if "cpuArchitecture" in data:
+    if data.get("cpuArchitecture") is not None:
         import capo_ecs.types.cpu_architecture
 
         out["cpu_architecture"] = (
@@ -44,7 +44,7 @@ def deserialize_aws_json_1_1(data: dict) -> RuntimePlatform:
                 data["cpuArchitecture"]
             )
         )
-    if "operatingSystemFamily" in data:
+    if data.get("operatingSystemFamily") is not None:
         import capo_ecs.types.os_family
 
         out["operating_system_family"] = (

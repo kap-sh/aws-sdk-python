@@ -48,7 +48,7 @@ def serialize_aws_json_1_1(value: ServiceDeploymentAlarms) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ServiceDeploymentAlarms:
     out: ServiceDeploymentAlarms = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_ecs.types.service_deployment_rollback_monitors_status
 
         out["status"] = (
@@ -56,13 +56,13 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceDeploymentAlarms:
                 data["status"]
             )
         )
-    if "alarmNames" in data:
+    if data.get("alarmNames") is not None:
         import capo_ecs.types.string_list
 
         out["alarm_names"] = capo_ecs.types.string_list.deserialize_aws_json_1_1(
             data["alarmNames"]
         )
-    if "triggeredAlarmNames" in data:
+    if data.get("triggeredAlarmNames") is not None:
         import capo_ecs.types.string_list
 
         out["triggered_alarm_names"] = (

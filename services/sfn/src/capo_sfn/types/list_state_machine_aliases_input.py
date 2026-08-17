@@ -33,15 +33,15 @@ def serialize_aws_json_1_0(value: ListStateMachineAliasesInput) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ListStateMachineAliasesInput:
     out: ListStateMachineAliasesInput = {}  # type: ignore[typeddict-item]
-    if "stateMachineArn" in data:
+    if data.get("stateMachineArn") is not None:
         out["state_machine_arn"] = data["stateMachineArn"]
     else:
         raise DeserializationError(
             "ListStateMachineAliasesInput.state_machine_arn required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 0

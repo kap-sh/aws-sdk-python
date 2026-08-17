@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> DaemonDeploymentCapacityProviderList
 
     out: DaemonDeploymentCapacityProviderList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_ecs.types.daemon_deployment_capacity_provider.deserialize_aws_json_1_1(
                 item

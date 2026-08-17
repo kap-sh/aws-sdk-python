@@ -46,17 +46,17 @@ def serialize_aws_json_1_1(value: ProxyConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ProxyConfiguration:
     out: ProxyConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_ecs.types.proxy_configuration_type
 
         out["type"] = capo_ecs.types.proxy_configuration_type.deserialize_aws_json_1_1(
             data["type"]
         )
-    if "containerName" in data:
+    if data.get("containerName") is not None:
         out["container_name"] = data["containerName"]
     else:
         raise DeserializationError("ProxyConfiguration.container_name required")
-    if "properties" in data:
+    if data.get("properties") is not None:
         import capo_ecs.types.proxy_configuration_properties
 
         out["properties"] = (

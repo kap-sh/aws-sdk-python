@@ -40,7 +40,7 @@ def serialize_json(value: OutputFormat) -> dict:
 
 def deserialize_json(data: dict) -> OutputFormat:
     out: OutputFormat = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_runtime.types.output_format_type
 
         out["type"] = capo_bedrock_runtime.types.output_format_type.deserialize_json(
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> OutputFormat:
         )
     else:
         raise DeserializationError("OutputFormat.type required")
-    if "structure" in data:
+    if data.get("structure") is not None:
         import capo_bedrock_runtime.types.output_format_structure
 
         out["structure"] = (

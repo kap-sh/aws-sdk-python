@@ -55,13 +55,13 @@ def serialize_aws_json_1_1(value: DescribeParametersRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeParametersRequest:
     out: DescribeParametersRequest = {}  # type: ignore[typeddict-item]
-    if "Filters" in data:
+    if data.get("Filters") is not None:
         import capo_ssm.types.parameters_filter_list
 
         out["filters"] = capo_ssm.types.parameters_filter_list.deserialize_aws_json_1_1(
             data["Filters"]
         )
-    if "ParameterFilters" in data:
+    if data.get("ParameterFilters") is not None:
         import capo_ssm.types.parameter_string_filter_list
 
         out["parameter_filters"] = (
@@ -69,10 +69,10 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeParametersRequest:
                 data["ParameterFilters"]
             )
         )
-    if "MaxResults" in data:
+    if data.get("MaxResults") is not None:
         out["max_results"] = data["MaxResults"]
-    if "NextToken" in data:
+    if data.get("NextToken") is not None:
         out["next_token"] = data["NextToken"]
-    if "Shared" in data:
+    if data.get("Shared") is not None:
         out["shared"] = data["Shared"]
     return out

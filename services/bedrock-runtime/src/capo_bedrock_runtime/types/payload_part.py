@@ -29,7 +29,7 @@ def serialize_json(value: PayloadPart) -> dict:
 
 def deserialize_json(data: dict) -> PayloadPart:
     out: PayloadPart = {}  # type: ignore[typeddict-item]
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_runtime.types.part_body
 
         out["bytes"] = capo_bedrock_runtime.types.part_body.deserialize_json(

@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> SourceAccessConfigurations:
 
     out: SourceAccessConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.source_access_configuration.deserialize_json(item))
     return out

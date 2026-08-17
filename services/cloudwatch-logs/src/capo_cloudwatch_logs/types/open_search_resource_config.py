@@ -48,15 +48,15 @@ def serialize_aws_json_1_1(value: OpenSearchResourceConfig) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OpenSearchResourceConfig:
     out: OpenSearchResourceConfig = {}  # type: ignore[typeddict-item]
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
-    if "dataSourceRoleArn" in data:
+    if data.get("dataSourceRoleArn") is not None:
         out["data_source_role_arn"] = data["dataSourceRoleArn"]
     else:
         raise DeserializationError(
             "OpenSearchResourceConfig.data_source_role_arn required"
         )
-    if "dashboardViewerPrincipals" in data:
+    if data.get("dashboardViewerPrincipals") is not None:
         import capo_cloudwatch_logs.types.dashboard_viewer_principals
 
         out["dashboard_viewer_principals"] = (
@@ -68,9 +68,9 @@ def deserialize_aws_json_1_1(data: dict) -> OpenSearchResourceConfig:
         raise DeserializationError(
             "OpenSearchResourceConfig.dashboard_viewer_principals required"
         )
-    if "applicationArn" in data:
+    if data.get("applicationArn") is not None:
         out["application_arn"] = data["applicationArn"]
-    if "retentionDays" in data:
+    if data.get("retentionDays") is not None:
         out["retention_days"] = data["retentionDays"]
     else:
         raise DeserializationError("OpenSearchResourceConfig.retention_days required")

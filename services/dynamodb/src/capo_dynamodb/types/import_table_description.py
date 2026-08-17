@@ -158,9 +158,9 @@ def serialize_aws_json_1_0(value: ImportTableDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
     out: ImportTableDescription = {}  # type: ignore[typeddict-item]
-    if "ImportArn" in data:
+    if data.get("ImportArn") is not None:
         out["import_arn"] = data["ImportArn"]
-    if "ImportStatus" in data:
+    if data.get("ImportStatus") is not None:
         import capo_dynamodb.types.import_status
 
         out["import_status"] = (
@@ -168,13 +168,13 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["ImportStatus"]
             )
         )
-    if "TableArn" in data:
+    if data.get("TableArn") is not None:
         out["table_arn"] = data["TableArn"]
-    if "TableId" in data:
+    if data.get("TableId") is not None:
         out["table_id"] = data["TableId"]
-    if "ClientToken" in data:
+    if data.get("ClientToken") is not None:
         out["client_token"] = data["ClientToken"]
-    if "S3BucketSource" in data:
+    if data.get("S3BucketSource") is not None:
         import capo_dynamodb.types.s3_bucket_source
 
         out["s3_bucket_source"] = (
@@ -182,19 +182,19 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["S3BucketSource"]
             )
         )
-    if "ErrorCount" in data:
+    if data.get("ErrorCount") is not None:
         out["error_count"] = data["ErrorCount"]
     else:
         out["error_count"] = 0
-    if "CloudWatchLogGroupArn" in data:
+    if data.get("CloudWatchLogGroupArn") is not None:
         out["cloud_watch_log_group_arn"] = data["CloudWatchLogGroupArn"]
-    if "InputFormat" in data:
+    if data.get("InputFormat") is not None:
         import capo_dynamodb.types.input_format
 
         out["input_format"] = capo_dynamodb.types.input_format.deserialize_aws_json_1_0(
             data["InputFormat"]
         )
-    if "InputFormatOptions" in data:
+    if data.get("InputFormatOptions") is not None:
         import capo_dynamodb.types.input_format_options
 
         out["input_format_options"] = (
@@ -202,7 +202,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["InputFormatOptions"]
             )
         )
-    if "InputCompressionType" in data:
+    if data.get("InputCompressionType") is not None:
         import capo_dynamodb.types.input_compression_type
 
         out["input_compression_type"] = (
@@ -210,7 +210,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["InputCompressionType"]
             )
         )
-    if "TableCreationParameters" in data:
+    if data.get("TableCreationParameters") is not None:
         import capo_dynamodb.types.table_creation_parameters
 
         out["table_creation_parameters"] = (
@@ -218,7 +218,7 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["TableCreationParameters"]
             )
         )
-    if "StartTime" in data:
+    if data.get("StartTime") is not None:
         import capo_dynamodb.types.import_start_time
 
         out["start_time"] = (
@@ -226,24 +226,24 @@ def deserialize_aws_json_1_0(data: dict) -> ImportTableDescription:
                 data["StartTime"]
             )
         )
-    if "EndTime" in data:
+    if data.get("EndTime") is not None:
         import capo_dynamodb.types.import_end_time
 
         out["end_time"] = capo_dynamodb.types.import_end_time.deserialize_aws_json_1_0(
             data["EndTime"]
         )
-    if "ProcessedSizeBytes" in data:
+    if data.get("ProcessedSizeBytes") is not None:
         out["processed_size_bytes"] = data["ProcessedSizeBytes"]
-    if "ProcessedItemCount" in data:
+    if data.get("ProcessedItemCount") is not None:
         out["processed_item_count"] = data["ProcessedItemCount"]
     else:
         out["processed_item_count"] = 0
-    if "ImportedItemCount" in data:
+    if data.get("ImportedItemCount") is not None:
         out["imported_item_count"] = data["ImportedItemCount"]
     else:
         out["imported_item_count"] = 0
-    if "FailureCode" in data:
+    if data.get("FailureCode") is not None:
         out["failure_code"] = data["FailureCode"]
-    if "FailureMessage" in data:
+    if data.get("FailureMessage") is not None:
         out["failure_message"] = data["FailureMessage"]
     return out

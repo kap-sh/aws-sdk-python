@@ -14,4 +14,4 @@ def serialize_json(value: HeadersList) -> list:
 
 
 def deserialize_json(data: list) -> HeadersList:
-    return list(data)
+    return [item for item in data if item is not None]

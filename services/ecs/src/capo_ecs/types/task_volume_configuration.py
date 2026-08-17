@@ -37,11 +37,11 @@ def serialize_aws_json_1_1(value: TaskVolumeConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TaskVolumeConfiguration:
     out: TaskVolumeConfiguration = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("TaskVolumeConfiguration.name required")
-    if "managedEBSVolume" in data:
+    if data.get("managedEBSVolume") is not None:
         import capo_ecs.types.task_managed_ebs_volume_configuration
 
         out["managed_ebs_volume"] = (

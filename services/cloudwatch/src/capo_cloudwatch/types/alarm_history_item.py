@@ -86,23 +86,23 @@ def serialize_aws_json_1_0(value: AlarmHistoryItem) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AlarmHistoryItem:
     out: AlarmHistoryItem = {}  # type: ignore[typeddict-item]
-    if "AlarmName" in data:
+    if data.get("AlarmName") is not None:
         out["alarm_name"] = data["AlarmName"]
-    if "AlarmContributorId" in data:
+    if data.get("AlarmContributorId") is not None:
         out["alarm_contributor_id"] = data["AlarmContributorId"]
-    if "AlarmType" in data:
+    if data.get("AlarmType") is not None:
         import capo_cloudwatch.types.alarm_type
 
         out["alarm_type"] = capo_cloudwatch.types.alarm_type.deserialize_aws_json_1_0(
             data["AlarmType"]
         )
-    if "Timestamp" in data:
+    if data.get("Timestamp") is not None:
         import capo_cloudwatch.types.timestamp
 
         out["timestamp"] = capo_cloudwatch.types.timestamp.deserialize_aws_json_1_0(
             data["Timestamp"]
         )
-    if "HistoryItemType" in data:
+    if data.get("HistoryItemType") is not None:
         import capo_cloudwatch.types.history_item_type
 
         out["history_item_type"] = (
@@ -110,11 +110,11 @@ def deserialize_aws_json_1_0(data: dict) -> AlarmHistoryItem:
                 data["HistoryItemType"]
             )
         )
-    if "HistorySummary" in data:
+    if data.get("HistorySummary") is not None:
         out["history_summary"] = data["HistorySummary"]
-    if "HistoryData" in data:
+    if data.get("HistoryData") is not None:
         out["history_data"] = data["HistoryData"]
-    if "AlarmContributorAttributes" in data:
+    if data.get("AlarmContributorAttributes") is not None:
         import capo_cloudwatch.types.contributor_attributes
 
         out["alarm_contributor_attributes"] = (

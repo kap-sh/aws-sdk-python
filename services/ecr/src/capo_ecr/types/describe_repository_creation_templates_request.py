@@ -37,14 +37,14 @@ def serialize_aws_json_1_1(value: DescribeRepositoryCreationTemplatesRequest) ->
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeRepositoryCreationTemplatesRequest:
     out: DescribeRepositoryCreationTemplatesRequest = {}  # type: ignore[typeddict-item]
-    if "prefixes" in data:
+    if data.get("prefixes") is not None:
         import capo_ecr.types.prefix_list
 
         out["prefixes"] = capo_ecr.types.prefix_list.deserialize_aws_json_1_1(
             data["prefixes"]
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

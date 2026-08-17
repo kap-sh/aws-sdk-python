@@ -34,11 +34,11 @@ def serialize_aws_json_1_1(value: StartTaskResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> StartTaskResponse:
     out: StartTaskResponse = {}  # type: ignore[typeddict-item]
-    if "tasks" in data:
+    if data.get("tasks") is not None:
         import capo_ecs.types.tasks
 
         out["tasks"] = capo_ecs.types.tasks.deserialize_aws_json_1_1(data["tasks"])
-    if "failures" in data:
+    if data.get("failures") is not None:
         import capo_ecs.types.failures
 
         out["failures"] = capo_ecs.types.failures.deserialize_aws_json_1_1(

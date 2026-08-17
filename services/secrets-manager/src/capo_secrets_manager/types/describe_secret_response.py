@@ -217,21 +217,21 @@ def serialize_aws_json_1_1(value: DescribeSecretResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
     out: DescribeSecretResponse = {}  # type: ignore[typeddict-item]
-    if "ARN" in data:
+    if data.get("ARN") is not None:
         out["arn"] = data["ARN"]
-    if "Name" in data:
+    if data.get("Name") is not None:
         out["name"] = data["Name"]
-    if "Type" in data:
+    if data.get("Type") is not None:
         out["type"] = data["Type"]
-    if "Description" in data:
+    if data.get("Description") is not None:
         out["description"] = data["Description"]
-    if "KmsKeyId" in data:
+    if data.get("KmsKeyId") is not None:
         out["kms_key_id"] = data["KmsKeyId"]
-    if "RotationEnabled" in data:
+    if data.get("RotationEnabled") is not None:
         out["rotation_enabled"] = data["RotationEnabled"]
-    if "RotationLambdaARN" in data:
+    if data.get("RotationLambdaARN") is not None:
         out["rotation_lambda_arn"] = data["RotationLambdaARN"]
-    if "RotationRules" in data:
+    if data.get("RotationRules") is not None:
         import capo_secrets_manager.types.rotation_rules_type
 
         out["rotation_rules"] = (
@@ -239,7 +239,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["RotationRules"]
             )
         )
-    if "ExternalSecretRotationMetadata" in data:
+    if data.get("ExternalSecretRotationMetadata") is not None:
         import capo_secrets_manager.types.external_secret_rotation_metadata_type
 
         out["external_secret_rotation_metadata"] = (
@@ -247,9 +247,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["ExternalSecretRotationMetadata"]
             )
         )
-    if "ExternalSecretRotationRoleArn" in data:
+    if data.get("ExternalSecretRotationRoleArn") is not None:
         out["external_secret_rotation_role_arn"] = data["ExternalSecretRotationRoleArn"]
-    if "LastRotatedDate" in data:
+    if data.get("LastRotatedDate") is not None:
         import capo_secrets_manager.types.last_rotated_date_type
 
         out["last_rotated_date"] = (
@@ -257,7 +257,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["LastRotatedDate"]
             )
         )
-    if "LastChangedDate" in data:
+    if data.get("LastChangedDate") is not None:
         import capo_secrets_manager.types.last_changed_date_type
 
         out["last_changed_date"] = (
@@ -265,7 +265,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["LastChangedDate"]
             )
         )
-    if "LastAccessedDate" in data:
+    if data.get("LastAccessedDate") is not None:
         import capo_secrets_manager.types.last_accessed_date_type
 
         out["last_accessed_date"] = (
@@ -273,7 +273,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["LastAccessedDate"]
             )
         )
-    if "DeletedDate" in data:
+    if data.get("DeletedDate") is not None:
         import capo_secrets_manager.types.deleted_date_type
 
         out["deleted_date"] = (
@@ -281,7 +281,7 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["DeletedDate"]
             )
         )
-    if "NextRotationDate" in data:
+    if data.get("NextRotationDate") is not None:
         import capo_secrets_manager.types.next_rotation_date_type
 
         out["next_rotation_date"] = (
@@ -289,13 +289,13 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["NextRotationDate"]
             )
         )
-    if "Tags" in data:
+    if data.get("Tags") is not None:
         import capo_secrets_manager.types.tag_list_type
 
         out["tags"] = capo_secrets_manager.types.tag_list_type.deserialize_aws_json_1_1(
             data["Tags"]
         )
-    if "VersionIdsToStages" in data:
+    if data.get("VersionIdsToStages") is not None:
         import capo_secrets_manager.types.secret_versions_to_stages_map_type
 
         out["version_ids_to_stages"] = (
@@ -303,9 +303,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["VersionIdsToStages"]
             )
         )
-    if "OwningService" in data:
+    if data.get("OwningService") is not None:
         out["owning_service"] = data["OwningService"]
-    if "CreatedDate" in data:
+    if data.get("CreatedDate") is not None:
         import capo_secrets_manager.types.timestamp_type
 
         out["created_date"] = (
@@ -313,9 +313,9 @@ def deserialize_aws_json_1_1(data: dict) -> DescribeSecretResponse:
                 data["CreatedDate"]
             )
         )
-    if "PrimaryRegion" in data:
+    if data.get("PrimaryRegion") is not None:
         out["primary_region"] = data["PrimaryRegion"]
-    if "ReplicationStatus" in data:
+    if data.get("ReplicationStatus") is not None:
         import capo_secrets_manager.types.replication_status_list_type
 
         out["replication_status"] = (

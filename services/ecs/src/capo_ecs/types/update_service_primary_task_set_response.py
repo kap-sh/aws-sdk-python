@@ -27,7 +27,7 @@ def serialize_aws_json_1_1(value: UpdateServicePrimaryTaskSetResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> UpdateServicePrimaryTaskSetResponse:
     out: UpdateServicePrimaryTaskSetResponse = {}  # type: ignore[typeddict-item]
-    if "taskSet" in data:
+    if data.get("taskSet") is not None:
         import capo_ecs.types.task_set
 
         out["task_set"] = capo_ecs.types.task_set.deserialize_aws_json_1_1(

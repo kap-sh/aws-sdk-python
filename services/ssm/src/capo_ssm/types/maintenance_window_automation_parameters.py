@@ -36,9 +36,9 @@ def serialize_aws_json_1_1(value: MaintenanceWindowAutomationParameters) -> dict
 
 def deserialize_aws_json_1_1(data: dict) -> MaintenanceWindowAutomationParameters:
     out: MaintenanceWindowAutomationParameters = {}  # type: ignore[typeddict-item]
-    if "DocumentVersion" in data:
+    if data.get("DocumentVersion") is not None:
         out["document_version"] = data["DocumentVersion"]
-    if "Parameters" in data:
+    if data.get("Parameters") is not None:
         import capo_ssm.types.automation_parameter_map
 
         out["parameters"] = (

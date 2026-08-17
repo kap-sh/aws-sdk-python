@@ -38,9 +38,9 @@ def serialize_aws_json_1_0(value: AutoScalingPolicyDescription) -> dict:
 
 def deserialize_aws_json_1_0(data: dict) -> AutoScalingPolicyDescription:
     out: AutoScalingPolicyDescription = {}  # type: ignore[typeddict-item]
-    if "PolicyName" in data:
+    if data.get("PolicyName") is not None:
         out["policy_name"] = data["PolicyName"]
-    if "TargetTrackingScalingPolicyConfiguration" in data:
+    if data.get("TargetTrackingScalingPolicyConfiguration") is not None:
         import capo_dynamodb.types.auto_scaling_target_tracking_scaling_policy_configuration_description
 
         out["target_tracking_scaling_policy_configuration"] = (

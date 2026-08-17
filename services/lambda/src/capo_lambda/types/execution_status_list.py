@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> ExecutionStatusList:
 
     out: ExecutionStatusList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_lambda.types.execution_status.deserialize_json(item))
     return out
