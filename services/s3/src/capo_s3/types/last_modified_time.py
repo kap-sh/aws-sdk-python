@@ -12,6 +12,11 @@ LastModifiedTime: TypeAlias = datetime.datetime
 
 # --- restXml ser/de ---
 def to_xml_text(value: LastModifiedTime) -> str:
+    value = (
+        value.astimezone(datetime.timezone.utc)
+        if value.tzinfo
+        else value.replace(tzinfo=datetime.timezone.utc)
+    )
     return _fmt_http(value, usegmt=True)
 
 

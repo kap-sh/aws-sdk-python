@@ -30,7 +30,7 @@ def fmt_http_date(value: datetime.datetime) -> str:
 
 def fmt_epoch_seconds(value: datetime.datetime) -> str:
     """Seconds since the epoch; whole seconds carry no ``.0`` suffix."""
-    ts = value.timestamp()
+    ts = as_utc(value).timestamp()
     return str(int(ts)) if ts == int(ts) else str(ts)
 
 
