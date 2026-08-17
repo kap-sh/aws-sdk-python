@@ -37,6 +37,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # When changesets are pending, changesets/action leaves the checkout on
+      # the changeset-release/main branch with a freshly versioned changelog;
+      # return to the pushed commit so the steps below see the real HEAD.
+      - name: Reset checkout to pushed commit
+        run: git checkout --force --quiet "$GITHUB_SHA"
+
       # Non-empty only on the push that merges the version PR: that push is what
       # rewrites the root changelog. aggregate_changelog.py always prepends a
       # fresh dated section, so the first section is exactly this release.
