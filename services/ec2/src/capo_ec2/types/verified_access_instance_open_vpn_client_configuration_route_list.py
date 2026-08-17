@@ -19,7 +19,6 @@ def serialize_ec2_query(
     prefix: str,
 ) -> None:
     if not value:
-        pairs.append((prefix, ""))
         return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.verified_access_instance_open_vpn_client_configuration_route

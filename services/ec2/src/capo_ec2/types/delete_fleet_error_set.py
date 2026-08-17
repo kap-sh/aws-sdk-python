@@ -17,7 +17,6 @@ def serialize_ec2_query(
     value: DeleteFleetErrorSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
     if not value:
-        pairs.append((prefix, ""))
         return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.delete_fleet_error_item

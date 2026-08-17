@@ -17,7 +17,6 @@ def serialize_ec2_query(
     value: VpcIpv6CidrBlockAssociationSet, pairs: list[tuple[str, str]], prefix: str
 ) -> None:
     if not value:
-        pairs.append((prefix, ""))
         return
     for n, item in enumerate(value, 1):
         import capo_ec2.types.vpc_ipv6_cidr_block_association
