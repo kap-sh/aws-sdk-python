@@ -1,5 +1,11 @@
 # aws-sdk-lambda
 
+## 0.9.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.8.0
 
 ### Minor Changes
