@@ -34,8 +34,24 @@ def serialize_json(value: GuardrailContextualGroundingFilter) -> dict:
             value["type"]
         )
     )
-    out["threshold"] = value["threshold"]
-    out["score"] = value["score"]
+    out["threshold"] = (
+        "NaN"
+        if value["threshold"] != value["threshold"]
+        else "Infinity"
+        if value["threshold"] == float("inf")
+        else "-Infinity"
+        if value["threshold"] == float("-inf")
+        else value["threshold"]
+    )
+    out["score"] = (
+        "NaN"
+        if value["score"] != value["score"]
+        else "Infinity"
+        if value["score"] == float("inf")
+        else "-Infinity"
+        if value["score"] == float("-inf")
+        else value["score"]
+    )
     import capo_bedrock_runtime.types.guardrail_contextual_grounding_policy_action
 
     out["action"] = (
@@ -61,13 +77,13 @@ def deserialize_json(data: dict) -> GuardrailContextualGroundingFilter:
     else:
         raise DeserializationError("GuardrailContextualGroundingFilter.type required")
     if data.get("threshold") is not None:
-        out["threshold"] = data["threshold"]
+        out["threshold"] = float(data["threshold"])
     else:
         raise DeserializationError(
             "GuardrailContextualGroundingFilter.threshold required"
         )
     if data.get("score") is not None:
-        out["score"] = data["score"]
+        out["score"] = float(data["score"])
     else:
         raise DeserializationError("GuardrailContextualGroundingFilter.score required")
     if data.get("action") is not None:

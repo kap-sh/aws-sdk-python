@@ -19,7 +19,15 @@ class Scale(TypedDict, closed=True):
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: Scale) -> dict:
     out: dict = {}
-    out["value"] = value.get("value", 0)
+    out["value"] = (
+        "NaN"
+        if value.get("value", 0) != value.get("value", 0)
+        else "Infinity"
+        if value.get("value", 0) == float("inf")
+        else "-Infinity"
+        if value.get("value", 0) == float("-inf")
+        else value.get("value", 0)
+    )
     if "unit" in value:
         import capo_ecs.types.scale_unit
 
@@ -30,7 +38,7 @@ def serialize_aws_json_1_1(value: Scale) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> Scale:
     out: Scale = {}  # type: ignore[typeddict-item]
     if data.get("value") is not None:
-        out["value"] = data["value"]
+        out["value"] = float(data["value"])
     else:
         out["value"] = 0
     if data.get("unit") is not None:

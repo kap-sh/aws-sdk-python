@@ -34,7 +34,15 @@ def serialize_aws_json_1_1(value: Resource) -> dict:
         out["name"] = value["name"]
     if "type" in value:
         out["type"] = value["type"]
-    out["doubleValue"] = value.get("double_value", 0)
+    out["doubleValue"] = (
+        "NaN"
+        if value.get("double_value", 0) != value.get("double_value", 0)
+        else "Infinity"
+        if value.get("double_value", 0) == float("inf")
+        else "-Infinity"
+        if value.get("double_value", 0) == float("-inf")
+        else value.get("double_value", 0)
+    )
     out["longValue"] = value.get("long_value", 0)
     out["integerValue"] = value.get("integer_value", 0)
     if "string_set_value" in value:
@@ -53,7 +61,7 @@ def deserialize_aws_json_1_1(data: dict) -> Resource:
     if data.get("type") is not None:
         out["type"] = data["type"]
     if data.get("doubleValue") is not None:
-        out["double_value"] = data["doubleValue"]
+        out["double_value"] = float(data["doubleValue"])
     else:
         out["double_value"] = 0
     if data.get("longValue") is not None:

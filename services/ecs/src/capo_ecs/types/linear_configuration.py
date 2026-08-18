@@ -20,7 +20,15 @@ class LinearConfiguration(TypedDict, closed=True):
 def serialize_aws_json_1_1(value: LinearConfiguration) -> dict:
     out: dict = {}
     if "step_percent" in value:
-        out["stepPercent"] = value["step_percent"]
+        out["stepPercent"] = (
+            "NaN"
+            if value["step_percent"] != value["step_percent"]
+            else "Infinity"
+            if value["step_percent"] == float("inf")
+            else "-Infinity"
+            if value["step_percent"] == float("-inf")
+            else value["step_percent"]
+        )
     if "step_bake_time_in_minutes" in value:
         out["stepBakeTimeInMinutes"] = value["step_bake_time_in_minutes"]
     return out
@@ -29,7 +37,7 @@ def serialize_aws_json_1_1(value: LinearConfiguration) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> LinearConfiguration:
     out: LinearConfiguration = {}  # type: ignore[typeddict-item]
     if data.get("stepPercent") is not None:
-        out["step_percent"] = data["stepPercent"]
+        out["step_percent"] = float(data["stepPercent"])
     if data.get("stepBakeTimeInMinutes") is not None:
         out["step_bake_time_in_minutes"] = data["stepBakeTimeInMinutes"]
     return out

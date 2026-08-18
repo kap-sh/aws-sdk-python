@@ -30,7 +30,15 @@ def serialize_aws_json_1_0(value: InsightRuleContributorDatapoint) -> dict:
             value["timestamp"]
         )
     if "approximate_value" in value:
-        out["ApproximateValue"] = value["approximate_value"]
+        out["ApproximateValue"] = (
+            "NaN"
+            if value["approximate_value"] != value["approximate_value"]
+            else "Infinity"
+            if value["approximate_value"] == float("inf")
+            else "-Infinity"
+            if value["approximate_value"] == float("-inf")
+            else value["approximate_value"]
+        )
     return out
 
 
@@ -43,7 +51,7 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributorDatapoint:
             data["Timestamp"]
         )
     if data.get("ApproximateValue") is not None:
-        out["approximate_value"] = data["ApproximateValue"]
+        out["approximate_value"] = float(data["ApproximateValue"])
     return out
 
 

@@ -48,7 +48,15 @@ def serialize_aws_json_1_1(value: ManagedApplicationAutoScalingPolicy) -> dict:
         value["updated_at"]
     )
     out["policyType"] = value["policy_type"]
-    out["targetValue"] = value.get("target_value", 0)
+    out["targetValue"] = (
+        "NaN"
+        if value.get("target_value", 0) != value.get("target_value", 0)
+        else "Infinity"
+        if value.get("target_value", 0) == float("inf")
+        else "-Infinity"
+        if value.get("target_value", 0) == float("-inf")
+        else value.get("target_value", 0)
+    )
     out["metric"] = value["metric"]
     return out
 
@@ -86,7 +94,7 @@ def deserialize_aws_json_1_1(data: dict) -> ManagedApplicationAutoScalingPolicy:
             "ManagedApplicationAutoScalingPolicy.policy_type required"
         )
     if data.get("targetValue") is not None:
-        out["target_value"] = data["targetValue"]
+        out["target_value"] = float(data["targetValue"])
     else:
         out["target_value"] = 0
     if data.get("metric") is not None:

@@ -38,7 +38,15 @@ def serialize_aws_json_1_1(value: CvssScoreDetails) -> dict:
                 value["adjustments"]
             )
         )
-    out["score"] = value.get("score", 0)
+    out["score"] = (
+        "NaN"
+        if value.get("score", 0) != value.get("score", 0)
+        else "Infinity"
+        if value.get("score", 0) == float("inf")
+        else "-Infinity"
+        if value.get("score", 0) == float("-inf")
+        else value.get("score", 0)
+    )
     if "score_source" in value:
         out["scoreSource"] = value["score_source"]
     if "scoring_vector" in value:
@@ -59,7 +67,7 @@ def deserialize_aws_json_1_1(data: dict) -> CvssScoreDetails:
             )
         )
     if data.get("score") is not None:
-        out["score"] = data["score"]
+        out["score"] = float(data["score"])
     else:
         out["score"] = 0
     if data.get("scoreSource") is not None:

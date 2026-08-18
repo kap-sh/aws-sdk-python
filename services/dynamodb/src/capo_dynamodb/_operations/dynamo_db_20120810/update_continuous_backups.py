@@ -110,7 +110,8 @@ def build_request(
     body: bytes | None = json.dumps(
         capo_dynamodb.types.update_continuous_backups_input.serialize_aws_json_1_0(
             input_
-        )
+        ),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

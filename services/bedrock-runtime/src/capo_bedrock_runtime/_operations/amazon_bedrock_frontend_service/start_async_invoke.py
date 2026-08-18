@@ -130,7 +130,8 @@ def build_request(
     params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = json.dumps(
-        capo_bedrock_runtime.types.start_async_invoke_request.serialize_json(input_)
+        capo_bedrock_runtime.types.start_async_invoke_request.serialize_json(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

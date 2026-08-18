@@ -19,16 +19,32 @@ class NetworkBandwidthGbpsRequest(TypedDict, closed=True):
 def serialize_aws_json_1_1(value: NetworkBandwidthGbpsRequest) -> dict:
     out: dict = {}
     if "min" in value:
-        out["min"] = value["min"]
+        out["min"] = (
+            "NaN"
+            if value["min"] != value["min"]
+            else "Infinity"
+            if value["min"] == float("inf")
+            else "-Infinity"
+            if value["min"] == float("-inf")
+            else value["min"]
+        )
     if "max" in value:
-        out["max"] = value["max"]
+        out["max"] = (
+            "NaN"
+            if value["max"] != value["max"]
+            else "Infinity"
+            if value["max"] == float("inf")
+            else "-Infinity"
+            if value["max"] == float("-inf")
+            else value["max"]
+        )
     return out
 
 
 def deserialize_aws_json_1_1(data: dict) -> NetworkBandwidthGbpsRequest:
     out: NetworkBandwidthGbpsRequest = {}  # type: ignore[typeddict-item]
     if data.get("min") is not None:
-        out["min"] = data["min"]
+        out["min"] = float(data["min"])
     if data.get("max") is not None:
-        out["max"] = data["max"]
+        out["max"] = float(data["max"])
     return out

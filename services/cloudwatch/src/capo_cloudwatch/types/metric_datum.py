@@ -59,7 +59,15 @@ def serialize_aws_json_1_0(value: MetricDatum) -> dict:
             value["timestamp"]
         )
     if "value" in value:
-        out["Value"] = value["value"]
+        out["Value"] = (
+            "NaN"
+            if value["value"] != value["value"]
+            else "Infinity"
+            if value["value"] == float("inf")
+            else "-Infinity"
+            if value["value"] == float("-inf")
+            else value["value"]
+        )
     if "statistic_values" in value:
         import capo_cloudwatch.types.statistic_set
 
@@ -108,7 +116,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricDatum:
             data["Timestamp"]
         )
     if data.get("Value") is not None:
-        out["value"] = data["Value"]
+        out["value"] = float(data["Value"])
     if data.get("StatisticValues") is not None:
         import capo_cloudwatch.types.statistic_set
 

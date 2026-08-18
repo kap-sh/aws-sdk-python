@@ -109,7 +109,8 @@ def build_request(
     body: bytes | None = json.dumps(
         capo_secrets_manager.types.replicate_secret_to_regions_request.serialize_aws_json_1_1(
             input_
-        )
+        ),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

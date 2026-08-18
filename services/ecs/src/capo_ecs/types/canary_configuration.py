@@ -20,7 +20,15 @@ class CanaryConfiguration(TypedDict, closed=True):
 def serialize_aws_json_1_1(value: CanaryConfiguration) -> dict:
     out: dict = {}
     if "canary_percent" in value:
-        out["canaryPercent"] = value["canary_percent"]
+        out["canaryPercent"] = (
+            "NaN"
+            if value["canary_percent"] != value["canary_percent"]
+            else "Infinity"
+            if value["canary_percent"] == float("inf")
+            else "-Infinity"
+            if value["canary_percent"] == float("-inf")
+            else value["canary_percent"]
+        )
     if "canary_bake_time_in_minutes" in value:
         out["canaryBakeTimeInMinutes"] = value["canary_bake_time_in_minutes"]
     return out
@@ -29,7 +37,7 @@ def serialize_aws_json_1_1(value: CanaryConfiguration) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> CanaryConfiguration:
     out: CanaryConfiguration = {}  # type: ignore[typeddict-item]
     if data.get("canaryPercent") is not None:
-        out["canary_percent"] = data["canaryPercent"]
+        out["canary_percent"] = float(data["canaryPercent"])
     if data.get("canaryBakeTimeInMinutes") is not None:
         out["canary_bake_time_in_minutes"] = data["canaryBakeTimeInMinutes"]
     return out

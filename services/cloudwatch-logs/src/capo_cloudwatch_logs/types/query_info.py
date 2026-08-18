@@ -73,7 +73,15 @@ def serialize_aws_json_1_1(value: QueryInfo) -> dict:
     if "query_duration" in value:
         out["queryDuration"] = value["query_duration"]
     if "bytes_scanned" in value:
-        out["bytesScanned"] = value["bytes_scanned"]
+        out["bytesScanned"] = (
+            "NaN"
+            if value["bytes_scanned"] != value["bytes_scanned"]
+            else "Infinity"
+            if value["bytes_scanned"] == float("inf")
+            else "-Infinity"
+            if value["bytes_scanned"] == float("-inf")
+            else value["bytes_scanned"]
+        )
     if "user_identity" in value:
         out["userIdentity"] = value["user_identity"]
     return out
@@ -108,7 +116,7 @@ def deserialize_aws_json_1_1(data: dict) -> QueryInfo:
     if data.get("queryDuration") is not None:
         out["query_duration"] = data["queryDuration"]
     if data.get("bytesScanned") is not None:
-        out["bytes_scanned"] = data["bytesScanned"]
+        out["bytes_scanned"] = float(data["bytesScanned"])
     if data.get("userIdentity") is not None:
         out["user_identity"] = data["userIdentity"]
     return out

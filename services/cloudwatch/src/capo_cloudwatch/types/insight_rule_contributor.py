@@ -39,7 +39,16 @@ def serialize_aws_json_1_0(value: InsightRuleContributor) -> dict:
             )
         )
     if "approximate_aggregate_value" in value:
-        out["ApproximateAggregateValue"] = value["approximate_aggregate_value"]
+        out["ApproximateAggregateValue"] = (
+            "NaN"
+            if value["approximate_aggregate_value"]
+            != value["approximate_aggregate_value"]
+            else "Infinity"
+            if value["approximate_aggregate_value"] == float("inf")
+            else "-Infinity"
+            if value["approximate_aggregate_value"] == float("-inf")
+            else value["approximate_aggregate_value"]
+        )
     if "datapoints" in value:
         import capo_cloudwatch.types.insight_rule_contributor_datapoints
 
@@ -62,7 +71,7 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleContributor:
             )
         )
     if data.get("ApproximateAggregateValue") is not None:
-        out["approximate_aggregate_value"] = data["ApproximateAggregateValue"]
+        out["approximate_aggregate_value"] = float(data["ApproximateAggregateValue"])
     if data.get("Datapoints") is not None:
         import capo_cloudwatch.types.insight_rule_contributor_datapoints
 

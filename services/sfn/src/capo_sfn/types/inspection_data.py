@@ -115,7 +115,16 @@ def serialize_aws_json_1_0(value: InspectionData) -> dict:
     if "tolerated_failure_count" in value:
         out["toleratedFailureCount"] = value["tolerated_failure_count"]
     if "tolerated_failure_percentage" in value:
-        out["toleratedFailurePercentage"] = value["tolerated_failure_percentage"]
+        out["toleratedFailurePercentage"] = (
+            "NaN"
+            if value["tolerated_failure_percentage"]
+            != value["tolerated_failure_percentage"]
+            else "Infinity"
+            if value["tolerated_failure_percentage"] == float("inf")
+            else "-Infinity"
+            if value["tolerated_failure_percentage"] == float("-inf")
+            else value["tolerated_failure_percentage"]
+        )
     if "max_concurrency" in value:
         out["maxConcurrency"] = value["max_concurrency"]
     return out
@@ -174,7 +183,7 @@ def deserialize_aws_json_1_0(data: dict) -> InspectionData:
     if data.get("toleratedFailureCount") is not None:
         out["tolerated_failure_count"] = data["toleratedFailureCount"]
     if data.get("toleratedFailurePercentage") is not None:
-        out["tolerated_failure_percentage"] = data["toleratedFailurePercentage"]
+        out["tolerated_failure_percentage"] = float(data["toleratedFailurePercentage"])
     if data.get("maxConcurrency") is not None:
         out["max_concurrency"] = data["maxConcurrency"]
     return out

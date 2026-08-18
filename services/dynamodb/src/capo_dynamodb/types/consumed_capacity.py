@@ -44,11 +44,35 @@ def serialize_aws_json_1_0(value: ConsumedCapacity) -> dict:
     if "table_name" in value:
         out["TableName"] = value["table_name"]
     if "capacity_units" in value:
-        out["CapacityUnits"] = value["capacity_units"]
+        out["CapacityUnits"] = (
+            "NaN"
+            if value["capacity_units"] != value["capacity_units"]
+            else "Infinity"
+            if value["capacity_units"] == float("inf")
+            else "-Infinity"
+            if value["capacity_units"] == float("-inf")
+            else value["capacity_units"]
+        )
     if "read_capacity_units" in value:
-        out["ReadCapacityUnits"] = value["read_capacity_units"]
+        out["ReadCapacityUnits"] = (
+            "NaN"
+            if value["read_capacity_units"] != value["read_capacity_units"]
+            else "Infinity"
+            if value["read_capacity_units"] == float("inf")
+            else "-Infinity"
+            if value["read_capacity_units"] == float("-inf")
+            else value["read_capacity_units"]
+        )
     if "write_capacity_units" in value:
-        out["WriteCapacityUnits"] = value["write_capacity_units"]
+        out["WriteCapacityUnits"] = (
+            "NaN"
+            if value["write_capacity_units"] != value["write_capacity_units"]
+            else "Infinity"
+            if value["write_capacity_units"] == float("inf")
+            else "-Infinity"
+            if value["write_capacity_units"] == float("-inf")
+            else value["write_capacity_units"]
+        )
     if "table" in value:
         import capo_dynamodb.types.capacity
 
@@ -79,11 +103,11 @@ def deserialize_aws_json_1_0(data: dict) -> ConsumedCapacity:
     if data.get("TableName") is not None:
         out["table_name"] = data["TableName"]
     if data.get("CapacityUnits") is not None:
-        out["capacity_units"] = data["CapacityUnits"]
+        out["capacity_units"] = float(data["CapacityUnits"])
     if data.get("ReadCapacityUnits") is not None:
-        out["read_capacity_units"] = data["ReadCapacityUnits"]
+        out["read_capacity_units"] = float(data["ReadCapacityUnits"])
     if data.get("WriteCapacityUnits") is not None:
-        out["write_capacity_units"] = data["WriteCapacityUnits"]
+        out["write_capacity_units"] = float(data["WriteCapacityUnits"])
     if data.get("Table") is not None:
         import capo_dynamodb.types.capacity
 

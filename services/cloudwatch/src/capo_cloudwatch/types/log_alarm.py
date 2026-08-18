@@ -172,7 +172,15 @@ def serialize_aws_json_1_0(value: LogAlarm) -> dict:
     if "query_results_to_alarm" in value:
         out["QueryResultsToAlarm"] = value["query_results_to_alarm"]
     if "threshold" in value:
-        out["Threshold"] = value["threshold"]
+        out["Threshold"] = (
+            "NaN"
+            if value["threshold"] != value["threshold"]
+            else "Infinity"
+            if value["threshold"] == float("inf")
+            else "-Infinity"
+            if value["threshold"] == float("-inf")
+            else value["threshold"]
+        )
     if "comparison_operator" in value:
         import capo_cloudwatch.types.comparison_operator
 
@@ -279,7 +287,7 @@ def deserialize_aws_json_1_0(data: dict) -> LogAlarm:
     if data.get("QueryResultsToAlarm") is not None:
         out["query_results_to_alarm"] = data["QueryResultsToAlarm"]
     if data.get("Threshold") is not None:
-        out["threshold"] = data["Threshold"]
+        out["threshold"] = float(data["Threshold"])
     if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 

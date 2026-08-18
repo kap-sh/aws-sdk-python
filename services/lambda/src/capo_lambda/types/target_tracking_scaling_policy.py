@@ -28,7 +28,15 @@ def serialize_json(value: TargetTrackingScalingPolicy) -> dict:
             value["predefined_metric_type"]
         )
     )
-    out["TargetValue"] = value["target_value"]
+    out["TargetValue"] = (
+        "NaN"
+        if value["target_value"] != value["target_value"]
+        else "Infinity"
+        if value["target_value"] == float("inf")
+        else "-Infinity"
+        if value["target_value"] == float("-inf")
+        else value["target_value"]
+    )
     return out
 
 
@@ -47,7 +55,7 @@ def deserialize_json(data: dict) -> TargetTrackingScalingPolicy:
             "TargetTrackingScalingPolicy.predefined_metric_type required"
         )
     if data.get("TargetValue") is not None:
-        out["target_value"] = data["TargetValue"]
+        out["target_value"] = float(data["TargetValue"])
     else:
         raise DeserializationError("TargetTrackingScalingPolicy.target_value required")
     return out

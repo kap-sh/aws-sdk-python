@@ -131,7 +131,8 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "error" in input_:
         body: bytes | None = json.dumps(
-            capo_lambda.types.error_object.serialize_json(input_["error"])
+            capo_lambda.types.error_object.serialize_json(input_["error"]),
+            allow_nan=False,
         ).encode()
         headers["content-type"] = "application/json"
     else:

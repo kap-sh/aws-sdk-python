@@ -120,7 +120,8 @@ def build_request(
         "AmazonEC2ContainerServiceV20141113.ListServiceDeployments"
     )
     body: bytes | None = json.dumps(
-        capo_ecs.types.list_service_deployments_request.serialize_aws_json_1_1(input_)
+        capo_ecs.types.list_service_deployments_request.serialize_aws_json_1_1(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

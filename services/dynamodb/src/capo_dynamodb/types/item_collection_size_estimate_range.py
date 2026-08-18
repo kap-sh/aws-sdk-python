@@ -12,8 +12,19 @@ ItemCollectionSizeEstimateRange: TypeAlias = list[
 
 # --- awsJson1_0 ser/de ---
 def serialize_aws_json_1_0(value: ItemCollectionSizeEstimateRange) -> list:
-    return list(value)
+    return [
+        (
+            "NaN"
+            if item != item
+            else "Infinity"
+            if item == float("inf")
+            else "-Infinity"
+            if item == float("-inf")
+            else item
+        )
+        for item in value
+    ]
 
 
 def deserialize_aws_json_1_0(data: list) -> ItemCollectionSizeEstimateRange:
-    return [item for item in data if item is not None]
+    return [float(item) for item in data if item is not None]

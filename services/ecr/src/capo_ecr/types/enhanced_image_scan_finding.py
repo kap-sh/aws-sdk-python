@@ -102,7 +102,15 @@ def serialize_aws_json_1_1(value: EnhancedImageScanFinding) -> dict:
         out["resources"] = capo_ecr.types.resource_list.serialize_aws_json_1_1(
             value["resources"]
         )
-    out["score"] = value.get("score", 0)
+    out["score"] = (
+        "NaN"
+        if value.get("score", 0) != value.get("score", 0)
+        else "Infinity"
+        if value.get("score", 0) == float("inf")
+        else "-Infinity"
+        if value.get("score", 0) == float("-inf")
+        else value.get("score", 0)
+    )
     if "score_details" in value:
         import capo_ecr.types.score_details
 
@@ -171,7 +179,7 @@ def deserialize_aws_json_1_1(data: dict) -> EnhancedImageScanFinding:
             data["resources"]
         )
     if data.get("score") is not None:
-        out["score"] = data["score"]
+        out["score"] = float(data["score"])
     else:
         out["score"] = 0
     if data.get("scoreDetails") is not None:

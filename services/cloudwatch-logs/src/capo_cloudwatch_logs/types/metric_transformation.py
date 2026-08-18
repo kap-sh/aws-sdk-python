@@ -37,7 +37,15 @@ def serialize_aws_json_1_1(value: MetricTransformation) -> dict:
     out["metricNamespace"] = value["metric_namespace"]
     out["metricValue"] = value["metric_value"]
     if "default_value" in value:
-        out["defaultValue"] = value["default_value"]
+        out["defaultValue"] = (
+            "NaN"
+            if value["default_value"] != value["default_value"]
+            else "Infinity"
+            if value["default_value"] == float("inf")
+            else "-Infinity"
+            if value["default_value"] == float("-inf")
+            else value["default_value"]
+        )
     if "dimensions" in value:
         import capo_cloudwatch_logs.types.dimensions
 
@@ -70,7 +78,7 @@ def deserialize_aws_json_1_1(data: dict) -> MetricTransformation:
     else:
         raise DeserializationError("MetricTransformation.metric_value required")
     if data.get("defaultValue") is not None:
-        out["default_value"] = data["defaultValue"]
+        out["default_value"] = float(data["defaultValue"])
     if data.get("dimensions") is not None:
         import capo_cloudwatch_logs.types.dimensions
 

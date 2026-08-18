@@ -25,7 +25,15 @@ class DaemonDeploymentConfiguration(TypedDict, closed=True):
 def serialize_aws_json_1_1(value: DaemonDeploymentConfiguration) -> dict:
     out: dict = {}
     if "drain_percent" in value:
-        out["drainPercent"] = value["drain_percent"]
+        out["drainPercent"] = (
+            "NaN"
+            if value["drain_percent"] != value["drain_percent"]
+            else "Infinity"
+            if value["drain_percent"] == float("inf")
+            else "-Infinity"
+            if value["drain_percent"] == float("-inf")
+            else value["drain_percent"]
+        )
     if "alarms" in value:
         import capo_ecs.types.daemon_alarm_configuration
 
@@ -41,7 +49,7 @@ def serialize_aws_json_1_1(value: DaemonDeploymentConfiguration) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> DaemonDeploymentConfiguration:
     out: DaemonDeploymentConfiguration = {}  # type: ignore[typeddict-item]
     if data.get("drainPercent") is not None:
-        out["drain_percent"] = data["drainPercent"]
+        out["drain_percent"] = float(data["drainPercent"])
     if data.get("alarms") is not None:
         import capo_ecs.types.daemon_alarm_configuration
 

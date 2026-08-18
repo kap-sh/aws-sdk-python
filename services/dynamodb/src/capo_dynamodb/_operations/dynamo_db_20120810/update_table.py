@@ -129,7 +129,8 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTable"
     body: bytes | None = json.dumps(
-        capo_dynamodb.types.update_table_input.serialize_aws_json_1_0(input_)
+        capo_dynamodb.types.update_table_input.serialize_aws_json_1_0(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

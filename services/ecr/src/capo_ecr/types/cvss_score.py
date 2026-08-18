@@ -25,7 +25,15 @@ class CvssScore(TypedDict, closed=True):
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: CvssScore) -> dict:
     out: dict = {}
-    out["baseScore"] = value.get("base_score", 0)
+    out["baseScore"] = (
+        "NaN"
+        if value.get("base_score", 0) != value.get("base_score", 0)
+        else "Infinity"
+        if value.get("base_score", 0) == float("inf")
+        else "-Infinity"
+        if value.get("base_score", 0) == float("-inf")
+        else value.get("base_score", 0)
+    )
     if "scoring_vector" in value:
         out["scoringVector"] = value["scoring_vector"]
     if "source" in value:
@@ -38,7 +46,7 @@ def serialize_aws_json_1_1(value: CvssScore) -> dict:
 def deserialize_aws_json_1_1(data: dict) -> CvssScore:
     out: CvssScore = {}  # type: ignore[typeddict-item]
     if data.get("baseScore") is not None:
-        out["base_score"] = data["baseScore"]
+        out["base_score"] = float(data["baseScore"])
     else:
         out["base_score"] = 0
     if data.get("scoringVector") is not None:

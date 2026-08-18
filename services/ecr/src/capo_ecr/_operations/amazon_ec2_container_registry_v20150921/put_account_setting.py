@@ -104,7 +104,8 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.PutAccountSetting"
     body: bytes | None = json.dumps(
-        capo_ecr.types.put_account_setting_request.serialize_aws_json_1_1(input_)
+        capo_ecr.types.put_account_setting_request.serialize_aws_json_1_1(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

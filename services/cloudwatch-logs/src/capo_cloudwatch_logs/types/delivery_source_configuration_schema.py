@@ -55,9 +55,25 @@ def serialize_aws_json_1_1(value: DeliverySourceConfigurationSchema) -> dict:
             )
         )
     if "min_value" in value:
-        out["minValue"] = value["min_value"]
+        out["minValue"] = (
+            "NaN"
+            if value["min_value"] != value["min_value"]
+            else "Infinity"
+            if value["min_value"] == float("inf")
+            else "-Infinity"
+            if value["min_value"] == float("-inf")
+            else value["min_value"]
+        )
     if "max_value" in value:
-        out["maxValue"] = value["max_value"]
+        out["maxValue"] = (
+            "NaN"
+            if value["max_value"] != value["max_value"]
+            else "Infinity"
+            if value["max_value"] == float("inf")
+            else "-Infinity"
+            if value["max_value"] == float("-inf")
+            else value["max_value"]
+        )
     return out
 
 
@@ -96,7 +112,7 @@ def deserialize_aws_json_1_1(data: dict) -> DeliverySourceConfigurationSchema:
             )
         )
     if data.get("minValue") is not None:
-        out["min_value"] = data["minValue"]
+        out["min_value"] = float(data["minValue"])
     if data.get("maxValue") is not None:
-        out["max_value"] = data["maxValue"]
+        out["max_value"] = float(data["maxValue"])
     return out

@@ -54,19 +54,75 @@ def serialize_aws_json_1_0(value: InsightRuleMetricDatapoint) -> dict:
             value["timestamp"]
         )
     if "unique_contributors" in value:
-        out["UniqueContributors"] = value["unique_contributors"]
+        out["UniqueContributors"] = (
+            "NaN"
+            if value["unique_contributors"] != value["unique_contributors"]
+            else "Infinity"
+            if value["unique_contributors"] == float("inf")
+            else "-Infinity"
+            if value["unique_contributors"] == float("-inf")
+            else value["unique_contributors"]
+        )
     if "max_contributor_value" in value:
-        out["MaxContributorValue"] = value["max_contributor_value"]
+        out["MaxContributorValue"] = (
+            "NaN"
+            if value["max_contributor_value"] != value["max_contributor_value"]
+            else "Infinity"
+            if value["max_contributor_value"] == float("inf")
+            else "-Infinity"
+            if value["max_contributor_value"] == float("-inf")
+            else value["max_contributor_value"]
+        )
     if "sample_count" in value:
-        out["SampleCount"] = value["sample_count"]
+        out["SampleCount"] = (
+            "NaN"
+            if value["sample_count"] != value["sample_count"]
+            else "Infinity"
+            if value["sample_count"] == float("inf")
+            else "-Infinity"
+            if value["sample_count"] == float("-inf")
+            else value["sample_count"]
+        )
     if "average" in value:
-        out["Average"] = value["average"]
+        out["Average"] = (
+            "NaN"
+            if value["average"] != value["average"]
+            else "Infinity"
+            if value["average"] == float("inf")
+            else "-Infinity"
+            if value["average"] == float("-inf")
+            else value["average"]
+        )
     if "sum" in value:
-        out["Sum"] = value["sum"]
+        out["Sum"] = (
+            "NaN"
+            if value["sum"] != value["sum"]
+            else "Infinity"
+            if value["sum"] == float("inf")
+            else "-Infinity"
+            if value["sum"] == float("-inf")
+            else value["sum"]
+        )
     if "minimum" in value:
-        out["Minimum"] = value["minimum"]
+        out["Minimum"] = (
+            "NaN"
+            if value["minimum"] != value["minimum"]
+            else "Infinity"
+            if value["minimum"] == float("inf")
+            else "-Infinity"
+            if value["minimum"] == float("-inf")
+            else value["minimum"]
+        )
     if "maximum" in value:
-        out["Maximum"] = value["maximum"]
+        out["Maximum"] = (
+            "NaN"
+            if value["maximum"] != value["maximum"]
+            else "Infinity"
+            if value["maximum"] == float("inf")
+            else "-Infinity"
+            if value["maximum"] == float("-inf")
+            else value["maximum"]
+        )
     return out
 
 
@@ -79,19 +135,19 @@ def deserialize_aws_json_1_0(data: dict) -> InsightRuleMetricDatapoint:
             data["Timestamp"]
         )
     if data.get("UniqueContributors") is not None:
-        out["unique_contributors"] = data["UniqueContributors"]
+        out["unique_contributors"] = float(data["UniqueContributors"])
     if data.get("MaxContributorValue") is not None:
-        out["max_contributor_value"] = data["MaxContributorValue"]
+        out["max_contributor_value"] = float(data["MaxContributorValue"])
     if data.get("SampleCount") is not None:
-        out["sample_count"] = data["SampleCount"]
+        out["sample_count"] = float(data["SampleCount"])
     if data.get("Average") is not None:
-        out["average"] = data["Average"]
+        out["average"] = float(data["Average"])
     if data.get("Sum") is not None:
-        out["sum"] = data["Sum"]
+        out["sum"] = float(data["Sum"])
     if data.get("Minimum") is not None:
-        out["minimum"] = data["Minimum"]
+        out["minimum"] = float(data["Minimum"])
     if data.get("Maximum") is not None:
-        out["maximum"] = data["Maximum"]
+        out["maximum"] = float(data["Maximum"])
     return out
 
 

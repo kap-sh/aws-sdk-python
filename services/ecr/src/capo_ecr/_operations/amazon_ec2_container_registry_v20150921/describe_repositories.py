@@ -103,7 +103,8 @@ def build_request(
         "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories"
     )
     body: bytes | None = json.dumps(
-        capo_ecr.types.describe_repositories_request.serialize_aws_json_1_1(input_)
+        capo_ecr.types.describe_repositories_request.serialize_aws_json_1_1(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

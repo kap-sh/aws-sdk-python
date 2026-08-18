@@ -118,7 +118,8 @@ def build_request(
     body: bytes | None = json.dumps(
         capo_lambda.types.put_function_code_signing_config_request.serialize_json(
             input_
-        )
+        ),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

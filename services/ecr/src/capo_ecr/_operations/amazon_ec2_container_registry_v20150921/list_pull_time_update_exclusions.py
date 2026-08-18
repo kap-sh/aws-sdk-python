@@ -105,7 +105,8 @@ def build_request(
     body: bytes | None = json.dumps(
         capo_ecr.types.list_pull_time_update_exclusions_request.serialize_aws_json_1_1(
             input_
-        )
+        ),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

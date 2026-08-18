@@ -34,9 +34,16 @@ def serialize_json(value: LambdaManagedInstancesCapacityProviderConfig) -> dict:
             "per_execution_environment_max_concurrency"
         ]
     if "execution_environment_memory_gi_b_per_v_cpu" in value:
-        out["ExecutionEnvironmentMemoryGiBPerVCpu"] = value[
-            "execution_environment_memory_gi_b_per_v_cpu"
-        ]
+        out["ExecutionEnvironmentMemoryGiBPerVCpu"] = (
+            "NaN"
+            if value["execution_environment_memory_gi_b_per_v_cpu"]
+            != value["execution_environment_memory_gi_b_per_v_cpu"]
+            else "Infinity"
+            if value["execution_environment_memory_gi_b_per_v_cpu"] == float("inf")
+            else "-Infinity"
+            if value["execution_environment_memory_gi_b_per_v_cpu"] == float("-inf")
+            else value["execution_environment_memory_gi_b_per_v_cpu"]
+        )
     return out
 
 
@@ -53,7 +60,7 @@ def deserialize_json(data: dict) -> LambdaManagedInstancesCapacityProviderConfig
             "PerExecutionEnvironmentMaxConcurrency"
         ]
     if data.get("ExecutionEnvironmentMemoryGiBPerVCpu") is not None:
-        out["execution_environment_memory_gi_b_per_v_cpu"] = data[
-            "ExecutionEnvironmentMemoryGiBPerVCpu"
-        ]
+        out["execution_environment_memory_gi_b_per_v_cpu"] = float(
+            data["ExecutionEnvironmentMemoryGiBPerVCpu"]
+        )
     return out

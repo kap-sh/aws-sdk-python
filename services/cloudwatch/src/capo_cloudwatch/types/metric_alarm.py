@@ -224,7 +224,15 @@ def serialize_aws_json_1_0(value: MetricAlarm) -> dict:
     if "datapoints_to_alarm" in value:
         out["DatapointsToAlarm"] = value["datapoints_to_alarm"]
     if "threshold" in value:
-        out["Threshold"] = value["threshold"]
+        out["Threshold"] = (
+            "NaN"
+            if value["threshold"] != value["threshold"]
+            else "Infinity"
+            if value["threshold"] == float("inf")
+            else "-Infinity"
+            if value["threshold"] == float("-inf")
+            else value["threshold"]
+        )
     if "comparison_operator" in value:
         import capo_cloudwatch.types.comparison_operator
 
@@ -377,7 +385,7 @@ def deserialize_aws_json_1_0(data: dict) -> MetricAlarm:
     if data.get("DatapointsToAlarm") is not None:
         out["datapoints_to_alarm"] = data["DatapointsToAlarm"]
     if data.get("Threshold") is not None:
-        out["threshold"] = data["Threshold"]
+        out["threshold"] = float(data["Threshold"])
     if data.get("ComparisonOperator") is not None:
         import capo_cloudwatch.types.comparison_operator
 

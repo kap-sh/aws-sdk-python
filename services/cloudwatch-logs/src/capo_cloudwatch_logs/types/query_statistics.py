@@ -26,39 +26,89 @@ class QueryStatistics(TypedDict, closed=True):
 # --- awsJson1_1 ser/de ---
 def serialize_aws_json_1_1(value: QueryStatistics) -> dict:
     out: dict = {}
-    out["recordsMatched"] = value.get("records_matched", 0)
-    out["recordsScanned"] = value.get("records_scanned", 0)
-    out["estimatedRecordsSkipped"] = value.get("estimated_records_skipped", 0)
-    out["bytesScanned"] = value.get("bytes_scanned", 0)
-    out["estimatedBytesSkipped"] = value.get("estimated_bytes_skipped", 0)
-    out["logGroupsScanned"] = value.get("log_groups_scanned", 0)
+    out["recordsMatched"] = (
+        "NaN"
+        if value.get("records_matched", 0) != value.get("records_matched", 0)
+        else "Infinity"
+        if value.get("records_matched", 0) == float("inf")
+        else "-Infinity"
+        if value.get("records_matched", 0) == float("-inf")
+        else value.get("records_matched", 0)
+    )
+    out["recordsScanned"] = (
+        "NaN"
+        if value.get("records_scanned", 0) != value.get("records_scanned", 0)
+        else "Infinity"
+        if value.get("records_scanned", 0) == float("inf")
+        else "-Infinity"
+        if value.get("records_scanned", 0) == float("-inf")
+        else value.get("records_scanned", 0)
+    )
+    out["estimatedRecordsSkipped"] = (
+        "NaN"
+        if value.get("estimated_records_skipped", 0)
+        != value.get("estimated_records_skipped", 0)
+        else "Infinity"
+        if value.get("estimated_records_skipped", 0) == float("inf")
+        else "-Infinity"
+        if value.get("estimated_records_skipped", 0) == float("-inf")
+        else value.get("estimated_records_skipped", 0)
+    )
+    out["bytesScanned"] = (
+        "NaN"
+        if value.get("bytes_scanned", 0) != value.get("bytes_scanned", 0)
+        else "Infinity"
+        if value.get("bytes_scanned", 0) == float("inf")
+        else "-Infinity"
+        if value.get("bytes_scanned", 0) == float("-inf")
+        else value.get("bytes_scanned", 0)
+    )
+    out["estimatedBytesSkipped"] = (
+        "NaN"
+        if value.get("estimated_bytes_skipped", 0)
+        != value.get("estimated_bytes_skipped", 0)
+        else "Infinity"
+        if value.get("estimated_bytes_skipped", 0) == float("inf")
+        else "-Infinity"
+        if value.get("estimated_bytes_skipped", 0) == float("-inf")
+        else value.get("estimated_bytes_skipped", 0)
+    )
+    out["logGroupsScanned"] = (
+        "NaN"
+        if value.get("log_groups_scanned", 0) != value.get("log_groups_scanned", 0)
+        else "Infinity"
+        if value.get("log_groups_scanned", 0) == float("inf")
+        else "-Infinity"
+        if value.get("log_groups_scanned", 0) == float("-inf")
+        else value.get("log_groups_scanned", 0)
+    )
     return out
 
 
 def deserialize_aws_json_1_1(data: dict) -> QueryStatistics:
     out: QueryStatistics = {}  # type: ignore[typeddict-item]
     if data.get("recordsMatched") is not None:
-        out["records_matched"] = data["recordsMatched"]
+        out["records_matched"] = float(data["recordsMatched"])
     else:
         out["records_matched"] = 0
     if data.get("recordsScanned") is not None:
-        out["records_scanned"] = data["recordsScanned"]
+        out["records_scanned"] = float(data["recordsScanned"])
     else:
         out["records_scanned"] = 0
     if data.get("estimatedRecordsSkipped") is not None:
-        out["estimated_records_skipped"] = data["estimatedRecordsSkipped"]
+        out["estimated_records_skipped"] = float(data["estimatedRecordsSkipped"])
     else:
         out["estimated_records_skipped"] = 0
     if data.get("bytesScanned") is not None:
-        out["bytes_scanned"] = data["bytesScanned"]
+        out["bytes_scanned"] = float(data["bytesScanned"])
     else:
         out["bytes_scanned"] = 0
     if data.get("estimatedBytesSkipped") is not None:
-        out["estimated_bytes_skipped"] = data["estimatedBytesSkipped"]
+        out["estimated_bytes_skipped"] = float(data["estimatedBytesSkipped"])
     else:
         out["estimated_bytes_skipped"] = 0
     if data.get("logGroupsScanned") is not None:
-        out["log_groups_scanned"] = data["logGroupsScanned"]
+        out["log_groups_scanned"] = float(data["logGroupsScanned"])
     else:
         out["log_groups_scanned"] = 0
     return out

@@ -100,7 +100,8 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSQS.SetQueueAttributes"
     body: bytes | None = json.dumps(
-        capo_sqs.types.set_queue_attributes_request.serialize_aws_json_1_0(input_)
+        capo_sqs.types.set_queue_attributes_request.serialize_aws_json_1_0(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

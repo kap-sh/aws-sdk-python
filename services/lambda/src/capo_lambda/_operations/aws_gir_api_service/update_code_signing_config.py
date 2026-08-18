@@ -106,7 +106,8 @@ def build_request(
     params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = json.dumps(
-        capo_lambda.types.update_code_signing_config_request.serialize_json(input_)
+        capo_lambda.types.update_code_signing_config_request.serialize_json(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

@@ -69,7 +69,15 @@ def serialize_json(value: GuardrailAutomatedReasoningTranslation) -> dict:
             )
         )
     if "confidence" in value:
-        out["confidence"] = value["confidence"]
+        out["confidence"] = (
+            "NaN"
+            if value["confidence"] != value["confidence"]
+            else "Infinity"
+            if value["confidence"] == float("inf")
+            else "-Infinity"
+            if value["confidence"] == float("-inf")
+            else value["confidence"]
+        )
     return out
 
 
@@ -108,5 +116,5 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningTranslation:
             )
         )
     if data.get("confidence") is not None:
-        out["confidence"] = data["confidence"]
+        out["confidence"] = float(data["confidence"])
     return out

@@ -34,11 +34,27 @@ def serialize_aws_json_1_1(value: ServiceRevisionSummary) -> dict:
     out["runningTaskCount"] = value.get("running_task_count", 0)
     out["pendingTaskCount"] = value.get("pending_task_count", 0)
     if "requested_test_traffic_weight" in value:
-        out["requestedTestTrafficWeight"] = value["requested_test_traffic_weight"]
+        out["requestedTestTrafficWeight"] = (
+            "NaN"
+            if value["requested_test_traffic_weight"]
+            != value["requested_test_traffic_weight"]
+            else "Infinity"
+            if value["requested_test_traffic_weight"] == float("inf")
+            else "-Infinity"
+            if value["requested_test_traffic_weight"] == float("-inf")
+            else value["requested_test_traffic_weight"]
+        )
     if "requested_production_traffic_weight" in value:
-        out["requestedProductionTrafficWeight"] = value[
-            "requested_production_traffic_weight"
-        ]
+        out["requestedProductionTrafficWeight"] = (
+            "NaN"
+            if value["requested_production_traffic_weight"]
+            != value["requested_production_traffic_weight"]
+            else "Infinity"
+            if value["requested_production_traffic_weight"] == float("inf")
+            else "-Infinity"
+            if value["requested_production_traffic_weight"] == float("-inf")
+            else value["requested_production_traffic_weight"]
+        )
     return out
 
 
@@ -59,9 +75,9 @@ def deserialize_aws_json_1_1(data: dict) -> ServiceRevisionSummary:
     else:
         out["pending_task_count"] = 0
     if data.get("requestedTestTrafficWeight") is not None:
-        out["requested_test_traffic_weight"] = data["requestedTestTrafficWeight"]
+        out["requested_test_traffic_weight"] = float(data["requestedTestTrafficWeight"])
     if data.get("requestedProductionTrafficWeight") is not None:
-        out["requested_production_traffic_weight"] = data[
-            "requestedProductionTrafficWeight"
-        ]
+        out["requested_production_traffic_weight"] = float(
+            data["requestedProductionTrafficWeight"]
+        )
     return out

@@ -56,7 +56,15 @@ def serialize_aws_json_1_0(value: GetInsightRuleReportOutput) -> dict:
     if "aggregation_statistic" in value:
         out["AggregationStatistic"] = value["aggregation_statistic"]
     if "aggregate_value" in value:
-        out["AggregateValue"] = value["aggregate_value"]
+        out["AggregateValue"] = (
+            "NaN"
+            if value["aggregate_value"] != value["aggregate_value"]
+            else "Infinity"
+            if value["aggregate_value"] == float("inf")
+            else "-Infinity"
+            if value["aggregate_value"] == float("-inf")
+            else value["aggregate_value"]
+        )
     if "approximate_unique_count" in value:
         out["ApproximateUniqueCount"] = value["approximate_unique_count"]
     if "contributors" in value:
@@ -91,7 +99,7 @@ def deserialize_aws_json_1_0(data: dict) -> GetInsightRuleReportOutput:
     if data.get("AggregationStatistic") is not None:
         out["aggregation_statistic"] = data["AggregationStatistic"]
     if data.get("AggregateValue") is not None:
-        out["aggregate_value"] = data["AggregateValue"]
+        out["aggregate_value"] = float(data["AggregateValue"])
     if data.get("ApproximateUniqueCount") is not None:
         out["approximate_unique_count"] = data["ApproximateUniqueCount"]
     if data.get("Contributors") is not None:

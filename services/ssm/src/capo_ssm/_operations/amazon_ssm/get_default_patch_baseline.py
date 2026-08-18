@@ -86,7 +86,10 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.GetDefaultPatchBaseline"
     body: bytes | None = json.dumps(
-        capo_ssm.types.get_default_patch_baseline_request.serialize_aws_json_1_1(input_)
+        capo_ssm.types.get_default_patch_baseline_request.serialize_aws_json_1_1(
+            input_
+        ),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

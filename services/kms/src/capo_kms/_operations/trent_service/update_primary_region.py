@@ -91,7 +91,8 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "TrentService.UpdatePrimaryRegion"
     body: bytes | None = json.dumps(
-        capo_kms.types.update_primary_region_request.serialize_aws_json_1_1(input_)
+        capo_kms.types.update_primary_region_request.serialize_aws_json_1_1(input_),
+        allow_nan=False,
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))

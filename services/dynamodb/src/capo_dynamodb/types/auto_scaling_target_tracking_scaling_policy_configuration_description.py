@@ -36,7 +36,15 @@ def serialize_aws_json_1_0(
         out["ScaleInCooldown"] = value["scale_in_cooldown"]
     if "scale_out_cooldown" in value:
         out["ScaleOutCooldown"] = value["scale_out_cooldown"]
-    out["TargetValue"] = value["target_value"]
+    out["TargetValue"] = (
+        "NaN"
+        if value["target_value"] != value["target_value"]
+        else "Infinity"
+        if value["target_value"] == float("inf")
+        else "-Infinity"
+        if value["target_value"] == float("-inf")
+        else value["target_value"]
+    )
     return out
 
 
@@ -51,7 +59,7 @@ def deserialize_aws_json_1_0(
     if data.get("ScaleOutCooldown") is not None:
         out["scale_out_cooldown"] = data["ScaleOutCooldown"]
     if data.get("TargetValue") is not None:
-        out["target_value"] = data["TargetValue"]
+        out["target_value"] = float(data["TargetValue"])
     else:
         raise DeserializationError(
             "AutoScalingTargetTrackingScalingPolicyConfigurationDescription.target_value required"

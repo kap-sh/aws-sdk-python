@@ -72,7 +72,16 @@ def serialize_aws_json_1_0(value: DescribeMapRunOutput) -> dict:
             value["stop_date"]
         )
     out["maxConcurrency"] = value.get("max_concurrency", 0)
-    out["toleratedFailurePercentage"] = value.get("tolerated_failure_percentage", 0)
+    out["toleratedFailurePercentage"] = (
+        "NaN"
+        if value.get("tolerated_failure_percentage", 0)
+        != value.get("tolerated_failure_percentage", 0)
+        else "Infinity"
+        if value.get("tolerated_failure_percentage", 0) == float("inf")
+        else "-Infinity"
+        if value.get("tolerated_failure_percentage", 0) == float("-inf")
+        else value.get("tolerated_failure_percentage", 0)
+    )
     out["toleratedFailureCount"] = value.get("tolerated_failure_count", 0)
     import capo_sfn.types.map_run_item_counts
 
@@ -134,7 +143,7 @@ def deserialize_aws_json_1_0(data: dict) -> DescribeMapRunOutput:
     else:
         out["max_concurrency"] = 0
     if data.get("toleratedFailurePercentage") is not None:
-        out["tolerated_failure_percentage"] = data["toleratedFailurePercentage"]
+        out["tolerated_failure_percentage"] = float(data["toleratedFailurePercentage"])
     else:
         out["tolerated_failure_percentage"] = 0
     if data.get("toleratedFailureCount") is not None:
