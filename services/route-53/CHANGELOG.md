@@ -1,5 +1,12 @@
 # aws-sdk-route-53
 
+## 0.5.0
+
+### Minor Changes
+
+- 5d8c6ad: fix XML deserialization of namespace-prefixed @xmlName
+- 70a7337: properly handle timezones
+
 ## 0.4.0
 
 ### Minor Changes

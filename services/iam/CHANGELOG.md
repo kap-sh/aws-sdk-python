@@ -1,5 +1,12 @@
 # aws-sdk-iam
 
+## 0.9.0
+
+### Minor Changes
+
+- 5d8c6ad: fix XML deserialization of namespace-prefixed @xmlName
+- 70a7337: properly handle timezones
+
 ## 0.8.0
 
 ### Minor Changes
