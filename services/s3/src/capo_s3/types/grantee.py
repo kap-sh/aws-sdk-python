@@ -58,7 +58,7 @@ def deserialize_xml(el: Element) -> Grantee:
     child_uri = el.find("URI")
     if child_uri is not None:
         out["uri"] = str(child_uri.text or "")
-    attr_type = el.get("xsi:type")
+    attr_type = el.get("type")
     if attr_type is not None:
         import capo_s3.types.type
 
