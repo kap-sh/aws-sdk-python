@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.ipam_prefix_list_resolver
 import capo_ec2.types.ipam_prefix_list_resolver_rule_request_set
 import capo_ec2.types.modify_ipam_prefix_list_resolver_request

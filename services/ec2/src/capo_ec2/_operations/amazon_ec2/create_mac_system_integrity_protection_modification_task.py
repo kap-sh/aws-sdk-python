@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.create_mac_system_integrity_protection_modification_task_request
 import capo_ec2.types.create_mac_system_integrity_protection_modification_task_result
 import capo_ec2.types.mac_modification_task

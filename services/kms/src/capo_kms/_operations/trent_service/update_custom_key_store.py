@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_kms._auth._signers
 import capo_kms._auth._sigv4
+import capo_kms._protocol.eventstream
 import capo_kms.errors.cloud_hsm_cluster_invalid_configuration_exception
 import capo_kms.errors.cloud_hsm_cluster_not_active_exception
 import capo_kms.errors.cloud_hsm_cluster_not_found_exception

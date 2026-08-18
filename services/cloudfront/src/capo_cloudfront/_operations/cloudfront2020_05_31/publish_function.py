@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_cloudfront._auth._signers
 import capo_cloudfront._auth._sigv4
+import capo_cloudfront._protocol.eventstream
 import capo_cloudfront.errors.invalid_argument
 import capo_cloudfront.errors.invalid_if_match_version
 import capo_cloudfront.errors.no_such_function_exists

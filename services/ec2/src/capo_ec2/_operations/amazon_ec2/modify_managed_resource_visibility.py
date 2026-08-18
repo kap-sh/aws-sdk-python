@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.managed_resource_default_visibility
 import capo_ec2.types.managed_resource_visibility_settings
 import capo_ec2.types.modify_managed_resource_visibility_request

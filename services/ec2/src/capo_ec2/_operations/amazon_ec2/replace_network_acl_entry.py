@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.icmp_type_code
 import capo_ec2.types.port_range
 import capo_ec2.types.replace_network_acl_entry_request

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sso_oidc._auth._signers
 import capo_sso_oidc._auth._sigv4
+import capo_sso_oidc._protocol.eventstream
 import capo_sso_oidc.errors.internal_server_exception
 import capo_sso_oidc.errors.invalid_client_exception
 import capo_sso_oidc.errors.invalid_request_exception

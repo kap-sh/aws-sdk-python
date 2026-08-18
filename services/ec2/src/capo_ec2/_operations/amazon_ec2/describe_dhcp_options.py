@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.describe_dhcp_options_request
 import capo_ec2.types.describe_dhcp_options_result
 import capo_ec2.types.dhcp_options_id_string_list

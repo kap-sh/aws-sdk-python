@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_elastic_load_balancing._auth._signers
 import capo_elastic_load_balancing._auth._sigv4
+import capo_elastic_load_balancing._protocol.eventstream
 import capo_elastic_load_balancing.types.describe_account_limits_input
 import capo_elastic_load_balancing.types.describe_account_limits_output
 import capo_elastic_load_balancing.types.limits

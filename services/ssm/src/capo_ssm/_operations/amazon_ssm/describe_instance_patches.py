@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ssm._auth._signers
 import capo_ssm._auth._sigv4
+import capo_ssm._protocol.eventstream
 import capo_ssm.errors.internal_server_error
 import capo_ssm.errors.invalid_filter
 import capo_ssm.errors.invalid_instance_id

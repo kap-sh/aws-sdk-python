@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ecs._auth._signers
 import capo_ecs._auth._sigv4
+import capo_ecs._protocol.eventstream
 import capo_ecs.errors.access_denied_exception
 import capo_ecs.errors.client_exception
 import capo_ecs.errors.cluster_not_found_exception

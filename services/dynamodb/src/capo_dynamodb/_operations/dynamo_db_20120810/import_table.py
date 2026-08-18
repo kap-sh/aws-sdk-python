@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_dynamodb._auth._signers
 import capo_dynamodb._auth._sigv4
+import capo_dynamodb._protocol.eventstream
 import capo_dynamodb.errors.import_conflict_exception
 import capo_dynamodb.errors.limit_exceeded_exception
 import capo_dynamodb.errors.resource_in_use_exception

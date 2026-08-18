@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sfn._auth._signers
 import capo_sfn._auth._sigv4
+import capo_sfn._protocol.eventstream
 import capo_sfn.errors.execution_already_exists
 import capo_sfn.errors.execution_limit_exceeded
 import capo_sfn.errors.invalid_arn

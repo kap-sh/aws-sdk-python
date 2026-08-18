@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.report_generation_limit_exceeded_exception
 import capo_iam.types.generate_organizations_access_report_request
 import capo_iam.types.generate_organizations_access_report_response

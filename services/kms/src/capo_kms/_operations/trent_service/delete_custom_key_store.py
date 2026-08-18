@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_kms._auth._signers
 import capo_kms._auth._sigv4
+import capo_kms._protocol.eventstream
 import capo_kms.errors.custom_key_store_has_cm_ks_exception
 import capo_kms.errors.custom_key_store_invalid_state_exception
 import capo_kms.errors.custom_key_store_not_found_exception

@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.types.describe_alarms_for_metric_input
 import capo_cloudwatch.types.describe_alarms_for_metric_output
 import capo_cloudwatch.types.dimensions

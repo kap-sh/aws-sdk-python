@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.types.stop_o_tel_enrichment_input
 import capo_cloudwatch.types.stop_o_tel_enrichment_output
 from capo_cloudwatch._protocol.errors import parse_error_metadata_json

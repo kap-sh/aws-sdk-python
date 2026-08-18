@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.account_not_management_or_delegated_administrator_exception
 import capo_iam.errors.caller_is_not_management_account_exception
 import capo_iam.errors.organization_not_found_exception

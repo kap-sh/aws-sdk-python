@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_scheduler._auth._signers
 import capo_scheduler._auth._sigv4
+import capo_scheduler._protocol.eventstream
 import capo_scheduler.errors.internal_server_exception
 import capo_scheduler.errors.throttling_exception
 import capo_scheduler.errors.validation_exception

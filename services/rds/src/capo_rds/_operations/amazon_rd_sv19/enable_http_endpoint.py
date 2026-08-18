@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.invalid_resource_state_fault
 import capo_rds.errors.resource_not_found_fault
 import capo_rds.types.enable_http_endpoint_request

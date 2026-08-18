@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.feature_disabled_exception
 import capo_iam.types.get_outbound_web_identity_federation_info_response
 from capo_iam._protocol.errors import find_error_element, parse_error_metadata

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sfn._auth._signers
 import capo_sfn._auth._sigv4
+import capo_sfn._protocol.eventstream
 import capo_sfn.errors.invalid_arn
 import capo_sfn.types.delete_activity_input
 import capo_sfn.types.delete_activity_output

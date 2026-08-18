@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.errors.resource_conflict
 import capo_cloudwatch.errors.resource_not_found
 import capo_cloudwatch.types.alarm_names

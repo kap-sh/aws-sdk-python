@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_request
 import capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_result
 import capo_ec2.types.vpc_encryption_non_compliant_resource_list

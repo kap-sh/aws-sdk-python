@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.concurrent_modification_exception
 import capo_iam.errors.entity_already_exists_exception
 import capo_iam.errors.invalid_input_exception

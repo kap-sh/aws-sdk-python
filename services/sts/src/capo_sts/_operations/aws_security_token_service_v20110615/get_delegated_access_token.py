@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sts._auth._signers
 import capo_sts._auth._sigv4
+import capo_sts._protocol.eventstream
 import capo_sts.errors.expired_trade_in_token_exception
 import capo_sts.errors.packed_policy_too_large_exception
 import capo_sts.errors.region_disabled_exception

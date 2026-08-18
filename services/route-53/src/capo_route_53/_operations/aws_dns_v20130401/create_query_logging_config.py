@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_route_53._auth._signers
 import capo_route_53._auth._sigv4
+import capo_route_53._protocol.eventstream
 import capo_route_53.errors.concurrent_modification
 import capo_route_53.errors.insufficient_cloud_watch_logs_resource_policy
 import capo_route_53.errors.invalid_input

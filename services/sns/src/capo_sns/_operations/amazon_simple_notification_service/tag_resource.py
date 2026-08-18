@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sns._auth._signers
 import capo_sns._auth._sigv4
+import capo_sns._protocol.eventstream
 import capo_sns.errors.authorization_error_exception
 import capo_sns.errors.concurrent_access_exception
 import capo_sns.errors.invalid_parameter_exception

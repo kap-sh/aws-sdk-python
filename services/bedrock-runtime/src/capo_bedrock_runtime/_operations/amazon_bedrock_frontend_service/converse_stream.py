@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_runtime._auth._signers
 import capo_bedrock_runtime._auth._sigv4
+import capo_bedrock_runtime._protocol.eventstream
 import capo_bedrock_runtime.errors.access_denied_exception
 import capo_bedrock_runtime.errors.internal_server_exception
 import capo_bedrock_runtime.errors.model_error_exception

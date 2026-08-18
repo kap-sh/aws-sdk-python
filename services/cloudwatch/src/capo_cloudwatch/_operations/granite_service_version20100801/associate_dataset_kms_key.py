@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.errors.conflict_exception
 import capo_cloudwatch.errors.kms_access_denied_exception
 import capo_cloudwatch.errors.kms_key_disabled_exception

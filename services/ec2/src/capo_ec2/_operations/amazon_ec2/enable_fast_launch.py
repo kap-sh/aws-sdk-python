@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.enable_fast_launch_request
 import capo_ec2.types.enable_fast_launch_result
 import capo_ec2.types.fast_launch_launch_template_specification_request

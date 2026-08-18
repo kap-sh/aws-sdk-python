@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sfn._auth._signers
 import capo_sfn._auth._sigv4
+import capo_sfn._protocol.eventstream
 import capo_sfn.errors.invalid_token
 import capo_sfn.types.activity_list
 import capo_sfn.types.list_activities_input

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.reset_snapshot_attribute_request
 import capo_ec2.types.snapshot_attribute_name
 from capo_ec2._protocol.errors import parse_error_metadata

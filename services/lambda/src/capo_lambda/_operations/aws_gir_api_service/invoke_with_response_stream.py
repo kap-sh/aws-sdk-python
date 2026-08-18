@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda._protocol.eventstream
 import capo_lambda.errors.ec2_access_denied_exception
 import capo_lambda.errors.ec2_throttled_exception
 import capo_lambda.errors.ec2_unexpected_exception

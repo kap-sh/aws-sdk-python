@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ssm._auth._signers
 import capo_ssm._auth._sigv4
+import capo_ssm._protocol.eventstream
 import capo_ssm.errors.internal_server_error
 import capo_ssm.errors.resource_in_use_exception
 import capo_ssm.types.delete_patch_baseline_request

@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.errors.resource_not_found_exception
 import capo_cloudwatch.types.get_dataset_input
 import capo_cloudwatch.types.get_dataset_output

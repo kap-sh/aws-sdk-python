@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.delete_local_gateway_route_table_request
 import capo_ec2.types.delete_local_gateway_route_table_result
 import capo_ec2.types.local_gateway_route_table

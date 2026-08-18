@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_route_53._auth._signers
 import capo_route_53._auth._sigv4
+import capo_route_53._protocol.eventstream
 import capo_route_53.errors.hosted_zone_not_empty
 import capo_route_53.errors.invalid_domain_name
 import capo_route_53.errors.invalid_input

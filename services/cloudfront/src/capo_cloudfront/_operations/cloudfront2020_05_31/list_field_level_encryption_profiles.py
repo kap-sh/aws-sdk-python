@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_cloudfront._auth._signers
 import capo_cloudfront._auth._sigv4
+import capo_cloudfront._protocol.eventstream
 import capo_cloudfront.errors.invalid_argument
 import capo_cloudfront.types.field_level_encryption_profile_list
 import capo_cloudfront.types.list_field_level_encryption_profiles_request

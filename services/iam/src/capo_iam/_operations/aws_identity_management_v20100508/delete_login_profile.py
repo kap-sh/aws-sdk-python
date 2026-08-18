@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.entity_temporarily_unmodifiable_exception
 import capo_iam.errors.limit_exceeded_exception
 import capo_iam.errors.no_such_entity_exception

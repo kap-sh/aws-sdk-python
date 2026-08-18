@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.ip_permission_list
 import capo_ec2.types.revoke_security_group_ingress_request
 import capo_ec2.types.revoke_security_group_ingress_result

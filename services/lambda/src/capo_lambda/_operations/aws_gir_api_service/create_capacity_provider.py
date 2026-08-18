@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_lambda._auth._signers
 import capo_lambda._auth._sigv4
+import capo_lambda._protocol.eventstream
 import capo_lambda.errors.capacity_provider_limit_exceeded_exception
 import capo_lambda.errors.invalid_parameter_value_exception
 import capo_lambda.errors.resource_conflict_exception

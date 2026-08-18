@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.classic_link_instance_list
 import capo_ec2.types.describe_classic_link_instances_request
 import capo_ec2.types.describe_classic_link_instances_result

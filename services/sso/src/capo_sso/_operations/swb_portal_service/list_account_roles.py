@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sso._auth._signers
 import capo_sso._auth._sigv4
+import capo_sso._protocol.eventstream
 import capo_sso.errors.invalid_request_exception
 import capo_sso.errors.resource_not_found_exception
 import capo_sso.errors.too_many_requests_exception

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_elastic_load_balancing._auth._signers
 import capo_elastic_load_balancing._auth._sigv4
+import capo_elastic_load_balancing._protocol.eventstream
 import capo_elastic_load_balancing.types.delete_access_point_input
 import capo_elastic_load_balancing.types.delete_access_point_output
 from capo_elastic_load_balancing._protocol.errors import parse_error_metadata

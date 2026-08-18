@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.types.assignment_status_type
 import capo_iam.types.list_virtual_mfa_devices_request
 import capo_iam.types.list_virtual_mfa_devices_response

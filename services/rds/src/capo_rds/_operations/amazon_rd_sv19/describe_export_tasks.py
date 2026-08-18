@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.export_task_not_found_fault
 import capo_rds.types.describe_export_tasks_message
 import capo_rds.types.export_source_type

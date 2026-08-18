@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sqs._auth._signers
 import capo_sqs._auth._sigv4
+import capo_sqs._protocol.eventstream
 import capo_sqs.errors.batch_entry_ids_not_distinct
 import capo_sqs.errors.empty_batch_request
 import capo_sqs.errors.invalid_address

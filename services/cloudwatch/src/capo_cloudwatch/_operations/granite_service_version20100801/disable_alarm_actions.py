@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch._auth._signers
 import capo_cloudwatch._auth._sigv4
+import capo_cloudwatch._protocol.eventstream
 import capo_cloudwatch.types.alarm_names
 import capo_cloudwatch.types.disable_alarm_actions_input
 from capo_cloudwatch._protocol.errors import parse_error_metadata_json

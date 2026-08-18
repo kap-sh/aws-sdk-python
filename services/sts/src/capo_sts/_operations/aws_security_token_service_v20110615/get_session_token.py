@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sts._auth._signers
 import capo_sts._auth._sigv4
+import capo_sts._protocol.eventstream
 import capo_sts.errors.region_disabled_exception
 import capo_sts.types.credentials
 import capo_sts.types.get_session_token_request

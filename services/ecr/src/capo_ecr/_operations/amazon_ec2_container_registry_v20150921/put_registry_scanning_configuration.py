@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ecr._auth._signers
 import capo_ecr._auth._sigv4
+import capo_ecr._protocol.eventstream
 import capo_ecr.errors.blocked_by_organization_policy_exception
 import capo_ecr.errors.invalid_parameter_exception
 import capo_ecr.errors.server_exception

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.accept_vpc_peering_connection_request
 import capo_ec2.types.accept_vpc_peering_connection_result
 import capo_ec2.types.vpc_peering_connection

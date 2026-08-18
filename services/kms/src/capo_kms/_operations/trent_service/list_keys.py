@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_kms._auth._signers
 import capo_kms._auth._sigv4
+import capo_kms._protocol.eventstream
 import capo_kms.errors.dependency_timeout_exception
 import capo_kms.errors.invalid_marker_exception
 import capo_kms.errors.kms_internal_exception

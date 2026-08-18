@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.service_failure_exception
 import capo_iam.types.global_endpoint_token_version
 import capo_iam.types.set_security_token_service_preferences_request

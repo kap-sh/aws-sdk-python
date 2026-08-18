@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.invalid_event_subscription_state_fault
 import capo_rds.errors.subscription_not_found_fault
 import capo_rds.types.delete_event_subscription_message

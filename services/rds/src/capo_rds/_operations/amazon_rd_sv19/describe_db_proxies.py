@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.db_proxy_not_found_fault
 import capo_rds.types.db_proxy_list
 import capo_rds.types.describe_db_proxies_request

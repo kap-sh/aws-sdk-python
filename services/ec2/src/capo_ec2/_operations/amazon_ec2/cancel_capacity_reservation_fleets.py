@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.cancel_capacity_reservation_fleets_request
 import capo_ec2.types.cancel_capacity_reservation_fleets_result
 import capo_ec2.types.capacity_reservation_fleet_cancellation_state_set

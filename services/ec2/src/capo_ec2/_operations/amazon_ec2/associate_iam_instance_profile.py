@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.associate_iam_instance_profile_request
 import capo_ec2.types.associate_iam_instance_profile_result
 import capo_ec2.types.iam_instance_profile_association

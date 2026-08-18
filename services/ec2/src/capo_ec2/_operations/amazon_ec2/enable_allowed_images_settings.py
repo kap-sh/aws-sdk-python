@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.allowed_images_settings_enabled_state
 import capo_ec2.types.enable_allowed_images_settings_request
 import capo_ec2.types.enable_allowed_images_settings_result

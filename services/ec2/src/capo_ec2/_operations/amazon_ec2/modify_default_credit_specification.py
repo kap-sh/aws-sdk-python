@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.instance_family_credit_specification
 import capo_ec2.types.modify_default_credit_specification_request
 import capo_ec2.types.modify_default_credit_specification_result

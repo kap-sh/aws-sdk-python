@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.types.access_key_last_used
 import capo_iam.types.get_access_key_last_used_request
 import capo_iam.types.get_access_key_last_used_response

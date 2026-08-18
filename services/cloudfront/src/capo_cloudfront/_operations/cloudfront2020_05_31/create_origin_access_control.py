@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_cloudfront._auth._signers
 import capo_cloudfront._auth._sigv4
+import capo_cloudfront._protocol.eventstream
 import capo_cloudfront.errors.invalid_argument
 import capo_cloudfront.errors.origin_access_control_already_exists
 import capo_cloudfront.errors.too_many_origin_access_controls

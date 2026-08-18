@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_kms._auth._signers
 import capo_kms._auth._sigv4
+import capo_kms._protocol.eventstream
 import capo_kms.errors.invalid_arn_exception
 import capo_kms.errors.kms_internal_exception
 import capo_kms.errors.kms_invalid_state_exception

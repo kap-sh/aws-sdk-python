@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.register_transit_gateway_multicast_group_members_request
 import capo_ec2.types.register_transit_gateway_multicast_group_members_result
 import capo_ec2.types.transit_gateway_multicast_registered_group_members

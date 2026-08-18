@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ssm._auth._signers
 import capo_ssm._auth._sigv4
+import capo_ssm._protocol.eventstream
 import capo_ssm.errors.does_not_exist_exception
 import capo_ssm.errors.feature_not_available_exception
 import capo_ssm.errors.idempotent_parameter_mismatch

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.filter_list
 import capo_ec2.types.get_transit_gateway_prefix_list_references_request
 import capo_ec2.types.get_transit_gateway_prefix_list_references_result

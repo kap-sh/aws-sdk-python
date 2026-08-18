@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_route_53._auth._signers
 import capo_route_53._auth._sigv4
+import capo_route_53._protocol.eventstream
 import capo_route_53.errors.concurrent_modification
 import capo_route_53.errors.dnssec_not_found
 import capo_route_53.errors.hosted_zone_partially_delegated

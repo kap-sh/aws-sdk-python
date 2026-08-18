@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.declarative_policies_report_list
 import capo_ec2.types.describe_declarative_policies_reports_request
 import capo_ec2.types.describe_declarative_policies_reports_result

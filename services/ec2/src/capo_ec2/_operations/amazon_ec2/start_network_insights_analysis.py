@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.arn_list
 import capo_ec2.types.network_insights_analysis
 import capo_ec2.types.start_network_insights_analysis_request

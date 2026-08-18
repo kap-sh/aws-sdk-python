@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.attribute_value
 import capo_ec2.types.launch_permission_modifications
 import capo_ec2.types.modify_image_attribute_request

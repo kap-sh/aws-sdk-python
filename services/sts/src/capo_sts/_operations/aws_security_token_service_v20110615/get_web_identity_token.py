@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sts._auth._signers
 import capo_sts._auth._sigv4
+import capo_sts._protocol.eventstream
 import capo_sts.errors.jwt_payload_size_exceeded_exception
 import capo_sts.errors.outbound_web_identity_federation_disabled_exception
 import capo_sts.errors.session_duration_escalation_exception

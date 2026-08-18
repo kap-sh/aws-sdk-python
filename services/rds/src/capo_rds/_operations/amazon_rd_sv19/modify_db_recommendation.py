@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.types.db_recommendation
 import capo_rds.types.db_recommendation_message
 import capo_rds.types.modify_db_recommendation_message

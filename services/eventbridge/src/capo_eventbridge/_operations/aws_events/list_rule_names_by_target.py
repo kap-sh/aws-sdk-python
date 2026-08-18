@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_eventbridge._auth._signers
 import capo_eventbridge._auth._sigv4
+import capo_eventbridge._protocol.eventstream
 import capo_eventbridge.errors.internal_exception
 import capo_eventbridge.errors.resource_not_found_exception
 import capo_eventbridge.types.list_rule_names_by_target_request

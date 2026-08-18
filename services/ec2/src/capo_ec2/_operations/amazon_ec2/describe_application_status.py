@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.application_statuses_response_type
 import capo_ec2.types.describe_application_status_request
 import capo_ec2.types.describe_application_status_result

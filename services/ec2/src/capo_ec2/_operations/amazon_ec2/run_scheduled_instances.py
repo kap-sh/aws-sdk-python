@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.instance_id_set
 import capo_ec2.types.run_scheduled_instances_request
 import capo_ec2.types.run_scheduled_instances_result

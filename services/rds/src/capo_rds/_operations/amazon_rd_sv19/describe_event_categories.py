@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.types.describe_event_categories_message
 import capo_rds.types.event_categories_map_list
 import capo_rds.types.event_categories_message

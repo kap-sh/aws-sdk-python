@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sns._auth._signers
 import capo_sns._auth._sigv4
+import capo_sns._protocol.eventstream
 import capo_sns.errors.authorization_error_exception
 import capo_sns.errors.endpoint_disabled_exception
 import capo_sns.errors.internal_error_exception

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.credential_report_expired_exception
 import capo_iam.errors.credential_report_not_present_exception
 import capo_iam.errors.credential_report_not_ready_exception

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.excess_capacity_termination_policy
 import capo_ec2.types.launch_template_config_list
 import capo_ec2.types.modify_spot_fleet_request_request

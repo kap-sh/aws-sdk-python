@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sns._auth._signers
 import capo_sns._auth._sigv4
+import capo_sns._protocol.eventstream
 import capo_sns.errors.authorization_error_exception
 import capo_sns.errors.batch_entry_ids_not_distinct_exception
 import capo_sns.errors.batch_request_too_long_exception

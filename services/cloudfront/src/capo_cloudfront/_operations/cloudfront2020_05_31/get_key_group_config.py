@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_cloudfront._auth._signers
 import capo_cloudfront._auth._sigv4
+import capo_cloudfront._protocol.eventstream
 import capo_cloudfront.errors.no_such_resource
 import capo_cloudfront.types.get_key_group_config_request
 import capo_cloudfront.types.get_key_group_config_result

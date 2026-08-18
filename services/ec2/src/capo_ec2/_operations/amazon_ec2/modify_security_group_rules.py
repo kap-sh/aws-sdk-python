@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.modify_security_group_rules_request
 import capo_ec2.types.modify_security_group_rules_result
 import capo_ec2.types.security_group_rule_update_list

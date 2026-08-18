@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.invalid_option_group_state_fault
 import capo_rds.errors.option_group_not_found_fault
 import capo_rds.types.modify_option_group_message

@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_cloudwatch_logs._auth._signers
 import capo_cloudwatch_logs._auth._sigv4
+import capo_cloudwatch_logs._protocol.eventstream
 import capo_cloudwatch_logs.errors.resource_not_found_exception
 import capo_cloudwatch_logs.errors.service_unavailable_exception
 import capo_cloudwatch_logs.types.list_tags_log_group_request

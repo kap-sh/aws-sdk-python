@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ssm._auth._signers
 import capo_ssm._auth._sigv4
+import capo_ssm._protocol.eventstream
 import capo_ssm.errors.association_does_not_exist
 import capo_ssm.errors.invalid_association
 import capo_ssm.types.association_id_list

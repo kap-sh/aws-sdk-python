@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.describe_principal_id_format_request
 import capo_ec2.types.describe_principal_id_format_result
 import capo_ec2.types.principal_id_format_list

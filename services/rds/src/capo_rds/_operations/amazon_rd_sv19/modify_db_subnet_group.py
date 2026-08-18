@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.db_subnet_group_does_not_cover_enough_a_zs
 import capo_rds.errors.db_subnet_group_not_found_fault
 import capo_rds.errors.db_subnet_quota_exceeded_fault

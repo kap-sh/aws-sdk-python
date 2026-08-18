@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.get_verified_access_endpoint_targets_request
 import capo_ec2.types.get_verified_access_endpoint_targets_result
 import capo_ec2.types.verified_access_endpoint_target_list

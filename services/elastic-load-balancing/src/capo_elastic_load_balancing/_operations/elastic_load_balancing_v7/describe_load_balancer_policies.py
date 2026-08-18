@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_elastic_load_balancing._auth._signers
 import capo_elastic_load_balancing._auth._sigv4
+import capo_elastic_load_balancing._protocol.eventstream
 import capo_elastic_load_balancing.errors.access_point_not_found_exception
 import capo_elastic_load_balancing.errors.policy_not_found_exception
 import capo_elastic_load_balancing.types.describe_load_balancer_policies_input

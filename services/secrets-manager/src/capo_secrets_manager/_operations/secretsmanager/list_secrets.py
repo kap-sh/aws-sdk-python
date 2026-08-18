@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_secrets_manager._auth._signers
 import capo_secrets_manager._auth._sigv4
+import capo_secrets_manager._protocol.eventstream
 import capo_secrets_manager.errors.internal_service_error
 import capo_secrets_manager.errors.invalid_next_token_exception
 import capo_secrets_manager.errors.invalid_parameter_exception

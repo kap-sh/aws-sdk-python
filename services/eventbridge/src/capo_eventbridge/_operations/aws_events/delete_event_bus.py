@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_eventbridge._auth._signers
 import capo_eventbridge._auth._sigv4
+import capo_eventbridge._protocol.eventstream
 import capo_eventbridge.errors.concurrent_modification_exception
 import capo_eventbridge.errors.internal_exception
 import capo_eventbridge.types.delete_event_bus_request

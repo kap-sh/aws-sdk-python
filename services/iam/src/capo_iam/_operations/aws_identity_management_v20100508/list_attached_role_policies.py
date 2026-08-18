@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_iam._auth._signers
 import capo_iam._auth._sigv4
+import capo_iam._protocol.eventstream
 import capo_iam.errors.invalid_input_exception
 import capo_iam.errors.no_such_entity_exception
 import capo_iam.errors.service_failure_exception

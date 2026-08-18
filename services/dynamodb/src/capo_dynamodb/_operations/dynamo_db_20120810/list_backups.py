@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_dynamodb._auth._signers
 import capo_dynamodb._auth._sigv4
+import capo_dynamodb._protocol.eventstream
 import capo_dynamodb.errors.internal_server_error
 import capo_dynamodb.errors.invalid_endpoint_exception
 import capo_dynamodb.types.backup_summaries

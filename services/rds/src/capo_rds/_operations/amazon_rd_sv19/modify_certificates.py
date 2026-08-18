@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.certificate_not_found_fault
 import capo_rds.types.certificate
 import capo_rds.types.modify_certificates_message

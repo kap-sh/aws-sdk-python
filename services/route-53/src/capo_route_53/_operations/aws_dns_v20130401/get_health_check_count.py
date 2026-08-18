@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_route_53._auth._signers
 import capo_route_53._auth._sigv4
+import capo_route_53._protocol.eventstream
 import capo_route_53.types.get_health_check_count_request
 import capo_route_53.types.get_health_check_count_response
 from capo_route_53._protocol.errors import parse_error_metadata

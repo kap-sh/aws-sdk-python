@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_rds._auth._signers
 import capo_rds._auth._sigv4
+import capo_rds._protocol.eventstream
 import capo_rds.errors.event_subscription_quota_exceeded_fault
 import capo_rds.errors.sns_invalid_topic_fault
 import capo_rds.errors.sns_no_authorization_fault

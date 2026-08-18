@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_sts._auth._signers
 import capo_sts._auth._sigv4
+import capo_sts._protocol.eventstream
 import capo_sts.types.get_access_key_info_request
 import capo_sts.types.get_access_key_info_response
 from capo_sts._protocol.errors import parse_error_metadata

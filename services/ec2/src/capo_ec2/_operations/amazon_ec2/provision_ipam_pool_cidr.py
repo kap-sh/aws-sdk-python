@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_ec2._auth._signers
 import capo_ec2._auth._sigv4
+import capo_ec2._protocol.eventstream
 import capo_ec2.types.ipam_cidr_authorization_context
 import capo_ec2.types.ipam_pool_cidr
 import capo_ec2.types.provision_ipam_pool_cidr_request
