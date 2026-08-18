@@ -88,6 +88,7 @@ class ProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -146,6 +147,7 @@ class ProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -198,6 +200,7 @@ class ProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -261,6 +264,7 @@ class AsyncProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -320,6 +324,7 @@ class AsyncProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -373,4 +378,5 @@ class AsyncProvisionedConcurrencyConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

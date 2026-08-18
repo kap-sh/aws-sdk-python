@@ -105,6 +105,7 @@ class FunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -158,6 +159,7 @@ class FunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -233,6 +235,7 @@ class FunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -285,6 +288,7 @@ class FunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -349,6 +353,7 @@ class FunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -423,6 +428,7 @@ class AsyncFunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -477,6 +483,7 @@ class AsyncFunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -553,6 +560,7 @@ class AsyncFunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -606,6 +614,7 @@ class AsyncFunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -671,4 +680,5 @@ class AsyncFunctionAlias:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

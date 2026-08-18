@@ -102,6 +102,7 @@ class TaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -168,6 +169,7 @@ class TaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_task_set(
@@ -278,6 +280,7 @@ class TaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_task_sets(
@@ -343,6 +346,7 @@ class TaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -414,6 +418,7 @@ class AsyncTaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -481,6 +486,7 @@ class AsyncTaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_task_set(
@@ -592,6 +598,7 @@ class AsyncTaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_task_sets(
@@ -658,4 +665,5 @@ class AsyncTaskSetResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

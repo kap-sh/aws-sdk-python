@@ -333,6 +333,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def connect_custom_key_store(
@@ -386,6 +387,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_alias(
@@ -440,6 +442,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_custom_key_store(
@@ -569,6 +572,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_grant(
@@ -675,6 +679,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_key(
@@ -777,6 +782,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def decrypt(
@@ -873,6 +879,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_alias(
@@ -921,6 +928,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_custom_key_store(
@@ -971,6 +979,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_imported_key_material(
@@ -1029,6 +1038,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def derive_shared_secret(
@@ -1104,6 +1114,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_custom_key_stores(
@@ -1170,6 +1181,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_custom_key_stores(
@@ -1271,6 +1283,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_key(
@@ -1320,6 +1333,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_key_rotation(
@@ -1371,6 +1385,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disconnect_custom_key_store(
@@ -1420,6 +1435,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_key(
@@ -1470,6 +1486,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_key_rotation(
@@ -1527,6 +1544,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def encrypt(
@@ -1607,6 +1625,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_data_key(
@@ -1692,6 +1711,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_data_key_pair(
@@ -1771,6 +1791,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_data_key_pair_without_plaintext(
@@ -1846,6 +1867,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_data_key_without_plaintext(
@@ -1927,6 +1949,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_mac(
@@ -1997,6 +2020,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_random(
@@ -2061,6 +2085,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_key_last_usage(
@@ -2111,6 +2136,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_key_policy(
@@ -2166,6 +2192,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_key_rotation_status(
@@ -2212,6 +2239,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_parameters_for_import(
@@ -2264,6 +2292,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_public_key(
@@ -2324,6 +2353,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_key_material(
@@ -2412,6 +2442,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_aliases(
@@ -2472,6 +2503,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_aliases(
@@ -2566,6 +2598,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_grants(
@@ -2658,6 +2691,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_key_policies(
@@ -2741,6 +2775,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_key_rotations(
@@ -2820,6 +2855,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_keys(
@@ -2899,6 +2935,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_resource_tags(
@@ -2984,6 +3021,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_retirable_grants(
@@ -3080,6 +3118,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def re_encrypt(
@@ -3187,6 +3226,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replicate_key(
@@ -3266,6 +3306,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def retire_grant(
@@ -3333,6 +3374,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def revoke_grant(
@@ -3393,6 +3435,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def rotate_key_on_demand(
@@ -3448,6 +3491,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def schedule_key_deletion(
@@ -3499,6 +3543,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def sign(
@@ -3574,6 +3619,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -3627,6 +3673,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -3679,6 +3726,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_alias(
@@ -3731,6 +3779,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_custom_key_store(
@@ -3870,6 +3919,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_key_description(
@@ -3922,6 +3972,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_primary_region(
@@ -3979,6 +4030,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def verify(
@@ -4058,6 +4110,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def verify_mac(
@@ -4130,6 +4183,7 @@ class KMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

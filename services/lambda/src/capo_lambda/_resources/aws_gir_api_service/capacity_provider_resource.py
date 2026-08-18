@@ -136,6 +136,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -180,6 +181,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -244,6 +246,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -289,6 +292,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -345,6 +349,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_function_versions_by_capacity_provider(
@@ -399,6 +404,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -492,6 +498,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -537,6 +544,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -602,6 +610,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -648,6 +657,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -705,6 +715,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_function_versions_by_capacity_provider(
@@ -760,4 +771,5 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

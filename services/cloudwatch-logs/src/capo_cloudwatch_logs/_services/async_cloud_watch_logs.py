@@ -539,6 +539,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_source_to_s3_table_integration(
@@ -588,6 +589,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_export_task(
@@ -631,6 +633,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_import_task(
@@ -677,6 +680,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_delivery(
@@ -750,6 +754,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_export_task(
@@ -824,6 +829,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_import_task(
@@ -881,6 +887,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_log_anomaly_detector(
@@ -961,6 +968,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_log_group(
@@ -1025,6 +1033,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_log_stream(
@@ -1071,6 +1080,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_lookup_table(
@@ -1135,6 +1145,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_scheduled_query(
@@ -1247,6 +1258,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_account_policy(
@@ -1293,6 +1305,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_data_protection_policy(
@@ -1336,6 +1349,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_delivery(
@@ -1381,6 +1395,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_delivery_destination(
@@ -1426,6 +1441,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_delivery_destination_policy(
@@ -1469,6 +1485,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_delivery_source(
@@ -1514,6 +1531,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_destination(
@@ -1557,6 +1575,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_index_policy(
@@ -1603,6 +1622,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_integration(
@@ -1652,6 +1672,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_log_anomaly_detector(
@@ -1695,6 +1716,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_log_group(
@@ -1739,6 +1761,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_log_stream(
@@ -1786,6 +1809,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_lookup_table(
@@ -1829,6 +1853,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_metric_filter(
@@ -1875,6 +1900,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_query_definition(
@@ -1919,6 +1945,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_policy(
@@ -1975,6 +2002,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_retention_policy(
@@ -2018,6 +2046,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_scheduled_query(
@@ -2064,6 +2093,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_subscription_filter(
@@ -2110,6 +2140,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_transformer(
@@ -2154,6 +2185,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_account_policies(
@@ -2215,6 +2247,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_configuration_templates(
@@ -2286,6 +2319,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_configuration_templates(
@@ -2372,6 +2406,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_deliveries(
@@ -2446,6 +2481,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_delivery_destinations(
@@ -2520,6 +2556,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_delivery_sources(
@@ -2599,6 +2636,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_destinations(
@@ -2688,6 +2726,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_field_indexes(
@@ -2737,6 +2776,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_import_task_batches(
@@ -2799,6 +2839,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_import_tasks(
@@ -2866,6 +2907,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_index_policies(
@@ -2915,6 +2957,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_log_groups(
@@ -3001,6 +3044,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_log_groups(
@@ -3125,6 +3169,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_log_streams(
@@ -3222,6 +3267,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_metric_filters(
@@ -3297,6 +3343,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_metric_filters(
@@ -3402,6 +3449,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_query_definitions(
@@ -3463,6 +3511,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_resource_policies(
@@ -3522,6 +3571,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_subscription_filters(
@@ -3582,6 +3632,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_subscription_filters(
@@ -3663,6 +3714,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_source_from_s3_table_integration(
@@ -3709,6 +3761,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def filter_log_events(
@@ -3808,6 +3861,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_data_protection_policy(
@@ -3853,6 +3907,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delivery(
@@ -3899,6 +3954,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delivery_destination(
@@ -3945,6 +4001,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delivery_destination_policy(
@@ -3989,6 +4046,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delivery_source(
@@ -4035,6 +4093,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_integration(
@@ -4079,6 +4138,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_log_anomaly_detector(
@@ -4124,6 +4184,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_log_events(
@@ -4206,6 +4267,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_log_events(
@@ -4295,6 +4357,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_log_group_fields(
@@ -4353,6 +4416,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_log_object(
@@ -4452,6 +4516,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_lookup_table(
@@ -4497,6 +4562,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_query_results(
@@ -4555,6 +4621,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_scheduled_query(
@@ -4601,6 +4668,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_scheduled_query_history(
@@ -4668,6 +4736,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_scheduled_query_history(
@@ -4746,6 +4815,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_aggregate_log_group_summaries(
@@ -4829,6 +4899,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_aggregate_log_group_summaries(
@@ -4937,6 +5008,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_anomalies(
@@ -5028,6 +5100,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_log_anomaly_detectors(
@@ -5085,6 +5158,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_log_anomaly_detectors(
@@ -5201,6 +5275,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_log_groups_for_query(
@@ -5255,6 +5330,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_log_groups_for_query(
@@ -5337,6 +5413,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_scheduled_queries(
@@ -5419,6 +5496,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_sources_for_s3_table_integration(
@@ -5488,6 +5566,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_log_group(
@@ -5531,6 +5610,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_account_policy(
@@ -5592,6 +5672,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bearer_token_authentication(
@@ -5642,6 +5723,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_data_protection_policy(
@@ -5691,6 +5773,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_delivery_destination(
@@ -5762,6 +5845,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_delivery_destination_policy(
@@ -5810,6 +5894,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_delivery_source(
@@ -5873,6 +5958,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_destination(
@@ -5927,6 +6013,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_destination_policy(
@@ -5978,6 +6065,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_index_policy(
@@ -6027,6 +6115,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_integration(
@@ -6078,6 +6167,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_log_events(
@@ -6141,6 +6231,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_log_group_deletion_protection(
@@ -6189,6 +6280,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_metric_filter(
@@ -6261,6 +6353,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_query_definition(
@@ -6340,6 +6433,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_resource_policy(
@@ -6405,6 +6499,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_retention_policy(
@@ -6450,6 +6545,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_subscription_filter(
@@ -6532,6 +6628,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_transformer(
@@ -6580,6 +6677,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_live_tail(
@@ -6726,6 +6824,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_query(
@@ -6770,6 +6869,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_log_group(
@@ -6814,6 +6914,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -6860,6 +6961,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_metric_filter(
@@ -6905,6 +7007,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_transformer(
@@ -6952,6 +7055,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_log_group(
@@ -6995,6 +7099,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -7040,6 +7145,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_anomaly(
@@ -7107,6 +7213,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_delivery_configuration(
@@ -7172,6 +7279,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_log_anomaly_detector(
@@ -7235,6 +7343,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_lookup_table(
@@ -7294,6 +7403,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_scheduled_query(
@@ -7400,6 +7510,7 @@ class AsyncCloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

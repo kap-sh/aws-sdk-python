@@ -186,6 +186,7 @@ class SSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_account_roles(
@@ -241,6 +242,7 @@ class SSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_account_roles(
@@ -318,6 +320,7 @@ class SSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_accounts(
@@ -382,6 +385,7 @@ class SSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

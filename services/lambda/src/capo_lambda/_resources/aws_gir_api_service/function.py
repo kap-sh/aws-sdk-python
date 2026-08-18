@@ -326,6 +326,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -390,6 +391,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_function_concurrency(
@@ -439,6 +441,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_concurrency(
@@ -489,6 +492,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_provisioned_concurrency_configs(
@@ -549,6 +553,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_function_concurrency(
@@ -601,6 +606,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_function_code(
@@ -713,6 +719,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_function_configuration(
@@ -862,6 +869,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_function_url_config(
@@ -924,6 +932,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_function_code_signing_config(
@@ -968,6 +977,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_function_url_config(
@@ -1017,6 +1027,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function(
@@ -1073,6 +1084,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_code_signing_config(
@@ -1118,6 +1130,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_configuration(
@@ -1174,6 +1187,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_recursion_config(
@@ -1218,6 +1232,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_scaling_config(
@@ -1265,6 +1280,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_url_config(
@@ -1315,6 +1331,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_policy(
@@ -1371,6 +1388,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_runtime_management_config(
@@ -1421,6 +1439,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def invoke(
@@ -1548,6 +1567,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def invoke_async(
@@ -1626,6 +1646,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -1732,7 +1753,10 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def list_durable_executions_by_function(
         self,
@@ -1818,6 +1842,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_function_url_configs(
@@ -1870,6 +1895,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_function_code_signing_config(
@@ -1919,6 +1945,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_function_recursion_config(
@@ -1967,6 +1994,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_function_scaling_config(
@@ -2021,6 +2049,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_runtime_management_config(
@@ -2081,6 +2110,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_function_url_config(
@@ -2146,6 +2176,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -2336,6 +2367,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -2401,6 +2433,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_function_concurrency(
@@ -2451,6 +2484,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_concurrency(
@@ -2502,6 +2536,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_provisioned_concurrency_configs(
@@ -2563,6 +2598,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_function_concurrency(
@@ -2616,6 +2652,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_function_code(
@@ -2729,6 +2766,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_function_configuration(
@@ -2879,6 +2917,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_function_url_config(
@@ -2942,6 +2981,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_function_code_signing_config(
@@ -2987,6 +3027,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_function_url_config(
@@ -3037,6 +3078,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function(
@@ -3094,6 +3136,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_code_signing_config(
@@ -3140,6 +3183,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_configuration(
@@ -3197,6 +3241,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_recursion_config(
@@ -3242,6 +3287,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_scaling_config(
@@ -3290,6 +3336,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_url_config(
@@ -3341,6 +3388,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_policy(
@@ -3398,6 +3446,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_runtime_management_config(
@@ -3449,6 +3498,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def invoke(
@@ -3577,6 +3627,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def invoke_async(
@@ -3656,6 +3707,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -3763,7 +3815,10 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def list_durable_executions_by_function(
         self,
@@ -3850,6 +3905,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_function_url_configs(
@@ -3903,6 +3959,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_function_code_signing_config(
@@ -3953,6 +4010,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_function_recursion_config(
@@ -4002,6 +4060,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_function_scaling_config(
@@ -4057,6 +4116,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_runtime_management_config(
@@ -4118,6 +4178,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_function_url_config(
@@ -4184,4 +4245,5 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

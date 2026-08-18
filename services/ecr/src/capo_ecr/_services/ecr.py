@@ -351,6 +351,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_delete_image(
@@ -407,6 +408,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_get_image(
@@ -471,6 +473,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_get_repository_scanning_configuration(
@@ -515,6 +518,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def complete_layer_upload(
@@ -574,6 +578,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_pull_through_cache_rule(
@@ -652,6 +657,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_repository(
@@ -739,6 +745,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_repository_creation_template(
@@ -835,6 +842,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_lifecycle_policy(
@@ -886,6 +894,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_pull_through_cache_rule(
@@ -934,6 +943,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_registry_policy(
@@ -971,6 +981,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_repository(
@@ -1030,6 +1041,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_repository_creation_template(
@@ -1074,6 +1086,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_repository_policy(
@@ -1128,6 +1141,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_signing_configuration(
@@ -1164,6 +1178,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_pull_time_update_exclusion(
@@ -1215,6 +1230,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_image_replication_status(
@@ -1266,6 +1282,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_images(
@@ -1334,6 +1351,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_images(
@@ -1427,6 +1445,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_image_signing_status(
@@ -1479,6 +1498,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_pull_through_cache_rules(
@@ -1538,6 +1558,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_pull_through_cache_rules(
@@ -1601,6 +1622,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_repositories(
@@ -1665,6 +1687,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_repositories(
@@ -1744,6 +1767,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_repository_creation_templates(
@@ -1810,6 +1834,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_authorization_token(
@@ -1857,6 +1882,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_download_url_for_layer(
@@ -1910,6 +1936,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_lifecycle_policy(
@@ -1959,6 +1986,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_lifecycle_policy_preview(
@@ -2030,6 +2058,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_lifecycle_policy_preview(
@@ -2102,6 +2131,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_registry_scanning_configuration(
@@ -2138,6 +2168,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_repository_policy(
@@ -2192,6 +2223,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_signing_configuration(
@@ -2229,6 +2261,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def initiate_layer_upload(
@@ -2277,6 +2310,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_image_referrers(
@@ -2359,6 +2393,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_images(
@@ -2424,6 +2459,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_images(
@@ -2510,6 +2546,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -2553,6 +2590,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_account_setting(
@@ -2600,6 +2638,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_image(
@@ -2669,6 +2708,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_image_scanning_configuration(
@@ -2720,6 +2760,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_image_tag_mutability(
@@ -2780,6 +2821,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_lifecycle_policy(
@@ -2831,6 +2873,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_registry_policy(
@@ -2874,6 +2917,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_registry_scanning_configuration(
@@ -2925,6 +2969,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_replication_configuration(
@@ -2968,6 +3013,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_signing_configuration(
@@ -3011,6 +3057,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_pull_time_update_exclusion(
@@ -3056,6 +3103,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_repository_policy(
@@ -3110,6 +3158,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_image_scan(
@@ -3164,6 +3213,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_lifecycle_policy_preview(
@@ -3220,6 +3270,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -3268,6 +3319,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -3316,6 +3368,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_image_storage_class(
@@ -3381,6 +3434,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_pull_through_cache_rule(
@@ -3442,6 +3496,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_repository_creation_template(
@@ -3539,6 +3594,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def upload_layer_part(
@@ -3602,6 +3658,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def validate_pull_through_cache_rule(
@@ -3650,6 +3707,7 @@ class ECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

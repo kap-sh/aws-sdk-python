@@ -760,6 +760,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_ops_item_related_item(
@@ -816,6 +817,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_command(
@@ -865,6 +867,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_maintenance_window_execution(
@@ -908,6 +911,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_activation(
@@ -985,6 +989,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_association(
@@ -1154,6 +1159,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_association_batch(
@@ -1215,6 +1221,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_document(
@@ -1309,6 +1316,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_maintenance_window(
@@ -1406,6 +1414,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_ops_item(
@@ -1518,6 +1527,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_ops_metadata(
@@ -1572,6 +1582,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_patch_baseline(
@@ -1691,6 +1702,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_resource_data_sync(
@@ -1754,6 +1766,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_activation(
@@ -1799,6 +1812,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_association(
@@ -1854,6 +1868,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_document(
@@ -1916,6 +1931,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_inventory(
@@ -1977,6 +1993,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_maintenance_window(
@@ -2021,6 +2038,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_ops_item(
@@ -2064,6 +2082,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_ops_metadata(
@@ -2108,6 +2127,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_parameter(
@@ -2151,6 +2171,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_parameters(
@@ -2193,6 +2214,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_patch_baseline(
@@ -2236,6 +2258,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_data_sync(
@@ -2286,6 +2309,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_policy(
@@ -2339,6 +2363,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_managed_instance(
@@ -2382,6 +2407,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_patch_baseline_for_patch_group(
@@ -2428,6 +2454,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_target_from_maintenance_window(
@@ -2479,6 +2506,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_task_from_maintenance_window(
@@ -2525,6 +2553,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_activations(
@@ -2580,6 +2609,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_activations(
@@ -2666,6 +2696,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_association_executions(
@@ -2724,6 +2755,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_association_executions(
@@ -2813,6 +2845,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_association_execution_targets(
@@ -2898,6 +2931,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_automation_executions(
@@ -2987,6 +3021,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_automation_step_executions(
@@ -3071,6 +3106,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_available_patches(
@@ -3154,6 +3190,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_document_permission(
@@ -3213,6 +3250,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_effective_instance_associations(
@@ -3267,6 +3305,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_effective_instance_associations(
@@ -3347,6 +3386,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_effective_patches_for_patch_baseline(
@@ -3424,6 +3464,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_associations_status(
@@ -3514,6 +3555,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_information(
@@ -3608,6 +3650,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_patches(
@@ -3690,6 +3733,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_patch_states(
@@ -3775,6 +3819,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_patch_states_for_patch_group(
@@ -3871,6 +3916,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_instance_properties(
@@ -3955,6 +4001,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_inventory_deletions(
@@ -4036,6 +4083,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_executions(
@@ -4127,6 +4175,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_execution_task_invocations(
@@ -4221,6 +4270,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_execution_tasks(
@@ -4305,6 +4355,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_windows(
@@ -4404,6 +4455,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_schedule(
@@ -4496,6 +4548,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_windows_for_target(
@@ -4582,6 +4635,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_targets(
@@ -4670,6 +4724,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_maintenance_window_tasks(
@@ -4754,6 +4809,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_ops_items(
@@ -4848,6 +4904,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_patch_baselines(
@@ -4903,6 +4960,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_patch_baselines(
@@ -4985,6 +5043,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_patch_groups(
@@ -5057,6 +5116,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_patch_properties(
@@ -5116,6 +5176,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_patch_properties(
@@ -5203,6 +5264,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_sessions(
@@ -5281,6 +5343,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_access_token(
@@ -5327,6 +5390,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_automation_execution(
@@ -5370,6 +5434,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_calendar_state(
@@ -5419,6 +5484,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_command_invocation(
@@ -5474,6 +5540,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_connection_status(
@@ -5516,6 +5583,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_default_patch_baseline(
@@ -5563,6 +5631,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_deployable_patch_snapshot_for_instance(
@@ -5620,6 +5689,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_document(
@@ -5682,6 +5752,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_execution_preview(
@@ -5725,6 +5796,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_inventory(
@@ -5796,6 +5868,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_inventory(
@@ -5896,6 +5969,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_inventory_schema(
@@ -5972,6 +6046,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_maintenance_window_execution(
@@ -6015,6 +6090,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_maintenance_window_execution_task(
@@ -6061,6 +6137,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_maintenance_window_execution_task_invocation(
@@ -6110,6 +6187,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_maintenance_window_task(
@@ -6156,6 +6234,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_ops_item(
@@ -6204,6 +6283,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_ops_metadata(
@@ -6258,6 +6338,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_ops_summary(
@@ -6332,6 +6413,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_ops_summary(
@@ -6416,6 +6498,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_parameter_history(
@@ -6473,6 +6556,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_parameters(
@@ -6520,6 +6604,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_parameters_by_path(
@@ -6591,6 +6676,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_patch_baseline(
@@ -6635,6 +6721,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_patch_baseline_for_patch_group(
@@ -6683,6 +6770,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_resource_policies(
@@ -6737,6 +6825,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_resource_policies(
@@ -6805,6 +6894,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def label_parameter_version(
@@ -6860,6 +6950,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_associations(
@@ -6914,6 +7005,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_associations(
@@ -6993,6 +7085,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_association_versions(
@@ -7089,6 +7182,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_command_invocations(
@@ -7189,6 +7283,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_commands(
@@ -7289,6 +7384,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_compliance_items(
@@ -7379,6 +7475,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_compliance_summaries(
@@ -7466,6 +7563,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_documents(
@@ -7527,6 +7625,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_documents(
@@ -7608,6 +7707,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_document_versions(
@@ -7694,6 +7794,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_nodes(
@@ -7753,6 +7854,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_nodes(
@@ -7851,6 +7953,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_nodes_summary(
@@ -7938,6 +8041,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_ops_item_events(
@@ -8025,6 +8129,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_ops_item_related_items(
@@ -8110,6 +8215,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_ops_metadata(
@@ -8192,6 +8298,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_resource_compliance_summaries(
@@ -8272,6 +8379,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_resource_data_sync(
@@ -8344,6 +8452,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_document_permission(
@@ -8411,6 +8520,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_compliance_items(
@@ -8483,6 +8593,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_inventory(
@@ -8539,6 +8650,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_parameter(
@@ -8642,6 +8754,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_resource_policy(
@@ -8701,6 +8814,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_default_patch_baseline(
@@ -8745,6 +8859,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_patch_baseline_for_patch_group(
@@ -8794,6 +8909,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_target_with_maintenance_window(
@@ -8868,6 +8984,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_task_with_maintenance_window(
@@ -8989,6 +9106,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_tags_from_resource(
@@ -9040,6 +9158,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reset_service_setting(
@@ -9084,6 +9203,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def resume_session(
@@ -9127,6 +9247,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_automation_signal(
@@ -9181,6 +9302,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_command(
@@ -9319,6 +9441,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_access_request(
@@ -9373,6 +9496,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_associations_once(
@@ -9416,6 +9540,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_automation_execution(
@@ -9532,6 +9657,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_change_request_execution(
@@ -9630,6 +9756,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_execution_preview(
@@ -9693,6 +9820,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_session(
@@ -9751,6 +9879,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_automation_execution(
@@ -9801,6 +9930,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def terminate_session(
@@ -9843,6 +9973,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def unlabel_parameter_version(
@@ -9896,6 +10027,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_association(
@@ -10067,6 +10199,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_association_status(
@@ -10122,6 +10255,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_document(
@@ -10210,6 +10344,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_document_default_version(
@@ -10258,6 +10393,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_document_metadata(
@@ -10313,6 +10449,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_maintenance_window(
@@ -10428,6 +10565,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_maintenance_window_target(
@@ -10500,6 +10638,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_maintenance_window_task(
@@ -10620,6 +10759,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_managed_instance_role(
@@ -10666,6 +10806,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_ops_item(
@@ -10784,6 +10925,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_ops_metadata(
@@ -10840,6 +10982,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_patch_baseline(
@@ -10951,6 +11094,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_resource_data_sync(
@@ -11002,6 +11146,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_service_setting(
@@ -11049,6 +11194,7 @@ class AsyncSSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

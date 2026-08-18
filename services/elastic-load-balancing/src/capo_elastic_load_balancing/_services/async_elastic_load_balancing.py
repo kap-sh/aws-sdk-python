@@ -260,6 +260,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def apply_security_groups_to_load_balancer(
@@ -313,6 +314,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def attach_load_balancer_to_subnets(
@@ -367,6 +369,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def configure_health_check(
@@ -418,6 +421,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_app_cookie_stickiness_policy(
@@ -475,6 +479,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_lb_cookie_stickiness_policy(
@@ -535,6 +540,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_load_balancer(
@@ -639,6 +645,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_load_balancer_listeners(
@@ -698,6 +705,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_load_balancer_policy(
@@ -770,6 +778,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_load_balancer(
@@ -817,6 +826,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_load_balancer_listeners(
@@ -868,6 +878,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_load_balancer_policy(
@@ -920,6 +931,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_instances_from_load_balancer(
@@ -972,6 +984,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_account_limits(
@@ -1020,6 +1033,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_instance_health(
@@ -1075,6 +1089,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_load_balancer_attributes(
@@ -1124,6 +1139,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_load_balancer_policies(
@@ -1182,6 +1198,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_load_balancer_policy_types(
@@ -1233,6 +1250,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_load_balancers(
@@ -1295,6 +1313,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_load_balancers(
@@ -1370,6 +1389,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def detach_load_balancer_from_subnets(
@@ -1422,6 +1442,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_availability_zones_for_load_balancer(
@@ -1474,6 +1495,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_availability_zones_for_load_balancer(
@@ -1525,6 +1547,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_load_balancer_attributes(
@@ -1582,6 +1605,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_instances_with_load_balancer(
@@ -1634,6 +1658,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_tags(
@@ -1685,6 +1710,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_load_balancer_listener_ssl_certificate(
@@ -1743,6 +1769,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_load_balancer_policies_for_backend_server(
@@ -1799,6 +1826,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_load_balancer_policies_of_listener(
@@ -1856,6 +1884,7 @@ class AsyncElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

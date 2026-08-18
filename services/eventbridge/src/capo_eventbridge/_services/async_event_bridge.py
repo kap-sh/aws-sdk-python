@@ -334,6 +334,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_replay(
@@ -379,6 +380,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_api_destination(
@@ -447,6 +449,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_archive(
@@ -521,6 +524,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_connection(
@@ -594,6 +598,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_endpoint(
@@ -660,6 +665,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_event_bus(
@@ -739,6 +745,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_partner_event_source(
@@ -788,6 +795,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deactivate_event_source(
@@ -832,6 +840,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deauthorize_connection(
@@ -876,6 +885,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_api_destination(
@@ -920,6 +930,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_archive(
@@ -964,6 +975,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_connection(
@@ -1008,6 +1020,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_endpoint(
@@ -1052,6 +1065,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_event_bus(
@@ -1093,6 +1107,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_partner_event_source(
@@ -1138,6 +1153,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_rule(
@@ -1191,6 +1207,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_api_destination(
@@ -1234,6 +1251,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_archive(
@@ -1278,6 +1296,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_connection(
@@ -1323,6 +1342,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_endpoint(
@@ -1370,6 +1390,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_event_bus(
@@ -1416,6 +1437,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_event_source(
@@ -1460,6 +1482,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_partner_event_source(
@@ -1504,6 +1527,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_replay(
@@ -1547,6 +1571,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_rule(
@@ -1596,6 +1621,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_rule(
@@ -1645,6 +1671,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_rule(
@@ -1694,6 +1721,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_api_destinations(
@@ -1753,6 +1781,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_archives(
@@ -1815,6 +1844,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_connections(
@@ -1874,6 +1904,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_endpoints(
@@ -1931,6 +1962,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_event_buses(
@@ -1984,6 +2016,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_event_sources(
@@ -2038,6 +2071,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_partner_event_source_accounts(
@@ -2090,6 +2124,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_partner_event_sources(
@@ -2141,6 +2176,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_replays(
@@ -2202,6 +2238,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_rule_names_by_target(
@@ -2259,6 +2296,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_rules(
@@ -2317,6 +2355,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -2360,6 +2399,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_targets_by_rule(
@@ -2419,6 +2459,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_events(
@@ -2465,6 +2506,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_partner_events(
@@ -2508,6 +2550,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_permission(
@@ -2577,6 +2620,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_rule(
@@ -2660,6 +2704,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_targets(
@@ -2715,6 +2760,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_permission(
@@ -2773,6 +2819,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_targets(
@@ -2831,6 +2878,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_replay(
@@ -2895,6 +2943,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -2943,6 +2992,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_event_pattern(
@@ -2989,6 +3039,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -3037,6 +3088,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_api_destination(
@@ -3114,6 +3166,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_archive(
@@ -3184,6 +3237,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_connection(
@@ -3263,6 +3317,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_endpoint(
@@ -3335,6 +3390,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_event_bus(
@@ -3402,6 +3458,7 @@ class AsyncEventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

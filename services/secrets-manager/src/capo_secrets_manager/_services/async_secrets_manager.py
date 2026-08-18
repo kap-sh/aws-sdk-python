@@ -277,6 +277,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_rotate_secret(
@@ -328,6 +329,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_secret(
@@ -438,6 +440,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_policy(
@@ -489,6 +492,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_secret(
@@ -546,6 +550,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_secret(
@@ -590,6 +595,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_random_password(
@@ -685,6 +691,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_resource_policy(
@@ -736,6 +743,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_secret_value(
@@ -800,6 +808,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_secrets(
@@ -882,6 +891,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_secret_version_ids(
@@ -951,6 +961,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_resource_policy(
@@ -1013,6 +1024,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_secret_value(
@@ -1099,6 +1111,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_regions_from_replication(
@@ -1147,6 +1160,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def replicate_secret_to_regions(
@@ -1207,6 +1221,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_secret(
@@ -1258,6 +1273,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def rotate_secret(
@@ -1354,6 +1370,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_replication_to_replica(
@@ -1399,6 +1416,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -1451,6 +1469,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -1503,6 +1522,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_secret(
@@ -1605,6 +1625,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_secret_version_stage(
@@ -1680,6 +1701,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def validate_resource_policy(
@@ -1738,6 +1760,7 @@ class AsyncSecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

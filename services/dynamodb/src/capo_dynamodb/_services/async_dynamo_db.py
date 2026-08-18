@@ -407,6 +407,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_get_item(
@@ -465,6 +466,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_write_item(
@@ -531,6 +533,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_backup(
@@ -582,6 +585,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_global_table(
@@ -631,6 +635,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_table(
@@ -766,6 +771,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_backup(
@@ -812,6 +818,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_item(
@@ -925,6 +932,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_policy(
@@ -978,6 +986,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_table(
@@ -1030,6 +1039,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_backup(
@@ -1074,6 +1084,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_continuous_backups(
@@ -1118,6 +1129,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_contributor_insights(
@@ -1165,6 +1177,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_endpoints(
@@ -1199,6 +1212,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_export(
@@ -1243,6 +1257,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_global_table(
@@ -1287,6 +1302,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_global_table_settings(
@@ -1331,6 +1347,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_import(
@@ -1373,6 +1390,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_kinesis_streaming_destination(
@@ -1417,6 +1435,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_limits(
@@ -1459,6 +1478,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_table(
@@ -1503,6 +1523,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_table_not_exists(
@@ -1586,6 +1607,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_time_to_live(
@@ -1630,6 +1652,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_kinesis_streaming_destination(
@@ -1687,6 +1710,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_kinesis_streaming_destination(
@@ -1744,6 +1768,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def execute_statement(
@@ -1831,6 +1856,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def execute_transaction(
@@ -1893,6 +1919,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def export_table_to_point_in_time(
@@ -1992,6 +2019,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_item(
@@ -2077,6 +2105,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_resource_policy(
@@ -2122,6 +2151,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def import_table(
@@ -2189,6 +2219,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_backups(
@@ -2263,6 +2294,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_contributor_insights(
@@ -2319,6 +2351,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_exports(
@@ -2375,6 +2408,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_global_tables(
@@ -2433,6 +2467,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_imports(
@@ -2488,6 +2523,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tables(
@@ -2546,6 +2582,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_tables(
@@ -2621,6 +2658,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_item(
@@ -2734,6 +2772,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_resource_policy(
@@ -2798,6 +2837,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def query(
@@ -2938,6 +2978,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_query(
@@ -3101,6 +3142,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_table_to_point_in_time(
@@ -3203,6 +3245,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def scan(
@@ -3335,6 +3378,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_scan(
@@ -3453,6 +3497,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def transact_get_items(
@@ -3507,6 +3552,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def transact_write_items(
@@ -3575,6 +3621,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -3622,6 +3669,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_continuous_backups(
@@ -3672,6 +3720,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_contributor_insights(
@@ -3728,6 +3777,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_global_table(
@@ -3778,6 +3828,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_global_table_settings(
@@ -3865,6 +3916,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_item(
@@ -3990,6 +4042,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_kinesis_streaming_destination(
@@ -4047,6 +4100,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_table(
@@ -4175,6 +4229,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_table_replica_auto_scaling(
@@ -4239,6 +4294,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_time_to_live(
@@ -4288,6 +4344,7 @@ class AsyncDynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

@@ -279,6 +279,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_account_setting(
@@ -338,6 +339,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_task_definition(
@@ -389,6 +391,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_task_definition(
@@ -446,6 +449,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def discover_poll_endpoint(
@@ -496,6 +500,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_account_settings(
@@ -572,6 +577,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_account_settings(
@@ -655,6 +661,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_services_by_namespace(
@@ -730,6 +737,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_task_definition_families(
@@ -800,6 +808,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_task_definition_families(
@@ -889,6 +898,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_account_setting_default(
@@ -943,6 +953,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -1000,6 +1011,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -1056,6 +1068,7 @@ class AsyncECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

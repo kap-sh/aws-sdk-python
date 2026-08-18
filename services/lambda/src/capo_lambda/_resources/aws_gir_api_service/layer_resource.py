@@ -95,6 +95,7 @@ class LayerResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -167,4 +168,5 @@ class AsyncLayerResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

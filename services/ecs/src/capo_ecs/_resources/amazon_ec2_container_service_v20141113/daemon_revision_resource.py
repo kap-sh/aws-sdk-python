@@ -73,6 +73,7 @@ class DaemonRevisionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -131,4 +132,5 @@ class AsyncDaemonRevisionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

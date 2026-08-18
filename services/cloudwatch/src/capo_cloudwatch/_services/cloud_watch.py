@@ -365,6 +365,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_alarm_mute_rule(
@@ -404,6 +405,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_alarms(
@@ -445,6 +447,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_anomaly_detector(
@@ -523,6 +526,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_dashboards(
@@ -569,6 +573,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_insight_rules(
@@ -614,6 +619,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_metric_stream(
@@ -660,6 +666,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_alarm_contributors(
@@ -707,6 +714,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_alarm_history(
@@ -787,6 +795,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_alarm_history(
@@ -908,6 +917,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_alarms_for_metric(
@@ -975,6 +985,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_anomaly_detectors(
@@ -1050,6 +1061,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_anomaly_detectors(
@@ -1137,6 +1149,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_alarm_actions(
@@ -1176,6 +1189,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_insight_rules(
@@ -1221,6 +1235,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_dataset_kms_key(
@@ -1266,6 +1281,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_alarm_actions(
@@ -1305,6 +1321,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_insight_rules(
@@ -1351,6 +1368,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_alarm_mute_rule(
@@ -1393,6 +1411,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_alarm_mute_rule_exists(
@@ -1482,6 +1501,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_dataset(
@@ -1526,6 +1546,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_insight_rule_report(
@@ -1602,6 +1623,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_metric_data(
@@ -1674,6 +1696,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_metric_statistics(
@@ -1753,6 +1776,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_metric_stream(
@@ -1801,6 +1825,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_metric_widget_image(
@@ -1850,6 +1875,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_o_tel_enrichment(
@@ -1883,6 +1909,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_alarm_mute_rules(
@@ -1940,6 +1967,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_alarm_mute_rules(
@@ -2016,6 +2044,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_dashboards(
@@ -2095,6 +2124,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_metrics(
@@ -2168,6 +2198,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_metric_streams(
@@ -2219,6 +2250,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -2267,6 +2299,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_alarm_mute_rule(
@@ -2333,6 +2366,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_anomaly_detector(
@@ -2417,6 +2451,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_composite_alarm(
@@ -2511,6 +2546,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_dashboard(
@@ -2567,6 +2603,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_insight_rule(
@@ -2635,6 +2672,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_log_alarm(
@@ -2754,6 +2792,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_managed_insight_rules(
@@ -2799,6 +2838,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_metric_alarm(
@@ -2967,6 +3007,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_metric_data(
@@ -3026,6 +3067,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_metric_stream(
@@ -3120,6 +3162,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_alarm_state(
@@ -3175,6 +3218,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_metric_streams(
@@ -3221,6 +3265,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_o_tel_enrichment(
@@ -3256,6 +3301,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_metric_streams(
@@ -3302,6 +3348,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_o_tel_enrichment(
@@ -3335,6 +3382,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -3387,6 +3435,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -3439,6 +3488,7 @@ class CloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -538,6 +538,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_source_to_s3_table_integration(
@@ -586,6 +587,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_export_task(
@@ -628,6 +630,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_import_task(
@@ -673,6 +676,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_delivery(
@@ -745,6 +749,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_export_task(
@@ -818,6 +823,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_import_task(
@@ -874,6 +880,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_log_anomaly_detector(
@@ -953,6 +960,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_log_group(
@@ -1016,6 +1024,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_log_stream(
@@ -1061,6 +1070,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_lookup_table(
@@ -1124,6 +1134,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_scheduled_query(
@@ -1235,6 +1246,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_account_policy(
@@ -1280,6 +1292,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_data_protection_policy(
@@ -1322,6 +1335,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_delivery(
@@ -1366,6 +1380,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_delivery_destination(
@@ -1410,6 +1425,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_delivery_destination_policy(
@@ -1452,6 +1468,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_delivery_source(
@@ -1496,6 +1513,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_destination(
@@ -1538,6 +1556,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_index_policy(
@@ -1583,6 +1602,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_integration(
@@ -1631,6 +1651,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_log_anomaly_detector(
@@ -1673,6 +1694,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_log_group(
@@ -1716,6 +1738,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_log_stream(
@@ -1762,6 +1785,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_lookup_table(
@@ -1804,6 +1828,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_metric_filter(
@@ -1849,6 +1874,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_query_definition(
@@ -1892,6 +1918,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_policy(
@@ -1947,6 +1974,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_retention_policy(
@@ -1989,6 +2017,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_scheduled_query(
@@ -2034,6 +2063,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_subscription_filter(
@@ -2079,6 +2109,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transformer(
@@ -2122,6 +2153,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_account_policies(
@@ -2182,6 +2214,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_configuration_templates(
@@ -2252,6 +2285,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_configuration_templates(
@@ -2337,6 +2371,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_deliveries(
@@ -2410,6 +2445,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_delivery_destinations(
@@ -2485,6 +2521,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_delivery_sources(
@@ -2563,6 +2600,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_destinations(
@@ -2651,6 +2689,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_field_indexes(
@@ -2699,6 +2738,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_import_task_batches(
@@ -2760,6 +2800,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_import_tasks(
@@ -2826,6 +2867,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_index_policies(
@@ -2874,6 +2916,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_log_groups(
@@ -2959,6 +3002,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_log_groups(
@@ -3082,6 +3126,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_log_streams(
@@ -3178,6 +3223,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_metric_filters(
@@ -3252,6 +3298,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_metric_filters(
@@ -3356,6 +3403,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_query_definitions(
@@ -3416,6 +3464,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_resource_policies(
@@ -3474,6 +3523,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_subscription_filters(
@@ -3533,6 +3583,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_subscription_filters(
@@ -3613,6 +3664,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_source_from_s3_table_integration(
@@ -3658,6 +3710,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def filter_log_events(
@@ -3756,6 +3809,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_data_protection_policy(
@@ -3800,6 +3854,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delivery(
@@ -3845,6 +3900,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delivery_destination(
@@ -3890,6 +3946,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delivery_destination_policy(
@@ -3933,6 +3990,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delivery_source(
@@ -3978,6 +4036,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_integration(
@@ -4021,6 +4080,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_log_anomaly_detector(
@@ -4065,6 +4125,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_log_events(
@@ -4146,6 +4207,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_log_events(
@@ -4234,6 +4296,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_log_group_fields(
@@ -4291,6 +4354,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_log_object(
@@ -4388,6 +4452,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_lookup_table(
@@ -4432,6 +4497,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_query_results(
@@ -4489,6 +4555,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_scheduled_query(
@@ -4534,6 +4601,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_scheduled_query_history(
@@ -4600,6 +4668,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_scheduled_query_history(
@@ -4677,6 +4746,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_aggregate_log_group_summaries(
@@ -4759,6 +4829,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_aggregate_log_group_summaries(
@@ -4866,6 +4937,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_anomalies(
@@ -4956,6 +5028,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_log_anomaly_detectors(
@@ -5012,6 +5085,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_log_anomaly_detectors(
@@ -5127,6 +5201,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_log_groups_for_query(
@@ -5180,6 +5255,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_log_groups_for_query(
@@ -5261,6 +5337,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_scheduled_queries(
@@ -5342,6 +5419,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_sources_for_s3_table_integration(
@@ -5410,6 +5488,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_log_group(
@@ -5452,6 +5531,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_account_policy(
@@ -5512,6 +5592,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bearer_token_authentication(
@@ -5561,6 +5642,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_data_protection_policy(
@@ -5609,6 +5691,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_delivery_destination(
@@ -5679,6 +5762,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_delivery_destination_policy(
@@ -5726,6 +5810,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_delivery_source(
@@ -5788,6 +5873,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_destination(
@@ -5841,6 +5927,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_destination_policy(
@@ -5891,6 +5978,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_index_policy(
@@ -5939,6 +6027,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_integration(
@@ -5989,6 +6078,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_log_events(
@@ -6051,6 +6141,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_log_group_deletion_protection(
@@ -6098,6 +6189,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_metric_filter(
@@ -6169,6 +6261,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_query_definition(
@@ -6247,6 +6340,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_resource_policy(
@@ -6311,6 +6405,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_retention_policy(
@@ -6355,6 +6450,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_subscription_filter(
@@ -6436,6 +6532,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_transformer(
@@ -6483,6 +6580,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_live_tail(
@@ -6627,6 +6725,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_query(
@@ -6670,6 +6769,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_log_group(
@@ -6713,6 +6813,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -6758,6 +6859,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_metric_filter(
@@ -6802,6 +6904,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_transformer(
@@ -6848,6 +6951,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_log_group(
@@ -6890,6 +6994,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -6934,6 +7039,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_anomaly(
@@ -7000,6 +7106,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_delivery_configuration(
@@ -7064,6 +7171,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_log_anomaly_detector(
@@ -7126,6 +7234,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_lookup_table(
@@ -7184,6 +7293,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_scheduled_query(
@@ -7289,6 +7399,7 @@ class CloudWatchLogsClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

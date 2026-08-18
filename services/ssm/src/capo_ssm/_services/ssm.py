@@ -759,6 +759,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_ops_item_related_item(
@@ -814,6 +815,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_command(
@@ -862,6 +864,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_maintenance_window_execution(
@@ -904,6 +907,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_activation(
@@ -980,6 +984,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_association(
@@ -1148,6 +1153,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_association_batch(
@@ -1208,6 +1214,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_document(
@@ -1301,6 +1308,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_maintenance_window(
@@ -1397,6 +1405,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ops_item(
@@ -1508,6 +1517,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ops_metadata(
@@ -1561,6 +1571,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_patch_baseline(
@@ -1679,6 +1690,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_resource_data_sync(
@@ -1741,6 +1753,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_activation(
@@ -1785,6 +1798,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_association(
@@ -1839,6 +1853,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_document(
@@ -1900,6 +1915,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_inventory(
@@ -1960,6 +1976,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_maintenance_window(
@@ -2003,6 +2020,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ops_item(
@@ -2045,6 +2063,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ops_metadata(
@@ -2088,6 +2107,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_parameter(
@@ -2130,6 +2150,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_parameters(
@@ -2171,6 +2192,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_patch_baseline(
@@ -2213,6 +2235,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_data_sync(
@@ -2262,6 +2285,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_policy(
@@ -2314,6 +2338,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_managed_instance(
@@ -2356,6 +2381,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_patch_baseline_for_patch_group(
@@ -2401,6 +2427,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_target_from_maintenance_window(
@@ -2451,6 +2478,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_task_from_maintenance_window(
@@ -2496,6 +2524,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_activations(
@@ -2550,6 +2579,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_activations(
@@ -2635,6 +2665,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_association_executions(
@@ -2692,6 +2723,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_association_executions(
@@ -2780,6 +2812,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_association_execution_targets(
@@ -2864,6 +2897,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_automation_executions(
@@ -2952,6 +2986,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_automation_step_executions(
@@ -3035,6 +3070,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_available_patches(
@@ -3117,6 +3153,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_document_permission(
@@ -3175,6 +3212,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_effective_instance_associations(
@@ -3228,6 +3266,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_effective_instance_associations(
@@ -3307,6 +3346,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_effective_patches_for_patch_baseline(
@@ -3383,6 +3423,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_associations_status(
@@ -3472,6 +3513,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_information(
@@ -3565,6 +3607,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_patches(
@@ -3646,6 +3689,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_patch_states(
@@ -3730,6 +3774,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_patch_states_for_patch_group(
@@ -3825,6 +3870,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_properties(
@@ -3908,6 +3954,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_inventory_deletions(
@@ -3988,6 +4035,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_executions(
@@ -4078,6 +4126,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_execution_task_invocations(
@@ -4169,6 +4218,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_execution_tasks(
@@ -4252,6 +4302,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_windows(
@@ -4352,6 +4403,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_schedule(
@@ -4443,6 +4495,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_windows_for_target(
@@ -4528,6 +4581,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_targets(
@@ -4615,6 +4669,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_maintenance_window_tasks(
@@ -4698,6 +4753,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ops_items(
@@ -4791,6 +4847,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_patch_baselines(
@@ -4845,6 +4902,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_patch_baselines(
@@ -4926,6 +4984,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_patch_groups(
@@ -4997,6 +5056,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_patch_properties(
@@ -5055,6 +5115,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_patch_properties(
@@ -5141,6 +5202,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_sessions(
@@ -5218,6 +5280,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_access_token(
@@ -5263,6 +5326,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_automation_execution(
@@ -5305,6 +5369,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_calendar_state(
@@ -5353,6 +5418,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_command_invocation(
@@ -5407,6 +5473,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_connection_status(
@@ -5448,6 +5515,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_default_patch_baseline(
@@ -5494,6 +5562,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_deployable_patch_snapshot_for_instance(
@@ -5550,6 +5619,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_document(
@@ -5609,6 +5679,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_execution_preview(
@@ -5651,6 +5722,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_inventory(
@@ -5721,6 +5793,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_inventory(
@@ -5820,6 +5893,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_inventory_schema(
@@ -5895,6 +5969,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_maintenance_window_execution(
@@ -5937,6 +6012,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_maintenance_window_execution_task(
@@ -5982,6 +6058,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_maintenance_window_execution_task_invocation(
@@ -6030,6 +6107,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_maintenance_window_task(
@@ -6075,6 +6153,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ops_item(
@@ -6122,6 +6201,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ops_metadata(
@@ -6175,6 +6255,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ops_summary(
@@ -6248,6 +6329,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ops_summary(
@@ -6331,6 +6413,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_parameter_history(
@@ -6387,6 +6470,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_parameters(
@@ -6433,6 +6517,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_parameters_by_path(
@@ -6503,6 +6588,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_patch_baseline(
@@ -6546,6 +6632,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_patch_baseline_for_patch_group(
@@ -6593,6 +6680,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_policies(
@@ -6646,6 +6734,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_resource_policies(
@@ -6713,6 +6802,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def label_parameter_version(
@@ -6767,6 +6857,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_associations(
@@ -6820,6 +6911,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_associations(
@@ -6898,6 +6990,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_association_versions(
@@ -6991,6 +7084,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_command_invocations(
@@ -7090,6 +7184,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_commands(
@@ -7189,6 +7284,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_compliance_items(
@@ -7278,6 +7374,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_compliance_summaries(
@@ -7364,6 +7461,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_documents(
@@ -7424,6 +7522,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_documents(
@@ -7504,6 +7603,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_document_versions(
@@ -7589,6 +7689,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_nodes(
@@ -7647,6 +7748,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_nodes(
@@ -7744,6 +7846,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_nodes_summary(
@@ -7830,6 +7933,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_ops_item_events(
@@ -7916,6 +8020,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_ops_item_related_items(
@@ -8000,6 +8105,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_ops_metadata(
@@ -8081,6 +8187,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_resource_compliance_summaries(
@@ -8160,6 +8267,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_resource_data_sync(
@@ -8231,6 +8339,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_document_permission(
@@ -8297,6 +8406,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_compliance_items(
@@ -8368,6 +8478,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_inventory(
@@ -8423,6 +8534,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_parameter(
@@ -8525,6 +8637,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_resource_policy(
@@ -8583,6 +8696,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_default_patch_baseline(
@@ -8626,6 +8740,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_patch_baseline_for_patch_group(
@@ -8674,6 +8789,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_target_with_maintenance_window(
@@ -8747,6 +8863,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_task_with_maintenance_window(
@@ -8867,6 +8984,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_tags_from_resource(
@@ -8917,6 +9035,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_service_setting(
@@ -8960,6 +9079,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def resume_session(
@@ -9002,6 +9122,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_automation_signal(
@@ -9055,6 +9176,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_command(
@@ -9190,6 +9312,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_access_request(
@@ -9243,6 +9366,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_associations_once(
@@ -9285,6 +9409,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_automation_execution(
@@ -9400,6 +9525,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_change_request_execution(
@@ -9497,6 +9623,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_execution_preview(
@@ -9559,6 +9686,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_session(
@@ -9616,6 +9744,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_automation_execution(
@@ -9665,6 +9794,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def terminate_session(
@@ -9706,6 +9836,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unlabel_parameter_version(
@@ -9758,6 +9889,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_association(
@@ -9928,6 +10060,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_association_status(
@@ -9982,6 +10115,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_document(
@@ -10069,6 +10203,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_document_default_version(
@@ -10116,6 +10251,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_document_metadata(
@@ -10170,6 +10306,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_maintenance_window(
@@ -10284,6 +10421,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_maintenance_window_target(
@@ -10355,6 +10493,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_maintenance_window_task(
@@ -10474,6 +10613,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_managed_instance_role(
@@ -10519,6 +10659,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_ops_item(
@@ -10636,6 +10777,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_ops_metadata(
@@ -10691,6 +10833,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_patch_baseline(
@@ -10801,6 +10944,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_resource_data_sync(
@@ -10851,6 +10995,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_service_setting(
@@ -10897,6 +11042,7 @@ class SSMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -543,6 +543,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_distribution_tenant_web_acl(
@@ -596,6 +597,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_distribution_web_acl(
@@ -649,6 +651,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_distribution(
@@ -768,6 +771,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_anycast_ip_list(
@@ -834,6 +838,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_cache_policy(
@@ -882,6 +887,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_cloud_front_origin_access_identity(
@@ -929,6 +935,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_connection_function(
@@ -984,6 +991,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_connection_group(
@@ -1045,6 +1053,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_continuous_deployment_policy(
@@ -1093,6 +1102,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_distribution(
@@ -1200,6 +1210,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_distribution_tenant(
@@ -1281,6 +1292,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_distribution_with_tags(
@@ -1388,6 +1400,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_field_level_encryption_config(
@@ -1436,6 +1449,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_field_level_encryption_profile(
@@ -1486,6 +1500,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_function(
@@ -1546,6 +1561,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_invalidation(
@@ -1596,6 +1612,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_invalidation_for_distribution_tenant(
@@ -1645,6 +1662,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_key_group(
@@ -1689,6 +1707,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_key_value_store(
@@ -1758,6 +1777,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_monitoring_subscription(
@@ -1805,6 +1825,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_origin_access_control(
@@ -1848,6 +1869,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_origin_request_policy(
@@ -1896,6 +1918,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_public_key(
@@ -1939,6 +1962,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_realtime_log_config(
@@ -1992,6 +2016,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_response_headers_policy(
@@ -2040,6 +2065,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_streaming_distribution(
@@ -2093,6 +2119,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_streaming_distribution_with_tags(
@@ -2149,6 +2176,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_trust_store(
@@ -2209,6 +2237,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_origin(
@@ -2265,6 +2294,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_anycast_ip_list(
@@ -2314,6 +2344,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_cache_policy(
@@ -2362,6 +2393,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_cloud_front_origin_access_identity(
@@ -2409,6 +2441,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_connection_function(
@@ -2457,6 +2490,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_connection_group(
@@ -2504,6 +2538,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_continuous_deployment_policy(
@@ -2552,6 +2587,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_distribution(
@@ -2600,6 +2636,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_distribution_tenant(
@@ -2646,6 +2683,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_field_level_encryption_config(
@@ -2693,6 +2731,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_field_level_encryption_profile(
@@ -2740,6 +2779,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_function(
@@ -2786,6 +2826,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_key_group(
@@ -2832,6 +2873,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_key_value_store(
@@ -2885,6 +2927,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_monitoring_subscription(
@@ -2929,6 +2972,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_origin_access_control(
@@ -2976,6 +3020,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_origin_request_policy(
@@ -3024,6 +3069,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_public_key(
@@ -3071,6 +3117,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_realtime_log_config(
@@ -3118,6 +3165,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_policy(
@@ -3162,6 +3210,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_response_headers_policy(
@@ -3210,6 +3259,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_streaming_distribution(
@@ -3257,6 +3307,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_trust_store(
@@ -3304,6 +3355,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_origin(
@@ -3361,6 +3413,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_connection_function(
@@ -3409,6 +3462,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_function(
@@ -3455,6 +3509,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_key_value_store(
@@ -3505,6 +3560,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_distribution_tenant_web_acl(
@@ -3554,6 +3610,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_distribution_web_acl(
@@ -3603,6 +3660,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_anycast_ip_list(
@@ -3647,6 +3705,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_cache_policy(
@@ -3689,6 +3748,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_cache_policy_config(
@@ -3731,6 +3791,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_cloud_front_origin_access_identity(
@@ -3773,6 +3834,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_cloud_front_origin_access_identity_config(
@@ -3815,6 +3877,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_connection_function(
@@ -3862,6 +3925,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_connection_group(
@@ -3904,6 +3968,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_connection_group_by_routing_endpoint(
@@ -3946,6 +4011,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_continuous_deployment_policy(
@@ -3988,6 +4054,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_continuous_deployment_policy_config(
@@ -4030,6 +4097,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_distribution(
@@ -4072,6 +4140,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_distribution_config(
@@ -4114,6 +4183,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_distribution_tenant(
@@ -4156,6 +4226,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_distribution_tenant_by_domain(
@@ -4198,6 +4269,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_field_level_encryption(
@@ -4240,6 +4312,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_field_level_encryption_config(
@@ -4282,6 +4355,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_field_level_encryption_profile(
@@ -4324,6 +4398,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_field_level_encryption_profile_config(
@@ -4366,6 +4441,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function(
@@ -4412,6 +4488,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_invalidation(
@@ -4458,6 +4535,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_invalidation_for_distribution_tenant(
@@ -4504,6 +4582,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_key_group(
@@ -4545,6 +4624,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_key_group_config(
@@ -4586,6 +4666,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_managed_certificate_details(
@@ -4628,6 +4709,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_monitoring_subscription(
@@ -4672,6 +4754,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_origin_access_control(
@@ -4714,6 +4797,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_origin_access_control_config(
@@ -4756,6 +4840,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_origin_request_policy(
@@ -4798,6 +4883,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_origin_request_policy_config(
@@ -4840,6 +4926,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_public_key(
@@ -4882,6 +4969,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_public_key_config(
@@ -4924,6 +5012,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_realtime_log_config(
@@ -4972,6 +5061,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_policy(
@@ -5016,6 +5106,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_response_headers_policy(
@@ -5058,6 +5149,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_response_headers_policy_config(
@@ -5100,6 +5192,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_streaming_distribution(
@@ -5142,6 +5235,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_streaming_distribution_config(
@@ -5184,6 +5278,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_trust_store(
@@ -5227,6 +5322,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_vpc_origin(
@@ -5277,6 +5373,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_anycast_ip_lists(
@@ -5326,6 +5423,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_cache_policies(
@@ -5380,6 +5478,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_cloud_front_origin_access_identities(
@@ -5426,6 +5525,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_cloud_front_origin_access_identities(
@@ -5506,6 +5606,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_connection_functions(
@@ -5558,6 +5659,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_connection_functions(
@@ -5637,6 +5739,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_connection_groups(
@@ -5710,6 +5813,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions(
@@ -5756,6 +5860,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distributions(
@@ -5829,6 +5934,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_cache_policy_id(
@@ -5880,6 +5986,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_connection_function(
@@ -5931,6 +6038,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distributions_by_connection_function(
@@ -6004,6 +6112,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distributions_by_connection_mode(
@@ -6077,6 +6186,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_origin_request_policy_id(
@@ -6128,6 +6238,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_owned_resource(
@@ -6180,6 +6291,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_realtime_log_config(
@@ -6236,6 +6348,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_response_headers_policy_id(
@@ -6287,6 +6400,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_trust_store(
@@ -6338,6 +6452,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distributions_by_trust_store(
@@ -6419,6 +6534,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distributions_by_web_acl_id(
@@ -6469,6 +6585,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_distribution_tenants(
@@ -6522,6 +6639,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distribution_tenants(
@@ -6603,6 +6721,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_distribution_tenants_by_customization(
@@ -6684,6 +6803,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_domain_conflicts(
@@ -6755,6 +6875,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_field_level_encryption_profiles(
@@ -6801,6 +6922,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_functions(
@@ -6852,6 +6974,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_invalidations(
@@ -6903,6 +7026,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_invalidations(
@@ -6977,6 +7101,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_invalidations_for_distribution_tenant(
@@ -7046,6 +7171,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_key_value_stores(
@@ -7104,6 +7230,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_key_value_stores(
@@ -7173,6 +7300,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_origin_access_controls(
@@ -7250,6 +7378,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_public_keys(
@@ -7296,6 +7425,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_public_keys(
@@ -7365,6 +7495,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_response_headers_policies(
@@ -7419,6 +7550,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_streaming_distributions(
@@ -7465,6 +7597,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_streaming_distributions(
@@ -7534,6 +7667,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_trust_stores(
@@ -7582,6 +7716,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_trust_stores(
@@ -7658,6 +7793,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish_connection_function(
@@ -7707,6 +7843,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish_function(
@@ -7755,6 +7892,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_resource_policy(
@@ -7804,6 +7942,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -7849,6 +7988,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_connection_function(
@@ -7905,6 +8045,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_function(
@@ -7960,6 +8101,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -8005,6 +8147,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_anycast_ip_list(
@@ -8068,6 +8211,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_cache_policy(
@@ -8126,6 +8270,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_cloud_front_origin_access_identity(
@@ -8183,6 +8328,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_connection_function(
@@ -8238,6 +8384,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_connection_group(
@@ -8301,6 +8448,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_continuous_deployment_policy(
@@ -8357,6 +8505,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_distribution(
@@ -8471,6 +8620,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_distribution_tenant(
@@ -8555,6 +8705,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_distribution_with_staging_config(
@@ -8666,6 +8817,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_domain_association(
@@ -8719,6 +8871,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_field_level_encryption_config(
@@ -8777,6 +8930,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_field_level_encryption_profile(
@@ -8838,6 +8992,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_function(
@@ -8899,6 +9054,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_key_group(
@@ -8952,6 +9108,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_key_value_store(
@@ -9012,6 +9169,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_origin_access_control(
@@ -9066,6 +9224,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_origin_request_policy(
@@ -9124,6 +9283,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_public_key(
@@ -9178,6 +9338,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_realtime_log_config(
@@ -9240,6 +9401,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_response_headers_policy(
@@ -9298,6 +9460,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_streaming_distribution(
@@ -9359,6 +9522,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_trust_store(
@@ -9421,6 +9585,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_vpc_origin(
@@ -9484,6 +9649,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def verify_dns_configuration(
@@ -9531,6 +9697,7 @@ class CloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -152,6 +152,7 @@ class Schedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -202,6 +203,7 @@ class Schedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -299,6 +301,7 @@ class Schedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -355,6 +358,7 @@ class Schedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -418,6 +422,7 @@ class Schedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -522,6 +527,7 @@ class AsyncSchedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -573,6 +579,7 @@ class AsyncSchedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -671,6 +678,7 @@ class AsyncSchedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -728,6 +736,7 @@ class AsyncSchedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -792,4 +801,5 @@ class AsyncSchedule:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -109,6 +109,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -177,6 +178,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -234,6 +236,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_capacity_providers(
@@ -309,6 +312,7 @@ class CapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -389,6 +393,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -458,6 +463,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -516,6 +522,7 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_capacity_providers(
@@ -592,4 +599,5 @@ class AsyncCapacityProviderResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -105,6 +105,7 @@ class FunctionVersionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_versions_by_function(
@@ -163,6 +164,7 @@ class FunctionVersionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -241,6 +243,7 @@ class AsyncFunctionVersionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_versions_by_function(
@@ -300,4 +303,5 @@ class AsyncFunctionVersionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

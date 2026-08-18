@@ -248,6 +248,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_function_event_invoke_config(
@@ -304,6 +305,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_settings(
@@ -346,6 +348,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function_event_invoke_config(
@@ -403,6 +406,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_function_event_invoke_configs(
@@ -464,6 +468,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags(
@@ -515,6 +520,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_function_event_invoke_config(
@@ -591,6 +597,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_durable_execution_callback_failure(
@@ -645,6 +652,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_durable_execution_callback_heartbeat(
@@ -691,6 +699,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_durable_execution_callback_success(
@@ -747,6 +756,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -800,6 +810,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -853,6 +864,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_function_event_invoke_config(
@@ -929,6 +941,7 @@ class AsyncLambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

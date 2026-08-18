@@ -230,6 +230,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_message_move_task(
@@ -276,6 +277,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_message_visibility(
@@ -328,6 +330,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_message_visibility_batch(
@@ -381,6 +384,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_queue(
@@ -440,6 +444,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_message(
@@ -489,6 +494,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_message_batch(
@@ -542,6 +548,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_queue(
@@ -586,6 +593,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_queue_attributes(
@@ -639,6 +647,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_queue_url(
@@ -689,6 +698,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_dead_letter_source_queues(
@@ -743,6 +753,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_dead_letter_source_queues(
@@ -816,6 +827,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_queues(
@@ -870,6 +882,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_queues(
@@ -939,6 +952,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def purge_queue(
@@ -984,6 +998,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def receive_message(
@@ -1078,6 +1093,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_permission(
@@ -1125,6 +1141,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_message(
@@ -1208,6 +1225,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_message_batch(
@@ -1269,6 +1287,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_queue_attributes(
@@ -1319,6 +1338,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_message_move_task(
@@ -1377,6 +1397,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_queue(
@@ -1424,6 +1445,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_queue(
@@ -1471,6 +1493,7 @@ class AsyncSQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

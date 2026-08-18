@@ -602,6 +602,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def complete_multipart_upload(
@@ -756,6 +757,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_object(
@@ -1029,6 +1031,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_bucket(
@@ -1131,6 +1134,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_bucket_metadata_configuration(
@@ -1187,6 +1191,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_bucket_metadata_table_configuration(
@@ -1243,6 +1248,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_multipart_upload(
@@ -1438,6 +1444,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_session(
@@ -1506,6 +1513,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket(
@@ -1555,6 +1563,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_analytics_configuration(
@@ -1601,6 +1610,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_cors(
@@ -1650,6 +1660,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_encryption(
@@ -1693,6 +1704,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_intelligent_tiering_configuration(
@@ -1739,6 +1751,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_inventory_configuration(
@@ -1785,6 +1798,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_lifecycle(
@@ -1834,6 +1848,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_metadata_configuration(
@@ -1877,6 +1892,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_metadata_table_configuration(
@@ -1920,6 +1936,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_metrics_configuration(
@@ -1966,6 +1983,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_ownership_controls(
@@ -2009,6 +2027,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_policy(
@@ -2058,6 +2077,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_replication(
@@ -2107,6 +2127,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_tagging(
@@ -2156,6 +2177,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_bucket_website(
@@ -2205,6 +2227,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_object(
@@ -2294,6 +2317,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     def presigned_delete_object(
@@ -2420,6 +2444,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_objects(
@@ -2497,6 +2522,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_object_tagging(
@@ -2559,6 +2585,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_public_access_block(
@@ -2602,6 +2629,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_abac(
@@ -2647,6 +2675,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_accelerate_configuration(
@@ -2695,6 +2724,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_acl(
@@ -2740,6 +2770,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_analytics_configuration(
@@ -2788,6 +2819,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_cors(
@@ -2839,6 +2871,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_encryption(
@@ -2884,6 +2917,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_intelligent_tiering_configuration(
@@ -2932,6 +2966,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_inventory_configuration(
@@ -2980,6 +3015,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_lifecycle_configuration(
@@ -3031,6 +3067,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_location(
@@ -3082,6 +3119,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_logging(
@@ -3127,6 +3165,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_metadata_configuration(
@@ -3172,6 +3211,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_metadata_table_configuration(
@@ -3217,6 +3257,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_metrics_configuration(
@@ -3265,6 +3306,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_notification_configuration(
@@ -3310,6 +3352,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_ownership_controls(
@@ -3355,6 +3398,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_policy(
@@ -3406,6 +3450,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_policy_status(
@@ -3451,6 +3496,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_replication(
@@ -3502,6 +3548,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_request_payment(
@@ -3555,6 +3602,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_tagging(
@@ -3606,6 +3654,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_versioning(
@@ -3657,6 +3706,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_bucket_website(
@@ -3708,6 +3758,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -3860,7 +3911,10 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     def presigned_get_object(
         self,
@@ -4035,6 +4089,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -4101,7 +4156,10 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def get_object_attributes(
         self,
@@ -4188,6 +4246,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_object_legal_hold(
@@ -4243,6 +4302,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_object_lock_configuration(
@@ -4288,6 +4348,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_object_retention(
@@ -4343,6 +4404,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_object_tagging(
@@ -4408,6 +4470,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -4468,7 +4531,10 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def get_public_access_block(
         self,
@@ -4513,6 +4579,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def head_bucket(
@@ -4565,6 +4632,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_bucket_exists(
@@ -4803,6 +4871,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     def presigned_head_object(
@@ -5211,6 +5280,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_bucket_intelligent_tiering_configurations(
@@ -5260,6 +5330,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_bucket_inventory_configurations(
@@ -5309,6 +5380,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_bucket_metrics_configurations(
@@ -5358,6 +5430,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_buckets(
@@ -5418,6 +5491,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_buckets(
@@ -5493,6 +5567,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_directory_buckets(
@@ -5601,6 +5676,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_object_annotations(
@@ -5675,6 +5751,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_object_annotations(
@@ -5793,6 +5870,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_objects_v2(
@@ -5883,6 +5961,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_object_versions(
@@ -5968,6 +6047,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_parts(
@@ -6054,6 +6134,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_parts(
@@ -6155,6 +6236,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_accelerate_configuration(
@@ -6207,6 +6289,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_acl(
@@ -6298,6 +6381,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_analytics_configuration(
@@ -6347,6 +6431,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_cors(
@@ -6409,6 +6494,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_encryption(
@@ -6466,6 +6552,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_intelligent_tiering_configuration(
@@ -6515,6 +6602,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_inventory_configuration(
@@ -6564,6 +6652,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_lifecycle_configuration(
@@ -6635,6 +6724,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_logging(
@@ -6697,6 +6787,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_metrics_configuration(
@@ -6746,6 +6837,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_notification_configuration(
@@ -6803,6 +6895,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_ownership_controls(
@@ -6859,6 +6952,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_policy(
@@ -6929,6 +7023,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_replication(
@@ -6994,6 +7089,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_request_payment(
@@ -7056,6 +7152,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_tagging(
@@ -7118,6 +7215,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_versioning(
@@ -7184,6 +7282,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_bucket_website(
@@ -7246,6 +7345,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object(
@@ -7543,6 +7643,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     def presigned_put_object(
@@ -7856,6 +7957,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object_annotation(
@@ -7992,6 +8094,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object_legal_hold(
@@ -8063,6 +8166,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object_lock_configuration(
@@ -8131,6 +8235,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object_retention(
@@ -8208,6 +8313,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_object_tagging(
@@ -8283,6 +8389,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_public_access_block(
@@ -8339,6 +8446,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def rename_object(
@@ -8438,6 +8546,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_object(
@@ -8511,6 +8620,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -8600,7 +8710,10 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def update_bucket_metadata_annotation_table_configuration(
         self,
@@ -8656,6 +8769,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_bucket_metadata_inventory_table_configuration(
@@ -8712,6 +8826,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_bucket_metadata_journal_table_configuration(
@@ -8768,6 +8883,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_object_encryption(
@@ -8841,6 +8957,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def upload_part(
@@ -8994,6 +9111,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     def presigned_upload_part(
@@ -9256,6 +9374,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def write_get_object_response(
@@ -9513,6 +9632,7 @@ class AsyncS3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

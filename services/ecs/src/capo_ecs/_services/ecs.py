@@ -278,6 +278,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_account_setting(
@@ -336,6 +337,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_task_definition(
@@ -386,6 +388,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_task_definition(
@@ -442,6 +445,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def discover_poll_endpoint(
@@ -491,6 +495,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_account_settings(
@@ -566,6 +571,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_account_settings(
@@ -648,6 +654,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_services_by_namespace(
@@ -722,6 +729,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_task_definition_families(
@@ -791,6 +799,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_task_definition_families(
@@ -879,6 +888,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_account_setting_default(
@@ -932,6 +942,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -988,6 +999,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -1043,6 +1055,7 @@ class ECSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

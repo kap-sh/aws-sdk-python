@@ -90,6 +90,7 @@ class AsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_async_invokes(
@@ -171,6 +172,7 @@ class AsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_async_invoke(
@@ -236,6 +238,7 @@ class AsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -286,6 +289,7 @@ class AsyncAsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_async_invokes(
@@ -368,6 +372,7 @@ class AsyncAsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_async_invoke(
@@ -434,4 +439,5 @@ class AsyncAsyncInvokeResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

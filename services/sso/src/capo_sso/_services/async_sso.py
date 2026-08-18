@@ -187,6 +187,7 @@ class AsyncSSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_account_roles(
@@ -243,6 +244,7 @@ class AsyncSSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_account_roles(
@@ -321,6 +323,7 @@ class AsyncSSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_accounts(
@@ -386,6 +389,7 @@ class AsyncSSOClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

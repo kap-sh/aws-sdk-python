@@ -229,6 +229,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_message_move_task(
@@ -274,6 +275,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_message_visibility(
@@ -325,6 +327,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_message_visibility_batch(
@@ -377,6 +380,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_queue(
@@ -433,6 +437,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_message(
@@ -481,6 +486,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_message_batch(
@@ -533,6 +539,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_queue(
@@ -576,6 +583,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_queue_attributes(
@@ -628,6 +636,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_queue_url(
@@ -675,6 +684,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_dead_letter_source_queues(
@@ -728,6 +738,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_dead_letter_source_queues(
@@ -800,6 +811,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_queues(
@@ -851,6 +863,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_queues(
@@ -919,6 +932,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purge_queue(
@@ -963,6 +977,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def receive_message(
@@ -1056,6 +1071,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_permission(
@@ -1102,6 +1118,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_message(
@@ -1182,6 +1199,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_message_batch(
@@ -1242,6 +1260,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_queue_attributes(
@@ -1291,6 +1310,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_message_move_task(
@@ -1348,6 +1368,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_queue(
@@ -1392,6 +1413,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_queue(
@@ -1438,6 +1460,7 @@ class SQSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -367,6 +367,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_alarm_mute_rule(
@@ -407,6 +408,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_alarms(
@@ -449,6 +451,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_anomaly_detector(
@@ -528,6 +531,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_dashboards(
@@ -575,6 +579,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_insight_rules(
@@ -621,6 +626,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_metric_stream(
@@ -668,6 +674,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_alarm_contributors(
@@ -716,6 +723,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_alarm_history(
@@ -797,6 +805,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_alarm_history(
@@ -919,6 +928,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_alarms_for_metric(
@@ -987,6 +997,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_anomaly_detectors(
@@ -1063,6 +1074,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_anomaly_detectors(
@@ -1151,6 +1163,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_alarm_actions(
@@ -1191,6 +1204,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_insight_rules(
@@ -1237,6 +1251,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_dataset_kms_key(
@@ -1283,6 +1298,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_alarm_actions(
@@ -1323,6 +1339,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_insight_rules(
@@ -1370,6 +1387,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_alarm_mute_rule(
@@ -1413,6 +1431,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_alarm_mute_rule_exists(
@@ -1503,6 +1522,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_dataset(
@@ -1548,6 +1568,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_insight_rule_report(
@@ -1625,6 +1646,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_metric_data(
@@ -1698,6 +1720,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_metric_statistics(
@@ -1778,6 +1801,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_metric_stream(
@@ -1827,6 +1851,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_metric_widget_image(
@@ -1877,6 +1902,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_o_tel_enrichment(
@@ -1911,6 +1937,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_alarm_mute_rules(
@@ -1969,6 +1996,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_alarm_mute_rules(
@@ -2046,6 +2074,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_dashboards(
@@ -2126,6 +2155,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_metrics(
@@ -2200,6 +2230,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_metric_streams(
@@ -2252,6 +2283,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -2301,6 +2333,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_alarm_mute_rule(
@@ -2368,6 +2401,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_anomaly_detector(
@@ -2453,6 +2487,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_composite_alarm(
@@ -2548,6 +2583,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_dashboard(
@@ -2605,6 +2641,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_insight_rule(
@@ -2674,6 +2711,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_log_alarm(
@@ -2794,6 +2832,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_managed_insight_rules(
@@ -2840,6 +2879,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_metric_alarm(
@@ -3009,6 +3049,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_metric_data(
@@ -3069,6 +3110,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_metric_stream(
@@ -3164,6 +3206,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_alarm_state(
@@ -3220,6 +3263,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_metric_streams(
@@ -3267,6 +3311,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_o_tel_enrichment(
@@ -3303,6 +3348,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_metric_streams(
@@ -3350,6 +3396,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_o_tel_enrichment(
@@ -3384,6 +3431,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -3437,6 +3485,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -3490,6 +3539,7 @@ class AsyncCloudWatchClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

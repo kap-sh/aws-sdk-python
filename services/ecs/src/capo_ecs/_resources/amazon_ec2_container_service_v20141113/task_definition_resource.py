@@ -94,6 +94,7 @@ class TaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_task_definitions(
@@ -167,6 +168,7 @@ class TaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_task_definition(
@@ -299,6 +301,7 @@ class TaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -357,6 +360,7 @@ class AsyncTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_task_definitions(
@@ -431,6 +435,7 @@ class AsyncTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_task_definition(
@@ -564,4 +569,5 @@ class AsyncTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -387,6 +387,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_vpc_with_hosted_zone(
@@ -450,6 +451,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_cidr_collection(
@@ -505,6 +507,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_resource_record_sets(
@@ -595,6 +598,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_tags_for_resource(
@@ -657,6 +661,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_cidr_collection(
@@ -704,6 +709,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_health_check(
@@ -750,6 +756,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_hosted_zone(
@@ -818,6 +825,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_key_signing_key(
@@ -880,6 +888,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_query_logging_config(
@@ -929,6 +938,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_reusable_delegation_set(
@@ -980,6 +990,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_policy(
@@ -1035,6 +1046,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_policy_instance(
@@ -1092,6 +1104,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_policy_version(
@@ -1146,6 +1159,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_association_authorization(
@@ -1194,6 +1208,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deactivate_key_signing_key(
@@ -1244,6 +1259,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_cidr_collection(
@@ -1288,6 +1304,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_health_check(
@@ -1331,6 +1348,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_hosted_zone(
@@ -1376,6 +1394,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_key_signing_key(
@@ -1425,6 +1444,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_query_logging_config(
@@ -1468,6 +1488,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_reusable_delegation_set(
@@ -1512,6 +1533,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_policy(
@@ -1561,6 +1583,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_policy_instance(
@@ -1604,6 +1627,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_association_authorization(
@@ -1652,6 +1676,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_hosted_zone_dnssec(
@@ -1700,6 +1725,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_vpc_from_hosted_zone(
@@ -1754,6 +1780,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_hosted_zone_dnssec(
@@ -1803,6 +1830,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_limit(
@@ -1844,6 +1872,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_change(
@@ -1886,6 +1915,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_checker_ip_ranges(
@@ -1921,6 +1951,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_dnssec(
@@ -1964,6 +1995,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_geo_location(
@@ -2021,6 +2053,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_health_check(
@@ -2064,6 +2097,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_health_check_count(
@@ -2097,6 +2131,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_health_check_last_failure_reason(
@@ -2139,6 +2174,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_health_check_status(
@@ -2181,6 +2217,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_hosted_zone(
@@ -2229,6 +2266,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_hosted_zone_count(
@@ -2265,6 +2303,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_hosted_zone_limit(
@@ -2313,6 +2352,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_query_logging_config(
@@ -2355,6 +2395,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_reusable_delegation_set(
@@ -2398,6 +2439,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_reusable_delegation_set_limit(
@@ -2443,6 +2485,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_traffic_policy(
@@ -2488,6 +2531,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_traffic_policy_instance(
@@ -2530,6 +2574,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_traffic_policy_instance_count(
@@ -2563,6 +2608,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_cidr_blocks(
@@ -2622,6 +2668,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_cidr_blocks(
@@ -2701,6 +2748,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_cidr_collections(
@@ -2776,6 +2824,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_cidr_locations(
@@ -2861,6 +2910,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_health_checks(
@@ -2908,6 +2958,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_health_checks(
@@ -2989,6 +3040,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_hosted_zones(
@@ -3069,6 +3121,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_hosted_zones_by_vpc(
@@ -3124,6 +3177,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_query_logging_configs(
@@ -3178,6 +3232,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_query_logging_configs(
@@ -3263,6 +3318,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_reusable_delegation_sets(
@@ -3309,6 +3365,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -3357,6 +3414,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resources(
@@ -3405,6 +3463,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_traffic_policies(
@@ -3455,6 +3514,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_traffic_policy_instances(
@@ -3520,6 +3580,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_traffic_policy_instances_by_hosted_zone(
@@ -3583,6 +3644,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_traffic_policy_instances_by_policy(
@@ -3655,6 +3717,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_traffic_policy_versions(
@@ -3707,6 +3770,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_vpc_association_authorizations(
@@ -3760,6 +3824,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_dns_answer(
@@ -3824,6 +3889,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_health_check(
@@ -3953,6 +4019,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_hosted_zone_comment(
@@ -4002,6 +4069,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_hosted_zone_features(
@@ -4052,6 +4120,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_traffic_policy_comment(
@@ -4101,6 +4170,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_traffic_policy_instance(
@@ -4155,6 +4225,7 @@ class Route53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

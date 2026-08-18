@@ -104,6 +104,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_task_protection(
@@ -161,6 +162,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def run_task(
@@ -298,6 +300,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_task(
@@ -400,6 +403,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_task(
@@ -457,6 +461,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_task_protection(
@@ -530,6 +535,7 @@ class TaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -595,6 +601,7 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_task_protection(
@@ -653,6 +660,7 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def run_task(
@@ -791,6 +799,7 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_task(
@@ -896,6 +905,7 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_task(
@@ -956,6 +966,7 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_task_protection(
@@ -1030,4 +1041,5 @@ class AsyncTaskResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

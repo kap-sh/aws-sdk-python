@@ -299,6 +299,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_state_machine(
@@ -396,6 +397,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_state_machine_alias(
@@ -454,6 +456,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_activity(
@@ -495,6 +498,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_state_machine(
@@ -537,6 +541,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_state_machine_alias(
@@ -583,6 +588,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_state_machine_version(
@@ -626,6 +632,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_activity(
@@ -668,6 +675,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_execution(
@@ -717,6 +725,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_map_run(
@@ -759,6 +768,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_state_machine(
@@ -808,6 +818,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_state_machine_alias(
@@ -851,6 +862,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_state_machine_for_execution(
@@ -900,6 +912,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_activity_task(
@@ -950,6 +963,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_execution_history(
@@ -1014,6 +1028,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_execution_history(
@@ -1089,6 +1104,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_activities(
@@ -1183,6 +1199,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_executions(
@@ -1267,6 +1284,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_map_runs(
@@ -1345,6 +1363,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_state_machines(
@@ -1391,6 +1410,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_state_machines(
@@ -1463,6 +1483,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -1505,6 +1526,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish_state_machine_version(
@@ -1561,6 +1583,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def redrive_execution(
@@ -1611,6 +1634,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_task_failure(
@@ -1665,6 +1689,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_task_heartbeat(
@@ -1708,6 +1733,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_task_success(
@@ -1758,6 +1784,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_execution(
@@ -1821,6 +1848,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_sync_execution(
@@ -1886,6 +1914,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_execution(
@@ -1940,6 +1969,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -1984,6 +2014,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_state(
@@ -2068,6 +2099,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -2113,6 +2145,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_map_run(
@@ -2174,6 +2207,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_state_machine(
@@ -2263,6 +2297,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_state_machine_alias(
@@ -2322,6 +2357,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def validate_state_machine_definition(
@@ -2379,6 +2415,7 @@ class SFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

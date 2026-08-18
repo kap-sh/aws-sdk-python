@@ -604,6 +604,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_role_to_db_instance(
@@ -661,6 +662,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_source_identifier_to_subscription(
@@ -714,6 +716,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_tags_to_resource(
@@ -777,6 +780,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def apply_pending_maintenance_action(
@@ -835,6 +839,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def authorize_db_security_group_ingress(
@@ -902,6 +907,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def backtrack_db_cluster(
@@ -961,6 +967,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_export_task(
@@ -1008,6 +1015,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_db_cluster_parameter_group(
@@ -1081,6 +1089,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_db_cluster_snapshot(
@@ -1163,6 +1172,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_db_parameter_group(
@@ -1236,6 +1246,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_db_snapshot(
@@ -1334,6 +1345,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_option_group(
@@ -1397,6 +1409,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_blue_green_deployment(
@@ -1524,6 +1537,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_custom_db_engine_version(
@@ -1633,6 +1647,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_cluster(
@@ -2026,6 +2041,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_cluster_endpoint(
@@ -2097,6 +2113,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_cluster_parameter_group(
@@ -2160,6 +2177,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_cluster_snapshot(
@@ -2222,6 +2240,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_instance(
@@ -2618,6 +2637,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_instance_read_replica(
@@ -2931,6 +2951,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_parameter_group(
@@ -2992,6 +3013,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_proxy(
@@ -3096,6 +3118,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_proxy_endpoint(
@@ -3175,6 +3198,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_security_group(
@@ -3233,6 +3257,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_shard_group(
@@ -3306,6 +3331,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_snapshot(
@@ -3364,6 +3390,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_db_subnet_group(
@@ -3430,6 +3457,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_event_subscription(
@@ -3511,6 +3539,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_global_cluster(
@@ -3602,6 +3631,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_integration(
@@ -3686,6 +3716,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_option_group(
@@ -3751,6 +3782,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_tenant_database(
@@ -3832,6 +3864,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_blue_green_deployment(
@@ -3895,6 +3928,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_custom_db_engine_version(
@@ -3942,6 +3976,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_cluster(
@@ -4011,6 +4046,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_cluster_automated_backup(
@@ -4054,6 +4090,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_cluster_endpoint(
@@ -4102,6 +4139,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_cluster_parameter_group(
@@ -4151,6 +4189,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_cluster_snapshot(
@@ -4201,6 +4240,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_instance(
@@ -4269,6 +4309,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_instance_automated_backup(
@@ -4326,6 +4367,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_parameter_group(
@@ -4373,6 +4415,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_proxy(
@@ -4416,6 +4459,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_proxy_endpoint(
@@ -4463,6 +4507,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_security_group(
@@ -4510,6 +4555,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_shard_group(
@@ -4554,6 +4600,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_snapshot(
@@ -4603,6 +4650,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_db_subnet_group(
@@ -4651,6 +4699,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_event_subscription(
@@ -4702,6 +4751,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_global_cluster(
@@ -4753,6 +4803,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_integration(
@@ -4803,6 +4854,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_option_group(
@@ -4850,6 +4902,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_tenant_database(
@@ -4907,6 +4960,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_db_proxy_targets(
@@ -4970,6 +5024,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_account_attributes(
@@ -5009,6 +5064,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_blue_green_deployments(
@@ -5081,6 +5137,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_blue_green_deployments(
@@ -5166,6 +5223,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_certificates(
@@ -5249,6 +5307,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_automated_backups(
@@ -5343,6 +5402,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_backtracks(
@@ -5438,6 +5498,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_endpoints(
@@ -5527,6 +5588,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_parameter_groups(
@@ -5620,6 +5682,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_parameters(
@@ -5715,6 +5778,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_clusters(
@@ -5790,6 +5854,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_db_cluster_snapshots(
@@ -5870,6 +5935,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_cluster_snapshots(
@@ -5992,6 +6058,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_engine_versions(
@@ -6105,6 +6172,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_instance_automated_backups(
@@ -6194,6 +6262,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_instances(
@@ -6292,6 +6361,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_log_files(
@@ -6378,6 +6448,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_major_engine_versions(
@@ -6465,6 +6536,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_parameter_groups(
@@ -6554,6 +6626,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_parameters(
@@ -6635,6 +6708,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_proxies(
@@ -6721,6 +6795,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_proxy_endpoints(
@@ -6812,6 +6887,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_proxy_target_groups(
@@ -6904,6 +6980,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_proxy_targets(
@@ -6994,6 +7071,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_recommendations(
@@ -7083,6 +7161,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_security_groups(
@@ -7167,6 +7246,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_db_snapshot_attributes(
@@ -7215,6 +7295,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_db_snapshots(
@@ -7293,6 +7374,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_snapshots(
@@ -7394,6 +7476,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_snapshot_tenant_databases(
@@ -7487,6 +7570,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_db_subnet_groups(
@@ -7571,6 +7655,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_engine_default_cluster_parameters(
@@ -7655,6 +7740,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_engine_default_parameters(
@@ -7731,6 +7817,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_events(
@@ -7810,6 +7897,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_events(
@@ -7907,6 +7995,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_event_subscriptions(
@@ -8002,6 +8091,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_export_tasks(
@@ -8095,6 +8185,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_global_clusters(
@@ -8184,6 +8275,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_integrations(
@@ -8274,6 +8366,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_option_group_options(
@@ -8367,6 +8460,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_option_groups(
@@ -8475,6 +8569,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_orderable_db_instance_options(
@@ -8570,6 +8665,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_pending_maintenance_actions(
@@ -8687,6 +8783,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_reserved_db_instances(
@@ -8812,6 +8909,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_reserved_db_instances_offerings(
@@ -8922,6 +9020,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_serverless_v2_platform_versions(
@@ -9014,6 +9113,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_source_regions(
@@ -9097,6 +9197,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_tenant_databases(
@@ -9173,6 +9274,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_http_endpoint(
@@ -9216,6 +9318,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def download_db_log_file_portion(
@@ -9278,6 +9381,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_http_endpoint(
@@ -9321,6 +9425,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def failover_db_cluster(
@@ -9375,6 +9480,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def failover_global_cluster(
@@ -9438,6 +9544,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -9498,6 +9605,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_activity_stream(
@@ -9548,6 +9656,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_certificates(
@@ -9602,6 +9711,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_current_db_cluster_capacity(
@@ -9666,6 +9776,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_custom_db_engine_version(
@@ -9723,6 +9834,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_cluster(
@@ -10040,6 +10152,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_cluster_endpoint(
@@ -10102,6 +10215,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_cluster_parameter_group(
@@ -10157,6 +10271,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_cluster_snapshot_attribute(
@@ -10223,6 +10338,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_instance(
@@ -10628,6 +10744,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_parameter_group(
@@ -10681,6 +10798,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_proxy(
@@ -10765,6 +10883,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_proxy_endpoint(
@@ -10826,6 +10945,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_proxy_target_group(
@@ -10886,6 +11006,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_recommendation(
@@ -10941,6 +11062,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_shard_group(
@@ -10999,6 +11121,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_snapshot(
@@ -11057,6 +11180,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_snapshot_attribute(
@@ -11127,6 +11251,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_db_subnet_group(
@@ -11190,6 +11315,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_event_subscription(
@@ -11263,6 +11389,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_global_cluster(
@@ -11339,6 +11466,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_integration(
@@ -11405,6 +11533,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_option_group(
@@ -11470,6 +11599,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_tenant_database(
@@ -11546,6 +11676,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def promote_read_replica(
@@ -11611,6 +11742,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def promote_read_replica_db_cluster(
@@ -11654,6 +11786,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_reserved_db_instances_offering(
@@ -11721,6 +11854,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reboot_db_cluster(
@@ -11765,6 +11899,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reboot_db_instance(
@@ -11821,6 +11956,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reboot_db_shard_group(
@@ -11864,6 +12000,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_db_proxy_targets(
@@ -11932,6 +12069,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_from_global_cluster(
@@ -11991,6 +12129,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_role_from_db_cluster(
@@ -12047,6 +12186,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_role_from_db_instance(
@@ -12097,6 +12237,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_source_identifier_from_subscription(
@@ -12150,6 +12291,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_tags_from_resource(
@@ -12213,6 +12355,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_db_cluster_parameter_group(
@@ -12272,6 +12415,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_db_parameter_group(
@@ -12329,6 +12473,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_cluster_from_s3(
@@ -12577,6 +12722,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_cluster_from_snapshot(
@@ -12863,6 +13009,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_cluster_to_point_in_time(
@@ -13142,6 +13289,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_instance_from_db_snapshot(
@@ -13439,6 +13587,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_instance_from_s3(
@@ -13766,6 +13915,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_db_instance_to_point_in_time(
@@ -14086,6 +14236,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def revoke_db_security_group_ingress(
@@ -14152,6 +14303,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_activity_stream(
@@ -14227,6 +14379,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_db_cluster(
@@ -14280,6 +14433,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_db_instance(
@@ -14339,6 +14493,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_db_instance_automated_backups_replication(
@@ -14412,6 +14567,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_export_task(
@@ -14491,6 +14647,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_activity_stream(
@@ -14549,6 +14706,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_db_cluster(
@@ -14600,6 +14758,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_db_instance(
@@ -14656,6 +14815,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_db_instance_automated_backups_replication(
@@ -14705,6 +14865,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def switchover_blue_green_deployment(
@@ -14768,6 +14929,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def switchover_global_cluster(
@@ -14823,6 +14985,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def switchover_read_replica(
@@ -14866,6 +15029,7 @@ class RDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -541,6 +541,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def acquire_role(
@@ -603,6 +604,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_client_id_to_open_id_connect_provider(
@@ -655,6 +657,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_role_to_instance_profile(
@@ -707,6 +710,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_user_to_group(
@@ -757,6 +761,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_delegation_request(
@@ -799,6 +804,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_group_policy(
@@ -851,6 +857,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_role_policy(
@@ -904,6 +911,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_user_policy(
@@ -956,6 +964,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def change_password(
@@ -1009,6 +1018,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_access_key(
@@ -1061,6 +1071,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_account_alias(
@@ -1109,6 +1120,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_delegation_request(
@@ -1188,6 +1200,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_group(
@@ -1242,6 +1255,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_instance_profile(
@@ -1303,6 +1317,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_login_profile(
@@ -1365,6 +1380,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_open_id_connect_provider(
@@ -1433,6 +1449,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_policy(
@@ -1496,6 +1513,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_policy_version(
@@ -1548,6 +1566,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_role(
@@ -1627,6 +1646,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_saml_provider(
@@ -1691,6 +1711,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_service_linked_role(
@@ -1747,6 +1768,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_service_specific_credential(
@@ -1799,6 +1821,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_user(
@@ -1863,6 +1886,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_virtual_mfa_device(
@@ -1916,6 +1940,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deactivate_mfa_device(
@@ -1965,6 +1990,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_access_key(
@@ -2018,6 +2044,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_account_alias(
@@ -2066,6 +2093,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_account_password_policy(
@@ -2103,6 +2131,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_group(
@@ -2145,6 +2174,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_group_policy(
@@ -2195,6 +2225,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_instance_profile(
@@ -2243,6 +2274,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_login_profile(
@@ -2292,6 +2324,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_open_id_connect_provider(
@@ -2333,6 +2366,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_policy(
@@ -2376,6 +2410,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_policy_version(
@@ -2422,6 +2457,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_role(
@@ -2472,6 +2508,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_role_permissions_boundary(
@@ -2513,6 +2550,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_role_policy(
@@ -2564,6 +2602,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_saml_provider(
@@ -2606,6 +2645,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_server_certificate(
@@ -2648,6 +2688,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_service_linked_role(
@@ -2691,6 +2732,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_service_specific_credential(
@@ -2734,6 +2776,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_signing_certificate(
@@ -2788,6 +2831,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ssh_public_key(
@@ -2830,6 +2874,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_user(
@@ -2879,6 +2924,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_user_permissions_boundary(
@@ -2919,6 +2965,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_user_policy(
@@ -2969,6 +3016,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_virtual_mfa_device(
@@ -3018,6 +3066,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_group_policy(
@@ -3063,6 +3112,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_role_policy(
@@ -3109,6 +3159,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_user_policy(
@@ -3154,6 +3205,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_organizations_root_credentials_management(
@@ -3197,6 +3249,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_organizations_root_sessions(
@@ -3240,6 +3293,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_outbound_web_identity_federation(
@@ -3269,6 +3323,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_mfa_device(
@@ -3323,6 +3378,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_organizations_root_credentials_management(
@@ -3367,6 +3423,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_organizations_root_sessions(
@@ -3411,6 +3468,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_outbound_web_identity_federation(
@@ -3444,6 +3502,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_credential_report(
@@ -3478,6 +3537,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_organizations_access_report(
@@ -3531,6 +3591,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def generate_service_last_accessed_details(
@@ -3585,6 +3646,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_access_key_last_used(
@@ -3627,6 +3689,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_authorization_details(
@@ -3677,6 +3740,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_password_policy(
@@ -3717,6 +3781,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_properties(
@@ -3752,6 +3817,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_summary(
@@ -3791,6 +3857,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_context_keys_for_custom_policy(
@@ -3832,6 +3899,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_context_keys_for_principal_policy(
@@ -3880,6 +3948,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_credential_report(
@@ -3916,6 +3985,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delegation_request(
@@ -3964,6 +4034,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_group(
@@ -4012,6 +4083,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_group(
@@ -4080,6 +4152,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_human_readable_summary(
@@ -4127,6 +4200,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_instance_profile(
@@ -4175,6 +4249,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_instance_profile_exists(
@@ -4266,6 +4341,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_mfa_device(
@@ -4312,6 +4388,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_open_id_connect_provider(
@@ -4355,6 +4432,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_organizations_access_report(
@@ -4414,6 +4492,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_outbound_web_identity_federation_info(
@@ -4447,6 +4526,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_policy(
@@ -4488,6 +4568,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_policy_exists(
@@ -4578,6 +4659,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_role(
@@ -4624,6 +4706,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_role_exists(
@@ -4711,6 +4794,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_role_template_version(
@@ -4760,6 +4844,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_saml_provider(
@@ -4803,6 +4888,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_server_certificate(
@@ -4845,6 +4931,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_service_last_accessed_details(
@@ -4901,6 +4988,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_service_last_accessed_details_with_entities(
@@ -4960,6 +5048,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_service_linked_role_deletion_status(
@@ -5003,6 +5092,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ssh_public_key(
@@ -5051,6 +5141,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_user(
@@ -5100,6 +5191,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_user_exists(
@@ -5189,6 +5281,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_access_keys(
@@ -5248,6 +5341,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_access_keys(
@@ -5325,6 +5419,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_account_aliases(
@@ -5401,6 +5496,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_attached_group_policies(
@@ -5481,6 +5577,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_attached_role_policies(
@@ -5561,6 +5658,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_attached_user_policies(
@@ -5638,6 +5736,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_entities_for_policy(
@@ -5705,6 +5804,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_group_policies(
@@ -5761,6 +5861,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_group_policies(
@@ -5840,6 +5941,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_groups(
@@ -5919,6 +6021,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_groups_for_user(
@@ -5992,6 +6095,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_instance_profiles(
@@ -6065,6 +6169,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_instance_profiles_for_role(
@@ -6138,6 +6243,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_instance_profile_tags(
@@ -6214,6 +6320,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_mfa_devices(
@@ -6290,6 +6397,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_mfa_device_tags(
@@ -6347,6 +6455,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_open_id_connect_provider_tags(
@@ -6398,6 +6507,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_open_id_connect_provider_tags(
@@ -6464,6 +6574,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policies(
@@ -6528,6 +6639,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_policies(
@@ -6614,6 +6726,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policy_tags(
@@ -6665,6 +6778,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_policy_tags(
@@ -6739,6 +6853,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_policy_versions(
@@ -6812,6 +6927,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_role_policies(
@@ -6883,6 +6999,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_roles(
@@ -6962,6 +7079,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_role_tags(
@@ -7019,6 +7137,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_saml_provider_tags(
@@ -7070,6 +7189,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_saml_provider_tags(
@@ -7143,6 +7263,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_server_certificates(
@@ -7218,6 +7339,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_server_certificate_tags(
@@ -7300,6 +7422,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_signing_certificates(
@@ -7359,6 +7482,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_signing_certificates(
@@ -7434,6 +7558,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_ssh_public_keys(
@@ -7507,6 +7632,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_user_policies(
@@ -7584,6 +7710,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_users(
@@ -7663,6 +7790,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_user_tags(
@@ -7745,6 +7873,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_virtual_mfa_devices(
@@ -7813,6 +7942,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_group_policy(
@@ -7867,6 +7997,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_role_permissions_boundary(
@@ -7913,6 +8044,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_role_policy(
@@ -7968,6 +8100,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_user_permissions_boundary(
@@ -8013,6 +8146,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_user_policy(
@@ -8067,6 +8201,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_delegation_request(
@@ -8113,6 +8248,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_client_id_from_open_id_connect_provider(
@@ -8158,6 +8294,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_role_from_instance_profile(
@@ -8209,6 +8346,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_user_from_group(
@@ -8259,6 +8397,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_service_specific_credential(
@@ -8304,6 +8443,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def resync_mfa_device(
@@ -8356,6 +8496,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_delegation_token(
@@ -8398,6 +8539,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_default_policy_version(
@@ -8443,6 +8585,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_security_token_service_preferences(
@@ -8488,6 +8631,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def simulate_custom_policy(
@@ -8593,6 +8737,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_simulate_custom_policy(
@@ -8760,6 +8905,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_simulate_principal_policy(
@@ -8867,6 +9013,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_mfa_device(
@@ -8913,6 +9060,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_open_id_connect_provider(
@@ -8959,6 +9107,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_policy(
@@ -9005,6 +9154,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_role(
@@ -9057,6 +9207,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_saml_provider(
@@ -9103,6 +9254,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_server_certificate(
@@ -9149,6 +9301,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_user(
@@ -9201,6 +9354,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_instance_profile(
@@ -9246,6 +9400,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_mfa_device(
@@ -9291,6 +9446,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_open_id_connect_provider(
@@ -9336,6 +9492,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_policy(
@@ -9381,6 +9538,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_role(
@@ -9431,6 +9589,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_saml_provider(
@@ -9476,6 +9635,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_server_certificate(
@@ -9521,6 +9681,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_user(
@@ -9571,6 +9732,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_access_key(
@@ -9628,6 +9790,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_account_password_policy(
@@ -9723,6 +9886,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_assume_role_policy(
@@ -9775,6 +9939,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_delegation_request(
@@ -9821,6 +9986,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_group(
@@ -9877,6 +10043,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_login_profile(
@@ -9936,6 +10103,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_open_id_connect_provider_thumbprint(
@@ -9981,6 +10149,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_role(
@@ -10036,6 +10205,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_role_description(
@@ -10084,6 +10254,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_saml_provider(
@@ -10153,6 +10324,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_server_certificate(
@@ -10205,6 +10377,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_service_specific_credential(
@@ -10251,6 +10424,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_signing_certificate(
@@ -10308,6 +10482,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_ssh_public_key(
@@ -10354,6 +10529,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_user(
@@ -10412,6 +10588,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def upload_server_certificate(
@@ -10485,6 +10662,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def upload_signing_certificate(
@@ -10545,6 +10723,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def upload_ssh_public_key(
@@ -10593,6 +10772,7 @@ class IAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

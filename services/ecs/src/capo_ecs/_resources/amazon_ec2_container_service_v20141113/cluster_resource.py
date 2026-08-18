@@ -137,6 +137,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -193,6 +194,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_cluster_capacity_providers(
@@ -262,6 +264,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_cluster_settings(
@@ -319,6 +322,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_cluster(
@@ -403,6 +407,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_container_instance(
@@ -462,6 +467,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_clusters(
@@ -517,6 +523,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def execute_command(
@@ -583,6 +590,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_attributes(
@@ -654,6 +662,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_clusters(
@@ -709,6 +718,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_container_instances(
@@ -779,6 +789,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def submit_attachment_state_changes(
@@ -828,6 +839,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def submit_container_state_change(
@@ -904,6 +916,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def submit_task_state_change(
@@ -994,6 +1007,7 @@ class ClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -1072,6 +1086,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -1129,6 +1144,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_cluster_capacity_providers(
@@ -1199,6 +1215,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_cluster_settings(
@@ -1257,6 +1274,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_cluster(
@@ -1342,6 +1360,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_container_instance(
@@ -1402,6 +1421,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_clusters(
@@ -1458,6 +1478,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def execute_command(
@@ -1525,6 +1546,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_attributes(
@@ -1597,6 +1619,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_clusters(
@@ -1653,6 +1676,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_container_instances(
@@ -1724,6 +1748,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def submit_attachment_state_changes(
@@ -1774,6 +1799,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def submit_container_state_change(
@@ -1851,6 +1877,7 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def submit_task_state_change(
@@ -1942,4 +1969,5 @@ class AsyncClusterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

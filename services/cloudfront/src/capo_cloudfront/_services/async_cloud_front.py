@@ -544,6 +544,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_distribution_tenant_web_acl(
@@ -598,6 +599,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_distribution_web_acl(
@@ -652,6 +654,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_distribution(
@@ -772,6 +775,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_anycast_ip_list(
@@ -839,6 +843,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_cache_policy(
@@ -888,6 +893,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_cloud_front_origin_access_identity(
@@ -936,6 +942,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_connection_function(
@@ -992,6 +999,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_connection_group(
@@ -1054,6 +1062,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_continuous_deployment_policy(
@@ -1103,6 +1112,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_distribution(
@@ -1211,6 +1221,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_distribution_tenant(
@@ -1293,6 +1304,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_distribution_with_tags(
@@ -1401,6 +1413,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_field_level_encryption_config(
@@ -1450,6 +1463,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_field_level_encryption_profile(
@@ -1501,6 +1515,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_function(
@@ -1562,6 +1577,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_invalidation(
@@ -1613,6 +1629,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_invalidation_for_distribution_tenant(
@@ -1663,6 +1680,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_key_group(
@@ -1708,6 +1726,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_key_value_store(
@@ -1778,6 +1797,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_monitoring_subscription(
@@ -1826,6 +1846,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_origin_access_control(
@@ -1870,6 +1891,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_origin_request_policy(
@@ -1919,6 +1941,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_public_key(
@@ -1963,6 +1986,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_realtime_log_config(
@@ -2017,6 +2041,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_response_headers_policy(
@@ -2066,6 +2091,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_streaming_distribution(
@@ -2120,6 +2146,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_streaming_distribution_with_tags(
@@ -2177,6 +2204,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_trust_store(
@@ -2238,6 +2266,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_vpc_origin(
@@ -2295,6 +2324,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_anycast_ip_list(
@@ -2345,6 +2375,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_cache_policy(
@@ -2394,6 +2425,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_cloud_front_origin_access_identity(
@@ -2442,6 +2474,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_connection_function(
@@ -2491,6 +2524,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_connection_group(
@@ -2539,6 +2573,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_continuous_deployment_policy(
@@ -2588,6 +2623,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_distribution(
@@ -2637,6 +2673,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_distribution_tenant(
@@ -2684,6 +2721,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_field_level_encryption_config(
@@ -2732,6 +2770,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_field_level_encryption_profile(
@@ -2780,6 +2819,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_function(
@@ -2827,6 +2867,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_key_group(
@@ -2874,6 +2915,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_key_value_store(
@@ -2928,6 +2970,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_monitoring_subscription(
@@ -2973,6 +3016,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_origin_access_control(
@@ -3021,6 +3065,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_origin_request_policy(
@@ -3070,6 +3115,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_public_key(
@@ -3118,6 +3164,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_realtime_log_config(
@@ -3166,6 +3213,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_resource_policy(
@@ -3211,6 +3259,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_response_headers_policy(
@@ -3260,6 +3309,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_streaming_distribution(
@@ -3308,6 +3358,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_trust_store(
@@ -3356,6 +3407,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_vpc_origin(
@@ -3414,6 +3466,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_connection_function(
@@ -3463,6 +3516,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_function(
@@ -3510,6 +3564,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_key_value_store(
@@ -3561,6 +3616,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_distribution_tenant_web_acl(
@@ -3611,6 +3667,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_distribution_web_acl(
@@ -3661,6 +3718,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_anycast_ip_list(
@@ -3706,6 +3764,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_cache_policy(
@@ -3749,6 +3808,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_cache_policy_config(
@@ -3792,6 +3852,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_cloud_front_origin_access_identity(
@@ -3835,6 +3896,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_cloud_front_origin_access_identity_config(
@@ -3878,6 +3940,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_connection_function(
@@ -3926,6 +3989,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_connection_group(
@@ -3969,6 +4033,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_connection_group_by_routing_endpoint(
@@ -4012,6 +4077,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_continuous_deployment_policy(
@@ -4055,6 +4121,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_continuous_deployment_policy_config(
@@ -4098,6 +4165,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_distribution(
@@ -4141,6 +4209,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_distribution_config(
@@ -4184,6 +4253,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_distribution_tenant(
@@ -4227,6 +4297,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_distribution_tenant_by_domain(
@@ -4270,6 +4341,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_field_level_encryption(
@@ -4313,6 +4385,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_field_level_encryption_config(
@@ -4356,6 +4429,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_field_level_encryption_profile(
@@ -4399,6 +4473,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_field_level_encryption_profile_config(
@@ -4442,6 +4517,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_function(
@@ -4489,6 +4565,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_invalidation(
@@ -4536,6 +4613,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_invalidation_for_distribution_tenant(
@@ -4583,6 +4661,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_key_group(
@@ -4625,6 +4704,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_key_group_config(
@@ -4667,6 +4747,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_managed_certificate_details(
@@ -4710,6 +4791,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_monitoring_subscription(
@@ -4755,6 +4837,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_origin_access_control(
@@ -4798,6 +4881,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_origin_access_control_config(
@@ -4841,6 +4925,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_origin_request_policy(
@@ -4884,6 +4969,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_origin_request_policy_config(
@@ -4927,6 +5013,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_public_key(
@@ -4970,6 +5057,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_public_key_config(
@@ -5013,6 +5101,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_realtime_log_config(
@@ -5062,6 +5151,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_resource_policy(
@@ -5107,6 +5197,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_response_headers_policy(
@@ -5150,6 +5241,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_response_headers_policy_config(
@@ -5193,6 +5285,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_streaming_distribution(
@@ -5236,6 +5329,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_streaming_distribution_config(
@@ -5279,6 +5373,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_trust_store(
@@ -5323,6 +5418,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_vpc_origin(
@@ -5374,6 +5470,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_anycast_ip_lists(
@@ -5424,6 +5521,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_cache_policies(
@@ -5479,6 +5577,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_cloud_front_origin_access_identities(
@@ -5526,6 +5625,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_cloud_front_origin_access_identities(
@@ -5607,6 +5707,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_connection_functions(
@@ -5660,6 +5761,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_connection_functions(
@@ -5740,6 +5842,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_connection_groups(
@@ -5814,6 +5917,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions(
@@ -5861,6 +5965,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distributions(
@@ -5937,6 +6042,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_cache_policy_id(
@@ -5989,6 +6095,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_connection_function(
@@ -6041,6 +6148,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distributions_by_connection_function(
@@ -6117,6 +6225,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distributions_by_connection_mode(
@@ -6193,6 +6302,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_origin_request_policy_id(
@@ -6245,6 +6355,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_owned_resource(
@@ -6298,6 +6409,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_realtime_log_config(
@@ -6355,6 +6467,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_response_headers_policy_id(
@@ -6407,6 +6520,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_trust_store(
@@ -6459,6 +6573,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distributions_by_trust_store(
@@ -6543,6 +6658,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distributions_by_web_acl_id(
@@ -6594,6 +6710,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_distribution_tenants(
@@ -6648,6 +6765,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distribution_tenants(
@@ -6730,6 +6848,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_distribution_tenants_by_customization(
@@ -6812,6 +6931,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_domain_conflicts(
@@ -6884,6 +7004,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_field_level_encryption_profiles(
@@ -6931,6 +7052,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_functions(
@@ -6983,6 +7105,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_invalidations(
@@ -7035,6 +7158,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_invalidations(
@@ -7112,6 +7236,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_invalidations_for_distribution_tenant(
@@ -7184,6 +7309,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_key_value_stores(
@@ -7243,6 +7369,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_key_value_stores(
@@ -7313,6 +7440,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_origin_access_controls(
@@ -7391,6 +7519,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_public_keys(
@@ -7438,6 +7567,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_public_keys(
@@ -7508,6 +7638,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_response_headers_policies(
@@ -7563,6 +7694,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_streaming_distributions(
@@ -7610,6 +7742,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_streaming_distributions(
@@ -7680,6 +7813,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_trust_stores(
@@ -7729,6 +7863,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_trust_stores(
@@ -7806,6 +7941,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish_connection_function(
@@ -7856,6 +7992,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish_function(
@@ -7905,6 +8042,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_resource_policy(
@@ -7955,6 +8093,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -8001,6 +8140,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_connection_function(
@@ -8058,6 +8198,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_function(
@@ -8114,6 +8255,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -8160,6 +8302,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_anycast_ip_list(
@@ -8224,6 +8367,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_cache_policy(
@@ -8283,6 +8427,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_cloud_front_origin_access_identity(
@@ -8341,6 +8486,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_connection_function(
@@ -8397,6 +8543,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_connection_group(
@@ -8461,6 +8608,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_continuous_deployment_policy(
@@ -8518,6 +8666,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_distribution(
@@ -8633,6 +8782,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_distribution_tenant(
@@ -8718,6 +8868,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_distribution_with_staging_config(
@@ -8830,6 +8981,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_domain_association(
@@ -8884,6 +9036,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_field_level_encryption_config(
@@ -8943,6 +9096,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_field_level_encryption_profile(
@@ -9005,6 +9159,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_function(
@@ -9067,6 +9222,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_key_group(
@@ -9121,6 +9277,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_key_value_store(
@@ -9182,6 +9339,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_origin_access_control(
@@ -9237,6 +9395,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_origin_request_policy(
@@ -9296,6 +9455,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_public_key(
@@ -9351,6 +9511,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_realtime_log_config(
@@ -9414,6 +9575,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_response_headers_policy(
@@ -9473,6 +9635,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_streaming_distribution(
@@ -9535,6 +9698,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_trust_store(
@@ -9598,6 +9762,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_vpc_origin(
@@ -9662,6 +9827,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def verify_dns_configuration(
@@ -9710,6 +9876,7 @@ class AsyncCloudFrontClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

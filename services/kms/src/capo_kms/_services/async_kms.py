@@ -334,6 +334,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def connect_custom_key_store(
@@ -388,6 +389,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_alias(
@@ -443,6 +445,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_custom_key_store(
@@ -573,6 +576,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_grant(
@@ -680,6 +684,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_key(
@@ -785,6 +790,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def decrypt(
@@ -884,6 +890,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_alias(
@@ -933,6 +940,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_custom_key_store(
@@ -984,6 +992,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_imported_key_material(
@@ -1043,6 +1052,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def derive_shared_secret(
@@ -1119,6 +1129,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_custom_key_stores(
@@ -1186,6 +1197,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_custom_key_stores(
@@ -1286,6 +1298,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_key(
@@ -1336,6 +1349,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_key_rotation(
@@ -1388,6 +1402,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disconnect_custom_key_store(
@@ -1438,6 +1453,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_key(
@@ -1489,6 +1505,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_key_rotation(
@@ -1547,6 +1564,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def encrypt(
@@ -1630,6 +1648,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_data_key(
@@ -1716,6 +1735,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_data_key_pair(
@@ -1796,6 +1816,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_data_key_pair_without_plaintext(
@@ -1872,6 +1893,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_data_key_without_plaintext(
@@ -1954,6 +1976,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_mac(
@@ -2025,6 +2048,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_random(
@@ -2090,6 +2114,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_key_last_usage(
@@ -2141,6 +2166,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_key_policy(
@@ -2197,6 +2223,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_key_rotation_status(
@@ -2244,6 +2271,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_parameters_for_import(
@@ -2297,6 +2325,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_public_key(
@@ -2358,6 +2387,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def import_key_material(
@@ -2447,6 +2477,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_aliases(
@@ -2508,6 +2539,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_aliases(
@@ -2603,6 +2635,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_grants(
@@ -2696,6 +2729,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_key_policies(
@@ -2780,6 +2814,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_key_rotations(
@@ -2862,6 +2897,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_keys(
@@ -2942,6 +2978,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_resource_tags(
@@ -3028,6 +3065,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_retirable_grants(
@@ -3125,6 +3163,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def re_encrypt(
@@ -3235,6 +3274,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def replicate_key(
@@ -3315,6 +3355,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def retire_grant(
@@ -3383,6 +3424,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def revoke_grant(
@@ -3444,6 +3486,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def rotate_key_on_demand(
@@ -3500,6 +3543,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def schedule_key_deletion(
@@ -3552,6 +3596,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def sign(
@@ -3630,6 +3675,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -3684,6 +3730,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -3737,6 +3784,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_alias(
@@ -3790,6 +3838,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_custom_key_store(
@@ -3930,6 +3979,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_key_description(
@@ -3983,6 +4033,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_primary_region(
@@ -4041,6 +4092,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def verify(
@@ -4123,6 +4175,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def verify_mac(
@@ -4198,6 +4251,7 @@ class AsyncKMSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

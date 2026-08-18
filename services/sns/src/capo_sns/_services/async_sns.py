@@ -286,6 +286,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def check_if_phone_number_is_opted_out(
@@ -331,6 +332,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def confirm_subscription(
@@ -388,6 +390,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_platform_application(
@@ -438,6 +441,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_platform_endpoint(
@@ -496,6 +500,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_sms_sandbox_phone_number(
@@ -549,6 +554,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_topic(
@@ -615,6 +621,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_endpoint(
@@ -657,6 +664,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_platform_application(
@@ -699,6 +707,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_sms_sandbox_phone_number(
@@ -746,6 +755,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_topic(
@@ -793,6 +803,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_data_protection_policy(
@@ -839,6 +850,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_endpoint_attributes(
@@ -886,6 +898,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_platform_application_attributes(
@@ -931,6 +944,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_sms_attributes(
@@ -977,6 +991,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_sms_sandbox_account_status(
@@ -1014,6 +1029,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_subscription_attributes(
@@ -1059,6 +1075,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_topic_attributes(
@@ -1105,6 +1122,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_endpoints_by_platform_application(
@@ -1154,6 +1172,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_endpoints_by_platform_application(
@@ -1228,6 +1247,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_origination_numbers(
@@ -1299,6 +1319,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_phone_numbers_opted_out(
@@ -1363,6 +1384,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_platform_applications(
@@ -1433,6 +1455,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_sms_sandbox_phone_numbers(
@@ -1499,6 +1522,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_subscriptions(
@@ -1567,6 +1591,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_subscriptions_by_topic(
@@ -1634,6 +1659,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_topics(
@@ -1679,6 +1705,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_topics(
@@ -1743,6 +1770,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish(
@@ -1833,6 +1861,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish_batch(
@@ -1897,6 +1926,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_data_protection_policy(
@@ -1944,6 +1974,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_permission(
@@ -1990,6 +2021,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_endpoint_attributes(
@@ -2036,6 +2068,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_platform_application_attributes(
@@ -2082,6 +2115,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_sms_attributes(
@@ -2127,6 +2161,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_subscription_attributes(
@@ -2181,6 +2216,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_topic_attributes(
@@ -2234,6 +2270,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def subscribe(
@@ -2300,6 +2337,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -2351,6 +2389,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def unsubscribe(
@@ -2395,6 +2434,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -2446,6 +2486,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def verify_sms_sandbox_phone_number(
@@ -2496,6 +2537,7 @@ class AsyncSNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

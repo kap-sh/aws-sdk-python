@@ -283,6 +283,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def assume_role_with_saml(
@@ -359,6 +360,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def assume_role_with_web_identity(
@@ -440,6 +442,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def assume_root(
@@ -498,6 +501,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def decode_authorization_message(
@@ -545,6 +549,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_access_key_info(
@@ -586,6 +591,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_caller_identity(
@@ -634,6 +640,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delegated_access_token(
@@ -678,6 +685,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_federation_token(
@@ -749,6 +757,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_session_token(
@@ -809,6 +818,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_web_identity_token(
@@ -866,6 +876,7 @@ class AsyncSTSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

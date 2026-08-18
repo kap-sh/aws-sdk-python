@@ -333,6 +333,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_replay(
@@ -377,6 +378,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_api_destination(
@@ -444,6 +446,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_archive(
@@ -517,6 +520,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_connection(
@@ -589,6 +593,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_endpoint(
@@ -654,6 +659,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_event_bus(
@@ -732,6 +738,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_partner_event_source(
@@ -780,6 +787,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deactivate_event_source(
@@ -823,6 +831,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deauthorize_connection(
@@ -866,6 +875,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_api_destination(
@@ -909,6 +919,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_archive(
@@ -952,6 +963,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_connection(
@@ -995,6 +1007,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_endpoint(
@@ -1038,6 +1051,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_event_bus(
@@ -1078,6 +1092,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_partner_event_source(
@@ -1122,6 +1137,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_rule(
@@ -1174,6 +1190,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_api_destination(
@@ -1216,6 +1233,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_archive(
@@ -1259,6 +1277,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_connection(
@@ -1303,6 +1322,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_endpoint(
@@ -1349,6 +1369,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_event_bus(
@@ -1394,6 +1415,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_event_source(
@@ -1437,6 +1459,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_partner_event_source(
@@ -1480,6 +1503,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_replay(
@@ -1522,6 +1546,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_rule(
@@ -1570,6 +1595,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_rule(
@@ -1618,6 +1644,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_rule(
@@ -1666,6 +1693,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_api_destinations(
@@ -1724,6 +1752,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_archives(
@@ -1785,6 +1814,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_connections(
@@ -1843,6 +1873,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_endpoints(
@@ -1899,6 +1930,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_event_buses(
@@ -1951,6 +1983,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_event_sources(
@@ -2004,6 +2037,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_partner_event_source_accounts(
@@ -2055,6 +2089,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_partner_event_sources(
@@ -2105,6 +2140,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_replays(
@@ -2165,6 +2201,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_rule_names_by_target(
@@ -2221,6 +2258,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_rules(
@@ -2278,6 +2316,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -2320,6 +2359,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_targets_by_rule(
@@ -2378,6 +2418,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_events(
@@ -2423,6 +2464,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_partner_events(
@@ -2465,6 +2507,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_permission(
@@ -2533,6 +2576,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_rule(
@@ -2615,6 +2659,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_targets(
@@ -2669,6 +2714,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_permission(
@@ -2726,6 +2772,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_targets(
@@ -2783,6 +2830,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_replay(
@@ -2846,6 +2894,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -2893,6 +2942,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def test_event_pattern(
@@ -2938,6 +2988,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -2985,6 +3036,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_api_destination(
@@ -3061,6 +3113,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_archive(
@@ -3130,6 +3183,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_connection(
@@ -3208,6 +3262,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_endpoint(
@@ -3279,6 +3334,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_event_bus(
@@ -3345,6 +3401,7 @@ class EventBridgeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

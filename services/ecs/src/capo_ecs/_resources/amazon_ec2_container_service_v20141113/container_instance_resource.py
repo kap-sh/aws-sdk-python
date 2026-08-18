@@ -100,6 +100,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_container_instances(
@@ -161,6 +162,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tasks(
@@ -252,6 +254,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_attributes(
@@ -309,6 +312,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_container_instance(
@@ -393,6 +397,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_container_agent(
@@ -451,6 +456,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_container_instances_state(
@@ -509,6 +515,7 @@ class ContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -571,6 +578,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_container_instances(
@@ -633,6 +641,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tasks(
@@ -727,6 +736,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_attributes(
@@ -785,6 +795,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_container_instance(
@@ -870,6 +881,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_container_agent(
@@ -929,6 +941,7 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_container_instances_state(
@@ -988,4 +1001,5 @@ class AsyncContainerInstanceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

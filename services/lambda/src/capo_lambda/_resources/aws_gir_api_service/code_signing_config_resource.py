@@ -98,6 +98,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -145,6 +146,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_code_signing_config(
@@ -189,6 +191,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_code_signing_config(
@@ -232,6 +235,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_functions_by_code_signing_config(
@@ -283,6 +287,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_code_signing_config(
@@ -342,6 +347,7 @@ class CodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -404,6 +410,7 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -452,6 +459,7 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_code_signing_config(
@@ -497,6 +505,7 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_code_signing_config(
@@ -541,6 +550,7 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_functions_by_code_signing_config(
@@ -593,6 +603,7 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_code_signing_config(
@@ -653,4 +664,5 @@ class AsyncCodeSigningConfigResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -130,6 +130,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_daemon(
@@ -184,6 +185,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_daemon(
@@ -237,6 +239,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_daemon_deployments(
@@ -309,6 +312,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_daemons(
@@ -376,6 +380,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_daemon(
@@ -457,6 +462,7 @@ class DaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -554,6 +560,7 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_daemon(
@@ -609,6 +616,7 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_daemon(
@@ -663,6 +671,7 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_daemon_deployments(
@@ -736,6 +745,7 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_daemons(
@@ -804,6 +814,7 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_daemon(
@@ -886,4 +897,5 @@ class AsyncDaemonResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

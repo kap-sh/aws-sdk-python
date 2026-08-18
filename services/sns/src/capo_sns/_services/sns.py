@@ -285,6 +285,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def check_if_phone_number_is_opted_out(
@@ -329,6 +330,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def confirm_subscription(
@@ -385,6 +387,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_platform_application(
@@ -434,6 +437,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_platform_endpoint(
@@ -491,6 +495,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_sms_sandbox_phone_number(
@@ -543,6 +548,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_topic(
@@ -608,6 +614,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_endpoint(
@@ -649,6 +656,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_platform_application(
@@ -690,6 +698,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_sms_sandbox_phone_number(
@@ -736,6 +745,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_topic(
@@ -782,6 +792,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_data_protection_policy(
@@ -827,6 +838,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_endpoint_attributes(
@@ -873,6 +885,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_platform_application_attributes(
@@ -917,6 +930,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_sms_attributes(
@@ -962,6 +976,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_sms_sandbox_account_status(
@@ -998,6 +1013,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_subscription_attributes(
@@ -1042,6 +1058,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_topic_attributes(
@@ -1087,6 +1104,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_endpoints_by_platform_application(
@@ -1135,6 +1153,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_endpoints_by_platform_application(
@@ -1208,6 +1227,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_origination_numbers(
@@ -1276,6 +1296,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_phone_numbers_opted_out(
@@ -1339,6 +1360,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_platform_applications(
@@ -1408,6 +1430,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_sms_sandbox_phone_numbers(
@@ -1473,6 +1496,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_subscriptions(
@@ -1540,6 +1564,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_subscriptions_by_topic(
@@ -1606,6 +1631,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_topics(
@@ -1650,6 +1676,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_topics(
@@ -1713,6 +1740,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish(
@@ -1802,6 +1830,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish_batch(
@@ -1865,6 +1894,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_data_protection_policy(
@@ -1911,6 +1941,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_permission(
@@ -1956,6 +1987,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_endpoint_attributes(
@@ -2001,6 +2033,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_platform_application_attributes(
@@ -2046,6 +2079,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_sms_attributes(
@@ -2090,6 +2124,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_subscription_attributes(
@@ -2143,6 +2178,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_topic_attributes(
@@ -2195,6 +2231,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def subscribe(
@@ -2258,6 +2295,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -2308,6 +2346,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unsubscribe(
@@ -2351,6 +2390,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -2401,6 +2441,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def verify_sms_sandbox_phone_number(
@@ -2450,6 +2491,7 @@ class SNSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

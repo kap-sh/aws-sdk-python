@@ -79,6 +79,7 @@ class TokenizerResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -134,4 +135,5 @@ class AsyncTokenizerResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

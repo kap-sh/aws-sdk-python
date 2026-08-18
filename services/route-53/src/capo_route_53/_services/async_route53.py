@@ -388,6 +388,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_vpc_with_hosted_zone(
@@ -452,6 +453,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_cidr_collection(
@@ -508,6 +510,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_resource_record_sets(
@@ -599,6 +602,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_tags_for_resource(
@@ -662,6 +666,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_cidr_collection(
@@ -710,6 +715,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_health_check(
@@ -757,6 +763,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_hosted_zone(
@@ -826,6 +833,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_key_signing_key(
@@ -889,6 +897,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_query_logging_config(
@@ -939,6 +948,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_reusable_delegation_set(
@@ -991,6 +1001,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_traffic_policy(
@@ -1047,6 +1058,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_traffic_policy_instance(
@@ -1105,6 +1117,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_traffic_policy_version(
@@ -1160,6 +1173,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_vpc_association_authorization(
@@ -1209,6 +1223,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deactivate_key_signing_key(
@@ -1260,6 +1275,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_cidr_collection(
@@ -1305,6 +1321,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_health_check(
@@ -1349,6 +1366,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_hosted_zone(
@@ -1395,6 +1413,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_key_signing_key(
@@ -1445,6 +1464,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_query_logging_config(
@@ -1489,6 +1509,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_reusable_delegation_set(
@@ -1534,6 +1555,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_traffic_policy(
@@ -1584,6 +1606,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_traffic_policy_instance(
@@ -1628,6 +1651,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_vpc_association_authorization(
@@ -1677,6 +1701,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_hosted_zone_dnssec(
@@ -1726,6 +1751,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_vpc_from_hosted_zone(
@@ -1781,6 +1807,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_hosted_zone_dnssec(
@@ -1831,6 +1858,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_limit(
@@ -1873,6 +1901,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_change(
@@ -1916,6 +1945,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_checker_ip_ranges(
@@ -1952,6 +1982,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_dnssec(
@@ -1996,6 +2027,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_geo_location(
@@ -2054,6 +2086,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_health_check(
@@ -2098,6 +2131,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_health_check_count(
@@ -2132,6 +2166,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_health_check_last_failure_reason(
@@ -2175,6 +2210,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_health_check_status(
@@ -2218,6 +2254,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_hosted_zone(
@@ -2267,6 +2304,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_hosted_zone_count(
@@ -2304,6 +2342,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_hosted_zone_limit(
@@ -2353,6 +2392,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_query_logging_config(
@@ -2396,6 +2436,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_reusable_delegation_set(
@@ -2440,6 +2481,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_reusable_delegation_set_limit(
@@ -2486,6 +2528,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_traffic_policy(
@@ -2532,6 +2575,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_traffic_policy_instance(
@@ -2575,6 +2619,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_traffic_policy_instance_count(
@@ -2609,6 +2654,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_cidr_blocks(
@@ -2669,6 +2715,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_cidr_blocks(
@@ -2749,6 +2796,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_cidr_collections(
@@ -2825,6 +2873,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_cidr_locations(
@@ -2911,6 +2960,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_health_checks(
@@ -2959,6 +3009,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_health_checks(
@@ -3041,6 +3092,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_hosted_zones(
@@ -3122,6 +3174,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_hosted_zones_by_vpc(
@@ -3178,6 +3231,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_query_logging_configs(
@@ -3233,6 +3287,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_query_logging_configs(
@@ -3319,6 +3374,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_reusable_delegation_sets(
@@ -3366,6 +3422,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -3415,6 +3472,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resources(
@@ -3464,6 +3522,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_traffic_policies(
@@ -3515,6 +3574,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_traffic_policy_instances(
@@ -3581,6 +3641,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_traffic_policy_instances_by_hosted_zone(
@@ -3645,6 +3706,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_traffic_policy_instances_by_policy(
@@ -3718,6 +3780,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_traffic_policy_versions(
@@ -3771,6 +3834,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_vpc_association_authorizations(
@@ -3825,6 +3889,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_dns_answer(
@@ -3890,6 +3955,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_health_check(
@@ -4020,6 +4086,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_hosted_zone_comment(
@@ -4070,6 +4137,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_hosted_zone_features(
@@ -4121,6 +4189,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_traffic_policy_comment(
@@ -4171,6 +4240,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_traffic_policy_instance(
@@ -4226,6 +4296,7 @@ class AsyncRoute53Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

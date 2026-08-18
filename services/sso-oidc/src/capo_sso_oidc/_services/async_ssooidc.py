@@ -239,6 +239,7 @@ class AsyncSSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_token_with_iam(
@@ -357,6 +358,7 @@ class AsyncSSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_client(
@@ -437,6 +439,7 @@ class AsyncSSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_device_authorization(
@@ -494,6 +497,7 @@ class AsyncSSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

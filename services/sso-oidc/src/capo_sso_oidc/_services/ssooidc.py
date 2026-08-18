@@ -238,6 +238,7 @@ class SSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_token_with_iam(
@@ -355,6 +356,7 @@ class SSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_client(
@@ -434,6 +436,7 @@ class SSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_device_authorization(
@@ -490,6 +493,7 @@ class SSOOIDCClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

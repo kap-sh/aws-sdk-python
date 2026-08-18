@@ -300,6 +300,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_state_machine(
@@ -398,6 +399,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_state_machine_alias(
@@ -457,6 +459,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_activity(
@@ -499,6 +502,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_state_machine(
@@ -542,6 +546,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_state_machine_alias(
@@ -589,6 +594,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_state_machine_version(
@@ -633,6 +639,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_activity(
@@ -676,6 +683,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_execution(
@@ -726,6 +734,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_map_run(
@@ -769,6 +778,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_state_machine(
@@ -819,6 +829,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_state_machine_alias(
@@ -863,6 +874,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_state_machine_for_execution(
@@ -913,6 +925,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_activity_task(
@@ -964,6 +977,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_execution_history(
@@ -1029,6 +1043,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_execution_history(
@@ -1105,6 +1120,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_activities(
@@ -1200,6 +1216,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_executions(
@@ -1287,6 +1304,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_map_runs(
@@ -1366,6 +1384,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_state_machines(
@@ -1413,6 +1432,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_state_machines(
@@ -1486,6 +1506,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -1529,6 +1550,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish_state_machine_version(
@@ -1586,6 +1608,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def redrive_execution(
@@ -1637,6 +1660,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_task_failure(
@@ -1692,6 +1716,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_task_heartbeat(
@@ -1736,6 +1761,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_task_success(
@@ -1787,6 +1813,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_execution(
@@ -1851,6 +1878,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_sync_execution(
@@ -1917,6 +1945,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_execution(
@@ -1972,6 +2001,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -2019,6 +2049,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def test_state(
@@ -2104,6 +2135,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -2150,6 +2182,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_map_run(
@@ -2212,6 +2245,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_state_machine(
@@ -2302,6 +2336,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_state_machine_alias(
@@ -2362,6 +2397,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def validate_state_machine_definition(
@@ -2420,6 +2456,7 @@ class AsyncSFNClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

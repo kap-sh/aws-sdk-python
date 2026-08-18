@@ -605,6 +605,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_role_to_db_instance(
@@ -663,6 +664,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_source_identifier_to_subscription(
@@ -717,6 +719,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_tags_to_resource(
@@ -781,6 +784,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def apply_pending_maintenance_action(
@@ -840,6 +844,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def authorize_db_security_group_ingress(
@@ -908,6 +913,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def backtrack_db_cluster(
@@ -968,6 +974,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def cancel_export_task(
@@ -1016,6 +1023,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_db_cluster_parameter_group(
@@ -1090,6 +1098,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_db_cluster_snapshot(
@@ -1173,6 +1182,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_db_parameter_group(
@@ -1247,6 +1257,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_db_snapshot(
@@ -1346,6 +1357,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def copy_option_group(
@@ -1410,6 +1422,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_blue_green_deployment(
@@ -1538,6 +1551,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_custom_db_engine_version(
@@ -1648,6 +1662,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_cluster(
@@ -2042,6 +2057,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_cluster_endpoint(
@@ -2116,6 +2132,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_cluster_parameter_group(
@@ -2180,6 +2197,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_cluster_snapshot(
@@ -2243,6 +2261,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_instance(
@@ -2640,6 +2659,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_instance_read_replica(
@@ -2954,6 +2974,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_parameter_group(
@@ -3016,6 +3037,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_proxy(
@@ -3121,6 +3143,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_proxy_endpoint(
@@ -3201,6 +3224,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_security_group(
@@ -3260,6 +3284,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_shard_group(
@@ -3334,6 +3359,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_snapshot(
@@ -3393,6 +3419,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_db_subnet_group(
@@ -3460,6 +3487,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_event_subscription(
@@ -3542,6 +3570,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_global_cluster(
@@ -3634,6 +3663,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_integration(
@@ -3719,6 +3749,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_option_group(
@@ -3785,6 +3816,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_tenant_database(
@@ -3867,6 +3899,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_blue_green_deployment(
@@ -3931,6 +3964,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_custom_db_engine_version(
@@ -3979,6 +4013,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_cluster(
@@ -4049,6 +4084,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_cluster_automated_backup(
@@ -4093,6 +4129,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_cluster_endpoint(
@@ -4144,6 +4181,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_cluster_parameter_group(
@@ -4194,6 +4232,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_cluster_snapshot(
@@ -4245,6 +4284,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_instance(
@@ -4314,6 +4354,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_instance_automated_backup(
@@ -4372,6 +4413,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_parameter_group(
@@ -4420,6 +4462,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_proxy(
@@ -4464,6 +4507,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_proxy_endpoint(
@@ -4512,6 +4556,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_security_group(
@@ -4560,6 +4605,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_shard_group(
@@ -4605,6 +4651,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_snapshot(
@@ -4655,6 +4702,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_db_subnet_group(
@@ -4704,6 +4752,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_event_subscription(
@@ -4756,6 +4805,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_global_cluster(
@@ -4808,6 +4858,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_integration(
@@ -4859,6 +4910,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_option_group(
@@ -4907,6 +4959,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_tenant_database(
@@ -4965,6 +5018,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_db_proxy_targets(
@@ -5029,6 +5083,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_account_attributes(
@@ -5069,6 +5124,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_blue_green_deployments(
@@ -5142,6 +5198,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_blue_green_deployments(
@@ -5230,6 +5287,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_certificates(
@@ -5314,6 +5372,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_automated_backups(
@@ -5407,6 +5466,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_backtracks(
@@ -5503,6 +5563,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_endpoints(
@@ -5593,6 +5654,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_parameter_groups(
@@ -5687,6 +5749,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_parameters(
@@ -5785,6 +5848,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_clusters(
@@ -5861,6 +5925,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_db_cluster_snapshots(
@@ -5942,6 +6007,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_cluster_snapshots(
@@ -6065,6 +6131,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_engine_versions(
@@ -6179,6 +6246,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_instance_automated_backups(
@@ -6271,6 +6339,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_instances(
@@ -6370,6 +6439,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_log_files(
@@ -6457,6 +6527,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_major_engine_versions(
@@ -6545,6 +6616,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_parameter_groups(
@@ -6635,6 +6707,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_parameters(
@@ -6717,6 +6790,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_proxies(
@@ -6804,6 +6878,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_proxy_endpoints(
@@ -6896,6 +6971,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_proxy_target_groups(
@@ -6989,6 +7065,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_proxy_targets(
@@ -7080,6 +7157,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_recommendations(
@@ -7170,6 +7248,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_security_groups(
@@ -7255,6 +7334,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_db_snapshot_attributes(
@@ -7304,6 +7384,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_db_snapshots(
@@ -7385,6 +7466,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_snapshots(
@@ -7487,6 +7569,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_snapshot_tenant_databases(
@@ -7579,6 +7662,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_db_subnet_groups(
@@ -7664,6 +7748,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_engine_default_cluster_parameters(
@@ -7749,6 +7834,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_engine_default_parameters(
@@ -7826,6 +7912,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_events(
@@ -7906,6 +7993,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_events(
@@ -8004,6 +8092,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_event_subscriptions(
@@ -8100,6 +8189,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_export_tasks(
@@ -8194,6 +8284,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_global_clusters(
@@ -8284,6 +8375,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_integrations(
@@ -8375,6 +8467,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_option_group_options(
@@ -8469,6 +8562,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_option_groups(
@@ -8578,6 +8672,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_orderable_db_instance_options(
@@ -8674,6 +8769,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_pending_maintenance_actions(
@@ -8792,6 +8888,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_reserved_db_instances(
@@ -8918,6 +9015,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_reserved_db_instances_offerings(
@@ -9029,6 +9127,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_serverless_v2_platform_versions(
@@ -9122,6 +9221,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_source_regions(
@@ -9206,6 +9306,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_tenant_databases(
@@ -9283,6 +9384,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_http_endpoint(
@@ -9327,6 +9429,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def download_db_log_file_portion(
@@ -9390,6 +9493,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_http_endpoint(
@@ -9434,6 +9538,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def failover_db_cluster(
@@ -9489,6 +9594,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def failover_global_cluster(
@@ -9553,6 +9659,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -9614,6 +9721,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_activity_stream(
@@ -9665,6 +9773,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_certificates(
@@ -9720,6 +9829,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_current_db_cluster_capacity(
@@ -9785,6 +9895,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_custom_db_engine_version(
@@ -9843,6 +9954,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_cluster(
@@ -10161,6 +10273,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_cluster_endpoint(
@@ -10226,6 +10339,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_cluster_parameter_group(
@@ -10282,6 +10396,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_cluster_snapshot_attribute(
@@ -10349,6 +10464,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_instance(
@@ -10755,6 +10871,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_parameter_group(
@@ -10809,6 +10926,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_proxy(
@@ -10894,6 +11012,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_proxy_endpoint(
@@ -10956,6 +11075,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_proxy_target_group(
@@ -11017,6 +11137,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_recommendation(
@@ -11073,6 +11194,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_shard_group(
@@ -11132,6 +11254,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_snapshot(
@@ -11191,6 +11314,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_snapshot_attribute(
@@ -11262,6 +11386,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_db_subnet_group(
@@ -11326,6 +11451,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_event_subscription(
@@ -11400,6 +11526,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_global_cluster(
@@ -11477,6 +11604,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_integration(
@@ -11544,6 +11672,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_option_group(
@@ -11610,6 +11739,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def modify_tenant_database(
@@ -11687,6 +11817,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def promote_read_replica(
@@ -11753,6 +11884,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def promote_read_replica_db_cluster(
@@ -11797,6 +11929,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def purchase_reserved_db_instances_offering(
@@ -11865,6 +11998,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reboot_db_cluster(
@@ -11910,6 +12044,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reboot_db_instance(
@@ -11967,6 +12102,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reboot_db_shard_group(
@@ -12011,6 +12147,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_db_proxy_targets(
@@ -12080,6 +12217,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_from_global_cluster(
@@ -12140,6 +12278,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_role_from_db_cluster(
@@ -12197,6 +12336,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_role_from_db_instance(
@@ -12248,6 +12388,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_source_identifier_from_subscription(
@@ -12302,6 +12443,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_tags_from_resource(
@@ -12366,6 +12508,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reset_db_cluster_parameter_group(
@@ -12426,6 +12569,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reset_db_parameter_group(
@@ -12484,6 +12628,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_cluster_from_s3(
@@ -12733,6 +12878,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_cluster_from_snapshot(
@@ -13020,6 +13166,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_cluster_to_point_in_time(
@@ -13300,6 +13447,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_instance_from_db_snapshot(
@@ -13598,6 +13746,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_instance_from_s3(
@@ -13926,6 +14075,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def restore_db_instance_to_point_in_time(
@@ -14247,6 +14397,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def revoke_db_security_group_ingress(
@@ -14314,6 +14465,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_activity_stream(
@@ -14390,6 +14542,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_db_cluster(
@@ -14444,6 +14597,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_db_instance(
@@ -14504,6 +14658,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_db_instance_automated_backups_replication(
@@ -14578,6 +14733,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_export_task(
@@ -14658,6 +14814,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_activity_stream(
@@ -14717,6 +14874,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_db_cluster(
@@ -14769,6 +14927,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_db_instance(
@@ -14826,6 +14985,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_db_instance_automated_backups_replication(
@@ -14876,6 +15036,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def switchover_blue_green_deployment(
@@ -14940,6 +15101,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def switchover_global_cluster(
@@ -14996,6 +15158,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def switchover_read_replica(
@@ -15040,6 +15203,7 @@ class AsyncRDSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

@@ -96,6 +96,7 @@ class ScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -140,6 +141,7 @@ class ScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -190,6 +192,7 @@ class ScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -244,6 +247,7 @@ class ScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -304,6 +308,7 @@ class AsyncScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -349,6 +354,7 @@ class AsyncScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -400,6 +406,7 @@ class AsyncScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -455,4 +462,5 @@ class AsyncScheduleGroup:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

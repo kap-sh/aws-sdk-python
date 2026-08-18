@@ -99,6 +99,7 @@ class DurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def checkpoint_durable_execution(
@@ -160,6 +161,7 @@ class DurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_durable_execution_history(
@@ -226,6 +228,7 @@ class DurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_durable_execution_state(
@@ -284,6 +287,7 @@ class DurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_durable_execution(
@@ -338,6 +342,7 @@ class DurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -398,6 +403,7 @@ class AsyncDurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def checkpoint_durable_execution(
@@ -460,6 +466,7 @@ class AsyncDurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_durable_execution_history(
@@ -527,6 +534,7 @@ class AsyncDurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_durable_execution_state(
@@ -586,6 +594,7 @@ class AsyncDurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_durable_execution(
@@ -641,4 +650,5 @@ class AsyncDurableExecution:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

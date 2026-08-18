@@ -122,6 +122,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_layer_version_permission(
@@ -197,6 +198,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_layer_version(
@@ -248,6 +250,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_layer_version(
@@ -301,6 +304,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_layer_version_by_arn(
@@ -351,6 +355,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_layer_version_policy(
@@ -398,6 +403,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def publish_layer_version(
@@ -472,6 +478,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_layer_version_permission(
@@ -531,6 +538,7 @@ class LayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -607,6 +615,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_layer_version_permission(
@@ -683,6 +692,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_layer_version(
@@ -735,6 +745,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_layer_version(
@@ -789,6 +800,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_layer_version_by_arn(
@@ -840,6 +852,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_layer_version_policy(
@@ -888,6 +901,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def publish_layer_version(
@@ -963,6 +977,7 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_layer_version_permission(
@@ -1023,4 +1038,5 @@ class AsyncLayerVersion:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

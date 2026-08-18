@@ -600,6 +600,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def complete_multipart_upload(
@@ -753,6 +754,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_object(
@@ -1023,6 +1025,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_bucket(
@@ -1122,6 +1125,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_bucket_metadata_configuration(
@@ -1177,6 +1181,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_bucket_metadata_table_configuration(
@@ -1232,6 +1237,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_multipart_upload(
@@ -1426,6 +1432,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_session(
@@ -1493,6 +1500,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket(
@@ -1541,6 +1549,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_analytics_configuration(
@@ -1586,6 +1595,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_cors(
@@ -1634,6 +1644,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_encryption(
@@ -1676,6 +1687,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_intelligent_tiering_configuration(
@@ -1721,6 +1733,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_inventory_configuration(
@@ -1766,6 +1779,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_lifecycle(
@@ -1814,6 +1828,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_metadata_configuration(
@@ -1856,6 +1871,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_metadata_table_configuration(
@@ -1898,6 +1914,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_metrics_configuration(
@@ -1943,6 +1960,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_ownership_controls(
@@ -1985,6 +2003,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_policy(
@@ -2033,6 +2052,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_replication(
@@ -2081,6 +2101,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_tagging(
@@ -2129,6 +2150,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_bucket_website(
@@ -2177,6 +2199,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_object(
@@ -2263,6 +2286,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def presigned_delete_object(
@@ -2388,6 +2412,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_objects(
@@ -2464,6 +2489,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_object_tagging(
@@ -2525,6 +2551,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_public_access_block(
@@ -2567,6 +2594,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_abac(
@@ -2611,6 +2639,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_accelerate_configuration(
@@ -2658,6 +2687,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_acl(
@@ -2702,6 +2732,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_analytics_configuration(
@@ -2749,6 +2780,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_cors(
@@ -2799,6 +2831,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_encryption(
@@ -2843,6 +2876,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_intelligent_tiering_configuration(
@@ -2890,6 +2924,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_inventory_configuration(
@@ -2937,6 +2972,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_lifecycle_configuration(
@@ -2987,6 +3023,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_location(
@@ -3037,6 +3074,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_logging(
@@ -3081,6 +3119,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_metadata_configuration(
@@ -3125,6 +3164,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_metadata_table_configuration(
@@ -3169,6 +3209,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_metrics_configuration(
@@ -3216,6 +3257,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_notification_configuration(
@@ -3260,6 +3302,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_ownership_controls(
@@ -3304,6 +3347,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_policy(
@@ -3354,6 +3398,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_policy_status(
@@ -3398,6 +3443,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_replication(
@@ -3448,6 +3494,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_request_payment(
@@ -3500,6 +3547,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_tagging(
@@ -3550,6 +3598,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_versioning(
@@ -3600,6 +3649,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_bucket_website(
@@ -3650,6 +3700,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -3799,7 +3850,10 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def presigned_get_object(
         self,
@@ -3973,6 +4027,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -4038,7 +4093,10 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def get_object_attributes(
         self,
@@ -4124,6 +4182,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_object_legal_hold(
@@ -4178,6 +4237,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_object_lock_configuration(
@@ -4222,6 +4282,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_object_retention(
@@ -4276,6 +4337,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_object_tagging(
@@ -4340,6 +4402,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -4397,7 +4460,10 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def get_public_access_block(
         self,
@@ -4441,6 +4507,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def head_bucket(
@@ -4490,6 +4557,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_bucket_exists(
@@ -4725,6 +4793,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def presigned_head_object(
@@ -5132,6 +5201,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_bucket_intelligent_tiering_configurations(
@@ -5180,6 +5250,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_bucket_inventory_configurations(
@@ -5228,6 +5299,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_bucket_metrics_configurations(
@@ -5276,6 +5348,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_buckets(
@@ -5333,6 +5406,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_buckets(
@@ -5407,6 +5481,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_directory_buckets(
@@ -5514,6 +5589,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_object_annotations(
@@ -5587,6 +5663,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_object_annotations(
@@ -5702,6 +5779,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_objects_v2(
@@ -5791,6 +5869,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_object_versions(
@@ -5875,6 +5954,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_parts(
@@ -5958,6 +6038,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_parts(
@@ -6058,6 +6139,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_accelerate_configuration(
@@ -6109,6 +6191,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_acl(
@@ -6199,6 +6282,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_analytics_configuration(
@@ -6247,6 +6331,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_cors(
@@ -6308,6 +6393,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_encryption(
@@ -6364,6 +6450,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_intelligent_tiering_configuration(
@@ -6412,6 +6499,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_inventory_configuration(
@@ -6460,6 +6548,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_lifecycle_configuration(
@@ -6530,6 +6619,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_logging(
@@ -6591,6 +6681,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_metrics_configuration(
@@ -6639,6 +6730,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_notification_configuration(
@@ -6695,6 +6787,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_ownership_controls(
@@ -6750,6 +6843,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_policy(
@@ -6819,6 +6913,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_replication(
@@ -6883,6 +6978,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_request_payment(
@@ -6944,6 +7040,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_tagging(
@@ -7005,6 +7102,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_versioning(
@@ -7070,6 +7168,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_bucket_website(
@@ -7131,6 +7230,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object(
@@ -7425,6 +7525,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def presigned_put_object(
@@ -7737,6 +7838,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object_annotation(
@@ -7872,6 +7974,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object_legal_hold(
@@ -7942,6 +8045,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object_lock_configuration(
@@ -8009,6 +8113,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object_retention(
@@ -8085,6 +8190,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_object_tagging(
@@ -8159,6 +8265,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_public_access_block(
@@ -8214,6 +8321,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def rename_object(
@@ -8310,6 +8418,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_object(
@@ -8382,6 +8491,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -8470,7 +8580,10 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def update_bucket_metadata_annotation_table_configuration(
         self,
@@ -8525,6 +8638,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_bucket_metadata_inventory_table_configuration(
@@ -8580,6 +8694,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_bucket_metadata_journal_table_configuration(
@@ -8635,6 +8750,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_object_encryption(
@@ -8707,6 +8823,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def upload_part(
@@ -8857,6 +8974,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def presigned_upload_part(
@@ -9118,6 +9236,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def write_get_object_response(
@@ -9374,6 +9493,7 @@ class S3Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

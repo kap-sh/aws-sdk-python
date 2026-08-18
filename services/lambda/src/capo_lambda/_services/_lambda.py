@@ -247,6 +247,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_function_event_invoke_config(
@@ -302,6 +303,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_account_settings(
@@ -343,6 +345,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_function_event_invoke_config(
@@ -399,6 +402,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_function_event_invoke_configs(
@@ -459,6 +463,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags(
@@ -507,6 +512,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_function_event_invoke_config(
@@ -582,6 +588,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_durable_execution_callback_failure(
@@ -635,6 +642,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_durable_execution_callback_heartbeat(
@@ -680,6 +688,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def send_durable_execution_callback_success(
@@ -735,6 +744,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -787,6 +797,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -839,6 +850,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_function_event_invoke_config(
@@ -914,6 +926,7 @@ class LambdaClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

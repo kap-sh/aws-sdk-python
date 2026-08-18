@@ -352,6 +352,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_delete_image(
@@ -409,6 +410,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_get_image(
@@ -474,6 +476,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_get_repository_scanning_configuration(
@@ -519,6 +522,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def complete_layer_upload(
@@ -579,6 +583,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_pull_through_cache_rule(
@@ -658,6 +663,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_repository(
@@ -746,6 +752,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_repository_creation_template(
@@ -843,6 +850,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_lifecycle_policy(
@@ -895,6 +903,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_pull_through_cache_rule(
@@ -944,6 +953,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_registry_policy(
@@ -982,6 +992,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_repository(
@@ -1042,6 +1053,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_repository_creation_template(
@@ -1087,6 +1099,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_repository_policy(
@@ -1142,6 +1155,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_signing_configuration(
@@ -1179,6 +1193,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_pull_time_update_exclusion(
@@ -1231,6 +1246,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_image_replication_status(
@@ -1283,6 +1299,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_images(
@@ -1352,6 +1369,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_images(
@@ -1446,6 +1464,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_image_signing_status(
@@ -1499,6 +1518,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_pull_through_cache_rules(
@@ -1559,6 +1579,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_pull_through_cache_rules(
@@ -1623,6 +1644,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_repositories(
@@ -1688,6 +1710,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_repositories(
@@ -1768,6 +1791,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_describe_repository_creation_templates(
@@ -1835,6 +1859,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_authorization_token(
@@ -1883,6 +1908,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_download_url_for_layer(
@@ -1937,6 +1963,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_lifecycle_policy(
@@ -1987,6 +2014,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_lifecycle_policy_preview(
@@ -2059,6 +2087,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_lifecycle_policy_preview(
@@ -2132,6 +2161,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_registry_scanning_configuration(
@@ -2169,6 +2199,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_repository_policy(
@@ -2224,6 +2255,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_signing_configuration(
@@ -2262,6 +2294,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def initiate_layer_upload(
@@ -2311,6 +2344,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_image_referrers(
@@ -2394,6 +2428,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_images(
@@ -2460,6 +2495,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_images(
@@ -2547,6 +2583,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_tags_for_resource(
@@ -2591,6 +2628,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_account_setting(
@@ -2639,6 +2677,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_image(
@@ -2711,6 +2750,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_image_scanning_configuration(
@@ -2763,6 +2803,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_image_tag_mutability(
@@ -2824,6 +2865,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_lifecycle_policy(
@@ -2876,6 +2918,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_registry_policy(
@@ -2920,6 +2963,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_registry_scanning_configuration(
@@ -2972,6 +3016,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_replication_configuration(
@@ -3016,6 +3061,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_signing_configuration(
@@ -3060,6 +3106,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_pull_time_update_exclusion(
@@ -3106,6 +3153,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_repository_policy(
@@ -3161,6 +3209,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_image_scan(
@@ -3216,6 +3265,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_lifecycle_policy_preview(
@@ -3273,6 +3323,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_resource(
@@ -3322,6 +3373,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_resource(
@@ -3371,6 +3423,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_image_storage_class(
@@ -3437,6 +3490,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_pull_through_cache_rule(
@@ -3499,6 +3553,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_repository_creation_template(
@@ -3597,6 +3652,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def upload_layer_part(
@@ -3661,6 +3717,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def validate_pull_through_cache_rule(
@@ -3710,6 +3767,7 @@ class AsyncECRClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

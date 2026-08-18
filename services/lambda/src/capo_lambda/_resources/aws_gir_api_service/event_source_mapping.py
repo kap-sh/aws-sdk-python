@@ -264,6 +264,7 @@ class EventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -314,6 +315,7 @@ class EventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -489,6 +491,7 @@ class EventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -541,6 +544,7 @@ class EventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -606,6 +610,7 @@ class EventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -815,6 +820,7 @@ class AsyncEventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -866,6 +872,7 @@ class AsyncEventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -1042,6 +1049,7 @@ class AsyncEventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -1095,6 +1103,7 @@ class AsyncEventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -1161,4 +1170,5 @@ class AsyncEventSourceMapping:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

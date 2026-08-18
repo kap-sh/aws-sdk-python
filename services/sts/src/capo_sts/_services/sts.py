@@ -282,6 +282,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assume_role_with_saml(
@@ -357,6 +358,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assume_role_with_web_identity(
@@ -437,6 +439,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assume_root(
@@ -494,6 +497,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def decode_authorization_message(
@@ -540,6 +544,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_access_key_info(
@@ -580,6 +585,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_caller_identity(
@@ -627,6 +633,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_delegated_access_token(
@@ -670,6 +677,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_federation_token(
@@ -740,6 +748,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_session_token(
@@ -799,6 +808,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_web_identity_token(
@@ -855,6 +865,7 @@ class STSClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

@@ -405,6 +405,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_get_item(
@@ -462,6 +463,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_write_item(
@@ -527,6 +529,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_backup(
@@ -577,6 +580,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_global_table(
@@ -625,6 +629,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_table(
@@ -759,6 +764,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_backup(
@@ -804,6 +810,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_item(
@@ -916,6 +923,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_policy(
@@ -968,6 +976,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_table(
@@ -1019,6 +1028,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_backup(
@@ -1062,6 +1072,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_continuous_backups(
@@ -1105,6 +1116,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_contributor_insights(
@@ -1151,6 +1163,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_endpoints(
@@ -1184,6 +1197,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_export(
@@ -1227,6 +1241,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_global_table(
@@ -1270,6 +1285,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_global_table_settings(
@@ -1313,6 +1329,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_import(
@@ -1354,6 +1371,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_kinesis_streaming_destination(
@@ -1397,6 +1415,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_limits(
@@ -1438,6 +1457,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_table(
@@ -1481,6 +1501,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def wait_until_table_not_exists(
@@ -1563,6 +1584,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_time_to_live(
@@ -1606,6 +1628,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_kinesis_streaming_destination(
@@ -1662,6 +1685,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_kinesis_streaming_destination(
@@ -1718,6 +1742,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def execute_statement(
@@ -1804,6 +1829,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def execute_transaction(
@@ -1865,6 +1891,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_table_to_point_in_time(
@@ -1963,6 +1990,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_item(
@@ -2045,6 +2073,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_policy(
@@ -2089,6 +2118,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_table(
@@ -2155,6 +2185,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_backups(
@@ -2228,6 +2259,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_contributor_insights(
@@ -2283,6 +2315,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_exports(
@@ -2338,6 +2371,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_global_tables(
@@ -2395,6 +2429,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_imports(
@@ -2449,6 +2484,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tables(
@@ -2506,6 +2542,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_tables(
@@ -2580,6 +2617,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_item(
@@ -2690,6 +2728,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_resource_policy(
@@ -2753,6 +2792,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def query(
@@ -2892,6 +2932,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_query(
@@ -3054,6 +3095,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_table_to_point_in_time(
@@ -3155,6 +3197,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def scan(
@@ -3286,6 +3329,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_scan(
@@ -3403,6 +3447,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def transact_get_items(
@@ -3456,6 +3501,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def transact_write_items(
@@ -3523,6 +3569,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -3569,6 +3616,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_continuous_backups(
@@ -3618,6 +3666,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_contributor_insights(
@@ -3673,6 +3722,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_global_table(
@@ -3722,6 +3772,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_global_table_settings(
@@ -3808,6 +3859,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_item(
@@ -3932,6 +3984,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_kinesis_streaming_destination(
@@ -3988,6 +4041,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_table(
@@ -4115,6 +4169,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_table_replica_auto_scaling(
@@ -4178,6 +4233,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_time_to_live(
@@ -4226,6 +4282,7 @@ class DynamoDBClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

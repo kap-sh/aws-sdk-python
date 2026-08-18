@@ -543,6 +543,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def acquire_role(
@@ -606,6 +607,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_client_id_to_open_id_connect_provider(
@@ -659,6 +661,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_role_to_instance_profile(
@@ -712,6 +715,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_user_to_group(
@@ -763,6 +767,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def associate_delegation_request(
@@ -806,6 +811,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def attach_group_policy(
@@ -859,6 +865,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def attach_role_policy(
@@ -913,6 +920,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def attach_user_policy(
@@ -966,6 +974,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def change_password(
@@ -1020,6 +1029,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_access_key(
@@ -1073,6 +1083,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_account_alias(
@@ -1122,6 +1133,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_delegation_request(
@@ -1202,6 +1214,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_group(
@@ -1257,6 +1270,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_instance_profile(
@@ -1319,6 +1333,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_login_profile(
@@ -1382,6 +1397,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_open_id_connect_provider(
@@ -1451,6 +1467,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_policy(
@@ -1515,6 +1532,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_policy_version(
@@ -1568,6 +1586,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_role(
@@ -1648,6 +1667,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_saml_provider(
@@ -1713,6 +1733,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_service_linked_role(
@@ -1770,6 +1791,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_service_specific_credential(
@@ -1823,6 +1845,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_user(
@@ -1888,6 +1911,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_virtual_mfa_device(
@@ -1942,6 +1966,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deactivate_mfa_device(
@@ -1992,6 +2017,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_access_key(
@@ -2046,6 +2072,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_account_alias(
@@ -2095,6 +2122,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_account_password_policy(
@@ -2135,6 +2163,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_group(
@@ -2178,6 +2207,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_group_policy(
@@ -2229,6 +2259,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_instance_profile(
@@ -2278,6 +2309,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_login_profile(
@@ -2328,6 +2360,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_open_id_connect_provider(
@@ -2370,6 +2403,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_policy(
@@ -2414,6 +2448,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_policy_version(
@@ -2461,6 +2496,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_role(
@@ -2512,6 +2548,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_role_permissions_boundary(
@@ -2554,6 +2591,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_role_policy(
@@ -2606,6 +2644,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_saml_provider(
@@ -2649,6 +2688,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_server_certificate(
@@ -2692,6 +2732,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_service_linked_role(
@@ -2736,6 +2777,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_service_specific_credential(
@@ -2780,6 +2822,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_signing_certificate(
@@ -2835,6 +2878,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_ssh_public_key(
@@ -2878,6 +2922,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_user(
@@ -2928,6 +2973,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_user_permissions_boundary(
@@ -2969,6 +3015,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_user_policy(
@@ -3020,6 +3067,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_virtual_mfa_device(
@@ -3070,6 +3118,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def detach_group_policy(
@@ -3116,6 +3165,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def detach_role_policy(
@@ -3163,6 +3213,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def detach_user_policy(
@@ -3209,6 +3260,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_organizations_root_credentials_management(
@@ -3253,6 +3305,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_organizations_root_sessions(
@@ -3297,6 +3350,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disable_outbound_web_identity_federation(
@@ -3329,6 +3383,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_mfa_device(
@@ -3384,6 +3439,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_organizations_root_credentials_management(
@@ -3429,6 +3485,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_organizations_root_sessions(
@@ -3474,6 +3531,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def enable_outbound_web_identity_federation(
@@ -3508,6 +3566,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_credential_report(
@@ -3543,6 +3602,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_organizations_access_report(
@@ -3597,6 +3657,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def generate_service_last_accessed_details(
@@ -3652,6 +3713,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_access_key_last_used(
@@ -3695,6 +3757,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_authorization_details(
@@ -3746,6 +3809,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_password_policy(
@@ -3787,6 +3851,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_properties(
@@ -3823,6 +3888,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_account_summary(
@@ -3863,6 +3929,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_context_keys_for_custom_policy(
@@ -3905,6 +3972,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_context_keys_for_principal_policy(
@@ -3954,6 +4022,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_credential_report(
@@ -3991,6 +4060,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_delegation_request(
@@ -4040,6 +4110,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_group(
@@ -4091,6 +4162,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_get_group(
@@ -4160,6 +4232,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_human_readable_summary(
@@ -4208,6 +4281,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_instance_profile(
@@ -4257,6 +4331,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_instance_profile_exists(
@@ -4349,6 +4424,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_mfa_device(
@@ -4396,6 +4472,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_open_id_connect_provider(
@@ -4440,6 +4517,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_organizations_access_report(
@@ -4500,6 +4578,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_outbound_web_identity_federation_info(
@@ -4534,6 +4613,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_policy(
@@ -4578,6 +4658,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_policy_exists(
@@ -4669,6 +4750,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_role(
@@ -4716,6 +4798,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_role_exists(
@@ -4804,6 +4887,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_role_template_version(
@@ -4854,6 +4938,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_saml_provider(
@@ -4898,6 +4983,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_server_certificate(
@@ -4941,6 +5027,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_service_last_accessed_details(
@@ -4998,6 +5085,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_service_last_accessed_details_with_entities(
@@ -5058,6 +5146,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_service_linked_role_deletion_status(
@@ -5102,6 +5191,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_ssh_public_key(
@@ -5151,6 +5241,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_user(
@@ -5201,6 +5292,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def wait_until_user_exists(
@@ -5291,6 +5383,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_access_keys(
@@ -5351,6 +5444,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_access_keys(
@@ -5429,6 +5523,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_account_aliases(
@@ -5506,6 +5601,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_attached_group_policies(
@@ -5587,6 +5683,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_attached_role_policies(
@@ -5668,6 +5765,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_attached_user_policies(
@@ -5746,6 +5844,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_entities_for_policy(
@@ -5814,6 +5913,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_group_policies(
@@ -5871,6 +5971,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_group_policies(
@@ -5951,6 +6052,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_groups(
@@ -6031,6 +6133,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_groups_for_user(
@@ -6105,6 +6208,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_instance_profiles(
@@ -6179,6 +6283,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_instance_profiles_for_role(
@@ -6253,6 +6358,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_instance_profile_tags(
@@ -6330,6 +6436,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_mfa_devices(
@@ -6407,6 +6514,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_mfa_device_tags(
@@ -6465,6 +6573,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_open_id_connect_provider_tags(
@@ -6517,6 +6626,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_open_id_connect_provider_tags(
@@ -6584,6 +6694,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policies(
@@ -6649,6 +6760,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_policies(
@@ -6736,6 +6848,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policy_tags(
@@ -6788,6 +6901,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_policy_tags(
@@ -6863,6 +6977,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_policy_versions(
@@ -6937,6 +7052,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_role_policies(
@@ -7011,6 +7127,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_roles(
@@ -7091,6 +7208,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_role_tags(
@@ -7149,6 +7267,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_saml_provider_tags(
@@ -7201,6 +7320,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_saml_provider_tags(
@@ -7275,6 +7395,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_server_certificates(
@@ -7349,6 +7470,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_server_certificate_tags(
@@ -7432,6 +7554,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_signing_certificates(
@@ -7492,6 +7615,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_signing_certificates(
@@ -7568,6 +7692,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_ssh_public_keys(
@@ -7642,6 +7767,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_user_policies(
@@ -7722,6 +7848,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_users(
@@ -7802,6 +7929,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_user_tags(
@@ -7885,6 +8013,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_list_virtual_mfa_devices(
@@ -7954,6 +8083,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_group_policy(
@@ -8009,6 +8139,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_role_permissions_boundary(
@@ -8056,6 +8187,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_role_policy(
@@ -8112,6 +8244,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_user_permissions_boundary(
@@ -8158,6 +8291,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_user_policy(
@@ -8213,6 +8347,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reject_delegation_request(
@@ -8260,6 +8395,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_client_id_from_open_id_connect_provider(
@@ -8306,6 +8442,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_role_from_instance_profile(
@@ -8358,6 +8495,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def remove_user_from_group(
@@ -8409,6 +8547,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def reset_service_specific_credential(
@@ -8455,6 +8594,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def resync_mfa_device(
@@ -8508,6 +8648,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def send_delegation_token(
@@ -8551,6 +8692,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_default_policy_version(
@@ -8597,6 +8739,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def set_security_token_service_preferences(
@@ -8643,6 +8786,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def simulate_custom_policy(
@@ -8749,6 +8893,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_simulate_custom_policy(
@@ -8917,6 +9062,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def iter_simulate_principal_policy(
@@ -9025,6 +9171,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_mfa_device(
@@ -9072,6 +9219,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_open_id_connect_provider(
@@ -9119,6 +9267,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_policy(
@@ -9166,6 +9315,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_role(
@@ -9219,6 +9369,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_saml_provider(
@@ -9266,6 +9417,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_server_certificate(
@@ -9313,6 +9465,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def tag_user(
@@ -9366,6 +9519,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_instance_profile(
@@ -9412,6 +9566,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_mfa_device(
@@ -9458,6 +9613,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_open_id_connect_provider(
@@ -9504,6 +9660,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_policy(
@@ -9550,6 +9707,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_role(
@@ -9601,6 +9759,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_saml_provider(
@@ -9647,6 +9806,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_server_certificate(
@@ -9693,6 +9853,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def untag_user(
@@ -9744,6 +9905,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_access_key(
@@ -9802,6 +9964,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_account_password_policy(
@@ -9898,6 +10061,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_assume_role_policy(
@@ -9951,6 +10115,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_delegation_request(
@@ -9998,6 +10163,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_group(
@@ -10055,6 +10221,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_login_profile(
@@ -10115,6 +10282,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_open_id_connect_provider_thumbprint(
@@ -10161,6 +10329,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_role(
@@ -10217,6 +10386,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_role_description(
@@ -10266,6 +10436,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_saml_provider(
@@ -10336,6 +10507,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_server_certificate(
@@ -10389,6 +10561,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_service_specific_credential(
@@ -10436,6 +10609,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_signing_certificate(
@@ -10494,6 +10668,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_ssh_public_key(
@@ -10541,6 +10716,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_user(
@@ -10600,6 +10776,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def upload_server_certificate(
@@ -10674,6 +10851,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def upload_signing_certificate(
@@ -10735,6 +10913,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def upload_ssh_public_key(
@@ -10784,6 +10963,7 @@ class AsyncIAMClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def __aenter__(self) -> Self:

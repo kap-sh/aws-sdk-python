@@ -2662,6 +2662,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_capacity_reservation_billing_ownership(
@@ -2709,6 +2710,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_reserved_instances_exchange_quote(
@@ -2762,6 +2764,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_transit_gateway_client_vpn_attachment(
@@ -2809,6 +2812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_transit_gateway_multicast_domain_associations(
@@ -2868,6 +2872,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_transit_gateway_peering_attachment(
@@ -2915,6 +2920,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_transit_gateway_vpc_attachment(
@@ -2962,6 +2968,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_vpc_endpoint_connections(
@@ -3015,6 +3022,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def accept_vpc_peering_connection(
@@ -3062,6 +3070,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def advertise_byoip_cidr(
@@ -3115,6 +3124,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def allocate_address(
@@ -3194,6 +3204,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def allocate_hosts(
@@ -3293,6 +3304,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def allocate_ipam_pool_cidr(
@@ -3377,6 +3389,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def apply_security_groups_to_client_vpn_target_network(
@@ -3434,6 +3447,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assign_ipv6_addresses(
@@ -3495,6 +3509,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assign_private_ip_addresses(
@@ -3574,6 +3589,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def assign_private_nat_gateway_address(
@@ -3629,6 +3645,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_address(
@@ -3708,6 +3725,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_application_status_check(
@@ -3776,6 +3794,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_capacity_reservation_billing_owner(
@@ -3831,6 +3850,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_client_vpn_target_network(
@@ -3899,6 +3919,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_dhcp_options(
@@ -3958,6 +3979,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_enclave_certificate_iam_role(
@@ -4007,6 +4029,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_iam_instance_profile(
@@ -4060,6 +4083,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_instance_event_window(
@@ -4113,6 +4137,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_ipam_byoasn(
@@ -4162,6 +4187,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_ipam_resource_discovery(
@@ -4224,6 +4250,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_nat_gateway_address(
@@ -4291,6 +4318,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_route_server(
@@ -4342,6 +4370,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_route_table(
@@ -4407,6 +4436,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_security_group_vpc(
@@ -4456,6 +4486,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_subnet_cidr_block(
@@ -4511,6 +4542,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_transit_gateway_multicast_domain(
@@ -4572,6 +4604,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_transit_gateway_policy_table(
@@ -4625,6 +4658,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_transit_gateway_route_table(
@@ -4678,6 +4712,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_trunk_interface(
@@ -4746,6 +4781,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def associate_vpc_cidr_block(
@@ -4833,6 +4869,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_classic_link_vpc(
@@ -4888,6 +4925,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_image_watermark(
@@ -4939,6 +4977,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_internet_gateway(
@@ -4994,6 +5033,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_network_interface(
@@ -5069,6 +5109,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_verified_access_trust_provider(
@@ -5129,6 +5170,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_volume(
@@ -5190,6 +5232,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_vpn_gateway(
@@ -5239,6 +5282,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def authorize_client_vpn_ingress(
@@ -5307,6 +5351,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def authorize_security_group_egress(
@@ -5398,6 +5443,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def authorize_security_group_ingress(
@@ -5499,6 +5545,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_modify_ipam_routing_policy_registrations(
@@ -5561,6 +5608,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def bundle_instance(
@@ -5610,6 +5658,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_bundle_task(
@@ -5655,6 +5704,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_capacity_reservation(
@@ -5714,6 +5764,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_capacity_reservation_fleets(
@@ -5761,6 +5812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_conversion_task(
@@ -5810,6 +5862,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_declarative_policies_report(
@@ -5857,6 +5910,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_export_task(
@@ -5898,6 +5952,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_image_launch_permission(
@@ -5943,6 +5998,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_import_task(
@@ -5992,6 +6048,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_reserved_instances_listing(
@@ -6035,6 +6092,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_spot_fleet_requests(
@@ -6096,6 +6154,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_spot_instance_requests(
@@ -6149,6 +6208,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def confirm_product_instance(
@@ -6204,6 +6264,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_fpga_image(
@@ -6265,6 +6326,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_image(
@@ -6377,6 +6439,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_snapshot(
@@ -6474,6 +6537,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def copy_volumes(
@@ -6548,6 +6612,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_application_status_check(
@@ -6672,6 +6737,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_capacity_manager_data_export(
@@ -6740,6 +6806,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_capacity_reservation(
@@ -6873,6 +6940,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_capacity_reservation_by_splitting(
@@ -6935,6 +7003,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_capacity_reservation_cancellation_quote(
@@ -6993,6 +7062,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_capacity_reservation_fleet(
@@ -7077,6 +7147,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_carrier_gateway(
@@ -7133,6 +7204,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_client_vpn_endpoint(
@@ -7295,6 +7367,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_client_vpn_route(
@@ -7359,6 +7432,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_coip_cidr(
@@ -7410,6 +7484,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_coip_pool(
@@ -7463,6 +7538,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_customer_gateway(
@@ -7544,6 +7620,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_default_subnet(
@@ -7601,6 +7678,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_default_vpc(
@@ -7642,6 +7720,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_delegate_mac_volume_ownership_task(
@@ -7704,6 +7783,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_dhcp_options(
@@ -7763,6 +7843,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_egress_only_internet_gateway(
@@ -7818,6 +7899,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_fleet(
@@ -7934,6 +8016,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_flow_logs(
@@ -8043,6 +8126,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_fpga_image(
@@ -8114,6 +8198,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_image(
@@ -8189,6 +8274,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_image_usage_report(
@@ -8259,6 +8345,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_instance_connect_endpoint(
@@ -8331,6 +8418,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_instance_event_window(
@@ -8394,6 +8482,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_instance_export_task(
@@ -8457,6 +8546,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_internet_gateway(
@@ -8510,6 +8600,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_interruptible_capacity_reservation_allocation(
@@ -8572,6 +8663,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam(
@@ -8646,6 +8738,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_external_resource_verification_token(
@@ -8702,6 +8795,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_internet_registry_association(
@@ -8770,6 +8864,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_policy(
@@ -8826,6 +8921,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_pool(
@@ -8950,6 +9046,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_prefix_list_resolver(
@@ -9020,6 +9117,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_prefix_list_resolver_target(
@@ -9094,6 +9192,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_resource_discovery(
@@ -9156,6 +9255,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_routing_policy_registration(
@@ -9240,6 +9340,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_ipam_scope(
@@ -9308,6 +9409,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_key_pair(
@@ -9371,6 +9473,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_launch_template(
@@ -9449,6 +9552,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_launch_template_version(
@@ -9533,6 +9637,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_route(
@@ -9606,6 +9711,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_route_table(
@@ -9665,6 +9771,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_route_table_virtual_interface_group_association(
@@ -9726,6 +9833,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_route_table_vpc_association(
@@ -9783,6 +9891,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_virtual_interface(
@@ -9862,6 +9971,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_local_gateway_virtual_interface_group(
@@ -9923,6 +10033,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_mac_system_integrity_protection_modification_task(
@@ -10001,6 +10112,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_managed_prefix_list(
@@ -10073,6 +10185,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_nat_gateway(
@@ -10185,6 +10298,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_acl(
@@ -10247,6 +10361,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_acl_entry(
@@ -10328,6 +10443,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_insights_access_scope(
@@ -10392,6 +10508,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_insights_path(
@@ -10484,6 +10601,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_interface(
@@ -10620,6 +10738,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_network_interface_permission(
@@ -10681,6 +10800,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_placement_group(
@@ -10768,6 +10888,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_public_ipv4_pool(
@@ -10819,6 +10940,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_replace_root_volume_task(
@@ -10895,6 +11017,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_reserved_instances_listing(
@@ -10952,6 +11075,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_restore_image_task(
@@ -11011,6 +11135,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_route(
@@ -11140,6 +11265,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_route_server(
@@ -11210,6 +11336,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_route_server_endpoint(
@@ -11272,6 +11399,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_route_server_peer(
@@ -11335,6 +11463,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_route_table(
@@ -11397,6 +11526,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_secondary_network(
@@ -11465,6 +11595,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_secondary_subnet(
@@ -11545,6 +11676,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_security_group(
@@ -11610,6 +11742,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_snapshot(
@@ -11679,6 +11812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_snapshots(
@@ -11752,6 +11886,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_spot_datafeed_subscription(
@@ -11807,6 +11942,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_store_image_task(
@@ -11862,6 +11998,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_subnet(
@@ -11963,6 +12100,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_subnet_cidr_reservation(
@@ -12028,6 +12166,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_tags(
@@ -12081,6 +12220,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_mirror_filter(
@@ -12137,6 +12277,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_mirror_filter_rule(
@@ -12239,6 +12380,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_mirror_session(
@@ -12325,6 +12467,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_traffic_mirror_target(
@@ -12399,6 +12542,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway(
@@ -12456,6 +12600,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_connect(
@@ -12517,6 +12662,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_connect_peer(
@@ -12590,6 +12736,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_metering_policy(
@@ -12649,6 +12796,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_metering_policy_entry(
@@ -12760,6 +12908,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_multicast_domain(
@@ -12819,6 +12968,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_peering_attachment(
@@ -12892,6 +13042,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_policy_table(
@@ -12945,6 +13096,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_policy_table_entry(
@@ -13008,6 +13160,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_prefix_list_reference(
@@ -13071,6 +13224,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_route(
@@ -13132,6 +13286,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_route_table(
@@ -13185,6 +13340,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_route_table_announcement(
@@ -13244,6 +13400,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_transit_gateway_vpc_attachment(
@@ -13313,6 +13470,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_verified_access_endpoint(
@@ -13441,6 +13599,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_verified_access_group(
@@ -13513,6 +13672,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_verified_access_instance(
@@ -13581,6 +13741,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_verified_access_trust_provider(
@@ -13683,6 +13844,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_volume(
@@ -13799,6 +13961,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc(
@@ -13906,6 +14069,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_block_public_access_exclusion(
@@ -13967,6 +14131,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_encryption_control(
@@ -14018,6 +14183,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_endpoint(
@@ -14143,6 +14309,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_endpoint_connection_notification(
@@ -14210,6 +14377,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_endpoint_service_configuration(
@@ -14293,6 +14461,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpc_peering_connection(
@@ -14356,6 +14525,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpn_concentrator(
@@ -14415,6 +14585,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpn_connection(
@@ -14498,6 +14669,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpn_connection_route(
@@ -14543,6 +14715,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_vpn_gateway(
@@ -14602,6 +14775,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_application_status_check(
@@ -14660,6 +14834,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_capacity_manager_data_export(
@@ -14707,6 +14882,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_carrier_gateway(
@@ -14754,6 +14930,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_client_vpn_endpoint(
@@ -14803,6 +14980,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_client_vpn_route(
@@ -14858,6 +15036,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_coip_cidr(
@@ -14909,6 +15088,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_coip_pool(
@@ -14956,6 +15136,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_customer_gateway(
@@ -15007,6 +15188,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_dhcp_options(
@@ -15058,6 +15240,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_egress_only_internet_gateway(
@@ -15105,6 +15288,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_fleets(
@@ -15154,6 +15338,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_flow_logs(
@@ -15199,6 +15384,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_fpga_image(
@@ -15244,6 +15430,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_image_usage_report(
@@ -15291,6 +15478,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_instance_connect_endpoint(
@@ -15338,6 +15526,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_instance_event_window(
@@ -15389,6 +15578,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_internet_gateway(
@@ -15440,6 +15630,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam(
@@ -15487,6 +15678,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_external_resource_verification_token(
@@ -15536,6 +15728,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_internet_registry_association(
@@ -15585,6 +15778,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_policy(
@@ -15630,6 +15824,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_pool(
@@ -15679,6 +15874,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_prefix_list_resolver(
@@ -15726,6 +15922,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_prefix_list_resolver_target(
@@ -15775,6 +15972,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_resource_discovery(
@@ -15822,6 +16020,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_routing_policy_registration(
@@ -15884,6 +16083,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ipam_scope(
@@ -15929,6 +16129,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_key_pair(
@@ -15986,6 +16187,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_launch_template(
@@ -16045,6 +16247,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_launch_template_versions(
@@ -16110,6 +16313,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_route(
@@ -16169,6 +16373,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_route_table(
@@ -16216,6 +16421,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_route_table_virtual_interface_group_association(
@@ -16265,6 +16471,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_route_table_vpc_association(
@@ -16314,6 +16521,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_virtual_interface(
@@ -16363,6 +16571,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_local_gateway_virtual_interface_group(
@@ -16412,6 +16621,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_managed_prefix_list(
@@ -16461,6 +16671,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_nat_gateway(
@@ -16512,6 +16723,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_acl(
@@ -16561,6 +16773,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_acl_entry(
@@ -16618,6 +16831,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_insights_access_scope(
@@ -16667,6 +16881,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_insights_access_scope_analysis(
@@ -16716,6 +16931,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_insights_analysis(
@@ -16763,6 +16979,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_insights_path(
@@ -16810,6 +17027,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_interface(
@@ -16861,6 +17079,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_network_interface_permission(
@@ -16912,6 +17131,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_placement_group(
@@ -16964,6 +17184,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_public_ipv4_pool(
@@ -17013,6 +17234,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_queued_reserved_instances(
@@ -17060,6 +17282,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_route(
@@ -17123,6 +17346,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_route_server(
@@ -17170,6 +17394,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_route_server_endpoint(
@@ -17217,6 +17442,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_route_server_peer(
@@ -17264,6 +17490,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_route_table(
@@ -17313,6 +17540,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_secondary_network(
@@ -17371,6 +17599,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_secondary_subnet(
@@ -17429,6 +17658,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_security_group(
@@ -17486,6 +17716,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_snapshot(
@@ -17535,6 +17766,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_spot_datafeed_subscription(
@@ -17580,6 +17812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_subnet(
@@ -17629,6 +17862,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_subnet_cidr_reservation(
@@ -17676,6 +17910,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_tags(
@@ -17729,6 +17964,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_mirror_filter(
@@ -17776,6 +18012,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_mirror_filter_rule(
@@ -17823,6 +18060,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_mirror_session(
@@ -17870,6 +18108,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_traffic_mirror_target(
@@ -17917,6 +18156,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway(
@@ -17964,6 +18204,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_client_vpn_attachment(
@@ -18011,6 +18252,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_connect(
@@ -18058,6 +18300,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_connect_peer(
@@ -18105,6 +18348,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_metering_policy(
@@ -18154,6 +18398,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_metering_policy_entry(
@@ -18207,6 +18452,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_multicast_domain(
@@ -18256,6 +18502,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_peering_attachment(
@@ -18303,6 +18550,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_policy_table(
@@ -18350,6 +18598,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_policy_table_entry(
@@ -18401,6 +18650,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_prefix_list_reference(
@@ -18454,6 +18704,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_route(
@@ -18505,6 +18756,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_route_table(
@@ -18552,6 +18804,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_route_table_announcement(
@@ -18601,6 +18854,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_transit_gateway_vpc_attachment(
@@ -18648,6 +18902,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_verified_access_endpoint(
@@ -18700,6 +18955,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_verified_access_group(
@@ -18752,6 +19008,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_verified_access_instance(
@@ -18804,6 +19061,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_verified_access_trust_provider(
@@ -18858,6 +19116,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_volume(
@@ -18907,6 +19166,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc(
@@ -18956,6 +19216,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_block_public_access_exclusion(
@@ -19003,6 +19264,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_encryption_control(
@@ -19050,6 +19312,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_endpoint_connection_notifications(
@@ -19097,6 +19360,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_endpoints(
@@ -19144,6 +19408,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_endpoint_service_configurations(
@@ -19191,6 +19456,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpc_peering_connection(
@@ -19238,6 +19504,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpn_concentrator(
@@ -19285,6 +19552,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpn_connection(
@@ -19330,6 +19598,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpn_connection_route(
@@ -19375,6 +19644,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_vpn_gateway(
@@ -19418,6 +19688,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deprovision_byoip_cidr(
@@ -19463,6 +19734,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deprovision_ipam_byoasn(
@@ -19512,6 +19784,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deprovision_ipam_pool_cidr(
@@ -19563,6 +19836,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deprovision_public_ipv4_pool_cidr(
@@ -19612,6 +19886,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_image(
@@ -19661,6 +19936,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_instance_event_notification_attributes(
@@ -19708,6 +19984,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_transit_gateway_multicast_group_members(
@@ -19767,6 +20044,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_transit_gateway_multicast_group_sources(
@@ -19826,6 +20104,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_account_attributes(
@@ -19883,6 +20162,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_account_vpc_encryption_control(
@@ -19924,6 +20204,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_addresses(
@@ -19987,6 +20268,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_addresses_attribute(
@@ -20048,6 +20330,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_addresses_attribute(
@@ -20136,6 +20419,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_address_transfers(
@@ -20206,6 +20490,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_application_status(
@@ -20275,6 +20560,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_application_status_check_associations(
@@ -20342,6 +20628,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_application_status_checks(
@@ -20417,6 +20704,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_availability_zones(
@@ -20484,6 +20772,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_aws_network_performance_metric_subscriptions(
@@ -20539,6 +20828,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_aws_network_performance_metric_subscriptions(
@@ -20617,6 +20907,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_byoip_cidrs(
@@ -20668,6 +20959,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_byoip_cidrs(
@@ -20754,6 +21046,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_block_extension_history(
@@ -20850,6 +21143,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_block_extension_offerings(
@@ -20970,6 +21264,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_block_offerings(
@@ -21076,6 +21371,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_blocks(
@@ -21168,6 +21464,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_block_status(
@@ -21262,6 +21559,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_manager_data_exports(
@@ -21358,6 +21656,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_reservation_billing_requests(
@@ -21454,6 +21753,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_capacity_reservation_fleets(
@@ -21515,6 +21815,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_reservation_fleets(
@@ -21607,6 +21908,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_capacity_reservations(
@@ -21699,6 +22001,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_carrier_gateways(
@@ -21762,6 +22065,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_carrier_gateways(
@@ -21854,6 +22158,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_classic_link_instances(
@@ -21946,6 +22251,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_client_vpn_authorization_rules(
@@ -22038,6 +22344,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_client_vpn_connections(
@@ -22130,6 +22437,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_client_vpn_endpoints(
@@ -22224,6 +22532,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_client_vpn_routes(
@@ -22322,6 +22631,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_client_vpn_target_networks(
@@ -22416,6 +22726,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_coip_pools(
@@ -22494,6 +22805,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_customer_gateways(
@@ -22551,6 +22863,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_declarative_policies_reports(
@@ -22606,6 +22919,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_dhcp_options(
@@ -22673,6 +22987,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_dhcp_options(
@@ -22767,6 +23082,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_egress_only_internet_gateways(
@@ -22859,6 +23175,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_export_image_tasks(
@@ -22920,6 +23237,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_export_image_tasks(
@@ -22998,6 +23316,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_fast_launch_images(
@@ -23059,6 +23378,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_fast_launch_images(
@@ -23145,6 +23465,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_fast_snapshot_restores(
@@ -23233,6 +23554,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_fleet_instances(
@@ -23290,6 +23612,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_fleets(
@@ -23347,6 +23670,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_fleets(
@@ -23431,6 +23755,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_flow_logs(
@@ -23509,6 +23834,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_fpga_images(
@@ -23574,6 +23900,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_fpga_images(
@@ -23670,6 +23997,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_host_reservation_offerings(
@@ -23756,6 +24084,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_host_reservations(
@@ -23838,6 +24167,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_hosts(
@@ -23928,6 +24258,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_iam_instance_profile_associations(
@@ -24002,6 +24333,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_id_format(
@@ -24043,6 +24375,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_image_attribute(
@@ -24098,6 +24431,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_image_references(
@@ -24167,6 +24501,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_image_references(
@@ -24285,6 +24620,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_images(
@@ -24391,6 +24727,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_image_usage_report_entries(
@@ -24493,6 +24830,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_image_usage_reports(
@@ -24587,6 +24925,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_import_image_tasks(
@@ -24675,6 +25014,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_import_snapshot_tasks(
@@ -24765,6 +25105,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_instance_connect_endpoints(
@@ -24826,6 +25167,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_connect_endpoints(
@@ -24918,6 +25260,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_credit_specifications(
@@ -24990,6 +25333,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_instance_event_windows(
@@ -25049,6 +25393,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_event_windows(
@@ -25139,6 +25484,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_image_metadata(
@@ -25247,6 +25593,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instances(
@@ -25351,6 +25698,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_instance_sql_ha_states(
@@ -25412,6 +25760,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_instance_status(
@@ -25485,6 +25834,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_status(
@@ -25585,6 +25935,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_topology(
@@ -25677,6 +26028,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_type_offerings(
@@ -25769,6 +26121,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_instance_types(
@@ -25869,6 +26222,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_internet_gateways(
@@ -25951,6 +26305,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_ipam_external_resource_verification_tokens(
@@ -26012,6 +26367,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_ipam_internet_registry_associations(
@@ -26073,6 +26429,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_ipam_policies(
@@ -26132,6 +26489,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_ipam_pool_allocations(
@@ -26193,6 +26551,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_pool_allocations(
@@ -26283,6 +26642,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_pools(
@@ -26371,6 +26731,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_prefix_list_resolvers(
@@ -26467,6 +26828,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_prefix_list_resolver_targets(
@@ -26559,6 +26921,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_resource_discoveries(
@@ -26649,6 +27012,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_resource_discovery_associations(
@@ -26735,6 +27099,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipams(
@@ -26821,6 +27186,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipam_scopes(
@@ -26909,6 +27275,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_ipv6_pools(
@@ -27005,6 +27372,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_launch_templates(
@@ -27084,6 +27452,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_launch_templates(
@@ -27214,6 +27583,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_launch_template_versions(
@@ -27320,6 +27690,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateway_route_tables(
@@ -27417,6 +27788,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateway_route_table_virtual_interface_group_associations(
@@ -27514,6 +27886,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateway_route_table_vpc_associations(
@@ -27608,6 +27981,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateways(
@@ -27702,6 +28076,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateway_virtual_interface_groups(
@@ -27798,6 +28173,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_local_gateway_virtual_interfaces(
@@ -27892,6 +28268,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_mac_hosts(
@@ -27949,6 +28326,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_mac_hosts(
@@ -28039,6 +28417,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_mac_modification_tasks(
@@ -28131,6 +28510,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_managed_prefix_lists(
@@ -28229,6 +28609,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_moving_addresses(
@@ -28325,6 +28706,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_nat_gateways(
@@ -28423,6 +28805,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_acls(
@@ -28537,6 +28920,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_insights_access_scope_analyses(
@@ -28645,6 +29029,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_insights_access_scopes(
@@ -28755,6 +29140,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_insights_analyses(
@@ -28859,6 +29245,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_insights_paths(
@@ -28961,6 +29348,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_network_interface_permissions(
@@ -29020,6 +29408,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_interface_permissions(
@@ -29119,6 +29508,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_network_interfaces(
@@ -29213,6 +29603,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_placement_groups(
@@ -29272,6 +29663,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_prefix_lists(
@@ -29331,6 +29723,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_prefix_lists(
@@ -29415,6 +29808,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_principal_id_format(
@@ -29499,6 +29893,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_public_ipv4_pools(
@@ -29587,6 +29982,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_replace_root_volume_tasks(
@@ -29648,6 +30044,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_replace_root_volume_tasks(
@@ -29742,6 +30139,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_reserved_instances_listings(
@@ -29795,6 +30193,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_reserved_instances_modifications(
@@ -29848,6 +30247,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_reserved_instances_modifications(
@@ -29984,6 +30384,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_reserved_instances_offerings(
@@ -30106,6 +30507,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_route_server_endpoints(
@@ -30198,6 +30600,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_route_server_peers(
@@ -30290,6 +30693,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_route_servers(
@@ -30388,6 +30792,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_route_tables(
@@ -30494,6 +30899,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_scheduled_instance_availability(
@@ -30598,6 +31004,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_scheduled_instances(
@@ -30702,6 +31109,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_secondary_interfaces(
@@ -30804,6 +31212,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_secondary_networks(
@@ -30902,6 +31311,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_secondary_subnets(
@@ -30984,6 +31394,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_security_group_rules(
@@ -31045,6 +31456,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_security_group_rules(
@@ -31153,6 +31565,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_security_groups(
@@ -31243,6 +31656,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_security_group_vpc_associations(
@@ -31333,6 +31747,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_snapshot_attribute(
@@ -31390,6 +31805,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_snapshots(
@@ -31469,6 +31885,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_snapshots(
@@ -31559,6 +31976,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_snapshot_tier_status(
@@ -31633,6 +32051,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_spot_fleet_instances(
@@ -31696,6 +32115,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_spot_fleet_request_history(
@@ -31767,6 +32187,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_spot_fleet_requests(
@@ -31828,6 +32249,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_spot_fleet_requests(
@@ -31920,6 +32342,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_spot_instance_requests(
@@ -32038,6 +32461,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_spot_price_history(
@@ -32138,6 +32562,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_stale_security_groups(
@@ -32228,6 +32653,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_store_image_tasks(
@@ -32324,6 +32750,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_subnets(
@@ -32414,6 +32841,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_tags(
@@ -32506,6 +32934,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_traffic_mirror_filters(
@@ -32567,6 +32996,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_traffic_mirror_filters(
@@ -32659,6 +33089,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_traffic_mirror_sessions(
@@ -32751,6 +33182,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_traffic_mirror_targets(
@@ -32843,6 +33275,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_attachments(
@@ -32937,6 +33370,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_connect_peers(
@@ -33029,6 +33463,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_connects(
@@ -33123,6 +33558,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_transit_gateway_multicast_domains(
@@ -33186,6 +33622,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_multicast_domains(
@@ -33278,6 +33715,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_peering_attachments(
@@ -33372,6 +33810,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_policy_tables(
@@ -33466,6 +33905,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_route_table_announcements(
@@ -33560,6 +34000,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_route_tables(
@@ -33656,6 +34097,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateways(
@@ -33748,6 +34190,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_transit_gateway_vpc_attachments(
@@ -33840,6 +34283,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_trunk_interface_associations(
@@ -33946,6 +34390,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_verified_access_endpoints(
@@ -34052,6 +34497,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_verified_access_groups(
@@ -34148,6 +34594,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_verified_access_instance_logging_configurations(
@@ -34240,6 +34687,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_verified_access_instances(
@@ -34334,6 +34782,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_verified_access_trust_providers(
@@ -34424,6 +34873,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_volumes(
@@ -34497,6 +34947,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_volumes(
@@ -34591,6 +35042,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_volumes_modifications(
@@ -34695,6 +35147,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_volume_status(
@@ -34787,6 +35240,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_block_public_access_exclusions(
@@ -34848,6 +35302,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_block_public_access_options(
@@ -34889,6 +35344,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_classic_link(
@@ -34940,6 +35396,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_classic_link_dns_support(
@@ -34995,6 +35452,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_classic_link_dns_support(
@@ -35089,6 +35547,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_endpoint_associations(
@@ -35148,6 +35607,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_endpoint_connection_notifications(
@@ -35207,6 +35667,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_endpoint_connection_notifications(
@@ -35289,6 +35750,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_endpoint_connections(
@@ -35373,6 +35835,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_endpoints(
@@ -35461,6 +35924,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_endpoint_service_configurations(
@@ -35549,6 +36013,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_endpoint_service_permissions(
@@ -35643,6 +36108,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpc_peering_connections(
@@ -35704,6 +36170,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpc_peering_connections(
@@ -35862,6 +36329,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpcs(
@@ -36007,6 +36475,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_vpn_concentrators(
@@ -36087,6 +36556,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_vpn_gateways(
@@ -36138,6 +36608,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_classic_link_vpc(
@@ -36187,6 +36658,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_image_watermark(
@@ -36236,6 +36708,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_internet_gateway(
@@ -36291,6 +36764,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_network_interface(
@@ -36346,6 +36820,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_verified_access_trust_provider(
@@ -36406,6 +36881,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_volume(
@@ -36471,6 +36947,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_vpn_gateway(
@@ -36518,6 +36995,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_address_transfer(
@@ -36563,6 +37041,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_allowed_images_settings(
@@ -36604,6 +37083,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_application_status_check_suppression(
@@ -36660,6 +37140,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_aws_network_performance_metric_subscription(
@@ -36717,6 +37198,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_capacity_manager(
@@ -36763,6 +37245,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_ebs_encryption_by_default(
@@ -36804,6 +37287,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_fast_launch(
@@ -36853,6 +37337,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_fast_snapshot_restores(
@@ -36912,6 +37397,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_image(
@@ -36957,6 +37443,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_image_block_public_access(
@@ -36998,6 +37485,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_image_deprecation(
@@ -37045,6 +37533,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_image_deregistration_protection(
@@ -37090,6 +37579,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_instance_sql_ha_standby_detections(
@@ -37137,6 +37627,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_ipam_organization_admin_account(
@@ -37182,6 +37673,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_ipam_policy(
@@ -37231,6 +37723,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_route_server_propagation(
@@ -37282,6 +37775,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_serial_console_access(
@@ -37323,6 +37817,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_snapshot_block_public_access(
@@ -37364,6 +37859,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_transit_gateway_route_table_propagation(
@@ -37425,6 +37921,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_vgw_route_propagation(
@@ -37478,6 +37975,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_vpc_classic_link(
@@ -37523,6 +38021,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_vpc_classic_link_dns_support(
@@ -37564,6 +38063,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_address(
@@ -37621,6 +38121,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_application_status_check(
@@ -37689,6 +38190,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_capacity_reservation_billing_owner(
@@ -37744,6 +38246,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_client_vpn_target_network(
@@ -37795,6 +38298,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_enclave_certificate_iam_role(
@@ -37844,6 +38348,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_iam_instance_profile(
@@ -37893,6 +38398,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_instance_event_window(
@@ -37946,6 +38452,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_ipam_byoasn(
@@ -37995,6 +38502,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_ipam_resource_discovery(
@@ -38044,6 +38552,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_nat_gateway_address(
@@ -38101,6 +38610,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_route_server(
@@ -38154,6 +38664,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_route_table(
@@ -38205,6 +38716,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_security_group_vpc(
@@ -38256,6 +38768,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_subnet_cidr_block(
@@ -38299,6 +38812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_transit_gateway_multicast_domain(
@@ -38360,6 +38874,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_transit_gateway_policy_table(
@@ -38413,6 +38928,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_transit_gateway_route_table(
@@ -38466,6 +38982,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_trunk_interface(
@@ -38518,6 +39035,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_vpc_cidr_block(
@@ -38561,6 +39079,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_address_transfer(
@@ -38610,6 +39129,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_allowed_images_settings(
@@ -38657,6 +39177,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_application_status_check_suppression(
@@ -38717,6 +39238,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_aws_network_performance_metric_subscription(
@@ -38774,6 +39296,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_capacity_manager(
@@ -38824,6 +39347,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_ebs_encryption_by_default(
@@ -38865,6 +39389,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_fast_launch(
@@ -38930,6 +39455,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_fast_snapshot_restores(
@@ -38989,6 +39515,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_image(
@@ -39032,6 +39559,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_image_block_public_access(
@@ -39079,6 +39607,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_image_deprecation(
@@ -39130,6 +39659,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_image_deregistration_protection(
@@ -39179,6 +39709,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_instance_sql_ha_standby_detections(
@@ -39230,6 +39761,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_ipam_internet_registry_association(
@@ -39304,6 +39836,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_ipam_organization_admin_account(
@@ -39349,6 +39882,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_ipam_policy(
@@ -39398,6 +39932,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_reachability_analyzer_organization_sharing(
@@ -39439,6 +39974,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_route_server_propagation(
@@ -39490,6 +40026,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_serial_console_access(
@@ -39531,6 +40068,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_snapshot_block_public_access(
@@ -39578,6 +40116,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_transit_gateway_route_table_propagation(
@@ -39639,6 +40178,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_vgw_route_propagation(
@@ -39692,6 +40232,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_volume_io(
@@ -39741,6 +40282,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_vpc_classic_link(
@@ -39786,6 +40328,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_vpc_classic_link_dns_support(
@@ -39827,6 +40370,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_client_vpn_client_certificate_revocation_list(
@@ -39874,6 +40418,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_client_vpn_client_configuration(
@@ -39921,6 +40466,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_image(
@@ -39995,6 +40541,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_transit_gateway_routes(
@@ -40050,6 +40597,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def export_verified_access_instance_client_configuration(
@@ -40097,6 +40645,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_active_vpn_tunnel_status(
@@ -40148,6 +40697,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_allowed_images_settings(
@@ -40189,6 +40739,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_associated_enclave_certificate_iam_roles(
@@ -40234,6 +40785,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_associated_ipv6_pool_cidrs(
@@ -40289,6 +40841,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_associated_ipv6_pool_cidrs(
@@ -40381,6 +40934,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_aws_network_performance_data(
@@ -40455,6 +41009,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_capacity_manager_metric_data(
@@ -40534,6 +41089,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_capacity_manager_metric_data(
@@ -40650,6 +41206,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_capacity_manager_metric_dimensions(
@@ -40740,6 +41297,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_capacity_manager_monitored_tag_keys(
@@ -40822,6 +41380,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_coip_pool_usage(
@@ -40881,6 +41440,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_console_output(
@@ -40936,6 +41496,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_console_screenshot(
@@ -40985,6 +41546,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_declarative_policies_report_summary(
@@ -41032,6 +41594,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_default_credit_specification(
@@ -41079,6 +41642,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ebs_default_kms_key_id(
@@ -41120,6 +41684,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ebs_encryption_by_default(
@@ -41161,6 +41726,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_enabled_ipam_policy(
@@ -41202,6 +41768,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_flow_logs_integration_template(
@@ -41261,6 +41828,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_groups_for_capacity_reservation(
@@ -41318,6 +41886,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_groups_for_capacity_reservation(
@@ -41394,6 +41963,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_image_ancestry(
@@ -41439,6 +42009,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_image_block_public_access_state(
@@ -41480,6 +42051,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_instance_metadata_defaults(
@@ -41521,6 +42093,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_instance_tpm_ek_pub(
@@ -41574,6 +42147,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_instance_types_from_instance_requirements(
@@ -41645,6 +42219,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_instance_types_from_instance_requirements(
@@ -41727,6 +42302,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_address_history(
@@ -41802,6 +42378,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_address_history(
@@ -41906,6 +42483,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_discovered_accounts(
@@ -42000,6 +42578,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_discovered_resource_cidrs(
@@ -42063,6 +42642,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_discovered_resource_cidrs(
@@ -42159,6 +42739,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_internet_registry_association_asns(
@@ -42220,6 +42801,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_internet_registry_association_cidrs(
@@ -42281,6 +42863,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_policy_allocation_rules(
@@ -42348,6 +42931,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_policy_organization_targets(
@@ -42405,6 +42989,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_pool_allocations(
@@ -42470,6 +43055,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_pool_allocations(
@@ -42560,6 +43146,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_pool_cidrs(
@@ -42646,6 +43233,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_prefix_list_resolver_rules(
@@ -42736,6 +43324,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_prefix_list_resolver_version_entries(
@@ -42832,6 +43421,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_prefix_list_resolver_versions(
@@ -42946,6 +43536,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_ipam_resource_cidrs(
@@ -43048,6 +43639,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_route_protection_findings(
@@ -43105,6 +43697,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_routing_policy_registration_deltas(
@@ -43184,6 +43777,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ipam_routing_policy_registrations(
@@ -43245,6 +43839,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_launch_template_data(
@@ -43296,6 +43891,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_managed_prefix_list_associations(
@@ -43353,6 +43949,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_managed_prefix_list_associations(
@@ -43443,6 +44040,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_managed_prefix_list_entries(
@@ -43515,6 +44113,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_network_insights_access_scope_analysis_findings(
@@ -43574,6 +44173,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_network_insights_access_scope_analysis_findings(
@@ -43652,6 +44252,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_password_data(
@@ -43697,6 +44298,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_reserved_instances_exchange_quote(
@@ -43750,6 +44352,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_route_server_associations(
@@ -43797,6 +44400,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_route_server_propagations(
@@ -43848,6 +44452,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_route_server_routing_database(
@@ -43909,6 +44514,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_security_groups_for_vpc(
@@ -43968,6 +44574,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_security_groups_for_vpc(
@@ -44038,6 +44645,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_snapshot_block_public_access_state(
@@ -44079,6 +44687,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_spot_placement_scores(
@@ -44166,6 +44775,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_spot_placement_scores(
@@ -44270,6 +44880,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_transit_gateway_attachment_propagations(
@@ -44331,6 +44942,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_attachment_propagations(
@@ -44427,6 +45039,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_transit_gateway_multicast_domain_associations(
@@ -44490,6 +45103,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_multicast_domain_associations(
@@ -44582,6 +45196,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_policy_table_associations(
@@ -44674,6 +45289,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_policy_table_entries(
@@ -44766,6 +45382,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_prefix_list_references(
@@ -44860,6 +45477,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_route_table_associations(
@@ -44952,6 +45570,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_transit_gateway_route_table_propagations(
@@ -45032,6 +45651,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_verified_access_endpoint_targets(
@@ -45089,6 +45709,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_verified_access_group_policy(
@@ -45136,6 +45757,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_vpc_resources_blocking_encryption_enforcement(
@@ -45191,6 +45813,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_vpn_connection_device_sample_configuration(
@@ -45252,6 +45875,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_vpn_connection_device_types(
@@ -45301,6 +45925,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_get_vpn_connection_device_types(
@@ -45375,6 +46000,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_client_vpn_client_certificate_revocation_list(
@@ -45426,6 +46052,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_image(
@@ -45531,6 +46158,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_instance(
@@ -45590,6 +46218,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_key_pair(
@@ -45645,6 +46274,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_snapshot(
@@ -45722,6 +46352,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def import_volume(
@@ -45785,6 +46416,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_images_in_recycle_bin(
@@ -45844,6 +46476,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_images_in_recycle_bin(
@@ -45930,6 +46563,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_snapshots_in_recycle_bin(
@@ -46014,6 +46648,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def lock_snapshot(
@@ -46081,6 +46716,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_account_vpc_encryption_control(
@@ -46176,6 +46812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_address_attribute(
@@ -46225,6 +46862,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_application_status_check(
@@ -46349,6 +46987,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_availability_zone_group(
@@ -46400,6 +47039,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_capacity_reservation(
@@ -46473,6 +47113,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_capacity_reservation_fleet(
@@ -46534,6 +47175,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_client_vpn_endpoint(
@@ -46663,6 +47305,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_default_credit_specification(
@@ -46714,6 +47357,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ebs_default_kms_key_id(
@@ -46759,6 +47403,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_fleet(
@@ -46826,6 +47471,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_fpga_image_attribute(
@@ -46913,6 +47559,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_hosts(
@@ -46976,6 +47623,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_identity_id_format(
@@ -47023,6 +47671,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_id_format(
@@ -47066,6 +47715,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_image_attribute(
@@ -47175,6 +47825,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_attribute(
@@ -47320,6 +47971,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_capacity_reservation_attributes(
@@ -47373,6 +48025,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_connect_endpoint(
@@ -47436,6 +48089,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_cpu_options(
@@ -47495,6 +48149,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_credit_specification(
@@ -47546,6 +48201,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_event_start_time(
@@ -47599,6 +48255,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_event_window(
@@ -47662,6 +48319,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_maintenance_options(
@@ -47719,6 +48377,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_metadata_defaults(
@@ -47790,6 +48449,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_metadata_options(
@@ -47863,6 +48523,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_network_performance_options(
@@ -47914,6 +48575,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_instance_placement(
@@ -47987,6 +48649,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam(
@@ -48060,6 +48723,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_policy_allocation_rules(
@@ -48121,6 +48785,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_pool(
@@ -48214,6 +48879,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_pool_allocation(
@@ -48265,6 +48931,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_prefix_list_resolver(
@@ -48322,6 +48989,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_prefix_list_resolver_target(
@@ -48386,6 +49054,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_resource_cidr(
@@ -48455,6 +49124,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_resource_discovery(
@@ -48534,6 +49204,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_routing_policy_registration(
@@ -48618,6 +49289,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_ipam_scope(
@@ -48683,6 +49355,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_launch_template(
@@ -48751,6 +49424,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_local_gateway_route(
@@ -48824,6 +49498,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_managed_prefix_list(
@@ -48905,6 +49580,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_managed_resource_visibility(
@@ -48952,6 +49628,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_network_interface_attribute(
@@ -49065,6 +49742,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_private_dns_name_options(
@@ -49132,6 +49810,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_public_ip_dns_name_options(
@@ -49185,6 +49864,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_reserved_instances(
@@ -49240,6 +49920,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_route_server(
@@ -49301,6 +49982,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_security_group_rules(
@@ -49352,6 +50034,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_snapshot_attribute(
@@ -49433,6 +50116,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_snapshot_tier(
@@ -49484,6 +50168,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_spot_fleet_request(
@@ -49559,6 +50244,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_subnet_attribute(
@@ -49668,6 +50354,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_traffic_mirror_filter_network_services(
@@ -49727,6 +50414,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_traffic_mirror_filter_rule(
@@ -49824,6 +50512,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_traffic_mirror_session(
@@ -49905,6 +50594,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_transit_gateway(
@@ -49962,6 +50652,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_transit_gateway_metering_policy(
@@ -50023,6 +50714,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_transit_gateway_policy_table_entry(
@@ -50086,6 +50778,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_transit_gateway_prefix_list_reference(
@@ -50149,6 +50842,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_transit_gateway_vpc_attachment(
@@ -50214,6 +50908,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_endpoint(
@@ -50300,6 +50995,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_endpoint_policy(
@@ -50366,6 +51062,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_group(
@@ -50428,6 +51125,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_group_policy(
@@ -50494,6 +51192,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_instance(
@@ -50558,6 +51257,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_instance_logging_configuration(
@@ -50616,6 +51316,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_verified_access_trust_provider(
@@ -50698,6 +51399,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_volume(
@@ -50763,6 +51465,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_volume_attribute(
@@ -50818,6 +51521,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_attribute(
@@ -50887,6 +51591,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_block_public_access_exclusion(
@@ -50940,6 +51645,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_block_public_access_options(
@@ -50987,6 +51693,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_encryption_control(
@@ -51092,6 +51799,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint(
@@ -51205,6 +51913,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint_connection_notification(
@@ -51262,6 +51971,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint_payer_responsibility(
@@ -51327,6 +52037,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint_service_configuration(
@@ -51440,6 +52151,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint_service_payer_responsibility(
@@ -51493,6 +52205,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_endpoint_service_permissions(
@@ -51552,6 +52265,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_peering_connection_options(
@@ -51615,6 +52329,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpc_tenancy(
@@ -51664,6 +52379,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpn_connection(
@@ -51727,6 +52443,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpn_connection_options(
@@ -51796,6 +52513,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpn_tunnel_certificate(
@@ -51847,6 +52565,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_vpn_tunnel_options(
@@ -51912,6 +52631,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def monitor_instances(
@@ -51959,6 +52679,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def move_address_to_vpc(
@@ -52010,6 +52731,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def move_byoip_cidr_to_ipam(
@@ -52063,6 +52785,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def move_capacity_reservation_instances(
@@ -52127,6 +52850,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def provision_byoip_cidr(
@@ -52200,6 +52924,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def provision_ipam_byoasn(
@@ -52255,6 +52980,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def provision_ipam_pool_cidr(
@@ -52333,6 +53059,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def provision_public_ipv4_pool_cidr(
@@ -52390,6 +53117,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_capacity_block(
@@ -52449,6 +53177,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_capacity_block_extension(
@@ -52504,6 +53233,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_host_reservation(
@@ -52573,6 +53303,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_reserved_instances_offering(
@@ -52634,6 +53365,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def purchase_scheduled_instances(
@@ -52686,6 +53418,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reboot_instances(
@@ -52737,6 +53470,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_image(
@@ -52862,6 +53596,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_instance_event_notification_attributes(
@@ -52909,6 +53644,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_transit_gateway_multicast_group_members(
@@ -52968,6 +53704,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_transit_gateway_multicast_group_sources(
@@ -53027,6 +53764,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_capacity_reservation_billing_ownership(
@@ -53074,6 +53812,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_transit_gateway_client_vpn_attachment(
@@ -53121,6 +53860,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_transit_gateway_multicast_domain_associations(
@@ -53180,6 +53920,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_transit_gateway_peering_attachment(
@@ -53227,6 +53968,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_transit_gateway_vpc_attachment(
@@ -53274,6 +54016,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_vpc_endpoint_connections(
@@ -53327,6 +54070,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reject_vpc_peering_connection(
@@ -53374,6 +54118,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def release_address(
@@ -53431,6 +54176,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def release_hosts(
@@ -53474,6 +54220,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def release_ipam_pool_allocation(
@@ -53529,6 +54276,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_iam_instance_profile_association(
@@ -53578,6 +54326,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_image_criteria_in_allowed_images_settings(
@@ -53625,6 +54374,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_network_acl_association(
@@ -53682,6 +54432,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_network_acl_entry(
@@ -53763,6 +54514,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_route(
@@ -53896,6 +54648,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_route_table_association(
@@ -53953,6 +54706,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_transit_gateway_route(
@@ -54014,6 +54768,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replace_vpn_tunnel(
@@ -54069,6 +54824,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def report_instance_status(
@@ -54138,6 +54894,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def request_spot_fleet(
@@ -54203,6 +54960,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def request_spot_instances(
@@ -54308,6 +55066,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_address_attribute(
@@ -54359,6 +55118,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_ebs_default_kms_key_id(
@@ -54400,6 +55160,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_fpga_image_attribute(
@@ -54453,6 +55214,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_image_attribute(
@@ -54508,6 +55270,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_instance_attribute(
@@ -54563,6 +55326,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_network_interface_attribute(
@@ -54612,6 +55376,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def reset_snapshot_attribute(
@@ -54667,6 +55432,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_address_to_classic(
@@ -54714,6 +55480,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_image_from_recycle_bin(
@@ -54759,6 +55526,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_managed_prefix_list_version(
@@ -54814,6 +55582,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_snapshot_from_recycle_bin(
@@ -54859,6 +55628,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_snapshot_tier(
@@ -54914,6 +55684,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_volume_from_recycle_bin(
@@ -54959,6 +55730,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def revoke_client_vpn_ingress(
@@ -55018,6 +55790,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def revoke_security_group_egress(
@@ -55099,6 +55872,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def revoke_security_group_ingress(
@@ -55186,6 +55960,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def run_instances(
@@ -55458,6 +56233,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def run_scheduled_instances(
@@ -55520,6 +56296,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def search_local_gateway_routes(
@@ -55579,6 +56356,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_search_local_gateway_routes(
@@ -55671,6 +56449,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_search_transit_gateway_multicast_groups(
@@ -55763,6 +56542,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_search_transit_gateway_routes(
@@ -55837,6 +56617,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_declarative_policies_report(
@@ -55896,6 +56677,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_instances(
@@ -55953,6 +56735,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_network_insights_access_scope_analysis(
@@ -56013,6 +56796,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_network_insights_analysis(
@@ -56085,6 +56869,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_vpc_endpoint_service_private_dns_verification(
@@ -56132,6 +56917,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_instances(
@@ -56197,6 +56983,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def terminate_client_vpn_connections(
@@ -56252,6 +57039,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def terminate_instances(
@@ -56313,6 +57101,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unassign_ipv6_addresses(
@@ -56366,6 +57155,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unassign_private_ip_addresses(
@@ -56423,6 +57213,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unassign_private_nat_gateway_address(
@@ -56478,6 +57269,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unlock_snapshot(
@@ -56523,6 +57315,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def unmonitor_instances(
@@ -56570,6 +57363,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_capacity_manager_monitored_tag_keys(
@@ -56628,6 +57422,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_capacity_manager_organizations_access(
@@ -56680,6 +57475,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_interruptible_capacity_reservation_allocation(
@@ -56731,6 +57527,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_security_group_rule_descriptions_egress(
@@ -56802,6 +57599,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_security_group_rule_descriptions_ingress(
@@ -56873,6 +57671,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def withdraw_byoip_cidr(
@@ -56918,6 +57717,7 @@ class EC2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

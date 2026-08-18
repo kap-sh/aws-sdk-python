@@ -181,6 +181,7 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -301,7 +302,10 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def invoke_model(
         self,
@@ -397,6 +401,7 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -452,7 +457,10 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     @contextmanager
     def invoke_model_with_response_stream(
@@ -550,7 +558,10 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
 
 class AsyncInferenceResource:
@@ -675,6 +686,7 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -796,7 +808,10 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def invoke_model(
         self,
@@ -893,6 +908,7 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -949,7 +965,10 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     @asynccontextmanager
     async def invoke_model_with_response_stream(
@@ -1048,4 +1067,7 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()

@@ -276,6 +276,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def cancel_rotate_secret(
@@ -326,6 +327,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_secret(
@@ -435,6 +437,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_resource_policy(
@@ -485,6 +488,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_secret(
@@ -541,6 +545,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_secret(
@@ -584,6 +589,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_random_password(
@@ -678,6 +684,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_policy(
@@ -728,6 +735,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_secret_value(
@@ -791,6 +799,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_secrets(
@@ -872,6 +881,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_secret_version_ids(
@@ -940,6 +950,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_resource_policy(
@@ -1001,6 +1012,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_secret_value(
@@ -1086,6 +1098,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_regions_from_replication(
@@ -1133,6 +1146,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def replicate_secret_to_regions(
@@ -1192,6 +1206,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def restore_secret(
@@ -1242,6 +1257,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def rotate_secret(
@@ -1337,6 +1353,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_replication_to_replica(
@@ -1381,6 +1398,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -1432,6 +1450,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -1483,6 +1502,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_secret(
@@ -1584,6 +1604,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_secret_version_stage(
@@ -1658,6 +1679,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def validate_resource_policy(
@@ -1715,6 +1737,7 @@ class SecretsManagerClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

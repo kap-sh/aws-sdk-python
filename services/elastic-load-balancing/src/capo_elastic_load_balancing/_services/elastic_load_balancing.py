@@ -259,6 +259,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def apply_security_groups_to_load_balancer(
@@ -311,6 +312,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def attach_load_balancer_to_subnets(
@@ -364,6 +366,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def configure_health_check(
@@ -414,6 +417,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_app_cookie_stickiness_policy(
@@ -470,6 +474,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_lb_cookie_stickiness_policy(
@@ -529,6 +534,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_load_balancer(
@@ -632,6 +638,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_load_balancer_listeners(
@@ -690,6 +697,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_load_balancer_policy(
@@ -761,6 +769,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_load_balancer(
@@ -807,6 +816,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_load_balancer_listeners(
@@ -857,6 +867,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_load_balancer_policy(
@@ -908,6 +919,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_instances_from_load_balancer(
@@ -959,6 +971,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_account_limits(
@@ -1006,6 +1019,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_instance_health(
@@ -1060,6 +1074,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_load_balancer_attributes(
@@ -1108,6 +1123,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_load_balancer_policies(
@@ -1165,6 +1181,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_load_balancer_policy_types(
@@ -1215,6 +1232,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_load_balancers(
@@ -1276,6 +1294,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_describe_load_balancers(
@@ -1350,6 +1369,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def detach_load_balancer_from_subnets(
@@ -1401,6 +1421,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disable_availability_zones_for_load_balancer(
@@ -1452,6 +1473,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def enable_availability_zones_for_load_balancer(
@@ -1502,6 +1524,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def modify_load_balancer_attributes(
@@ -1558,6 +1581,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_instances_with_load_balancer(
@@ -1609,6 +1633,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def remove_tags(
@@ -1659,6 +1684,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_load_balancer_listener_ssl_certificate(
@@ -1716,6 +1742,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_load_balancer_policies_for_backend_server(
@@ -1771,6 +1798,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def set_load_balancer_policies_of_listener(
@@ -1827,6 +1855,7 @@ class ElasticLoadBalancingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

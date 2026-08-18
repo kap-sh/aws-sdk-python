@@ -86,6 +86,7 @@ class DaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_daemon_task_definition(
@@ -136,6 +137,7 @@ class DaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_daemon_task_definitions(
@@ -215,6 +217,7 @@ class DaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_daemon_task_definition(
@@ -301,6 +304,7 @@ class DaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -357,6 +361,7 @@ class AsyncDaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_daemon_task_definition(
@@ -408,6 +413,7 @@ class AsyncDaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_daemon_task_definitions(
@@ -488,6 +494,7 @@ class AsyncDaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_daemon_task_definition(
@@ -575,4 +582,5 @@ class AsyncDaemonTaskDefinitionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

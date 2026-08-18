@@ -134,6 +134,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_express_gateway_service(
@@ -236,6 +237,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_service(
@@ -437,6 +439,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_express_gateway_service(
@@ -485,6 +488,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_service(
@@ -545,6 +549,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_express_gateway_service(
@@ -598,6 +603,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def describe_services(
@@ -661,6 +667,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_service_deployments(
@@ -736,6 +743,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_services(
@@ -812,6 +820,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_service_deployment(
@@ -873,6 +882,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_express_gateway_service(
@@ -963,6 +973,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_service(
@@ -1151,6 +1162,7 @@ class ServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -1218,6 +1230,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_express_gateway_service(
@@ -1321,6 +1334,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_service(
@@ -1523,6 +1537,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_express_gateway_service(
@@ -1572,6 +1587,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_service(
@@ -1633,6 +1649,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_express_gateway_service(
@@ -1687,6 +1704,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def describe_services(
@@ -1751,6 +1769,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_service_deployments(
@@ -1827,6 +1846,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_services(
@@ -1904,6 +1924,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_service_deployment(
@@ -1966,6 +1987,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_express_gateway_service(
@@ -2057,6 +2079,7 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_service(
@@ -2246,4 +2269,5 @@ class AsyncServiceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
