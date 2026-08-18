@@ -1,5 +1,11 @@
 # aws-sdk-rds
 
+## 0.8.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.7.0
 
 ### Minor Changes

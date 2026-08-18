@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.13.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.12.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # aws-sdk-sso-oidc
 
+## 0.5.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.4.0
 
 ### Minor Changes

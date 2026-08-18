@@ -1,5 +1,11 @@
 # aws-sdk-sts
 
+## 0.6.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.5.0
 
 ### Minor Changes

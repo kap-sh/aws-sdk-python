@@ -1,5 +1,11 @@
 # aws-sdk-s3
 
+## 0.11.0
+
+### Minor Changes
+
+- 454ecc9: fix the memory leak
+
 ## 0.10.0
 
 ### Minor Changes
