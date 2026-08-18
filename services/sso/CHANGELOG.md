@@ -1,5 +1,13 @@
 # aws-sdk-sso
 
+## 0.4.0
+
+### Minor Changes
+
+- 5d8c6ad: fix XML deserialization of namespace-prefixed @xmlName
+- 9e68753: treat explicit JSON nulls as absent in deserializers
+- 70a7337: properly handle timezones
+
 ## 0.3.0
 
 ### Minor Changes

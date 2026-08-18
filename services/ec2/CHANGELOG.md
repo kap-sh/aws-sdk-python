@@ -1,5 +1,13 @@
 # aws-sdk-ec2
 
+## 0.12.0
+
+### Minor Changes
+
+- 5d8c6ad: fix XML deserialization of namespace-prefixed @xmlName
+- 70a7337: properly handle timezones
+- a46606f: do not serialize empty query lists in ec2 query
+
 ## 0.11.0
 
 ### Minor Changes

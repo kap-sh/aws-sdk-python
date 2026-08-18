@@ -1,5 +1,14 @@
 # aws-sdk-lambda
 
+## 0.8.0
+
+### Minor Changes
+
+- 5d8c6ad: fix XML deserialization of namespace-prefixed @xmlName
+- 1f67d41: handle NaN, infinities per spec
+- 9e68753: treat explicit JSON nulls as absent in deserializers
+- 70a7337: properly handle timezones
+
 ## 0.7.0
 
 ### Minor Changes
