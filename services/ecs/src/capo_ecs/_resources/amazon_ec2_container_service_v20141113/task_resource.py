@@ -92,10 +92,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_tasks_request.DescribeTasksRequest = {
+            "tasks": tasks
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["tasks"] = tasks
         if include is not None:
             input_["include"] = include
 
@@ -152,8 +153,9 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
+        input_: capo_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {
+            "cluster": cluster
+        }
         if tasks is not None:
             input_["tasks"] = tasks
 
@@ -255,7 +257,9 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.run_task_request.RunTaskRequest = {
+            "task_definition": task_definition
+        }
         if capacity_provider_strategy is not None:
             input_["capacity_provider_strategy"] = capacity_provider_strategy
         if cluster is not None:
@@ -288,7 +292,6 @@ class TaskResource:
             input_["started_by"] = started_by
         if tags is not None:
             input_["tags"] = tags
-        input_["task_definition"] = task_definition
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -372,10 +375,12 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.start_task_request.StartTaskRequest = {
+            "container_instances": container_instances,
+            "task_definition": task_definition,
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
         if enable_ecs_managed_tags is not None:
             input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
@@ -394,7 +399,6 @@ class TaskResource:
             input_["started_by"] = started_by
         if tags is not None:
             input_["tags"] = tags
-        input_["task_definition"] = task_definition
         if volume_configurations is not None:
             input_["volume_configurations"] = volume_configurations
 
@@ -449,10 +453,9 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.stop_task_request.StopTaskRequest = {"task": task}
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["task"] = task
         if reason is not None:
             input_["reason"] = reason
 
@@ -523,10 +526,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["tasks"] = tasks
-        input_["protection_enabled"] = protection_enabled
+        input_: capo_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {
+            "cluster": cluster,
+            "tasks": tasks,
+            "protection_enabled": protection_enabled,
+        }
         if expires_in_minutes is not None:
             input_["expires_in_minutes"] = expires_in_minutes
 
@@ -589,10 +593,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_tasks_request.DescribeTasksRequest = {
+            "tasks": tasks
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["tasks"] = tasks
         if include is not None:
             input_["include"] = include
 
@@ -650,8 +655,9 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
+        input_: capo_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {
+            "cluster": cluster
+        }
         if tasks is not None:
             input_["tasks"] = tasks
 
@@ -754,7 +760,9 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.run_task_request.RunTaskRequest = {
+            "task_definition": task_definition
+        }
         if capacity_provider_strategy is not None:
             input_["capacity_provider_strategy"] = capacity_provider_strategy
         if cluster is not None:
@@ -787,7 +795,6 @@ class AsyncTaskResource:
             input_["started_by"] = started_by
         if tags is not None:
             input_["tags"] = tags
-        input_["task_definition"] = task_definition
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -874,10 +881,12 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.start_task_request.StartTaskRequest = {
+            "container_instances": container_instances,
+            "task_definition": task_definition,
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
         if enable_ecs_managed_tags is not None:
             input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
@@ -896,7 +905,6 @@ class AsyncTaskResource:
             input_["started_by"] = started_by
         if tags is not None:
             input_["tags"] = tags
-        input_["task_definition"] = task_definition
         if volume_configurations is not None:
             input_["volume_configurations"] = volume_configurations
 
@@ -954,10 +962,9 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.stop_task_request.StopTaskRequest = {"task": task}
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["task"] = task
         if reason is not None:
             input_["reason"] = reason
 
@@ -1029,10 +1036,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["tasks"] = tasks
-        input_["protection_enabled"] = protection_enabled
+        input_: capo_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {
+            "cluster": cluster,
+            "tasks": tasks,
+            "protection_enabled": protection_enabled,
+        }
         if expires_in_minutes is not None:
             input_["expires_in_minutes"] = expires_in_minutes
 

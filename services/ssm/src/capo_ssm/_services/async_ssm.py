@@ -750,10 +750,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_id"] = resource_id
-        input_["tags"] = tags
+        input_: capo_ssm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -806,11 +807,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.associate_ops_item_related_item_request.AssociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_item_id"] = ops_item_id
-        input_["association_type"] = association_type
-        input_["resource_type"] = resource_type
-        input_["resource_uri"] = resource_uri
+        input_: capo_ssm.types.associate_ops_item_related_item_request.AssociateOpsItemRelatedItemRequest = {
+            "ops_item_id": ops_item_id,
+            "association_type": association_type,
+            "resource_type": resource_type,
+            "resource_uri": resource_uri,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -857,8 +859,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.cancel_command_request.CancelCommandRequest = {}  # type: ignore[typeddict-item]
-        input_["command_id"] = command_id
+        input_: capo_ssm.types.cancel_command_request.CancelCommandRequest = {
+            "command_id": command_id
+        }
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
 
@@ -903,8 +906,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.cancel_maintenance_window_execution_request.CancelMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
+        input_: capo_ssm.types.cancel_maintenance_window_execution_request.CancelMaintenanceWindowExecutionRequest = {
+            "window_execution_id": window_execution_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -969,12 +973,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_activation_request.CreateActivationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.create_activation_request.CreateActivationRequest = {
+            "iam_role": iam_role
+        }
         if description is not None:
             input_["description"] = description
         if default_instance_name is not None:
             input_["default_instance_name"] = default_instance_name
-        input_["iam_role"] = iam_role
         if registration_limit is not None:
             input_["registration_limit"] = registration_limit
         if expiration_date is not None:
@@ -1105,8 +1110,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_association_request.CreateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.create_association_request.CreateAssociationRequest = {
+            "name": name
+        }
         if document_version is not None:
             input_["document_version"] = document_version
         if instance_id is not None:
@@ -1209,8 +1215,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_association_batch_request.CreateAssociationBatchRequest = {}  # type: ignore[typeddict-item]
-        input_["entries"] = entries
+        input_: capo_ssm.types.create_association_batch_request.CreateAssociationBatchRequest = {
+            "entries": entries
+        }
         if association_dispatch_assume_role is not None:
             input_["association_dispatch_assume_role"] = (
                 association_dispatch_assume_role
@@ -1291,13 +1298,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_document_request.CreateDocumentRequest = {}  # type: ignore[typeddict-item]
-        input_["content"] = content
+        input_: capo_ssm.types.create_document_request.CreateDocumentRequest = {
+            "content": content,
+            "name": name,
+        }
         if requires is not None:
             input_["requires"] = requires
         if attachments is not None:
             input_["attachments"] = attachments
-        input_["name"] = name
         if display_name is not None:
             input_["display_name"] = display_name
         if version_name is not None:
@@ -1387,22 +1395,23 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_maintenance_window_request.CreateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.create_maintenance_window_request.CreateMaintenanceWindowRequest = {
+            "name": name,
+            "schedule": schedule,
+            "duration": duration,
+            "cutoff": cutoff,
+            "allow_unassociated_targets": allow_unassociated_targets,
+        }
         if description is not None:
             input_["description"] = description
         if start_date is not None:
             input_["start_date"] = start_date
         if end_date is not None:
             input_["end_date"] = end_date
-        input_["schedule"] = schedule
         if schedule_timezone is not None:
             input_["schedule_timezone"] = schedule_timezone
         if schedule_offset is not None:
             input_["schedule_offset"] = schedule_offset
-        input_["duration"] = duration
-        input_["cutoff"] = cutoff
-        input_["allow_unassociated_targets"] = allow_unassociated_targets
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -1491,8 +1500,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_ops_item_request.CreateOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input_["description"] = description
+        input_: capo_ssm.types.create_ops_item_request.CreateOpsItemRequest = {
+            "description": description,
+            "source": source,
+            "title": title,
+        }
         if ops_item_type is not None:
             input_["ops_item_type"] = ops_item_type
         if operational_data is not None:
@@ -1503,8 +1515,6 @@ class AsyncSSMClient:
             input_["priority"] = priority
         if related_ops_items is not None:
             input_["related_ops_items"] = related_ops_items
-        input_["source"] = source
-        input_["title"] = title
         if tags is not None:
             input_["tags"] = tags
         if category is not None:
@@ -1570,8 +1580,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_ops_metadata_request.CreateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_id"] = resource_id
+        input_: capo_ssm.types.create_ops_metadata_request.CreateOpsMetadataRequest = {
+            "resource_id": resource_id
+        }
         if metadata is not None:
             input_["metadata"] = metadata
         if tags is not None:
@@ -1661,10 +1672,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_patch_baseline_request.CreatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.create_patch_baseline_request.CreatePatchBaselineRequest = {
+            "name": name
+        }
         if operating_system is not None:
             input_["operating_system"] = operating_system
-        input_["name"] = name
         if global_filters is not None:
             input_["global_filters"] = global_filters
         if approval_rules is not None:
@@ -1752,8 +1764,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.create_resource_data_sync_request.CreateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input_["sync_name"] = sync_name
+        input_: capo_ssm.types.create_resource_data_sync_request.CreateResourceDataSyncRequest = {
+            "sync_name": sync_name
+        }
         if s3_destination is not None:
             input_["s3_destination"] = s3_destination
         if sync_type is not None:
@@ -1804,8 +1817,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_activation_request.DeleteActivationRequest = {}  # type: ignore[typeddict-item]
-        input_["activation_id"] = activation_id
+        input_: capo_ssm.types.delete_activation_request.DeleteActivationRequest = {
+            "activation_id": activation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1855,7 +1869,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.delete_association_request.DeleteAssociationRequest = {}
         if name is not None:
             input_["name"] = name
         if instance_id is not None:
@@ -1917,8 +1931,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_document_request.DeleteDocumentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.delete_document_request.DeleteDocumentRequest = {
+            "name": name
+        }
         if document_version is not None:
             input_["document_version"] = document_version
         if version_name is not None:
@@ -1978,8 +1993,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_inventory_request.DeleteInventoryRequest = {}  # type: ignore[typeddict-item]
-        input_["type_name"] = type_name
+        input_: capo_ssm.types.delete_inventory_request.DeleteInventoryRequest = {
+            "type_name": type_name
+        }
         if schema_delete_option is not None:
             input_["schema_delete_option"] = schema_delete_option
         if dry_run is not None:
@@ -2030,8 +2046,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_maintenance_window_request.DeleteMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.delete_maintenance_window_request.DeleteMaintenanceWindowRequest = {
+            "window_id": window_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2074,8 +2091,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_ops_item_request.DeleteOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_item_id"] = ops_item_id
+        input_: capo_ssm.types.delete_ops_item_request.DeleteOpsItemRequest = {
+            "ops_item_id": ops_item_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2119,8 +2137,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_ops_metadata_request.DeleteOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_metadata_arn"] = ops_metadata_arn
+        input_: capo_ssm.types.delete_ops_metadata_request.DeleteOpsMetadataRequest = {
+            "ops_metadata_arn": ops_metadata_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2163,8 +2182,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_parameter_request.DeleteParameterRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.delete_parameter_request.DeleteParameterRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2206,8 +2226,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_parameters_request.DeleteParametersRequest = {}  # type: ignore[typeddict-item]
-        input_["names"] = names
+        input_: capo_ssm.types.delete_parameters_request.DeleteParametersRequest = {
+            "names": names
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2250,8 +2271,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_patch_baseline_request.DeletePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
+        input_: capo_ssm.types.delete_patch_baseline_request.DeletePatchBaselineRequest = {
+            "baseline_id": baseline_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2299,8 +2321,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_resource_data_sync_request.DeleteResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input_["sync_name"] = sync_name
+        input_: capo_ssm.types.delete_resource_data_sync_request.DeleteResourceDataSyncRequest = {
+            "sync_name": sync_name
+        }
         if sync_type is not None:
             input_["sync_type"] = sync_type
 
@@ -2353,10 +2376,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["policy_id"] = policy_id
-        input_["policy_hash"] = policy_hash
+        input_: capo_ssm.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {
+            "resource_arn": resource_arn,
+            "policy_id": policy_id,
+            "policy_hash": policy_hash,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2399,8 +2423,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.deregister_managed_instance_request.DeregisterManagedInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        input_: capo_ssm.types.deregister_managed_instance_request.DeregisterManagedInstanceRequest = {
+            "instance_id": instance_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2445,9 +2470,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.deregister_patch_baseline_for_patch_group_request.DeregisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
-        input_["patch_group"] = patch_group
+        input_: capo_ssm.types.deregister_patch_baseline_for_patch_group_request.DeregisterPatchBaselineForPatchGroupRequest = {
+            "baseline_id": baseline_id,
+            "patch_group": patch_group,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2495,9 +2521,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.deregister_target_from_maintenance_window_request.DeregisterTargetFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["window_target_id"] = window_target_id
+        input_: capo_ssm.types.deregister_target_from_maintenance_window_request.DeregisterTargetFromMaintenanceWindowRequest = {
+            "window_id": window_id,
+            "window_target_id": window_target_id,
+        }
         if safe is not None:
             input_["safe"] = safe
 
@@ -2544,9 +2571,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.deregister_task_from_maintenance_window_request.DeregisterTaskFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["window_task_id"] = window_task_id
+        input_: capo_ssm.types.deregister_task_from_maintenance_window_request.DeregisterTaskFromMaintenanceWindowRequest = {
+            "window_id": window_id,
+            "window_task_id": window_task_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2596,7 +2624,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_activations_request.DescribeActivationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_activations_request.DescribeActivationsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -2681,7 +2709,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_association_request.DescribeAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_association_request.DescribeAssociationRequest = {}
         if name is not None:
             input_["name"] = name
         if instance_id is not None:
@@ -2741,8 +2769,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_association_executions_request.DescribeAssociationExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        input_: capo_ssm.types.describe_association_executions_request.DescribeAssociationExecutionsRequest = {
+            "association_id": association_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -2830,9 +2859,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_association_execution_targets_request.DescribeAssociationExecutionTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
-        input_["execution_id"] = execution_id
+        input_: capo_ssm.types.describe_association_execution_targets_request.DescribeAssociationExecutionTargetsRequest = {
+            "association_id": association_id,
+            "execution_id": execution_id,
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -2918,7 +2948,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_automation_executions_request.DescribeAutomationExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_automation_executions_request.DescribeAutomationExecutionsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -3005,8 +3035,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_automation_step_executions_request.DescribeAutomationStepExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_execution_id"] = automation_execution_id
+        input_: capo_ssm.types.describe_automation_step_executions_request.DescribeAutomationStepExecutionsRequest = {
+            "automation_execution_id": automation_execution_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -3093,7 +3124,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_available_patches_request.DescribeAvailablePatchesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_available_patches_request.DescribeAvailablePatchesRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -3178,8 +3209,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_document_request.DescribeDocumentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.describe_document_request.DescribeDocumentRequest = {
+            "name": name
+        }
         if document_version is not None:
             input_["document_version"] = document_version
         if version_name is not None:
@@ -3237,9 +3269,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_document_permission_request.DescribeDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["permission_type"] = permission_type
+        input_: capo_ssm.types.describe_document_permission_request.DescribeDocumentPermissionRequest = {
+            "name": name,
+            "permission_type": permission_type,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3293,8 +3326,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_effective_instance_associations_request.DescribeEffectiveInstanceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        input_: capo_ssm.types.describe_effective_instance_associations_request.DescribeEffectiveInstanceAssociationsRequest = {
+            "instance_id": instance_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3374,8 +3408,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_effective_patches_for_patch_baseline_request.DescribeEffectivePatchesForPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
+        input_: capo_ssm.types.describe_effective_patches_for_patch_baseline_request.DescribeEffectivePatchesForPatchBaselineRequest = {
+            "baseline_id": baseline_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3452,8 +3487,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_associations_status_request.DescribeInstanceAssociationsStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        input_: capo_ssm.types.describe_instance_associations_status_request.DescribeInstanceAssociationsStatusRequest = {
+            "instance_id": instance_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -3538,7 +3574,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_information_request.DescribeInstanceInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_instance_information_request.DescribeInstanceInformationRequest = {}
         if instance_information_filter_list is not None:
             input_["instance_information_filter_list"] = (
                 instance_information_filter_list
@@ -3636,8 +3672,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_patches_request.DescribeInstancePatchesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
+        input_: capo_ssm.types.describe_instance_patches_request.DescribeInstancePatchesRequest = {
+            "instance_id": instance_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -3721,8 +3758,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_patch_states_request.DescribeInstancePatchStatesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_ids"] = instance_ids
+        input_: capo_ssm.types.describe_instance_patch_states_request.DescribeInstancePatchStatesRequest = {
+            "instance_ids": instance_ids
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -3805,8 +3843,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_patch_states_for_patch_group_request.DescribeInstancePatchStatesForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["patch_group"] = patch_group
+        input_: capo_ssm.types.describe_instance_patch_states_for_patch_group_request.DescribeInstancePatchStatesForPatchGroupRequest = {
+            "patch_group": patch_group
+        }
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -3901,7 +3940,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_instance_properties_request.DescribeInstancePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_instance_properties_request.DescribeInstancePropertiesRequest = {}
         if instance_property_filter_list is not None:
             input_["instance_property_filter_list"] = instance_property_filter_list
         if filters_with_operator is not None:
@@ -3988,7 +4027,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_inventory_deletions_request.DescribeInventoryDeletionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_inventory_deletions_request.DescribeInventoryDeletionsRequest = {}
         if deletion_id is not None:
             input_["deletion_id"] = deletion_id
         if next_token is not None:
@@ -4069,8 +4108,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_executions_request.DescribeMaintenanceWindowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.describe_maintenance_window_executions_request.DescribeMaintenanceWindowExecutionsRequest = {
+            "window_id": window_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4160,9 +4200,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_execution_task_invocations_request.DescribeMaintenanceWindowExecutionTaskInvocationsRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
-        input_["task_id"] = task_id
+        input_: capo_ssm.types.describe_maintenance_window_execution_task_invocations_request.DescribeMaintenanceWindowExecutionTaskInvocationsRequest = {
+            "window_execution_id": window_execution_id,
+            "task_id": task_id,
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4256,8 +4297,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_execution_tasks_request.DescribeMaintenanceWindowExecutionTasksRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
+        input_: capo_ssm.types.describe_maintenance_window_execution_tasks_request.DescribeMaintenanceWindowExecutionTasksRequest = {
+            "window_execution_id": window_execution_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4342,7 +4384,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_windows_request.DescribeMaintenanceWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_maintenance_windows_request.DescribeMaintenanceWindowsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4436,7 +4478,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_schedule_request.DescribeMaintenanceWindowScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_maintenance_window_schedule_request.DescribeMaintenanceWindowScheduleRequest = {}
         if window_id is not None:
             input_["window_id"] = window_id
         if targets is not None:
@@ -4535,9 +4577,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_windows_for_target_request.DescribeMaintenanceWindowsForTargetRequest = {}  # type: ignore[typeddict-item]
-        input_["targets"] = targets
-        input_["resource_type"] = resource_type
+        input_: capo_ssm.types.describe_maintenance_windows_for_target_request.DescribeMaintenanceWindowsForTargetRequest = {
+            "targets": targets,
+            "resource_type": resource_type,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -4621,8 +4664,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_targets_request.DescribeMaintenanceWindowTargetsRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.describe_maintenance_window_targets_request.DescribeMaintenanceWindowTargetsRequest = {
+            "window_id": window_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4710,8 +4754,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_maintenance_window_tasks_request.DescribeMaintenanceWindowTasksRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.describe_maintenance_window_tasks_request.DescribeMaintenanceWindowTasksRequest = {
+            "window_id": window_id
+        }
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -4796,7 +4841,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_ops_items_request.DescribeOpsItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_ops_items_request.DescribeOpsItemsRequest = {}
         if ops_item_filters is not None:
             input_["ops_item_filters"] = ops_item_filters
         if max_results is not None:
@@ -4887,7 +4932,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_parameters_request.DescribeParametersRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if parameter_filters is not None:
@@ -4947,7 +4992,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_patch_baselines_request.DescribePatchBaselinesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_patch_baselines_request.DescribePatchBaselinesRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -5030,7 +5075,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_patch_groups_request.DescribePatchGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.describe_patch_groups_request.DescribePatchGroupsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if filters is not None:
@@ -5108,8 +5153,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_patch_group_state_request.DescribePatchGroupStateRequest = {}  # type: ignore[typeddict-item]
-        input_["patch_group"] = patch_group
+        input_: capo_ssm.types.describe_patch_group_state_request.DescribePatchGroupStateRequest = {
+            "patch_group": patch_group
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5161,9 +5207,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_patch_properties_request.DescribePatchPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input_["operating_system"] = operating_system
-        input_["property"] = property
+        input_: capo_ssm.types.describe_patch_properties_request.DescribePatchPropertiesRequest = {
+            "operating_system": operating_system,
+            "property": property,
+        }
         if patch_set is not None:
             input_["patch_set"] = patch_set
         if max_results is not None:
@@ -5250,8 +5297,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["state"] = state
+        input_: capo_ssm.types.describe_sessions_request.DescribeSessionsRequest = {
+            "state": state
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -5334,9 +5382,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.disassociate_ops_item_related_item_request.DisassociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_item_id"] = ops_item_id
-        input_["association_id"] = association_id
+        input_: capo_ssm.types.disassociate_ops_item_related_item_request.DisassociateOpsItemRelatedItemRequest = {
+            "ops_item_id": ops_item_id,
+            "association_id": association_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5382,8 +5431,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_access_token_request.GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["access_request_id"] = access_request_id
+        input_: capo_ssm.types.get_access_token_request.GetAccessTokenRequest = {
+            "access_request_id": access_request_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5426,8 +5476,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_automation_execution_request.GetAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_execution_id"] = automation_execution_id
+        input_: capo_ssm.types.get_automation_execution_request.GetAutomationExecutionRequest = {
+            "automation_execution_id": automation_execution_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5474,8 +5525,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_calendar_state_request.GetCalendarStateRequest = {}  # type: ignore[typeddict-item]
-        input_["calendar_names"] = calendar_names
+        input_: capo_ssm.types.get_calendar_state_request.GetCalendarStateRequest = {
+            "calendar_names": calendar_names
+        }
         if at_time is not None:
             input_["at_time"] = at_time
 
@@ -5529,9 +5581,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_command_invocation_request.GetCommandInvocationRequest = {}  # type: ignore[typeddict-item]
-        input_["command_id"] = command_id
-        input_["instance_id"] = instance_id
+        input_: capo_ssm.types.get_command_invocation_request.GetCommandInvocationRequest = {
+            "command_id": command_id,
+            "instance_id": instance_id,
+        }
         if plugin_name is not None:
             input_["plugin_name"] = plugin_name
 
@@ -5575,8 +5628,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_connection_status_request.GetConnectionStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["target"] = target
+        input_: capo_ssm.types.get_connection_status_request.GetConnectionStatusRequest = {
+            "target": target
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5622,7 +5676,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_default_patch_baseline_request.GetDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.get_default_patch_baseline_request.GetDefaultPatchBaselineRequest = {}
         if operating_system is not None:
             input_["operating_system"] = operating_system
 
@@ -5676,9 +5730,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_deployable_patch_snapshot_for_instance_request.GetDeployablePatchSnapshotForInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["snapshot_id"] = snapshot_id
+        input_: capo_ssm.types.get_deployable_patch_snapshot_for_instance_request.GetDeployablePatchSnapshotForInstanceRequest = {
+            "instance_id": instance_id,
+            "snapshot_id": snapshot_id,
+        }
         if baseline_override is not None:
             input_["baseline_override"] = baseline_override
         if use_s3_dual_stack_endpoint is not None:
@@ -5738,8 +5793,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_document_request.GetDocumentRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.get_document_request.GetDocumentRequest = {"name": name}
         if version_name is not None:
             input_["version_name"] = version_name
         if document_version is not None:
@@ -5788,8 +5842,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_execution_preview_request.GetExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-        input_["execution_preview_id"] = execution_preview_id
+        input_: capo_ssm.types.get_execution_preview_request.GetExecutionPreviewRequest = {
+            "execution_preview_id": execution_preview_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5851,7 +5906,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_inventory_request.GetInventoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.get_inventory_request.GetInventoryRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if aggregators is not None:
@@ -5952,7 +6007,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_inventory_schema_request.GetInventorySchemaRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.get_inventory_schema_request.GetInventorySchemaRequest = {}
         if type_name is not None:
             input_["type_name"] = type_name
         if next_token is not None:
@@ -6038,8 +6093,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_maintenance_window_request.GetMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.get_maintenance_window_request.GetMaintenanceWindowRequest = {
+            "window_id": window_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6082,8 +6138,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_maintenance_window_execution_request.GetMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
+        input_: capo_ssm.types.get_maintenance_window_execution_request.GetMaintenanceWindowExecutionRequest = {
+            "window_execution_id": window_execution_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6128,9 +6185,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_maintenance_window_execution_task_request.GetMaintenanceWindowExecutionTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
-        input_["task_id"] = task_id
+        input_: capo_ssm.types.get_maintenance_window_execution_task_request.GetMaintenanceWindowExecutionTaskRequest = {
+            "window_execution_id": window_execution_id,
+            "task_id": task_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6177,10 +6235,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_maintenance_window_execution_task_invocation_request.GetMaintenanceWindowExecutionTaskInvocationRequest = {}  # type: ignore[typeddict-item]
-        input_["window_execution_id"] = window_execution_id
-        input_["task_id"] = task_id
-        input_["invocation_id"] = invocation_id
+        input_: capo_ssm.types.get_maintenance_window_execution_task_invocation_request.GetMaintenanceWindowExecutionTaskInvocationRequest = {
+            "window_execution_id": window_execution_id,
+            "task_id": task_id,
+            "invocation_id": invocation_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6225,9 +6284,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_maintenance_window_task_request.GetMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["window_task_id"] = window_task_id
+        input_: capo_ssm.types.get_maintenance_window_task_request.GetMaintenanceWindowTaskRequest = {
+            "window_id": window_id,
+            "window_task_id": window_task_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6273,8 +6333,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_ops_item_request.GetOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_item_id"] = ops_item_id
+        input_: capo_ssm.types.get_ops_item_request.GetOpsItemRequest = {
+            "ops_item_id": ops_item_id
+        }
         if ops_item_arn is not None:
             input_["ops_item_arn"] = ops_item_arn
 
@@ -6326,8 +6387,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_ops_metadata_request.GetOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_metadata_arn"] = ops_metadata_arn
+        input_: capo_ssm.types.get_ops_metadata_request.GetOpsMetadataRequest = {
+            "ops_metadata_arn": ops_metadata_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -6394,7 +6456,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_ops_summary_request.GetOpsSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.get_ops_summary_request.GetOpsSummaryRequest = {}
         if sync_name is not None:
             input_["sync_name"] = sync_name
         if filters is not None:
@@ -6488,8 +6550,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_parameter_request.GetParameterRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.get_parameter_request.GetParameterRequest = {
+            "name": name
+        }
         if with_decryption is not None:
             input_["with_decryption"] = with_decryption
 
@@ -6542,8 +6605,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_parameter_history_request.GetParameterHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.get_parameter_history_request.GetParameterHistoryRequest = {
+            "name": name
+        }
         if with_decryption is not None:
             input_["with_decryption"] = with_decryption
         if max_results is not None:
@@ -6594,8 +6658,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_parameters_request.GetParametersRequest = {}  # type: ignore[typeddict-item]
-        input_["names"] = names
+        input_: capo_ssm.types.get_parameters_request.GetParametersRequest = {
+            "names": names
+        }
         if with_decryption is not None:
             input_["with_decryption"] = with_decryption
 
@@ -6658,8 +6723,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_parameters_by_path_request.GetParametersByPathRequest = {}  # type: ignore[typeddict-item]
-        input_["path"] = path
+        input_: capo_ssm.types.get_parameters_by_path_request.GetParametersByPathRequest = {
+            "path": path
+        }
         if recursive is not None:
             input_["recursive"] = recursive
         if parameter_filters is not None:
@@ -6713,8 +6779,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_patch_baseline_request.GetPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
+        input_: capo_ssm.types.get_patch_baseline_request.GetPatchBaselineRequest = {
+            "baseline_id": baseline_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6760,8 +6827,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_patch_baseline_for_patch_group_request.GetPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["patch_group"] = patch_group
+        input_: capo_ssm.types.get_patch_baseline_for_patch_group_request.GetPatchBaselineForPatchGroupRequest = {
+            "patch_group": patch_group
+        }
         if operating_system is not None:
             input_["operating_system"] = operating_system
 
@@ -6813,8 +6881,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_ssm.types.get_resource_policies_request.GetResourcePoliciesRequest = {
+            "resource_arn": resource_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -6886,8 +6955,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.get_service_setting_request.GetServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["setting_id"] = setting_id
+        input_: capo_ssm.types.get_service_setting_request.GetServiceSettingRequest = {
+            "setting_id": setting_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6939,11 +7009,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.label_parameter_version_request.LabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.label_parameter_version_request.LabelParameterVersionRequest = {
+            "name": name,
+            "labels": labels,
+        }
         if parameter_version is not None:
             input_["parameter_version"] = parameter_version
-        input_["labels"] = labels
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6992,7 +7063,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_associations_request.ListAssociationsRequest = {}
         if association_filter_list is not None:
             input_["association_filter_list"] = association_filter_list
         if max_results is not None:
@@ -7073,8 +7144,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_association_versions_request.ListAssociationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        input_: capo_ssm.types.list_association_versions_request.ListAssociationVersionsRequest = {
+            "association_id": association_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -7163,7 +7235,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_command_invocations_request.ListCommandInvocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_command_invocations_request.ListCommandInvocationsRequest = {}
         if command_id is not None:
             input_["command_id"] = command_id
         if instance_id is not None:
@@ -7266,7 +7338,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_commands_request.ListCommandsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_commands_request.ListCommandsRequest = {}
         if command_id is not None:
             input_["command_id"] = command_id
         if instance_id is not None:
@@ -7367,7 +7439,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_compliance_items_request.ListComplianceItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_compliance_items_request.ListComplianceItemsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if resource_ids is not None:
@@ -7462,7 +7534,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_compliance_summaries_request.ListComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_compliance_summaries_request.ListComplianceSummariesRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -7548,11 +7620,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_document_metadata_history_request.ListDocumentMetadataHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.list_document_metadata_history_request.ListDocumentMetadataHistoryRequest = {
+            "name": name,
+            "metadata": metadata,
+        }
         if document_version is not None:
             input_["document_version"] = document_version
-        input_["metadata"] = metadata
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -7610,7 +7683,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_documents_request.ListDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_documents_request.ListDocumentsRequest = {}
         if document_filter_list is not None:
             input_["document_filter_list"] = document_filter_list
         if filters is not None:
@@ -7695,8 +7768,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_document_versions_request.ListDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.list_document_versions_request.ListDocumentVersionsRequest = {
+            "name": name
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -7779,9 +7853,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_inventory_entries_request.ListInventoryEntriesRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["type_name"] = type_name
+        input_: capo_ssm.types.list_inventory_entries_request.ListInventoryEntriesRequest = {
+            "instance_id": instance_id,
+            "type_name": type_name,
+        }
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -7839,7 +7914,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_nodes_request.ListNodesRequest = {}
         if sync_name is not None:
             input_["sync_name"] = sync_name
         if filters is not None:
@@ -7937,12 +8012,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_nodes_summary_request.ListNodesSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_nodes_summary_request.ListNodesSummaryRequest = {
+            "aggregators": aggregators
+        }
         if sync_name is not None:
             input_["sync_name"] = sync_name
         if filters is not None:
             input_["filters"] = filters
-        input_["aggregators"] = aggregators
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -8028,7 +8104,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_ops_item_events_request.ListOpsItemEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_ops_item_events_request.ListOpsItemEventsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -8114,7 +8190,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_ops_item_related_items_request.ListOpsItemRelatedItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_ops_item_related_items_request.ListOpsItemRelatedItemsRequest = {}
         if ops_item_id is not None:
             input_["ops_item_id"] = ops_item_id
         if filters is not None:
@@ -8202,7 +8278,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_ops_metadata_request.ListOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_ops_metadata_request.ListOpsMetadataRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -8285,7 +8361,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_resource_compliance_summaries_request.ListResourceComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_resource_compliance_summaries_request.ListResourceComplianceSummariesRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -8366,7 +8442,7 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_resource_data_sync_request.ListResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.list_resource_data_sync_request.ListResourceDataSyncRequest = {}
         if sync_type is not None:
             input_["sync_type"] = sync_type
         if next_token is not None:
@@ -8443,9 +8519,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_id"] = resource_id
+        input_: capo_ssm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8505,9 +8582,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.modify_document_permission_request.ModifyDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["permission_type"] = permission_type
+        input_: capo_ssm.types.modify_document_permission_request.ModifyDocumentPermissionRequest = {
+            "name": name,
+            "permission_type": permission_type,
+        }
         if account_ids_to_add is not None:
             input_["account_ids_to_add"] = account_ids_to_add
         if account_ids_to_remove is not None:
@@ -8577,12 +8655,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.put_compliance_items_request.PutComplianceItemsRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_id"] = resource_id
-        input_["resource_type"] = resource_type
-        input_["compliance_type"] = compliance_type
-        input_["execution_summary"] = execution_summary
-        input_["items"] = items
+        input_: capo_ssm.types.put_compliance_items_request.PutComplianceItemsRequest = {
+            "resource_id": resource_id,
+            "resource_type": resource_type,
+            "compliance_type": compliance_type,
+            "execution_summary": execution_summary,
+            "items": items,
+        }
         if item_content_hash is not None:
             input_["item_content_hash"] = item_content_hash
         if upload_type is not None:
@@ -8641,9 +8720,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.put_inventory_request.PutInventoryRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["items"] = items
+        input_: capo_ssm.types.put_inventory_request.PutInventoryRequest = {
+            "instance_id": instance_id,
+            "items": items,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8727,11 +8807,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.put_parameter_request.PutParameterRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.put_parameter_request.PutParameterRequest = {
+            "name": name,
+            "value": value,
+        }
         if description is not None:
             input_["description"] = description
-        input_["value"] = value
         if type is not None:
             input_["type"] = type
         if key_id is not None:
@@ -8801,9 +8882,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["policy"] = policy
+        input_: capo_ssm.types.put_resource_policy_request.PutResourcePolicyRequest = {
+            "resource_arn": resource_arn,
+            "policy": policy,
+        }
         if policy_id is not None:
             input_["policy_id"] = policy_id
         if policy_hash is not None:
@@ -8851,8 +8933,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.register_default_patch_baseline_request.RegisterDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
+        input_: capo_ssm.types.register_default_patch_baseline_request.RegisterDefaultPatchBaselineRequest = {
+            "baseline_id": baseline_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8900,9 +8983,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.register_patch_baseline_for_patch_group_request.RegisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
-        input_["patch_group"] = patch_group
+        input_: capo_ssm.types.register_patch_baseline_for_patch_group_request.RegisterPatchBaselineForPatchGroupRequest = {
+            "baseline_id": baseline_id,
+            "patch_group": patch_group,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8965,10 +9049,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.register_target_with_maintenance_window_request.RegisterTargetWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["resource_type"] = resource_type
-        input_["targets"] = targets
+        input_: capo_ssm.types.register_target_with_maintenance_window_request.RegisterTargetWithMaintenanceWindowRequest = {
+            "window_id": window_id,
+            "resource_type": resource_type,
+            "targets": targets,
+        }
         if owner_information is not None:
             input_["owner_information"] = owner_information
         if name is not None:
@@ -9069,14 +9154,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.register_task_with_maintenance_window_request.RegisterTaskWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.register_task_with_maintenance_window_request.RegisterTaskWithMaintenanceWindowRequest = {
+            "window_id": window_id,
+            "task_arn": task_arn,
+            "task_type": task_type,
+        }
         if targets is not None:
             input_["targets"] = targets
-        input_["task_arn"] = task_arn
         if service_role_arn is not None:
             input_["service_role_arn"] = service_role_arn
-        input_["task_type"] = task_type
         if task_parameters is not None:
             input_["task_parameters"] = task_parameters
         if task_invocation_parameters is not None:
@@ -9148,10 +9234,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_id"] = resource_id
-        input_["tag_keys"] = tag_keys
+        input_: capo_ssm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9195,8 +9282,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.reset_service_setting_request.ResetServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["setting_id"] = setting_id
+        input_: capo_ssm.types.reset_service_setting_request.ResetServiceSettingRequest = {
+            "setting_id": setting_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9239,8 +9327,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.resume_session_request.ResumeSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_id"] = session_id
+        input_: capo_ssm.types.resume_session_request.ResumeSessionRequest = {
+            "session_id": session_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9291,9 +9380,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.send_automation_signal_request.SendAutomationSignalRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_execution_id"] = automation_execution_id
-        input_["signal_type"] = signal_type
+        input_: capo_ssm.types.send_automation_signal_request.SendAutomationSignalRequest = {
+            "automation_execution_id": automation_execution_id,
+            "signal_type": signal_type,
+        }
         if payload is not None:
             input_["payload"] = payload
 
@@ -9399,12 +9489,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.send_command_request.SendCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.send_command_request.SendCommandRequest = {
+            "document_name": document_name
+        }
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if targets is not None:
             input_["targets"] = targets
-        input_["document_name"] = document_name
         if document_version is not None:
             input_["document_version"] = document_version
         if document_hash is not None:
@@ -9485,9 +9576,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_access_request_request.StartAccessRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["reason"] = reason
-        input_["targets"] = targets
+        input_: capo_ssm.types.start_access_request_request.StartAccessRequestRequest = {
+            "reason": reason,
+            "targets": targets,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -9532,8 +9624,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_associations_once_request.StartAssociationsOnceRequest = {}  # type: ignore[typeddict-item]
-        input_["association_ids"] = association_ids
+        input_: capo_ssm.types.start_associations_once_request.StartAssociationsOnceRequest = {
+            "association_ids": association_ids
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9623,8 +9716,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_automation_execution_request.StartAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["document_name"] = document_name
+        input_: capo_ssm.types.start_automation_execution_request.StartAutomationExecutionRequest = {
+            "document_name": document_name
+        }
         if document_version is not None:
             input_["document_version"] = document_version
         if parameters is not None:
@@ -9729,10 +9823,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_change_request_execution_request.StartChangeRequestExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.start_change_request_execution_request.StartChangeRequestExecutionRequest = {
+            "document_name": document_name,
+            "runbooks": runbooks,
+        }
         if scheduled_time is not None:
             input_["scheduled_time"] = scheduled_time
-        input_["document_name"] = document_name
         if document_version is not None:
             input_["document_version"] = document_version
         if parameters is not None:
@@ -9743,7 +9839,6 @@ class AsyncSSMClient:
             input_["client_token"] = client_token
         if auto_approve is not None:
             input_["auto_approve"] = auto_approve
-        input_["runbooks"] = runbooks
         if tags is not None:
             input_["tags"] = tags
         if scheduled_end_time is not None:
@@ -9808,8 +9903,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_execution_preview_request.StartExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-        input_["document_name"] = document_name
+        input_: capo_ssm.types.start_execution_preview_request.StartExecutionPreviewRequest = {
+            "document_name": document_name
+        }
         if document_version is not None:
             input_["document_version"] = document_version
         if execution_inputs is not None:
@@ -9865,8 +9961,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["target"] = target
+        input_: capo_ssm.types.start_session_request.StartSessionRequest = {
+            "target": target
+        }
         if document_name is not None:
             input_["document_name"] = document_name
         if reason is not None:
@@ -9920,8 +10017,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.stop_automation_execution_request.StopAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["automation_execution_id"] = automation_execution_id
+        input_: capo_ssm.types.stop_automation_execution_request.StopAutomationExecutionRequest = {
+            "automation_execution_id": automation_execution_id
+        }
         if type is not None:
             input_["type"] = type
 
@@ -9965,8 +10063,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_id"] = session_id
+        input_: capo_ssm.types.terminate_session_request.TerminateSessionRequest = {
+            "session_id": session_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10017,10 +10116,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.unlabel_parameter_version_request.UnlabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["parameter_version"] = parameter_version
-        input_["labels"] = labels
+        input_: capo_ssm.types.unlabel_parameter_version_request.UnlabelParameterVersionRequest = {
+            "name": name,
+            "parameter_version": parameter_version,
+            "labels": labels,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10145,8 +10245,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_association_request.UpdateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["association_id"] = association_id
+        input_: capo_ssm.types.update_association_request.UpdateAssociationRequest = {
+            "association_id": association_id
+        }
         if parameters is not None:
             input_["parameters"] = parameters
         if document_version is not None:
@@ -10245,10 +10346,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_association_status_request.UpdateAssociationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["instance_id"] = instance_id
-        input_["association_status"] = association_status
+        input_: capo_ssm.types.update_association_status_request.UpdateAssociationStatusRequest = {
+            "name": name,
+            "instance_id": instance_id,
+            "association_status": association_status,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10323,11 +10425,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_document_request.UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
-        input_["content"] = content
+        input_: capo_ssm.types.update_document_request.UpdateDocumentRequest = {
+            "content": content,
+            "name": name,
+        }
         if attachments is not None:
             input_["attachments"] = attachments
-        input_["name"] = name
         if display_name is not None:
             input_["display_name"] = display_name
         if version_name is not None:
@@ -10384,9 +10487,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_document_default_version_request.UpdateDocumentDefaultVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["document_version"] = document_version
+        input_: capo_ssm.types.update_document_default_version_request.UpdateDocumentDefaultVersionRequest = {
+            "name": name,
+            "document_version": document_version,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10438,11 +10542,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_document_metadata_request.UpdateDocumentMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ssm.types.update_document_metadata_request.UpdateDocumentMetadataRequest = {
+            "name": name,
+            "document_reviews": document_reviews,
+        }
         if document_version is not None:
             input_["document_version"] = document_version
-        input_["document_reviews"] = document_reviews
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10533,8 +10638,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_maintenance_window_request.UpdateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
+        input_: capo_ssm.types.update_maintenance_window_request.UpdateMaintenanceWindowRequest = {
+            "window_id": window_id
+        }
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -10619,9 +10725,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_maintenance_window_target_request.UpdateMaintenanceWindowTargetRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["window_target_id"] = window_target_id
+        input_: capo_ssm.types.update_maintenance_window_target_request.UpdateMaintenanceWindowTargetRequest = {
+            "window_id": window_id,
+            "window_target_id": window_target_id,
+        }
         if targets is not None:
             input_["targets"] = targets
         if owner_information is not None:
@@ -10722,9 +10829,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_maintenance_window_task_request.UpdateMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["window_id"] = window_id
-        input_["window_task_id"] = window_task_id
+        input_: capo_ssm.types.update_maintenance_window_task_request.UpdateMaintenanceWindowTaskRequest = {
+            "window_id": window_id,
+            "window_task_id": window_task_id,
+        }
         if targets is not None:
             input_["targets"] = targets
         if task_arn is not None:
@@ -10797,9 +10905,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_managed_instance_role_request.UpdateManagedInstanceRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_id"] = instance_id
-        input_["iam_role"] = iam_role
+        input_: capo_ssm.types.update_managed_instance_role_request.UpdateManagedInstanceRoleRequest = {
+            "instance_id": instance_id,
+            "iam_role": iam_role,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10887,7 +10996,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_ops_item_request.UpdateOpsItemRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ssm.types.update_ops_item_request.UpdateOpsItemRequest = {
+            "ops_item_id": ops_item_id
+        }
         if description is not None:
             input_["description"] = description
         if operational_data is not None:
@@ -10902,7 +11013,6 @@ class AsyncSSMClient:
             input_["related_ops_items"] = related_ops_items
         if status is not None:
             input_["status"] = status
-        input_["ops_item_id"] = ops_item_id
         if title is not None:
             input_["title"] = title
         if category is not None:
@@ -10970,8 +11080,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_ops_metadata_request.UpdateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input_["ops_metadata_arn"] = ops_metadata_arn
+        input_: capo_ssm.types.update_ops_metadata_request.UpdateOpsMetadataRequest = {
+            "ops_metadata_arn": ops_metadata_arn
+        }
         if metadata_to_update is not None:
             input_["metadata_to_update"] = metadata_to_update
         if keys_to_delete is not None:
@@ -11056,8 +11167,9 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_patch_baseline_request.UpdatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input_["baseline_id"] = baseline_id
+        input_: capo_ssm.types.update_patch_baseline_request.UpdatePatchBaselineRequest = {
+            "baseline_id": baseline_id
+        }
         if name is not None:
             input_["name"] = name
         if global_filters is not None:
@@ -11136,10 +11248,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_resource_data_sync_request.UpdateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input_["sync_name"] = sync_name
-        input_["sync_type"] = sync_type
-        input_["sync_source"] = sync_source
+        input_: capo_ssm.types.update_resource_data_sync_request.UpdateResourceDataSyncRequest = {
+            "sync_name": sync_name,
+            "sync_type": sync_type,
+            "sync_source": sync_source,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -11185,9 +11298,10 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ssm.types.update_service_setting_request.UpdateServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["setting_id"] = setting_id
-        input_["setting_value"] = setting_value
+        input_: capo_ssm.types.update_service_setting_request.UpdateServiceSettingRequest = {
+            "setting_id": setting_id,
+            "setting_value": setting_value,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -395,8 +395,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input_["statements"] = statements
+        input_: capo_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput = {
+            "statements": statements
+        }
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
 
@@ -453,8 +454,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.batch_get_item_input.BatchGetItemInput = {}  # type: ignore[typeddict-item]
-        input_["request_items"] = request_items
+        input_: capo_dynamodb.types.batch_get_item_input.BatchGetItemInput = {
+            "request_items": request_items
+        }
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
 
@@ -517,8 +519,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.batch_write_item_input.BatchWriteItemInput = {}  # type: ignore[typeddict-item]
-        input_["request_items"] = request_items
+        input_: capo_dynamodb.types.batch_write_item_input.BatchWriteItemInput = {
+            "request_items": request_items
+        }
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
@@ -571,9 +574,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.create_backup_input.CreateBackupInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["backup_name"] = backup_name
+        input_: capo_dynamodb.types.create_backup_input.CreateBackupInput = {
+            "table_name": table_name,
+            "backup_name": backup_name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -620,9 +624,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.create_global_table_input.CreateGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input_["global_table_name"] = global_table_name
-        input_["replication_group"] = replication_group
+        input_: capo_dynamodb.types.create_global_table_input.CreateGlobalTableInput = {
+            "global_table_name": global_table_name,
+            "replication_group": replication_group,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -722,10 +727,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.create_table_input.CreateTableInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.create_table_input.CreateTableInput = {
+            "table_name": table_name
+        }
         if attribute_definitions is not None:
             input_["attribute_definitions"] = attribute_definitions
-        input_["table_name"] = table_name
         if key_schema is not None:
             input_["key_schema"] = key_schema
         if local_secondary_indexes is not None:
@@ -802,8 +808,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.delete_backup_input.DeleteBackupInput = {}  # type: ignore[typeddict-item]
-        input_["backup_arn"] = backup_arn
+        input_: capo_dynamodb.types.delete_backup_input.DeleteBackupInput = {
+            "backup_arn": backup_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -894,9 +901,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.delete_item_input.DeleteItemInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["key"] = key
+        input_: capo_dynamodb.types.delete_item_input.DeleteItemInput = {
+            "table_name": table_name,
+            "key": key,
+        }
         if expected is not None:
             input_["expected"] = expected
         if conditional_operator is not None:
@@ -966,8 +974,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_dynamodb.types.delete_resource_policy_input.DeleteResourcePolicyInput = {
+            "resource_arn": resource_arn
+        }
         if expected_revision_id is not None:
             input_["expected_revision_id"] = expected_revision_id
 
@@ -1020,8 +1029,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.delete_table_input.DeleteTableInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.delete_table_input.DeleteTableInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1064,8 +1074,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_backup_input.DescribeBackupInput = {}  # type: ignore[typeddict-item]
-        input_["backup_arn"] = backup_arn
+        input_: capo_dynamodb.types.describe_backup_input.DescribeBackupInput = {
+            "backup_arn": backup_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1108,8 +1119,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_continuous_backups_input.DescribeContinuousBackupsInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_continuous_backups_input.DescribeContinuousBackupsInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1153,8 +1165,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_contributor_insights_input.DescribeContributorInsightsInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_contributor_insights_input.DescribeContributorInsightsInput = {
+            "table_name": table_name
+        }
         if index_name is not None:
             input_["index_name"] = index_name
 
@@ -1190,7 +1203,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest = {}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1233,8 +1246,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_export_input.DescribeExportInput = {}  # type: ignore[typeddict-item]
-        input_["export_arn"] = export_arn
+        input_: capo_dynamodb.types.describe_export_input.DescribeExportInput = {
+            "export_arn": export_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1277,8 +1291,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_global_table_input.DescribeGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input_["global_table_name"] = global_table_name
+        input_: capo_dynamodb.types.describe_global_table_input.DescribeGlobalTableInput = {
+            "global_table_name": global_table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1321,8 +1336,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_global_table_settings_input.DescribeGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-        input_["global_table_name"] = global_table_name
+        input_: capo_dynamodb.types.describe_global_table_settings_input.DescribeGlobalTableSettingsInput = {
+            "global_table_name": global_table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1363,8 +1379,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_import_input.DescribeImportInput = {}  # type: ignore[typeddict-item]
-        input_["import_arn"] = import_arn
+        input_: capo_dynamodb.types.describe_import_input.DescribeImportInput = {
+            "import_arn": import_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1407,8 +1424,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_kinesis_streaming_destination_input.DescribeKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_kinesis_streaming_destination_input.DescribeKinesisStreamingDestinationInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1450,7 +1468,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_limits_input.DescribeLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.describe_limits_input.DescribeLimitsInput = {}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1493,8 +1511,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_table_input.DescribeTableInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_table_input.DescribeTableInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1576,8 +1595,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_table_replica_auto_scaling_input.DescribeTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_table_replica_auto_scaling_input.DescribeTableReplicaAutoScalingInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1620,8 +1640,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.describe_time_to_live_input.DescribeTimeToLiveInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.describe_time_to_live_input.DescribeTimeToLiveInput = {
+            "table_name": table_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1672,9 +1693,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["stream_arn"] = stream_arn
+        input_: capo_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {
+            "table_name": table_name,
+            "stream_arn": stream_arn,
+        }
         if enable_kinesis_streaming_configuration is not None:
             input_["enable_kinesis_streaming_configuration"] = (
                 enable_kinesis_streaming_configuration
@@ -1729,9 +1751,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["stream_arn"] = stream_arn
+        input_: capo_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {
+            "table_name": table_name,
+            "stream_arn": stream_arn,
+        }
         if enable_kinesis_streaming_configuration is not None:
             input_["enable_kinesis_streaming_configuration"] = (
                 enable_kinesis_streaming_configuration
@@ -1807,8 +1830,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.execute_statement_input.ExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input_["statement"] = statement
+        input_: capo_dynamodb.types.execute_statement_input.ExecuteStatementInput = {
+            "statement": statement
+        }
         if parameters is not None:
             input_["parameters"] = parameters
         if consistent_read is not None:
@@ -1878,8 +1902,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.execute_transaction_input.ExecuteTransactionInput = {}  # type: ignore[typeddict-item]
-        input_["transact_statements"] = transact_statements
+        input_: capo_dynamodb.types.execute_transaction_input.ExecuteTransactionInput = {
+            "transact_statements": transact_statements
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
@@ -1960,14 +1985,15 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
-        input_["table_arn"] = table_arn
+        input_: capo_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput = {
+            "table_arn": table_arn,
+            "s3_bucket": s3_bucket,
+        }
         if export_time is not None:
             input_["export_time"] = export_time
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
-        input_["s3_bucket"] = s3_bucket
         if s3_bucket_owner is not None:
             input_["s3_bucket_owner"] = s3_bucket_owner
         if s3_prefix is not None:
@@ -2054,9 +2080,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.get_item_input.GetItemInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["key"] = key
+        input_: capo_dynamodb.types.get_item_input.GetItemInput = {
+            "table_name": table_name,
+            "key": key,
+        }
         if attributes_to_get is not None:
             input_["attributes_to_get"] = attributes_to_get
         if consistent_read is not None:
@@ -2110,8 +2137,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_dynamodb.types.get_resource_policy_input.GetResourcePolicyInput = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2168,17 +2196,18 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.import_table_input.ImportTableInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.import_table_input.ImportTableInput = {
+            "s3_bucket_source": s3_bucket_source,
+            "input_format": input_format,
+            "table_creation_parameters": table_creation_parameters,
+        }
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
-        input_["s3_bucket_source"] = s3_bucket_source
-        input_["input_format"] = input_format
         if input_format_options is not None:
             input_["input_format_options"] = input_format_options
         if input_compression_type is not None:
             input_["input_compression_type"] = input_compression_type
-        input_["table_creation_parameters"] = table_creation_parameters
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2240,7 +2269,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_backups_input.ListBackupsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_backups_input.ListBackupsInput = {}
         if table_name is not None:
             input_["table_name"] = table_name
         if limit is not None:
@@ -2302,7 +2331,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_contributor_insights_input.ListContributorInsightsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_contributor_insights_input.ListContributorInsightsInput = {}
         if table_name is not None:
             input_["table_name"] = table_name
         if next_token is not None:
@@ -2358,7 +2387,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_exports_input.ListExportsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_exports_input.ListExportsInput = {}
         if table_arn is not None:
             input_["table_arn"] = table_arn
         if max_results is not None:
@@ -2414,7 +2443,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_global_tables_input.ListGlobalTablesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_global_tables_input.ListGlobalTablesInput = {}
         if exclusive_start_global_table_name is not None:
             input_["exclusive_start_global_table_name"] = (
                 exclusive_start_global_table_name
@@ -2471,7 +2500,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_imports_input.ListImportsInput = {}
         if table_arn is not None:
             input_["table_arn"] = table_arn
         if page_size is not None:
@@ -2531,7 +2560,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_tables_input.ListTablesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.list_tables_input.ListTablesInput = {}
         if exclusive_start_table_name is not None:
             input_["exclusive_start_table_name"] = exclusive_start_table_name
         if limit is not None:
@@ -2607,8 +2636,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.list_tags_of_resource_input.ListTagsOfResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_dynamodb.types.list_tags_of_resource_input.ListTagsOfResourceInput = {
+            "resource_arn": resource_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -2699,9 +2729,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.put_item_input.PutItemInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["item"] = item
+        input_: capo_dynamodb.types.put_item_input.PutItemInput = {
+            "table_name": table_name,
+            "item": item,
+        }
         if expected is not None:
             input_["expected"] = expected
         if return_values is not None:
@@ -2777,9 +2808,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["policy"] = policy
+        input_: capo_dynamodb.types.put_resource_policy_input.PutResourcePolicyInput = {
+            "resource_arn": resource_arn,
+            "policy": policy,
+        }
         if expected_revision_id is not None:
             input_["expected_revision_id"] = expected_revision_id
         if confirm_remove_self_resource_access is not None:
@@ -2892,8 +2924,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.query_input.QueryInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.query_input.QueryInput = {"table_name": table_name}
         if index_name is not None:
             input_["index_name"] = index_name
         if select is not None:
@@ -3074,9 +3105,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.restore_table_from_backup_input.RestoreTableFromBackupInput = {}  # type: ignore[typeddict-item]
-        input_["target_table_name"] = target_table_name
-        input_["backup_arn"] = backup_arn
+        input_: capo_dynamodb.types.restore_table_from_backup_input.RestoreTableFromBackupInput = {
+            "target_table_name": target_table_name,
+            "backup_arn": backup_arn,
+        }
         if billing_mode_override is not None:
             input_["billing_mode_override"] = billing_mode_override
         if global_secondary_index_override is not None:
@@ -3169,12 +3201,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.restore_table_to_point_in_time_input.RestoreTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.restore_table_to_point_in_time_input.RestoreTableToPointInTimeInput = {
+            "target_table_name": target_table_name
+        }
         if source_table_arn is not None:
             input_["source_table_arn"] = source_table_arn
         if source_table_name is not None:
             input_["source_table_name"] = source_table_name
-        input_["target_table_name"] = target_table_name
         if use_latest_restorable_time is not None:
             input_["use_latest_restorable_time"] = use_latest_restorable_time
         if restore_date_time is not None:
@@ -3291,8 +3324,7 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.scan_input.ScanInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.scan_input.ScanInput = {"table_name": table_name}
         if index_name is not None:
             input_["index_name"] = index_name
         if attributes_to_get is not None:
@@ -3438,9 +3470,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_dynamodb.types.tag_resource_input.TagResourceInput = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3491,8 +3524,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.transact_get_items_input.TransactGetItemsInput = {}  # type: ignore[typeddict-item]
-        input_["transact_items"] = transact_items
+        input_: capo_dynamodb.types.transact_get_items_input.TransactGetItemsInput = {
+            "transact_items": transact_items
+        }
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
 
@@ -3554,8 +3588,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.transact_write_items_input.TransactWriteItemsInput = {}  # type: ignore[typeddict-item]
-        input_["transact_items"] = transact_items
+        input_: capo_dynamodb.types.transact_write_items_input.TransactWriteItemsInput = {
+            "transact_items": transact_items
+        }
         if return_consumed_capacity is not None:
             input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
@@ -3607,9 +3642,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_dynamodb.types.untag_resource_input.UntagResourceInput = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3655,11 +3691,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_continuous_backups_input.UpdateContinuousBackupsInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["point_in_time_recovery_specification"] = (
-            point_in_time_recovery_specification
-        )
+        input_: capo_dynamodb.types.update_continuous_backups_input.UpdateContinuousBackupsInput = {
+            "table_name": table_name,
+            "point_in_time_recovery_specification": point_in_time_recovery_specification,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3709,11 +3744,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_contributor_insights_input.UpdateContributorInsightsInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
+        input_: capo_dynamodb.types.update_contributor_insights_input.UpdateContributorInsightsInput = {
+            "table_name": table_name,
+            "contributor_insights_action": contributor_insights_action,
+        }
         if index_name is not None:
             input_["index_name"] = index_name
-        input_["contributor_insights_action"] = contributor_insights_action
         if contributor_insights_mode is not None:
             input_["contributor_insights_mode"] = contributor_insights_mode
 
@@ -3763,9 +3799,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_global_table_input.UpdateGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input_["global_table_name"] = global_table_name
-        input_["replica_updates"] = replica_updates
+        input_: capo_dynamodb.types.update_global_table_input.UpdateGlobalTableInput = {
+            "global_table_name": global_table_name,
+            "replica_updates": replica_updates,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3832,8 +3869,9 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-        input_["global_table_name"] = global_table_name
+        input_: capo_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput = {
+            "global_table_name": global_table_name
+        }
         if global_table_billing_mode is not None:
             input_["global_table_billing_mode"] = global_table_billing_mode
         if global_table_provisioned_write_capacity_units is not None:
@@ -3951,9 +3989,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_item_input.UpdateItemInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["key"] = key
+        input_: capo_dynamodb.types.update_item_input.UpdateItemInput = {
+            "table_name": table_name,
+            "key": key,
+        }
         if attribute_updates is not None:
             input_["attribute_updates"] = attribute_updates
         if expected is not None:
@@ -4028,9 +4067,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_kinesis_streaming_destination_input.UpdateKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["stream_arn"] = stream_arn
+        input_: capo_dynamodb.types.update_kinesis_streaming_destination_input.UpdateKinesisStreamingDestinationInput = {
+            "table_name": table_name,
+            "stream_arn": stream_arn,
+        }
         if update_kinesis_streaming_configuration is not None:
             input_["update_kinesis_streaming_configuration"] = (
                 update_kinesis_streaming_configuration
@@ -4131,10 +4171,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_table_input.UpdateTableInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.update_table_input.UpdateTableInput = {
+            "table_name": table_name
+        }
         if attribute_definitions is not None:
             input_["attribute_definitions"] = attribute_definitions
-        input_["table_name"] = table_name
         if billing_mode is not None:
             input_["billing_mode"] = billing_mode
         if provisioned_throughput is not None:
@@ -4217,10 +4258,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
+        input_: capo_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput = {
+            "table_name": table_name
+        }
         if global_secondary_index_updates is not None:
             input_["global_secondary_index_updates"] = global_secondary_index_updates
-        input_["table_name"] = table_name
         if provisioned_write_capacity_auto_scaling_update is not None:
             input_["provisioned_write_capacity_auto_scaling_update"] = (
                 provisioned_write_capacity_auto_scaling_update
@@ -4273,9 +4315,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_dynamodb.types.update_time_to_live_input.UpdateTimeToLiveInput = {}  # type: ignore[typeddict-item]
-        input_["table_name"] = table_name
-        input_["time_to_live_specification"] = time_to_live_specification
+        input_: capo_dynamodb.types.update_time_to_live_input.UpdateTimeToLiveInput = {
+            "table_name": table_name,
+            "time_to_live_specification": time_to_live_specification,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

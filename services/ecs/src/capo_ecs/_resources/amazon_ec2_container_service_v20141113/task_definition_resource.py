@@ -86,8 +86,9 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input_["task_definitions"] = task_definitions
+        input_: capo_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {
+            "task_definitions": task_definitions
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -151,7 +152,7 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}
         if family_prefix is not None:
             input_["family_prefix"] = family_prefix
         if status is not None:
@@ -260,15 +261,16 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["family"] = family
+        input_: capo_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {
+            "family": family,
+            "container_definitions": container_definitions,
+        }
         if task_role_arn is not None:
             input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if network_mode is not None:
             input_["network_mode"] = network_mode
-        input_["container_definitions"] = container_definitions
         if volumes is not None:
             input_["volumes"] = volumes
         if placement_constraints is not None:
@@ -352,8 +354,9 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input_["task_definitions"] = task_definitions
+        input_: capo_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {
+            "task_definitions": task_definitions
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -418,7 +421,7 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}
         if family_prefix is not None:
             input_["family_prefix"] = family_prefix
         if status is not None:
@@ -528,15 +531,16 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["family"] = family
+        input_: capo_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {
+            "family": family,
+            "container_definitions": container_definitions,
+        }
         if task_role_arn is not None:
             input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if network_mode is not None:
             input_["network_mode"] = network_mode
-        input_["container_definitions"] = container_definitions
         if volumes is not None:
             input_["volumes"] = volumes
         if placement_constraints is not None:

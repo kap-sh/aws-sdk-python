@@ -82,8 +82,9 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -151,7 +152,7 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}
         if submit_time_after is not None:
             input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
@@ -223,13 +224,14 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {
+            "model_id": model_id,
+            "model_input": model_input,
+            "output_data_config": output_data_config,
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
-        input_["model_id"] = model_id
-        input_["model_input"] = model_input
-        input_["output_data_config"] = output_data_config
         if tags is not None:
             input_["tags"] = tags
 
@@ -281,8 +283,9 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -351,7 +354,7 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}
         if submit_time_after is not None:
             input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
@@ -424,13 +427,14 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {
+            "model_id": model_id,
+            "model_input": model_input,
+            "output_data_config": output_data_config,
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
-        input_["model_id"] = model_id
-        input_["model_input"] = model_input
-        input_["output_data_config"] = output_data_config
         if tags is not None:
             input_["tags"] = tags
 

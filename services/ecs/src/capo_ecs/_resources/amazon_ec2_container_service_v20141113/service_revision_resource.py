@@ -70,8 +70,9 @@ class ServiceRevisionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_service_revisions_request.DescribeServiceRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input_["service_revision_arns"] = service_revision_arns
+        input_: capo_ecs.types.describe_service_revisions_request.DescribeServiceRevisionsRequest = {
+            "service_revision_arns": service_revision_arns
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -134,8 +135,9 @@ class AsyncServiceRevisionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_service_revisions_request.DescribeServiceRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input_["service_revision_arns"] = service_revision_arns
+        input_: capo_ecs.types.describe_service_revisions_request.DescribeServiceRevisionsRequest = {
+            "service_revision_arns": service_revision_arns
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

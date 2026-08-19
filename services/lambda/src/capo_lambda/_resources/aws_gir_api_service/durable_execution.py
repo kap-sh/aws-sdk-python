@@ -89,8 +89,9 @@ class DurableExecution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if include_execution_data is not None:
             input_["include_execution_data"] = include_execution_data
 
@@ -147,9 +148,10 @@ class DurableExecution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
+        input_: capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn,
+            "checkpoint_token": checkpoint_token,
+        }
         if updates is not None:
             input_["updates"] = updates
         if client_token is None:
@@ -212,8 +214,9 @@ class DurableExecution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if include_execution_data is not None:
             input_["include_execution_data"] = include_execution_data
         if max_items is not None:
@@ -274,9 +277,10 @@ class DurableExecution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
+        input_: capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {
+            "durable_execution_arn": durable_execution_arn,
+            "checkpoint_token": checkpoint_token,
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -332,8 +336,9 @@ class DurableExecution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if error is not None:
             input_["error"] = error
 
@@ -393,8 +398,9 @@ class AsyncDurableExecution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if include_execution_data is not None:
             input_["include_execution_data"] = include_execution_data
 
@@ -452,9 +458,10 @@ class AsyncDurableExecution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
+        input_: capo_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn,
+            "checkpoint_token": checkpoint_token,
+        }
         if updates is not None:
             input_["updates"] = updates
         if client_token is None:
@@ -518,8 +525,9 @@ class AsyncDurableExecution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if include_execution_data is not None:
             input_["include_execution_data"] = include_execution_data
         if max_items is not None:
@@ -581,9 +589,10 @@ class AsyncDurableExecution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
-        input_["checkpoint_token"] = checkpoint_token
+        input_: capo_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {
+            "durable_execution_arn": durable_execution_arn,
+            "checkpoint_token": checkpoint_token,
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -640,8 +649,9 @@ class AsyncDurableExecution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["durable_execution_arn"] = durable_execution_arn
+        input_: capo_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {
+            "durable_execution_arn": durable_execution_arn
+        }
         if error is not None:
             input_["error"] = error
 

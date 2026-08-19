@@ -91,11 +91,12 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["task_set"] = task_set
-        input_["scale"] = scale
+        input_: capo_ecs.types.update_task_set_request.UpdateTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "task_set": task_set,
+            "scale": scale,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -157,10 +158,11 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["task_set"] = task_set
+        input_: capo_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "task_set": task_set,
+        }
         if force is not None:
             input_["force"] = force
 
@@ -250,12 +252,13 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["service"] = service
-        input_["cluster"] = cluster
+        input_: capo_ecs.types.create_task_set_request.CreateTaskSetRequest = {
+            "service": service,
+            "cluster": cluster,
+            "task_definition": task_definition,
+        }
         if external_id is not None:
             input_["external_id"] = external_id
-        input_["task_definition"] = task_definition
         if network_configuration is not None:
             input_["network_configuration"] = network_configuration
         if load_balancers is not None:
@@ -333,9 +336,10 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
+        input_: capo_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {
+            "cluster": cluster,
+            "service": service,
+        }
         if task_sets is not None:
             input_["task_sets"] = task_sets
         if include is not None:
@@ -407,11 +411,12 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["task_set"] = task_set
-        input_["scale"] = scale
+        input_: capo_ecs.types.update_task_set_request.UpdateTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "task_set": task_set,
+            "scale": scale,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -474,10 +479,11 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["task_set"] = task_set
+        input_: capo_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "task_set": task_set,
+        }
         if force is not None:
             input_["force"] = force
 
@@ -568,12 +574,13 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["service"] = service
-        input_["cluster"] = cluster
+        input_: capo_ecs.types.create_task_set_request.CreateTaskSetRequest = {
+            "service": service,
+            "cluster": cluster,
+            "task_definition": task_definition,
+        }
         if external_id is not None:
             input_["external_id"] = external_id
-        input_["task_definition"] = task_definition
         if network_configuration is not None:
             input_["network_configuration"] = network_configuration
         if load_balancers is not None:
@@ -652,9 +659,10 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
+        input_: capo_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {
+            "cluster": cluster,
+            "service": service,
+        }
         if task_sets is not None:
             input_["task_sets"] = task_sets
         if include is not None:

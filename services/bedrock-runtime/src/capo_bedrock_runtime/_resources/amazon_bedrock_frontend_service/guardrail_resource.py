@@ -82,11 +82,12 @@ class GuardrailResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
-        input_["guardrail_version"] = guardrail_version
-        input_["source"] = source
-        input_["content"] = content
+        input_: capo_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier,
+            "guardrail_version": guardrail_version,
+            "source": source,
+            "content": content,
+        }
         if output_scope is not None:
             input_["output_scope"] = output_scope
 
@@ -151,11 +152,12 @@ class AsyncGuardrailResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
-        input_["guardrail_version"] = guardrail_version
-        input_["source"] = source
-        input_["content"] = content
+        input_: capo_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier,
+            "guardrail_version": guardrail_version,
+            "source": source,
+            "content": content,
+        }
         if output_scope is not None:
             input_["output_scope"] = output_scope
 

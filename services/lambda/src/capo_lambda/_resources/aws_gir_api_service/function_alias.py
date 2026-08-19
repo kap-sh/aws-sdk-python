@@ -91,10 +91,11 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
-        input_["function_version"] = function_version
+        input_: capo_lambda.types.create_alias_request.CreateAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+            "function_version": function_version,
+        }
         if description is not None:
             input_["description"] = description
         if routing_config is not None:
@@ -150,9 +151,10 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.get_alias_request.GetAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -218,9 +220,10 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.update_alias_request.UpdateAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
         if function_version is not None:
             input_["function_version"] = function_version
         if description is not None:
@@ -279,9 +282,10 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.delete_alias_request.DeleteAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -339,8 +343,9 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_aliases_request.ListAliasesRequest = {
+            "function_name": function_name
+        }
         if function_version is not None:
             input_["function_version"] = function_version
         if marker is not None:
@@ -414,10 +419,11 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
-        input_["function_version"] = function_version
+        input_: capo_lambda.types.create_alias_request.CreateAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+            "function_version": function_version,
+        }
         if description is not None:
             input_["description"] = description
         if routing_config is not None:
@@ -474,9 +480,10 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.get_alias_request.GetAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -543,9 +550,10 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.update_alias_request.UpdateAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
         if function_version is not None:
             input_["function_version"] = function_version
         if description is not None:
@@ -605,9 +613,10 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["name"] = name
+        input_: capo_lambda.types.delete_alias_request.DeleteAliasRequest = {
+            "function_name": function_name,
+            "name": name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -666,8 +675,9 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_aliases_request.ListAliasesRequest = {
+            "function_name": function_name
+        }
         if function_version is not None:
             input_["function_version"] = function_version
         if marker is not None:

@@ -341,11 +341,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.batch_check_layer_availability_request.BatchCheckLayerAvailabilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.batch_check_layer_availability_request.BatchCheckLayerAvailabilityRequest = {
+            "repository_name": repository_name,
+            "layer_digests": layer_digests,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["layer_digests"] = layer_digests
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -399,11 +400,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.batch_delete_image_request.BatchDeleteImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.batch_delete_image_request.BatchDeleteImageRequest = {
+            "repository_name": repository_name,
+            "image_ids": image_ids,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_ids"] = image_ids
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -463,11 +465,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.batch_get_image_request.BatchGetImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.batch_get_image_request.BatchGetImageRequest = {
+            "repository_name": repository_name,
+            "image_ids": image_ids,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_ids"] = image_ids
         if accepted_media_types is not None:
             input_["accepted_media_types"] = accepted_media_types
 
@@ -514,8 +517,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.batch_get_repository_scanning_configuration_request.BatchGetRepositoryScanningConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["repository_names"] = repository_names
+        input_: capo_ecr.types.batch_get_repository_scanning_configuration_request.BatchGetRepositoryScanningConfigurationRequest = {
+            "repository_names": repository_names
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -571,12 +575,13 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.complete_layer_upload_request.CompleteLayerUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.complete_layer_upload_request.CompleteLayerUploadRequest = {
+            "repository_name": repository_name,
+            "upload_id": upload_id,
+            "layer_digests": layer_digests,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["upload_id"] = upload_id
-        input_["layer_digests"] = layer_digests
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -644,9 +649,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.create_pull_through_cache_rule_request.CreatePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["ecr_repository_prefix"] = ecr_repository_prefix
-        input_["upstream_registry_url"] = upstream_registry_url
+        input_: capo_ecr.types.create_pull_through_cache_rule_request.CreatePullThroughCacheRuleRequest = {
+            "ecr_repository_prefix": ecr_repository_prefix,
+            "upstream_registry_url": upstream_registry_url,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
         if upstream_registry is not None:
@@ -730,10 +736,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.create_repository_request.CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.create_repository_request.CreateRepositoryRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if tags is not None:
             input_["tags"] = tags
         if image_tag_mutability is not None:
@@ -823,8 +830,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.create_repository_creation_template_request.CreateRepositoryCreationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["prefix"] = prefix
+        input_: capo_ecr.types.create_repository_creation_template_request.CreateRepositoryCreationTemplateRequest = {
+            "prefix": prefix,
+            "applied_for": applied_for,
+        }
         if description is not None:
             input_["description"] = description
         if encryption_configuration is not None:
@@ -841,7 +850,6 @@ class AsyncECRClient:
             input_["repository_policy"] = repository_policy
         if lifecycle_policy is not None:
             input_["lifecycle_policy"] = lifecycle_policy
-        input_["applied_for"] = applied_for
         if custom_role_arn is not None:
             input_["custom_role_arn"] = custom_role_arn
 
@@ -893,10 +901,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -943,8 +952,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_pull_through_cache_rule_request.DeletePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["ecr_repository_prefix"] = ecr_repository_prefix
+        input_: capo_ecr.types.delete_pull_through_cache_rule_request.DeletePullThroughCacheRuleRequest = {
+            "ecr_repository_prefix": ecr_repository_prefix
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
 
@@ -985,7 +995,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_registry_policy_request.DeleteRegistryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.delete_registry_policy_request.DeleteRegistryPolicyRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1041,10 +1051,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_repository_request.DeleteRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.delete_repository_request.DeleteRepositoryRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if force is not None:
             input_["force"] = force
 
@@ -1091,8 +1102,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_repository_creation_template_request.DeleteRepositoryCreationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["prefix"] = prefix
+        input_: capo_ecr.types.delete_repository_creation_template_request.DeleteRepositoryCreationTemplateRequest = {
+            "prefix": prefix
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1145,10 +1157,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_repository_policy_request.DeleteRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.delete_repository_policy_request.DeleteRepositoryPolicyRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1186,7 +1199,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.delete_signing_configuration_request.DeleteSigningConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.delete_signing_configuration_request.DeleteSigningConfigurationRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1238,8 +1251,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.deregister_pull_time_update_exclusion_request.DeregisterPullTimeUpdateExclusionRequest = {}  # type: ignore[typeddict-item]
-        input_["principal_arn"] = principal_arn
+        input_: capo_ecr.types.deregister_pull_time_update_exclusion_request.DeregisterPullTimeUpdateExclusionRequest = {
+            "principal_arn": principal_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1288,9 +1302,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_image_replication_status_request.DescribeImageReplicationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["repository_name"] = repository_name
-        input_["image_id"] = image_id
+        input_: capo_ecr.types.describe_image_replication_status_request.DescribeImageReplicationStatusRequest = {
+            "repository_name": repository_name,
+            "image_id": image_id,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
 
@@ -1351,10 +1366,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_images_request.DescribeImagesRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if next_token is not None:
@@ -1449,11 +1465,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_image_scan_findings_request.DescribeImageScanFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_image_scan_findings_request.DescribeImageScanFindingsRequest = {
+            "repository_name": repository_name,
+            "image_id": image_id,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_id"] = image_id
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1507,9 +1524,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_image_signing_status_request.DescribeImageSigningStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["repository_name"] = repository_name
-        input_["image_id"] = image_id
+        input_: capo_ecr.types.describe_image_signing_status_request.DescribeImageSigningStatusRequest = {
+            "repository_name": repository_name,
+            "image_id": image_id,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
 
@@ -1564,7 +1582,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_pull_through_cache_rules_request.DescribePullThroughCacheRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_pull_through_cache_rules_request.DescribePullThroughCacheRulesRequest = {}
         if registry_id is not None:
             input_["registry_id"] = registry_id
         if ecr_repository_prefixes is not None:
@@ -1637,7 +1655,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_registry_request.DescribeRegistryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_registry_request.DescribeRegistryRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1695,7 +1713,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_repositories_request.DescribeRepositoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_repositories_request.DescribeRepositoriesRequest = {}
         if registry_id is not None:
             input_["registry_id"] = registry_id
         if repository_names is not None:
@@ -1778,7 +1796,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.describe_repository_creation_templates_request.DescribeRepositoryCreationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.describe_repository_creation_templates_request.DescribeRepositoryCreationTemplatesRequest = {}
         if prefixes is not None:
             input_["prefixes"] = prefixes
         if next_token is not None:
@@ -1851,8 +1869,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_account_setting_request.GetAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecr.types.get_account_setting_request.GetAccountSettingRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1899,7 +1918,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}
         if registry_ids is not None:
             input_["registry_ids"] = registry_ids
 
@@ -1952,11 +1971,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_download_url_for_layer_request.GetDownloadUrlForLayerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_download_url_for_layer_request.GetDownloadUrlForLayerRequest = {
+            "repository_name": repository_name,
+            "layer_digest": layer_digest,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["layer_digest"] = layer_digest
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2004,10 +2024,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2069,10 +2090,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_lifecycle_policy_preview_request.GetLifecyclePolicyPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_lifecycle_policy_preview_request.GetLifecyclePolicyPreviewRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if next_token is not None:
@@ -2154,7 +2176,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_registry_policy_request.GetRegistryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_registry_policy_request.GetRegistryPolicyRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2192,7 +2214,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_registry_scanning_configuration_request.GetRegistryScanningConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_registry_scanning_configuration_request.GetRegistryScanningConfigurationRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2245,10 +2267,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_repository_policy_request.GetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_repository_policy_request.GetRepositoryPolicyRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2287,7 +2310,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.get_signing_configuration_request.GetSigningConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.get_signing_configuration_request.GetSigningConfigurationRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2334,10 +2357,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.initiate_layer_upload_request.InitiateLayerUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.initiate_layer_upload_request.InitiateLayerUploadRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2411,11 +2435,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.list_image_referrers_request.ListImageReferrersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.list_image_referrers_request.ListImageReferrersRequest = {
+            "repository_name": repository_name,
+            "subject_id": subject_id,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["subject_id"] = subject_id
         if filter is not None:
             input_["filter"] = filter
         if next_token is not None:
@@ -2479,10 +2504,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.list_images_request.ListImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.list_images_request.ListImagesRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -2572,7 +2598,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.list_pull_time_update_exclusions_request.ListPullTimeUpdateExclusionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.list_pull_time_update_exclusions_request.ListPullTimeUpdateExclusionsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -2620,8 +2646,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_ecr.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2668,9 +2695,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_account_setting_request.PutAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["value"] = value
+        input_: capo_ecr.types.put_account_setting_request.PutAccountSettingRequest = {
+            "name": name,
+            "value": value,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2733,11 +2761,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_image_request.PutImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.put_image_request.PutImageRequest = {
+            "repository_name": repository_name,
+            "image_manifest": image_manifest,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_manifest"] = image_manifest
         if image_manifest_media_type is not None:
             input_["image_manifest_media_type"] = image_manifest_media_type
         if image_tag is not None:
@@ -2792,11 +2821,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_image_scanning_configuration_request.PutImageScanningConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.put_image_scanning_configuration_request.PutImageScanningConfigurationRequest = {
+            "repository_name": repository_name,
+            "image_scanning_configuration": image_scanning_configuration,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_scanning_configuration"] = image_scanning_configuration
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2850,11 +2880,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_image_tag_mutability_request.PutImageTagMutabilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.put_image_tag_mutability_request.PutImageTagMutabilityRequest = {
+            "repository_name": repository_name,
+            "image_tag_mutability": image_tag_mutability,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_tag_mutability"] = image_tag_mutability
         if image_tag_mutability_exclusion_filters is not None:
             input_["image_tag_mutability_exclusion_filters"] = (
                 image_tag_mutability_exclusion_filters
@@ -2907,11 +2938,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_lifecycle_policy_request.PutLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.put_lifecycle_policy_request.PutLifecyclePolicyRequest = {
+            "repository_name": repository_name,
+            "lifecycle_policy_text": lifecycle_policy_text,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["lifecycle_policy_text"] = lifecycle_policy_text
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2955,8 +2987,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_registry_policy_request.PutRegistryPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_text"] = policy_text
+        input_: capo_ecr.types.put_registry_policy_request.PutRegistryPolicyRequest = {
+            "policy_text": policy_text
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3005,7 +3038,7 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_registry_scanning_configuration_request.PutRegistryScanningConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.put_registry_scanning_configuration_request.PutRegistryScanningConfigurationRequest = {}
         if scan_type is not None:
             input_["scan_type"] = scan_type
         if rules is not None:
@@ -3053,8 +3086,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_replication_configuration_request.PutReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["replication_configuration"] = replication_configuration
+        input_: capo_ecr.types.put_replication_configuration_request.PutReplicationConfigurationRequest = {
+            "replication_configuration": replication_configuration
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3098,8 +3132,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.put_signing_configuration_request.PutSigningConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["signing_configuration"] = signing_configuration
+        input_: capo_ecr.types.put_signing_configuration_request.PutSigningConfigurationRequest = {
+            "signing_configuration": signing_configuration
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3145,8 +3180,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.register_pull_time_update_exclusion_request.RegisterPullTimeUpdateExclusionRequest = {}  # type: ignore[typeddict-item]
-        input_["principal_arn"] = principal_arn
+        input_: capo_ecr.types.register_pull_time_update_exclusion_request.RegisterPullTimeUpdateExclusionRequest = {
+            "principal_arn": principal_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3196,11 +3232,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.set_repository_policy_request.SetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.set_repository_policy_request.SetRepositoryPolicyRequest = {
+            "repository_name": repository_name,
+            "policy_text": policy_text,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["policy_text"] = policy_text
         if force is not None:
             input_["force"] = force
 
@@ -3254,11 +3291,12 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.start_image_scan_request.StartImageScanRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.start_image_scan_request.StartImageScanRequest = {
+            "repository_name": repository_name,
+            "image_id": image_id,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_id"] = image_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3311,10 +3349,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.start_lifecycle_policy_preview_request.StartLifecyclePolicyPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.start_lifecycle_policy_preview_request.StartLifecyclePolicyPreviewRequest = {
+            "repository_name": repository_name
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
         if lifecycle_policy_text is not None:
             input_["lifecycle_policy_text"] = lifecycle_policy_text
 
@@ -3364,9 +3403,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_ecr.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3414,9 +3454,10 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_ecr.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3478,12 +3519,13 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.update_image_storage_class_request.UpdateImageStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.update_image_storage_class_request.UpdateImageStorageClassRequest = {
+            "repository_name": repository_name,
+            "image_id": image_id,
+            "target_storage_class": target_storage_class,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["image_id"] = image_id
-        input_["target_storage_class"] = target_storage_class
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3539,10 +3581,11 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.update_pull_through_cache_rule_request.UpdatePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.update_pull_through_cache_rule_request.UpdatePullThroughCacheRuleRequest = {
+            "ecr_repository_prefix": ecr_repository_prefix
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["ecr_repository_prefix"] = ecr_repository_prefix
         if credential_arn is not None:
             input_["credential_arn"] = credential_arn
         if custom_role_arn is not None:
@@ -3624,8 +3667,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.update_repository_creation_template_request.UpdateRepositoryCreationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input_["prefix"] = prefix
+        input_: capo_ecr.types.update_repository_creation_template_request.UpdateRepositoryCreationTemplateRequest = {
+            "prefix": prefix
+        }
         if description is not None:
             input_["description"] = description
         if encryption_configuration is not None:
@@ -3703,14 +3747,15 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.upload_layer_part_request.UploadLayerPartRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecr.types.upload_layer_part_request.UploadLayerPartRequest = {
+            "repository_name": repository_name,
+            "upload_id": upload_id,
+            "part_first_byte": part_first_byte,
+            "part_last_byte": part_last_byte,
+            "layer_part_blob": layer_part_blob,
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
-        input_["repository_name"] = repository_name
-        input_["upload_id"] = upload_id
-        input_["part_first_byte"] = part_first_byte
-        input_["part_last_byte"] = part_last_byte
-        input_["layer_part_blob"] = layer_part_blob
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3757,8 +3802,9 @@ class AsyncECRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecr.types.validate_pull_through_cache_rule_request.ValidatePullThroughCacheRuleRequest = {}  # type: ignore[typeddict-item]
-        input_["ecr_repository_prefix"] = ecr_repository_prefix
+        input_: capo_ecr.types.validate_pull_through_cache_rule_request.ValidatePullThroughCacheRuleRequest = {
+            "ecr_repository_prefix": ecr_repository_prefix
+        }
         if registry_id is not None:
             input_["registry_id"] = registry_id
 

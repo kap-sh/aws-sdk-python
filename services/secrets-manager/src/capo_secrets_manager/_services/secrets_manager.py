@@ -261,7 +261,7 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.batch_get_secret_value_request.BatchGetSecretValueRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_secrets_manager.types.batch_get_secret_value_request.BatchGetSecretValueRequest = {}
         if secret_id_list is not None:
             input_["secret_id_list"] = secret_id_list
         if filters is not None:
@@ -319,8 +319,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.cancel_rotate_secret_request.CancelRotateSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.cancel_rotate_secret_request.CancelRotateSecretRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -410,8 +411,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.create_secret_request.CreateSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_secrets_manager.types.create_secret_request.CreateSecretRequest = {
+            "name": name
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
@@ -480,8 +482,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -533,8 +536,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.delete_secret_request.DeleteSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.delete_secret_request.DeleteSecretRequest = {
+            "secret_id": secret_id
+        }
         if recovery_window_in_days is not None:
             input_["recovery_window_in_days"] = recovery_window_in_days
         if force_delete_without_recovery is not None:
@@ -581,8 +585,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.describe_secret_request.DescribeSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.describe_secret_request.DescribeSecretRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -661,7 +666,7 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.get_random_password_request.GetRandomPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_secrets_manager.types.get_random_password_request.GetRandomPasswordRequest = {}
         if password_length is not None:
             input_["password_length"] = password_length
         if exclude_characters is not None:
@@ -727,8 +732,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.get_resource_policy_request.GetResourcePolicyRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -787,8 +793,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.get_secret_value_request.GetSecretValueRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.get_secret_value_request.GetSecretValueRequest = {
+            "secret_id": secret_id
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if version_stage is not None:
@@ -862,7 +869,7 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.list_secrets_request.ListSecretsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_secrets_manager.types.list_secrets_request.ListSecretsRequest = {}
         if include_planned_deletion is not None:
             input_["include_planned_deletion"] = include_planned_deletion
         if max_results is not None:
@@ -936,8 +943,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.list_secret_version_ids_request.ListSecretVersionIdsRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.list_secret_version_ids_request.ListSecretVersionIdsRequest = {
+            "secret_id": secret_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1001,9 +1009,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["resource_policy"] = resource_policy
+        input_: capo_secrets_manager.types.put_resource_policy_request.PutResourcePolicyRequest = {
+            "secret_id": secret_id,
+            "resource_policy": resource_policy,
+        }
         if block_public_policy is not None:
             input_["block_public_policy"] = block_public_policy
 
@@ -1079,8 +1088,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.put_secret_value_request.PutSecretValueRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.put_secret_value_request.PutSecretValueRequest = {
+            "secret_id": secret_id
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
@@ -1137,9 +1147,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.remove_regions_from_replication_request.RemoveRegionsFromReplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["remove_replica_regions"] = remove_replica_regions
+        input_: capo_secrets_manager.types.remove_regions_from_replication_request.RemoveRegionsFromReplicationRequest = {
+            "secret_id": secret_id,
+            "remove_replica_regions": remove_replica_regions,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1195,9 +1206,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.replicate_secret_to_regions_request.ReplicateSecretToRegionsRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["add_replica_regions"] = add_replica_regions
+        input_: capo_secrets_manager.types.replicate_secret_to_regions_request.ReplicateSecretToRegionsRequest = {
+            "secret_id": secret_id,
+            "add_replica_regions": add_replica_regions,
+        }
         if force_overwrite_replica_secret is not None:
             input_["force_overwrite_replica_secret"] = force_overwrite_replica_secret
 
@@ -1249,8 +1261,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.restore_secret_request.RestoreSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.restore_secret_request.RestoreSecretRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1328,8 +1341,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.rotate_secret_request.RotateSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.rotate_secret_request.RotateSecretRequest = {
+            "secret_id": secret_id
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
@@ -1390,8 +1404,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.stop_replication_to_replica_request.StopReplicationToReplicaRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.stop_replication_to_replica_request.StopReplicationToReplicaRequest = {
+            "secret_id": secret_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1441,9 +1456,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["tags"] = tags
+        input_: capo_secrets_manager.types.tag_resource_request.TagResourceRequest = {
+            "secret_id": secret_id,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1493,9 +1509,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["tag_keys"] = tag_keys
+        input_: capo_secrets_manager.types.untag_resource_request.UntagResourceRequest = {
+            "secret_id": secret_id,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1583,8 +1600,9 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.update_secret_request.UpdateSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
+        input_: capo_secrets_manager.types.update_secret_request.UpdateSecretRequest = {
+            "secret_id": secret_id
+        }
         if client_request_token is None:
             client_request_token = str(uuid.uuid4())
         input_["client_request_token"] = client_request_token
@@ -1666,9 +1684,10 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.update_secret_version_stage_request.UpdateSecretVersionStageRequest = {}  # type: ignore[typeddict-item]
-        input_["secret_id"] = secret_id
-        input_["version_stage"] = version_stage
+        input_: capo_secrets_manager.types.update_secret_version_stage_request.UpdateSecretVersionStageRequest = {
+            "secret_id": secret_id,
+            "version_stage": version_stage,
+        }
         if remove_from_version_id is not None:
             input_["remove_from_version_id"] = remove_from_version_id
         if move_to_version_id is not None:
@@ -1727,10 +1746,11 @@ class SecretsManagerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_secrets_manager.types.validate_resource_policy_request.ValidateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_secrets_manager.types.validate_resource_policy_request.ValidateResourcePolicyRequest = {
+            "resource_policy": resource_policy
+        }
         if secret_id is not None:
             input_["secret_id"] = secret_id
-        input_["resource_policy"] = resource_policy
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

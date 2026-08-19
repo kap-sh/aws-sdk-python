@@ -586,10 +586,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
-        input_["upload_id"] = upload_id
+        input_: capo_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest = {
+            "bucket": bucket,
+            "key": key,
+            "upload_id": upload_id,
+        }
         if request_payer is not None:
             input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
@@ -707,12 +708,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.complete_multipart_upload_request.CompleteMultipartUploadRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.complete_multipart_upload_request.CompleteMultipartUploadRequest = {
+            "bucket": bucket,
+            "key": key,
+            "upload_id": upload_id,
+        }
         if multipart_upload is not None:
             input_["multipart_upload"] = multipart_upload
-        input_["upload_id"] = upload_id
         if checksum_crc32 is not None:
             input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
@@ -935,10 +937,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.copy_object_request.CopyObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.copy_object_request.CopyObjectRequest = {
+            "bucket": bucket,
+            "copy_source": copy_source,
+            "key": key,
+        }
         if acl is not None:
             input_["acl"] = acl
-        input_["bucket"] = bucket
         if cache_control is not None:
             input_["cache_control"] = cache_control
         if checksum_algorithm is not None:
@@ -951,7 +956,6 @@ class AsyncS3Client:
             input_["content_language"] = content_language
         if content_type is not None:
             input_["content_type"] = content_type
-        input_["copy_source"] = copy_source
         if copy_source_if_match is not None:
             input_["copy_source_if_match"] = copy_source_if_match
         if copy_source_if_modified_since is not None:
@@ -974,7 +978,6 @@ class AsyncS3Client:
             input_["if_match"] = if_match
         if if_none_match is not None:
             input_["if_none_match"] = if_none_match
-        input_["key"] = key
         if metadata is not None:
             input_["metadata"] = metadata
         if metadata_directive is not None:
@@ -1106,10 +1109,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.create_bucket_request.CreateBucketRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.create_bucket_request.CreateBucketRequest = {
+            "bucket": bucket
+        }
         if acl is not None:
             input_["acl"] = acl
-        input_["bucket"] = bucket
         if create_bucket_configuration is not None:
             input_["create_bucket_configuration"] = create_bucket_configuration
         if grant_full_control is not None:
@@ -1176,13 +1180,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.create_bucket_metadata_configuration_request.CreateBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.create_bucket_metadata_configuration_request.CreateBucketMetadataConfigurationRequest = {
+            "bucket": bucket,
+            "metadata_configuration": metadata_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["metadata_configuration"] = metadata_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1233,13 +1238,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.create_bucket_metadata_table_configuration_request.CreateBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.create_bucket_metadata_table_configuration_request.CreateBucketMetadataTableConfigurationRequest = {
+            "bucket": bucket,
+            "metadata_table_configuration": metadata_table_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["metadata_table_configuration"] = metadata_table_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1377,10 +1383,12 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.create_multipart_upload_request.CreateMultipartUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.create_multipart_upload_request.CreateMultipartUploadRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if acl is not None:
             input_["acl"] = acl
-        input_["bucket"] = bucket
         if cache_control is not None:
             input_["cache_control"] = cache_control
         if content_disposition is not None:
@@ -1401,7 +1409,6 @@ class AsyncS3Client:
             input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
             input_["grant_write_acp"] = grant_write_acp
-        input_["key"] = key
         if metadata is not None:
             input_["metadata"] = metadata
         if server_side_encryption is not None:
@@ -1495,10 +1502,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.create_session_request.CreateSessionRequest = {
+            "bucket": bucket
+        }
         if session_mode is not None:
             input_["session_mode"] = session_mode
-        input_["bucket"] = bucket
         if server_side_encryption is not None:
             input_["server_side_encryption"] = server_side_encryption
         if ssekms_key_id is not None:
@@ -1553,8 +1561,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_request.DeleteBucketRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_request.DeleteBucketRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1599,9 +1608,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_analytics_configuration_request.DeleteBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.delete_bucket_analytics_configuration_request.DeleteBucketAnalyticsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1650,8 +1660,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_cors_request.DeleteBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_cors_request.DeleteBucketCorsRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1694,8 +1705,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_encryption_request.DeleteBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_encryption_request.DeleteBucketEncryptionRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1740,9 +1752,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_intelligent_tiering_configuration_request.DeleteBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.delete_bucket_intelligent_tiering_configuration_request.DeleteBucketIntelligentTieringConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1787,9 +1800,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_inventory_configuration_request.DeleteBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.delete_bucket_inventory_configuration_request.DeleteBucketInventoryConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1838,8 +1852,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_lifecycle_request.DeleteBucketLifecycleRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_lifecycle_request.DeleteBucketLifecycleRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1882,8 +1897,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_metadata_configuration_request.DeleteBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_metadata_configuration_request.DeleteBucketMetadataConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1926,8 +1942,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_metadata_table_configuration_request.DeleteBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_metadata_table_configuration_request.DeleteBucketMetadataTableConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -1972,9 +1989,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_metrics_configuration_request.DeleteBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.delete_bucket_metrics_configuration_request.DeleteBucketMetricsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2017,8 +2035,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_ownership_controls_request.DeleteBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_ownership_controls_request.DeleteBucketOwnershipControlsRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2067,8 +2086,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_policy_request.DeleteBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_policy_request.DeleteBucketPolicyRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2117,8 +2137,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_replication_request.DeleteBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_replication_request.DeleteBucketReplicationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2167,8 +2188,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_tagging_request.DeleteBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_tagging_request.DeleteBucketTaggingRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2217,8 +2239,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_bucket_website_request.DeleteBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_bucket_website_request.DeleteBucketWebsiteRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2292,9 +2315,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.delete_object_request.DeleteObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if mfa is not None:
             input_["mfa"] = mfa
         if version_id is not None:
@@ -2341,11 +2365,10 @@ class AsyncS3Client:
         if_match_size: Optional["capo_s3.types.if_match_size.IfMatchSize"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input_: "capo_s3.types.delete_object_request.DeleteObjectRequest" = {}  # type: ignore[typeddict-item]
-        if bucket is not None:
-            input_["bucket"] = bucket
-        if key is not None:
-            input_["key"] = key
+        input_: "capo_s3.types.delete_object_request.DeleteObjectRequest" = {
+            "bucket": bucket,
+            "key": key,
+        }
         if mfa is not None:
             input_["mfa"] = mfa
         if version_id is not None:
@@ -2426,10 +2449,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
-        input_["annotation_name"] = annotation_name
+        input_: capo_s3.types.delete_object_annotation_request.DeleteObjectAnnotationRequest = {
+            "bucket": bucket,
+            "key": key,
+            "annotation_name": annotation_name,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if request_payer is not None:
@@ -2503,9 +2527,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_objects_request.DeleteObjectsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["delete"] = delete
+        input_: capo_s3.types.delete_objects_request.DeleteObjectsRequest = {
+            "bucket": bucket,
+            "delete": delete,
+        }
         if mfa is not None:
             input_["mfa"] = mfa
         if request_payer is not None:
@@ -2572,9 +2597,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_object_tagging_request.DeleteObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.delete_object_tagging_request.DeleteObjectTaggingRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if expected_bucket_owner is not None:
@@ -2619,8 +2645,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.delete_public_access_block_request.DeletePublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.delete_public_access_block_request.DeletePublicAccessBlockRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2665,8 +2692,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_abac_request.GetBucketAbacRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_abac_request.GetBucketAbacRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2712,8 +2740,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_accelerate_configuration_request.GetBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_accelerate_configuration_request.GetBucketAccelerateConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
@@ -2760,8 +2789,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_acl_request.GetBucketAclRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_acl_request.GetBucketAclRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2808,9 +2838,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_analytics_configuration_request.GetBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.get_bucket_analytics_configuration_request.GetBucketAnalyticsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2861,8 +2892,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_cors_request.GetBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_cors_request.GetBucketCorsRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2907,8 +2939,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_encryption_request.GetBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_encryption_request.GetBucketEncryptionRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -2955,9 +2988,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_intelligent_tiering_configuration_request.GetBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.get_bucket_intelligent_tiering_configuration_request.GetBucketIntelligentTieringConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3004,9 +3038,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_inventory_configuration_request.GetBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.get_bucket_inventory_configuration_request.GetBucketInventoryConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3057,8 +3092,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_lifecycle_configuration_request.GetBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_lifecycle_configuration_request.GetBucketLifecycleConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3109,8 +3145,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_location_request.GetBucketLocationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_location_request.GetBucketLocationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3155,8 +3192,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_logging_request.GetBucketLoggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_logging_request.GetBucketLoggingRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3201,8 +3239,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_metadata_configuration_request.GetBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_metadata_configuration_request.GetBucketMetadataConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3247,8 +3286,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_metadata_table_configuration_request.GetBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_metadata_table_configuration_request.GetBucketMetadataTableConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3295,9 +3335,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_metrics_configuration_request.GetBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.get_bucket_metrics_configuration_request.GetBucketMetricsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3342,8 +3383,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_notification_configuration_request.GetBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_notification_configuration_request.GetBucketNotificationConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3388,8 +3430,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_ownership_controls_request.GetBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_ownership_controls_request.GetBucketOwnershipControlsRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3440,8 +3483,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_policy_request.GetBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_policy_request.GetBucketPolicyRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3486,8 +3530,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_policy_status_request.GetBucketPolicyStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_policy_status_request.GetBucketPolicyStatusRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3538,8 +3583,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_replication_request.GetBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_replication_request.GetBucketReplicationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3592,8 +3638,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_request_payment_request.GetBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_request_payment_request.GetBucketRequestPaymentRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3644,8 +3691,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_tagging_request.GetBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_tagging_request.GetBucketTaggingRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3696,8 +3744,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_versioning_request.GetBucketVersioningRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_versioning_request.GetBucketVersioningRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3748,8 +3797,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_bucket_website_request.GetBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_bucket_website_request.GetBucketWebsiteRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -3864,8 +3914,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_request.GetObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_object_request.GetObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
         if if_modified_since is not None:
@@ -3874,7 +3926,6 @@ class AsyncS3Client:
             input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
             input_["if_unmodified_since"] = if_unmodified_since
-        input_["key"] = key
         if range is not None:
             input_["range"] = range
         if response_cache_control is not None:
@@ -3966,9 +4017,10 @@ class AsyncS3Client:
         checksum_mode: Optional["capo_s3.types.checksum_mode.ChecksumMode"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input_: "capo_s3.types.get_object_request.GetObjectRequest" = {}  # type: ignore[typeddict-item]
-        if bucket is not None:
-            input_["bucket"] = bucket
+        input_: "capo_s3.types.get_object_request.GetObjectRequest" = {
+            "bucket": bucket,
+            "key": key,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
         if if_modified_since is not None:
@@ -3977,8 +4029,6 @@ class AsyncS3Client:
             input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
             input_["if_unmodified_since"] = if_unmodified_since
-        if key is not None:
-            input_["key"] = key
         if range is not None:
             input_["range"] = range
         if response_cache_control is not None:
@@ -4074,9 +4124,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_acl_request.GetObjectAclRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_acl_request.GetObjectAclRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if request_payer is not None:
@@ -4138,10 +4189,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_annotation_request.GetObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
-        input_["annotation_name"] = annotation_name
+        input_: capo_s3.types.get_object_annotation_request.GetObjectAnnotationRequest = {
+            "bucket": bucket,
+            "key": key,
+            "annotation_name": annotation_name,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if request_payer is not None:
@@ -4220,9 +4272,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_attributes_request.GetObjectAttributesRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_attributes_request.GetObjectAttributesRequest = {
+            "bucket": bucket,
+            "key": key,
+            "object_attributes": object_attributes,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if max_parts is not None:
@@ -4239,7 +4293,6 @@ class AsyncS3Client:
             input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["object_attributes"] = object_attributes
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4287,9 +4340,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_legal_hold_request.GetObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_legal_hold_request.GetObjectLegalHoldRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if request_payer is not None:
@@ -4338,8 +4392,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_lock_configuration_request.GetObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_object_lock_configuration_request.GetObjectLockConfigurationRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -4389,9 +4444,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_retention_request.GetObjectRetentionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_retention_request.GetObjectRetentionRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if request_payer is not None:
@@ -4455,9 +4511,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_tagging_request.GetObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_tagging_request.GetObjectTaggingRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if expected_bucket_owner is not None:
@@ -4518,9 +4575,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_object_torrent_request.GetObjectTorrentRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.get_object_torrent_request.GetObjectTorrentRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if request_payer is not None:
             input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
@@ -4569,8 +4627,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.get_public_access_block_request.GetPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.get_public_access_block_request.GetPublicAccessBlockRequest = {
+            "bucket": bucket
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -4622,8 +4681,7 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.head_bucket_request.HeadBucketRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.head_bucket_request.HeadBucketRequest = {"bucket": bucket}
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -4824,8 +4882,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.head_object_request.HeadObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.head_object_request.HeadObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
         if if_modified_since is not None:
@@ -4834,7 +4894,6 @@ class AsyncS3Client:
             input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
             input_["if_unmodified_since"] = if_unmodified_since
-        input_["key"] = key
         if range is not None:
             input_["range"] = range
         if response_cache_control is not None:
@@ -4924,9 +4983,10 @@ class AsyncS3Client:
         checksum_mode: Optional["capo_s3.types.checksum_mode.ChecksumMode"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input_: "capo_s3.types.head_object_request.HeadObjectRequest" = {}  # type: ignore[typeddict-item]
-        if bucket is not None:
-            input_["bucket"] = bucket
+        input_: "capo_s3.types.head_object_request.HeadObjectRequest" = {
+            "bucket": bucket,
+            "key": key,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
         if if_modified_since is not None:
@@ -4935,8 +4995,6 @@ class AsyncS3Client:
             input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
             input_["if_unmodified_since"] = if_unmodified_since
-        if key is not None:
-            input_["key"] = key
         if range is not None:
             input_["range"] = range
         if response_cache_control is not None:
@@ -5268,8 +5326,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_bucket_analytics_configurations_request.ListBucketAnalyticsConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_bucket_analytics_configurations_request.ListBucketAnalyticsConfigurationsRequest = {
+            "bucket": bucket
+        }
         if continuation_token is not None:
             input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
@@ -5318,8 +5377,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_bucket_intelligent_tiering_configurations_request.ListBucketIntelligentTieringConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_bucket_intelligent_tiering_configurations_request.ListBucketIntelligentTieringConfigurationsRequest = {
+            "bucket": bucket
+        }
         if continuation_token is not None:
             input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
@@ -5368,8 +5428,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_bucket_inventory_configurations_request.ListBucketInventoryConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_bucket_inventory_configurations_request.ListBucketInventoryConfigurationsRequest = {
+            "bucket": bucket
+        }
         if continuation_token is not None:
             input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
@@ -5418,8 +5479,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_bucket_metrics_configurations_request.ListBucketMetricsConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_bucket_metrics_configurations_request.ListBucketMetricsConfigurationsRequest = {
+            "bucket": bucket
+        }
         if continuation_token is not None:
             input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
@@ -5476,7 +5538,7 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_buckets_request.ListBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.list_buckets_request.ListBucketsRequest = {}
         if max_buckets is not None:
             input_["max_buckets"] = max_buckets
         if continuation_token is not None:
@@ -5556,7 +5618,7 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest = {}
         if continuation_token is not None:
             input_["continuation_token"] = continuation_token
         if max_directory_buckets is not None:
@@ -5652,8 +5714,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_multipart_uploads_request.ListMultipartUploadsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_multipart_uploads_request.ListMultipartUploadsRequest = {
+            "bucket": bucket
+        }
         if delimiter is not None:
             input_["delimiter"] = delimiter
         if encoding_type is not None:
@@ -5730,9 +5793,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_object_annotations_request.ListObjectAnnotationsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.list_object_annotations_request.ListObjectAnnotationsRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if max_annotation_results is not None:
@@ -5846,8 +5910,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_objects_request.ListObjectsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_objects_request.ListObjectsRequest = {
+            "bucket": bucket
+        }
         if delimiter is not None:
             input_["delimiter"] = delimiter
         if encoding_type is not None:
@@ -5933,8 +5998,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_objects_v2_request.ListObjectsV2Request = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_objects_v2_request.ListObjectsV2Request = {
+            "bucket": bucket
+        }
         if delimiter is not None:
             input_["delimiter"] = delimiter
         if encoding_type is not None:
@@ -6021,8 +6087,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_object_versions_request.ListObjectVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.list_object_versions_request.ListObjectVersionsRequest = {
+            "bucket": bucket
+        }
         if delimiter is not None:
             input_["delimiter"] = delimiter
         if encoding_type is not None:
@@ -6110,14 +6177,15 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.list_parts_request.ListPartsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.list_parts_request.ListPartsRequest = {
+            "bucket": bucket,
+            "key": key,
+            "upload_id": upload_id,
+        }
         if max_parts is not None:
             input_["max_parts"] = max_parts
         if part_number_marker is not None:
             input_["part_number_marker"] = part_number_marker
-        input_["upload_id"] = upload_id
         if request_payer is not None:
             input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
@@ -6221,15 +6289,16 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_abac_request.PutBucketAbacRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_abac_request.PutBucketAbacRequest = {
+            "bucket": bucket,
+            "abac_status": abac_status,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["abac_status"] = abac_status
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6276,9 +6345,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_accelerate_configuration_request.PutBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["accelerate_configuration"] = accelerate_configuration
+        input_: capo_s3.types.put_bucket_accelerate_configuration_request.PutBucketAccelerateConfigurationRequest = {
+            "bucket": bucket,
+            "accelerate_configuration": accelerate_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_algorithm is not None:
@@ -6353,12 +6423,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_acl_request.PutBucketAclRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.put_bucket_acl_request.PutBucketAclRequest = {
+            "bucket": bucket
+        }
         if acl is not None:
             input_["acl"] = acl
         if access_control_policy is not None:
             input_["access_control_policy"] = access_control_policy
-        input_["bucket"] = bucket
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
@@ -6419,10 +6490,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
-        input_["analytics_configuration"] = analytics_configuration
+        input_: capo_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+            "analytics_configuration": analytics_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -6479,9 +6551,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_cors_request.PutBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["cors_configuration"] = cors_configuration
+        input_: capo_s3.types.put_bucket_cors_request.PutBucketCorsRequest = {
+            "bucket": bucket,
+            "cors_configuration": cors_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
@@ -6535,15 +6608,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_encryption_request.PutBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_encryption_request.PutBucketEncryptionRequest = {
+            "bucket": bucket,
+            "server_side_encryption_configuration": server_side_encryption_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["server_side_encryption_configuration"] = (
-            server_side_encryption_configuration
-        )
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -6590,12 +6662,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_intelligent_tiering_configuration_request.PutBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
+        input_: capo_s3.types.put_bucket_intelligent_tiering_configuration_request.PutBucketIntelligentTieringConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+            "intelligent_tiering_configuration": intelligent_tiering_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["intelligent_tiering_configuration"] = intelligent_tiering_configuration
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6640,10 +6713,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_inventory_configuration_request.PutBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
-        input_["inventory_configuration"] = inventory_configuration
+        input_: capo_s3.types.put_bucket_inventory_configuration_request.PutBucketInventoryConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+            "inventory_configuration": inventory_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -6706,8 +6780,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_lifecycle_configuration_request.PutBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_lifecycle_configuration_request.PutBucketLifecycleConfigurationRequest = {
+            "bucket": bucket
+        }
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
         if lifecycle_configuration is not None:
@@ -6772,9 +6847,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_logging_request.PutBucketLoggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["bucket_logging_status"] = bucket_logging_status
+        input_: capo_s3.types.put_bucket_logging_request.PutBucketLoggingRequest = {
+            "bucket": bucket,
+            "bucket_logging_status": bucket_logging_status,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
@@ -6825,10 +6901,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_metrics_configuration_request.PutBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["id"] = id
-        input_["metrics_configuration"] = metrics_configuration
+        input_: capo_s3.types.put_bucket_metrics_configuration_request.PutBucketMetricsConfigurationRequest = {
+            "bucket": bucket,
+            "id": id,
+            "metrics_configuration": metrics_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -6882,9 +6959,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_notification_configuration_request.PutBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["notification_configuration"] = notification_configuration
+        input_: capo_s3.types.put_bucket_notification_configuration_request.PutBucketNotificationConfigurationRequest = {
+            "bucket": bucket,
+            "notification_configuration": notification_configuration,
+        }
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
         if skip_destination_validation is not None:
@@ -6937,13 +7015,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_ownership_controls_request.PutBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_ownership_controls_request.PutBucketOwnershipControlsRequest = {
+            "bucket": bucket,
+            "ownership_controls": ownership_controls,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
-        input_["ownership_controls"] = ownership_controls
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
 
@@ -7004,8 +7083,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_policy_request.PutBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_policy_request.PutBucketPolicyRequest = {
+            "bucket": bucket,
+            "policy": policy,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
@@ -7014,7 +7095,6 @@ class AsyncS3Client:
             input_["confirm_remove_self_bucket_access"] = (
                 confirm_remove_self_bucket_access
             )
-        input_["policy"] = policy
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -7072,13 +7152,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_replication_request.PutBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_replication_request.PutBucketReplicationRequest = {
+            "bucket": bucket,
+            "replication_configuration": replication_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["replication_configuration"] = replication_configuration
         if token is not None:
             input_["token"] = token
         if expected_bucket_owner is not None:
@@ -7137,13 +7218,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest = {
+            "bucket": bucket,
+            "request_payment_configuration": request_payment_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["request_payment_configuration"] = request_payment_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -7200,13 +7282,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_tagging_request.PutBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_tagging_request.PutBucketTaggingRequest = {
+            "bucket": bucket,
+            "tagging": tagging,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["tagging"] = tagging
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -7265,15 +7348,16 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_versioning_request.PutBucketVersioningRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_versioning_request.PutBucketVersioningRequest = {
+            "bucket": bucket,
+            "versioning_configuration": versioning_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
         if mfa is not None:
             input_["mfa"] = mfa
-        input_["versioning_configuration"] = versioning_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -7330,13 +7414,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_bucket_website_request.PutBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_bucket_website_request.PutBucketWebsiteRequest = {
+            "bucket": bucket,
+            "website_configuration": website_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["website_configuration"] = website_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -7546,12 +7631,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.put_object_request.PutObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if acl is not None:
             input_["acl"] = acl
         if body is not None:
             input_["body"] = ensure_async_iterator(body)
-        input_["bucket"] = bucket
         if cache_control is not None:
             input_["cache_control"] = cache_control
         if content_disposition is not None:
@@ -7602,7 +7689,6 @@ class AsyncS3Client:
             input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
             input_["grant_write_acp"] = grant_write_acp
-        input_["key"] = key
         if write_offset_bytes is not None:
             input_["write_offset_bytes"] = write_offset_bytes
         if metadata is not None:
@@ -7744,11 +7830,15 @@ class AsyncS3Client:
         expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input_: "capo_s3.types.put_object_request.PutObjectRequest" = {}  # type: ignore[typeddict-item]
+        import base64
+
+        input_: "capo_s3.types.put_object_request.PutObjectRequest" = {
+            "bucket": bucket,
+            "key": key,
+            "body": ensure_async_iterator(base64.b64decode("")),
+        }
         if acl is not None:
             input_["acl"] = acl
-        if bucket is not None:
-            input_["bucket"] = bucket
         if cache_control is not None:
             input_["cache_control"] = cache_control
         if content_disposition is not None:
@@ -7799,8 +7889,6 @@ class AsyncS3Client:
             input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
             input_["grant_write_acp"] = grant_write_acp
-        if key is not None:
-            input_["key"] = key
         if write_offset_bytes is not None:
             input_["write_offset_bytes"] = write_offset_bytes
         if metadata is not None:
@@ -7924,12 +8012,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_acl_request.PutObjectAclRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.put_object_acl_request.PutObjectAclRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if acl is not None:
             input_["acl"] = acl
         if access_control_policy is not None:
             input_["access_control_policy"] = access_control_policy
-        input_["bucket"] = bucket
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
@@ -7944,7 +8034,6 @@ class AsyncS3Client:
             input_["grant_write"] = grant_write
         if grant_write_acp is not None:
             input_["grant_write_acp"] = grant_write_acp
-        input_["key"] = key
         if request_payer is not None:
             input_["request_payer"] = request_payer
         if version_id is not None:
@@ -8051,13 +8140,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_annotation_request.PutObjectAnnotationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.put_object_annotation_request.PutObjectAnnotationRequest = {
+            "bucket": bucket,
+            "key": key,
+            "annotation_name": annotation_name,
+            "annotation_payload": ensure_async_iterator(annotation_payload),
+        }
         if version_id is not None:
             input_["version_id"] = version_id
-        input_["annotation_name"] = annotation_name
-        input_["annotation_payload"] = ensure_async_iterator(annotation_payload)
         if object_if_match is not None:
             input_["object_if_match"] = object_if_match
         if checksum_algorithm is not None:
@@ -8145,9 +8235,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_legal_hold_request.PutObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.put_object_legal_hold_request.PutObjectLegalHoldRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if legal_hold is not None:
             input_["legal_hold"] = legal_hold
         if request_payer is not None:
@@ -8215,8 +8306,9 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest = {
+            "bucket": bucket
+        }
         if object_lock_configuration is not None:
             input_["object_lock_configuration"] = object_lock_configuration
         if request_payer is not None:
@@ -8290,9 +8382,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_retention_request.PutObjectRetentionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.put_object_retention_request.PutObjectRetentionRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if retention is not None:
             input_["retention"] = retention
         if request_payer is not None:
@@ -8369,16 +8462,17 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_object_tagging_request.PutObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.put_object_tagging_request.PutObjectTaggingRequest = {
+            "bucket": bucket,
+            "key": key,
+            "tagging": tagging,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["tagging"] = tagging
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
@@ -8431,13 +8525,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.put_public_access_block_request.PutPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.put_public_access_block_request.PutPublicAccessBlockRequest = {
+            "bucket": bucket,
+            "public_access_block_configuration": public_access_block_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["public_access_block_configuration"] = public_access_block_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -8517,10 +8612,11 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.rename_object_request.RenameObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
-        input_["rename_source"] = rename_source
+        input_: capo_s3.types.rename_object_request.RenameObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+            "rename_source": rename_source,
+        }
         if destination_if_match is not None:
             input_["destination_if_match"] = destination_if_match
         if destination_if_none_match is not None:
@@ -8601,9 +8697,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.restore_object_request.RestoreObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.restore_object_request.RestoreObjectRequest = {
+            "bucket": bucket,
+            "key": key,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
         if restore_request is not None:
@@ -8685,21 +8782,22 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.select_object_content_request.SelectObjectContentRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.select_object_content_request.SelectObjectContentRequest = {
+            "bucket": bucket,
+            "key": key,
+            "expression": expression,
+            "expression_type": expression_type,
+            "input_serialization": input_serialization,
+            "output_serialization": output_serialization,
+        }
         if sse_customer_algorithm is not None:
             input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
             input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
             input_["sse_customer_key_md5"] = sse_customer_key_md5
-        input_["expression"] = expression
-        input_["expression_type"] = expression_type
         if request_progress is not None:
             input_["request_progress"] = request_progress
-        input_["input_serialization"] = input_serialization
-        input_["output_serialization"] = output_serialization
         if scan_range is not None:
             input_["scan_range"] = scan_range
         if expected_bucket_owner is not None:
@@ -8754,13 +8852,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.update_bucket_metadata_annotation_table_configuration_request.UpdateBucketMetadataAnnotationTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.update_bucket_metadata_annotation_table_configuration_request.UpdateBucketMetadataAnnotationTableConfigurationRequest = {
+            "bucket": bucket,
+            "annotation_table_configuration": annotation_table_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["annotation_table_configuration"] = annotation_table_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -8811,13 +8910,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.update_bucket_metadata_inventory_table_configuration_request.UpdateBucketMetadataInventoryTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.update_bucket_metadata_inventory_table_configuration_request.UpdateBucketMetadataInventoryTableConfigurationRequest = {
+            "bucket": bucket,
+            "inventory_table_configuration": inventory_table_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["inventory_table_configuration"] = inventory_table_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -8868,13 +8968,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.update_bucket_metadata_journal_table_configuration_request.UpdateBucketMetadataJournalTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
+        input_: capo_s3.types.update_bucket_metadata_journal_table_configuration_request.UpdateBucketMetadataJournalTableConfigurationRequest = {
+            "bucket": bucket,
+            "journal_table_configuration": journal_table_configuration,
+        }
         if content_md5 is not None:
             input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
             input_["checksum_algorithm"] = checksum_algorithm
-        input_["journal_table_configuration"] = journal_table_configuration
         if expected_bucket_owner is not None:
             input_["expected_bucket_owner"] = expected_bucket_owner
 
@@ -8937,12 +9038,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["key"] = key
+        input_: capo_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest = {
+            "bucket": bucket,
+            "key": key,
+            "object_encryption": object_encryption,
+        }
         if version_id is not None:
             input_["version_id"] = version_id
-        input_["object_encryption"] = object_encryption
         if request_payer is not None:
             input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
@@ -9062,10 +9164,14 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.upload_part_request.UploadPartRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_s3.types.upload_part_request.UploadPartRequest = {
+            "bucket": bucket,
+            "key": key,
+            "part_number": part_number,
+            "upload_id": upload_id,
+        }
         if body is not None:
             input_["body"] = ensure_async_iterator(body)
-        input_["bucket"] = bucket
         if content_length is not None:
             input_["content_length"] = content_length
         if content_md5 is not None:
@@ -9092,9 +9198,6 @@ class AsyncS3Client:
             input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
             input_["checksum_xxhash128"] = checksum_xxhash128
-        input_["key"] = key
-        input_["part_number"] = part_number
-        input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
             input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
@@ -9165,9 +9268,15 @@ class AsyncS3Client:
         expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input_: "capo_s3.types.upload_part_request.UploadPartRequest" = {}  # type: ignore[typeddict-item]
-        if bucket is not None:
-            input_["bucket"] = bucket
+        import base64
+
+        input_: "capo_s3.types.upload_part_request.UploadPartRequest" = {
+            "bucket": bucket,
+            "key": key,
+            "part_number": part_number,
+            "upload_id": upload_id,
+            "body": ensure_async_iterator(base64.b64decode("")),
+        }
         if content_length is not None:
             input_["content_length"] = content_length
         if content_md5 is not None:
@@ -9194,12 +9303,6 @@ class AsyncS3Client:
             input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
             input_["checksum_xxhash128"] = checksum_xxhash128
-        if key is not None:
-            input_["key"] = key
-        if part_number is not None:
-            input_["part_number"] = part_number
-        if upload_id is not None:
-            input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
             input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
@@ -9330,9 +9433,13 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.upload_part_copy_request.UploadPartCopyRequest = {}  # type: ignore[typeddict-item]
-        input_["bucket"] = bucket
-        input_["copy_source"] = copy_source
+        input_: capo_s3.types.upload_part_copy_request.UploadPartCopyRequest = {
+            "bucket": bucket,
+            "copy_source": copy_source,
+            "key": key,
+            "part_number": part_number,
+            "upload_id": upload_id,
+        }
         if copy_source_if_match is not None:
             input_["copy_source_if_match"] = copy_source_if_match
         if copy_source_if_modified_since is not None:
@@ -9343,9 +9450,6 @@ class AsyncS3Client:
             input_["copy_source_if_unmodified_since"] = copy_source_if_unmodified_since
         if copy_source_range is not None:
             input_["copy_source_range"] = copy_source_range
-        input_["key"] = key
-        input_["part_number"] = part_number
-        input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
             input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
@@ -9535,9 +9639,10 @@ class AsyncS3Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_s3.types.write_get_object_response_request.WriteGetObjectResponseRequest = {}  # type: ignore[typeddict-item]
-        input_["request_route"] = request_route
-        input_["request_token"] = request_token
+        input_: capo_s3.types.write_get_object_response_request.WriteGetObjectResponseRequest = {
+            "request_route": request_route,
+            "request_token": request_token,
+        }
         if body is not None:
             input_["body"] = ensure_async_iterator(body)
         if status_code is not None:

@@ -254,9 +254,10 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.assume_role_request.AssumeRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_arn"] = role_arn
-        input_["role_session_name"] = role_session_name
+        input_: capo_sts.types.assume_role_request.AssumeRoleRequest = {
+            "role_arn": role_arn,
+            "role_session_name": role_session_name,
+        }
         if policy_arns is not None:
             input_["policy_arns"] = policy_arns
         if policy is not None:
@@ -344,10 +345,11 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.assume_role_with_saml_request.AssumeRoleWithSAMLRequest = {}  # type: ignore[typeddict-item]
-        input_["role_arn"] = role_arn
-        input_["principal_arn"] = principal_arn
-        input_["saml_assertion"] = saml_assertion
+        input_: capo_sts.types.assume_role_with_saml_request.AssumeRoleWithSAMLRequest = {
+            "role_arn": role_arn,
+            "principal_arn": principal_arn,
+            "saml_assertion": saml_assertion,
+        }
         if policy_arns is not None:
             input_["policy_arns"] = policy_arns
         if policy is not None:
@@ -424,10 +426,11 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.assume_role_with_web_identity_request.AssumeRoleWithWebIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["role_arn"] = role_arn
-        input_["role_session_name"] = role_session_name
-        input_["web_identity_token"] = web_identity_token
+        input_: capo_sts.types.assume_role_with_web_identity_request.AssumeRoleWithWebIdentityRequest = {
+            "role_arn": role_arn,
+            "role_session_name": role_session_name,
+            "web_identity_token": web_identity_token,
+        }
         if provider_id is not None:
             input_["provider_id"] = provider_id
         if policy_arns is not None:
@@ -490,9 +493,10 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.assume_root_request.AssumeRootRequest = {}  # type: ignore[typeddict-item]
-        input_["target_principal"] = target_principal
-        input_["task_policy_arn"] = task_policy_arn
+        input_: capo_sts.types.assume_root_request.AssumeRootRequest = {
+            "target_principal": target_principal,
+            "task_policy_arn": task_policy_arn,
+        }
         if duration_seconds is not None:
             input_["duration_seconds"] = duration_seconds
 
@@ -541,8 +545,9 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.decode_authorization_message_request.DecodeAuthorizationMessageRequest = {}  # type: ignore[typeddict-item]
-        input_["encoded_message"] = encoded_message
+        input_: capo_sts.types.decode_authorization_message_request.DecodeAuthorizationMessageRequest = {
+            "encoded_message": encoded_message
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -583,8 +588,9 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_access_key_info_request.GetAccessKeyInfoRequest = {}  # type: ignore[typeddict-item]
-        input_["access_key_id"] = access_key_id
+        input_: capo_sts.types.get_access_key_info_request.GetAccessKeyInfoRequest = {
+            "access_key_id": access_key_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -633,7 +639,7 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_caller_identity_request.GetCallerIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sts.types.get_caller_identity_request.GetCallerIdentityRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -677,8 +683,9 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_delegated_access_token_request.GetDelegatedAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["trade_in_token"] = trade_in_token
+        input_: capo_sts.types.get_delegated_access_token_request.GetDelegatedAccessTokenRequest = {
+            "trade_in_token": trade_in_token
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -741,8 +748,9 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_federation_token_request.GetFederationTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_sts.types.get_federation_token_request.GetFederationTokenRequest = {
+            "name": name
+        }
         if policy is not None:
             input_["policy"] = policy
         if policy_arns is not None:
@@ -805,7 +813,7 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_session_token_request.GetSessionTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sts.types.get_session_token_request.GetSessionTokenRequest = {}
         if duration_seconds is not None:
             input_["duration_seconds"] = duration_seconds
         if serial_number is not None:
@@ -863,11 +871,12 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sts.types.get_web_identity_token_request.GetWebIdentityTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["audience"] = audience
+        input_: capo_sts.types.get_web_identity_token_request.GetWebIdentityTokenRequest = {
+            "audience": audience,
+            "signing_algorithm": signing_algorithm,
+        }
         if duration_seconds is not None:
             input_["duration_seconds"] = duration_seconds
-        input_["signing_algorithm"] = signing_algorithm
         if tags is not None:
             input_["tags"] = tags
 

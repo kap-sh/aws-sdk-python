@@ -147,8 +147,9 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock_runtime.types.converse_request.ConverseRequest = {
+            "model_id": model_id
+        }
         if messages is not None:
             input_["messages"] = messages
         if system is not None:
@@ -268,8 +269,9 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {
+            "model_id": model_id
+        }
         if messages is not None:
             input_["messages"] = messages
         if system is not None:
@@ -375,14 +377,15 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {
+            "model_id": model_id
+        }
         if body is not None:
             input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        input_["model_id"] = model_id
         if trace is not None:
             input_["trace"] = trace
         if guardrail_identifier is not None:
@@ -448,9 +451,10 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
-        input_["body"] = ensure_sync_iterator(body)
+        input_: capo_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {
+            "model_id": model_id,
+            "body": ensure_sync_iterator(body),
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -532,14 +536,15 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {
+            "model_id": model_id
+        }
         if body is not None:
             input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        input_["model_id"] = model_id
         if trace is not None:
             input_["trace"] = trace
         if guardrail_identifier is not None:
@@ -652,8 +657,9 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock_runtime.types.converse_request.ConverseRequest = {
+            "model_id": model_id
+        }
         if messages is not None:
             input_["messages"] = messages
         if system is not None:
@@ -774,8 +780,9 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {
+            "model_id": model_id
+        }
         if messages is not None:
             input_["messages"] = messages
         if system is not None:
@@ -882,14 +889,15 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {
+            "model_id": model_id
+        }
         if body is not None:
             input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        input_["model_id"] = model_id
         if trace is not None:
             input_["trace"] = trace
         if guardrail_identifier is not None:
@@ -956,9 +964,10 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
-        input_["body"] = ensure_async_iterator(body)
+        input_: capo_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {
+            "model_id": model_id,
+            "body": ensure_async_iterator(body),
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1041,14 +1050,15 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {
+            "model_id": model_id
+        }
         if body is not None:
             input_["body"] = body
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        input_["model_id"] = model_id
         if trace is not None:
             input_["trace"] = trace
         if guardrail_identifier is not None:

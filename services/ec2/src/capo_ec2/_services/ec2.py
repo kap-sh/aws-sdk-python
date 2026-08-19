@@ -2649,7 +2649,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_address_transfer_request.AcceptAddressTransferRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_address_transfer_request.AcceptAddressTransferRequest = {}
         if address is not None:
             input_["address"] = address
         if tag_specifications is not None:
@@ -2699,7 +2699,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_capacity_reservation_billing_ownership_request.AcceptCapacityReservationBillingOwnershipRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_capacity_reservation_billing_ownership_request.AcceptCapacityReservationBillingOwnershipRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_reservation_id is not None:
@@ -2751,7 +2751,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_reserved_instances_exchange_quote_request.AcceptReservedInstancesExchangeQuoteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_reserved_instances_exchange_quote_request.AcceptReservedInstancesExchangeQuoteRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if reserved_instance_ids is not None:
@@ -2801,7 +2801,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_transit_gateway_client_vpn_attachment_request.AcceptTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_transit_gateway_client_vpn_attachment_request.AcceptTransitGatewayClientVpnAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -2855,7 +2855,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_transit_gateway_multicast_domain_associations_request.AcceptTransitGatewayMulticastDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_transit_gateway_multicast_domain_associations_request.AcceptTransitGatewayMulticastDomainAssociationsRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -2909,7 +2909,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_transit_gateway_peering_attachment_request.AcceptTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_transit_gateway_peering_attachment_request.AcceptTransitGatewayPeeringAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -2957,7 +2957,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_transit_gateway_vpc_attachment_request.AcceptTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_transit_gateway_vpc_attachment_request.AcceptTransitGatewayVpcAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -3009,7 +3009,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_vpc_endpoint_connections_request.AcceptVpcEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_vpc_endpoint_connections_request.AcceptVpcEndpointConnectionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -3059,7 +3059,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.accept_vpc_peering_connection_request.AcceptVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.accept_vpc_peering_connection_request.AcceptVpcPeeringConnectionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_peering_connection_id is not None:
@@ -3109,7 +3109,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.advertise_byoip_cidr_request.AdvertiseByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.advertise_byoip_cidr_request.AdvertiseByoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if asn is not None:
@@ -3181,7 +3181,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.allocate_address_request.AllocateAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.allocate_address_request.AllocateAddressRequest = {}
         if domain is not None:
             input_["domain"] = domain
         if address is not None:
@@ -3271,7 +3271,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.allocate_hosts_request.AllocateHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.allocate_hosts_request.AllocateHostsRequest = {}
         if instance_family is not None:
             input_["instance_family"] = instance_family
         if tag_specifications is not None:
@@ -3361,7 +3361,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.allocate_ipam_pool_cidr_request.AllocateIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.allocate_ipam_pool_cidr_request.AllocateIpamPoolCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -3432,7 +3432,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.apply_security_groups_to_client_vpn_target_network_request.ApplySecurityGroupsToClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.apply_security_groups_to_client_vpn_target_network_request.ApplySecurityGroupsToClientVpnTargetNetworkRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if vpc_id is not None:
@@ -3492,7 +3492,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.assign_ipv6_addresses_request.AssignIpv6AddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.assign_ipv6_addresses_request.AssignIpv6AddressesRequest = {}
         if ipv6_prefix_count is not None:
             input_["ipv6_prefix_count"] = ipv6_prefix_count
         if ipv6_prefixes is not None:
@@ -3568,7 +3568,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.assign_private_ip_addresses_request.AssignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.assign_private_ip_addresses_request.AssignPrivateIpAddressesRequest = {}
         if ipv4_prefixes is not None:
             input_["ipv4_prefixes"] = ipv4_prefixes
         if ipv4_prefix_count is not None:
@@ -3630,7 +3630,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.assign_private_nat_gateway_address_request.AssignPrivateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.assign_private_nat_gateway_address_request.AssignPrivateNatGatewayAddressRequest = {}
         if nat_gateway_id is not None:
             input_["nat_gateway_id"] = nat_gateway_id
         if private_ip_addresses is not None:
@@ -3704,7 +3704,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_address_request.AssociateAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_address_request.AssociateAddressRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if instance_id is not None:
@@ -3776,7 +3776,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_application_status_check_request.AssociateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_application_status_check_request.AssociateApplicationStatusCheckRequest = {}
         if application_status_check_id is not None:
             input_["application_status_check_id"] = application_status_check_id
         if target_tag_associations is not None:
@@ -3835,7 +3835,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_capacity_reservation_billing_owner_request.AssociateCapacityReservationBillingOwnerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_capacity_reservation_billing_owner_request.AssociateCapacityReservationBillingOwnerRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_reservation_id is not None:
@@ -3899,7 +3899,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_client_vpn_target_network_request.AssociateClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_client_vpn_target_network_request.AssociateClientVpnTargetNetworkRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if subnet_id is not None:
@@ -3966,7 +3966,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_dhcp_options_request.AssociateDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_dhcp_options_request.AssociateDhcpOptionsRequest = {}
         if dhcp_options_id is not None:
             input_["dhcp_options_id"] = dhcp_options_id
         if vpc_id is not None:
@@ -4016,7 +4016,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_enclave_certificate_iam_role_request.AssociateEnclaveCertificateIamRoleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_enclave_certificate_iam_role_request.AssociateEnclaveCertificateIamRoleRequest = {}
         if certificate_arn is not None:
             input_["certificate_arn"] = certificate_arn
         if role_arn is not None:
@@ -4072,7 +4072,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_iam_instance_profile_request.AssociateIamInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_iam_instance_profile_request.AssociateIamInstanceProfileRequest = {}
         if iam_instance_profile is not None:
             input_["iam_instance_profile"] = iam_instance_profile
         if instance_id is not None:
@@ -4124,7 +4124,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_instance_event_window_request.AssociateInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_instance_event_window_request.AssociateInstanceEventWindowRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_event_window_id is not None:
@@ -4174,7 +4174,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_ipam_byoasn_request.AssociateIpamByoasnRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_ipam_byoasn_request.AssociateIpamByoasnRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if asn is not None:
@@ -4232,7 +4232,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_ipam_resource_discovery_request.AssociateIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_ipam_resource_discovery_request.AssociateIpamResourceDiscoveryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -4299,7 +4299,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_nat_gateway_address_request.AssociateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_nat_gateway_address_request.AssociateNatGatewayAddressRequest = {}
         if nat_gateway_id is not None:
             input_["nat_gateway_id"] = nat_gateway_id
         if allocation_ids is not None:
@@ -4357,7 +4357,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_route_server_request.AssociateRouteServerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_route_server_request.AssociateRouteServerRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if vpc_id is not None:
@@ -4419,7 +4419,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_route_table_request.AssociateRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_route_table_request.AssociateRouteTableRequest = {}
         if gateway_id is not None:
             input_["gateway_id"] = gateway_id
         if public_ipv4_pool is not None:
@@ -4473,7 +4473,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_security_group_vpc_request.AssociateSecurityGroupVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_security_group_vpc_request.AssociateSecurityGroupVpcRequest = {}
         if group_id is not None:
             input_["group_id"] = group_id
         if vpc_id is not None:
@@ -4527,7 +4527,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_subnet_cidr_block_request.AssociateSubnetCidrBlockRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_subnet_cidr_block_request.AssociateSubnetCidrBlockRequest = {}
         if ipv6_ipam_pool_id is not None:
             input_["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
         if ipv6_netmask_length is not None:
@@ -4587,7 +4587,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_transit_gateway_multicast_domain_request.AssociateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_transit_gateway_multicast_domain_request.AssociateTransitGatewayMulticastDomainRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -4645,7 +4645,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_transit_gateway_policy_table_request.AssociateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_transit_gateway_policy_table_request.AssociateTransitGatewayPolicyTableRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if transit_gateway_attachment_id is not None:
@@ -4699,7 +4699,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_transit_gateway_route_table_request.AssociateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_transit_gateway_route_table_request.AssociateTransitGatewayRouteTableRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
@@ -4761,7 +4761,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_trunk_interface_request.AssociateTrunkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_trunk_interface_request.AssociateTrunkInterfaceRequest = {}
         if branch_interface_id is not None:
             input_["branch_interface_id"] = branch_interface_id
         if trunk_interface_id is not None:
@@ -4840,7 +4840,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.associate_vpc_cidr_block_request.AssociateVpcCidrBlockRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.associate_vpc_cidr_block_request.AssociateVpcCidrBlockRequest = {}
         if cidr_block is not None:
             input_["cidr_block"] = cidr_block
         if ipv6_cidr_block_network_border_group is not None:
@@ -4910,7 +4910,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_classic_link_vpc_request.AttachClassicLinkVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_classic_link_vpc_request.AttachClassicLinkVpcRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -4964,7 +4964,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_image_watermark_request.AttachImageWatermarkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_image_watermark_request.AttachImageWatermarkRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if watermark_name is not None:
@@ -5020,7 +5020,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_internet_gateway_request.AttachInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_internet_gateway_request.AttachInternetGatewayRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if internet_gateway_id is not None:
@@ -5088,7 +5088,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_network_interface_request.AttachNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_network_interface_request.AttachNetworkInterfaceRequest = {}
         if network_card_index is not None:
             input_["network_card_index"] = network_card_index
         if ena_srd_specification is not None:
@@ -5152,7 +5152,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_verified_access_trust_provider_request.AttachVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_verified_access_trust_provider_request.AttachVerifiedAccessTrustProviderRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if verified_access_trust_provider_id is not None:
@@ -5215,7 +5215,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_volume_request.AttachVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_volume_request.AttachVolumeRequest = {}
         if device is not None:
             input_["device"] = device
         if instance_id is not None:
@@ -5269,7 +5269,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.attach_vpn_gateway_request.AttachVpnGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.attach_vpn_gateway_request.AttachVpnGatewayRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if vpn_gateway_id is not None:
@@ -5329,7 +5329,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.authorize_client_vpn_ingress_request.AuthorizeClientVpnIngressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.authorize_client_vpn_ingress_request.AuthorizeClientVpnIngressRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if target_network_cidr is not None:
@@ -5416,7 +5416,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.authorize_security_group_egress_request.AuthorizeSecurityGroupEgressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.authorize_security_group_egress_request.AuthorizeSecurityGroupEgressRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -5516,7 +5516,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.authorize_security_group_ingress_request.AuthorizeSecurityGroupIngressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.authorize_security_group_ingress_request.AuthorizeSecurityGroupIngressRequest = {}
         if cidr_ip is not None:
             input_["cidr_ip"] = cidr_ip
         if from_port is not None:
@@ -5588,7 +5588,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.batch_modify_ipam_routing_policy_registrations_request.BatchModifyIpamRoutingPolicyRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.batch_modify_ipam_routing_policy_registrations_request.BatchModifyIpamRoutingPolicyRegistrationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -5645,7 +5645,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.bundle_instance_request.BundleInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.bundle_instance_request.BundleInstanceRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if storage is not None:
@@ -5693,7 +5693,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_bundle_task_request.CancelBundleTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_bundle_task_request.CancelBundleTaskRequest = {}
         if bundle_id is not None:
             input_["bundle_id"] = bundle_id
         if dry_run is not None:
@@ -5749,7 +5749,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_capacity_reservation_request.CancelCapacityReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_capacity_reservation_request.CancelCapacityReservationRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if dry_run is not None:
@@ -5801,7 +5801,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_capacity_reservation_fleets_request.CancelCapacityReservationFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_capacity_reservation_fleets_request.CancelCapacityReservationFleetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_reservation_fleet_ids is not None:
@@ -5849,7 +5849,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_conversion_request.CancelConversionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_conversion_request.CancelConversionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if conversion_task_id is not None:
@@ -5899,7 +5899,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_declarative_policies_report_request.CancelDeclarativePoliciesReportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_declarative_policies_report_request.CancelDeclarativePoliciesReportRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if report_id is not None:
@@ -5943,7 +5943,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_export_task_request.CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_export_task_request.CancelExportTaskRequest = {}
         if export_task_id is not None:
             input_["export_task_id"] = export_task_id
 
@@ -5987,7 +5987,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_image_launch_permission_request.CancelImageLaunchPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_image_launch_permission_request.CancelImageLaunchPermissionRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -6035,7 +6035,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_import_task_request.CancelImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_import_task_request.CancelImportTaskRequest = {}
         if cancel_reason is not None:
             input_["cancel_reason"] = cancel_reason
         if dry_run is not None:
@@ -6083,7 +6083,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_reserved_instances_listing_request.CancelReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_reserved_instances_listing_request.CancelReservedInstancesListingRequest = {}
         if reserved_instances_listing_id is not None:
             input_["reserved_instances_listing_id"] = reserved_instances_listing_id
 
@@ -6141,7 +6141,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_spot_fleet_requests_request.CancelSpotFleetRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_spot_fleet_requests_request.CancelSpotFleetRequestsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_fleet_request_ids is not None:
@@ -6197,7 +6197,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.cancel_spot_instance_requests_request.CancelSpotInstanceRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.cancel_spot_instance_requests_request.CancelSpotInstanceRequestsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_instance_request_ids is not None:
@@ -6251,7 +6251,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.confirm_product_instance_request.ConfirmProductInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.confirm_product_instance_request.ConfirmProductInstanceRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if product_code is not None:
@@ -6307,7 +6307,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.copy_fpga_image_request.CopyFpgaImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.copy_fpga_image_request.CopyFpgaImageRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if source_fpga_image_id is not None:
@@ -6399,7 +6399,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.copy_image_request.CopyImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.copy_image_request.CopyImageRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -6506,7 +6506,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.copy_snapshot_request.CopySnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.copy_snapshot_request.CopySnapshotRequest = {}
         if description is not None:
             input_["description"] = description
         if destination_outpost_arn is not None:
@@ -6586,7 +6586,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.copy_volumes_request.CopyVolumesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.copy_volumes_request.CopyVolumesRequest = {}
         if source_volume_id is not None:
             input_["source_volume_id"] = source_volume_id
         if iops is not None:
@@ -6693,7 +6693,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_application_status_check_request.CreateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_application_status_check_request.CreateApplicationStatusCheckRequest = {}
         if health_check_paths is not None:
             input_["health_check_paths"] = health_check_paths
         if aggregation is not None:
@@ -6784,7 +6784,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_capacity_manager_data_export_request.CreateCapacityManagerDataExportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_capacity_manager_data_export_request.CreateCapacityManagerDataExportRequest = {}
         if s3_bucket_name is not None:
             input_["s3_bucket_name"] = s3_bucket_name
         if s3_bucket_prefix is not None:
@@ -6895,7 +6895,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_capacity_reservation_request.CreateCapacityReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_capacity_reservation_request.CreateCapacityReservationRequest = {}
         if client_token is not None:
             input_["client_token"] = client_token
         if instance_type is not None:
@@ -6985,7 +6985,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_capacity_reservation_by_splitting_request.CreateCapacityReservationBySplittingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_capacity_reservation_by_splitting_request.CreateCapacityReservationBySplittingRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -7046,7 +7046,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_capacity_reservation_cancellation_quote_request.CreateCapacityReservationCancellationQuoteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_capacity_reservation_cancellation_quote_request.CreateCapacityReservationCancellationQuoteRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if client_token is None:
@@ -7121,7 +7121,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_capacity_reservation_fleet_request.CreateCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_capacity_reservation_fleet_request.CreateCapacityReservationFleetRequest = {}
         if allocation_strategy is not None:
             input_["allocation_strategy"] = allocation_strategy
         if client_token is None:
@@ -7188,7 +7188,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_carrier_gateway_request.CreateCarrierGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_carrier_gateway_request.CreateCarrierGatewayRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if tag_specifications is not None:
@@ -7311,7 +7311,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_client_vpn_endpoint_request.CreateClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_client_vpn_endpoint_request.CreateClientVpnEndpointRequest = {}
         if client_cidr_block is not None:
             input_["client_cidr_block"] = client_cidr_block
         if server_certificate_arn is not None:
@@ -7412,7 +7412,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_client_vpn_route_request.CreateClientVpnRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_client_vpn_route_request.CreateClientVpnRouteRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if destination_cidr_block is not None:
@@ -7471,7 +7471,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_coip_cidr_request.CreateCoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_coip_cidr_request.CreateCoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if coip_pool_id is not None:
@@ -7525,7 +7525,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_coip_pool_request.CreateCoipPoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_coip_pool_request.CreateCoipPoolRequest = {}
         if local_gateway_route_table_id is not None:
             input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if tag_specifications is not None:
@@ -7595,7 +7595,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_customer_gateway_request.CreateCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_customer_gateway_request.CreateCustomerGatewayRequest = {}
         if bgp_asn is not None:
             input_["bgp_asn"] = bgp_asn
         if public_ip is not None:
@@ -7663,7 +7663,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_default_subnet_request.CreateDefaultSubnetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_default_subnet_request.CreateDefaultSubnetRequest = {}
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if dry_run is not None:
@@ -7711,7 +7711,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_default_vpc_request.CreateDefaultVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_default_vpc_request.CreateDefaultVpcRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -7765,7 +7765,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_delegate_mac_volume_ownership_task_request.CreateDelegateMacVolumeOwnershipTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_delegate_mac_volume_ownership_task_request.CreateDelegateMacVolumeOwnershipTaskRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -7830,7 +7830,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_dhcp_options_request.CreateDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_dhcp_options_request.CreateDhcpOptionsRequest = {}
         if dhcp_configurations is not None:
             input_["dhcp_configurations"] = dhcp_configurations
         if tag_specifications is not None:
@@ -7884,7 +7884,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_egress_only_internet_gateway_request.CreateEgressOnlyInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_egress_only_internet_gateway_request.CreateEgressOnlyInternetGatewayRequest = {}
         if client_token is not None:
             input_["client_token"] = client_token
         if dry_run is not None:
@@ -7974,7 +7974,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_fleet_request.CreateFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_fleet_request.CreateFleetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -8089,7 +8089,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_flow_logs_request.CreateFlowLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_flow_logs_request.CreateFlowLogsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -8177,7 +8177,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_fpga_image_request.CreateFpgaImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_fpga_image_request.CreateFpgaImageRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if input_storage_location is not None:
@@ -8251,7 +8251,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_image_request.CreateImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_image_request.CreateImageRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if snapshot_location is not None:
@@ -8325,7 +8325,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_image_usage_report_request.CreateImageUsageReportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_image_usage_report_request.CreateImageUsageReportRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -8396,7 +8396,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_instance_connect_endpoint_request.CreateInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_instance_connect_endpoint_request.CreateInstanceConnectEndpointRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if subnet_id is not None:
@@ -8465,7 +8465,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_instance_event_window_request.CreateInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_instance_event_window_request.CreateInstanceEventWindowRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if name is not None:
@@ -8529,7 +8529,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_instance_export_task_request.CreateInstanceExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_instance_export_task_request.CreateInstanceExportTaskRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if description is not None:
@@ -8589,7 +8589,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_internet_gateway_request.CreateInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_internet_gateway_request.CreateInternetGatewayRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -8645,7 +8645,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_interruptible_capacity_reservation_allocation_request.CreateInterruptibleCapacityReservationAllocationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_interruptible_capacity_reservation_allocation_request.CreateInterruptibleCapacityReservationAllocationRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if instance_count is not None:
@@ -8714,7 +8714,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_request.CreateIpamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_request.CreateIpamRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if description is not None:
@@ -8779,7 +8779,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_external_resource_verification_token_request.CreateIpamExternalResourceVerificationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_external_resource_verification_token_request.CreateIpamExternalResourceVerificationTokenRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -8842,7 +8842,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_internet_registry_association_request.CreateIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_internet_registry_association_request.CreateIpamInternetRegistryAssociationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -8905,7 +8905,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_policy_request.CreateIpamPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_policy_request.CreateIpamPolicyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -9002,7 +9002,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_pool_request.CreateIpamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_pool_request.CreateIpamPoolRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_scope_id is not None:
@@ -9095,7 +9095,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_prefix_list_resolver_request.CreateIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_prefix_list_resolver_request.CreateIpamPrefixListResolverRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -9168,7 +9168,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_prefix_list_resolver_target_request.CreateIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_prefix_list_resolver_target_request.CreateIpamPrefixListResolverTargetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -9237,7 +9237,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_resource_discovery_request.CreateIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_resource_discovery_request.CreateIpamResourceDiscoveryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if description is not None:
@@ -9310,7 +9310,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_routing_policy_registration_request.CreateIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_routing_policy_registration_request.CreateIpamRoutingPolicyRegistrationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -9387,7 +9387,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_ipam_scope_request.CreateIpamScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_ipam_scope_request.CreateIpamScopeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -9456,7 +9456,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_key_pair_request.CreateKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_key_pair_request.CreateKeyPairRequest = {}
         if key_name is not None:
             input_["key_name"] = key_name
         if key_type is not None:
@@ -9530,7 +9530,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_launch_template_request.CreateLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_launch_template_request.CreateLaunchTemplateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -9613,7 +9613,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_launch_template_version_request.CreateLaunchTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_launch_template_version_request.CreateLaunchTemplateVersionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -9690,7 +9690,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_route_request.CreateLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_route_request.CreateLocalGatewayRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if local_gateway_route_table_id is not None:
@@ -9756,7 +9756,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_route_table_request.CreateLocalGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_route_table_request.CreateLocalGatewayRouteTableRequest = {}
         if local_gateway_id is not None:
             input_["local_gateway_id"] = local_gateway_id
         if mode is not None:
@@ -9816,7 +9816,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_route_table_virtual_interface_group_association_request.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_route_table_virtual_interface_group_association_request.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}
         if local_gateway_route_table_id is not None:
             input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if local_gateway_virtual_interface_group_id is not None:
@@ -9876,7 +9876,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_route_table_vpc_association_request.CreateLocalGatewayRouteTableVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_route_table_vpc_association_request.CreateLocalGatewayRouteTableVpcAssociationRequest = {}
         if local_gateway_route_table_id is not None:
             input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if vpc_id is not None:
@@ -9944,7 +9944,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_virtual_interface_request.CreateLocalGatewayVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_virtual_interface_request.CreateLocalGatewayVirtualInterfaceRequest = {}
         if local_gateway_virtual_interface_group_id is not None:
             input_["local_gateway_virtual_interface_group_id"] = (
                 local_gateway_virtual_interface_group_id
@@ -10016,7 +10016,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_local_gateway_virtual_interface_group_request.CreateLocalGatewayVirtualInterfaceGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_local_gateway_virtual_interface_group_request.CreateLocalGatewayVirtualInterfaceGroupRequest = {}
         if local_gateway_id is not None:
             input_["local_gateway_id"] = local_gateway_id
         if local_bgp_asn is not None:
@@ -10086,7 +10086,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_mac_system_integrity_protection_modification_task_request.CreateMacSystemIntegrityProtectionModificationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_mac_system_integrity_protection_modification_task_request.CreateMacSystemIntegrityProtectionModificationTaskRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -10163,7 +10163,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_managed_prefix_list_request.CreateManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_managed_prefix_list_request.CreateManagedPrefixListRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_name is not None:
@@ -10262,7 +10262,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_nat_gateway_request.CreateNatGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_nat_gateway_request.CreateNatGatewayRequest = {}
         if availability_mode is not None:
             input_["availability_mode"] = availability_mode
         if allocation_id is not None:
@@ -10345,7 +10345,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_acl_request.CreateNetworkAclRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_acl_request.CreateNetworkAclRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if client_token is None:
@@ -10416,7 +10416,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_acl_entry_request.CreateNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_acl_entry_request.CreateNetworkAclEntryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_acl_id is not None:
@@ -10490,7 +10490,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_insights_access_scope_request.CreateNetworkInsightsAccessScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_insights_access_scope_request.CreateNetworkInsightsAccessScopeRequest = {}
         if match_paths is not None:
             input_["match_paths"] = match_paths
         if exclude_paths is not None:
@@ -10571,7 +10571,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_insights_path_request.CreateNetworkInsightsPathRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_insights_path_request.CreateNetworkInsightsPathRequest = {}
         if source_ip is not None:
             input_["source_ip"] = source_ip
         if destination_ip is not None:
@@ -10688,7 +10688,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_interface_request.CreateNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_interface_request.CreateNetworkInterfaceRequest = {}
         if ipv4_prefixes is not None:
             input_["ipv4_prefixes"] = ipv4_prefixes
         if ipv4_prefix_count is not None:
@@ -10783,7 +10783,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_network_interface_permission_request.CreateNetworkInterfacePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_network_interface_permission_request.CreateNetworkInterfacePermissionRequest = {}
         if network_interface_id is not None:
             input_["network_interface_id"] = network_interface_id
         if aws_account_id is not None:
@@ -10863,7 +10863,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_placement_group_request.CreatePlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_placement_group_request.CreatePlacementGroupRequest = {}
         if partition_count is not None:
             input_["partition_count"] = partition_count
         if tag_specifications is not None:
@@ -10927,7 +10927,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_public_ipv4_pool_request.CreatePublicIpv4PoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_public_ipv4_pool_request.CreatePublicIpv4PoolRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -10991,7 +10991,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_replace_root_volume_task_request.CreateReplaceRootVolumeTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_replace_root_volume_task_request.CreateReplaceRootVolumeTaskRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if snapshot_id is not None:
@@ -11060,7 +11060,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_reserved_instances_listing_request.CreateReservedInstancesListingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_reserved_instances_listing_request.CreateReservedInstancesListingRequest = {}
         if reserved_instances_id is not None:
             input_["reserved_instances_id"] = reserved_instances_id
         if instance_count is not None:
@@ -11118,7 +11118,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_restore_image_task_request.CreateRestoreImageTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_restore_image_task_request.CreateRestoreImageTaskRequest = {}
         if bucket is not None:
             input_["bucket"] = bucket
         if object_key is not None:
@@ -11224,7 +11224,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_route_request.CreateRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_route_request.CreateRouteRequest = {}
         if destination_prefix_list_id is not None:
             input_["destination_prefix_list_id"] = destination_prefix_list_id
         if vpc_endpoint_id is not None:
@@ -11314,7 +11314,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_route_server_request.CreateRouteServerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_route_server_request.CreateRouteServerRequest = {}
         if amazon_side_asn is not None:
             input_["amazon_side_asn"] = amazon_side_asn
         if client_token is None:
@@ -11381,7 +11381,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_route_server_endpoint_request.CreateRouteServerEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_route_server_endpoint_request.CreateRouteServerEndpointRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if subnet_id is not None:
@@ -11446,7 +11446,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_route_server_peer_request.CreateRouteServerPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_route_server_peer_request.CreateRouteServerPeerRequest = {}
         if route_server_endpoint_id is not None:
             input_["route_server_endpoint_id"] = route_server_endpoint_id
         if peer_address is not None:
@@ -11510,7 +11510,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_route_table_request.CreateRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_route_table_request.CreateRouteTableRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if client_token is None:
@@ -11577,7 +11577,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_secondary_network_request.CreateSecondaryNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_secondary_network_request.CreateSecondaryNetworkRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -11654,7 +11654,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_secondary_subnet_request.CreateSecondarySubnetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_secondary_subnet_request.CreateSecondarySubnetRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -11725,7 +11725,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_security_group_request.CreateSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_security_group_request.CreateSecurityGroupRequest = {}
         if description is not None:
             input_["description"] = description
         if group_name is not None:
@@ -11793,7 +11793,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_snapshot_request.CreateSnapshotRequest = {}
         if description is not None:
             input_["description"] = description
         if outpost_arn is not None:
@@ -11865,7 +11865,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_snapshots_request.CreateSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_snapshots_request.CreateSnapshotsRequest = {}
         if description is not None:
             input_["description"] = description
         if instance_specification is not None:
@@ -11929,7 +11929,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_spot_datafeed_subscription_request.CreateSpotDatafeedSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_spot_datafeed_subscription_request.CreateSpotDatafeedSubscriptionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if bucket is not None:
@@ -11983,7 +11983,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_store_image_task_request.CreateStoreImageTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_store_image_task_request.CreateStoreImageTaskRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if bucket is not None:
@@ -12067,7 +12067,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_subnet_request.CreateSubnetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_subnet_request.CreateSubnetRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if availability_zone is not None:
@@ -12147,7 +12147,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_subnet_cidr_reservation_request.CreateSubnetCidrReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_subnet_cidr_reservation_request.CreateSubnetCidrReservationRequest = {}
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
         if cidr is not None:
@@ -12207,7 +12207,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_tags_request.CreateTagsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if resources is not None:
@@ -12261,7 +12261,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_traffic_mirror_filter_request.CreateTrafficMirrorFilterRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_traffic_mirror_filter_request.CreateTrafficMirrorFilterRequest = {}
         if description is not None:
             input_["description"] = description
         if tag_specifications is not None:
@@ -12346,7 +12346,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_traffic_mirror_filter_rule_request.CreateTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_traffic_mirror_filter_rule_request.CreateTrafficMirrorFilterRuleRequest = {}
         if traffic_mirror_filter_id is not None:
             input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if traffic_direction is not None:
@@ -12439,7 +12439,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_traffic_mirror_session_request.CreateTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_traffic_mirror_session_request.CreateTrafficMirrorSessionRequest = {}
         if network_interface_id is not None:
             input_["network_interface_id"] = network_interface_id
         if traffic_mirror_target_id is not None:
@@ -12518,7 +12518,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_traffic_mirror_target_request.CreateTrafficMirrorTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_traffic_mirror_target_request.CreateTrafficMirrorTargetRequest = {}
         if network_interface_id is not None:
             input_["network_interface_id"] = network_interface_id
         if network_load_balancer_arn is not None:
@@ -12585,7 +12585,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_request.CreateTransitGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_request.CreateTransitGatewayRequest = {}
         if description is not None:
             input_["description"] = description
         if options is not None:
@@ -12645,7 +12645,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_connect_request.CreateTransitGatewayConnectRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_connect_request.CreateTransitGatewayConnectRequest = {}
         if transport_transit_gateway_attachment_id is not None:
             input_["transport_transit_gateway_attachment_id"] = (
                 transport_transit_gateway_attachment_id
@@ -12715,7 +12715,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_connect_peer_request.CreateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_connect_peer_request.CreateTransitGatewayConnectPeerRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if transit_gateway_address is not None:
@@ -12781,7 +12781,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_metering_policy_request.CreateTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_metering_policy_request.CreateTransitGatewayMeteringPolicyRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if middlebox_attachment_ids is not None:
@@ -12865,7 +12865,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_metering_policy_entry_request.CreateTransitGatewayMeteringPolicyEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_metering_policy_entry_request.CreateTransitGatewayMeteringPolicyEntryRequest = {}
         if transit_gateway_metering_policy_id is not None:
             input_["transit_gateway_metering_policy_id"] = (
                 transit_gateway_metering_policy_id
@@ -12953,7 +12953,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_multicast_domain_request.CreateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_multicast_domain_request.CreateTransitGatewayMulticastDomainRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if options is not None:
@@ -13021,7 +13021,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_peering_attachment_request.CreateTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_peering_attachment_request.CreateTransitGatewayPeeringAttachmentRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if peer_transit_gateway_id is not None:
@@ -13083,7 +13083,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_policy_table_request.CreateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_policy_table_request.CreateTransitGatewayPolicyTableRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if tag_specifications is not None:
@@ -13143,7 +13143,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_policy_table_entry_request.CreateTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_policy_table_entry_request.CreateTransitGatewayPolicyTableEntryRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if policy_rule_number is not None:
@@ -13207,7 +13207,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_prefix_list_reference_request.CreateTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_prefix_list_reference_request.CreateTransitGatewayPrefixListReferenceRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if prefix_list_id is not None:
@@ -13269,7 +13269,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_route_request.CreateTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_route_request.CreateTransitGatewayRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if transit_gateway_route_table_id is not None:
@@ -13327,7 +13327,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_route_table_request.CreateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_route_table_request.CreateTransitGatewayRouteTableRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if tag_specifications is not None:
@@ -13385,7 +13385,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_route_table_announcement_request.CreateTransitGatewayRouteTableAnnouncementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_route_table_announcement_request.CreateTransitGatewayRouteTableAnnouncementRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if peering_attachment_id is not None:
@@ -13451,7 +13451,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_transit_gateway_vpc_attachment_request.CreateTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_transit_gateway_vpc_attachment_request.CreateTransitGatewayVpcAttachmentRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if vpc_id is not None:
@@ -13557,7 +13557,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_verified_access_endpoint_request.CreateVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_verified_access_endpoint_request.CreateVerifiedAccessEndpointRequest = {}
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if endpoint_type is not None:
@@ -13650,7 +13650,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_verified_access_group_request.CreateVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_verified_access_group_request.CreateVerifiedAccessGroupRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
@@ -13719,7 +13719,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_verified_access_instance_request.CreateVerifiedAccessInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_verified_access_instance_request.CreateVerifiedAccessInstanceRequest = {}
         if description is not None:
             input_["description"] = description
         if tag_specifications is not None:
@@ -13812,7 +13812,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_verified_access_trust_provider_request.CreateVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_verified_access_trust_provider_request.CreateVerifiedAccessTrustProviderRequest = {}
         if trust_provider_type is not None:
             input_["trust_provider_type"] = trust_provider_type
         if user_trust_provider_type is not None:
@@ -13921,7 +13921,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_volume_request.CreateVolumeRequest = {}
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
@@ -14034,7 +14034,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_request.CreateVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_request.CreateVpcRequest = {}
         if cidr_block is not None:
             input_["cidr_block"] = cidr_block
         if ipv6_pool is not None:
@@ -14114,7 +14114,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_block_public_access_exclusion_request.CreateVpcBlockPublicAccessExclusionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_block_public_access_exclusion_request.CreateVpcBlockPublicAccessExclusionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if subnet_id is not None:
@@ -14170,7 +14170,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_encryption_control_request.CreateVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_encryption_control_request.CreateVpcEncryptionControlRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_id is not None:
@@ -14268,7 +14268,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_endpoint_type is not None:
@@ -14358,7 +14358,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_endpoint_connection_notification_request.CreateVpcEndpointConnectionNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_endpoint_connection_notification_request.CreateVpcEndpointConnectionNotificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -14436,7 +14436,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_endpoint_service_configuration_request.CreateVpcEndpointServiceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_endpoint_service_configuration_request.CreateVpcEndpointServiceConfigurationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if acceptance_required is not None:
@@ -14506,7 +14506,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpc_peering_connection_request.CreateVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpc_peering_connection_request.CreateVpcPeeringConnectionRequest = {}
         if peer_region is not None:
             input_["peer_region"] = peer_region
         if tag_specifications is not None:
@@ -14570,7 +14570,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpn_concentrator_request.CreateVpnConcentratorRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpn_concentrator_request.CreateVpnConcentratorRequest = {}
         if type is not None:
             input_["type"] = type
         if transit_gateway_id is not None:
@@ -14644,7 +14644,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpn_connection_request.CreateVpnConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpn_connection_request.CreateVpnConnectionRequest = {}
         if customer_gateway_id is not None:
             input_["customer_gateway_id"] = customer_gateway_id
         if type is not None:
@@ -14704,7 +14704,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpn_connection_route_request.CreateVpnConnectionRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpn_connection_route_request.CreateVpnConnectionRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if vpn_connection_id is not None:
@@ -14758,7 +14758,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.create_vpn_gateway_request.CreateVpnGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.create_vpn_gateway_request.CreateVpnGatewayRequest = {}
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if type is not None:
@@ -14820,7 +14820,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_application_status_check_request.DeleteApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_application_status_check_request.DeleteApplicationStatusCheckRequest = {}
         if application_status_check_id is not None:
             input_["application_status_check_id"] = application_status_check_id
         if client_token is None:
@@ -14871,7 +14871,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_capacity_manager_data_export_request.DeleteCapacityManagerDataExportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_capacity_manager_data_export_request.DeleteCapacityManagerDataExportRequest = {}
         if capacity_manager_data_export_id is not None:
             input_["capacity_manager_data_export_id"] = capacity_manager_data_export_id
         if dry_run is not None:
@@ -14919,7 +14919,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_carrier_gateway_request.DeleteCarrierGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_carrier_gateway_request.DeleteCarrierGatewayRequest = {}
         if carrier_gateway_id is not None:
             input_["carrier_gateway_id"] = carrier_gateway_id
         if dry_run is not None:
@@ -14969,7 +14969,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_client_vpn_endpoint_request.DeleteClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_client_vpn_endpoint_request.DeleteClientVpnEndpointRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
@@ -15021,7 +15021,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_client_vpn_route_request.DeleteClientVpnRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_client_vpn_route_request.DeleteClientVpnRouteRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if target_vpc_subnet_id is not None:
@@ -15075,7 +15075,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_coip_cidr_request.DeleteCoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_coip_cidr_request.DeleteCoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if coip_pool_id is not None:
@@ -15125,7 +15125,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_coip_pool_request.DeleteCoipPoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_coip_pool_request.DeleteCoipPoolRequest = {}
         if coip_pool_id is not None:
             input_["coip_pool_id"] = coip_pool_id
         if dry_run is not None:
@@ -15177,7 +15177,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_customer_gateway_request.DeleteCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_customer_gateway_request.DeleteCustomerGatewayRequest = {}
         if customer_gateway_id is not None:
             input_["customer_gateway_id"] = customer_gateway_id
         if dry_run is not None:
@@ -15229,7 +15229,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_dhcp_options_request.DeleteDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_dhcp_options_request.DeleteDhcpOptionsRequest = {}
         if dhcp_options_id is not None:
             input_["dhcp_options_id"] = dhcp_options_id
         if dry_run is not None:
@@ -15277,7 +15277,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_egress_only_internet_gateway_request.DeleteEgressOnlyInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_egress_only_internet_gateway_request.DeleteEgressOnlyInternetGatewayRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if egress_only_internet_gateway_id is not None:
@@ -15325,7 +15325,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_fleets_request.DeleteFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_fleets_request.DeleteFleetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fleet_ids is not None:
@@ -15373,7 +15373,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_flow_logs_request.DeleteFlowLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_flow_logs_request.DeleteFlowLogsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if flow_log_ids is not None:
@@ -15419,7 +15419,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_fpga_image_request.DeleteFpgaImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_fpga_image_request.DeleteFpgaImageRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fpga_image_id is not None:
@@ -15467,7 +15467,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_image_usage_report_request.DeleteImageUsageReportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_image_usage_report_request.DeleteImageUsageReportRequest = {}
         if report_id is not None:
             input_["report_id"] = report_id
         if dry_run is not None:
@@ -15515,7 +15515,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_instance_connect_endpoint_request.DeleteInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_instance_connect_endpoint_request.DeleteInstanceConnectEndpointRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_connect_endpoint_id is not None:
@@ -15565,7 +15565,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_instance_event_window_request.DeleteInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_instance_event_window_request.DeleteInstanceEventWindowRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if force_delete is not None:
@@ -15619,7 +15619,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_internet_gateway_request.DeleteInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_internet_gateway_request.DeleteInternetGatewayRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if internet_gateway_id is not None:
@@ -15665,7 +15665,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_request.DeleteIpamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_request.DeleteIpamRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -15715,7 +15715,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_external_resource_verification_token_request.DeleteIpamExternalResourceVerificationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_external_resource_verification_token_request.DeleteIpamExternalResourceVerificationTokenRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_external_resource_verification_token_id is not None:
@@ -15765,7 +15765,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_internet_registry_association_request.DeleteIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_internet_registry_association_request.DeleteIpamInternetRegistryAssociationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -15813,7 +15813,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_policy_request.DeleteIpamPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_policy_request.DeleteIpamPolicyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_policy_id is not None:
@@ -15861,7 +15861,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_pool_request.DeleteIpamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_pool_request.DeleteIpamPoolRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -15911,7 +15911,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_prefix_list_resolver_request.DeleteIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_prefix_list_resolver_request.DeleteIpamPrefixListResolverRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -15959,7 +15959,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_prefix_list_resolver_target_request.DeleteIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_prefix_list_resolver_target_request.DeleteIpamPrefixListResolverTargetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_target_id is not None:
@@ -16009,7 +16009,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_resource_discovery_request.DeleteIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_resource_discovery_request.DeleteIpamResourceDiscoveryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -16063,7 +16063,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_routing_policy_registration_request.DeleteIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_routing_policy_registration_request.DeleteIpamRoutingPolicyRegistrationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -16118,7 +16118,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_ipam_scope_request.DeleteIpamScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_ipam_scope_request.DeleteIpamScopeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_scope_id is not None:
@@ -16174,7 +16174,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_key_pair_request.DeleteKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_key_pair_request.DeleteKeyPairRequest = {}
         if key_name is not None:
             input_["key_name"] = key_name
         if key_pair_id is not None:
@@ -16234,7 +16234,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_launch_template_request.DeleteLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_launch_template_request.DeleteLaunchTemplateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if launch_template_id is not None:
@@ -16298,7 +16298,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_launch_template_versions_request.DeleteLaunchTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_launch_template_versions_request.DeleteLaunchTemplateVersionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if launch_template_id is not None:
@@ -16358,7 +16358,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_route_request.DeleteLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_route_request.DeleteLocalGatewayRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if local_gateway_route_table_id is not None:
@@ -16410,7 +16410,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_route_table_request.DeleteLocalGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_route_table_request.DeleteLocalGatewayRouteTableRequest = {}
         if local_gateway_route_table_id is not None:
             input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if dry_run is not None:
@@ -16458,7 +16458,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_request.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_request.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = {}
         if local_gateway_route_table_virtual_interface_group_association_id is not None:
             input_[
                 "local_gateway_route_table_virtual_interface_group_association_id"
@@ -16508,7 +16508,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_route_table_vpc_association_request.DeleteLocalGatewayRouteTableVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_route_table_vpc_association_request.DeleteLocalGatewayRouteTableVpcAssociationRequest = {}
         if local_gateway_route_table_vpc_association_id is not None:
             input_["local_gateway_route_table_vpc_association_id"] = (
                 local_gateway_route_table_vpc_association_id
@@ -16558,7 +16558,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_virtual_interface_request.DeleteLocalGatewayVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_virtual_interface_request.DeleteLocalGatewayVirtualInterfaceRequest = {}
         if local_gateway_virtual_interface_id is not None:
             input_["local_gateway_virtual_interface_id"] = (
                 local_gateway_virtual_interface_id
@@ -16608,7 +16608,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_local_gateway_virtual_interface_group_request.DeleteLocalGatewayVirtualInterfaceGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_local_gateway_virtual_interface_group_request.DeleteLocalGatewayVirtualInterfaceGroupRequest = {}
         if local_gateway_virtual_interface_group_id is not None:
             input_["local_gateway_virtual_interface_group_id"] = (
                 local_gateway_virtual_interface_group_id
@@ -16660,7 +16660,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_managed_prefix_list_request.DeleteManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_managed_prefix_list_request.DeleteManagedPrefixListRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_id is not None:
@@ -16712,7 +16712,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_nat_gateway_request.DeleteNatGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_nat_gateway_request.DeleteNatGatewayRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if nat_gateway_id is not None:
@@ -16762,7 +16762,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_acl_request.DeleteNetworkAclRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_acl_request.DeleteNetworkAclRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_acl_id is not None:
@@ -16816,7 +16816,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_acl_entry_request.DeleteNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_acl_entry_request.DeleteNetworkAclEntryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_acl_id is not None:
@@ -16868,7 +16868,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_insights_access_scope_request.DeleteNetworkInsightsAccessScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_insights_access_scope_request.DeleteNetworkInsightsAccessScopeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_insights_access_scope_id is not None:
@@ -16918,7 +16918,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_insights_access_scope_analysis_request.DeleteNetworkInsightsAccessScopeAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_insights_access_scope_analysis_request.DeleteNetworkInsightsAccessScopeAnalysisRequest = {}
         if network_insights_access_scope_analysis_id is not None:
             input_["network_insights_access_scope_analysis_id"] = (
                 network_insights_access_scope_analysis_id
@@ -16968,7 +16968,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_insights_analysis_request.DeleteNetworkInsightsAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_insights_analysis_request.DeleteNetworkInsightsAnalysisRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_insights_analysis_id is not None:
@@ -17016,7 +17016,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_insights_path_request.DeleteNetworkInsightsPathRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_insights_path_request.DeleteNetworkInsightsPathRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_insights_path_id is not None:
@@ -17068,7 +17068,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_interface_request.DeleteNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_interface_request.DeleteNetworkInterfaceRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_interface_id is not None:
@@ -17118,7 +17118,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_network_interface_permission_request.DeleteNetworkInterfacePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_network_interface_permission_request.DeleteNetworkInterfacePermissionRequest = {}
         if network_interface_permission_id is not None:
             input_["network_interface_permission_id"] = network_interface_permission_id
         if force is not None:
@@ -17173,7 +17173,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_placement_group_request.DeletePlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_placement_group_request.DeletePlacementGroupRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if group_name is not None:
@@ -17221,7 +17221,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_public_ipv4_pool_request.DeletePublicIpv4PoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_public_ipv4_pool_request.DeletePublicIpv4PoolRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if pool_id is not None:
@@ -17271,7 +17271,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_queued_reserved_instances_request.DeleteQueuedReservedInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_queued_reserved_instances_request.DeleteQueuedReservedInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if reserved_instances_ids is not None:
@@ -17329,7 +17329,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_route_request.DeleteRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_route_request.DeleteRouteRequest = {}
         if destination_prefix_list_id is not None:
             input_["destination_prefix_list_id"] = destination_prefix_list_id
         if dry_run is not None:
@@ -17383,7 +17383,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_route_server_request.DeleteRouteServerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_route_server_request.DeleteRouteServerRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if dry_run is not None:
@@ -17431,7 +17431,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_route_server_endpoint_request.DeleteRouteServerEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_route_server_endpoint_request.DeleteRouteServerEndpointRequest = {}
         if route_server_endpoint_id is not None:
             input_["route_server_endpoint_id"] = route_server_endpoint_id
         if dry_run is not None:
@@ -17479,7 +17479,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_route_server_peer_request.DeleteRouteServerPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_route_server_peer_request.DeleteRouteServerPeerRequest = {}
         if route_server_peer_id is not None:
             input_["route_server_peer_id"] = route_server_peer_id
         if dry_run is not None:
@@ -17529,7 +17529,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_route_table_request.DeleteRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_route_table_request.DeleteRouteTableRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if route_table_id is not None:
@@ -17585,7 +17585,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_secondary_network_request.DeleteSecondaryNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_secondary_network_request.DeleteSecondaryNetworkRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -17644,7 +17644,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_secondary_subnet_request.DeleteSecondarySubnetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_secondary_subnet_request.DeleteSecondarySubnetRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -17703,7 +17703,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_security_group_request.DeleteSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_security_group_request.DeleteSecurityGroupRequest = {}
         if group_id is not None:
             input_["group_id"] = group_id
         if group_name is not None:
@@ -17755,7 +17755,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_snapshot_request.DeleteSnapshotRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
@@ -17803,7 +17803,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_spot_datafeed_subscription_request.DeleteSpotDatafeedSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_spot_datafeed_subscription_request.DeleteSpotDatafeedSubscriptionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -17851,7 +17851,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_subnet_request.DeleteSubnetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_subnet_request.DeleteSubnetRequest = {}
         if subnet_id is not None:
             input_["subnet_id"] = subnet_id
         if dry_run is not None:
@@ -17899,7 +17899,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_subnet_cidr_reservation_request.DeleteSubnetCidrReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_subnet_cidr_reservation_request.DeleteSubnetCidrReservationRequest = {}
         if subnet_cidr_reservation_id is not None:
             input_["subnet_cidr_reservation_id"] = subnet_cidr_reservation_id
         if dry_run is not None:
@@ -17951,7 +17951,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_tags_request.DeleteTagsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if resources is not None:
@@ -18001,7 +18001,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_traffic_mirror_filter_request.DeleteTrafficMirrorFilterRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_traffic_mirror_filter_request.DeleteTrafficMirrorFilterRequest = {}
         if traffic_mirror_filter_id is not None:
             input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if dry_run is not None:
@@ -18049,7 +18049,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_traffic_mirror_filter_rule_request.DeleteTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_traffic_mirror_filter_rule_request.DeleteTrafficMirrorFilterRuleRequest = {}
         if traffic_mirror_filter_rule_id is not None:
             input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
         if dry_run is not None:
@@ -18097,7 +18097,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_traffic_mirror_session_request.DeleteTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_traffic_mirror_session_request.DeleteTrafficMirrorSessionRequest = {}
         if traffic_mirror_session_id is not None:
             input_["traffic_mirror_session_id"] = traffic_mirror_session_id
         if dry_run is not None:
@@ -18145,7 +18145,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_traffic_mirror_target_request.DeleteTrafficMirrorTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_traffic_mirror_target_request.DeleteTrafficMirrorTargetRequest = {}
         if traffic_mirror_target_id is not None:
             input_["traffic_mirror_target_id"] = traffic_mirror_target_id
         if dry_run is not None:
@@ -18193,7 +18193,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_request.DeleteTransitGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_request.DeleteTransitGatewayRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if dry_run is not None:
@@ -18241,7 +18241,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_client_vpn_attachment_request.DeleteTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_client_vpn_attachment_request.DeleteTransitGatewayClientVpnAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -18289,7 +18289,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_connect_request.DeleteTransitGatewayConnectRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_connect_request.DeleteTransitGatewayConnectRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -18337,7 +18337,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_connect_peer_request.DeleteTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_connect_peer_request.DeleteTransitGatewayConnectPeerRequest = {}
         if transit_gateway_connect_peer_id is not None:
             input_["transit_gateway_connect_peer_id"] = transit_gateway_connect_peer_id
         if dry_run is not None:
@@ -18385,7 +18385,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_metering_policy_request.DeleteTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_metering_policy_request.DeleteTransitGatewayMeteringPolicyRequest = {}
         if transit_gateway_metering_policy_id is not None:
             input_["transit_gateway_metering_policy_id"] = (
                 transit_gateway_metering_policy_id
@@ -18437,7 +18437,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_metering_policy_entry_request.DeleteTransitGatewayMeteringPolicyEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_metering_policy_entry_request.DeleteTransitGatewayMeteringPolicyEntryRequest = {}
         if transit_gateway_metering_policy_id is not None:
             input_["transit_gateway_metering_policy_id"] = (
                 transit_gateway_metering_policy_id
@@ -18489,7 +18489,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_multicast_domain_request.DeleteTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_multicast_domain_request.DeleteTransitGatewayMulticastDomainRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -18539,7 +18539,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_peering_attachment_request.DeleteTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_peering_attachment_request.DeleteTransitGatewayPeeringAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -18587,7 +18587,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_policy_table_request.DeleteTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_policy_table_request.DeleteTransitGatewayPolicyTableRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if dry_run is not None:
@@ -18637,7 +18637,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_policy_table_entry_request.DeleteTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_policy_table_entry_request.DeleteTransitGatewayPolicyTableEntryRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if policy_rule_number is not None:
@@ -18691,7 +18691,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_prefix_list_reference_request.DeleteTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_prefix_list_reference_request.DeleteTransitGatewayPrefixListReferenceRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if prefix_list_id is not None:
@@ -18743,7 +18743,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_route_request.DeleteTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_route_request.DeleteTransitGatewayRouteRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if destination_cidr_block is not None:
@@ -18793,7 +18793,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_route_table_request.DeleteTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_route_table_request.DeleteTransitGatewayRouteTableRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if dry_run is not None:
@@ -18841,7 +18841,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_route_table_announcement_request.DeleteTransitGatewayRouteTableAnnouncementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_route_table_announcement_request.DeleteTransitGatewayRouteTableAnnouncementRequest = {}
         if transit_gateway_route_table_announcement_id is not None:
             input_["transit_gateway_route_table_announcement_id"] = (
                 transit_gateway_route_table_announcement_id
@@ -18891,7 +18891,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_transit_gateway_vpc_attachment_request.DeleteTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_transit_gateway_vpc_attachment_request.DeleteTransitGatewayVpcAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -18941,7 +18941,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_verified_access_endpoint_request.DeleteVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_verified_access_endpoint_request.DeleteVerifiedAccessEndpointRequest = {}
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if client_token is None:
@@ -18994,7 +18994,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_verified_access_group_request.DeleteVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_verified_access_group_request.DeleteVerifiedAccessGroupRequest = {}
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if client_token is None:
@@ -19047,7 +19047,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_verified_access_instance_request.DeleteVerifiedAccessInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_verified_access_instance_request.DeleteVerifiedAccessInstanceRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if dry_run is not None:
@@ -19100,7 +19100,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_verified_access_trust_provider_request.DeleteVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_verified_access_trust_provider_request.DeleteVerifiedAccessTrustProviderRequest = {}
         if verified_access_trust_provider_id is not None:
             input_["verified_access_trust_provider_id"] = (
                 verified_access_trust_provider_id
@@ -19155,7 +19155,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_volume_request.DeleteVolumeRequest = {}
         if volume_id is not None:
             input_["volume_id"] = volume_id
         if dry_run is not None:
@@ -19205,7 +19205,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_request.DeleteVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_request.DeleteVpcRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if dry_run is not None:
@@ -19253,7 +19253,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_block_public_access_exclusion_request.DeleteVpcBlockPublicAccessExclusionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_block_public_access_exclusion_request.DeleteVpcBlockPublicAccessExclusionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if exclusion_id is not None:
@@ -19301,7 +19301,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_encryption_control_request.DeleteVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_encryption_control_request.DeleteVpcEncryptionControlRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_encryption_control_id is not None:
@@ -19349,7 +19349,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_endpoint_connection_notifications_request.DeleteVpcEndpointConnectionNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_endpoint_connection_notifications_request.DeleteVpcEndpointConnectionNotificationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if connection_notification_ids is not None:
@@ -19397,7 +19397,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_endpoints_request.DeleteVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_endpoints_request.DeleteVpcEndpointsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_endpoint_ids is not None:
@@ -19445,7 +19445,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_endpoint_service_configurations_request.DeleteVpcEndpointServiceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_endpoint_service_configurations_request.DeleteVpcEndpointServiceConfigurationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_ids is not None:
@@ -19493,7 +19493,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpc_peering_connection_request.DeleteVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpc_peering_connection_request.DeleteVpcPeeringConnectionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_peering_connection_id is not None:
@@ -19541,7 +19541,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpn_concentrator_request.DeleteVpnConcentratorRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpn_concentrator_request.DeleteVpnConcentratorRequest = {}
         if vpn_concentrator_id is not None:
             input_["vpn_concentrator_id"] = vpn_concentrator_id
         if dry_run is not None:
@@ -19587,7 +19587,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpn_connection_request.DeleteVpnConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpn_connection_request.DeleteVpnConnectionRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if dry_run is not None:
@@ -19633,7 +19633,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpn_connection_route_request.DeleteVpnConnectionRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpn_connection_route_request.DeleteVpnConnectionRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if vpn_connection_id is not None:
@@ -19677,7 +19677,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.delete_vpn_gateway_request.DeleteVpnGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.delete_vpn_gateway_request.DeleteVpnGatewayRequest = {}
         if vpn_gateway_id is not None:
             input_["vpn_gateway_id"] = vpn_gateway_id
         if dry_run is not None:
@@ -19723,7 +19723,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deprovision_byoip_cidr_request.DeprovisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deprovision_byoip_cidr_request.DeprovisionByoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if dry_run is not None:
@@ -19771,7 +19771,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deprovision_ipam_byoasn_request.DeprovisionIpamByoasnRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deprovision_ipam_byoasn_request.DeprovisionIpamByoasnRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -19823,7 +19823,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deprovision_ipam_pool_cidr_request.DeprovisionIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deprovision_ipam_pool_cidr_request.DeprovisionIpamPoolCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -19873,7 +19873,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deprovision_public_ipv4_pool_cidr_request.DeprovisionPublicIpv4PoolCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deprovision_public_ipv4_pool_cidr_request.DeprovisionPublicIpv4PoolCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if pool_id is not None:
@@ -19923,7 +19923,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deregister_image_request.DeregisterImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deregister_image_request.DeregisterImageRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if delete_associated_snapshots is not None:
@@ -19973,7 +19973,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deregister_instance_event_notification_attributes_request.DeregisterInstanceEventNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deregister_instance_event_notification_attributes_request.DeregisterInstanceEventNotificationAttributesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_tag_attribute is not None:
@@ -20027,7 +20027,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deregister_transit_gateway_multicast_group_members_request.DeregisterTransitGatewayMulticastGroupMembersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deregister_transit_gateway_multicast_group_members_request.DeregisterTransitGatewayMulticastGroupMembersRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -20087,7 +20087,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.deregister_transit_gateway_multicast_group_sources_request.DeregisterTransitGatewayMulticastGroupSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.deregister_transit_gateway_multicast_group_sources_request.DeregisterTransitGatewayMulticastGroupSourcesRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -20151,7 +20151,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_account_attributes_request.DescribeAccountAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_account_attributes_request.DescribeAccountAttributesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if attribute_names is not None:
@@ -20195,7 +20195,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_account_vpc_encryption_control_request.DescribeAccountVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_account_vpc_encryption_control_request.DescribeAccountVpcEncryptionControlRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -20253,7 +20253,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_addresses_request.DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_addresses_request.DescribeAddressesRequest = {}
         if public_ips is not None:
             input_["public_ips"] = public_ips
         if dry_run is not None:
@@ -20313,7 +20313,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_addresses_attribute_request.DescribeAddressesAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_addresses_attribute_request.DescribeAddressesAttributeRequest = {}
         if allocation_ids is not None:
             input_["allocation_ids"] = allocation_ids
         if attribute is not None:
@@ -20404,7 +20404,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_address_transfers_request.DescribeAddressTransfersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_address_transfers_request.DescribeAddressTransfersRequest = {}
         if allocation_ids is not None:
             input_["allocation_ids"] = allocation_ids
         if next_token is not None:
@@ -20481,7 +20481,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_aggregate_id_format_request.DescribeAggregateIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_aggregate_id_format_request.DescribeAggregateIdFormatRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -20543,7 +20543,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_application_status_request.DescribeApplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_application_status_request.DescribeApplicationStatusRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if filters is not None:
@@ -20611,7 +20611,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_application_status_check_associations_request.DescribeApplicationStatusCheckAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_application_status_check_associations_request.DescribeApplicationStatusCheckAssociationsRequest = {}
         if application_status_check_ids is not None:
             input_["application_status_check_ids"] = application_status_check_ids
         if filters is not None:
@@ -20685,7 +20685,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_application_status_checks_request.DescribeApplicationStatusChecksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_application_status_checks_request.DescribeApplicationStatusChecksRequest = {}
         if application_status_check_ids is not None:
             input_["application_status_check_ids"] = application_status_check_ids
         if filters is not None:
@@ -20755,7 +20755,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_availability_zones_request.DescribeAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_availability_zones_request.DescribeAvailabilityZonesRequest = {}
         if zone_names is not None:
             input_["zone_names"] = zone_names
         if zone_ids is not None:
@@ -20813,7 +20813,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_aws_network_performance_metric_subscriptions_request.DescribeAwsNetworkPerformanceMetricSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_aws_network_performance_metric_subscriptions_request.DescribeAwsNetworkPerformanceMetricSubscriptionsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -20894,7 +20894,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_bundle_tasks_request.DescribeBundleTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_bundle_tasks_request.DescribeBundleTasksRequest = {}
         if bundle_ids is not None:
             input_["bundle_ids"] = bundle_ids
         if dry_run is not None:
@@ -20946,7 +20946,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_byoip_cidrs_request.DescribeByoipCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_byoip_cidrs_request.DescribeByoipCidrsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -21029,7 +21029,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_block_extension_history_request.DescribeCapacityBlockExtensionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_block_extension_history_request.DescribeCapacityBlockExtensionHistoryRequest = {}
         if capacity_reservation_ids is not None:
             input_["capacity_reservation_ids"] = capacity_reservation_ids
         if next_token is not None:
@@ -21124,7 +21124,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_block_extension_offerings_request.DescribeCapacityBlockExtensionOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_block_extension_offerings_request.DescribeCapacityBlockExtensionOfferingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_block_extension_duration_hours is not None:
@@ -21235,7 +21235,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_block_offerings_request.DescribeCapacityBlockOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_block_offerings_request.DescribeCapacityBlockOfferingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_type is not None:
@@ -21354,7 +21354,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_blocks_request.DescribeCapacityBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_blocks_request.DescribeCapacityBlocksRequest = {}
         if capacity_block_ids is not None:
             input_["capacity_block_ids"] = capacity_block_ids
         if next_token is not None:
@@ -21447,7 +21447,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_block_status_request.DescribeCapacityBlockStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_block_status_request.DescribeCapacityBlockStatusRequest = {}
         if capacity_block_ids is not None:
             input_["capacity_block_ids"] = capacity_block_ids
         if next_token is not None:
@@ -21540,7 +21540,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_manager_data_exports_request.DescribeCapacityManagerDataExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_manager_data_exports_request.DescribeCapacityManagerDataExportsRequest = {}
         if capacity_manager_data_export_ids is not None:
             input_["capacity_manager_data_export_ids"] = (
                 capacity_manager_data_export_ids
@@ -21637,7 +21637,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_reservation_billing_requests_request.DescribeCapacityReservationBillingRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_reservation_billing_requests_request.DescribeCapacityReservationBillingRequestsRequest = {}
         if capacity_reservation_ids is not None:
             input_["capacity_reservation_ids"] = capacity_reservation_ids
         if role is not None:
@@ -21734,7 +21734,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request.DescribeCapacityReservationCancellationQuotesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_reservation_cancellation_quotes_request.DescribeCapacityReservationCancellationQuotesRequest = {}
         if capacity_reservation_cancellation_quote_ids is not None:
             input_["capacity_reservation_cancellation_quote_ids"] = (
                 capacity_reservation_cancellation_quote_ids
@@ -21798,7 +21798,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_reservation_fleets_request.DescribeCapacityReservationFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_reservation_fleets_request.DescribeCapacityReservationFleetsRequest = {}
         if capacity_reservation_fleet_ids is not None:
             input_["capacity_reservation_fleet_ids"] = capacity_reservation_fleet_ids
         if next_token is not None:
@@ -21891,7 +21891,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_reservations_request.DescribeCapacityReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_reservations_request.DescribeCapacityReservationsRequest = {}
         if capacity_reservation_ids is not None:
             input_["capacity_reservation_ids"] = capacity_reservation_ids
         if next_token is not None:
@@ -21984,7 +21984,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_capacity_reservation_topology_request.DescribeCapacityReservationTopologyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_capacity_reservation_topology_request.DescribeCapacityReservationTopologyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if next_token is not None:
@@ -22048,7 +22048,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_carrier_gateways_request.DescribeCarrierGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_carrier_gateways_request.DescribeCarrierGatewaysRequest = {}
         if carrier_gateway_ids is not None:
             input_["carrier_gateway_ids"] = carrier_gateway_ids
         if filters is not None:
@@ -22141,7 +22141,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_classic_link_instances_request.DescribeClassicLinkInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_classic_link_instances_request.DescribeClassicLinkInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_ids is not None:
@@ -22234,7 +22234,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_client_vpn_authorization_rules_request.DescribeClientVpnAuthorizationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_client_vpn_authorization_rules_request.DescribeClientVpnAuthorizationRulesRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
@@ -22327,7 +22327,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_client_vpn_connections_request.DescribeClientVpnConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_client_vpn_connections_request.DescribeClientVpnConnectionsRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if filters is not None:
@@ -22420,7 +22420,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_client_vpn_endpoints_request.DescribeClientVpnEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_client_vpn_endpoints_request.DescribeClientVpnEndpointsRequest = {}
         if client_vpn_endpoint_ids is not None:
             input_["client_vpn_endpoint_ids"] = client_vpn_endpoint_ids
         if max_results is not None:
@@ -22515,7 +22515,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_client_vpn_routes_request.DescribeClientVpnRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_client_vpn_routes_request.DescribeClientVpnRoutesRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if filters is not None:
@@ -22612,7 +22612,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_client_vpn_target_networks_request.DescribeClientVpnTargetNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_client_vpn_target_networks_request.DescribeClientVpnTargetNetworksRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if association_ids is not None:
@@ -22709,7 +22709,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_coip_pools_request.DescribeCoipPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_coip_pools_request.DescribeCoipPoolsRequest = {}
         if pool_ids is not None:
             input_["pool_ids"] = pool_ids
         if filters is not None:
@@ -22794,7 +22794,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_conversion_tasks_request.DescribeConversionTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_conversion_tasks_request.DescribeConversionTasksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if conversion_task_ids is not None:
@@ -22850,7 +22850,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_customer_gateways_request.DescribeCustomerGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_customer_gateways_request.DescribeCustomerGatewaysRequest = {}
         if customer_gateway_ids is not None:
             input_["customer_gateway_ids"] = customer_gateway_ids
         if filters is not None:
@@ -22904,7 +22904,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_declarative_policies_reports_request.DescribeDeclarativePoliciesReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_declarative_policies_reports_request.DescribeDeclarativePoliciesReportsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if next_token is not None:
@@ -22970,7 +22970,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_dhcp_options_request.DescribeDhcpOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_dhcp_options_request.DescribeDhcpOptionsRequest = {}
         if dhcp_options_ids is not None:
             input_["dhcp_options_ids"] = dhcp_options_ids
         if next_token is not None:
@@ -23063,7 +23063,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_egress_only_internet_gateways_request.DescribeEgressOnlyInternetGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_egress_only_internet_gateways_request.DescribeEgressOnlyInternetGatewaysRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if egress_only_internet_gateway_ids is not None:
@@ -23158,7 +23158,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_elastic_gpus_request.DescribeElasticGpusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_elastic_gpus_request.DescribeElasticGpusRequest = {}
         if elastic_gpu_ids is not None:
             input_["elastic_gpu_ids"] = elastic_gpu_ids
         if dry_run is not None:
@@ -23220,7 +23220,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_export_image_tasks_request.DescribeExportImageTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_export_image_tasks_request.DescribeExportImageTasksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -23305,7 +23305,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_export_tasks_request.DescribeExportTasksRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if export_task_ids is not None:
@@ -23361,7 +23361,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fast_launch_images_request.DescribeFastLaunchImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fast_launch_images_request.DescribeFastLaunchImagesRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if filters is not None:
@@ -23450,7 +23450,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fast_snapshot_restores_request.DescribeFastSnapshotRestoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fast_snapshot_restores_request.DescribeFastSnapshotRestoresRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -23535,7 +23535,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fleet_history_request.DescribeFleetHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fleet_history_request.DescribeFleetHistoryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if event_type is not None:
@@ -23595,7 +23595,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fleet_instances_request.DescribeFleetInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fleet_instances_request.DescribeFleetInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -23653,7 +23653,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fleets_request.DescribeFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fleets_request.DescribeFleetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -23738,7 +23738,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_flow_logs_request.DescribeFlowLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_flow_logs_request.DescribeFlowLogsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filter is not None:
@@ -23821,7 +23821,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fpga_image_attribute_request.DescribeFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fpga_image_attribute_request.DescribeFpgaImageAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fpga_image_id is not None:
@@ -23881,7 +23881,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_fpga_images_request.DescribeFpgaImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_fpga_images_request.DescribeFpgaImagesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fpga_image_ids is not None:
@@ -23978,7 +23978,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_host_reservation_offerings_request.DescribeHostReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_host_reservation_offerings_request.DescribeHostReservationOfferingsRequest = {}
         if filter is not None:
             input_["filter"] = filter
         if max_duration is not None:
@@ -24069,7 +24069,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_host_reservations_request.DescribeHostReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_host_reservations_request.DescribeHostReservationsRequest = {}
         if filter is not None:
             input_["filter"] = filter
         if host_reservation_id_set is not None:
@@ -24152,7 +24152,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_hosts_request.DescribeHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_hosts_request.DescribeHostsRequest = {}
         if host_ids is not None:
             input_["host_ids"] = host_ids
         if next_token is not None:
@@ -24243,7 +24243,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_iam_instance_profile_associations_request.DescribeIamInstanceProfileAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_iam_instance_profile_associations_request.DescribeIamInstanceProfileAssociationsRequest = {}
         if association_ids is not None:
             input_["association_ids"] = association_ids
         if filters is not None:
@@ -24322,7 +24322,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_identity_id_format_request.DescribeIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_identity_id_format_request.DescribeIdentityIdFormatRequest = {}
         if resource is not None:
             input_["resource"] = resource
         if principal_arn is not None:
@@ -24366,7 +24366,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_id_format_request.DescribeIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_id_format_request.DescribeIdFormatRequest = {}
         if resource is not None:
             input_["resource"] = resource
 
@@ -24418,7 +24418,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_image_attribute_request.DescribeImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_image_attribute_request.DescribeImageAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if image_id is not None:
@@ -24482,7 +24482,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_image_references_request.DescribeImageReferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_image_references_request.DescribeImageReferencesRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if include_all_resource_types is not None:
@@ -24595,7 +24595,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_images_request.DescribeImagesRequest = {}
         if executable_users is not None:
             input_["executable_users"] = executable_users
         if image_ids is not None:
@@ -24708,7 +24708,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_image_usage_report_entries_request.DescribeImageUsageReportEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_image_usage_report_entries_request.DescribeImageUsageReportEntriesRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if report_ids is not None:
@@ -24811,7 +24811,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_image_usage_reports_request.DescribeImageUsageReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_image_usage_reports_request.DescribeImageUsageReportsRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if report_ids is not None:
@@ -24908,7 +24908,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_import_image_tasks_request.DescribeImportImageTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_import_image_tasks_request.DescribeImportImageTasksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -24997,7 +24997,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_import_snapshot_tasks_request.DescribeImportSnapshotTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_import_snapshot_tasks_request.DescribeImportSnapshotTasksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -25092,7 +25092,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_attribute_request.DescribeInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_attribute_request.DescribeInstanceAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -25150,7 +25150,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_connect_endpoints_request.DescribeInstanceConnectEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_connect_endpoints_request.DescribeInstanceConnectEndpointsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -25243,7 +25243,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_credit_specifications_request.DescribeInstanceCreditSpecificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_credit_specifications_request.DescribeInstanceCreditSpecificationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -25324,7 +25324,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_event_notification_attributes_request.DescribeInstanceEventNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_event_notification_attributes_request.DescribeInstanceEventNotificationAttributesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -25376,7 +25376,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_event_windows_request.DescribeInstanceEventWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_event_windows_request.DescribeInstanceEventWindowsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_event_window_ids is not None:
@@ -25467,7 +25467,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_image_metadata_request.DescribeInstanceImageMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_image_metadata_request.DescribeInstanceImageMetadataRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if instance_ids is not None:
@@ -25574,7 +25574,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instances_request.DescribeInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instances_request.DescribeInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if include_managed_resources is not None:
@@ -25677,7 +25677,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_sql_ha_history_states_request.DescribeInstanceSqlHaHistoryStatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_sql_ha_history_states_request.DescribeInstanceSqlHaHistoryStatesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if start_time is not None:
@@ -25743,7 +25743,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_sql_ha_states_request.DescribeInstanceSqlHaStatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_sql_ha_states_request.DescribeInstanceSqlHaStatesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if next_token is not None:
@@ -25813,7 +25813,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_status_request.DescribeInstanceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_status_request.DescribeInstanceStatusRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if max_results is not None:
@@ -25916,7 +25916,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_topology_request.DescribeInstanceTopologyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_topology_request.DescribeInstanceTopologyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if next_token is not None:
@@ -26011,7 +26011,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_type_offerings_request.DescribeInstanceTypeOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_type_offerings_request.DescribeInstanceTypeOfferingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if location_type is not None:
@@ -26102,7 +26102,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_instance_types_request.DescribeInstanceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_instance_types_request.DescribeInstanceTypesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_types is not None:
@@ -26205,7 +26205,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_internet_gateways_request.DescribeInternetGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_internet_gateways_request.DescribeInternetGatewaysRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -26292,7 +26292,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_byoasn_request.DescribeIpamByoasnRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_byoasn_request.DescribeIpamByoasnRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -26348,7 +26348,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_external_resource_verification_tokens_request.DescribeIpamExternalResourceVerificationTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_external_resource_verification_tokens_request.DescribeIpamExternalResourceVerificationTokensRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -26410,7 +26410,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_internet_registry_associations_request.DescribeIpamInternetRegistryAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_internet_registry_associations_request.DescribeIpamInternetRegistryAssociationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_ids is not None:
@@ -26472,7 +26472,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_policies_request.DescribeIpamPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_policies_request.DescribeIpamPoliciesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -26534,7 +26534,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_pool_allocations_request.DescribeIpamPoolAllocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_pool_allocations_request.DescribeIpamPoolAllocationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_allocation_ids is not None:
@@ -26625,7 +26625,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_pools_request.DescribeIpamPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_pools_request.DescribeIpamPoolsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -26714,7 +26714,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_prefix_list_resolvers_request.DescribeIpamPrefixListResolversRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_prefix_list_resolvers_request.DescribeIpamPrefixListResolversRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -26807,7 +26807,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_prefix_list_resolver_targets_request.DescribeIpamPrefixListResolverTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_prefix_list_resolver_targets_request.DescribeIpamPrefixListResolverTargetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -26904,7 +26904,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_resource_discoveries_request.DescribeIpamResourceDiscoveriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_resource_discoveries_request.DescribeIpamResourceDiscoveriesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_ids is not None:
@@ -26993,7 +26993,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_resource_discovery_associations_request.DescribeIpamResourceDiscoveryAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_resource_discovery_associations_request.DescribeIpamResourceDiscoveryAssociationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_association_ids is not None:
@@ -27082,7 +27082,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipams_request.DescribeIpamsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipams_request.DescribeIpamsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -27169,7 +27169,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipam_scopes_request.DescribeIpamScopesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipam_scopes_request.DescribeIpamScopesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -27258,7 +27258,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_ipv6_pools_request.DescribeIpv6PoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_ipv6_pools_request.DescribeIpv6PoolsRequest = {}
         if pool_ids is not None:
             input_["pool_ids"] = pool_ids
         if next_token is not None:
@@ -27355,7 +27355,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_key_pairs_request.DescribeKeyPairsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_key_pairs_request.DescribeKeyPairsRequest = {}
         if key_names is not None:
             input_["key_names"] = key_names
         if key_pair_ids is not None:
@@ -27431,7 +27431,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_launch_templates_request.DescribeLaunchTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_launch_templates_request.DescribeLaunchTemplatesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if launch_template_ids is not None:
@@ -27554,7 +27554,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_launch_template_versions_request.DescribeLaunchTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_launch_template_versions_request.DescribeLaunchTemplateVersionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if launch_template_id is not None:
@@ -27673,7 +27673,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateway_route_tables_request.DescribeLocalGatewayRouteTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateway_route_tables_request.DescribeLocalGatewayRouteTablesRequest = {}
         if local_gateway_route_table_ids is not None:
             input_["local_gateway_route_table_ids"] = local_gateway_route_table_ids
         if filters is not None:
@@ -27766,7 +27766,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateway_route_table_virtual_interface_group_associations_request.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateway_route_table_virtual_interface_group_associations_request.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest = {}
         if (
             local_gateway_route_table_virtual_interface_group_association_ids
             is not None
@@ -27867,7 +27867,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateway_route_table_vpc_associations_request.DescribeLocalGatewayRouteTableVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateway_route_table_vpc_associations_request.DescribeLocalGatewayRouteTableVpcAssociationsRequest = {}
         if local_gateway_route_table_vpc_association_ids is not None:
             input_["local_gateway_route_table_vpc_association_ids"] = (
                 local_gateway_route_table_vpc_association_ids
@@ -27964,7 +27964,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateways_request.DescribeLocalGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateways_request.DescribeLocalGatewaysRequest = {}
         if local_gateway_ids is not None:
             input_["local_gateway_ids"] = local_gateway_ids
         if filters is not None:
@@ -28057,7 +28057,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateway_virtual_interface_groups_request.DescribeLocalGatewayVirtualInterfaceGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateway_virtual_interface_groups_request.DescribeLocalGatewayVirtualInterfaceGroupsRequest = {}
         if local_gateway_virtual_interface_group_ids is not None:
             input_["local_gateway_virtual_interface_group_ids"] = (
                 local_gateway_virtual_interface_group_ids
@@ -28154,7 +28154,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_local_gateway_virtual_interfaces_request.DescribeLocalGatewayVirtualInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_local_gateway_virtual_interfaces_request.DescribeLocalGatewayVirtualInterfacesRequest = {}
         if local_gateway_virtual_interface_ids is not None:
             input_["local_gateway_virtual_interface_ids"] = (
                 local_gateway_virtual_interface_ids
@@ -28251,7 +28251,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_locked_snapshots_request.DescribeLockedSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_locked_snapshots_request.DescribeLockedSnapshotsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if max_results is not None:
@@ -28311,7 +28311,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_mac_hosts_request.DescribeMacHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_mac_hosts_request.DescribeMacHostsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if host_ids is not None:
@@ -28400,7 +28400,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_mac_modification_tasks_request.DescribeMacModificationTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_mac_modification_tasks_request.DescribeMacModificationTasksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -28493,7 +28493,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_managed_prefix_lists_request.DescribeManagedPrefixListsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_managed_prefix_lists_request.DescribeManagedPrefixListsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -28592,7 +28592,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_moving_addresses_request.DescribeMovingAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_moving_addresses_request.DescribeMovingAddressesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if public_ips is not None:
@@ -28689,7 +28689,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_nat_gateways_request.DescribeNatGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_nat_gateways_request.DescribeNatGatewaysRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filter is not None:
@@ -28788,7 +28788,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_acls_request.DescribeNetworkAclsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_acls_request.DescribeNetworkAclsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -28893,7 +28893,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_insights_access_scope_analyses_request.DescribeNetworkInsightsAccessScopeAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_insights_access_scope_analyses_request.DescribeNetworkInsightsAccessScopeAnalysesRequest = {}
         if network_insights_access_scope_analysis_ids is not None:
             input_["network_insights_access_scope_analysis_ids"] = (
                 network_insights_access_scope_analysis_ids
@@ -29010,7 +29010,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_insights_access_scopes_request.DescribeNetworkInsightsAccessScopesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_insights_access_scopes_request.DescribeNetworkInsightsAccessScopesRequest = {}
         if network_insights_access_scope_ids is not None:
             input_["network_insights_access_scope_ids"] = (
                 network_insights_access_scope_ids
@@ -29117,7 +29117,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_insights_analyses_request.DescribeNetworkInsightsAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_insights_analyses_request.DescribeNetworkInsightsAnalysesRequest = {}
         if network_insights_analysis_ids is not None:
             input_["network_insights_analysis_ids"] = network_insights_analysis_ids
         if network_insights_path_id is not None:
@@ -29228,7 +29228,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_insights_paths_request.DescribeNetworkInsightsPathsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_insights_paths_request.DescribeNetworkInsightsPathsRequest = {}
         if network_insights_path_ids is not None:
             input_["network_insights_path_ids"] = network_insights_path_ids
         if filters is not None:
@@ -29335,7 +29335,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_interface_attribute_request.DescribeNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_interface_attribute_request.DescribeNetworkInterfaceAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_interface_id is not None:
@@ -29391,7 +29391,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_interface_permissions_request.DescribeNetworkInterfacePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_interface_permissions_request.DescribeNetworkInterfacePermissionsRequest = {}
         if network_interface_permission_ids is not None:
             input_["network_interface_permission_ids"] = (
                 network_interface_permission_ids
@@ -29489,7 +29489,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_network_interfaces_request.DescribeNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_network_interfaces_request.DescribeNetworkInterfacesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -29586,7 +29586,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_outpost_lags_request.DescribeOutpostLagsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_outpost_lags_request.DescribeOutpostLagsRequest = {}
         if outpost_lag_ids is not None:
             input_["outpost_lag_ids"] = outpost_lag_ids
         if filters is not None:
@@ -29648,7 +29648,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_placement_groups_request.DescribePlacementGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_placement_groups_request.DescribePlacementGroupsRequest = {}
         if group_ids is not None:
             input_["group_ids"] = group_ids
         if dry_run is not None:
@@ -29706,7 +29706,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_prefix_lists_request.DescribePrefixListsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_prefix_lists_request.DescribePrefixListsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -29793,7 +29793,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_principal_id_format_request.DescribePrincipalIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_principal_id_format_request.DescribePrincipalIdFormatRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if resources is not None:
@@ -29878,7 +29878,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_public_ipv4_pools_request.DescribePublicIpv4PoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_public_ipv4_pools_request.DescribePublicIpv4PoolsRequest = {}
         if pool_ids is not None:
             input_["pool_ids"] = pool_ids
         if next_token is not None:
@@ -29967,7 +29967,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_regions_request.DescribeRegionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_regions_request.DescribeRegionsRequest = {}
         if region_names is not None:
             input_["region_names"] = region_names
         if all_regions is not None:
@@ -30027,7 +30027,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_replace_root_volume_tasks_request.DescribeReplaceRootVolumeTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_replace_root_volume_tasks_request.DescribeReplaceRootVolumeTasksRequest = {}
         if replace_root_volume_task_ids is not None:
             input_["replace_root_volume_task_ids"] = replace_root_volume_task_ids
         if filters is not None:
@@ -30122,7 +30122,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_reserved_instances_request.DescribeReservedInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_reserved_instances_request.DescribeReservedInstancesRequest = {}
         if offering_class is not None:
             input_["offering_class"] = offering_class
         if reserved_instances_ids is not None:
@@ -30180,7 +30180,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_reserved_instances_listings_request.DescribeReservedInstancesListingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_reserved_instances_listings_request.DescribeReservedInstancesListingsRequest = {}
         if reserved_instances_id is not None:
             input_["reserved_instances_id"] = reserved_instances_id
         if reserved_instances_listing_id is not None:
@@ -30232,7 +30232,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_reserved_instances_modifications_request.DescribeReservedInstancesModificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_reserved_instances_modifications_request.DescribeReservedInstancesModificationsRequest = {}
         if reserved_instances_modification_ids is not None:
             input_["reserved_instances_modification_ids"] = (
                 reserved_instances_modification_ids
@@ -30345,7 +30345,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_reserved_instances_offerings_request.DescribeReservedInstancesOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_reserved_instances_offerings_request.DescribeReservedInstancesOfferingsRequest = {}
         if availability_zone is not None:
             input_["availability_zone"] = availability_zone
         if include_marketplace is not None:
@@ -30490,7 +30490,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_route_server_endpoints_request.DescribeRouteServerEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_route_server_endpoints_request.DescribeRouteServerEndpointsRequest = {}
         if route_server_endpoint_ids is not None:
             input_["route_server_endpoint_ids"] = route_server_endpoint_ids
         if next_token is not None:
@@ -30583,7 +30583,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_route_server_peers_request.DescribeRouteServerPeersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_route_server_peers_request.DescribeRouteServerPeersRequest = {}
         if route_server_peer_ids is not None:
             input_["route_server_peer_ids"] = route_server_peer_ids
         if next_token is not None:
@@ -30676,7 +30676,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_route_servers_request.DescribeRouteServersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_route_servers_request.DescribeRouteServersRequest = {}
         if route_server_ids is not None:
             input_["route_server_ids"] = route_server_ids
         if next_token is not None:
@@ -30775,7 +30775,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_route_tables_request.DescribeRouteTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_route_tables_request.DescribeRouteTablesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -30876,7 +30876,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_scheduled_instance_availability_request.DescribeScheduledInstanceAvailabilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_scheduled_instance_availability_request.DescribeScheduledInstanceAvailabilityRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -30985,7 +30985,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_scheduled_instances_request.DescribeScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_scheduled_instances_request.DescribeScheduledInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -31092,7 +31092,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_secondary_interfaces_request.DescribeSecondaryInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_secondary_interfaces_request.DescribeSecondaryInterfacesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -31195,7 +31195,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_secondary_networks_request.DescribeSecondaryNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_secondary_networks_request.DescribeSecondaryNetworksRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -31294,7 +31294,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_secondary_subnets_request.DescribeSecondarySubnetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_secondary_subnets_request.DescribeSecondarySubnetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -31383,7 +31383,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_security_group_references_request.DescribeSecurityGroupReferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_security_group_references_request.DescribeSecurityGroupReferencesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if group_id is not None:
@@ -31439,7 +31439,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_security_group_rules_request.DescribeSecurityGroupRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_security_group_rules_request.DescribeSecurityGroupRulesRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if security_group_rule_ids is not None:
@@ -31546,7 +31546,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_security_groups_request.DescribeSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_security_groups_request.DescribeSecurityGroupsRequest = {}
         if group_ids is not None:
             input_["group_ids"] = group_ids
         if group_names is not None:
@@ -31641,7 +31641,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_security_group_vpc_associations_request.DescribeSecurityGroupVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_security_group_vpc_associations_request.DescribeSecurityGroupVpcAssociationsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if next_token is not None:
@@ -31728,7 +31728,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_service_link_virtual_interfaces_request.DescribeServiceLinkVirtualInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_service_link_virtual_interfaces_request.DescribeServiceLinkVirtualInterfacesRequest = {}
         if service_link_virtual_interface_ids is not None:
             input_["service_link_virtual_interface_ids"] = (
                 service_link_virtual_interface_ids
@@ -31792,7 +31792,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_snapshot_attribute_request.DescribeSnapshotAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_snapshot_attribute_request.DescribeSnapshotAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if snapshot_id is not None:
@@ -31864,7 +31864,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_snapshots_request.DescribeSnapshotsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -31961,7 +31961,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_snapshot_tier_status_request.DescribeSnapshotTierStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_snapshot_tier_status_request.DescribeSnapshotTierStatusRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if dry_run is not None:
@@ -32042,7 +32042,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_datafeed_subscription_request.DescribeSpotDatafeedSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_datafeed_subscription_request.DescribeSpotDatafeedSubscriptionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -32100,7 +32100,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_fleet_instances_request.DescribeSpotFleetInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_fleet_instances_request.DescribeSpotFleetInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_fleet_request_id is not None:
@@ -32168,7 +32168,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_fleet_request_history_request.DescribeSpotFleetRequestHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_fleet_request_history_request.DescribeSpotFleetRequestHistoryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_fleet_request_id is not None:
@@ -32234,7 +32234,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_fleet_requests_request.DescribeSpotFleetRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_fleet_requests_request.DescribeSpotFleetRequestsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_fleet_request_ids is not None:
@@ -32325,7 +32325,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_instance_requests_request.DescribeSpotInstanceRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_instance_requests_request.DescribeSpotInstanceRequestsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -32434,7 +32434,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_spot_price_history_request.DescribeSpotPriceHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_spot_price_history_request.DescribeSpotPriceHistoryRequest = {}
         if availability_zone_id is not None:
             input_["availability_zone_id"] = availability_zone_id
         if dry_run is not None:
@@ -32547,7 +32547,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_stale_security_groups_request.DescribeStaleSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_stale_security_groups_request.DescribeStaleSecurityGroupsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -32636,7 +32636,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_store_image_tasks_request.DescribeStoreImageTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_store_image_tasks_request.DescribeStoreImageTasksRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if dry_run is not None:
@@ -32733,7 +32733,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_subnets_request.DescribeSubnetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_subnets_request.DescribeSubnetsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if subnet_ids is not None:
@@ -32826,7 +32826,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_tags_request.DescribeTagsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -32915,7 +32915,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_traffic_mirror_filter_rules_request.DescribeTrafficMirrorFilterRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_traffic_mirror_filter_rules_request.DescribeTrafficMirrorFilterRulesRequest = {}
         if traffic_mirror_filter_rule_ids is not None:
             input_["traffic_mirror_filter_rule_ids"] = traffic_mirror_filter_rule_ids
         if traffic_mirror_filter_id is not None:
@@ -32979,7 +32979,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_traffic_mirror_filters_request.DescribeTrafficMirrorFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_traffic_mirror_filters_request.DescribeTrafficMirrorFiltersRequest = {}
         if traffic_mirror_filter_ids is not None:
             input_["traffic_mirror_filter_ids"] = traffic_mirror_filter_ids
         if dry_run is not None:
@@ -33072,7 +33072,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_traffic_mirror_sessions_request.DescribeTrafficMirrorSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_traffic_mirror_sessions_request.DescribeTrafficMirrorSessionsRequest = {}
         if traffic_mirror_session_ids is not None:
             input_["traffic_mirror_session_ids"] = traffic_mirror_session_ids
         if dry_run is not None:
@@ -33165,7 +33165,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_traffic_mirror_targets_request.DescribeTrafficMirrorTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_traffic_mirror_targets_request.DescribeTrafficMirrorTargetsRequest = {}
         if traffic_mirror_target_ids is not None:
             input_["traffic_mirror_target_ids"] = traffic_mirror_target_ids
         if dry_run is not None:
@@ -33258,7 +33258,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_attachments_request.DescribeTransitGatewayAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_attachments_request.DescribeTransitGatewayAttachmentsRequest = {}
         if transit_gateway_attachment_ids is not None:
             input_["transit_gateway_attachment_ids"] = transit_gateway_attachment_ids
         if filters is not None:
@@ -33351,7 +33351,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_connect_peers_request.DescribeTransitGatewayConnectPeersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_connect_peers_request.DescribeTransitGatewayConnectPeersRequest = {}
         if transit_gateway_connect_peer_ids is not None:
             input_["transit_gateway_connect_peer_ids"] = (
                 transit_gateway_connect_peer_ids
@@ -33446,7 +33446,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_connects_request.DescribeTransitGatewayConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_connects_request.DescribeTransitGatewayConnectsRequest = {}
         if transit_gateway_attachment_ids is not None:
             input_["transit_gateway_attachment_ids"] = transit_gateway_attachment_ids
         if filters is not None:
@@ -33539,7 +33539,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_metering_policies_request.DescribeTransitGatewayMeteringPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_metering_policies_request.DescribeTransitGatewayMeteringPoliciesRequest = {}
         if transit_gateway_metering_policy_ids is not None:
             input_["transit_gateway_metering_policy_ids"] = (
                 transit_gateway_metering_policy_ids
@@ -33603,7 +33603,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_multicast_domains_request.DescribeTransitGatewayMulticastDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_multicast_domains_request.DescribeTransitGatewayMulticastDomainsRequest = {}
         if transit_gateway_multicast_domain_ids is not None:
             input_["transit_gateway_multicast_domain_ids"] = (
                 transit_gateway_multicast_domain_ids
@@ -33698,7 +33698,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_peering_attachments_request.DescribeTransitGatewayPeeringAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_peering_attachments_request.DescribeTransitGatewayPeeringAttachmentsRequest = {}
         if transit_gateway_attachment_ids is not None:
             input_["transit_gateway_attachment_ids"] = transit_gateway_attachment_ids
         if filters is not None:
@@ -33791,7 +33791,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_policy_tables_request.DescribeTransitGatewayPolicyTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_policy_tables_request.DescribeTransitGatewayPolicyTablesRequest = {}
         if transit_gateway_policy_table_ids is not None:
             input_["transit_gateway_policy_table_ids"] = (
                 transit_gateway_policy_table_ids
@@ -33886,7 +33886,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_route_table_announcements_request.DescribeTransitGatewayRouteTableAnnouncementsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_route_table_announcements_request.DescribeTransitGatewayRouteTableAnnouncementsRequest = {}
         if transit_gateway_route_table_announcement_ids is not None:
             input_["transit_gateway_route_table_announcement_ids"] = (
                 transit_gateway_route_table_announcement_ids
@@ -33983,7 +33983,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_route_tables_request.DescribeTransitGatewayRouteTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_route_tables_request.DescribeTransitGatewayRouteTablesRequest = {}
         if transit_gateway_route_table_ids is not None:
             input_["transit_gateway_route_table_ids"] = transit_gateway_route_table_ids
         if filters is not None:
@@ -34080,7 +34080,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateways_request.DescribeTransitGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateways_request.DescribeTransitGatewaysRequest = {}
         if transit_gateway_ids is not None:
             input_["transit_gateway_ids"] = transit_gateway_ids
         if filters is not None:
@@ -34173,7 +34173,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_transit_gateway_vpc_attachments_request.DescribeTransitGatewayVpcAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_transit_gateway_vpc_attachments_request.DescribeTransitGatewayVpcAttachmentsRequest = {}
         if transit_gateway_attachment_ids is not None:
             input_["transit_gateway_attachment_ids"] = transit_gateway_attachment_ids
         if filters is not None:
@@ -34266,7 +34266,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_trunk_interface_associations_request.DescribeTrunkInterfaceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_trunk_interface_associations_request.DescribeTrunkInterfaceAssociationsRequest = {}
         if association_ids is not None:
             input_["association_ids"] = association_ids
         if dry_run is not None:
@@ -34369,7 +34369,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_verified_access_endpoints_request.DescribeVerifiedAccessEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_verified_access_endpoints_request.DescribeVerifiedAccessEndpointsRequest = {}
         if verified_access_endpoint_ids is not None:
             input_["verified_access_endpoint_ids"] = verified_access_endpoint_ids
         if verified_access_instance_id is not None:
@@ -34478,7 +34478,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_verified_access_groups_request.DescribeVerifiedAccessGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_verified_access_groups_request.DescribeVerifiedAccessGroupsRequest = {}
         if verified_access_group_ids is not None:
             input_["verified_access_group_ids"] = verified_access_group_ids
         if verified_access_instance_id is not None:
@@ -34577,7 +34577,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_verified_access_instance_logging_configurations_request.DescribeVerifiedAccessInstanceLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_verified_access_instance_logging_configurations_request.DescribeVerifiedAccessInstanceLoggingConfigurationsRequest = {}
         if verified_access_instance_ids is not None:
             input_["verified_access_instance_ids"] = verified_access_instance_ids
         if max_results is not None:
@@ -34670,7 +34670,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_verified_access_instances_request.DescribeVerifiedAccessInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_verified_access_instances_request.DescribeVerifiedAccessInstancesRequest = {}
         if verified_access_instance_ids is not None:
             input_["verified_access_instance_ids"] = verified_access_instance_ids
         if max_results is not None:
@@ -34763,7 +34763,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_verified_access_trust_providers_request.DescribeVerifiedAccessTrustProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_verified_access_trust_providers_request.DescribeVerifiedAccessTrustProvidersRequest = {}
         if verified_access_trust_provider_ids is not None:
             input_["verified_access_trust_provider_ids"] = (
                 verified_access_trust_provider_ids
@@ -34860,7 +34860,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_volume_attribute_request.DescribeVolumeAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_volume_attribute_request.DescribeVolumeAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if volume_id is not None:
@@ -34928,7 +34928,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_volumes_request.DescribeVolumesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_volumes_request.DescribeVolumesRequest = {}
         if volume_ids is not None:
             input_["volume_ids"] = volume_ids
         if include_managed_resources is not None:
@@ -35023,7 +35023,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_volumes_modifications_request.DescribeVolumesModificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_volumes_modifications_request.DescribeVolumesModificationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if volume_ids is not None:
@@ -35128,7 +35128,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_volume_status_request.DescribeVolumeStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_volume_status_request.DescribeVolumeStatusRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -35227,7 +35227,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_attribute_request.DescribeVpcAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_attribute_request.DescribeVpcAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if vpc_id is not None:
@@ -35285,7 +35285,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_block_public_access_exclusions_request.DescribeVpcBlockPublicAccessExclusionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_block_public_access_exclusions_request.DescribeVpcBlockPublicAccessExclusionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -35335,7 +35335,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_block_public_access_options_request.DescribeVpcBlockPublicAccessOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_block_public_access_options_request.DescribeVpcBlockPublicAccessOptionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -35383,7 +35383,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_classic_link_request.DescribeVpcClassicLinkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_classic_link_request.DescribeVpcClassicLinkRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_ids is not None:
@@ -35439,7 +35439,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_classic_link_dns_support_request.DescribeVpcClassicLinkDnsSupportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_classic_link_dns_support_request.DescribeVpcClassicLinkDnsSupportRequest = {}
         if vpc_ids is not None:
             input_["vpc_ids"] = vpc_ids
         if max_results is not None:
@@ -35528,7 +35528,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_encryption_controls_request.DescribeVpcEncryptionControlsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_encryption_controls_request.DescribeVpcEncryptionControlsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -35590,7 +35590,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_associations_request.DescribeVpcEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_associations_request.DescribeVpcEndpointAssociationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_endpoint_ids is not None:
@@ -35650,7 +35650,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_connection_notifications_request.DescribeVpcEndpointConnectionNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_connection_notifications_request.DescribeVpcEndpointConnectionNotificationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if connection_notification_id is not None:
@@ -35735,7 +35735,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_connections_request.DescribeVpcEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_connections_request.DescribeVpcEndpointConnectionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -35818,7 +35818,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_endpoint_ids is not None:
@@ -35907,7 +35907,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_service_configurations_request.DescribeVpcEndpointServiceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_service_configurations_request.DescribeVpcEndpointServiceConfigurationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_ids is not None:
@@ -35996,7 +35996,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_service_permissions_request.DescribeVpcEndpointServicePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_service_permissions_request.DescribeVpcEndpointServicePermissionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -36089,7 +36089,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_endpoint_services_request.DescribeVpcEndpointServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_endpoint_services_request.DescribeVpcEndpointServicesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_names is not None:
@@ -36153,7 +36153,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpc_peering_connections_request.DescribeVpcPeeringConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpc_peering_connections_request.DescribeVpcPeeringConnectionsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -36312,7 +36312,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpcs_request.DescribeVpcsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpcs_request.DescribeVpcsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if vpc_ids is not None:
@@ -36458,7 +36458,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpn_concentrators_request.DescribeVpnConcentratorsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpn_concentrators_request.DescribeVpnConcentratorsRequest = {}
         if vpn_concentrator_ids is not None:
             input_["vpn_concentrator_ids"] = vpn_concentrator_ids
         if filters is not None:
@@ -36543,7 +36543,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpn_connections_request.DescribeVpnConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpn_connections_request.DescribeVpnConnectionsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if vpn_connection_ids is not None:
@@ -36595,7 +36595,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.describe_vpn_gateways_request.DescribeVpnGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.describe_vpn_gateways_request.DescribeVpnGatewaysRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if vpn_gateway_ids is not None:
@@ -36645,7 +36645,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_classic_link_vpc_request.DetachClassicLinkVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_classic_link_vpc_request.DetachClassicLinkVpcRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -36695,7 +36695,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_image_watermark_request.DetachImageWatermarkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_image_watermark_request.DetachImageWatermarkRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if watermark_key is not None:
@@ -36751,7 +36751,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_internet_gateway_request.DetachInternetGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_internet_gateway_request.DetachInternetGatewayRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if internet_gateway_id is not None:
@@ -36807,7 +36807,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_network_interface_request.DetachNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_network_interface_request.DetachNetworkInterfaceRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if attachment_id is not None:
@@ -36863,7 +36863,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_verified_access_trust_provider_request.DetachVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_verified_access_trust_provider_request.DetachVerifiedAccessTrustProviderRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if verified_access_trust_provider_id is not None:
@@ -36930,7 +36930,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_volume_request.DetachVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_volume_request.DetachVolumeRequest = {}
         if device is not None:
             input_["device"] = device
         if force is not None:
@@ -36982,7 +36982,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.detach_vpn_gateway_request.DetachVpnGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.detach_vpn_gateway_request.DetachVpnGatewayRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if vpn_gateway_id is not None:
@@ -37030,7 +37030,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_address_transfer_request.DisableAddressTransferRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_address_transfer_request.DisableAddressTransferRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if dry_run is not None:
@@ -37074,7 +37074,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_allowed_images_settings_request.DisableAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_allowed_images_settings_request.DisableAllowedImagesSettingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37126,7 +37126,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_application_status_check_suppression_request.DisableApplicationStatusCheckSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_application_status_check_suppression_request.DisableApplicationStatusCheckSuppressionRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if client_token is None:
@@ -37181,7 +37181,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_aws_network_performance_metric_subscription_request.DisableAwsNetworkPerformanceMetricSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_aws_network_performance_metric_subscription_request.DisableAwsNetworkPerformanceMetricSubscriptionRequest = {}
         if source is not None:
             input_["source"] = source
         if destination is not None:
@@ -37233,7 +37233,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_capacity_manager_request.DisableCapacityManagerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_capacity_manager_request.DisableCapacityManagerRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -37278,7 +37278,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_ebs_encryption_by_default_request.DisableEbsEncryptionByDefaultRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_ebs_encryption_by_default_request.DisableEbsEncryptionByDefaultRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37324,7 +37324,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_fast_launch_request.DisableFastLaunchRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_fast_launch_request.DisableFastLaunchRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if force is not None:
@@ -37382,7 +37382,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_fast_snapshot_restores_request.DisableFastSnapshotRestoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_fast_snapshot_restores_request.DisableFastSnapshotRestoresRequest = {}
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
@@ -37432,7 +37432,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_image_request.DisableImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_image_request.DisableImageRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -37476,7 +37476,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_image_block_public_access_request.DisableImageBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_image_block_public_access_request.DisableImageBlockPublicAccessRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37522,7 +37522,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_image_deprecation_request.DisableImageDeprecationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_image_deprecation_request.DisableImageDeprecationRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -37568,7 +37568,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_image_deregistration_protection_request.DisableImageDeregistrationProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_image_deregistration_protection_request.DisableImageDeregistrationProtectionRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -37616,7 +37616,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_instance_sql_ha_standby_detections_request.DisableInstanceSqlHaStandbyDetectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_instance_sql_ha_standby_detections_request.DisableInstanceSqlHaStandbyDetectionsRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if dry_run is not None:
@@ -37662,7 +37662,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_ipam_organization_admin_account_request.DisableIpamOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_ipam_organization_admin_account_request.DisableIpamOrganizationAdminAccountRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if delegated_admin_account_id is not None:
@@ -37710,7 +37710,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_ipam_policy_request.DisableIpamPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_ipam_policy_request.DisableIpamPolicyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_policy_id is not None:
@@ -37762,7 +37762,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_route_server_propagation_request.DisableRouteServerPropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_route_server_propagation_request.DisableRouteServerPropagationRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if route_table_id is not None:
@@ -37808,7 +37808,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_serial_console_access_request.DisableSerialConsoleAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_serial_console_access_request.DisableSerialConsoleAccessRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37850,7 +37850,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_snapshot_block_public_access_request.DisableSnapshotBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_snapshot_block_public_access_request.DisableSnapshotBlockPublicAccessRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -37904,7 +37904,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_transit_gateway_route_table_propagation_request.DisableTransitGatewayRouteTablePropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_transit_gateway_route_table_propagation_request.DisableTransitGatewayRouteTablePropagationRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
@@ -37962,7 +37962,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_vgw_route_propagation_request.DisableVgwRoutePropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_vgw_route_propagation_request.DisableVgwRoutePropagationRequest = {}
         if gateway_id is not None:
             input_["gateway_id"] = gateway_id
         if route_table_id is not None:
@@ -38010,7 +38010,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_vpc_classic_link_request.DisableVpcClassicLinkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_vpc_classic_link_request.DisableVpcClassicLinkRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_id is not None:
@@ -38054,7 +38054,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disable_vpc_classic_link_dns_support_request.DisableVpcClassicLinkDnsSupportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disable_vpc_classic_link_dns_support_request.DisableVpcClassicLinkDnsSupportRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
 
@@ -38108,7 +38108,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_address_request.DisassociateAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_address_request.DisassociateAddressRequest = {}
         if association_id is not None:
             input_["association_id"] = association_id
         if public_ip is not None:
@@ -38172,7 +38172,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_application_status_check_request.DisassociateApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_application_status_check_request.DisassociateApplicationStatusCheckRequest = {}
         if application_status_check_id is not None:
             input_["application_status_check_id"] = application_status_check_id
         if target_tag_associations is not None:
@@ -38231,7 +38231,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_capacity_reservation_billing_owner_request.DisassociateCapacityReservationBillingOwnerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_capacity_reservation_billing_owner_request.DisassociateCapacityReservationBillingOwnerRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_reservation_id is not None:
@@ -38285,7 +38285,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_client_vpn_target_network_request.DisassociateClientVpnTargetNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_client_vpn_target_network_request.DisassociateClientVpnTargetNetworkRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if association_id is not None:
@@ -38335,7 +38335,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_enclave_certificate_iam_role_request.DisassociateEnclaveCertificateIamRoleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_enclave_certificate_iam_role_request.DisassociateEnclaveCertificateIamRoleRequest = {}
         if certificate_arn is not None:
             input_["certificate_arn"] = certificate_arn
         if role_arn is not None:
@@ -38389,7 +38389,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_iam_instance_profile_request.DisassociateIamInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_iam_instance_profile_request.DisassociateIamInstanceProfileRequest = {}
         if association_id is not None:
             input_["association_id"] = association_id
 
@@ -38439,7 +38439,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_instance_event_window_request.DisassociateInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_instance_event_window_request.DisassociateInstanceEventWindowRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_event_window_id is not None:
@@ -38489,7 +38489,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_ipam_byoasn_request.DisassociateIpamByoasnRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_ipam_byoasn_request.DisassociateIpamByoasnRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if asn is not None:
@@ -38539,7 +38539,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_ipam_resource_discovery_request.DisassociateIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_ipam_resource_discovery_request.DisassociateIpamResourceDiscoveryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_association_id is not None:
@@ -38595,7 +38595,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_nat_gateway_address_request.DisassociateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_nat_gateway_address_request.DisassociateNatGatewayAddressRequest = {}
         if nat_gateway_id is not None:
             input_["nat_gateway_id"] = nat_gateway_id
         if association_ids is not None:
@@ -38651,7 +38651,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_route_server_request.DisassociateRouteServerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_route_server_request.DisassociateRouteServerRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if vpc_id is not None:
@@ -38705,7 +38705,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_route_table_request.DisassociateRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_route_table_request.DisassociateRouteTableRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if association_id is not None:
@@ -38755,7 +38755,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_security_group_vpc_request.DisassociateSecurityGroupVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_security_group_vpc_request.DisassociateSecurityGroupVpcRequest = {}
         if group_id is not None:
             input_["group_id"] = group_id
         if vpc_id is not None:
@@ -38803,7 +38803,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_subnet_cidr_block_request.DisassociateSubnetCidrBlockRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_subnet_cidr_block_request.DisassociateSubnetCidrBlockRequest = {}
         if association_id is not None:
             input_["association_id"] = association_id
 
@@ -38857,7 +38857,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_transit_gateway_multicast_domain_request.DisassociateTransitGatewayMulticastDomainRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_transit_gateway_multicast_domain_request.DisassociateTransitGatewayMulticastDomainRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -38915,7 +38915,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_transit_gateway_policy_table_request.DisassociateTransitGatewayPolicyTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_transit_gateway_policy_table_request.DisassociateTransitGatewayPolicyTableRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if transit_gateway_attachment_id is not None:
@@ -38969,7 +38969,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_transit_gateway_route_table_request.DisassociateTransitGatewayRouteTableRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_transit_gateway_route_table_request.DisassociateTransitGatewayRouteTableRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
@@ -39021,7 +39021,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_trunk_interface_request.DisassociateTrunkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_trunk_interface_request.DisassociateTrunkInterfaceRequest = {}
         if association_id is not None:
             input_["association_id"] = association_id
         if client_token is None:
@@ -39070,7 +39070,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.disassociate_vpc_cidr_block_request.DisassociateVpcCidrBlockRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.disassociate_vpc_cidr_block_request.DisassociateVpcCidrBlockRequest = {}
         if association_id is not None:
             input_["association_id"] = association_id
 
@@ -39116,7 +39116,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_address_transfer_request.EnableAddressTransferRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_address_transfer_request.EnableAddressTransferRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if transfer_account_id is not None:
@@ -39166,7 +39166,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_allowed_images_settings_request.EnableAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_allowed_images_settings_request.EnableAllowedImagesSettingsRequest = {}
         if allowed_images_settings_state is not None:
             input_["allowed_images_settings_state"] = allowed_images_settings_state
         if dry_run is not None:
@@ -39222,7 +39222,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_application_status_check_suppression_request.EnableApplicationStatusCheckSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_application_status_check_suppression_request.EnableApplicationStatusCheckSuppressionRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if duration_seconds is not None:
@@ -39279,7 +39279,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_aws_network_performance_metric_subscription_request.EnableAwsNetworkPerformanceMetricSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_aws_network_performance_metric_subscription_request.EnableAwsNetworkPerformanceMetricSubscriptionRequest = {}
         if source is not None:
             input_["source"] = source
         if destination is not None:
@@ -39333,7 +39333,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_capacity_manager_request.EnableCapacityManagerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_capacity_manager_request.EnableCapacityManagerRequest = {}
         if organizations_access is not None:
             input_["organizations_access"] = organizations_access
         if dry_run is not None:
@@ -39380,7 +39380,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_ebs_encryption_by_default_request.EnableEbsEncryptionByDefaultRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_ebs_encryption_by_default_request.EnableEbsEncryptionByDefaultRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -39436,7 +39436,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_fast_launch_request.EnableFastLaunchRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_fast_launch_request.EnableFastLaunchRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if resource_type is not None:
@@ -39500,7 +39500,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_fast_snapshot_restores_request.EnableFastSnapshotRestoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_fast_snapshot_restores_request.EnableFastSnapshotRestoresRequest = {}
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
         if availability_zone_ids is not None:
@@ -39548,7 +39548,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_image_request.EnableImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_image_request.EnableImageRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -39596,7 +39596,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_image_block_public_access_request.EnableImageBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_image_block_public_access_request.EnableImageBlockPublicAccessRequest = {}
         if image_block_public_access_state is not None:
             input_["image_block_public_access_state"] = image_block_public_access_state
         if dry_run is not None:
@@ -39646,7 +39646,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_image_deprecation_request.EnableImageDeprecationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_image_deprecation_request.EnableImageDeprecationRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if deprecate_at is not None:
@@ -39696,7 +39696,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_image_deregistration_protection_request.EnableImageDeregistrationProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_image_deregistration_protection_request.EnableImageDeregistrationProtectionRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if with_cooldown is not None:
@@ -39748,7 +39748,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_instance_sql_ha_standby_detections_request.EnableInstanceSqlHaStandbyDetectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_instance_sql_ha_standby_detections_request.EnableInstanceSqlHaStandbyDetectionsRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if sql_server_credentials is not None:
@@ -39810,7 +39810,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_ipam_internet_registry_association_request.EnableIpamInternetRegistryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_ipam_internet_registry_association_request.EnableIpamInternetRegistryAssociationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -39871,7 +39871,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_ipam_organization_admin_account_request.EnableIpamOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_ipam_organization_admin_account_request.EnableIpamOrganizationAdminAccountRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if delegated_admin_account_id is not None:
@@ -39919,7 +39919,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_ipam_policy_request.EnableIpamPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_ipam_policy_request.EnableIpamPolicyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_policy_id is not None:
@@ -39965,7 +39965,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_reachability_analyzer_organization_sharing_request.EnableReachabilityAnalyzerOrganizationSharingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_reachability_analyzer_organization_sharing_request.EnableReachabilityAnalyzerOrganizationSharingRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40013,7 +40013,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_route_server_propagation_request.EnableRouteServerPropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_route_server_propagation_request.EnableRouteServerPropagationRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if route_table_id is not None:
@@ -40059,7 +40059,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_serial_console_access_request.EnableSerialConsoleAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_serial_console_access_request.EnableSerialConsoleAccessRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40105,7 +40105,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_snapshot_block_public_access_request.EnableSnapshotBlockPublicAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_snapshot_block_public_access_request.EnableSnapshotBlockPublicAccessRequest = {}
         if state is not None:
             input_["state"] = state
         if dry_run is not None:
@@ -40161,7 +40161,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_transit_gateway_route_table_propagation_request.EnableTransitGatewayRouteTablePropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_transit_gateway_route_table_propagation_request.EnableTransitGatewayRouteTablePropagationRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if transit_gateway_attachment_id is not None:
@@ -40219,7 +40219,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_vgw_route_propagation_request.EnableVgwRoutePropagationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_vgw_route_propagation_request.EnableVgwRoutePropagationRequest = {}
         if gateway_id is not None:
             input_["gateway_id"] = gateway_id
         if route_table_id is not None:
@@ -40271,7 +40271,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_volume_io_request.EnableVolumeIORequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_volume_io_request.EnableVolumeIORequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if volume_id is not None:
@@ -40317,7 +40317,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_vpc_classic_link_request.EnableVpcClassicLinkRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_vpc_classic_link_request.EnableVpcClassicLinkRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_id is not None:
@@ -40361,7 +40361,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.enable_vpc_classic_link_dns_support_request.EnableVpcClassicLinkDnsSupportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.enable_vpc_classic_link_dns_support_request.EnableVpcClassicLinkDnsSupportRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
 
@@ -40407,7 +40407,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.export_client_vpn_client_certificate_revocation_list_request.ExportClientVpnClientCertificateRevocationListRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.export_client_vpn_client_certificate_revocation_list_request.ExportClientVpnClientCertificateRevocationListRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
@@ -40455,7 +40455,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.export_client_vpn_client_configuration_request.ExportClientVpnClientConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.export_client_vpn_client_configuration_request.ExportClientVpnClientConfigurationRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if dry_run is not None:
@@ -40517,7 +40517,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.export_image_request.ExportImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.export_image_request.ExportImageRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -40582,7 +40582,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.export_transit_gateway_routes_request.ExportTransitGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.export_transit_gateway_routes_request.ExportTransitGatewayRoutesRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
@@ -40634,7 +40634,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.export_verified_access_instance_client_configuration_request.ExportVerifiedAccessInstanceClientConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.export_verified_access_instance_client_configuration_request.ExportVerifiedAccessInstanceClientConfigurationRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if dry_run is not None:
@@ -40684,7 +40684,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_active_vpn_tunnel_status_request.GetActiveVpnTunnelStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_active_vpn_tunnel_status_request.GetActiveVpnTunnelStatusRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_tunnel_outside_ip_address is not None:
@@ -40730,7 +40730,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_allowed_images_settings_request.GetAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_allowed_images_settings_request.GetAllowedImagesSettingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -40774,7 +40774,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_associated_enclave_certificate_iam_roles_request.GetAssociatedEnclaveCertificateIamRolesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_associated_enclave_certificate_iam_roles_request.GetAssociatedEnclaveCertificateIamRolesRequest = {}
         if certificate_arn is not None:
             input_["certificate_arn"] = certificate_arn
         if dry_run is not None:
@@ -40826,7 +40826,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_associated_ipv6_pool_cidrs_request.GetAssociatedIpv6PoolCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_associated_ipv6_pool_cidrs_request.GetAssociatedIpv6PoolCidrsRequest = {}
         if pool_id is not None:
             input_["pool_id"] = pool_id
         if next_token is not None:
@@ -40915,7 +40915,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_aws_network_performance_data_request.GetAwsNetworkPerformanceDataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_aws_network_performance_data_request.GetAwsNetworkPerformanceDataRequest = {}
         if data_queries is not None:
             input_["data_queries"] = data_queries
         if start_time is not None:
@@ -41000,7 +41000,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_capacity_manager_attributes_request.GetCapacityManagerAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_capacity_manager_attributes_request.GetCapacityManagerAttributesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41064,7 +41064,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_capacity_manager_metric_data_request.GetCapacityManagerMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_capacity_manager_metric_data_request.GetCapacityManagerMetricDataRequest = {}
         if metric_names is not None:
             input_["metric_names"] = metric_names
         if start_time is not None:
@@ -41183,7 +41183,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_capacity_manager_metric_dimensions_request.GetCapacityManagerMetricDimensionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_capacity_manager_metric_dimensions_request.GetCapacityManagerMetricDimensionsRequest = {}
         if group_by is not None:
             input_["group_by"] = group_by
         if filter_by is not None:
@@ -41284,7 +41284,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_capacity_manager_monitored_tag_keys_request.GetCapacityManagerMonitoredTagKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_capacity_manager_monitored_tag_keys_request.GetCapacityManagerMonitoredTagKeysRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -41365,7 +41365,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_capacity_reservation_usage_request.GetCapacityReservationUsageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_capacity_reservation_usage_request.GetCapacityReservationUsageRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if next_token is not None:
@@ -41423,7 +41423,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_coip_pool_usage_request.GetCoipPoolUsageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_coip_pool_usage_request.GetCoipPoolUsageRequest = {}
         if pool_id is not None:
             input_["pool_id"] = pool_id
         if filters is not None:
@@ -41483,7 +41483,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_console_output_request.GetConsoleOutputRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_console_output_request.GetConsoleOutputRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if latest is not None:
@@ -41533,7 +41533,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_console_screenshot_request.GetConsoleScreenshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_console_screenshot_request.GetConsoleScreenshotRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -41583,7 +41583,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_declarative_policies_report_summary_request.GetDeclarativePoliciesReportSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_declarative_policies_report_summary_request.GetDeclarativePoliciesReportSummaryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if report_id is not None:
@@ -41631,7 +41631,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_default_credit_specification_request.GetDefaultCreditSpecificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_default_credit_specification_request.GetDefaultCreditSpecificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_family is not None:
@@ -41675,7 +41675,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ebs_default_kms_key_id_request.GetEbsDefaultKmsKeyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ebs_default_kms_key_id_request.GetEbsDefaultKmsKeyIdRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41717,7 +41717,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ebs_encryption_by_default_request.GetEbsEncryptionByDefaultRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ebs_encryption_by_default_request.GetEbsEncryptionByDefaultRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41759,7 +41759,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_enabled_ipam_policy_request.GetEnabledIpamPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_enabled_ipam_policy_request.GetEnabledIpamPolicyRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -41811,7 +41811,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_flow_logs_integration_template_request.GetFlowLogsIntegrationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_flow_logs_integration_template_request.GetFlowLogsIntegrationTemplateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if flow_log_id is not None:
@@ -41871,7 +41871,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_groups_for_capacity_reservation_request.GetGroupsForCapacityReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_groups_for_capacity_reservation_request.GetGroupsForCapacityReservationRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if next_token is not None:
@@ -41952,7 +41952,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_host_reservation_purchase_preview_request.GetHostReservationPurchasePreviewRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_host_reservation_purchase_preview_request.GetHostReservationPurchasePreviewRequest = {}
         if host_id_set is not None:
             input_["host_id_set"] = host_id_set
         if offering_id is not None:
@@ -41998,7 +41998,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_image_ancestry_request.GetImageAncestryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_image_ancestry_request.GetImageAncestryRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -42042,7 +42042,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_image_block_public_access_state_request.GetImageBlockPublicAccessStateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_image_block_public_access_state_request.GetImageBlockPublicAccessStateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -42084,7 +42084,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_instance_metadata_defaults_request.GetInstanceMetadataDefaultsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_instance_metadata_defaults_request.GetInstanceMetadataDefaultsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -42132,7 +42132,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_instance_tpm_ek_pub_request.GetInstanceTpmEkPubRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_instance_tpm_ek_pub_request.GetInstanceTpmEkPubRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if key_type is not None:
@@ -42198,7 +42198,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_instance_types_from_instance_requirements_request.GetInstanceTypesFromInstanceRequirementsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_instance_types_from_instance_requirements_request.GetInstanceTypesFromInstanceRequirementsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if architecture_types is not None:
@@ -42291,7 +42291,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_instance_uefi_data_request.GetInstanceUefiDataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_instance_uefi_data_request.GetInstanceUefiDataRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if dry_run is not None:
@@ -42355,7 +42355,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_address_history_request.GetIpamAddressHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_address_history_request.GetIpamAddressHistoryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if cidr is not None:
@@ -42464,7 +42464,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_discovered_accounts_request.GetIpamDiscoveredAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_discovered_accounts_request.GetIpamDiscoveredAccountsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -42559,7 +42559,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_discovered_public_addresses_request.GetIpamDiscoveredPublicAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_discovered_public_addresses_request.GetIpamDiscoveredPublicAddressesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -42623,7 +42623,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_discovered_resource_cidrs_request.GetIpamDiscoveredResourceCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_discovered_resource_cidrs_request.GetIpamDiscoveredResourceCidrsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -42720,7 +42720,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_discovered_routes_request.GetIpamDiscoveredRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_discovered_routes_request.GetIpamDiscoveredRoutesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -42782,7 +42782,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_internet_registry_association_asns_request.GetIpamInternetRegistryAssociationAsnsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_internet_registry_association_asns_request.GetIpamInternetRegistryAssociationAsnsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -42844,7 +42844,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_internet_registry_association_cidrs_request.GetIpamInternetRegistryAssociationCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_internet_registry_association_cidrs_request.GetIpamInternetRegistryAssociationCidrsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -42910,7 +42910,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_policy_allocation_rules_request.GetIpamPolicyAllocationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_policy_allocation_rules_request.GetIpamPolicyAllocationRulesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_policy_id is not None:
@@ -42972,7 +42972,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_policy_organization_targets_request.GetIpamPolicyOrganizationTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_policy_organization_targets_request.GetIpamPolicyOrganizationTargetsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if max_results is not None:
@@ -43036,7 +43036,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_pool_allocations_request.GetIpamPoolAllocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_pool_allocations_request.GetIpamPoolAllocationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -43129,7 +43129,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_pool_cidrs_request.GetIpamPoolCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_pool_cidrs_request.GetIpamPoolCidrsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -43216,7 +43216,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_prefix_list_resolver_rules_request.GetIpamPrefixListResolverRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_prefix_list_resolver_rules_request.GetIpamPrefixListResolverRulesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -43305,7 +43305,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_prefix_list_resolver_version_entries_request.GetIpamPrefixListResolverVersionEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_prefix_list_resolver_version_entries_request.GetIpamPrefixListResolverVersionEntriesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -43400,7 +43400,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_prefix_list_resolver_versions_request.GetIpamPrefixListResolverVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_prefix_list_resolver_versions_request.GetIpamPrefixListResolverVersionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -43509,7 +43509,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_resource_cidrs_request.GetIpamResourceCidrsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_resource_cidrs_request.GetIpamResourceCidrsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if filters is not None:
@@ -43620,7 +43620,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_route_origin_authorizations_request.GetIpamRouteOriginAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_route_origin_authorizations_request.GetIpamRouteOriginAuthorizationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -43680,7 +43680,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_route_protection_findings_request.GetIpamRouteProtectionFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_route_protection_findings_request.GetIpamRouteProtectionFindingsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -43752,7 +43752,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_routing_policy_registration_deltas_request.GetIpamRoutingPolicyRegistrationDeltasRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_routing_policy_registration_deltas_request.GetIpamRoutingPolicyRegistrationDeltasRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -43820,7 +43820,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_ipam_routing_policy_registrations_request.GetIpamRoutingPolicyRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_ipam_routing_policy_registrations_request.GetIpamRoutingPolicyRegistrationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -43880,7 +43880,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_launch_template_data_request.GetLaunchTemplateDataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_launch_template_data_request.GetLaunchTemplateDataRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -43934,7 +43934,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_managed_prefix_list_associations_request.GetManagedPrefixListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_managed_prefix_list_associations_request.GetManagedPrefixListAssociationsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_id is not None:
@@ -44023,7 +44023,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_managed_prefix_list_entries_request.GetManagedPrefixListEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_managed_prefix_list_entries_request.GetManagedPrefixListEntriesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_id is not None:
@@ -44104,7 +44104,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_managed_resource_visibility_request.GetManagedResourceVisibilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_managed_resource_visibility_request.GetManagedResourceVisibilityRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -44156,7 +44156,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_network_insights_access_scope_analysis_findings_request.GetNetworkInsightsAccessScopeAnalysisFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_network_insights_access_scope_analysis_findings_request.GetNetworkInsightsAccessScopeAnalysisFindingsRequest = {}
         if network_insights_access_scope_analysis_id is not None:
             input_["network_insights_access_scope_analysis_id"] = (
                 network_insights_access_scope_analysis_id
@@ -44239,7 +44239,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_network_insights_access_scope_content_request.GetNetworkInsightsAccessScopeContentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_network_insights_access_scope_content_request.GetNetworkInsightsAccessScopeContentRequest = {}
         if network_insights_access_scope_id is not None:
             input_["network_insights_access_scope_id"] = (
                 network_insights_access_scope_id
@@ -44287,7 +44287,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_password_data_request.GetPasswordDataRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_password_data_request.GetPasswordDataRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if dry_run is not None:
@@ -44339,7 +44339,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_reserved_instances_exchange_quote_request.GetReservedInstancesExchangeQuoteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_reserved_instances_exchange_quote_request.GetReservedInstancesExchangeQuoteRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if reserved_instance_ids is not None:
@@ -44389,7 +44389,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_route_server_associations_request.GetRouteServerAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_route_server_associations_request.GetRouteServerAssociationsRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if dry_run is not None:
@@ -44439,7 +44439,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_route_server_propagations_request.GetRouteServerPropagationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_route_server_propagations_request.GetRouteServerPropagationsRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if route_table_id is not None:
@@ -44497,7 +44497,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_route_server_routing_database_request.GetRouteServerRoutingDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_route_server_routing_database_request.GetRouteServerRoutingDatabaseRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if next_token is not None:
@@ -44557,7 +44557,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_security_groups_for_vpc_request.GetSecurityGroupsForVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_security_groups_for_vpc_request.GetSecurityGroupsForVpcRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if next_token is not None:
@@ -44636,7 +44636,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_serial_console_access_status_request.GetSerialConsoleAccessStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_serial_console_access_status_request.GetSerialConsoleAccessStatusRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -44678,7 +44678,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_snapshot_block_public_access_state_request.GetSnapshotBlockPublicAccessStateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_snapshot_block_public_access_state_request.GetSnapshotBlockPublicAccessStateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -44746,7 +44746,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_spot_placement_scores_request.GetSpotPlacementScoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_spot_placement_scores_request.GetSpotPlacementScoresRequest = {}
         if instance_types is not None:
             input_["instance_types"] = instance_types
         if target_capacity is not None:
@@ -44863,7 +44863,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_subnet_cidr_reservations_request.GetSubnetCidrReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_subnet_cidr_reservations_request.GetSubnetCidrReservationsRequest = {}
         if filters is not None:
             input_["filters"] = filters
         if subnet_id is not None:
@@ -44925,7 +44925,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_attachment_propagations_request.GetTransitGatewayAttachmentPropagationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_attachment_propagations_request.GetTransitGatewayAttachmentPropagationsRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if filters is not None:
@@ -45020,7 +45020,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_metering_policy_entries_request.GetTransitGatewayMeteringPolicyEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_metering_policy_entries_request.GetTransitGatewayMeteringPolicyEntriesRequest = {}
         if transit_gateway_metering_policy_id is not None:
             input_["transit_gateway_metering_policy_id"] = (
                 transit_gateway_metering_policy_id
@@ -45084,7 +45084,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_multicast_domain_associations_request.GetTransitGatewayMulticastDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_multicast_domain_associations_request.GetTransitGatewayMulticastDomainAssociationsRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -45179,7 +45179,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_policy_table_associations_request.GetTransitGatewayPolicyTableAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_policy_table_associations_request.GetTransitGatewayPolicyTableAssociationsRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if filters is not None:
@@ -45272,7 +45272,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_policy_table_entries_request.GetTransitGatewayPolicyTableEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_policy_table_entries_request.GetTransitGatewayPolicyTableEntriesRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if filters is not None:
@@ -45365,7 +45365,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_prefix_list_references_request.GetTransitGatewayPrefixListReferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_prefix_list_references_request.GetTransitGatewayPrefixListReferencesRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
@@ -45460,7 +45460,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_route_table_associations_request.GetTransitGatewayRouteTableAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_route_table_associations_request.GetTransitGatewayRouteTableAssociationsRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
@@ -45553,7 +45553,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_transit_gateway_route_table_propagations_request.GetTransitGatewayRouteTablePropagationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_transit_gateway_route_table_propagations_request.GetTransitGatewayRouteTablePropagationsRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
@@ -45640,7 +45640,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_verified_access_endpoint_policy_request.GetVerifiedAccessEndpointPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_verified_access_endpoint_policy_request.GetVerifiedAccessEndpointPolicyRequest = {}
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if dry_run is not None:
@@ -45694,7 +45694,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_verified_access_endpoint_targets_request.GetVerifiedAccessEndpointTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_verified_access_endpoint_targets_request.GetVerifiedAccessEndpointTargetsRequest = {}
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if max_results is not None:
@@ -45746,7 +45746,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_verified_access_group_policy_request.GetVerifiedAccessGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_verified_access_group_policy_request.GetVerifiedAccessGroupPolicyRequest = {}
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if dry_run is not None:
@@ -45798,7 +45798,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_request.GetVpcResourcesBlockingEncryptionEnforcementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_vpc_resources_blocking_encryption_enforcement_request.GetVpcResourcesBlockingEncryptionEnforcementRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if max_results is not None:
@@ -45858,7 +45858,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_vpn_connection_device_sample_configuration_request.GetVpnConnectionDeviceSampleConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_vpn_connection_device_sample_configuration_request.GetVpnConnectionDeviceSampleConfigurationRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_connection_device_type_id is not None:
@@ -45912,7 +45912,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_vpn_connection_device_types_request.GetVpnConnectionDeviceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_vpn_connection_device_types_request.GetVpnConnectionDeviceTypesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -45987,7 +45987,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.get_vpn_tunnel_replacement_status_request.GetVpnTunnelReplacementStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.get_vpn_tunnel_replacement_status_request.GetVpnTunnelReplacementStatusRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_tunnel_outside_ip_address is not None:
@@ -46039,7 +46039,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_client_vpn_client_certificate_revocation_list_request.ImportClientVpnClientCertificateRevocationListRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_client_vpn_client_certificate_revocation_list_request.ImportClientVpnClientCertificateRevocationListRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if certificate_revocation_list is not None:
@@ -46119,7 +46119,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_image_request.ImportImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_image_request.ImportImageRequest = {}
         if architecture is not None:
             input_["architecture"] = architecture
         if client_data is not None:
@@ -46201,7 +46201,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_instance_request.ImportInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_instance_request.ImportInstanceRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if description is not None:
@@ -46259,7 +46259,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_key_pair_request.ImportKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_key_pair_request.ImportKeyPairRequest = {}
         if tag_specifications is not None:
             input_["tag_specifications"] = tag_specifications
         if dry_run is not None:
@@ -46327,7 +46327,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_snapshot_request.ImportSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_snapshot_request.ImportSnapshotRequest = {}
         if client_data is not None:
             input_["client_data"] = client_data
         if client_token is not None:
@@ -46397,7 +46397,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.import_volume_request.ImportVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.import_volume_request.ImportVolumeRequest = {}
         if availability_zone_id is not None:
             input_["availability_zone_id"] = availability_zone_id
         if dry_run is not None:
@@ -46461,7 +46461,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.list_images_in_recycle_bin_request.ListImagesInRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.list_images_in_recycle_bin_request.ListImagesInRecycleBinRequest = {}
         if image_ids is not None:
             input_["image_ids"] = image_ids
         if next_token is not None:
@@ -46548,7 +46548,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.list_snapshots_in_recycle_bin_request.ListSnapshotsInRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.list_snapshots_in_recycle_bin_request.ListSnapshotsInRecycleBinRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -46633,7 +46633,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.list_volumes_in_recycle_bin_request.ListVolumesInRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.list_volumes_in_recycle_bin_request.ListVolumesInRecycleBinRequest = {}
         if volume_ids is not None:
             input_["volume_ids"] = volume_ids
         if dry_run is not None:
@@ -46697,7 +46697,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.lock_snapshot_request.LockSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.lock_snapshot_request.LockSnapshotRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
@@ -46785,7 +46785,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_account_vpc_encryption_control_request.ModifyAccountVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_account_vpc_encryption_control_request.ModifyAccountVpcEncryptionControlRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if mode is not None:
@@ -46849,7 +46849,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_address_attribute_request.ModifyAddressAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_address_attribute_request.ModifyAddressAttributeRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if domain_name is not None:
@@ -46943,7 +46943,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_application_status_check_request.ModifyApplicationStatusCheckRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_application_status_check_request.ModifyApplicationStatusCheckRequest = {}
         if application_status_check_id is not None:
             input_["application_status_check_id"] = application_status_check_id
         if aggregation is not None:
@@ -47026,7 +47026,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_availability_zone_group_request.ModifyAvailabilityZoneGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_availability_zone_group_request.ModifyAvailabilityZoneGroupRequest = {}
         if group_name is not None:
             input_["group_name"] = group_name
         if opt_in_status is not None:
@@ -47090,7 +47090,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_capacity_reservation_request.ModifyCapacityReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_capacity_reservation_request.ModifyCapacityReservationRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if instance_count is not None:
@@ -47158,7 +47158,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_capacity_reservation_fleet_request.ModifyCapacityReservationFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_capacity_reservation_fleet_request.ModifyCapacityReservationFleetRequest = {}
         if capacity_reservation_fleet_id is not None:
             input_["capacity_reservation_fleet_id"] = capacity_reservation_fleet_id
         if total_target_capacity is not None:
@@ -47262,7 +47262,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_client_vpn_endpoint_request.ModifyClientVpnEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_client_vpn_endpoint_request.ModifyClientVpnEndpointRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if server_certificate_arn is not None:
@@ -47344,7 +47344,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_default_credit_specification_request.ModifyDefaultCreditSpecificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_default_credit_specification_request.ModifyDefaultCreditSpecificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_family is not None:
@@ -47392,7 +47392,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ebs_default_kms_key_id_request.ModifyEbsDefaultKmsKeyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ebs_default_kms_key_id_request.ModifyEbsDefaultKmsKeyIdRequest = {}
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if dry_run is not None:
@@ -47450,7 +47450,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_fleet_request.ModifyFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_fleet_request.ModifyFleetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if excess_capacity_termination_policy is not None:
@@ -47532,7 +47532,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_fpga_image_attribute_request.ModifyFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_fpga_image_attribute_request.ModifyFpgaImageAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fpga_image_id is not None:
@@ -47604,7 +47604,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_hosts_request.ModifyHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_hosts_request.ModifyHostsRequest = {}
         if host_recovery is not None:
             input_["host_recovery"] = host_recovery
         if instance_type is not None:
@@ -47658,7 +47658,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_identity_id_format_request.ModifyIdentityIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_identity_id_format_request.ModifyIdentityIdFormatRequest = {}
         if resource is not None:
             input_["resource"] = resource
         if use_long_ids is not None:
@@ -47704,7 +47704,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_id_format_request.ModifyIdFormatRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_id_format_request.ModifyIdFormatRequest = {}
         if resource is not None:
             input_["resource"] = resource
         if use_long_ids is not None:
@@ -47792,7 +47792,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_image_attribute_request.ModifyImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_image_attribute_request.ModifyImageAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if description is not None:
@@ -47926,7 +47926,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_attribute_request.ModifyInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_attribute_request.ModifyInstanceAttributeRequest = {}
         if source_dest_check is not None:
             input_["source_dest_check"] = source_dest_check
         if enclave_options is not None:
@@ -48010,7 +48010,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_capacity_reservation_attributes_request.ModifyInstanceCapacityReservationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_capacity_reservation_attributes_request.ModifyInstanceCapacityReservationAttributesRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if capacity_reservation_specification is not None:
@@ -48072,7 +48072,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_connect_endpoint_request.ModifyInstanceConnectEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_connect_endpoint_request.ModifyInstanceConnectEndpointRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_connect_endpoint_id is not None:
@@ -48132,7 +48132,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_cpu_options_request.ModifyInstanceCpuOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_cpu_options_request.ModifyInstanceCpuOptionsRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if core_count is not None:
@@ -48188,7 +48188,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_credit_specification_request.ModifyInstanceCreditSpecificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_credit_specification_request.ModifyInstanceCreditSpecificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is not None:
@@ -48240,7 +48240,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_event_start_time_request.ModifyInstanceEventStartTimeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_event_start_time_request.ModifyInstanceEventStartTimeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -48302,7 +48302,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_event_window_request.ModifyInstanceEventWindowRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_event_window_request.ModifyInstanceEventWindowRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if name is not None:
@@ -48362,7 +48362,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_maintenance_options_request.ModifyInstanceMaintenanceOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_maintenance_options_request.ModifyInstanceMaintenanceOptionsRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if auto_recovery is not None:
@@ -48430,7 +48430,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_metadata_defaults_request.ModifyInstanceMetadataDefaultsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_metadata_defaults_request.ModifyInstanceMetadataDefaultsRequest = {}
         if http_tokens is not None:
             input_["http_tokens"] = http_tokens
         if http_put_response_hop_limit is not None:
@@ -48502,7 +48502,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_metadata_options_request.ModifyInstanceMetadataOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_metadata_options_request.ModifyInstanceMetadataOptionsRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if http_tokens is not None:
@@ -48562,7 +48562,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_network_performance_request.ModifyInstanceNetworkPerformanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_network_performance_request.ModifyInstanceNetworkPerformanceRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if bandwidth_weighting is not None:
@@ -48626,7 +48626,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_instance_placement_request.ModifyInstancePlacementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_instance_placement_request.ModifyInstancePlacementRequest = {}
         if group_name is not None:
             input_["group_name"] = group_name
         if partition_number is not None:
@@ -48700,7 +48700,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_request.ModifyIpamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_request.ModifyIpamRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -48768,7 +48768,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_policy_allocation_rules_request.ModifyIpamPolicyAllocationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_policy_allocation_rules_request.ModifyIpamPolicyAllocationRulesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_policy_id is not None:
@@ -48848,7 +48848,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_pool_request.ModifyIpamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_pool_request.ModifyIpamPoolRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -48918,7 +48918,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_pool_allocation_request.ModifyIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_pool_allocation_request.ModifyIpamPoolAllocationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_allocation_id is not None:
@@ -48974,7 +48974,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_prefix_list_resolver_request.ModifyIpamPrefixListResolverRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_prefix_list_resolver_request.ModifyIpamPrefixListResolverRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_id is not None:
@@ -49034,7 +49034,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_prefix_list_resolver_target_request.ModifyIpamPrefixListResolverTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_prefix_list_resolver_target_request.ModifyIpamPrefixListResolverTargetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_prefix_list_resolver_target_id is not None:
@@ -49103,7 +49103,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_resource_cidr_request.ModifyIpamResourceCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_resource_cidr_request.ModifyIpamResourceCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if resource_id is not None:
@@ -49179,7 +49179,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_resource_discovery_request.ModifyIpamResourceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_resource_discovery_request.ModifyIpamResourceDiscoveryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_resource_discovery_id is not None:
@@ -49259,7 +49259,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_routing_policy_registration_request.ModifyIpamRoutingPolicyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_routing_policy_registration_request.ModifyIpamRoutingPolicyRegistrationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_internet_registry_association_id is not None:
@@ -49334,7 +49334,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_ipam_scope_request.ModifyIpamScopeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_ipam_scope_request.ModifyIpamScopeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_scope_id is not None:
@@ -49406,7 +49406,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_launch_template_request.ModifyLaunchTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_launch_template_request.ModifyLaunchTemplateRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -49477,7 +49477,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_local_gateway_route_request.ModifyLocalGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_local_gateway_route_request.ModifyLocalGatewayRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if local_gateway_route_table_id is not None:
@@ -49555,7 +49555,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_managed_prefix_list_request.ModifyManagedPrefixListRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_managed_prefix_list_request.ModifyManagedPrefixListRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_id is not None:
@@ -49617,7 +49617,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_managed_resource_visibility_request.ModifyManagedResourceVisibilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_managed_resource_visibility_request.ModifyManagedResourceVisibilityRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if default_visibility is not None:
@@ -49711,7 +49711,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_network_interface_attribute_request.ModifyNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_network_interface_attribute_request.ModifyNetworkInterfaceAttributeRequest = {}
         if ena_srd_specification is not None:
             input_["ena_srd_specification"] = ena_srd_specification
         if enable_primary_ipv6 is not None:
@@ -49789,7 +49789,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_private_dns_name_options_request.ModifyPrivateDnsNameOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_private_dns_name_options_request.ModifyPrivateDnsNameOptionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -49851,7 +49851,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_public_ip_dns_name_options_request.ModifyPublicIpDnsNameOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_public_ip_dns_name_options_request.ModifyPublicIpDnsNameOptionsRequest = {}
         if network_interface_id is not None:
             input_["network_interface_id"] = network_interface_id
         if hostname_type is not None:
@@ -49907,7 +49907,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_reserved_instances_request.ModifyReservedInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_reserved_instances_request.ModifyReservedInstancesRequest = {}
         if reserved_instances_ids is not None:
             input_["reserved_instances_ids"] = reserved_instances_ids
         if client_token is not None:
@@ -49965,7 +49965,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_route_server_request.ModifyRouteServerRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_route_server_request.ModifyRouteServerRequest = {}
         if route_server_id is not None:
             input_["route_server_id"] = route_server_id
         if persist_routes is not None:
@@ -50021,7 +50021,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_security_group_rules_request.ModifySecurityGroupRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_security_group_rules_request.ModifySecurityGroupRulesRequest = {}
         if group_id is not None:
             input_["group_id"] = group_id
         if security_group_rules is not None:
@@ -50095,7 +50095,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_snapshot_attribute_request.ModifySnapshotAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_snapshot_attribute_request.ModifySnapshotAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if create_volume_permission is not None:
@@ -50155,7 +50155,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_snapshot_tier_request.ModifySnapshotTierRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_snapshot_tier_request.ModifySnapshotTierRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if storage_tier is not None:
@@ -50223,7 +50223,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_spot_fleet_request_request.ModifySpotFleetRequestRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_spot_fleet_request_request.ModifySpotFleetRequestRequest = {}
         if launch_template_configs is not None:
             input_["launch_template_configs"] = launch_template_configs
         if on_demand_target_capacity is not None:
@@ -50319,7 +50319,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_subnet_attribute_request.ModifySubnetAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_subnet_attribute_request.ModifySubnetAttributeRequest = {}
         if assign_ipv6_address_on_creation is not None:
             input_["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
         if map_public_ip_on_launch is not None:
@@ -50399,7 +50399,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_traffic_mirror_filter_network_services_request.ModifyTrafficMirrorFilterNetworkServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_traffic_mirror_filter_network_services_request.ModifyTrafficMirrorFilterNetworkServicesRequest = {}
         if traffic_mirror_filter_id is not None:
             input_["traffic_mirror_filter_id"] = traffic_mirror_filter_id
         if add_network_services is not None:
@@ -50481,7 +50481,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_traffic_mirror_filter_rule_request.ModifyTrafficMirrorFilterRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_traffic_mirror_filter_rule_request.ModifyTrafficMirrorFilterRuleRequest = {}
         if traffic_mirror_filter_rule_id is not None:
             input_["traffic_mirror_filter_rule_id"] = traffic_mirror_filter_rule_id
         if traffic_direction is not None:
@@ -50569,7 +50569,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_traffic_mirror_session_request.ModifyTrafficMirrorSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_traffic_mirror_session_request.ModifyTrafficMirrorSessionRequest = {}
         if traffic_mirror_session_id is not None:
             input_["traffic_mirror_session_id"] = traffic_mirror_session_id
         if traffic_mirror_target_id is not None:
@@ -50637,7 +50637,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_transit_gateway_request.ModifyTransitGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_transit_gateway_request.ModifyTransitGatewayRequest = {}
         if transit_gateway_id is not None:
             input_["transit_gateway_id"] = transit_gateway_id
         if description is not None:
@@ -50697,7 +50697,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_transit_gateway_metering_policy_request.ModifyTransitGatewayMeteringPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_transit_gateway_metering_policy_request.ModifyTransitGatewayMeteringPolicyRequest = {}
         if transit_gateway_metering_policy_id is not None:
             input_["transit_gateway_metering_policy_id"] = (
                 transit_gateway_metering_policy_id
@@ -50761,7 +50761,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_transit_gateway_policy_table_entry_request.ModifyTransitGatewayPolicyTableEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_transit_gateway_policy_table_entry_request.ModifyTransitGatewayPolicyTableEntryRequest = {}
         if transit_gateway_policy_table_id is not None:
             input_["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         if policy_rule_number is not None:
@@ -50825,7 +50825,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_transit_gateway_prefix_list_reference_request.ModifyTransitGatewayPrefixListReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_transit_gateway_prefix_list_reference_request.ModifyTransitGatewayPrefixListReferenceRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if prefix_list_id is not None:
@@ -50891,7 +50891,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_transit_gateway_vpc_attachment_request.ModifyTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_transit_gateway_vpc_attachment_request.ModifyTransitGatewayVpcAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if add_subnet_ids is not None:
@@ -50969,7 +50969,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_endpoint_request.ModifyVerifiedAccessEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_endpoint_request.ModifyVerifiedAccessEndpointRequest = {}
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if verified_access_group_id is not None:
@@ -51042,7 +51042,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_endpoint_policy_request.ModifyVerifiedAccessEndpointPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_endpoint_policy_request.ModifyVerifiedAccessEndpointPolicyRequest = {}
         if verified_access_endpoint_id is not None:
             input_["verified_access_endpoint_id"] = verified_access_endpoint_id
         if policy_enabled is not None:
@@ -51107,7 +51107,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_group_request.ModifyVerifiedAccessGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_group_request.ModifyVerifiedAccessGroupRequest = {}
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if verified_access_instance_id is not None:
@@ -51172,7 +51172,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_group_policy_request.ModifyVerifiedAccessGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_group_policy_request.ModifyVerifiedAccessGroupPolicyRequest = {}
         if verified_access_group_id is not None:
             input_["verified_access_group_id"] = verified_access_group_id
         if policy_enabled is not None:
@@ -51237,7 +51237,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_instance_request.ModifyVerifiedAccessInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_instance_request.ModifyVerifiedAccessInstanceRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if description is not None:
@@ -51300,7 +51300,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_instance_logging_configuration_request.ModifyVerifiedAccessInstanceLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_instance_logging_configuration_request.ModifyVerifiedAccessInstanceLoggingConfigurationRequest = {}
         if verified_access_instance_id is not None:
             input_["verified_access_instance_id"] = verified_access_instance_id
         if access_logs is not None:
@@ -51373,7 +51373,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_verified_access_trust_provider_request.ModifyVerifiedAccessTrustProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_verified_access_trust_provider_request.ModifyVerifiedAccessTrustProviderRequest = {}
         if verified_access_trust_provider_id is not None:
             input_["verified_access_trust_provider_id"] = (
                 verified_access_trust_provider_id
@@ -51444,7 +51444,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_volume_request.ModifyVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_volume_request.ModifyVolumeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if volume_id is not None:
@@ -51508,7 +51508,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_volume_attribute_request.ModifyVolumeAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_volume_attribute_request.ModifyVolumeAttributeRequest = {}
         if auto_enable_io is not None:
             input_["auto_enable_io"] = auto_enable_io
         if volume_id is not None:
@@ -51574,7 +51574,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_attribute_request.ModifyVpcAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_attribute_request.ModifyVpcAttributeRequest = {}
         if enable_dns_hostnames is not None:
             input_["enable_dns_hostnames"] = enable_dns_hostnames
         if enable_dns_support is not None:
@@ -51632,7 +51632,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_block_public_access_exclusion_request.ModifyVpcBlockPublicAccessExclusionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_block_public_access_exclusion_request.ModifyVpcBlockPublicAccessExclusionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if exclusion_id is not None:
@@ -51682,7 +51682,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_block_public_access_options_request.ModifyVpcBlockPublicAccessOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_block_public_access_options_request.ModifyVpcBlockPublicAccessOptionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if internet_gateway_block_mode is not None:
@@ -51766,7 +51766,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_encryption_control_request.ModifyVpcEncryptionControlRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_encryption_control_request.ModifyVpcEncryptionControlRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_encryption_control_id is not None:
@@ -51878,7 +51878,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_request.ModifyVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_request.ModifyVpcEndpointRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_endpoint_id is not None:
@@ -51956,7 +51956,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_connection_notification_request.ModifyVpcEndpointConnectionNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_connection_notification_request.ModifyVpcEndpointConnectionNotificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if connection_notification_id is not None:
@@ -52020,7 +52020,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_payer_responsibility_request.ModifyVpcEndpointPayerResponsibilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_payer_responsibility_request.ModifyVpcEndpointPayerResponsibilityRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -52112,7 +52112,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_service_configuration_request.ModifyVpcEndpointServiceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_service_configuration_request.ModifyVpcEndpointServiceConfigurationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -52192,7 +52192,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_service_payer_responsibility_request.ModifyVpcEndpointServicePayerResponsibilityRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_service_payer_responsibility_request.ModifyVpcEndpointServicePayerResponsibilityRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -52250,7 +52250,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_endpoint_service_permissions_request.ModifyVpcEndpointServicePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_endpoint_service_permissions_request.ModifyVpcEndpointServicePermissionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -52310,7 +52310,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_peering_connection_options_request.ModifyVpcPeeringConnectionOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_peering_connection_options_request.ModifyVpcPeeringConnectionOptionsRequest = {}
         if accepter_peering_connection_options is not None:
             input_["accepter_peering_connection_options"] = (
                 accepter_peering_connection_options
@@ -52366,7 +52366,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpc_tenancy_request.ModifyVpcTenancyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpc_tenancy_request.ModifyVpcTenancyRequest = {}
         if vpc_id is not None:
             input_["vpc_id"] = vpc_id
         if instance_tenancy is not None:
@@ -52426,7 +52426,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpn_connection_request.ModifyVpnConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpn_connection_request.ModifyVpnConnectionRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if transit_gateway_id is not None:
@@ -52492,7 +52492,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpn_connection_options_request.ModifyVpnConnectionOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpn_connection_options_request.ModifyVpnConnectionOptionsRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if local_ipv4_network_cidr is not None:
@@ -52552,7 +52552,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpn_tunnel_certificate_request.ModifyVpnTunnelCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpn_tunnel_certificate_request.ModifyVpnTunnelCertificateRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_tunnel_outside_ip_address is not None:
@@ -52612,7 +52612,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.modify_vpn_tunnel_options_request.ModifyVpnTunnelOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.modify_vpn_tunnel_options_request.ModifyVpnTunnelOptionsRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_tunnel_outside_ip_address is not None:
@@ -52668,7 +52668,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.monitor_instances_request.MonitorInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.monitor_instances_request.MonitorInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if dry_run is not None:
@@ -52720,7 +52720,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.move_address_to_vpc_request.MoveAddressToVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.move_address_to_vpc_request.MoveAddressToVpcRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if public_ip is not None:
@@ -52770,7 +52770,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.move_byoip_cidr_to_ipam_request.MoveByoipCidrToIpamRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.move_byoip_cidr_to_ipam_request.MoveByoipCidrToIpamRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if cidr is not None:
@@ -52830,7 +52830,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.move_capacity_reservation_instances_request.MoveCapacityReservationInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.move_capacity_reservation_instances_request.MoveCapacityReservationInstancesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if client_token is None:
@@ -52901,7 +52901,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.provision_byoip_cidr_request.ProvisionByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.provision_byoip_cidr_request.ProvisionByoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if cidr_authorization_context is not None:
@@ -52965,7 +52965,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.provision_ipam_byoasn_request.ProvisionIpamByoasnRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.provision_ipam_byoasn_request.ProvisionIpamByoasnRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_id is not None:
@@ -53033,7 +53033,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.provision_ipam_pool_cidr_request.ProvisionIpamPoolCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.provision_ipam_pool_cidr_request.ProvisionIpamPoolCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -53100,7 +53100,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.provision_public_ipv4_pool_cidr_request.ProvisionPublicIpv4PoolCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.provision_public_ipv4_pool_cidr_request.ProvisionPublicIpv4PoolCidrRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -53162,7 +53162,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.purchase_capacity_block_request.PurchaseCapacityBlockRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.purchase_capacity_block_request.PurchaseCapacityBlockRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if tag_specifications is not None:
@@ -53218,7 +53218,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.purchase_capacity_block_extension_request.PurchaseCapacityBlockExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.purchase_capacity_block_extension_request.PurchaseCapacityBlockExtensionRequest = {}
         if capacity_block_extension_offering_id is not None:
             input_["capacity_block_extension_offering_id"] = (
                 capacity_block_extension_offering_id
@@ -53284,7 +53284,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.purchase_host_reservation_request.PurchaseHostReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.purchase_host_reservation_request.PurchaseHostReservationRequest = {}
         if client_token is not None:
             input_["client_token"] = client_token
         if currency_code is not None:
@@ -53348,7 +53348,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.purchase_reserved_instances_offering_request.PurchaseReservedInstancesOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.purchase_reserved_instances_offering_request.PurchaseReservedInstancesOfferingRequest = {}
         if instance_count is not None:
             input_["instance_count"] = instance_count
         if reserved_instances_offering_id is not None:
@@ -53404,7 +53404,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.purchase_scheduled_instances_request.PurchaseScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.purchase_scheduled_instances_request.PurchaseScheduledInstancesRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -53459,7 +53459,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reboot_instances_request.RebootInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reboot_instances_request.RebootInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if dry_run is not None:
@@ -53553,7 +53553,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.register_image_request.RegisterImageRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.register_image_request.RegisterImageRequest = {}
         if image_location is not None:
             input_["image_location"] = image_location
         if billing_products is not None:
@@ -53633,7 +53633,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.register_instance_event_notification_attributes_request.RegisterInstanceEventNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.register_instance_event_notification_attributes_request.RegisterInstanceEventNotificationAttributesRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_tag_attribute is not None:
@@ -53687,7 +53687,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.register_transit_gateway_multicast_group_members_request.RegisterTransitGatewayMulticastGroupMembersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.register_transit_gateway_multicast_group_members_request.RegisterTransitGatewayMulticastGroupMembersRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -53747,7 +53747,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.register_transit_gateway_multicast_group_sources_request.RegisterTransitGatewayMulticastGroupSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.register_transit_gateway_multicast_group_sources_request.RegisterTransitGatewayMulticastGroupSourcesRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -53801,7 +53801,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_capacity_reservation_billing_ownership_request.RejectCapacityReservationBillingOwnershipRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_capacity_reservation_billing_ownership_request.RejectCapacityReservationBillingOwnershipRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if capacity_reservation_id is not None:
@@ -53849,7 +53849,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_transit_gateway_client_vpn_attachment_request.RejectTransitGatewayClientVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_transit_gateway_client_vpn_attachment_request.RejectTransitGatewayClientVpnAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -53903,7 +53903,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_transit_gateway_multicast_domain_associations_request.RejectTransitGatewayMulticastDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_transit_gateway_multicast_domain_associations_request.RejectTransitGatewayMulticastDomainAssociationsRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -53957,7 +53957,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_transit_gateway_peering_attachment_request.RejectTransitGatewayPeeringAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_transit_gateway_peering_attachment_request.RejectTransitGatewayPeeringAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -54005,7 +54005,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_transit_gateway_vpc_attachment_request.RejectTransitGatewayVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_transit_gateway_vpc_attachment_request.RejectTransitGatewayVpcAttachmentRequest = {}
         if transit_gateway_attachment_id is not None:
             input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         if dry_run is not None:
@@ -54057,7 +54057,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_vpc_endpoint_connections_request.RejectVpcEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_vpc_endpoint_connections_request.RejectVpcEndpointConnectionsRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -54107,7 +54107,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reject_vpc_peering_connection_request.RejectVpcPeeringConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reject_vpc_peering_connection_request.RejectVpcPeeringConnectionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if vpc_peering_connection_id is not None:
@@ -54161,7 +54161,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.release_address_request.ReleaseAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.release_address_request.ReleaseAddressRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if public_ip is not None:
@@ -54211,7 +54211,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.release_hosts_request.ReleaseHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.release_hosts_request.ReleaseHostsRequest = {}
         if host_ids is not None:
             input_["host_ids"] = host_ids
 
@@ -54261,7 +54261,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.release_ipam_pool_allocation_request.ReleaseIpamPoolAllocationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.release_ipam_pool_allocation_request.ReleaseIpamPoolAllocationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if ipam_pool_id is not None:
@@ -54315,7 +54315,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_iam_instance_profile_association_request.ReplaceIamInstanceProfileAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_iam_instance_profile_association_request.ReplaceIamInstanceProfileAssociationRequest = {}
         if iam_instance_profile is not None:
             input_["iam_instance_profile"] = iam_instance_profile
         if association_id is not None:
@@ -54363,7 +54363,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_image_criteria_in_allowed_images_settings_request.ReplaceImageCriteriaInAllowedImagesSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_image_criteria_in_allowed_images_settings_request.ReplaceImageCriteriaInAllowedImagesSettingsRequest = {}
         if image_criteria is not None:
             input_["image_criteria"] = image_criteria
         if dry_run is not None:
@@ -54419,7 +54419,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_network_acl_association_request.ReplaceNetworkAclAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_network_acl_association_request.ReplaceNetworkAclAssociationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if association_id is not None:
@@ -54487,7 +54487,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_network_acl_entry_request.ReplaceNetworkAclEntryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_network_acl_entry_request.ReplaceNetworkAclEntryRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_acl_id is not None:
@@ -54605,7 +54605,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_route_request.ReplaceRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_route_request.ReplaceRouteRequest = {}
         if destination_prefix_list_id is not None:
             input_["destination_prefix_list_id"] = destination_prefix_list_id
         if vpc_endpoint_id is not None:
@@ -54693,7 +54693,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_route_table_association_request.ReplaceRouteTableAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_route_table_association_request.ReplaceRouteTableAssociationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if association_id is not None:
@@ -54751,7 +54751,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_transit_gateway_route_request.ReplaceTransitGatewayRouteRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_transit_gateway_route_request.ReplaceTransitGatewayRouteRequest = {}
         if destination_cidr_block is not None:
             input_["destination_cidr_block"] = destination_cidr_block
         if transit_gateway_route_table_id is not None:
@@ -54809,7 +54809,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.replace_vpn_tunnel_request.ReplaceVpnTunnelRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.replace_vpn_tunnel_request.ReplaceVpnTunnelRequest = {}
         if vpn_connection_id is not None:
             input_["vpn_connection_id"] = vpn_connection_id
         if vpn_tunnel_outside_ip_address is not None:
@@ -54873,7 +54873,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.report_instance_status_request.ReportInstanceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.report_instance_status_request.ReportInstanceStatusRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instances is not None:
@@ -54949,7 +54949,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.request_spot_fleet_request.RequestSpotFleetRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.request_spot_fleet_request.RequestSpotFleetRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if spot_fleet_request_config is not None:
@@ -55033,7 +55033,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.request_spot_instances_request.RequestSpotInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.request_spot_instances_request.RequestSpotInstancesRequest = {}
         if launch_specification is not None:
             input_["launch_specification"] = launch_specification
         if tag_specifications is not None:
@@ -55105,7 +55105,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_address_attribute_request.ResetAddressAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_address_attribute_request.ResetAddressAttributeRequest = {}
         if allocation_id is not None:
             input_["allocation_id"] = allocation_id
         if attribute is not None:
@@ -55151,7 +55151,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_ebs_default_kms_key_id_request.ResetEbsDefaultKmsKeyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_ebs_default_kms_key_id_request.ResetEbsDefaultKmsKeyIdRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -55201,7 +55201,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_fpga_image_attribute_request.ResetFpgaImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_fpga_image_attribute_request.ResetFpgaImageAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if fpga_image_id is not None:
@@ -55257,7 +55257,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_image_attribute_request.ResetImageAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_image_attribute_request.ResetImageAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if image_id is not None:
@@ -55313,7 +55313,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_instance_attribute_request.ResetInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_instance_attribute_request.ResetInstanceAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if instance_id is not None:
@@ -55363,7 +55363,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_network_interface_attribute_request.ResetNetworkInterfaceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_network_interface_attribute_request.ResetNetworkInterfaceAttributeRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if network_interface_id is not None:
@@ -55419,7 +55419,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.reset_snapshot_attribute_request.ResetSnapshotAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.reset_snapshot_attribute_request.ResetSnapshotAttributeRequest = {}
         if attribute is not None:
             input_["attribute"] = attribute
         if snapshot_id is not None:
@@ -55469,7 +55469,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_address_to_classic_request.RestoreAddressToClassicRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_address_to_classic_request.RestoreAddressToClassicRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if public_ip is not None:
@@ -55515,7 +55515,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_image_from_recycle_bin_request.RestoreImageFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_image_from_recycle_bin_request.RestoreImageFromRecycleBinRequest = {}
         if image_id is not None:
             input_["image_id"] = image_id
         if dry_run is not None:
@@ -55567,7 +55567,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_managed_prefix_list_version_request.RestoreManagedPrefixListVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_managed_prefix_list_version_request.RestoreManagedPrefixListVersionRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if prefix_list_id is not None:
@@ -55617,7 +55617,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_snapshot_from_recycle_bin_request.RestoreSnapshotFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_snapshot_from_recycle_bin_request.RestoreSnapshotFromRecycleBinRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
@@ -55669,7 +55669,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_snapshot_tier_request.RestoreSnapshotTierRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_snapshot_tier_request.RestoreSnapshotTierRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if temporary_restore_days is not None:
@@ -55719,7 +55719,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.restore_volume_from_recycle_bin_request.RestoreVolumeFromRecycleBinRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.restore_volume_from_recycle_bin_request.RestoreVolumeFromRecycleBinRequest = {}
         if volume_id is not None:
             input_["volume_id"] = volume_id
         if dry_run is not None:
@@ -55773,7 +55773,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.revoke_client_vpn_ingress_request.RevokeClientVpnIngressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.revoke_client_vpn_ingress_request.RevokeClientVpnIngressRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if target_network_cidr is not None:
@@ -55845,7 +55845,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.revoke_security_group_egress_request.RevokeSecurityGroupEgressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.revoke_security_group_egress_request.RevokeSecurityGroupEgressRequest = {}
         if security_group_rule_ids is not None:
             input_["security_group_rule_ids"] = security_group_rule_ids
         if dry_run is not None:
@@ -55931,7 +55931,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.revoke_security_group_ingress_request.RevokeSecurityGroupIngressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.revoke_security_group_ingress_request.RevokeSecurityGroupIngressRequest = {}
         if cidr_ip is not None:
             input_["cidr_ip"] = cidr_ip
         if from_port is not None:
@@ -56133,7 +56133,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.run_instances_request.RunInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.run_instances_request.RunInstancesRequest = {}
         if block_device_mappings is not None:
             input_["block_device_mappings"] = block_device_mappings
         if image_id is not None:
@@ -56278,7 +56278,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.run_scheduled_instances_request.RunScheduledInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.run_scheduled_instances_request.RunScheduledInstancesRequest = {}
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -56339,7 +56339,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.search_local_gateway_routes_request.SearchLocalGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.search_local_gateway_routes_request.SearchLocalGatewayRoutesRequest = {}
         if local_gateway_route_table_id is not None:
             input_["local_gateway_route_table_id"] = local_gateway_route_table_id
         if filters is not None:
@@ -56430,7 +56430,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.search_transit_gateway_multicast_groups_request.SearchTransitGatewayMulticastGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.search_transit_gateway_multicast_groups_request.SearchTransitGatewayMulticastGroupsRequest = {}
         if transit_gateway_multicast_domain_id is not None:
             input_["transit_gateway_multicast_domain_id"] = (
                 transit_gateway_multicast_domain_id
@@ -56525,7 +56525,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.search_transit_gateway_routes_request.SearchTransitGatewayRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.search_transit_gateway_routes_request.SearchTransitGatewayRoutesRequest = {}
         if transit_gateway_route_table_id is not None:
             input_["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         if filters is not None:
@@ -56606,7 +56606,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.send_diagnostic_interrupt_request.SendDiagnosticInterruptRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.send_diagnostic_interrupt_request.SendDiagnosticInterruptRequest = {}
         if instance_id is not None:
             input_["instance_id"] = instance_id
         if dry_run is not None:
@@ -56660,7 +56660,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.start_declarative_policies_report_request.StartDeclarativePoliciesReportRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.start_declarative_policies_report_request.StartDeclarativePoliciesReportRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if s3_bucket is not None:
@@ -56722,7 +56722,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.start_instances_request.StartInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.start_instances_request.StartInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if additional_info is not None:
@@ -56778,7 +56778,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.start_network_insights_access_scope_analysis_request.StartNetworkInsightsAccessScopeAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.start_network_insights_access_scope_analysis_request.StartNetworkInsightsAccessScopeAnalysisRequest = {}
         if network_insights_access_scope_id is not None:
             input_["network_insights_access_scope_id"] = (
                 network_insights_access_scope_id
@@ -56847,7 +56847,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.start_network_insights_analysis_request.StartNetworkInsightsAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.start_network_insights_analysis_request.StartNetworkInsightsAnalysisRequest = {}
         if network_insights_path_id is not None:
             input_["network_insights_path_id"] = network_insights_path_id
         if additional_accounts is not None:
@@ -56906,7 +56906,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.start_vpc_endpoint_service_private_dns_verification_request.StartVpcEndpointServicePrivateDnsVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.start_vpc_endpoint_service_private_dns_verification_request.StartVpcEndpointServicePrivateDnsVerificationRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if service_id is not None:
@@ -56966,7 +56966,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.stop_instances_request.StopInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.stop_instances_request.StopInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if hibernate is not None:
@@ -57024,7 +57024,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.terminate_client_vpn_connections_request.TerminateClientVpnConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.terminate_client_vpn_connections_request.TerminateClientVpnConnectionsRequest = {}
         if client_vpn_endpoint_id is not None:
             input_["client_vpn_endpoint_id"] = client_vpn_endpoint_id
         if connection_id is not None:
@@ -57086,7 +57086,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.terminate_instances_request.TerminateInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.terminate_instances_request.TerminateInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if force is not None:
@@ -57142,7 +57142,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.unassign_ipv6_addresses_request.UnassignIpv6AddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.unassign_ipv6_addresses_request.UnassignIpv6AddressesRequest = {}
         if ipv6_prefixes is not None:
             input_["ipv6_prefixes"] = ipv6_prefixes
         if network_interface_id is not None:
@@ -57200,7 +57200,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.unassign_private_ip_addresses_request.UnassignPrivateIpAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.unassign_private_ip_addresses_request.UnassignPrivateIpAddressesRequest = {}
         if ipv4_prefixes is not None:
             input_["ipv4_prefixes"] = ipv4_prefixes
         if network_interface_id is not None:
@@ -57254,7 +57254,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.unassign_private_nat_gateway_address_request.UnassignPrivateNatGatewayAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.unassign_private_nat_gateway_address_request.UnassignPrivateNatGatewayAddressRequest = {}
         if nat_gateway_id is not None:
             input_["nat_gateway_id"] = nat_gateway_id
         if private_ip_addresses is not None:
@@ -57304,7 +57304,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.unlock_snapshot_request.UnlockSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.unlock_snapshot_request.UnlockSnapshotRequest = {}
         if snapshot_id is not None:
             input_["snapshot_id"] = snapshot_id
         if dry_run is not None:
@@ -57352,7 +57352,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.unmonitor_instances_request.UnmonitorInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.unmonitor_instances_request.UnmonitorInstancesRequest = {}
         if instance_ids is not None:
             input_["instance_ids"] = instance_ids
         if dry_run is not None:
@@ -57406,7 +57406,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.update_capacity_manager_monitored_tag_keys_request.UpdateCapacityManagerMonitoredTagKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.update_capacity_manager_monitored_tag_keys_request.UpdateCapacityManagerMonitoredTagKeysRequest = {}
         if activate_tag_keys is not None:
             input_["activate_tag_keys"] = activate_tag_keys
         if deactivate_tag_keys is not None:
@@ -57461,7 +57461,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.update_capacity_manager_organizations_access_request.UpdateCapacityManagerOrganizationsAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.update_capacity_manager_organizations_access_request.UpdateCapacityManagerOrganizationsAccessRequest = {}
         if organizations_access is not None:
             input_["organizations_access"] = organizations_access
         if dry_run is not None:
@@ -57514,7 +57514,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.update_interruptible_capacity_reservation_allocation_request.UpdateInterruptibleCapacityReservationAllocationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.update_interruptible_capacity_reservation_allocation_request.UpdateInterruptibleCapacityReservationAllocationRequest = {}
         if capacity_reservation_id is not None:
             input_["capacity_reservation_id"] = capacity_reservation_id
         if target_instance_count is not None:
@@ -57580,7 +57580,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.update_security_group_rule_descriptions_egress_request.UpdateSecurityGroupRuleDescriptionsEgressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.update_security_group_rule_descriptions_egress_request.UpdateSecurityGroupRuleDescriptionsEgressRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if group_id is not None:
@@ -57652,7 +57652,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.update_security_group_rule_descriptions_ingress_request.UpdateSecurityGroupRuleDescriptionsIngressRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.update_security_group_rule_descriptions_ingress_request.UpdateSecurityGroupRuleDescriptionsIngressRequest = {}
         if dry_run is not None:
             input_["dry_run"] = dry_run
         if group_id is not None:
@@ -57706,7 +57706,7 @@ class EC2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ec2.types.withdraw_byoip_cidr_request.WithdrawByoipCidrRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ec2.types.withdraw_byoip_cidr_request.WithdrawByoipCidrRequest = {}
         if cidr is not None:
             input_["cidr"] = cidr
         if dry_run is not None:

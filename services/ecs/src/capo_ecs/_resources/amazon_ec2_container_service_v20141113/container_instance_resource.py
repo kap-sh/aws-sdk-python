@@ -90,10 +90,11 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_attributes_request.DeleteAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.delete_attributes_request.DeleteAttributesRequest = {
+            "attributes": attributes
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -150,10 +151,11 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_container_instances_request.DescribeContainerInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_container_instances_request.DescribeContainerInstancesRequest = {
+            "container_instances": container_instances
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
         if include is not None:
             input_["include"] = include
 
@@ -227,7 +229,7 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_tasks_request.ListTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_tasks_request.ListTasksRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if container_instance is not None:
@@ -302,10 +304,11 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.put_attributes_request.PutAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.put_attributes_request.PutAttributesRequest = {
+            "attributes": attributes
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["attributes"] = attributes
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -370,7 +373,7 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_container_instance_request.RegisterContainerInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.register_container_instance_request.RegisterContainerInstanceRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if instance_identity_document is not None:
@@ -446,10 +449,11 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_container_agent_request.UpdateContainerAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_container_agent_request.UpdateContainerAgentRequest = {
+            "container_instance": container_instance
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instance"] = container_instance
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -504,11 +508,12 @@ class ContainerInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_container_instances_state_request.UpdateContainerInstancesStateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_container_instances_state_request.UpdateContainerInstancesStateRequest = {
+            "container_instances": container_instances,
+            "status": status,
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
-        input_["status"] = status
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -568,10 +573,11 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_attributes_request.DeleteAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.delete_attributes_request.DeleteAttributesRequest = {
+            "attributes": attributes
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -629,10 +635,11 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_container_instances_request.DescribeContainerInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_container_instances_request.DescribeContainerInstancesRequest = {
+            "container_instances": container_instances
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
         if include is not None:
             input_["include"] = include
 
@@ -709,7 +716,7 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_tasks_request.ListTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_tasks_request.ListTasksRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if container_instance is not None:
@@ -785,10 +792,11 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.put_attributes_request.PutAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.put_attributes_request.PutAttributesRequest = {
+            "attributes": attributes
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -854,7 +862,7 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_container_instance_request.RegisterContainerInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.register_container_instance_request.RegisterContainerInstanceRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if instance_identity_document is not None:
@@ -931,10 +939,11 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_container_agent_request.UpdateContainerAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_container_agent_request.UpdateContainerAgentRequest = {
+            "container_instance": container_instance
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instance"] = container_instance
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -990,11 +999,12 @@ class AsyncContainerInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_container_instances_state_request.UpdateContainerInstancesStateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_container_instances_state_request.UpdateContainerInstancesStateRequest = {
+            "container_instances": container_instances,
+            "status": status,
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["container_instances"] = container_instances
-        input_["status"] = status
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

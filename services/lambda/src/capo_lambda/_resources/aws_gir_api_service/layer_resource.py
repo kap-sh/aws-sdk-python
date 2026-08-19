@@ -80,7 +80,7 @@ class LayerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_layers_request.ListLayersRequest = {}
         if compatible_architecture is not None:
             input_["compatible_architecture"] = compatible_architecture
         if compatible_runtime is not None:
@@ -153,7 +153,7 @@ class AsyncLayerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_layers_request.ListLayersRequest = {}
         if compatible_architecture is not None:
             input_["compatible_architecture"] = compatible_architecture
         if compatible_runtime is not None:

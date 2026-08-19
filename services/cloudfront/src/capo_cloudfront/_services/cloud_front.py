@@ -534,9 +534,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.associate_alias_request.AssociateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["target_distribution_id"] = target_distribution_id
-        input_["alias"] = alias
+        input_: capo_cloudfront.types.associate_alias_request.AssociateAliasRequest = {
+            "target_distribution_id": target_distribution_id,
+            "alias": alias,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -586,9 +587,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.associate_distribution_tenant_web_acl_request.AssociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["web_acl_arn"] = web_acl_arn
+        input_: capo_cloudfront.types.associate_distribution_tenant_web_acl_request.AssociateDistributionTenantWebACLRequest = {
+            "id": id,
+            "web_acl_arn": web_acl_arn,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -640,9 +642,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.associate_distribution_web_acl_request.AssociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["web_acl_arn"] = web_acl_arn
+        input_: capo_cloudfront.types.associate_distribution_web_acl_request.AssociateDistributionWebACLRequest = {
+            "id": id,
+            "web_acl_arn": web_acl_arn,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -756,13 +759,14 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.copy_distribution_request.CopyDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["primary_distribution_id"] = primary_distribution_id
+        input_: capo_cloudfront.types.copy_distribution_request.CopyDistributionRequest = {
+            "primary_distribution_id": primary_distribution_id,
+            "caller_reference": caller_reference,
+        }
         if staging is not None:
             input_["staging"] = staging
         if if_match is not None:
             input_["if_match"] = if_match
-        input_["caller_reference"] = caller_reference
         if enabled is not None:
             input_["enabled"] = enabled
 
@@ -823,9 +827,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_anycast_ip_list_request.CreateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["ip_count"] = ip_count
+        input_: capo_cloudfront.types.create_anycast_ip_list_request.CreateAnycastIpListRequest = {
+            "name": name,
+            "ip_count": ip_count,
+        }
         if tags is not None:
             input_["tags"] = tags
         if ip_address_type is not None:
@@ -879,8 +884,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_cache_policy_request.CreateCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["cache_policy_config"] = cache_policy_config
+        input_: capo_cloudfront.types.create_cache_policy_request.CreateCachePolicyRequest = {
+            "cache_policy_config": cache_policy_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -925,10 +931,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_cloud_front_origin_access_identity_request.CreateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["cloud_front_origin_access_identity_config"] = (
-            cloud_front_origin_access_identity_config
-        )
+        input_: capo_cloudfront.types.create_cloud_front_origin_access_identity_request.CreateCloudFrontOriginAccessIdentityRequest = {
+            "cloud_front_origin_access_identity_config": cloud_front_origin_access_identity_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -979,10 +984,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_connection_function_request.CreateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["connection_function_config"] = connection_function_config
-        input_["connection_function_code"] = connection_function_code
+        input_: capo_cloudfront.types.create_connection_function_request.CreateConnectionFunctionRequest = {
+            "name": name,
+            "connection_function_config": connection_function_config,
+            "connection_function_code": connection_function_code,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -1037,8 +1043,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_connection_group_request.CreateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudfront.types.create_connection_group_request.CreateConnectionGroupRequest = {
+            "name": name
+        }
         if ipv6_enabled is not None:
             input_["ipv6_enabled"] = ipv6_enabled
         if tags is not None:
@@ -1092,10 +1099,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_continuous_deployment_policy_request.CreateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["continuous_deployment_policy_config"] = (
-            continuous_deployment_policy_config
-        )
+        input_: capo_cloudfront.types.create_continuous_deployment_policy_request.CreateContinuousDeploymentPolicyRequest = {
+            "continuous_deployment_policy_config": continuous_deployment_policy_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1202,8 +1208,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_distribution_request.CreateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_config"] = distribution_config
+        input_: capo_cloudfront.types.create_distribution_request.CreateDistributionRequest = {
+            "distribution_config": distribution_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1270,10 +1277,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_distribution_tenant_request.CreateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
-        input_["name"] = name
-        input_["domains"] = domains
+        input_: capo_cloudfront.types.create_distribution_tenant_request.CreateDistributionTenantRequest = {
+            "distribution_id": distribution_id,
+            "name": name,
+            "domains": domains,
+        }
         if tags is not None:
             input_["tags"] = tags
         if customizations is not None:
@@ -1392,8 +1400,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_distribution_with_tags_request.CreateDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_config_with_tags"] = distribution_config_with_tags
+        input_: capo_cloudfront.types.create_distribution_with_tags_request.CreateDistributionWithTagsRequest = {
+            "distribution_config_with_tags": distribution_config_with_tags
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1441,8 +1450,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_field_level_encryption_config_request.CreateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["field_level_encryption_config"] = field_level_encryption_config
+        input_: capo_cloudfront.types.create_field_level_encryption_config_request.CreateFieldLevelEncryptionConfigRequest = {
+            "field_level_encryption_config": field_level_encryption_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1490,10 +1500,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_field_level_encryption_profile_request.CreateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["field_level_encryption_profile_config"] = (
-            field_level_encryption_profile_config
-        )
+        input_: capo_cloudfront.types.create_field_level_encryption_profile_request.CreateFieldLevelEncryptionProfileRequest = {
+            "field_level_encryption_profile_config": field_level_encryption_profile_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1549,10 +1558,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["function_config"] = function_config
-        input_["function_code"] = function_code
+        input_: capo_cloudfront.types.create_function_request.CreateFunctionRequest = {
+            "name": name,
+            "function_config": function_config,
+            "function_code": function_code,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -1603,9 +1613,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_invalidation_request.CreateInvalidationRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
-        input_["invalidation_batch"] = invalidation_batch
+        input_: capo_cloudfront.types.create_invalidation_request.CreateInvalidationRequest = {
+            "distribution_id": distribution_id,
+            "invalidation_batch": invalidation_batch,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1653,9 +1664,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_invalidation_for_distribution_tenant_request.CreateInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["invalidation_batch"] = invalidation_batch
+        input_: capo_cloudfront.types.create_invalidation_for_distribution_tenant_request.CreateInvalidationForDistributionTenantRequest = {
+            "id": id,
+            "invalidation_batch": invalidation_batch,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1699,8 +1711,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_key_group_request.CreateKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["key_group_config"] = key_group_config
+        input_: capo_cloudfront.types.create_key_group_request.CreateKeyGroupRequest = {
+            "key_group_config": key_group_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1763,8 +1776,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest = {
+            "name": name
+        }
         if comment is not None:
             input_["comment"] = comment
         if import_source is not None:
@@ -1816,9 +1830,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_monitoring_subscription_request.CreateMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
-        input_["monitoring_subscription"] = monitoring_subscription
+        input_: capo_cloudfront.types.create_monitoring_subscription_request.CreateMonitoringSubscriptionRequest = {
+            "distribution_id": distribution_id,
+            "monitoring_subscription": monitoring_subscription,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1861,8 +1876,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_origin_access_control_request.CreateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input_["origin_access_control_config"] = origin_access_control_config
+        input_: capo_cloudfront.types.create_origin_access_control_request.CreateOriginAccessControlRequest = {
+            "origin_access_control_config": origin_access_control_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1910,8 +1926,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_origin_request_policy_request.CreateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["origin_request_policy_config"] = origin_request_policy_config
+        input_: capo_cloudfront.types.create_origin_request_policy_request.CreateOriginRequestPolicyRequest = {
+            "origin_request_policy_config": origin_request_policy_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1954,8 +1971,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_public_key_request.CreatePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["public_key_config"] = public_key_config
+        input_: capo_cloudfront.types.create_public_key_request.CreatePublicKeyRequest = {
+            "public_key_config": public_key_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2005,11 +2023,12 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_realtime_log_config_request.CreateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["end_points"] = end_points
-        input_["fields"] = fields
-        input_["name"] = name
-        input_["sampling_rate"] = sampling_rate
+        input_: capo_cloudfront.types.create_realtime_log_config_request.CreateRealtimeLogConfigRequest = {
+            "end_points": end_points,
+            "fields": fields,
+            "name": name,
+            "sampling_rate": sampling_rate,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2057,8 +2076,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_response_headers_policy_request.CreateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["response_headers_policy_config"] = response_headers_policy_config
+        input_: capo_cloudfront.types.create_response_headers_policy_request.CreateResponseHeadersPolicyRequest = {
+            "response_headers_policy_config": response_headers_policy_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2111,8 +2131,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_streaming_distribution_request.CreateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["streaming_distribution_config"] = streaming_distribution_config
+        input_: capo_cloudfront.types.create_streaming_distribution_request.CreateStreamingDistributionRequest = {
+            "streaming_distribution_config": streaming_distribution_config
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2166,10 +2187,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["streaming_distribution_config_with_tags"] = (
-            streaming_distribution_config_with_tags
-        )
+        input_: capo_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest = {
+            "streaming_distribution_config_with_tags": streaming_distribution_config_with_tags
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2222,9 +2242,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["ca_certificates_bundle_source"] = ca_certificates_bundle_source
+        input_: capo_cloudfront.types.create_trust_store_request.CreateTrustStoreRequest = {
+            "name": name,
+            "ca_certificates_bundle_source": ca_certificates_bundle_source,
+        }
         if use_client_certificate_ocsp_endpoint is not None:
             input_["use_client_certificate_ocsp_endpoint"] = (
                 use_client_certificate_ocsp_endpoint
@@ -2284,8 +2305,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.create_vpc_origin_request.CreateVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
+        input_: capo_cloudfront.types.create_vpc_origin_request.CreateVpcOriginRequest = {
+            "vpc_origin_endpoint_config": vpc_origin_endpoint_config
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -2335,9 +2357,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_anycast_ip_list_request.DeleteAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_anycast_ip_list_request.DeleteAnycastIpListRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2383,8 +2406,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_cache_policy_request.DeleteCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_cache_policy_request.DeleteCachePolicyRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2431,8 +2455,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_cloud_front_origin_access_identity_request.DeleteCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_cloud_front_origin_access_identity_request.DeleteCloudFrontOriginAccessIdentityRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2481,9 +2506,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_connection_function_request.DeleteConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_connection_function_request.DeleteConnectionFunctionRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2529,9 +2555,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_connection_group_request.DeleteConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_connection_group_request.DeleteConnectionGroupRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2577,8 +2604,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_continuous_deployment_policy_request.DeleteContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_continuous_deployment_policy_request.DeleteContinuousDeploymentPolicyRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2626,8 +2654,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_distribution_request.DeleteDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_distribution_request.DeleteDistributionRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2674,9 +2703,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_distribution_tenant_request.DeleteDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_distribution_tenant_request.DeleteDistributionTenantRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2721,8 +2751,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_field_level_encryption_config_request.DeleteFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_field_level_encryption_config_request.DeleteFieldLevelEncryptionConfigRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2769,8 +2800,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_field_level_encryption_profile_request.DeleteFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_field_level_encryption_profile_request.DeleteFieldLevelEncryptionProfileRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2817,9 +2849,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_function_request.DeleteFunctionRequest = {
+            "name": name,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2863,8 +2896,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_key_group_request.DeleteKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_key_group_request.DeleteKeyGroupRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -2918,9 +2952,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_key_value_store_request.DeleteKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_key_value_store_request.DeleteKeyValueStoreRequest = {
+            "name": name,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2964,8 +2999,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_monitoring_subscription_request.DeleteMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
+        input_: capo_cloudfront.types.delete_monitoring_subscription_request.DeleteMonitoringSubscriptionRequest = {
+            "distribution_id": distribution_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3010,8 +3046,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_origin_access_control_request.DeleteOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_origin_access_control_request.DeleteOriginAccessControlRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3059,8 +3096,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_origin_request_policy_request.DeleteOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_origin_request_policy_request.DeleteOriginRequestPolicyRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3107,8 +3145,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_public_key_request.DeletePublicKeyRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3154,7 +3193,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_realtime_log_config_request.DeleteRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.delete_realtime_log_config_request.DeleteRealtimeLogConfigRequest = {}
         if name is not None:
             input_["name"] = name
         if arn is not None:
@@ -3202,8 +3241,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_cloudfront.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3249,8 +3289,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_response_headers_policy_request.DeleteResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_response_headers_policy_request.DeleteResponseHeadersPolicyRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3297,8 +3338,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_streaming_distribution_request.DeleteStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.delete_streaming_distribution_request.DeleteStreamingDistributionRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3346,9 +3388,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_trust_store_request.DeleteTrustStoreRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3404,9 +3447,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.delete_vpc_origin_request.DeleteVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.delete_vpc_origin_request.DeleteVpcOriginRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3452,8 +3496,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.describe_connection_function_request.DescribeConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.describe_connection_function_request.DescribeConnectionFunctionRequest = {
+            "identifier": identifier
+        }
         if stage is not None:
             input_["stage"] = stage
 
@@ -3499,8 +3544,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.describe_function_request.DescribeFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudfront.types.describe_function_request.DescribeFunctionRequest = {
+            "name": name
+        }
         if stage is not None:
             input_["stage"] = stage
 
@@ -3552,8 +3598,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudfront.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3600,8 +3647,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.disassociate_distribution_tenant_web_acl_request.DisassociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.disassociate_distribution_tenant_web_acl_request.DisassociateDistributionTenantWebACLRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3650,8 +3698,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.disassociate_distribution_web_acl_request.DisassociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.disassociate_distribution_web_acl_request.DisassociateDistributionWebACLRequest = {
+            "id": id
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -3697,8 +3746,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_anycast_ip_list_request.GetAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_anycast_ip_list_request.GetAnycastIpListRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3740,8 +3790,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_cache_policy_request.GetCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_cache_policy_request.GetCachePolicyRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3783,8 +3834,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_cache_policy_config_request.GetCachePolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_cache_policy_config_request.GetCachePolicyConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3826,8 +3878,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_cloud_front_origin_access_identity_request.GetCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_cloud_front_origin_access_identity_request.GetCloudFrontOriginAccessIdentityRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3869,8 +3922,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_cloud_front_origin_access_identity_config_request.GetCloudFrontOriginAccessIdentityConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_cloud_front_origin_access_identity_config_request.GetCloudFrontOriginAccessIdentityConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3915,8 +3969,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_connection_function_request.GetConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.get_connection_function_request.GetConnectionFunctionRequest = {
+            "identifier": identifier
+        }
         if stage is not None:
             input_["stage"] = stage
 
@@ -3960,8 +4015,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_connection_group_request.GetConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.get_connection_group_request.GetConnectionGroupRequest = {
+            "identifier": identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4003,8 +4059,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_connection_group_by_routing_endpoint_request.GetConnectionGroupByRoutingEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["routing_endpoint"] = routing_endpoint
+        input_: capo_cloudfront.types.get_connection_group_by_routing_endpoint_request.GetConnectionGroupByRoutingEndpointRequest = {
+            "routing_endpoint": routing_endpoint
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4046,8 +4103,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_continuous_deployment_policy_request.GetContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_continuous_deployment_policy_request.GetContinuousDeploymentPolicyRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4089,8 +4147,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_continuous_deployment_policy_config_request.GetContinuousDeploymentPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_continuous_deployment_policy_config_request.GetContinuousDeploymentPolicyConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4132,8 +4191,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_distribution_request.GetDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_distribution_request.GetDistributionRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4175,8 +4235,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_distribution_config_request.GetDistributionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_distribution_config_request.GetDistributionConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4218,8 +4279,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_distribution_tenant_request.GetDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.get_distribution_tenant_request.GetDistributionTenantRequest = {
+            "identifier": identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4261,8 +4323,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_distribution_tenant_by_domain_request.GetDistributionTenantByDomainRequest = {}  # type: ignore[typeddict-item]
-        input_["domain"] = domain
+        input_: capo_cloudfront.types.get_distribution_tenant_by_domain_request.GetDistributionTenantByDomainRequest = {
+            "domain": domain
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4304,8 +4367,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_field_level_encryption_request.GetFieldLevelEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_field_level_encryption_request.GetFieldLevelEncryptionRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4347,8 +4411,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_field_level_encryption_config_request.GetFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_field_level_encryption_config_request.GetFieldLevelEncryptionConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4390,8 +4455,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_field_level_encryption_profile_request.GetFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_field_level_encryption_profile_request.GetFieldLevelEncryptionProfileRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4433,8 +4499,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_field_level_encryption_profile_config_request.GetFieldLevelEncryptionProfileConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_field_level_encryption_profile_config_request.GetFieldLevelEncryptionProfileConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4478,8 +4545,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudfront.types.get_function_request.GetFunctionRequest = {
+            "name": name
+        }
         if stage is not None:
             input_["stage"] = stage
 
@@ -4526,9 +4594,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_invalidation_request.GetInvalidationRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_invalidation_request.GetInvalidationRequest = {
+            "distribution_id": distribution_id,
+            "id": id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4573,9 +4642,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_invalidation_for_distribution_tenant_request.GetInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_tenant_id"] = distribution_tenant_id
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_invalidation_for_distribution_tenant_request.GetInvalidationForDistributionTenantRequest = {
+            "distribution_tenant_id": distribution_tenant_id,
+            "id": id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4616,8 +4686,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_key_group_request.GetKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_key_group_request.GetKeyGroupRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4658,8 +4729,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_key_group_config_request.GetKeyGroupConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_key_group_config_request.GetKeyGroupConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4701,8 +4773,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_managed_certificate_details_request.GetManagedCertificateDetailsRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.get_managed_certificate_details_request.GetManagedCertificateDetailsRequest = {
+            "identifier": identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4746,8 +4819,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_monitoring_subscription_request.GetMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
+        input_: capo_cloudfront.types.get_monitoring_subscription_request.GetMonitoringSubscriptionRequest = {
+            "distribution_id": distribution_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4789,8 +4863,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_origin_access_control_request.GetOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_origin_access_control_request.GetOriginAccessControlRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4832,8 +4907,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_origin_access_control_config_request.GetOriginAccessControlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_origin_access_control_config_request.GetOriginAccessControlConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4875,8 +4951,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_origin_request_policy_request.GetOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_origin_request_policy_request.GetOriginRequestPolicyRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4918,8 +4995,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_origin_request_policy_config_request.GetOriginRequestPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_origin_request_policy_config_request.GetOriginRequestPolicyConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4961,8 +5039,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_public_key_request.GetPublicKeyRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5004,8 +5083,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_public_key_config_request.GetPublicKeyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_public_key_config_request.GetPublicKeyConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5050,7 +5130,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_realtime_log_config_request.GetRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.get_realtime_log_config_request.GetRealtimeLogConfigRequest = {}
         if name is not None:
             input_["name"] = name
         if arn is not None:
@@ -5098,8 +5178,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_cloudfront.types.get_resource_policy_request.GetResourcePolicyRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5141,8 +5222,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_response_headers_policy_request.GetResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_response_headers_policy_request.GetResponseHeadersPolicyRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5184,8 +5266,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_response_headers_policy_config_request.GetResponseHeadersPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_response_headers_policy_config_request.GetResponseHeadersPolicyConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5227,8 +5310,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_streaming_distribution_request.GetStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_streaming_distribution_request.GetStreamingDistributionRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5270,8 +5354,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_streaming_distribution_config_request.GetStreamingDistributionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_streaming_distribution_config_request.GetStreamingDistributionConfigRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5314,8 +5399,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudfront.types.get_trust_store_request.GetTrustStoreRequest = {
+            "identifier": identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5365,8 +5451,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.get_vpc_origin_request.GetVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.get_vpc_origin_request.GetVpcOriginRequest = {
+            "id": id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5412,7 +5499,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_anycast_ip_lists_request.ListAnycastIpListsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_anycast_ip_lists_request.ListAnycastIpListsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5465,7 +5552,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_cache_policies_request.ListCachePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_cache_policies_request.ListCachePoliciesRequest = {}
         if type is not None:
             input_["type"] = type
         if marker is not None:
@@ -5514,7 +5601,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_cloud_front_origin_access_identities_request.ListCloudFrontOriginAccessIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_cloud_front_origin_access_identities_request.ListCloudFrontOriginAccessIdentitiesRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5593,9 +5680,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_conflicting_aliases_request.ListConflictingAliasesRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
-        input_["alias"] = alias
+        input_: capo_cloudfront.types.list_conflicting_aliases_request.ListConflictingAliasesRequest = {
+            "distribution_id": distribution_id,
+            "alias": alias,
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5646,7 +5734,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_connection_functions_request.ListConnectionFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_connection_functions_request.ListConnectionFunctionsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5726,7 +5814,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_connection_groups_request.ListConnectionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_connection_groups_request.ListConnectionGroupsRequest = {}
         if association_filter is not None:
             input_["association_filter"] = association_filter
         if marker is not None:
@@ -5802,7 +5890,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_continuous_deployment_policies_request.ListContinuousDeploymentPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_continuous_deployment_policies_request.ListContinuousDeploymentPoliciesRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5849,7 +5937,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_request.ListDistributionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_request.ListDistributionsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5922,12 +6010,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_anycast_ip_list_id_request.ListDistributionsByAnycastIpListIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_anycast_ip_list_id_request.ListDistributionsByAnycastIpListIdRequest = {
+            "anycast_ip_list_id": anycast_ip_list_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["anycast_ip_list_id"] = anycast_ip_list_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -5974,12 +6063,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_cache_policy_id_request.ListDistributionsByCachePolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_cache_policy_id_request.ListDistributionsByCachePolicyIdRequest = {
+            "cache_policy_id": cache_policy_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["cache_policy_id"] = cache_policy_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6026,12 +6116,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_connection_function_request.ListDistributionsByConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_connection_function_request.ListDistributionsByConnectionFunctionRequest = {
+            "connection_function_identifier": connection_function_identifier
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["connection_function_identifier"] = connection_function_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6100,12 +6191,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_connection_mode_request.ListDistributionsByConnectionModeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_connection_mode_request.ListDistributionsByConnectionModeRequest = {
+            "connection_mode": connection_mode
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["connection_mode"] = connection_mode
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6174,12 +6266,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_key_group_request.ListDistributionsByKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_key_group_request.ListDistributionsByKeyGroupRequest = {
+            "key_group_id": key_group_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["key_group_id"] = key_group_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6226,12 +6319,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_origin_request_policy_id_request.ListDistributionsByOriginRequestPolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_origin_request_policy_id_request.ListDistributionsByOriginRequestPolicyIdRequest = {
+            "origin_request_policy_id": origin_request_policy_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["origin_request_policy_id"] = origin_request_policy_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6279,8 +6373,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_owned_resource_request.ListDistributionsByOwnedResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_cloudfront.types.list_distributions_by_owned_resource_request.ListDistributionsByOwnedResourceRequest = {
+            "resource_arn": resource_arn
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6333,7 +6428,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_realtime_log_config_request.ListDistributionsByRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_realtime_log_config_request.ListDistributionsByRealtimeLogConfigRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6388,12 +6483,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_response_headers_policy_id_request.ListDistributionsByResponseHeadersPolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_response_headers_policy_id_request.ListDistributionsByResponseHeadersPolicyIdRequest = {
+            "response_headers_policy_id": response_headers_policy_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["response_headers_policy_id"] = response_headers_policy_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6440,8 +6536,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_trust_store_request.ListDistributionsByTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["trust_store_identifier"] = trust_store_identifier
+        input_: capo_cloudfront.types.list_distributions_by_trust_store_request.ListDistributionsByTrustStoreRequest = {
+            "trust_store_identifier": trust_store_identifier
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6522,12 +6619,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_vpc_origin_id_request.ListDistributionsByVpcOriginIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_vpc_origin_id_request.ListDistributionsByVpcOriginIdRequest = {
+            "vpc_origin_id": vpc_origin_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["vpc_origin_id"] = vpc_origin_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6573,12 +6671,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest = {
+            "web_acl_id": web_acl_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["web_acl_id"] = web_acl_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -6626,7 +6725,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distribution_tenants_request.ListDistributionTenantsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distribution_tenants_request.ListDistributionTenantsRequest = {}
         if association_filter is not None:
             input_["association_filter"] = association_filter
         if marker is not None:
@@ -6706,7 +6805,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_distribution_tenants_by_customization_request.ListDistributionTenantsByCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_distribution_tenants_by_customization_request.ListDistributionTenantsByCustomizationRequest = {}
         if web_acl_arn is not None:
             input_["web_acl_arn"] = web_acl_arn
         if certificate_arn is not None:
@@ -6788,11 +6887,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_domain_conflicts_request.ListDomainConflictsRequest = {}  # type: ignore[typeddict-item]
-        input_["domain"] = domain
-        input_["domain_control_validation_resource"] = (
-            domain_control_validation_resource
-        )
+        input_: capo_cloudfront.types.list_domain_conflicts_request.ListDomainConflictsRequest = {
+            "domain": domain,
+            "domain_control_validation_resource": domain_control_validation_resource,
+        }
         if max_items is not None:
             input_["max_items"] = max_items
         if marker is not None:
@@ -6864,7 +6962,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_field_level_encryption_configs_request.ListFieldLevelEncryptionConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_field_level_encryption_configs_request.ListFieldLevelEncryptionConfigsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6911,7 +7009,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_field_level_encryption_profiles_request.ListFieldLevelEncryptionProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_field_level_encryption_profiles_request.ListFieldLevelEncryptionProfilesRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6961,7 +7059,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_functions_request.ListFunctionsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7014,8 +7112,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_invalidations_request.ListInvalidationsRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_id"] = distribution_id
+        input_: capo_cloudfront.types.list_invalidations_request.ListInvalidationsRequest = {
+            "distribution_id": distribution_id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7089,8 +7188,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_invalidations_for_distribution_tenant_request.ListInvalidationsForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.list_invalidations_for_distribution_tenant_request.ListInvalidationsForDistributionTenantRequest = {
+            "id": id
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7160,7 +7260,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_key_groups_request.ListKeyGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_key_groups_request.ListKeyGroupsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7217,7 +7317,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_key_value_stores_request.ListKeyValueStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_key_value_stores_request.ListKeyValueStoresRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7289,7 +7389,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_origin_access_controls_request.ListOriginAccessControlsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_origin_access_controls_request.ListOriginAccessControlsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7365,7 +7465,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_origin_request_policies_request.ListOriginRequestPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_origin_request_policies_request.ListOriginRequestPoliciesRequest = {}
         if type is not None:
             input_["type"] = type
         if marker is not None:
@@ -7414,7 +7514,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_public_keys_request.ListPublicKeysRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7484,7 +7584,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_realtime_log_configs_request.ListRealtimeLogConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_realtime_log_configs_request.ListRealtimeLogConfigsRequest = {}
         if max_items is not None:
             input_["max_items"] = max_items
         if marker is not None:
@@ -7537,7 +7637,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest = {}
         if type is not None:
             input_["type"] = type
         if marker is not None:
@@ -7586,7 +7686,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_streaming_distributions_request.ListStreamingDistributionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_streaming_distributions_request.ListStreamingDistributionsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7659,8 +7759,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
+        input_: capo_cloudfront.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource": resource
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7705,7 +7806,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7782,7 +7883,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.list_vpc_origins_request.ListVpcOriginsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.list_vpc_origins_request.ListVpcOriginsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7834,9 +7935,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.publish_connection_function_request.PublishConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.publish_connection_function_request.PublishConnectionFunctionRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7883,9 +7985,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.publish_function_request.PublishFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.publish_function_request.PublishFunctionRequest = {
+            "name": name,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7933,9 +8036,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["policy_document"] = policy_document
+        input_: capo_cloudfront.types.put_resource_policy_request.PutResourcePolicyRequest = {
+            "resource_arn": resource_arn,
+            "policy_document": policy_document,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -7979,9 +8083,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
-        input_["tags"] = tags
+        input_: capo_cloudfront.types.tag_resource_request.TagResourceRequest = {
+            "resource": resource,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8033,12 +8138,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.test_connection_function_request.TestConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.test_connection_function_request.TestConnectionFunctionRequest = {
+            "id": id,
+            "if_match": if_match,
+            "connection_object": connection_object,
+        }
         if stage is not None:
             input_["stage"] = stage
-        input_["connection_object"] = connection_object
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8089,12 +8195,13 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.test_function_request.TestFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.test_function_request.TestFunctionRequest = {
+            "name": name,
+            "if_match": if_match,
+            "event_object": event_object,
+        }
         if stage is not None:
             input_["stage"] = stage
-        input_["event_object"] = event_object
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8138,9 +8245,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource"] = resource
-        input_["tag_keys"] = tag_keys
+        input_: capo_cloudfront.types.untag_resource_request.UntagResourceRequest = {
+            "resource": resource,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8198,13 +8306,14 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_anycast_ip_list_request.UpdateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_anycast_ip_list_request.UpdateAnycastIpListRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
         if ip_address_type is not None:
             input_["ip_address_type"] = ip_address_type
         if ipam_cidr_configs is not None:
             input_["ipam_cidr_configs"] = ipam_cidr_configs
-        input_["if_match"] = if_match
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8259,9 +8368,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_cache_policy_request.UpdateCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["cache_policy_config"] = cache_policy_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_cache_policy_request.UpdateCachePolicyRequest = {
+            "cache_policy_config": cache_policy_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8315,11 +8425,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_cloud_front_origin_access_identity_request.UpdateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["cloud_front_origin_access_identity_config"] = (
-            cloud_front_origin_access_identity_config
-        )
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_cloud_front_origin_access_identity_request.UpdateCloudFrontOriginAccessIdentityRequest = {
+            "cloud_front_origin_access_identity_config": cloud_front_origin_access_identity_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8373,11 +8482,12 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_connection_function_request.UpdateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["if_match"] = if_match
-        input_["connection_function_config"] = connection_function_config
-        input_["connection_function_code"] = connection_function_code
+        input_: capo_cloudfront.types.update_connection_function_request.UpdateConnectionFunctionRequest = {
+            "id": id,
+            "if_match": if_match,
+            "connection_function_config": connection_function_config,
+            "connection_function_code": connection_function_code,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -8433,11 +8543,12 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
         if ipv6_enabled is not None:
             input_["ipv6_enabled"] = ipv6_enabled
-        input_["if_match"] = if_match
         if anycast_ip_list_id is not None:
             input_["anycast_ip_list_id"] = anycast_ip_list_id
         if enabled is not None:
@@ -8492,11 +8603,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_continuous_deployment_policy_request.UpdateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["continuous_deployment_policy_config"] = (
-            continuous_deployment_policy_config
-        )
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_continuous_deployment_policy_request.UpdateContinuousDeploymentPolicyRequest = {
+            "continuous_deployment_policy_config": continuous_deployment_policy_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8609,9 +8719,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_distribution_request.UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["distribution_config"] = distribution_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_distribution_request.UpdateDistributionRequest = {
+            "distribution_config": distribution_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8682,8 +8793,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_distribution_tenant_request.UpdateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_distribution_tenant_request.UpdateDistributionTenantRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
         if distribution_id is not None:
             input_["distribution_id"] = distribution_id
         if domains is not None:
@@ -8694,7 +8807,6 @@ class CloudFrontClient:
             input_["parameters"] = parameters
         if connection_group_id is not None:
             input_["connection_group_id"] = connection_group_id
-        input_["if_match"] = if_match
         if managed_certificate_request is not None:
             input_["managed_certificate_request"] = managed_certificate_request
         if enabled is not None:
@@ -8805,8 +8917,9 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_distribution_with_staging_config_request.UpdateDistributionWithStagingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_distribution_with_staging_config_request.UpdateDistributionWithStagingConfigRequest = {
+            "id": id
+        }
         if staging_distribution_id is not None:
             input_["staging_distribution_id"] = staging_distribution_id
         if if_match is not None:
@@ -8860,9 +8973,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_domain_association_request.UpdateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input_["domain"] = domain
-        input_["target_resource"] = target_resource
+        input_: capo_cloudfront.types.update_domain_association_request.UpdateDomainAssociationRequest = {
+            "domain": domain,
+            "target_resource": target_resource,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8919,9 +9033,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_field_level_encryption_config_request.UpdateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["field_level_encryption_config"] = field_level_encryption_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_field_level_encryption_config_request.UpdateFieldLevelEncryptionConfigRequest = {
+            "field_level_encryption_config": field_level_encryption_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -8979,11 +9094,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_field_level_encryption_profile_request.UpdateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["field_level_encryption_profile_config"] = (
-            field_level_encryption_profile_config
-        )
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_field_level_encryption_profile_request.UpdateFieldLevelEncryptionProfileRequest = {
+            "field_level_encryption_profile_config": field_level_encryption_profile_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9043,11 +9157,12 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_function_request.UpdateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["if_match"] = if_match
-        input_["function_config"] = function_config
-        input_["function_code"] = function_code
+        input_: capo_cloudfront.types.update_function_request.UpdateFunctionRequest = {
+            "name": name,
+            "if_match": if_match,
+            "function_config": function_config,
+            "function_code": function_code,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9097,9 +9212,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_key_group_request.UpdateKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["key_group_config"] = key_group_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_key_group_request.UpdateKeyGroupRequest = {
+            "key_group_config": key_group_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9159,10 +9275,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_key_value_store_request.UpdateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["comment"] = comment
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.update_key_value_store_request.UpdateKeyValueStoreRequest = {
+            "name": name,
+            "comment": comment,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9213,9 +9330,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_origin_access_control_request.UpdateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input_["origin_access_control_config"] = origin_access_control_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_origin_access_control_request.UpdateOriginAccessControlRequest = {
+            "origin_access_control_config": origin_access_control_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9272,9 +9390,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_origin_request_policy_request.UpdateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["origin_request_policy_config"] = origin_request_policy_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_origin_request_policy_request.UpdateOriginRequestPolicyRequest = {
+            "origin_request_policy_config": origin_request_policy_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9327,9 +9446,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_public_key_request.UpdatePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["public_key_config"] = public_key_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_public_key_request.UpdatePublicKeyRequest = {
+            "public_key_config": public_key_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9384,7 +9504,7 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest = {}
         if end_points is not None:
             input_["end_points"] = end_points
         if fields is not None:
@@ -9449,9 +9569,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_response_headers_policy_request.UpdateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["response_headers_policy_config"] = response_headers_policy_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_response_headers_policy_request.UpdateResponseHeadersPolicyRequest = {
+            "response_headers_policy_config": response_headers_policy_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9511,9 +9632,10 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_streaming_distribution_request.UpdateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input_["streaming_distribution_config"] = streaming_distribution_config
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_streaming_distribution_request.UpdateStreamingDistributionRequest = {
+            "streaming_distribution_config": streaming_distribution_config,
+            "id": id,
+        }
         if if_match is not None:
             input_["if_match"] = if_match
 
@@ -9570,15 +9692,16 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudfront.types.update_trust_store_request.UpdateTrustStoreRequest = {
+            "id": id,
+            "if_match": if_match,
+        }
         if ca_certificates_bundle_source is not None:
             input_["ca_certificates_bundle_source"] = ca_certificates_bundle_source
         if use_client_certificate_ocsp_endpoint is not None:
             input_["use_client_certificate_ocsp_endpoint"] = (
                 use_client_certificate_ocsp_endpoint
             )
-        input_["if_match"] = if_match
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9639,10 +9762,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.update_vpc_origin_request.UpdateVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
-        input_["id"] = id
-        input_["if_match"] = if_match
+        input_: capo_cloudfront.types.update_vpc_origin_request.UpdateVpcOriginRequest = {
+            "vpc_origin_endpoint_config": vpc_origin_endpoint_config,
+            "id": id,
+            "if_match": if_match,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -9687,10 +9811,11 @@ class CloudFrontClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudfront.types.verify_dns_configuration_request.VerifyDnsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudfront.types.verify_dns_configuration_request.VerifyDnsConfigurationRequest = {
+            "identifier": identifier
+        }
         if domain is not None:
             input_["domain"] = domain
-        input_["identifier"] = identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

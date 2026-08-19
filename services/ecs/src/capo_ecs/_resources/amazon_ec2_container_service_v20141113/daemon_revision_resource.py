@@ -65,8 +65,9 @@ class DaemonRevisionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_revision_arns"] = daemon_revision_arns
+        input_: capo_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {
+            "daemon_revision_arns": daemon_revision_arns
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -124,8 +125,9 @@ class AsyncDaemonRevisionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_revision_arns"] = daemon_revision_arns
+        input_: capo_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {
+            "daemon_revision_arns": daemon_revision_arns
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

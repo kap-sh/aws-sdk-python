@@ -176,10 +176,11 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso.types.get_role_credentials_request.GetRoleCredentialsRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["account_id"] = account_id
-        input_["access_token"] = access_token
+        input_: capo_sso.types.get_role_credentials_request.GetRoleCredentialsRequest = {
+            "role_name": role_name,
+            "account_id": account_id,
+            "access_token": access_token,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -229,13 +230,14 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso.types.list_account_roles_request.ListAccountRolesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sso.types.list_account_roles_request.ListAccountRolesRequest = {
+            "access_token": access_token,
+            "account_id": account_id,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["access_token"] = access_token
-        input_["account_id"] = account_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -308,12 +310,13 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sso.types.list_accounts_request.ListAccountsRequest = {
+            "access_token": access_token
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["access_token"] = access_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -377,8 +380,9 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso.types.logout_request.LogoutRequest = {}  # type: ignore[typeddict-item]
-        input_["access_token"] = access_token
+        input_: capo_sso.types.logout_request.LogoutRequest = {
+            "access_token": access_token
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

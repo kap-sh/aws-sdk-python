@@ -93,8 +93,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {
+            "name": name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
@@ -164,8 +165,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {
+            "name": name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
@@ -226,8 +228,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider"] = capacity_provider
+        input_: capo_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {
+            "capacity_provider": capacity_provider
+        }
         if cluster is not None:
             input_["cluster"] = cluster
 
@@ -295,7 +298,7 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}
         if capacity_providers is not None:
             input_["capacity_providers"] = capacity_providers
         if cluster is not None:
@@ -377,8 +380,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {
+            "name": name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
@@ -449,8 +453,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {
+            "name": name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
@@ -512,8 +517,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider"] = capacity_provider
+        input_: capo_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {
+            "capacity_provider": capacity_provider
+        }
         if cluster is not None:
             input_["cluster"] = cluster
 
@@ -582,7 +588,7 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}
         if capacity_providers is not None:
             input_["capacity_providers"] = capacity_providers
         if cluster is not None:

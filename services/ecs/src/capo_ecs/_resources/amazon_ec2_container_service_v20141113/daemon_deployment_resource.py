@@ -65,8 +65,9 @@ class DaemonDeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_deployments_request.DescribeDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_deployment_arns"] = daemon_deployment_arns
+        input_: capo_ecs.types.describe_daemon_deployments_request.DescribeDaemonDeploymentsRequest = {
+            "daemon_deployment_arns": daemon_deployment_arns
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -124,8 +125,9 @@ class AsyncDaemonDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_deployments_request.DescribeDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_deployment_arns"] = daemon_deployment_arns
+        input_: capo_ecs.types.describe_daemon_deployments_request.DescribeDaemonDeploymentsRequest = {
+            "daemon_deployment_arns": daemon_deployment_arns
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

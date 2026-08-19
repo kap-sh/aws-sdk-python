@@ -219,11 +219,12 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["label"] = label
-        input_["aws_account_ids"] = aws_account_ids
-        input_["actions"] = actions
+        input_: capo_sqs.types.add_permission_request.AddPermissionRequest = {
+            "queue_url": queue_url,
+            "label": label,
+            "aws_account_ids": aws_account_ids,
+            "actions": actions,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -269,8 +270,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.cancel_message_move_task_request.CancelMessageMoveTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["task_handle"] = task_handle
+        input_: capo_sqs.types.cancel_message_move_task_request.CancelMessageMoveTaskRequest = {
+            "task_handle": task_handle
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -320,10 +322,11 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.change_message_visibility_request.ChangeMessageVisibilityRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["receipt_handle"] = receipt_handle
-        input_["visibility_timeout"] = visibility_timeout
+        input_: capo_sqs.types.change_message_visibility_request.ChangeMessageVisibilityRequest = {
+            "queue_url": queue_url,
+            "receipt_handle": receipt_handle,
+            "visibility_timeout": visibility_timeout,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -375,9 +378,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.change_message_visibility_batch_request.ChangeMessageVisibilityBatchRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["entries"] = entries
+        input_: capo_sqs.types.change_message_visibility_batch_request.ChangeMessageVisibilityBatchRequest = {
+            "queue_url": queue_url,
+            "entries": entries,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -432,8 +436,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.create_queue_request.CreateQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_name"] = queue_name
+        input_: capo_sqs.types.create_queue_request.CreateQueueRequest = {
+            "queue_name": queue_name
+        }
         if attributes is not None:
             input_["attributes"] = attributes
         if tags is not None:
@@ -485,9 +490,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.delete_message_request.DeleteMessageRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["receipt_handle"] = receipt_handle
+        input_: capo_sqs.types.delete_message_request.DeleteMessageRequest = {
+            "queue_url": queue_url,
+            "receipt_handle": receipt_handle,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -539,9 +545,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.delete_message_batch_request.DeleteMessageBatchRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["entries"] = entries
+        input_: capo_sqs.types.delete_message_batch_request.DeleteMessageBatchRequest = {
+            "queue_url": queue_url,
+            "entries": entries,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -585,8 +592,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.delete_queue_request.DeleteQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.delete_queue_request.DeleteQueueRequest = {
+            "queue_url": queue_url
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -637,8 +645,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.get_queue_attributes_request.GetQueueAttributesRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.get_queue_attributes_request.GetQueueAttributesRequest = {
+            "queue_url": queue_url
+        }
         if attribute_names is not None:
             input_["attribute_names"] = attribute_names
 
@@ -688,8 +697,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.get_queue_url_request.GetQueueUrlRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_name"] = queue_name
+        input_: capo_sqs.types.get_queue_url_request.GetQueueUrlRequest = {
+            "queue_name": queue_name
+        }
         if queue_owner_aws_account_id is not None:
             input_["queue_owner_aws_account_id"] = queue_owner_aws_account_id
 
@@ -741,8 +751,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.list_dead_letter_source_queues_request.ListDeadLetterSourceQueuesRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.list_dead_letter_source_queues_request.ListDeadLetterSourceQueuesRequest = {
+            "queue_url": queue_url
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -817,8 +828,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.list_message_move_tasks_request.ListMessageMoveTasksRequest = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
+        input_: capo_sqs.types.list_message_move_tasks_request.ListMessageMoveTasksRequest = {
+            "source_arn": source_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
 
@@ -869,7 +881,7 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.list_queues_request.ListQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sqs.types.list_queues_request.ListQueuesRequest = {}
         if queue_name_prefix is not None:
             input_["queue_name_prefix"] = queue_name_prefix
         if next_token is not None:
@@ -944,8 +956,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.list_queue_tags_request.ListQueueTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.list_queue_tags_request.ListQueueTagsRequest = {
+            "queue_url": queue_url
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -990,8 +1003,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.purge_queue_request.PurgeQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.purge_queue_request.PurgeQueueRequest = {
+            "queue_url": queue_url
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1071,8 +1085,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.receive_message_request.ReceiveMessageRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
+        input_: capo_sqs.types.receive_message_request.ReceiveMessageRequest = {
+            "queue_url": queue_url
+        }
         if attribute_names is not None:
             input_["attribute_names"] = attribute_names
         if message_system_attribute_names is not None:
@@ -1132,9 +1147,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["label"] = label
+        input_: capo_sqs.types.remove_permission_request.RemovePermissionRequest = {
+            "queue_url": queue_url,
+            "label": label,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1206,9 +1222,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.send_message_request.SendMessageRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["message_body"] = message_body
+        input_: capo_sqs.types.send_message_request.SendMessageRequest = {
+            "queue_url": queue_url,
+            "message_body": message_body,
+        }
         if delay_seconds is not None:
             input_["delay_seconds"] = delay_seconds
         if message_attributes is not None:
@@ -1278,9 +1295,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.send_message_batch_request.SendMessageBatchRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["entries"] = entries
+        input_: capo_sqs.types.send_message_batch_request.SendMessageBatchRequest = {
+            "queue_url": queue_url,
+            "entries": entries,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1329,9 +1347,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.set_queue_attributes_request.SetQueueAttributesRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["attributes"] = attributes
+        input_: capo_sqs.types.set_queue_attributes_request.SetQueueAttributesRequest = {
+            "queue_url": queue_url,
+            "attributes": attributes,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1383,8 +1402,9 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.start_message_move_task_request.StartMessageMoveTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["source_arn"] = source_arn
+        input_: capo_sqs.types.start_message_move_task_request.StartMessageMoveTaskRequest = {
+            "source_arn": source_arn
+        }
         if destination_arn is not None:
             input_["destination_arn"] = destination_arn
         if max_number_of_messages_per_second is not None:
@@ -1436,9 +1456,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.tag_queue_request.TagQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["tags"] = tags
+        input_: capo_sqs.types.tag_queue_request.TagQueueRequest = {
+            "queue_url": queue_url,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1484,9 +1505,10 @@ class AsyncSQSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sqs.types.untag_queue_request.UntagQueueRequest = {}  # type: ignore[typeddict-item]
-        input_["queue_url"] = queue_url
-        input_["tag_keys"] = tag_keys
+        input_: capo_sqs.types.untag_queue_request.UntagQueueRequest = {
+            "queue_url": queue_url,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -274,11 +274,12 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.add_permission_input.AddPermissionInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["label"] = label
-        input_["aws_account_id"] = aws_account_id
-        input_["action_name"] = action_name
+        input_: capo_sns.types.add_permission_input.AddPermissionInput = {
+            "topic_arn": topic_arn,
+            "label": label,
+            "aws_account_id": aws_account_id,
+            "action_name": action_name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -322,8 +323,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.check_if_phone_number_is_opted_out_input.CheckIfPhoneNumberIsOptedOutInput = {}  # type: ignore[typeddict-item]
-        input_["phone_number"] = phone_number
+        input_: capo_sns.types.check_if_phone_number_is_opted_out_input.CheckIfPhoneNumberIsOptedOutInput = {
+            "phone_number": phone_number
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -376,9 +378,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.confirm_subscription_input.ConfirmSubscriptionInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["token"] = token
+        input_: capo_sns.types.confirm_subscription_input.ConfirmSubscriptionInput = {
+            "topic_arn": topic_arn,
+            "token": token,
+        }
         if authenticate_on_unsubscribe is not None:
             input_["authenticate_on_unsubscribe"] = authenticate_on_unsubscribe
 
@@ -427,10 +430,11 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.create_platform_application_input.CreatePlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["platform"] = platform
-        input_["attributes"] = attributes
+        input_: capo_sns.types.create_platform_application_input.CreatePlatformApplicationInput = {
+            "name": name,
+            "platform": platform,
+            "attributes": attributes,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -482,9 +486,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.create_platform_endpoint_input.CreatePlatformEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["platform_application_arn"] = platform_application_arn
-        input_["token"] = token
+        input_: capo_sns.types.create_platform_endpoint_input.CreatePlatformEndpointInput = {
+            "platform_application_arn": platform_application_arn,
+            "token": token,
+        }
         if custom_user_data is not None:
             input_["custom_user_data"] = custom_user_data
         if attributes is not None:
@@ -538,8 +543,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.create_sms_sandbox_phone_number_input.CreateSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input_["phone_number"] = phone_number
+        input_: capo_sns.types.create_sms_sandbox_phone_number_input.CreateSMSSandboxPhoneNumberInput = {
+            "phone_number": phone_number
+        }
         if language_code is not None:
             input_["language_code"] = language_code
 
@@ -600,8 +606,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.create_topic_input.CreateTopicInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_sns.types.create_topic_input.CreateTopicInput = {"name": name}
         if attributes is not None:
             input_["attributes"] = attributes
         if tags is not None:
@@ -648,8 +653,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_sns.types.delete_endpoint_input.DeleteEndpointInput = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -690,8 +696,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.delete_platform_application_input.DeletePlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input_["platform_application_arn"] = platform_application_arn
+        input_: capo_sns.types.delete_platform_application_input.DeletePlatformApplicationInput = {
+            "platform_application_arn": platform_application_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -737,8 +744,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.delete_sms_sandbox_phone_number_input.DeleteSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input_["phone_number"] = phone_number
+        input_: capo_sns.types.delete_sms_sandbox_phone_number_input.DeleteSMSSandboxPhoneNumberInput = {
+            "phone_number": phone_number
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -784,8 +792,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.delete_topic_input.DeleteTopicInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
+        input_: capo_sns.types.delete_topic_input.DeleteTopicInput = {
+            "topic_arn": topic_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -830,8 +839,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_data_protection_policy_input.GetDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_sns.types.get_data_protection_policy_input.GetDataProtectionPolicyInput = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -877,8 +887,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_endpoint_attributes_input.GetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_sns.types.get_endpoint_attributes_input.GetEndpointAttributesInput = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -922,8 +933,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_platform_application_attributes_input.GetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["platform_application_arn"] = platform_application_arn
+        input_: capo_sns.types.get_platform_application_attributes_input.GetPlatformApplicationAttributesInput = {
+            "platform_application_arn": platform_application_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -967,7 +979,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_sms_attributes_input.GetSMSAttributesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.get_sms_attributes_input.GetSMSAttributesInput = {}
         if attributes is not None:
             input_["attributes"] = attributes
 
@@ -1006,7 +1018,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput = {}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1050,8 +1062,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_subscription_attributes_input.GetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["subscription_arn"] = subscription_arn
+        input_: capo_sns.types.get_subscription_attributes_input.GetSubscriptionAttributesInput = {
+            "subscription_arn": subscription_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1096,8 +1109,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.get_topic_attributes_input.GetTopicAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
+        input_: capo_sns.types.get_topic_attributes_input.GetTopicAttributesInput = {
+            "topic_arn": topic_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1143,8 +1157,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_endpoints_by_platform_application_input.ListEndpointsByPlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input_["platform_application_arn"] = platform_application_arn
+        input_: capo_sns.types.list_endpoints_by_platform_application_input.ListEndpointsByPlatformApplicationInput = {
+            "platform_application_arn": platform_application_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1216,7 +1231,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_origination_numbers_request.ListOriginationNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_origination_numbers_request.ListOriginationNumbersRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1287,7 +1302,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_phone_numbers_opted_out_input.ListPhoneNumbersOptedOutInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_phone_numbers_opted_out_input.ListPhoneNumbersOptedOutInput = {}
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1351,7 +1366,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_platform_applications_input.ListPlatformApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_platform_applications_input.ListPlatformApplicationsInput = {}
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1419,7 +1434,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_sms_sandbox_phone_numbers_input.ListSMSSandboxPhoneNumbersInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_sms_sandbox_phone_numbers_input.ListSMSSandboxPhoneNumbersInput = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1487,7 +1502,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_subscriptions_input.ListSubscriptionsInput = {}
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1554,8 +1569,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_subscriptions_by_topic_input.ListSubscriptionsByTopicInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
+        input_: capo_sns.types.list_subscriptions_by_topic_input.ListSubscriptionsByTopicInput = {
+            "topic_arn": topic_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1623,8 +1639,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_sns.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1667,7 +1684,7 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.list_topics_input.ListTopicsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.list_topics_input.ListTopicsInput = {}
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -1732,8 +1749,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.opt_in_phone_number_input.OptInPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input_["phone_number"] = phone_number
+        input_: capo_sns.types.opt_in_phone_number_input.OptInPhoneNumberInput = {
+            "phone_number": phone_number
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1806,14 +1824,13 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.publish_input.PublishInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sns.types.publish_input.PublishInput = {"message": message}
         if topic_arn is not None:
             input_["topic_arn"] = topic_arn
         if target_arn is not None:
             input_["target_arn"] = target_arn
         if phone_number is not None:
             input_["phone_number"] = phone_number
-        input_["message"] = message
         if subject is not None:
             input_["subject"] = subject
         if message_structure is not None:
@@ -1885,9 +1902,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.publish_batch_input.PublishBatchInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["publish_batch_request_entries"] = publish_batch_request_entries
+        input_: capo_sns.types.publish_batch_input.PublishBatchInput = {
+            "topic_arn": topic_arn,
+            "publish_batch_request_entries": publish_batch_request_entries,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1932,9 +1950,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.put_data_protection_policy_input.PutDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["data_protection_policy"] = data_protection_policy
+        input_: capo_sns.types.put_data_protection_policy_input.PutDataProtectionPolicyInput = {
+            "resource_arn": resource_arn,
+            "data_protection_policy": data_protection_policy,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1978,9 +1997,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.remove_permission_input.RemovePermissionInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["label"] = label
+        input_: capo_sns.types.remove_permission_input.RemovePermissionInput = {
+            "topic_arn": topic_arn,
+            "label": label,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2024,9 +2044,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.set_endpoint_attributes_input.SetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
-        input_["attributes"] = attributes
+        input_: capo_sns.types.set_endpoint_attributes_input.SetEndpointAttributesInput = {
+            "endpoint_arn": endpoint_arn,
+            "attributes": attributes,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2070,9 +2091,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.set_platform_application_attributes_input.SetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["platform_application_arn"] = platform_application_arn
-        input_["attributes"] = attributes
+        input_: capo_sns.types.set_platform_application_attributes_input.SetPlatformApplicationAttributesInput = {
+            "platform_application_arn": platform_application_arn,
+            "attributes": attributes,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2116,8 +2138,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.set_sms_attributes_input.SetSMSAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["attributes"] = attributes
+        input_: capo_sns.types.set_sms_attributes_input.SetSMSAttributesInput = {
+            "attributes": attributes
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2167,9 +2190,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.set_subscription_attributes_input.SetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["subscription_arn"] = subscription_arn
-        input_["attribute_name"] = attribute_name
+        input_: capo_sns.types.set_subscription_attributes_input.SetSubscriptionAttributesInput = {
+            "subscription_arn": subscription_arn,
+            "attribute_name": attribute_name,
+        }
         if attribute_value is not None:
             input_["attribute_value"] = attribute_value
 
@@ -2220,9 +2244,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.set_topic_attributes_input.SetTopicAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["attribute_name"] = attribute_name
+        input_: capo_sns.types.set_topic_attributes_input.SetTopicAttributesInput = {
+            "topic_arn": topic_arn,
+            "attribute_name": attribute_name,
+        }
         if attribute_value is not None:
             input_["attribute_value"] = attribute_value
 
@@ -2280,9 +2305,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.subscribe_input.SubscribeInput = {}  # type: ignore[typeddict-item]
-        input_["topic_arn"] = topic_arn
-        input_["protocol"] = protocol
+        input_: capo_sns.types.subscribe_input.SubscribeInput = {
+            "topic_arn": topic_arn,
+            "protocol": protocol,
+        }
         if endpoint is not None:
             input_["endpoint"] = endpoint
         if attributes is not None:
@@ -2337,9 +2363,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_sns.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2382,8 +2409,9 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.unsubscribe_input.UnsubscribeInput = {}  # type: ignore[typeddict-item]
-        input_["subscription_arn"] = subscription_arn
+        input_: capo_sns.types.unsubscribe_input.UnsubscribeInput = {
+            "subscription_arn": subscription_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2432,9 +2460,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_sns.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2482,9 +2511,10 @@ class SNSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sns.types.verify_sms_sandbox_phone_number_input.VerifySMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input_["phone_number"] = phone_number
-        input_["one_time_password"] = one_time_password
+        input_: capo_sns.types.verify_sms_sandbox_phone_number_input.VerifySMSSandboxPhoneNumberInput = {
+            "phone_number": phone_number,
+            "one_time_password": one_time_password,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

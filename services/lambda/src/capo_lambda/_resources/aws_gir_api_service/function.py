@@ -266,14 +266,15 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.create_function_request.CreateFunctionRequest = {
+            "function_name": function_name,
+            "role": role,
+            "code": code,
+        }
         if runtime is not None:
             input_["runtime"] = runtime
-        input_["role"] = role
         if handler is not None:
             input_["handler"] = handler
-        input_["code"] = code
         if description is not None:
             input_["description"] = description
         if timeout is not None:
@@ -376,7 +377,7 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_functions_request.ListFunctionsRequest = {}
         if master_region is not None:
             input_["master_region"] = master_region
         if function_version is not None:
@@ -433,8 +434,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {
+            "function_name": function_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -484,8 +486,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {
+            "function_name": function_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -541,8 +544,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -597,9 +601,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["reserved_concurrent_executions"] = reserved_concurrent_executions
+        input_: capo_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {
+            "function_name": function_name,
+            "reserved_concurrent_executions": reserved_concurrent_executions,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -687,8 +692,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {
+            "function_name": function_name
+        }
         if zip_file is not None:
             input_["zip_file"] = zip_file
         if s3_bucket is not None:
@@ -821,8 +827,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {
+            "function_name": function_name
+        }
         if role is not None:
             input_["role"] = role
         if handler is not None:
@@ -917,11 +924,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {
+            "function_name": function_name,
+            "auth_type": auth_type,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        input_["auth_type"] = auth_type
         if cors is not None:
             input_["cors"] = cors
         if invoke_mode is not None:
@@ -969,8 +977,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {
+            "function_name": function_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1017,8 +1026,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1074,8 +1084,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_request.GetFunctionRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1122,8 +1133,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {
+            "function_name": function_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1177,8 +1189,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1224,8 +1237,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {
+            "function_name": function_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1271,9 +1285,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1321,8 +1336,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1378,8 +1394,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_policy_request.GetPolicyRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1429,8 +1446,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -1545,8 +1563,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.invocation_request.InvocationRequest = {
+            "function_name": function_name
+        }
         if invocation_type is not None:
             input_["invocation_type"] = invocation_type
         if log_type is not None:
@@ -1637,9 +1656,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["invoke_args"] = ensure_sync_iterator(invoke_args)
+        input_: capo_lambda.types.invoke_async_request.InvokeAsyncRequest = {
+            "function_name": function_name,
+            "invoke_args": ensure_sync_iterator(invoke_args),
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1733,8 +1753,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {
+            "function_name": function_name
+        }
         if log_type is not None:
             input_["log_type"] = log_type
         if client_context is not None:
@@ -1818,8 +1839,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if durable_execution_name is not None:
@@ -1883,8 +1905,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -1936,9 +1959,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["code_signing_config_arn"] = code_signing_config_arn
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {
+            "code_signing_config_arn": code_signing_config_arn,
+            "function_name": function_name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1985,9 +2009,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["recursive_loop"] = recursive_loop
+        input_: capo_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {
+            "function_name": function_name,
+            "recursive_loop": recursive_loop,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2038,9 +2063,10 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
         if function_scaling_config is not None:
             input_["function_scaling_config"] = function_scaling_config
 
@@ -2097,11 +2123,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {
+            "function_name": function_name,
+            "update_runtime_on": update_runtime_on,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        input_["update_runtime_on"] = update_runtime_on
         if runtime_version_arn is not None:
             input_["runtime_version_arn"] = runtime_version_arn
 
@@ -2160,8 +2187,9 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if auth_type is not None:
@@ -2307,14 +2335,15 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.create_function_request.CreateFunctionRequest = {
+            "function_name": function_name,
+            "role": role,
+            "code": code,
+        }
         if runtime is not None:
             input_["runtime"] = runtime
-        input_["role"] = role
         if handler is not None:
             input_["handler"] = handler
-        input_["code"] = code
         if description is not None:
             input_["description"] = description
         if timeout is not None:
@@ -2418,7 +2447,7 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_functions_request.ListFunctionsRequest = {}
         if master_region is not None:
             input_["master_region"] = master_region
         if function_version is not None:
@@ -2476,8 +2505,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {
+            "function_name": function_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2528,8 +2558,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {
+            "function_name": function_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2586,8 +2617,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -2643,9 +2675,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["reserved_concurrent_executions"] = reserved_concurrent_executions
+        input_: capo_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {
+            "function_name": function_name,
+            "reserved_concurrent_executions": reserved_concurrent_executions,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2734,8 +2767,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {
+            "function_name": function_name
+        }
         if zip_file is not None:
             input_["zip_file"] = zip_file
         if s3_bucket is not None:
@@ -2869,8 +2903,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {
+            "function_name": function_name
+        }
         if role is not None:
             input_["role"] = role
         if handler is not None:
@@ -2966,11 +3001,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {
+            "function_name": function_name,
+            "auth_type": auth_type,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        input_["auth_type"] = auth_type
         if cors is not None:
             input_["cors"] = cors
         if invoke_mode is not None:
@@ -3019,8 +3055,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {
+            "function_name": function_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3068,8 +3105,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3126,8 +3164,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_request.GetFunctionRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3175,8 +3214,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {
+            "function_name": function_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3231,8 +3271,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3279,8 +3320,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {
+            "function_name": function_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3327,9 +3369,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3378,8 +3421,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3436,8 +3480,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_policy_request.GetPolicyRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3488,8 +3533,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -3605,8 +3651,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.invocation_request.InvocationRequest = {
+            "function_name": function_name
+        }
         if invocation_type is not None:
             input_["invocation_type"] = invocation_type
         if log_type is not None:
@@ -3698,9 +3745,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["invoke_args"] = ensure_async_iterator(invoke_args)
+        input_: capo_lambda.types.invoke_async_request.InvokeAsyncRequest = {
+            "function_name": function_name,
+            "invoke_args": ensure_async_iterator(invoke_args),
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3795,8 +3843,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {
+            "function_name": function_name
+        }
         if log_type is not None:
             input_["log_type"] = log_type
         if client_context is not None:
@@ -3881,8 +3930,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if durable_execution_name is not None:
@@ -3947,8 +3997,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -4001,9 +4052,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["code_signing_config_arn"] = code_signing_config_arn
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {
+            "code_signing_config_arn": code_signing_config_arn,
+            "function_name": function_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4051,9 +4103,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["recursive_loop"] = recursive_loop
+        input_: capo_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {
+            "function_name": function_name,
+            "recursive_loop": recursive_loop,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4105,9 +4158,10 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
         if function_scaling_config is not None:
             input_["function_scaling_config"] = function_scaling_config
 
@@ -4165,11 +4219,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {
+            "function_name": function_name,
+            "update_runtime_on": update_runtime_on,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        input_["update_runtime_on"] = update_runtime_on
         if runtime_version_arn is not None:
             input_["runtime_version_arn"] = runtime_version_arn
 
@@ -4229,8 +4284,9 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {
+            "function_name": function_name
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if auth_type is not None:

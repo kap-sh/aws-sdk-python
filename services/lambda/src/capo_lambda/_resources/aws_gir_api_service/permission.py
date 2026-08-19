@@ -121,11 +121,12 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["statement_id"] = statement_id
-        input_["action"] = action
-        input_["principal"] = principal
+        input_: capo_lambda.types.add_permission_request.AddPermissionRequest = {
+            "function_name": function_name,
+            "statement_id": statement_id,
+            "action": action,
+            "principal": principal,
+        }
         if source_arn is not None:
             input_["source_arn"] = source_arn
         if function_url_auth_type is not None:
@@ -199,9 +200,10 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["statement_id"] = statement_id
+        input_: capo_lambda.types.remove_permission_request.RemovePermissionRequest = {
+            "function_name": function_name,
+            "statement_id": statement_id,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if revision_id is not None:
@@ -301,11 +303,12 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["statement_id"] = statement_id
-        input_["action"] = action
-        input_["principal"] = principal
+        input_: capo_lambda.types.add_permission_request.AddPermissionRequest = {
+            "function_name": function_name,
+            "statement_id": statement_id,
+            "action": action,
+            "principal": principal,
+        }
         if source_arn is not None:
             input_["source_arn"] = source_arn
         if function_url_auth_type is not None:
@@ -380,9 +383,10 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["statement_id"] = statement_id
+        input_: capo_lambda.types.remove_permission_request.RemovePermissionRequest = {
+            "function_name": function_name,
+            "statement_id": statement_id,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if revision_id is not None:

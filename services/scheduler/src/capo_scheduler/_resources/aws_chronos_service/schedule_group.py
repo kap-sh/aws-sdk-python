@@ -83,8 +83,9 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {
+            "name": name
+        }
         if tags is not None:
             input_["tags"] = tags
         if client_token is None:
@@ -133,8 +134,9 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -181,8 +183,9 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {
+            "name": name
+        }
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -234,7 +237,7 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}
         if name_prefix is not None:
             input_["name_prefix"] = name_prefix
         if next_token is not None:
@@ -295,8 +298,9 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {
+            "name": name
+        }
         if tags is not None:
             input_["tags"] = tags
         if client_token is None:
@@ -346,8 +350,9 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -395,8 +400,9 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {
+            "name": name
+        }
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -449,7 +455,7 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}
         if name_prefix is not None:
             input_["name_prefix"] = name_prefix
         if next_token is not None:

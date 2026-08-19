@@ -106,12 +106,13 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_name"] = daemon_name
+        input_: capo_ecs.types.create_daemon_request.CreateDaemonRequest = {
+            "daemon_name": daemon_name,
+            "daemon_task_definition_arn": daemon_task_definition_arn,
+            "capacity_provider_arns": capacity_provider_arns,
+        }
         if cluster_arn is not None:
             input_["cluster_arn"] = cluster_arn
-        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
             input_["deployment_configuration"] = deployment_configuration
         if tags is not None:
@@ -177,8 +178,9 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.delete_daemon_request.DeleteDaemonRequest = {
+            "daemon_arn": daemon_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -231,8 +233,9 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.describe_daemon_request.DescribeDaemonRequest = {
+            "daemon_arn": daemon_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -296,8 +299,9 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {
+            "daemon_arn": daemon_arn
+        }
         if status is not None:
             input_["status"] = status
         if created_at is not None:
@@ -365,7 +369,7 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_daemons_request.ListDaemonsRequest = {}
         if cluster_arn is not None:
             input_["cluster_arn"] = cluster_arn
         if capacity_provider_arns is not None:
@@ -444,10 +448,11 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
-        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input_["capacity_provider_arns"] = capacity_provider_arns
+        input_: capo_ecs.types.update_daemon_request.UpdateDaemonRequest = {
+            "daemon_arn": daemon_arn,
+            "daemon_task_definition_arn": daemon_task_definition_arn,
+            "capacity_provider_arns": capacity_provider_arns,
+        }
         if deployment_configuration is not None:
             input_["deployment_configuration"] = deployment_configuration
         if propagate_tags is not None:
@@ -536,12 +541,13 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_name"] = daemon_name
+        input_: capo_ecs.types.create_daemon_request.CreateDaemonRequest = {
+            "daemon_name": daemon_name,
+            "daemon_task_definition_arn": daemon_task_definition_arn,
+            "capacity_provider_arns": capacity_provider_arns,
+        }
         if cluster_arn is not None:
             input_["cluster_arn"] = cluster_arn
-        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
             input_["deployment_configuration"] = deployment_configuration
         if tags is not None:
@@ -608,8 +614,9 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.delete_daemon_request.DeleteDaemonRequest = {
+            "daemon_arn": daemon_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -663,8 +670,9 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.describe_daemon_request.DescribeDaemonRequest = {
+            "daemon_arn": daemon_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -729,8 +737,9 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
+        input_: capo_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {
+            "daemon_arn": daemon_arn
+        }
         if status is not None:
             input_["status"] = status
         if created_at is not None:
@@ -799,7 +808,7 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_daemons_request.ListDaemonsRequest = {}
         if cluster_arn is not None:
             input_["cluster_arn"] = cluster_arn
         if capacity_provider_arns is not None:
@@ -879,10 +888,11 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_arn"] = daemon_arn
-        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input_["capacity_provider_arns"] = capacity_provider_arns
+        input_: capo_ecs.types.update_daemon_request.UpdateDaemonRequest = {
+            "daemon_arn": daemon_arn,
+            "daemon_task_definition_arn": daemon_task_definition_arn,
+            "capacity_provider_arns": capacity_provider_arns,
+        }
         if deployment_configuration is not None:
             input_["deployment_configuration"] = deployment_configuration
         if propagate_tags is not None:

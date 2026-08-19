@@ -78,10 +78,11 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
-        input_["provisioned_concurrent_executions"] = provisioned_concurrent_executions
+        input_: capo_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+            "provisioned_concurrent_executions": provisioned_concurrent_executions,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -138,9 +139,10 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -191,9 +193,10 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -254,10 +257,11 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
-        input_["provisioned_concurrent_executions"] = provisioned_concurrent_executions
+        input_: capo_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+            "provisioned_concurrent_executions": provisioned_concurrent_executions,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -315,9 +319,10 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -369,9 +374,10 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
-        input_["qualifier"] = qualifier
+        input_: capo_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {
+            "function_name": function_name,
+            "qualifier": qualifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

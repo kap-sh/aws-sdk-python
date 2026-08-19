@@ -325,8 +325,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.cancel_key_deletion_request.CancelKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.cancel_key_deletion_request.CancelKeyDeletionRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -379,8 +380,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.connect_custom_key_store_request.ConnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["custom_key_store_id"] = custom_key_store_id
+        input_: capo_kms.types.connect_custom_key_store_request.ConnectCustomKeyStoreRequest = {
+            "custom_key_store_id": custom_key_store_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -433,9 +435,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["alias_name"] = alias_name
-        input_["target_key_id"] = target_key_id
+        input_: capo_kms.types.create_alias_request.CreateAliasRequest = {
+            "alias_name": alias_name,
+            "target_key_id": target_key_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -538,8 +541,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.create_custom_key_store_request.CreateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["custom_key_store_name"] = custom_key_store_name
+        input_: capo_kms.types.create_custom_key_store_request.CreateCustomKeyStoreRequest = {
+            "custom_key_store_name": custom_key_store_name
+        }
         if cloud_hsm_cluster_id is not None:
             input_["cloud_hsm_cluster_id"] = cloud_hsm_cluster_id
         if trust_anchor_certificate is not None:
@@ -654,13 +658,14 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.create_grant_request.CreateGrantRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.create_grant_request.CreateGrantRequest = {
+            "key_id": key_id,
+            "operations": operations,
+        }
         if grantee_principal is not None:
             input_["grantee_principal"] = grantee_principal
         if retiring_principal is not None:
             input_["retiring_principal"] = retiring_principal
-        input_["operations"] = operations
         if constraints is not None:
             input_["constraints"] = constraints
         if grant_tokens is not None:
@@ -751,7 +756,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.create_key_request.CreateKeyRequest = {}
         if policy is not None:
             input_["policy"] = policy
         if description is not None:
@@ -856,7 +861,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.decrypt_request.DecryptRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.decrypt_request.DecryptRequest = {}
         if ciphertext_blob is not None:
             input_["ciphertext_blob"] = ciphertext_blob
         if encryption_context is not None:
@@ -920,8 +925,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["alias_name"] = alias_name
+        input_: capo_kms.types.delete_alias_request.DeleteAliasRequest = {
+            "alias_name": alias_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -971,8 +977,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.delete_custom_key_store_request.DeleteCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["custom_key_store_id"] = custom_key_store_id
+        input_: capo_kms.types.delete_custom_key_store_request.DeleteCustomKeyStoreRequest = {
+            "custom_key_store_id": custom_key_store_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1028,8 +1035,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.delete_imported_key_material_request.DeleteImportedKeyMaterialRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.delete_imported_key_material_request.DeleteImportedKeyMaterialRequest = {
+            "key_id": key_id
+        }
         if key_material_id is not None:
             input_["key_material_id"] = key_material_id
 
@@ -1098,10 +1106,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.derive_shared_secret_request.DeriveSharedSecretRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["key_agreement_algorithm"] = key_agreement_algorithm
-        input_["public_key"] = public_key
+        input_: capo_kms.types.derive_shared_secret_request.DeriveSharedSecretRequest = {
+            "key_id": key_id,
+            "key_agreement_algorithm": key_agreement_algorithm,
+            "public_key": public_key,
+        }
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
@@ -1166,7 +1175,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.describe_custom_key_stores_request.DescribeCustomKeyStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.describe_custom_key_stores_request.DescribeCustomKeyStoresRequest = {}
         if custom_key_store_id is not None:
             input_["custom_key_store_id"] = custom_key_store_id
         if custom_key_store_name is not None:
@@ -1273,8 +1282,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.describe_key_request.DescribeKeyRequest = {
+            "key_id": key_id
+        }
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
 
@@ -1325,8 +1335,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.disable_key_request.DisableKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.disable_key_request.DisableKeyRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1377,8 +1388,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.disable_key_rotation_request.DisableKeyRotationRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.disable_key_rotation_request.DisableKeyRotationRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1427,8 +1439,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.disconnect_custom_key_store_request.DisconnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["custom_key_store_id"] = custom_key_store_id
+        input_: capo_kms.types.disconnect_custom_key_store_request.DisconnectCustomKeyStoreRequest = {
+            "custom_key_store_id": custom_key_store_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1478,8 +1491,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.enable_key_request.EnableKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.enable_key_request.EnableKeyRequest = {"key_id": key_id}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -1534,8 +1546,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.enable_key_rotation_request.EnableKeyRotationRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.enable_key_rotation_request.EnableKeyRotationRequest = {
+            "key_id": key_id
+        }
         if rotation_period_in_days is not None:
             input_["rotation_period_in_days"] = rotation_period_in_days
 
@@ -1608,9 +1621,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.encrypt_request.EncryptRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["plaintext"] = plaintext
+        input_: capo_kms.types.encrypt_request.EncryptRequest = {
+            "key_id": key_id,
+            "plaintext": plaintext,
+        }
         if encryption_context is not None:
             input_["encryption_context"] = encryption_context
         if grant_tokens is not None:
@@ -1691,8 +1705,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_data_key_request.GenerateDataKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.generate_data_key_request.GenerateDataKeyRequest = {
+            "key_id": key_id
+        }
         if encryption_context is not None:
             input_["encryption_context"] = encryption_context
         if number_of_bytes is not None:
@@ -1774,11 +1789,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_data_key_pair_request.GenerateDataKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.generate_data_key_pair_request.GenerateDataKeyPairRequest = {
+            "key_id": key_id,
+            "key_pair_spec": key_pair_spec,
+        }
         if encryption_context is not None:
             input_["encryption_context"] = encryption_context
-        input_["key_id"] = key_id
-        input_["key_pair_spec"] = key_pair_spec
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if recipient is not None:
@@ -1852,11 +1868,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_data_key_pair_without_plaintext_request.GenerateDataKeyPairWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.generate_data_key_pair_without_plaintext_request.GenerateDataKeyPairWithoutPlaintextRequest = {
+            "key_id": key_id,
+            "key_pair_spec": key_pair_spec,
+        }
         if encryption_context is not None:
             input_["encryption_context"] = encryption_context
-        input_["key_id"] = key_id
-        input_["key_pair_spec"] = key_pair_spec
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
@@ -1931,8 +1948,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_data_key_without_plaintext_request.GenerateDataKeyWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.generate_data_key_without_plaintext_request.GenerateDataKeyWithoutPlaintextRequest = {
+            "key_id": key_id
+        }
         if encryption_context is not None:
             input_["encryption_context"] = encryption_context
         if key_spec is not None:
@@ -2006,10 +2024,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_mac_request.GenerateMacRequest = {}  # type: ignore[typeddict-item]
-        input_["message"] = message
-        input_["key_id"] = key_id
-        input_["mac_algorithm"] = mac_algorithm
+        input_: capo_kms.types.generate_mac_request.GenerateMacRequest = {
+            "message": message,
+            "key_id": key_id,
+            "mac_algorithm": mac_algorithm,
+        }
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
@@ -2072,7 +2091,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.generate_random_request.GenerateRandomRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.generate_random_request.GenerateRandomRequest = {}
         if number_of_bytes is not None:
             input_["number_of_bytes"] = number_of_bytes
         if custom_key_store_id is not None:
@@ -2128,8 +2147,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.get_key_last_usage_request.GetKeyLastUsageRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.get_key_last_usage_request.GetKeyLastUsageRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2182,8 +2202,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.get_key_policy_request.GetKeyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.get_key_policy_request.GetKeyPolicyRequest = {
+            "key_id": key_id
+        }
         if policy_name is not None:
             input_["policy_name"] = policy_name
 
@@ -2231,8 +2252,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.get_key_rotation_status_request.GetKeyRotationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.get_key_rotation_status_request.GetKeyRotationStatusRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2282,10 +2304,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.get_parameters_for_import_request.GetParametersForImportRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["wrapping_algorithm"] = wrapping_algorithm
-        input_["wrapping_key_spec"] = wrapping_key_spec
+        input_: capo_kms.types.get_parameters_for_import_request.GetParametersForImportRequest = {
+            "key_id": key_id,
+            "wrapping_algorithm": wrapping_algorithm,
+            "wrapping_key_spec": wrapping_key_spec,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -2343,8 +2366,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.get_public_key_request.GetPublicKeyRequest = {
+            "key_id": key_id
+        }
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
 
@@ -2422,10 +2446,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.import_key_material_request.ImportKeyMaterialRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["import_token"] = import_token
-        input_["encrypted_key_material"] = encrypted_key_material
+        input_: capo_kms.types.import_key_material_request.ImportKeyMaterialRequest = {
+            "key_id": key_id,
+            "import_token": import_token,
+            "encrypted_key_material": encrypted_key_material,
+        }
         if valid_to is not None:
             input_["valid_to"] = valid_to
         if expiration_model is not None:
@@ -2490,7 +2515,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.list_aliases_request.ListAliasesRequest = {}
         if key_id is not None:
             input_["key_id"] = key_id
         if limit is not None:
@@ -2580,12 +2605,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_grants_request.ListGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.list_grants_request.ListGrantsRequest = {
+            "key_id": key_id
+        }
         if limit is not None:
             input_["limit"] = limit
         if marker is not None:
             input_["marker"] = marker
-        input_["key_id"] = key_id
         if grant_id is not None:
             input_["grant_id"] = grant_id
         if grantee_principal is not None:
@@ -2679,8 +2705,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_key_policies_request.ListKeyPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.list_key_policies_request.ListKeyPoliciesRequest = {
+            "key_id": key_id
+        }
         if limit is not None:
             input_["limit"] = limit
         if marker is not None:
@@ -2761,8 +2788,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_key_rotations_request.ListKeyRotationsRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.list_key_rotations_request.ListKeyRotationsRequest = {
+            "key_id": key_id
+        }
         if include_key_material is not None:
             input_["include_key_material"] = include_key_material
         if limit is not None:
@@ -2844,7 +2872,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.list_keys_request.ListKeysRequest = {}
         if limit is not None:
             input_["limit"] = limit
         if marker is not None:
@@ -2923,8 +2951,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_resource_tags_request.ListResourceTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.list_resource_tags_request.ListResourceTagsRequest = {
+            "key_id": key_id
+        }
         if limit is not None:
             input_["limit"] = limit
         if marker is not None:
@@ -3006,7 +3035,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.list_retirable_grants_request.ListRetirableGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.list_retirable_grants_request.ListRetirableGrantsRequest = {}
         if limit is not None:
             input_["limit"] = limit
         if marker is not None:
@@ -3103,11 +3132,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.put_key_policy_request.PutKeyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.put_key_policy_request.PutKeyPolicyRequest = {
+            "key_id": key_id,
+            "policy": policy,
+        }
         if policy_name is not None:
             input_["policy_name"] = policy_name
-        input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
             input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
@@ -3198,14 +3228,15 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.re_encrypt_request.ReEncryptRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.re_encrypt_request.ReEncryptRequest = {
+            "destination_key_id": destination_key_id
+        }
         if ciphertext_blob is not None:
             input_["ciphertext_blob"] = ciphertext_blob
         if source_encryption_context is not None:
             input_["source_encryption_context"] = source_encryption_context
         if source_key_id is not None:
             input_["source_key_id"] = source_key_id
-        input_["destination_key_id"] = destination_key_id
         if destination_encryption_context is not None:
             input_["destination_encryption_context"] = destination_encryption_context
         if source_encryption_algorithm is not None:
@@ -3287,9 +3318,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.replicate_key_request.ReplicateKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["replica_region"] = replica_region
+        input_: capo_kms.types.replicate_key_request.ReplicateKeyRequest = {
+            "key_id": key_id,
+            "replica_region": replica_region,
+        }
         if policy is not None:
             input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
@@ -3359,7 +3391,7 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.retire_grant_request.RetireGrantRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_kms.types.retire_grant_request.RetireGrantRequest = {}
         if grant_token is not None:
             input_["grant_token"] = grant_token
         if key_id is not None:
@@ -3424,9 +3456,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.revoke_grant_request.RevokeGrantRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["grant_id"] = grant_id
+        input_: capo_kms.types.revoke_grant_request.RevokeGrantRequest = {
+            "key_id": key_id,
+            "grant_id": grant_id,
+        }
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -3483,8 +3516,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.rotate_key_on_demand_request.RotateKeyOnDemandRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.rotate_key_on_demand_request.RotateKeyOnDemandRequest = {
+            "key_id": key_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3533,8 +3567,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.schedule_key_deletion_request.ScheduleKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
+        input_: capo_kms.types.schedule_key_deletion_request.ScheduleKeyDeletionRequest = {
+            "key_id": key_id
+        }
         if pending_window_in_days is not None:
             input_["pending_window_in_days"] = pending_window_in_days
 
@@ -3603,14 +3638,15 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.sign_request.SignRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["message"] = message
+        input_: capo_kms.types.sign_request.SignRequest = {
+            "key_id": key_id,
+            "message": message,
+            "signing_algorithm": signing_algorithm,
+        }
         if message_type is not None:
             input_["message_type"] = message_type
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
-        input_["signing_algorithm"] = signing_algorithm
         if dry_run is not None:
             input_["dry_run"] = dry_run
 
@@ -3664,9 +3700,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["tags"] = tags
+        input_: capo_kms.types.tag_resource_request.TagResourceRequest = {
+            "key_id": key_id,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3717,9 +3754,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["tag_keys"] = tag_keys
+        input_: capo_kms.types.untag_resource_request.UntagResourceRequest = {
+            "key_id": key_id,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3770,9 +3808,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["alias_name"] = alias_name
-        input_["target_key_id"] = target_key_id
+        input_: capo_kms.types.update_alias_request.UpdateAliasRequest = {
+            "alias_name": alias_name,
+            "target_key_id": target_key_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3887,8 +3926,9 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.update_custom_key_store_request.UpdateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input_["custom_key_store_id"] = custom_key_store_id
+        input_: capo_kms.types.update_custom_key_store_request.UpdateCustomKeyStoreRequest = {
+            "custom_key_store_id": custom_key_store_id
+        }
         if new_custom_key_store_name is not None:
             input_["new_custom_key_store_name"] = new_custom_key_store_name
         if key_store_password is not None:
@@ -3963,9 +4003,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.update_key_description_request.UpdateKeyDescriptionRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["description"] = description
+        input_: capo_kms.types.update_key_description_request.UpdateKeyDescriptionRequest = {
+            "key_id": key_id,
+            "description": description,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4021,9 +4062,10 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.update_primary_region_request.UpdatePrimaryRegionRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["primary_region"] = primary_region
+        input_: capo_kms.types.update_primary_region_request.UpdatePrimaryRegionRequest = {
+            "key_id": key_id,
+            "primary_region": primary_region,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -4093,13 +4135,14 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.verify_request.VerifyRequest = {}  # type: ignore[typeddict-item]
-        input_["key_id"] = key_id
-        input_["message"] = message
+        input_: capo_kms.types.verify_request.VerifyRequest = {
+            "key_id": key_id,
+            "message": message,
+            "signature": signature,
+            "signing_algorithm": signing_algorithm,
+        }
         if message_type is not None:
             input_["message_type"] = message_type
-        input_["signature"] = signature
-        input_["signing_algorithm"] = signing_algorithm
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
@@ -4168,11 +4211,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_kms.types.verify_mac_request.VerifyMacRequest = {}  # type: ignore[typeddict-item]
-        input_["message"] = message
-        input_["key_id"] = key_id
-        input_["mac_algorithm"] = mac_algorithm
-        input_["mac"] = mac
+        input_: capo_kms.types.verify_mac_request.VerifyMacRequest = {
+            "message": message,
+            "key_id": key_id,
+            "mac_algorithm": mac_algorithm,
+            "mac": mac,
+        }
         if grant_tokens is not None:
             input_["grant_tokens"] = grant_tokens
         if dry_run is not None:

@@ -379,9 +379,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.activate_key_signing_key_request.ActivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["name"] = name
+        input_: capo_route_53.types.activate_key_signing_key_request.ActivateKeySigningKeyRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "name": name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -442,9 +443,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.associate_vpc_with_hosted_zone_request.AssociateVPCWithHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["vpc"] = vpc
+        input_: capo_route_53.types.associate_vpc_with_hosted_zone_request.AssociateVPCWithHostedZoneRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "vpc": vpc,
+        }
         if comment is not None:
             input_["comment"] = comment
 
@@ -499,11 +501,12 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.change_cidr_collection_request.ChangeCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.change_cidr_collection_request.ChangeCidrCollectionRequest = {
+            "id": id,
+            "changes": changes,
+        }
         if collection_version is not None:
             input_["collection_version"] = collection_version
-        input_["changes"] = changes
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -593,9 +596,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["change_batch"] = change_batch
+        input_: capo_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "change_batch": change_batch,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -653,9 +657,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.change_tags_for_resource_request.ChangeTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_id"] = resource_id
+        input_: capo_route_53.types.change_tags_for_resource_request.ChangeTagsForResourceRequest = {
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+        }
         if add_tags is not None:
             input_["add_tags"] = add_tags
         if remove_tag_keys is not None:
@@ -706,9 +711,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_cidr_collection_request.CreateCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["caller_reference"] = caller_reference
+        input_: capo_route_53.types.create_cidr_collection_request.CreateCidrCollectionRequest = {
+            "name": name,
+            "caller_reference": caller_reference,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -754,9 +760,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_health_check_request.CreateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input_["caller_reference"] = caller_reference
-        input_["health_check_config"] = health_check_config
+        input_: capo_route_53.types.create_health_check_request.CreateHealthCheckRequest = {
+            "caller_reference": caller_reference,
+            "health_check_config": health_check_config,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -818,11 +825,12 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_hosted_zone_request.CreateHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_route_53.types.create_hosted_zone_request.CreateHostedZoneRequest = {
+            "name": name,
+            "caller_reference": caller_reference,
+        }
         if vpc is not None:
             input_["vpc"] = vpc
-        input_["caller_reference"] = caller_reference
         if hosted_zone_config is not None:
             input_["hosted_zone_config"] = hosted_zone_config
         if delegation_set_id is not None:
@@ -885,12 +893,13 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_key_signing_key_request.CreateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["caller_reference"] = caller_reference
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["key_management_service_arn"] = key_management_service_arn
-        input_["name"] = name
-        input_["status"] = status
+        input_: capo_route_53.types.create_key_signing_key_request.CreateKeySigningKeyRequest = {
+            "caller_reference": caller_reference,
+            "hosted_zone_id": hosted_zone_id,
+            "key_management_service_arn": key_management_service_arn,
+            "name": name,
+            "status": status,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -939,9 +948,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_query_logging_config_request.CreateQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
+        input_: capo_route_53.types.create_query_logging_config_request.CreateQueryLoggingConfigRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "cloud_watch_logs_log_group_arn": cloud_watch_logs_log_group_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -991,8 +1001,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_reusable_delegation_set_request.CreateReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input_["caller_reference"] = caller_reference
+        input_: capo_route_53.types.create_reusable_delegation_set_request.CreateReusableDelegationSetRequest = {
+            "caller_reference": caller_reference
+        }
         if hosted_zone_id is not None:
             input_["hosted_zone_id"] = hosted_zone_id
 
@@ -1047,9 +1058,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["document"] = document
+        input_: capo_route_53.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {
+            "name": name,
+            "document": document,
+        }
         if comment is not None:
             input_["comment"] = comment
 
@@ -1105,12 +1117,13 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_traffic_policy_instance_request.CreateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["name"] = name
-        input_["ttl"] = ttl
-        input_["traffic_policy_id"] = traffic_policy_id
-        input_["traffic_policy_version"] = traffic_policy_version
+        input_: capo_route_53.types.create_traffic_policy_instance_request.CreateTrafficPolicyInstanceRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "name": name,
+            "ttl": ttl,
+            "traffic_policy_id": traffic_policy_id,
+            "traffic_policy_version": traffic_policy_version,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1162,9 +1175,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_traffic_policy_version_request.CreateTrafficPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["document"] = document
+        input_: capo_route_53.types.create_traffic_policy_version_request.CreateTrafficPolicyVersionRequest = {
+            "id": id,
+            "document": document,
+        }
         if comment is not None:
             input_["comment"] = comment
 
@@ -1214,9 +1228,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.create_vpc_association_authorization_request.CreateVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["vpc"] = vpc
+        input_: capo_route_53.types.create_vpc_association_authorization_request.CreateVPCAssociationAuthorizationRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "vpc": vpc,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1266,9 +1281,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.deactivate_key_signing_key_request.DeactivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["name"] = name
+        input_: capo_route_53.types.deactivate_key_signing_key_request.DeactivateKeySigningKeyRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "name": name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1313,8 +1329,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_cidr_collection_request.DeleteCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.delete_cidr_collection_request.DeleteCidrCollectionRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1358,8 +1375,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_health_check_request.DeleteHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input_["health_check_id"] = health_check_id
+        input_: capo_route_53.types.delete_health_check_request.DeleteHealthCheckRequest = {
+            "health_check_id": health_check_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1405,8 +1423,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_hosted_zone_request.DeleteHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.delete_hosted_zone_request.DeleteHostedZoneRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1455,9 +1474,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_key_signing_key_request.DeleteKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["name"] = name
+        input_: capo_route_53.types.delete_key_signing_key_request.DeleteKeySigningKeyRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "name": name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1501,8 +1521,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_query_logging_config_request.DeleteQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.delete_query_logging_config_request.DeleteQueryLoggingConfigRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1547,8 +1568,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_reusable_delegation_set_request.DeleteReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.delete_reusable_delegation_set_request.DeleteReusableDelegationSetRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1597,9 +1619,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["version"] = version
+        input_: capo_route_53.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {
+            "id": id,
+            "version": version,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1643,8 +1666,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_traffic_policy_instance_request.DeleteTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.delete_traffic_policy_instance_request.DeleteTrafficPolicyInstanceRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1692,9 +1716,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.delete_vpc_association_authorization_request.DeleteVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["vpc"] = vpc
+        input_: capo_route_53.types.delete_vpc_association_authorization_request.DeleteVPCAssociationAuthorizationRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "vpc": vpc,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1743,8 +1768,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.disable_hosted_zone_dnssec_request.DisableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.disable_hosted_zone_dnssec_request.DisableHostedZoneDNSSECRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1796,9 +1822,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.disassociate_vpc_from_hosted_zone_request.DisassociateVPCFromHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["vpc"] = vpc
+        input_: capo_route_53.types.disassociate_vpc_from_hosted_zone_request.DisassociateVPCFromHostedZoneRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "vpc": vpc,
+        }
         if comment is not None:
             input_["comment"] = comment
 
@@ -1850,8 +1877,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.enable_hosted_zone_dnssec_request.EnableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.enable_hosted_zone_dnssec_request.EnableHostedZoneDNSSECRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1893,8 +1921,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_account_limit_request.GetAccountLimitRequest = {}  # type: ignore[typeddict-item]
-        input_["type"] = type
+        input_: capo_route_53.types.get_account_limit_request.GetAccountLimitRequest = {
+            "type": type
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1937,8 +1966,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_change_request.GetChangeRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.get_change_request.GetChangeRequest = {"id": id}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1975,7 +2003,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_checker_ip_ranges_request.GetCheckerIpRangesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.get_checker_ip_ranges_request.GetCheckerIpRangesRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2019,8 +2047,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_dnssec_request.GetDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.get_dnssec_request.GetDNSSECRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2073,7 +2102,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_geo_location_request.GetGeoLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.get_geo_location_request.GetGeoLocationRequest = {}
         if continent_code is not None:
             input_["continent_code"] = continent_code
         if country_code is not None:
@@ -2123,8 +2152,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_health_check_request.GetHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input_["health_check_id"] = health_check_id
+        input_: capo_route_53.types.get_health_check_request.GetHealthCheckRequest = {
+            "health_check_id": health_check_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2159,7 +2189,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_health_check_count_request.GetHealthCheckCountRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.get_health_check_count_request.GetHealthCheckCountRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2202,8 +2232,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_health_check_last_failure_reason_request.GetHealthCheckLastFailureReasonRequest = {}  # type: ignore[typeddict-item]
-        input_["health_check_id"] = health_check_id
+        input_: capo_route_53.types.get_health_check_last_failure_reason_request.GetHealthCheckLastFailureReasonRequest = {
+            "health_check_id": health_check_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2246,8 +2277,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_health_check_status_request.GetHealthCheckStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["health_check_id"] = health_check_id
+        input_: capo_route_53.types.get_health_check_status_request.GetHealthCheckStatusRequest = {
+            "health_check_id": health_check_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2296,8 +2328,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_hosted_zone_request.GetHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.get_hosted_zone_request.GetHostedZoneRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2335,7 +2368,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_hosted_zone_count_request.GetHostedZoneCountRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.get_hosted_zone_count_request.GetHostedZoneCountRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2383,9 +2416,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_hosted_zone_limit_request.GetHostedZoneLimitRequest = {}  # type: ignore[typeddict-item]
-        input_["type"] = type
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.get_hosted_zone_limit_request.GetHostedZoneLimitRequest = {
+            "type": type,
+            "hosted_zone_id": hosted_zone_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2428,8 +2462,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_query_logging_config_request.GetQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.get_query_logging_config_request.GetQueryLoggingConfigRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2473,8 +2508,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_reusable_delegation_set_request.GetReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.get_reusable_delegation_set_request.GetReusableDelegationSetRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2519,9 +2555,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_reusable_delegation_set_limit_request.GetReusableDelegationSetLimitRequest = {}  # type: ignore[typeddict-item]
-        input_["type"] = type
-        input_["delegation_set_id"] = delegation_set_id
+        input_: capo_route_53.types.get_reusable_delegation_set_limit_request.GetReusableDelegationSetLimitRequest = {
+            "type": type,
+            "delegation_set_id": delegation_set_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2566,9 +2603,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["version"] = version
+        input_: capo_route_53.types.get_traffic_policy_request.GetTrafficPolicyRequest = {
+            "id": id,
+            "version": version,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2611,8 +2649,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_traffic_policy_instance_request.GetTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.get_traffic_policy_instance_request.GetTrafficPolicyInstanceRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2647,7 +2686,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.get_traffic_policy_instance_count_request.GetTrafficPolicyInstanceCountRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.get_traffic_policy_instance_count_request.GetTrafficPolicyInstanceCountRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2701,8 +2740,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_cidr_blocks_request.ListCidrBlocksRequest = {}  # type: ignore[typeddict-item]
-        input_["collection_id"] = collection_id
+        input_: capo_route_53.types.list_cidr_blocks_request.ListCidrBlocksRequest = {
+            "collection_id": collection_id
+        }
         if location_name is not None:
             input_["location_name"] = location_name
         if next_token is not None:
@@ -2785,7 +2825,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_cidr_collections_request.ListCidrCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_cidr_collections_request.ListCidrCollectionsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -2861,8 +2901,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_cidr_locations_request.ListCidrLocationsRequest = {}  # type: ignore[typeddict-item]
-        input_["collection_id"] = collection_id
+        input_: capo_route_53.types.list_cidr_locations_request.ListCidrLocationsRequest = {
+            "collection_id": collection_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -2945,7 +2986,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_geo_locations_request.ListGeoLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_geo_locations_request.ListGeoLocationsRequest = {}
         if start_continent_code is not None:
             input_["start_continent_code"] = start_continent_code
         if start_country_code is not None:
@@ -2998,7 +3039,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_health_checks_request.ListHealthChecksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_health_checks_request.ListHealthChecksRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -3077,7 +3118,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_hosted_zones_request.ListHostedZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_hosted_zones_request.ListHostedZonesRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -3161,7 +3202,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_hosted_zones_by_name_request.ListHostedZonesByNameRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_hosted_zones_by_name_request.ListHostedZonesByNameRequest = {}
         if dns_name is not None:
             input_["dns_name"] = dns_name
         if hosted_zone_id is not None:
@@ -3218,9 +3259,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_hosted_zones_by_vpc_request.ListHostedZonesByVPCRequest = {}  # type: ignore[typeddict-item]
-        input_["vpc_id"] = vpc_id
-        input_["vpc_region"] = vpc_region
+        input_: capo_route_53.types.list_hosted_zones_by_vpc_request.ListHostedZonesByVPCRequest = {
+            "vpc_id": vpc_id,
+            "vpc_region": vpc_region,
+        }
         if max_items is not None:
             input_["max_items"] = max_items
         if next_token is not None:
@@ -3274,7 +3316,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_query_logging_configs_request.ListQueryLoggingConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_query_logging_configs_request.ListQueryLoggingConfigsRequest = {}
         if hosted_zone_id is not None:
             input_["hosted_zone_id"] = hosted_zone_id
         if next_token is not None:
@@ -3358,8 +3400,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
         if start_record_name is not None:
             input_["start_record_name"] = start_record_name
         if start_record_type is not None:
@@ -3411,7 +3454,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_reusable_delegation_sets_request.ListReusableDelegationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_reusable_delegation_sets_request.ListReusableDelegationSetsRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -3463,9 +3506,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_id"] = resource_id
+        input_: capo_route_53.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3513,9 +3557,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_type"] = resource_type
-        input_["resource_ids"] = resource_ids
+        input_: capo_route_53.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {
+            "resource_type": resource_type,
+            "resource_ids": resource_ids,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3563,7 +3608,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}
         if traffic_policy_id_marker is not None:
             input_["traffic_policy_id_marker"] = traffic_policy_id_marker
         if max_items is not None:
@@ -3622,7 +3667,7 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_traffic_policy_instances_request.ListTrafficPolicyInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_route_53.types.list_traffic_policy_instances_request.ListTrafficPolicyInstancesRequest = {}
         if hosted_zone_id_marker is not None:
             input_["hosted_zone_id_marker"] = hosted_zone_id_marker
         if traffic_policy_instance_name_marker is not None:
@@ -3688,8 +3733,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_traffic_policy_instances_by_hosted_zone_request.ListTrafficPolicyInstancesByHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.list_traffic_policy_instances_by_hosted_zone_request.ListTrafficPolicyInstancesByHostedZoneRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
         if traffic_policy_instance_name_marker is not None:
             input_["traffic_policy_instance_name_marker"] = (
                 traffic_policy_instance_name_marker
@@ -3759,9 +3805,10 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_traffic_policy_instances_by_policy_request.ListTrafficPolicyInstancesByPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["traffic_policy_id"] = traffic_policy_id
-        input_["traffic_policy_version"] = traffic_policy_version
+        input_: capo_route_53.types.list_traffic_policy_instances_by_policy_request.ListTrafficPolicyInstancesByPolicyRequest = {
+            "traffic_policy_id": traffic_policy_id,
+            "traffic_policy_version": traffic_policy_version,
+        }
         if hosted_zone_id_marker is not None:
             input_["hosted_zone_id_marker"] = hosted_zone_id_marker
         if traffic_policy_instance_name_marker is not None:
@@ -3822,8 +3869,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_traffic_policy_versions_request.ListTrafficPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.list_traffic_policy_versions_request.ListTrafficPolicyVersionsRequest = {
+            "id": id
+        }
         if traffic_policy_version_marker is not None:
             input_["traffic_policy_version_marker"] = traffic_policy_version_marker
         if max_items is not None:
@@ -3877,8 +3925,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.list_vpc_association_authorizations_request.ListVPCAssociationAuthorizationsRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.list_vpc_association_authorizations_request.ListVPCAssociationAuthorizationsRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -3939,10 +3988,11 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.test_dns_answer_request.TestDNSAnswerRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
-        input_["record_name"] = record_name
-        input_["record_type"] = record_type
+        input_: capo_route_53.types.test_dns_answer_request.TestDNSAnswerRequest = {
+            "hosted_zone_id": hosted_zone_id,
+            "record_name": record_name,
+            "record_type": record_type,
+        }
         if resolver_ip is not None:
             input_["resolver_ip"] = resolver_ip
         if edns0_client_subnet_ip is not None:
@@ -4046,8 +4096,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.update_health_check_request.UpdateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input_["health_check_id"] = health_check_id
+        input_: capo_route_53.types.update_health_check_request.UpdateHealthCheckRequest = {
+            "health_check_id": health_check_id
+        }
         if health_check_version is not None:
             input_["health_check_version"] = health_check_version
         if ip_address is not None:
@@ -4127,8 +4178,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest = {
+            "id": id
+        }
         if comment is not None:
             input_["comment"] = comment
 
@@ -4179,8 +4231,9 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.update_hosted_zone_features_request.UpdateHostedZoneFeaturesRequest = {}  # type: ignore[typeddict-item]
-        input_["hosted_zone_id"] = hosted_zone_id
+        input_: capo_route_53.types.update_hosted_zone_features_request.UpdateHostedZoneFeaturesRequest = {
+            "hosted_zone_id": hosted_zone_id
+        }
         if enable_accelerated_recovery is not None:
             input_["enable_accelerated_recovery"] = enable_accelerated_recovery
 
@@ -4230,10 +4283,11 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.update_traffic_policy_comment_request.UpdateTrafficPolicyCommentRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["version"] = version
-        input_["comment"] = comment
+        input_: capo_route_53.types.update_traffic_policy_comment_request.UpdateTrafficPolicyCommentRequest = {
+            "id": id,
+            "version": version,
+            "comment": comment,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4285,11 +4339,12 @@ class AsyncRoute53Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_route_53.types.update_traffic_policy_instance_request.UpdateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
-        input_["ttl"] = ttl
-        input_["traffic_policy_id"] = traffic_policy_id
-        input_["traffic_policy_version"] = traffic_policy_version
+        input_: capo_route_53.types.update_traffic_policy_instance_request.UpdateTrafficPolicyInstanceRequest = {
+            "id": id,
+            "ttl": ttl,
+            "traffic_policy_id": traffic_policy_id,
+            "traffic_policy_version": traffic_policy_version,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

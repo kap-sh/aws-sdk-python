@@ -527,10 +527,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.associate_kms_key_request.AssociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.associate_kms_key_request.AssociateKmsKeyRequest = {
+            "kms_key_id": kms_key_id
+        }
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
-        input_["kms_key_id"] = kms_key_id
         if resource_identifier is not None:
             input_["resource_identifier"] = resource_identifier
 
@@ -580,9 +581,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.associate_source_to_s3_table_integration_request.AssociateSourceToS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["integration_arn"] = integration_arn
-        input_["data_source"] = data_source
+        input_: capo_cloudwatch_logs.types.associate_source_to_s3_table_integration_request.AssociateSourceToS3TableIntegrationRequest = {
+            "integration_arn": integration_arn,
+            "data_source": data_source,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -625,8 +627,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.cancel_export_task_request.CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["task_id"] = task_id
+        input_: capo_cloudwatch_logs.types.cancel_export_task_request.CancelExportTaskRequest = {
+            "task_id": task_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -672,8 +675,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.cancel_import_task_request.CancelImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["import_id"] = import_id
+        input_: capo_cloudwatch_logs.types.cancel_import_task_request.CancelImportTaskRequest = {
+            "import_id": import_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -737,9 +741,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_delivery_request.CreateDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input_["delivery_source_name"] = delivery_source_name
-        input_["delivery_destination_arn"] = delivery_destination_arn
+        input_: capo_cloudwatch_logs.types.create_delivery_request.CreateDeliveryRequest = {
+            "delivery_source_name": delivery_source_name,
+            "delivery_destination_arn": delivery_destination_arn,
+        }
         if record_fields is not None:
             input_["record_fields"] = record_fields
         if field_delimiter is not None:
@@ -812,15 +817,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_export_task_request.CreateExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.create_export_task_request.CreateExportTaskRequest = {
+            "log_group_name": log_group_name,
+            "from": from_,
+            "to": to,
+            "destination": destination,
+        }
         if task_name is not None:
             input_["task_name"] = task_name
-        input_["log_group_name"] = log_group_name
         if log_stream_name_prefix is not None:
             input_["log_stream_name_prefix"] = log_stream_name_prefix
-        input_["from"] = from_
-        input_["to"] = to
-        input_["destination"] = destination
         if destination_prefix is not None:
             input_["destination_prefix"] = destination_prefix
 
@@ -876,9 +882,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_import_task_request.CreateImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input_["import_source_arn"] = import_source_arn
-        input_["import_role_arn"] = import_role_arn
+        input_: capo_cloudwatch_logs.types.create_import_task_request.CreateImportTaskRequest = {
+            "import_source_arn": import_source_arn,
+            "import_role_arn": import_role_arn,
+        }
         if import_filter is not None:
             input_["import_filter"] = import_filter
 
@@ -948,8 +955,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_log_anomaly_detector_request.CreateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_arn_list"] = log_group_arn_list
+        input_: capo_cloudwatch_logs.types.create_log_anomaly_detector_request.CreateLogAnomalyDetectorRequest = {
+            "log_group_arn_list": log_group_arn_list
+        }
         if detector_name is not None:
             input_["detector_name"] = detector_name
         if evaluation_frequency is not None:
@@ -1017,8 +1025,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_log_group_request.CreateLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
+        input_: capo_cloudwatch_logs.types.create_log_group_request.CreateLogGroupRequest = {
+            "log_group_name": log_group_name
+        }
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -1071,9 +1080,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_log_stream_request.CreateLogStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["log_stream_name"] = log_stream_name
+        input_: capo_cloudwatch_logs.types.create_log_stream_request.CreateLogStreamRequest = {
+            "log_group_name": log_group_name,
+            "log_stream_name": log_stream_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1130,11 +1140,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_lookup_table_request.CreateLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input_["lookup_table_name"] = lookup_table_name
+        input_: capo_cloudwatch_logs.types.create_lookup_table_request.CreateLookupTableRequest = {
+            "lookup_table_name": lookup_table_name,
+            "table_body": table_body,
+        }
         if description is not None:
             input_["description"] = description
-        input_["table_body"] = table_body
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
@@ -1228,15 +1239,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.create_scheduled_query_request.CreateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.create_scheduled_query_request.CreateScheduledQueryRequest = {
+            "name": name,
+            "query_language": query_language,
+            "query_string": query_string,
+            "schedule_expression": schedule_expression,
+            "execution_role_arn": execution_role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["query_language"] = query_language
-        input_["query_string"] = query_string
         if log_group_identifiers is not None:
             input_["log_group_identifiers"] = log_group_identifiers
-        input_["schedule_expression"] = schedule_expression
         if timezone is not None:
             input_["timezone"] = timezone
         if start_time_offset is not None:
@@ -1247,7 +1260,6 @@ class AsyncCloudWatchLogsClient:
             input_["schedule_start_time"] = schedule_start_time
         if schedule_end_time is not None:
             input_["schedule_end_time"] = schedule_end_time
-        input_["execution_role_arn"] = execution_role_arn
         if state is not None:
             input_["state"] = state
         if tags is not None:
@@ -1296,9 +1308,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_account_policy_request.DeleteAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_name"] = policy_name
-        input_["policy_type"] = policy_type
+        input_: capo_cloudwatch_logs.types.delete_account_policy_request.DeleteAccountPolicyRequest = {
+            "policy_name": policy_name,
+            "policy_type": policy_type,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1341,8 +1354,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_data_protection_policy_request.DeleteDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
+        input_: capo_cloudwatch_logs.types.delete_data_protection_policy_request.DeleteDataProtectionPolicyRequest = {
+            "log_group_identifier": log_group_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1387,8 +1401,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_delivery_request.DeleteDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudwatch_logs.types.delete_delivery_request.DeleteDeliveryRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1433,8 +1448,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_delivery_destination_request.DeleteDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.delete_delivery_destination_request.DeleteDeliveryDestinationRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1477,8 +1493,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_delivery_destination_policy_request.DeleteDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["delivery_destination_name"] = delivery_destination_name
+        input_: capo_cloudwatch_logs.types.delete_delivery_destination_policy_request.DeleteDeliveryDestinationPolicyRequest = {
+            "delivery_destination_name": delivery_destination_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1523,8 +1540,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_delivery_source_request.DeleteDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.delete_delivery_source_request.DeleteDeliverySourceRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1567,8 +1585,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_name"] = destination_name
+        input_: capo_cloudwatch_logs.types.delete_destination_request.DeleteDestinationRequest = {
+            "destination_name": destination_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1614,8 +1633,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_index_policy_request.DeleteIndexPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
+        input_: capo_cloudwatch_logs.types.delete_index_policy_request.DeleteIndexPolicyRequest = {
+            "log_group_identifier": log_group_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1662,8 +1682,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["integration_name"] = integration_name
+        input_: capo_cloudwatch_logs.types.delete_integration_request.DeleteIntegrationRequest = {
+            "integration_name": integration_name
+        }
         if force is not None:
             input_["force"] = force
 
@@ -1708,8 +1729,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_log_anomaly_detector_request.DeleteLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input_["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: capo_cloudwatch_logs.types.delete_log_anomaly_detector_request.DeleteLogAnomalyDetectorRequest = {
+            "anomaly_detector_arn": anomaly_detector_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1753,8 +1775,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_log_group_request.DeleteLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
+        input_: capo_cloudwatch_logs.types.delete_log_group_request.DeleteLogGroupRequest = {
+            "log_group_name": log_group_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1800,9 +1823,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_log_stream_request.DeleteLogStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["log_stream_name"] = log_stream_name
+        input_: capo_cloudwatch_logs.types.delete_log_stream_request.DeleteLogStreamRequest = {
+            "log_group_name": log_group_name,
+            "log_stream_name": log_stream_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1845,8 +1869,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_lookup_table_request.DeleteLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input_["lookup_table_arn"] = lookup_table_arn
+        input_: capo_cloudwatch_logs.types.delete_lookup_table_request.DeleteLookupTableRequest = {
+            "lookup_table_arn": lookup_table_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1891,9 +1916,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_metric_filter_request.DeleteMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["filter_name"] = filter_name
+        input_: capo_cloudwatch_logs.types.delete_metric_filter_request.DeleteMetricFilterRequest = {
+            "log_group_name": log_group_name,
+            "filter_name": filter_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1937,8 +1963,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_query_definition_request.DeleteQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["query_definition_id"] = query_definition_id
+        input_: capo_cloudwatch_logs.types.delete_query_definition_request.DeleteQueryDefinitionRequest = {
+            "query_definition_id": query_definition_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1989,7 +2016,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}
         if policy_name is not None:
             input_["policy_name"] = policy_name
         if resource_arn is not None:
@@ -2038,8 +2065,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
+        input_: capo_cloudwatch_logs.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {
+            "log_group_name": log_group_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2085,8 +2113,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudwatch_logs.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {
+            "identifier": identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2131,9 +2160,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_subscription_filter_request.DeleteSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["filter_name"] = filter_name
+        input_: capo_cloudwatch_logs.types.delete_subscription_filter_request.DeleteSubscriptionFilterRequest = {
+            "log_group_name": log_group_name,
+            "filter_name": filter_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2177,8 +2207,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
+        input_: capo_cloudwatch_logs.types.delete_transformer_request.DeleteTransformerRequest = {
+            "log_group_identifier": log_group_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2233,8 +2264,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_account_policies_request.DescribeAccountPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_type"] = policy_type
+        input_: capo_cloudwatch_logs.types.describe_account_policies_request.DescribeAccountPoliciesRequest = {
+            "policy_type": policy_type
+        }
         if policy_name is not None:
             input_["policy_name"] = policy_name
         if account_identifiers is not None:
@@ -2300,7 +2332,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_configuration_templates_request.DescribeConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_configuration_templates_request.DescribeConfigurationTemplatesRequest = {}
         if service is not None:
             input_["service"] = service
         if log_types is not None:
@@ -2395,7 +2427,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_deliveries_request.DescribeDeliveriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_deliveries_request.DescribeDeliveriesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if limit is not None:
@@ -2470,7 +2502,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_delivery_destinations_request.DescribeDeliveryDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_delivery_destinations_request.DescribeDeliveryDestinationsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if limit is not None:
@@ -2545,7 +2577,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_delivery_sources_request.DescribeDeliverySourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_delivery_sources_request.DescribeDeliverySourcesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if limit is not None:
@@ -2623,7 +2655,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_destinations_request.DescribeDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_destinations_request.DescribeDestinationsRequest = {}
         if destination_name_prefix is not None:
             input_["destination_name_prefix"] = destination_name_prefix
         if next_token is not None:
@@ -2711,7 +2743,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_export_tasks_request.DescribeExportTasksRequest = {}
         if task_id is not None:
             input_["task_id"] = task_id
         if status_code is not None:
@@ -2766,8 +2798,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_field_indexes_request.DescribeFieldIndexesRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifiers"] = log_group_identifiers
+        input_: capo_cloudwatch_logs.types.describe_field_indexes_request.DescribeFieldIndexesRequest = {
+            "log_group_identifiers": log_group_identifiers
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -2825,8 +2858,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_import_task_batches_request.DescribeImportTaskBatchesRequest = {}  # type: ignore[typeddict-item]
-        input_["import_id"] = import_id
+        input_: capo_cloudwatch_logs.types.describe_import_task_batches_request.DescribeImportTaskBatchesRequest = {
+            "import_id": import_id
+        }
         if batch_import_status is not None:
             input_["batch_import_status"] = batch_import_status
         if limit is not None:
@@ -2890,7 +2924,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_import_tasks_request.DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_import_tasks_request.DescribeImportTasksRequest = {}
         if import_id is not None:
             input_["import_id"] = import_id
         if import_status is not None:
@@ -2947,8 +2981,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_index_policies_request.DescribeIndexPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifiers"] = log_group_identifiers
+        input_: capo_cloudwatch_logs.types.describe_index_policies_request.DescribeIndexPoliciesRequest = {
+            "log_group_identifiers": log_group_identifiers
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -3021,7 +3056,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_log_groups_request.DescribeLogGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_log_groups_request.DescribeLogGroupsRequest = {}
         if account_identifiers is not None:
             input_["account_identifiers"] = account_identifiers
         if log_group_name_prefix is not None:
@@ -3148,7 +3183,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_log_streams_request.DescribeLogStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_log_streams_request.DescribeLogStreamsRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
@@ -3254,7 +3289,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_lookup_tables_request.DescribeLookupTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_lookup_tables_request.DescribeLookupTablesRequest = {}
         if lookup_table_name_prefix is not None:
             input_["lookup_table_name_prefix"] = lookup_table_name_prefix
         if max_results is not None:
@@ -3324,7 +3359,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_metric_filters_request.DescribeMetricFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_metric_filters_request.DescribeMetricFiltersRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if filter_name_prefix is not None:
@@ -3432,7 +3467,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_queries_request.DescribeQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_queries_request.DescribeQueriesRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if status is not None:
@@ -3496,7 +3531,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_query_definitions_request.DescribeQueryDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_query_definitions_request.DescribeQueryDefinitionsRequest = {}
         if query_language is not None:
             input_["query_language"] = query_language
         if query_definition_name_prefix is not None:
@@ -3556,7 +3591,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_resource_policies_request.DescribeResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.describe_resource_policies_request.DescribeResourcePoliciesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if limit is not None:
@@ -3618,8 +3653,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.describe_subscription_filters_request.DescribeSubscriptionFiltersRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
+        input_: capo_cloudwatch_logs.types.describe_subscription_filters_request.DescribeSubscriptionFiltersRequest = {
+            "log_group_name": log_group_name
+        }
         if filter_name_prefix is not None:
             input_["filter_name_prefix"] = filter_name_prefix
         if next_token is not None:
@@ -3703,7 +3739,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.disassociate_kms_key_request.DisassociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.disassociate_kms_key_request.DisassociateKmsKeyRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if resource_identifier is not None:
@@ -3753,8 +3789,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.disassociate_source_from_s3_table_integration_request.DisassociateSourceFromS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudwatch_logs.types.disassociate_source_from_s3_table_integration_request.DisassociateSourceFromS3TableIntegrationRequest = {
+            "identifier": identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3832,7 +3869,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.filter_log_events_request.FilterLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.filter_log_events_request.FilterLogEventsRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
@@ -3899,8 +3936,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_data_protection_policy_request.GetDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
+        input_: capo_cloudwatch_logs.types.get_data_protection_policy_request.GetDataProtectionPolicyRequest = {
+            "log_group_identifier": log_group_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3946,8 +3984,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_delivery_request.GetDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudwatch_logs.types.get_delivery_request.GetDeliveryRequest = {
+            "id": id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3993,8 +4032,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_delivery_destination_request.GetDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.get_delivery_destination_request.GetDeliveryDestinationRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4038,8 +4078,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_delivery_destination_policy_request.GetDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["delivery_destination_name"] = delivery_destination_name
+        input_: capo_cloudwatch_logs.types.get_delivery_destination_policy_request.GetDeliveryDestinationPolicyRequest = {
+            "delivery_destination_name": delivery_destination_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4085,8 +4126,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_delivery_source_request.GetDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.get_delivery_source_request.GetDeliverySourceRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4130,8 +4172,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["integration_name"] = integration_name
+        input_: capo_cloudwatch_logs.types.get_integration_request.GetIntegrationRequest = {
+            "integration_name": integration_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4176,8 +4219,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_anomaly_detector_request.GetLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input_["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: capo_cloudwatch_logs.types.get_log_anomaly_detector_request.GetLogAnomalyDetectorRequest = {
+            "anomaly_detector_arn": anomaly_detector_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4243,12 +4287,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_events_request.GetLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.get_log_events_request.GetLogEventsRequest = {
+            "log_stream_name": log_stream_name
+        }
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
             input_["log_group_identifier"] = log_group_identifier
-        input_["log_stream_name"] = log_stream_name
         if start_time is not None:
             input_["start_time"] = start_time
         if end_time is not None:
@@ -4348,9 +4393,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_fields_request.GetLogFieldsRequest = {}  # type: ignore[typeddict-item]
-        input_["data_source_name"] = data_source_name
-        input_["data_source_type"] = data_source_type
+        input_: capo_cloudwatch_logs.types.get_log_fields_request.GetLogFieldsRequest = {
+            "data_source_name": data_source_name,
+            "data_source_type": data_source_type,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4403,7 +4449,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_group_fields_request.GetLogGroupFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.get_log_group_fields_request.GetLogGroupFieldsRequest = {}
         if log_group_name is not None:
             input_["log_group_name"] = log_group_name
         if time is not None:
@@ -4457,10 +4503,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_object_request.GetLogObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.get_log_object_request.GetLogObjectRequest = {
+            "log_object_pointer": log_object_pointer
+        }
         if unmask is not None:
             input_["unmask"] = unmask
-        input_["log_object_pointer"] = log_object_pointer
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4506,8 +4553,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_log_record_request.GetLogRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["log_record_pointer"] = log_record_pointer
+        input_: capo_cloudwatch_logs.types.get_log_record_request.GetLogRecordRequest = {
+            "log_record_pointer": log_record_pointer
+        }
         if unmask is not None:
             input_["unmask"] = unmask
 
@@ -4554,8 +4602,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_lookup_table_request.GetLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input_["lookup_table_arn"] = lookup_table_arn
+        input_: capo_cloudwatch_logs.types.get_lookup_table_request.GetLookupTableRequest = {
+            "lookup_table_arn": lookup_table_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4609,8 +4658,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_query_results_request.GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
-        input_["query_id"] = query_id
+        input_: capo_cloudwatch_logs.types.get_query_results_request.GetQueryResultsRequest = {
+            "query_id": query_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_items is not None:
@@ -4660,8 +4710,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_scheduled_query_request.GetScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudwatch_logs.types.get_scheduled_query_request.GetScheduledQueryRequest = {
+            "identifier": identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4720,10 +4771,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_scheduled_query_history_request.GetScheduledQueryHistoryRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
+        input_: capo_cloudwatch_logs.types.get_scheduled_query_history_request.GetScheduledQueryHistoryRequest = {
+            "identifier": identifier,
+            "start_time": start_time,
+            "end_time": end_time,
+        }
         if execution_statuses is not None:
             input_["execution_statuses"] = execution_statuses
         if max_results is not None:
@@ -4807,8 +4859,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
+        input_: capo_cloudwatch_logs.types.get_transformer_request.GetTransformerRequest = {
+            "log_group_identifier": log_group_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4877,7 +4930,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_aggregate_log_group_summaries_request.ListAggregateLogGroupSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_aggregate_log_group_summaries_request.ListAggregateLogGroupSummariesRequest = {
+            "group_by": group_by
+        }
         if account_identifiers is not None:
             input_["account_identifiers"] = account_identifiers
         if include_linked_accounts is not None:
@@ -4888,7 +4943,6 @@ class AsyncCloudWatchLogsClient:
             input_["log_group_name_pattern"] = log_group_name_pattern
         if data_sources is not None:
             input_["data_sources"] = data_sources
-        input_["group_by"] = group_by
         if next_token is not None:
             input_["next_token"] = next_token
         if limit is not None:
@@ -4993,7 +5047,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_anomalies_request.ListAnomaliesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_anomalies_request.ListAnomaliesRequest = {}
         if anomaly_detector_arn is not None:
             input_["anomaly_detector_arn"] = anomaly_detector_arn
         if suppression_state is not None:
@@ -5087,7 +5141,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_integrations_request.ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_integrations_request.ListIntegrationsRequest = {}
         if integration_name_prefix is not None:
             input_["integration_name_prefix"] = integration_name_prefix
         if integration_type is not None:
@@ -5145,7 +5199,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_log_anomaly_detectors_request.ListLogAnomalyDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_log_anomaly_detectors_request.ListLogAnomalyDetectorsRequest = {}
         if filter_log_group_arn is not None:
             input_["filter_log_group_arn"] = filter_log_group_arn
         if limit is not None:
@@ -5250,7 +5304,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_log_groups_request.ListLogGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_log_groups_request.ListLogGroupsRequest = {}
         if log_group_name_pattern is not None:
             input_["log_group_name_pattern"] = log_group_name_pattern
         if log_group_class is not None:
@@ -5318,8 +5372,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_log_groups_for_query_request.ListLogGroupsForQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["query_id"] = query_id
+        input_: capo_cloudwatch_logs.types.list_log_groups_for_query_request.ListLogGroupsForQueryRequest = {
+            "query_id": query_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -5400,7 +5455,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -5484,8 +5539,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_sources_for_s3_table_integration_request.ListSourcesForS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["integration_arn"] = integration_arn
+        input_: capo_cloudwatch_logs.types.list_sources_for_s3_table_integration_request.ListSourcesForS3TableIntegrationRequest = {
+            "integration_arn": integration_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -5558,8 +5614,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_cloudwatch_logs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5602,8 +5659,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.list_tags_log_group_request.ListTagsLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
+        input_: capo_cloudwatch_logs.types.list_tags_log_group_request.ListTagsLogGroupRequest = {
+            "log_group_name": log_group_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5658,10 +5716,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_account_policy_request.PutAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_name"] = policy_name
-        input_["policy_document"] = policy_document
-        input_["policy_type"] = policy_type
+        input_: capo_cloudwatch_logs.types.put_account_policy_request.PutAccountPolicyRequest = {
+            "policy_name": policy_name,
+            "policy_document": policy_document,
+            "policy_type": policy_type,
+        }
         if scope is not None:
             input_["scope"] = scope
         if selection_criteria is not None:
@@ -5712,11 +5771,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_bearer_token_authentication_request.PutBearerTokenAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
-        input_["bearer_token_authentication_enabled"] = (
-            bearer_token_authentication_enabled
-        )
+        input_: capo_cloudwatch_logs.types.put_bearer_token_authentication_request.PutBearerTokenAuthenticationRequest = {
+            "log_group_identifier": log_group_identifier,
+            "bearer_token_authentication_enabled": bearer_token_authentication_enabled,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5764,9 +5822,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_data_protection_policy_request.PutDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
-        input_["policy_document"] = policy_document
+        input_: capo_cloudwatch_logs.types.put_data_protection_policy_request.PutDataProtectionPolicyRequest = {
+            "log_group_identifier": log_group_identifier,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5827,8 +5886,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_delivery_destination_request.PutDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_cloudwatch_logs.types.put_delivery_destination_request.PutDeliveryDestinationRequest = {
+            "name": name
+        }
         if output_format is not None:
             input_["output_format"] = output_format
         if delivery_destination_configuration is not None:
@@ -5885,9 +5945,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_delivery_destination_policy_request.PutDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["delivery_destination_name"] = delivery_destination_name
-        input_["delivery_destination_policy"] = delivery_destination_policy
+        input_: capo_cloudwatch_logs.types.put_delivery_destination_policy_request.PutDeliveryDestinationPolicyRequest = {
+            "delivery_destination_name": delivery_destination_name,
+            "delivery_destination_policy": delivery_destination_policy,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5944,10 +6005,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_delivery_source_request.PutDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["resource_arn"] = resource_arn
-        input_["log_type"] = log_type
+        input_: capo_cloudwatch_logs.types.put_delivery_source_request.PutDeliverySourceRequest = {
+            "name": name,
+            "resource_arn": resource_arn,
+            "log_type": log_type,
+        }
         if tags is not None:
             input_["tags"] = tags
         if delivery_source_configuration is not None:
@@ -6001,10 +6063,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_destination_request.PutDestinationRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_name"] = destination_name
-        input_["target_arn"] = target_arn
-        input_["role_arn"] = role_arn
+        input_: capo_cloudwatch_logs.types.put_destination_request.PutDestinationRequest = {
+            "destination_name": destination_name,
+            "target_arn": target_arn,
+            "role_arn": role_arn,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -6054,9 +6117,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_destination_policy_request.PutDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["destination_name"] = destination_name
-        input_["access_policy"] = access_policy
+        input_: capo_cloudwatch_logs.types.put_destination_policy_request.PutDestinationPolicyRequest = {
+            "destination_name": destination_name,
+            "access_policy": access_policy,
+        }
         if force_update is not None:
             input_["force_update"] = force_update
 
@@ -6106,9 +6170,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_index_policy_request.PutIndexPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
-        input_["policy_document"] = policy_document
+        input_: capo_cloudwatch_logs.types.put_index_policy_request.PutIndexPolicyRequest = {
+            "log_group_identifier": log_group_identifier,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6157,10 +6222,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input_["integration_name"] = integration_name
-        input_["resource_config"] = resource_config
-        input_["integration_type"] = integration_type
+        input_: capo_cloudwatch_logs.types.put_integration_request.PutIntegrationRequest = {
+            "integration_name": integration_name,
+            "resource_config": resource_config,
+            "integration_type": integration_type,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6217,10 +6283,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_log_events_request.PutLogEventsRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["log_stream_name"] = log_stream_name
-        input_["log_events"] = log_events
+        input_: capo_cloudwatch_logs.types.put_log_events_request.PutLogEventsRequest = {
+            "log_group_name": log_group_name,
+            "log_stream_name": log_stream_name,
+            "log_events": log_events,
+        }
         if sequence_token is not None:
             input_["sequence_token"] = sequence_token
         if entity is not None:
@@ -6271,9 +6338,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_log_group_deletion_protection_request.PutLogGroupDeletionProtectionRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
-        input_["deletion_protection_enabled"] = deletion_protection_enabled
+        input_: capo_cloudwatch_logs.types.put_log_group_deletion_protection_request.PutLogGroupDeletionProtectionRequest = {
+            "log_group_identifier": log_group_identifier,
+            "deletion_protection_enabled": deletion_protection_enabled,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6336,11 +6404,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_metric_filter_request.PutMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["filter_name"] = filter_name
-        input_["filter_pattern"] = filter_pattern
-        input_["metric_transformations"] = metric_transformations
+        input_: capo_cloudwatch_logs.types.put_metric_filter_request.PutMetricFilterRequest = {
+            "log_group_name": log_group_name,
+            "filter_name": filter_name,
+            "filter_pattern": filter_pattern,
+            "metric_transformations": metric_transformations,
+        }
         if apply_on_transformed_logs is not None:
             input_["apply_on_transformed_logs"] = apply_on_transformed_logs
         if field_selection_criteria is not None:
@@ -6413,15 +6482,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_query_definition_request.PutQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.put_query_definition_request.PutQueryDefinitionRequest = {
+            "name": name,
+            "query_string": query_string,
+        }
         if query_language is not None:
             input_["query_language"] = query_language
-        input_["name"] = name
         if query_definition_id is not None:
             input_["query_definition_id"] = query_definition_id
         if log_group_names is not None:
             input_["log_group_names"] = log_group_names
-        input_["query_string"] = query_string
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -6484,7 +6554,7 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.put_resource_policy_request.PutResourcePolicyRequest = {}
         if policy_name is not None:
             input_["policy_name"] = policy_name
         if policy_document is not None:
@@ -6536,9 +6606,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_retention_policy_request.PutRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["retention_in_days"] = retention_in_days
+        input_: capo_cloudwatch_logs.types.put_retention_policy_request.PutRetentionPolicyRequest = {
+            "log_group_name": log_group_name,
+            "retention_in_days": retention_in_days,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6607,11 +6678,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_subscription_filter_request.PutSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["filter_name"] = filter_name
-        input_["filter_pattern"] = filter_pattern
-        input_["destination_arn"] = destination_arn
+        input_: capo_cloudwatch_logs.types.put_subscription_filter_request.PutSubscriptionFilterRequest = {
+            "log_group_name": log_group_name,
+            "filter_name": filter_name,
+            "filter_pattern": filter_pattern,
+            "destination_arn": destination_arn,
+        }
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if distribution is not None:
@@ -6668,9 +6740,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.put_transformer_request.PutTransformerRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifier"] = log_group_identifier
-        input_["transformer_config"] = transformer_config
+        input_: capo_cloudwatch_logs.types.put_transformer_request.PutTransformerRequest = {
+            "log_group_identifier": log_group_identifier,
+            "transformer_config": transformer_config,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6728,8 +6801,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.start_live_tail_request.StartLiveTailRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_identifiers"] = log_group_identifiers
+        input_: capo_cloudwatch_logs.types.start_live_tail_request.StartLiveTailRequest = {
+            "log_group_identifiers": log_group_identifiers
+        }
         if log_stream_names is not None:
             input_["log_stream_names"] = log_stream_names
         if log_stream_name_prefixes is not None:
@@ -6804,7 +6878,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.start_query_request.StartQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.start_query_request.StartQueryRequest = {
+            "start_time": start_time,
+            "end_time": end_time,
+            "query_string": query_string,
+        }
         if query_language is not None:
             input_["query_language"] = query_language
         if log_group_name is not None:
@@ -6813,9 +6891,6 @@ class AsyncCloudWatchLogsClient:
             input_["log_group_names"] = log_group_names
         if log_group_identifiers is not None:
             input_["log_group_identifiers"] = log_group_identifiers
-        input_["start_time"] = start_time
-        input_["end_time"] = end_time
-        input_["query_string"] = query_string
         if limit is not None:
             input_["limit"] = limit
 
@@ -6861,8 +6936,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.stop_query_request.StopQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["query_id"] = query_id
+        input_: capo_cloudwatch_logs.types.stop_query_request.StopQueryRequest = {
+            "query_id": query_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6905,9 +6981,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.tag_log_group_request.TagLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["tags"] = tags
+        input_: capo_cloudwatch_logs.types.tag_log_group_request.TagLogGroupRequest = {
+            "log_group_name": log_group_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6952,9 +7029,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_cloudwatch_logs.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6998,9 +7076,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.test_metric_filter_request.TestMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input_["filter_pattern"] = filter_pattern
-        input_["log_event_messages"] = log_event_messages
+        input_: capo_cloudwatch_logs.types.test_metric_filter_request.TestMetricFilterRequest = {
+            "filter_pattern": filter_pattern,
+            "log_event_messages": log_event_messages,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7046,9 +7125,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.test_transformer_request.TestTransformerRequest = {}  # type: ignore[typeddict-item]
-        input_["transformer_config"] = transformer_config
-        input_["log_event_messages"] = log_event_messages
+        input_: capo_cloudwatch_logs.types.test_transformer_request.TestTransformerRequest = {
+            "transformer_config": transformer_config,
+            "log_event_messages": log_event_messages,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7090,9 +7170,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.untag_log_group_request.UntagLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["log_group_name"] = log_group_name
-        input_["tags"] = tags
+        input_: capo_cloudwatch_logs.types.untag_log_group_request.UntagLogGroupRequest = {
+            "log_group_name": log_group_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7136,9 +7217,10 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_cloudwatch_logs.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7195,12 +7277,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.update_anomaly_request.UpdateAnomalyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_cloudwatch_logs.types.update_anomaly_request.UpdateAnomalyRequest = {
+            "anomaly_detector_arn": anomaly_detector_arn
+        }
         if anomaly_id is not None:
             input_["anomaly_id"] = anomaly_id
         if pattern_id is not None:
             input_["pattern_id"] = pattern_id
-        input_["anomaly_detector_arn"] = anomaly_detector_arn
         if suppression_type is not None:
             input_["suppression_type"] = suppression_type
         if suppression_period is not None:
@@ -7265,8 +7348,9 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.update_delivery_configuration_request.UpdateDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input_["id"] = id
+        input_: capo_cloudwatch_logs.types.update_delivery_configuration_request.UpdateDeliveryConfigurationRequest = {
+            "id": id
+        }
         if record_fields is not None:
             input_["record_fields"] = record_fields
         if field_delimiter is not None:
@@ -7328,15 +7412,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.update_log_anomaly_detector_request.UpdateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input_["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: capo_cloudwatch_logs.types.update_log_anomaly_detector_request.UpdateLogAnomalyDetectorRequest = {
+            "anomaly_detector_arn": anomaly_detector_arn,
+            "enabled": enabled,
+        }
         if evaluation_frequency is not None:
             input_["evaluation_frequency"] = evaluation_frequency
         if filter_pattern is not None:
             input_["filter_pattern"] = filter_pattern
         if anomaly_visibility_time is not None:
             input_["anomaly_visibility_time"] = anomaly_visibility_time
-        input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7390,11 +7475,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.update_lookup_table_request.UpdateLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input_["lookup_table_arn"] = lookup_table_arn
+        input_: capo_cloudwatch_logs.types.update_lookup_table_request.UpdateLookupTableRequest = {
+            "lookup_table_arn": lookup_table_arn,
+            "table_body": table_body,
+        }
         if description is not None:
             input_["description"] = description
-        input_["table_body"] = table_body
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
 
@@ -7482,15 +7568,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_cloudwatch_logs.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["identifier"] = identifier
+        input_: capo_cloudwatch_logs.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {
+            "identifier": identifier,
+            "query_language": query_language,
+            "query_string": query_string,
+            "schedule_expression": schedule_expression,
+            "execution_role_arn": execution_role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["query_language"] = query_language
-        input_["query_string"] = query_string
         if log_group_identifiers is not None:
             input_["log_group_identifiers"] = log_group_identifiers
-        input_["schedule_expression"] = schedule_expression
         if timezone is not None:
             input_["timezone"] = timezone
         if start_time_offset is not None:
@@ -7501,7 +7589,6 @@ class AsyncCloudWatchLogsClient:
             input_["schedule_start_time"] = schedule_start_time
         if schedule_end_time is not None:
             input_["schedule_end_time"] = schedule_end_time
-        input_["execution_role_arn"] = execution_role_arn
         if state is not None:
             input_["state"] = state
 

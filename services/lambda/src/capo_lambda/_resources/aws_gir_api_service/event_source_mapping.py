@@ -196,10 +196,11 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {
+            "function_name": function_name
+        }
         if event_source_arn is not None:
             input_["event_source_arn"] = event_source_arn
-        input_["function_name"] = function_name
         if enabled is not None:
             input_["enabled"] = enabled
         if batch_size is not None:
@@ -307,8 +308,9 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {
+            "uuid": uuid
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -435,8 +437,9 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {
+            "uuid": uuid
+        }
         if function_name is not None:
             input_["function_name"] = function_name
         if enabled is not None:
@@ -536,8 +539,9 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {
+            "uuid": uuid
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -595,7 +599,7 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}
         if event_source_arn is not None:
             input_["event_source_arn"] = event_source_arn
         if function_name is not None:
@@ -752,10 +756,11 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {
+            "function_name": function_name
+        }
         if event_source_arn is not None:
             input_["event_source_arn"] = event_source_arn
-        input_["function_name"] = function_name
         if enabled is not None:
             input_["enabled"] = enabled
         if batch_size is not None:
@@ -864,8 +869,9 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {
+            "uuid": uuid
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -993,8 +999,9 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {
+            "uuid": uuid
+        }
         if function_name is not None:
             input_["function_name"] = function_name
         if enabled is not None:
@@ -1095,8 +1102,9 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input_["uuid"] = uuid
+        input_: capo_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {
+            "uuid": uuid
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1155,7 +1163,7 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}
         if event_source_arn is not None:
             input_["event_source_arn"] = event_source_arn
         if function_name is not None:

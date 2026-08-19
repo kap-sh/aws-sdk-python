@@ -122,11 +122,14 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {
+            "name": name,
+            "schedule_expression": schedule_expression,
+            "target": target,
+            "flexible_time_window": flexible_time_window,
+        }
         if group_name is not None:
             input_["group_name"] = group_name
-        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
             input_["start_date"] = start_date
         if end_date is not None:
@@ -139,8 +142,6 @@ class Schedule:
             input_["state"] = state
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
-        input_["target"] = target
-        input_["flexible_time_window"] = flexible_time_window
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -193,8 +194,9 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {
+            "name": name
+        }
         if group_name is not None:
             input_["group_name"] = group_name
 
@@ -271,11 +273,14 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {
+            "name": name,
+            "schedule_expression": schedule_expression,
+            "target": target,
+            "flexible_time_window": flexible_time_window,
+        }
         if group_name is not None:
             input_["group_name"] = group_name
-        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
             input_["start_date"] = start_date
         if end_date is not None:
@@ -288,8 +293,6 @@ class Schedule:
             input_["state"] = state
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
-        input_["target"] = target
-        input_["flexible_time_window"] = flexible_time_window
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -345,8 +348,9 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {
+            "name": name
+        }
         if group_name is not None:
             input_["group_name"] = group_name
         if client_token is None:
@@ -405,7 +409,7 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}
         if group_name is not None:
             input_["group_name"] = group_name
         if name_prefix is not None:
@@ -497,11 +501,14 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.create_schedule_input.CreateScheduleInput = {
+            "name": name,
+            "schedule_expression": schedule_expression,
+            "target": target,
+            "flexible_time_window": flexible_time_window,
+        }
         if group_name is not None:
             input_["group_name"] = group_name
-        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
             input_["start_date"] = start_date
         if end_date is not None:
@@ -514,8 +521,6 @@ class AsyncSchedule:
             input_["state"] = state
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
-        input_["target"] = target
-        input_["flexible_time_window"] = flexible_time_window
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -569,8 +574,9 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.get_schedule_input.GetScheduleInput = {
+            "name": name
+        }
         if group_name is not None:
             input_["group_name"] = group_name
 
@@ -648,11 +654,14 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.update_schedule_input.UpdateScheduleInput = {
+            "name": name,
+            "schedule_expression": schedule_expression,
+            "target": target,
+            "flexible_time_window": flexible_time_window,
+        }
         if group_name is not None:
             input_["group_name"] = group_name
-        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
             input_["start_date"] = start_date
         if end_date is not None:
@@ -665,8 +674,6 @@ class AsyncSchedule:
             input_["state"] = state
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
-        input_["target"] = target
-        input_["flexible_time_window"] = flexible_time_window
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -723,8 +730,9 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_scheduler.types.delete_schedule_input.DeleteScheduleInput = {
+            "name": name
+        }
         if group_name is not None:
             input_["group_name"] = group_name
         if client_token is None:
@@ -784,7 +792,7 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_scheduler.types.list_schedules_input.ListSchedulesInput = {}
         if group_name is not None:
             input_["group_name"] = group_name
         if name_prefix is not None:

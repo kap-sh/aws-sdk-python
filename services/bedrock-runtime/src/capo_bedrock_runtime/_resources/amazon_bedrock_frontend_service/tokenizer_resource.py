@@ -70,9 +70,10 @@ class TokenizerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.count_tokens_request.CountTokensRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
-        input_["input"] = input
+        input_: capo_bedrock_runtime.types.count_tokens_request.CountTokensRequest = {
+            "model_id": model_id,
+            "input": input,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -126,9 +127,10 @@ class AsyncTokenizerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_runtime.types.count_tokens_request.CountTokensRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
-        input_["input"] = input
+        input_: capo_bedrock_runtime.types.count_tokens_request.CountTokensRequest = {
+            "model_id": model_id,
+            "input": input,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

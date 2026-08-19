@@ -251,9 +251,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_names"] = load_balancer_names
-        input_["tags"] = tags
+        input_: capo_elastic_load_balancing.types.add_tags_input.AddTagsInput = {
+            "load_balancer_names": load_balancer_names,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -305,9 +306,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.apply_security_groups_to_load_balancer_input.ApplySecurityGroupsToLoadBalancerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["security_groups"] = security_groups
+        input_: capo_elastic_load_balancing.types.apply_security_groups_to_load_balancer_input.ApplySecurityGroupsToLoadBalancerInput = {
+            "load_balancer_name": load_balancer_name,
+            "security_groups": security_groups,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -360,9 +362,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.attach_load_balancer_to_subnets_input.AttachLoadBalancerToSubnetsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["subnets"] = subnets
+        input_: capo_elastic_load_balancing.types.attach_load_balancer_to_subnets_input.AttachLoadBalancerToSubnetsInput = {
+            "load_balancer_name": load_balancer_name,
+            "subnets": subnets,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -412,9 +415,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.configure_health_check_input.ConfigureHealthCheckInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["health_check"] = health_check
+        input_: capo_elastic_load_balancing.types.configure_health_check_input.ConfigureHealthCheckInput = {
+            "load_balancer_name": load_balancer_name,
+            "health_check": health_check,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -469,10 +473,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input.CreateAppCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["policy_name"] = policy_name
-        input_["cookie_name"] = cookie_name
+        input_: capo_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input.CreateAppCookieStickinessPolicyInput = {
+            "load_balancer_name": load_balancer_name,
+            "policy_name": policy_name,
+            "cookie_name": cookie_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -529,9 +534,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.create_lb_cookie_stickiness_policy_input.CreateLBCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["policy_name"] = policy_name
+        input_: capo_elastic_load_balancing.types.create_lb_cookie_stickiness_policy_input.CreateLBCookieStickinessPolicyInput = {
+            "load_balancer_name": load_balancer_name,
+            "policy_name": policy_name,
+        }
         if cookie_expiration_period is not None:
             input_["cookie_expiration_period"] = cookie_expiration_period
 
@@ -626,9 +632,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.create_access_point_input.CreateAccessPointInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["listeners"] = listeners
+        input_: capo_elastic_load_balancing.types.create_access_point_input.CreateAccessPointInput = {
+            "load_balancer_name": load_balancer_name,
+            "listeners": listeners,
+        }
         if availability_zones is not None:
             input_["availability_zones"] = availability_zones
         if subnets is not None:
@@ -696,9 +703,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.create_load_balancer_listener_input.CreateLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["listeners"] = listeners
+        input_: capo_elastic_load_balancing.types.create_load_balancer_listener_input.CreateLoadBalancerListenerInput = {
+            "load_balancer_name": load_balancer_name,
+            "listeners": listeners,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -766,10 +774,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.create_load_balancer_policy_input.CreateLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["policy_name"] = policy_name
-        input_["policy_type_name"] = policy_type_name
+        input_: capo_elastic_load_balancing.types.create_load_balancer_policy_input.CreateLoadBalancerPolicyInput = {
+            "load_balancer_name": load_balancer_name,
+            "policy_name": policy_name,
+            "policy_type_name": policy_type_name,
+        }
         if policy_attributes is not None:
             input_["policy_attributes"] = policy_attributes
 
@@ -818,8 +827,9 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.delete_access_point_input.DeleteAccessPointInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
+        input_: capo_elastic_load_balancing.types.delete_access_point_input.DeleteAccessPointInput = {
+            "load_balancer_name": load_balancer_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -869,9 +879,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.delete_load_balancer_listener_input.DeleteLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["load_balancer_ports"] = load_balancer_ports
+        input_: capo_elastic_load_balancing.types.delete_load_balancer_listener_input.DeleteLoadBalancerListenerInput = {
+            "load_balancer_name": load_balancer_name,
+            "load_balancer_ports": load_balancer_ports,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -922,9 +933,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.delete_load_balancer_policy_input.DeleteLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["policy_name"] = policy_name
+        input_: capo_elastic_load_balancing.types.delete_load_balancer_policy_input.DeleteLoadBalancerPolicyInput = {
+            "load_balancer_name": load_balancer_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -975,9 +987,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.deregister_end_points_input.DeregisterEndPointsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["instances"] = instances
+        input_: capo_elastic_load_balancing.types.deregister_end_points_input.DeregisterEndPointsInput = {
+            "load_balancer_name": load_balancer_name,
+            "instances": instances,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1022,7 +1035,7 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_account_limits_input.DescribeAccountLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_elastic_load_balancing.types.describe_account_limits_input.DescribeAccountLimitsInput = {}
         if marker is not None:
             input_["marker"] = marker
         if page_size is not None:
@@ -1079,8 +1092,9 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_end_point_state_input.DescribeEndPointStateInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
+        input_: capo_elastic_load_balancing.types.describe_end_point_state_input.DescribeEndPointStateInput = {
+            "load_balancer_name": load_balancer_name
+        }
         if instances is not None:
             input_["instances"] = instances
 
@@ -1131,8 +1145,9 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_load_balancer_attributes_input.DescribeLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
+        input_: capo_elastic_load_balancing.types.describe_load_balancer_attributes_input.DescribeLoadBalancerAttributesInput = {
+            "load_balancer_name": load_balancer_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1187,7 +1202,7 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_load_balancer_policies_input.DescribeLoadBalancerPoliciesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_elastic_load_balancing.types.describe_load_balancer_policies_input.DescribeLoadBalancerPoliciesInput = {}
         if load_balancer_name is not None:
             input_["load_balancer_name"] = load_balancer_name
         if policy_names is not None:
@@ -1241,7 +1256,7 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_load_balancer_policy_types_input.DescribeLoadBalancerPolicyTypesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_elastic_load_balancing.types.describe_load_balancer_policy_types_input.DescribeLoadBalancerPolicyTypesInput = {}
         if policy_type_names is not None:
             input_["policy_type_names"] = policy_type_names
 
@@ -1300,7 +1315,7 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_access_points_input.DescribeAccessPointsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_elastic_load_balancing.types.describe_access_points_input.DescribeAccessPointsInput = {}
         if load_balancer_names is not None:
             input_["load_balancer_names"] = load_balancer_names
         if marker is not None:
@@ -1381,8 +1396,9 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_names"] = load_balancer_names
+        input_: capo_elastic_load_balancing.types.describe_tags_input.DescribeTagsInput = {
+            "load_balancer_names": load_balancer_names
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1433,9 +1449,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.detach_load_balancer_from_subnets_input.DetachLoadBalancerFromSubnetsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["subnets"] = subnets
+        input_: capo_elastic_load_balancing.types.detach_load_balancer_from_subnets_input.DetachLoadBalancerFromSubnetsInput = {
+            "load_balancer_name": load_balancer_name,
+            "subnets": subnets,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1486,9 +1503,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.remove_availability_zones_input.RemoveAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["availability_zones"] = availability_zones
+        input_: capo_elastic_load_balancing.types.remove_availability_zones_input.RemoveAvailabilityZonesInput = {
+            "load_balancer_name": load_balancer_name,
+            "availability_zones": availability_zones,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1538,9 +1556,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.add_availability_zones_input.AddAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["availability_zones"] = availability_zones
+        input_: capo_elastic_load_balancing.types.add_availability_zones_input.AddAvailabilityZonesInput = {
+            "load_balancer_name": load_balancer_name,
+            "availability_zones": availability_zones,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1596,9 +1615,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.modify_load_balancer_attributes_input.ModifyLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["load_balancer_attributes"] = load_balancer_attributes
+        input_: capo_elastic_load_balancing.types.modify_load_balancer_attributes_input.ModifyLoadBalancerAttributesInput = {
+            "load_balancer_name": load_balancer_name,
+            "load_balancer_attributes": load_balancer_attributes,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1649,9 +1669,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.register_end_points_input.RegisterEndPointsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["instances"] = instances
+        input_: capo_elastic_load_balancing.types.register_end_points_input.RegisterEndPointsInput = {
+            "load_balancer_name": load_balancer_name,
+            "instances": instances,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1701,9 +1722,10 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_names"] = load_balancer_names
-        input_["tags"] = tags
+        input_: capo_elastic_load_balancing.types.remove_tags_input.RemoveTagsInput = {
+            "load_balancer_names": load_balancer_names,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1759,10 +1781,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input.SetLoadBalancerListenerSSLCertificateInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["load_balancer_port"] = load_balancer_port
-        input_["ssl_certificate_id"] = ssl_certificate_id
+        input_: capo_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input.SetLoadBalancerListenerSSLCertificateInput = {
+            "load_balancer_name": load_balancer_name,
+            "load_balancer_port": load_balancer_port,
+            "ssl_certificate_id": ssl_certificate_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1816,10 +1839,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input.SetLoadBalancerPoliciesForBackendServerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["instance_port"] = instance_port
-        input_["policy_names"] = policy_names
+        input_: capo_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input.SetLoadBalancerPoliciesForBackendServerInput = {
+            "load_balancer_name": load_balancer_name,
+            "instance_port": instance_port,
+            "policy_names": policy_names,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1874,10 +1898,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_elastic_load_balancing.types.set_load_balancer_policies_of_listener_input.SetLoadBalancerPoliciesOfListenerInput = {}  # type: ignore[typeddict-item]
-        input_["load_balancer_name"] = load_balancer_name
-        input_["load_balancer_port"] = load_balancer_port
-        input_["policy_names"] = policy_names
+        input_: capo_elastic_load_balancing.types.set_load_balancer_policies_of_listener_input.SetLoadBalancerPoliciesOfListenerInput = {
+            "load_balancer_name": load_balancer_name,
+            "load_balancer_port": load_balancer_port,
+            "policy_names": policy_names,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

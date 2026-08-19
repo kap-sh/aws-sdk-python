@@ -112,10 +112,11 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
-        input_["vpc_config"] = vpc_config
-        input_["permissions_config"] = permissions_config
+        input_: capo_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name,
+            "vpc_config": vpc_config,
+            "permissions_config": permissions_config,
+        }
         if instance_requirements is not None:
             input_["instance_requirements"] = instance_requirements
         if capacity_provider_scaling_config is not None:
@@ -173,8 +174,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -230,8 +232,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
         if capacity_provider_scaling_config is not None:
             input_["capacity_provider_scaling_config"] = (
                 capacity_provider_scaling_config
@@ -284,8 +287,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -336,7 +340,7 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}
         if state is not None:
             input_["state"] = state
         if marker is not None:
@@ -392,8 +396,9 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -474,10 +479,11 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
-        input_["vpc_config"] = vpc_config
-        input_["permissions_config"] = permissions_config
+        input_: capo_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name,
+            "vpc_config": vpc_config,
+            "permissions_config": permissions_config,
+        }
         if instance_requirements is not None:
             input_["instance_requirements"] = instance_requirements
         if capacity_provider_scaling_config is not None:
@@ -536,8 +542,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -594,8 +601,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
         if capacity_provider_scaling_config is not None:
             input_["capacity_provider_scaling_config"] = (
                 capacity_provider_scaling_config
@@ -649,8 +657,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -702,7 +711,7 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}
         if state is not None:
             input_["state"] = state
         if marker is not None:
@@ -759,8 +768,9 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["capacity_provider_name"] = capacity_provider_name
+        input_: capo_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {
+            "capacity_provider_name": capacity_provider_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:

@@ -535,8 +535,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.accept_delegation_request_request.AcceptDelegationRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.accept_delegation_request_request.AcceptDelegationRequestRequest = {
+            "delegation_request_id": delegation_request_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -595,8 +596,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.acquire_role_request.AcquireRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["template_arn"] = template_arn
+        input_: capo_iam.types.acquire_role_request.AcquireRoleRequest = {
+            "template_arn": template_arn
+        }
         if template_minor_version is not None:
             input_["template_minor_version"] = template_minor_version
         if replacement_values is not None:
@@ -652,9 +654,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.add_client_id_to_open_id_connect_provider_request.AddClientIDToOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
-        input_["client_id"] = client_id
+        input_: capo_iam.types.add_client_id_to_open_id_connect_provider_request.AddClientIDToOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn,
+            "client_id": client_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -706,9 +709,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.add_role_to_instance_profile_request.AddRoleToInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
-        input_["role_name"] = role_name
+        input_: capo_iam.types.add_role_to_instance_profile_request.AddRoleToInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name,
+            "role_name": role_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -758,9 +762,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.add_user_to_group_request.AddUserToGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["user_name"] = user_name
+        input_: capo_iam.types.add_user_to_group_request.AddUserToGroupRequest = {
+            "group_name": group_name,
+            "user_name": user_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -803,8 +808,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.associate_delegation_request_request.AssociateDelegationRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.associate_delegation_request_request.AssociateDelegationRequestRequest = {
+            "delegation_request_id": delegation_request_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -856,9 +862,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.attach_group_policy_request.AttachGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.attach_group_policy_request.AttachGroupPolicyRequest = {
+            "group_name": group_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -911,9 +918,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.attach_role_policy_request.AttachRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.attach_role_policy_request.AttachRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -965,9 +973,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.attach_user_policy_request.AttachUserPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.attach_user_policy_request.AttachUserPolicyRequest = {
+            "user_name": user_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1020,9 +1029,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.change_password_request.ChangePasswordRequest = {}  # type: ignore[typeddict-item]
-        input_["old_password"] = old_password
-        input_["new_password"] = new_password
+        input_: capo_iam.types.change_password_request.ChangePasswordRequest = {
+            "old_password": old_password,
+            "new_password": new_password,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1074,7 +1084,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_access_key_request.CreateAccessKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_access_key_request.CreateAccessKeyRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
 
@@ -1125,8 +1135,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_account_alias_request.CreateAccountAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["account_alias"] = account_alias
+        input_: capo_iam.types.create_account_alias_request.CreateAccountAliasRequest = {
+            "account_alias": account_alias
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1194,18 +1205,19 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_delegation_request_request.CreateDelegationRequestRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_delegation_request_request.CreateDelegationRequestRequest = {
+            "description": description,
+            "permissions": permissions,
+            "requestor_workflow_id": requestor_workflow_id,
+            "notification_channel": notification_channel,
+            "session_duration": session_duration,
+        }
         if owner_account_id is not None:
             input_["owner_account_id"] = owner_account_id
-        input_["description"] = description
-        input_["permissions"] = permissions
         if request_message is not None:
             input_["request_message"] = request_message
-        input_["requestor_workflow_id"] = requestor_workflow_id
         if redirect_url is not None:
             input_["redirect_url"] = redirect_url
-        input_["notification_channel"] = notification_channel
-        input_["session_duration"] = session_duration
         if only_send_by_owner is not None:
             input_["only_send_by_owner"] = only_send_by_owner
 
@@ -1260,10 +1272,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_group_request.CreateGroupRequest = {
+            "group_name": group_name
+        }
         if path is not None:
             input_["path"] = path
-        input_["group_name"] = group_name
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1321,8 +1334,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_instance_profile_request.CreateInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
+        input_: capo_iam.types.create_instance_profile_request.CreateInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name
+        }
         if path is not None:
             input_["path"] = path
         if tags is not None:
@@ -1384,7 +1398,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_login_profile_request.CreateLoginProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_login_profile_request.CreateLoginProfileRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if password is not None:
@@ -1453,8 +1467,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_open_id_connect_provider_request.CreateOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["url"] = url
+        input_: capo_iam.types.create_open_id_connect_provider_request.CreateOpenIDConnectProviderRequest = {
+            "url": url
+        }
         if client_id_list is not None:
             input_["client_id_list"] = client_id_list
         if thumbprint_list is not None:
@@ -1517,11 +1532,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.create_policy_request.CreatePolicyRequest = {
+            "policy_name": policy_name,
+            "policy_document": policy_document,
+        }
         if path is not None:
             input_["path"] = path
-        input_["policy_document"] = policy_document
         if description is not None:
             input_["description"] = description
         if tags is not None:
@@ -1575,9 +1591,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_policy_version_request.CreatePolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["policy_document"] = policy_document
+        input_: capo_iam.types.create_policy_version_request.CreatePolicyVersionRequest = {
+            "policy_arn": policy_arn,
+            "policy_document": policy_document,
+        }
         if set_as_default is not None:
             input_["set_as_default"] = set_as_default
 
@@ -1648,11 +1665,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_role_request.CreateRoleRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_role_request.CreateRoleRequest = {
+            "role_name": role_name,
+            "assume_role_policy_document": assume_role_policy_document,
+        }
         if path is not None:
             input_["path"] = path
-        input_["role_name"] = role_name
-        input_["assume_role_policy_document"] = assume_role_policy_document
         if description is not None:
             input_["description"] = description
         if max_session_duration is not None:
@@ -1718,9 +1736,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_saml_provider_request.CreateSAMLProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_metadata_document"] = saml_metadata_document
-        input_["name"] = name
+        input_: capo_iam.types.create_saml_provider_request.CreateSAMLProviderRequest = {
+            "saml_metadata_document": saml_metadata_document,
+            "name": name,
+        }
         if tags is not None:
             input_["tags"] = tags
         if assertion_encryption_mode is not None:
@@ -1779,8 +1798,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_service_linked_role_request.CreateServiceLinkedRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["aws_service_name"] = aws_service_name
+        input_: capo_iam.types.create_service_linked_role_request.CreateServiceLinkedRoleRequest = {
+            "aws_service_name": aws_service_name
+        }
         if description is not None:
             input_["description"] = description
         if custom_suffix is not None:
@@ -1834,9 +1854,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_service_specific_credential_request.CreateServiceSpecificCredentialRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["service_name"] = service_name
+        input_: capo_iam.types.create_service_specific_credential_request.CreateServiceSpecificCredentialRequest = {
+            "user_name": user_name,
+            "service_name": service_name,
+        }
         if credential_age_days is not None:
             input_["credential_age_days"] = credential_age_days
 
@@ -1897,10 +1918,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_user_request.CreateUserRequest = {
+            "user_name": user_name
+        }
         if path is not None:
             input_["path"] = path
-        input_["user_name"] = user_name
         if permissions_boundary is not None:
             input_["permissions_boundary"] = permissions_boundary
         if tags is not None:
@@ -1954,10 +1976,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.create_virtual_mfa_device_request.CreateVirtualMFADeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.create_virtual_mfa_device_request.CreateVirtualMFADeviceRequest = {
+            "virtual_mfa_device_name": virtual_mfa_device_name
+        }
         if path is not None:
             input_["path"] = path
-        input_["virtual_mfa_device_name"] = virtual_mfa_device_name
         if tags is not None:
             input_["tags"] = tags
 
@@ -2007,10 +2030,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.deactivate_mfa_device_request.DeactivateMFADeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.deactivate_mfa_device_request.DeactivateMFADeviceRequest = {
+            "serial_number": serial_number
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["serial_number"] = serial_number
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2062,10 +2086,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_access_key_request.DeleteAccessKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.delete_access_key_request.DeleteAccessKeyRequest = {
+            "access_key_id": access_key_id
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["access_key_id"] = access_key_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2114,8 +2139,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_account_alias_request.DeleteAccountAliasRequest = {}  # type: ignore[typeddict-item]
-        input_["account_alias"] = account_alias
+        input_: capo_iam.types.delete_account_alias_request.DeleteAccountAliasRequest = {
+            "account_alias": account_alias
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2199,8 +2225,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
+        input_: capo_iam.types.delete_group_request.DeleteGroupRequest = {
+            "group_name": group_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2250,9 +2277,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_group_policy_request.DeleteGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.delete_group_policy_request.DeleteGroupPolicyRequest = {
+            "group_name": group_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2301,8 +2329,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_instance_profile_request.DeleteInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
+        input_: capo_iam.types.delete_instance_profile_request.DeleteInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2351,7 +2380,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_login_profile_request.DeleteLoginProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.delete_login_profile_request.DeleteLoginProfileRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
 
@@ -2395,8 +2424,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_open_id_connect_provider_request.DeleteOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
+        input_: capo_iam.types.delete_open_id_connect_provider_request.DeleteOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2440,8 +2470,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.delete_policy_request.DeletePolicyRequest = {
+            "policy_arn": policy_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2487,9 +2518,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_policy_version_request.DeletePolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["version_id"] = version_id
+        input_: capo_iam.types.delete_policy_version_request.DeletePolicyVersionRequest = {
+            "policy_arn": policy_arn,
+            "version_id": version_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2540,8 +2572,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_role_request.DeleteRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.delete_role_request.DeleteRoleRequest = {
+            "role_name": role_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2583,8 +2616,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_role_permissions_boundary_request.DeleteRolePermissionsBoundaryRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.delete_role_permissions_boundary_request.DeleteRolePermissionsBoundaryRequest = {
+            "role_name": role_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2635,9 +2669,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_role_policy_request.DeleteRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.delete_role_policy_request.DeleteRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2680,8 +2715,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_saml_provider_request.DeleteSAMLProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_provider_arn"] = saml_provider_arn
+        input_: capo_iam.types.delete_saml_provider_request.DeleteSAMLProviderRequest = {
+            "saml_provider_arn": saml_provider_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2724,8 +2760,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_server_certificate_request.DeleteServerCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
+        input_: capo_iam.types.delete_server_certificate_request.DeleteServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2769,8 +2806,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_service_linked_role_request.DeleteServiceLinkedRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.delete_service_linked_role_request.DeleteServiceLinkedRoleRequest = {
+            "role_name": role_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2812,10 +2850,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_service_specific_credential_request.DeleteServiceSpecificCredentialRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.delete_service_specific_credential_request.DeleteServiceSpecificCredentialRequest = {
+            "service_specific_credential_id": service_specific_credential_id
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["service_specific_credential_id"] = service_specific_credential_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2868,10 +2907,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_signing_certificate_request.DeleteSigningCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.delete_signing_certificate_request.DeleteSigningCertificateRequest = {
+            "certificate_id": certificate_id
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2913,9 +2953,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_ssh_public_key_request.DeleteSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["ssh_public_key_id"] = ssh_public_key_id
+        input_: capo_iam.types.delete_ssh_public_key_request.DeleteSSHPublicKeyRequest = {
+            "user_name": user_name,
+            "ssh_public_key_id": ssh_public_key_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2965,8 +3006,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.delete_user_request.DeleteUserRequest = {
+            "user_name": user_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3007,8 +3049,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_user_permissions_boundary_request.DeleteUserPermissionsBoundaryRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.delete_user_permissions_boundary_request.DeleteUserPermissionsBoundaryRequest = {
+            "user_name": user_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3058,9 +3101,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_user_policy_request.DeleteUserPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.delete_user_policy_request.DeleteUserPolicyRequest = {
+            "user_name": user_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3110,8 +3154,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.delete_virtual_mfa_device_request.DeleteVirtualMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["serial_number"] = serial_number
+        input_: capo_iam.types.delete_virtual_mfa_device_request.DeleteVirtualMFADeviceRequest = {
+            "serial_number": serial_number
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3156,9 +3201,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.detach_group_policy_request.DetachGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.detach_group_policy_request.DetachGroupPolicyRequest = {
+            "group_name": group_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3204,9 +3250,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.detach_role_policy_request.DetachRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.detach_role_policy_request.DetachRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3251,9 +3298,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.detach_user_policy_request.DetachUserPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.detach_user_policy_request.DetachUserPolicyRequest = {
+            "user_name": user_name,
+            "policy_arn": policy_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3298,7 +3346,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.disable_organizations_root_credentials_management_request.DisableOrganizationsRootCredentialsManagementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.disable_organizations_root_credentials_management_request.DisableOrganizationsRootCredentialsManagementRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3343,7 +3391,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.disable_organizations_root_sessions_request.DisableOrganizationsRootSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.disable_organizations_root_sessions_request.DisableOrganizationsRootSessionsRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3428,11 +3476,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.enable_mfa_device_request.EnableMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["serial_number"] = serial_number
-        input_["authentication_code1"] = authentication_code1
-        input_["authentication_code2"] = authentication_code2
+        input_: capo_iam.types.enable_mfa_device_request.EnableMFADeviceRequest = {
+            "user_name": user_name,
+            "serial_number": serial_number,
+            "authentication_code1": authentication_code1,
+            "authentication_code2": authentication_code2,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3478,7 +3527,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.enable_organizations_root_credentials_management_request.EnableOrganizationsRootCredentialsManagementRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.enable_organizations_root_credentials_management_request.EnableOrganizationsRootCredentialsManagementRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3524,7 +3573,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.enable_organizations_root_sessions_request.EnableOrganizationsRootSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.enable_organizations_root_sessions_request.EnableOrganizationsRootSessionsRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3647,8 +3696,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.generate_organizations_access_report_request.GenerateOrganizationsAccessReportRequest = {}  # type: ignore[typeddict-item]
-        input_["entity_path"] = entity_path
+        input_: capo_iam.types.generate_organizations_access_report_request.GenerateOrganizationsAccessReportRequest = {
+            "entity_path": entity_path
+        }
         if organizations_policy_id is not None:
             input_["organizations_policy_id"] = organizations_policy_id
 
@@ -3703,8 +3753,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.generate_service_last_accessed_details_request.GenerateServiceLastAccessedDetailsRequest = {}  # type: ignore[typeddict-item]
-        input_["arn"] = arn
+        input_: capo_iam.types.generate_service_last_accessed_details_request.GenerateServiceLastAccessedDetailsRequest = {
+            "arn": arn
+        }
         if granularity is not None:
             input_["granularity"] = granularity
 
@@ -3749,8 +3800,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_access_key_last_used_request.GetAccessKeyLastUsedRequest = {}  # type: ignore[typeddict-item]
-        input_["access_key_id"] = access_key_id
+        input_: capo_iam.types.get_access_key_last_used_request.GetAccessKeyLastUsedRequest = {
+            "access_key_id": access_key_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3796,7 +3848,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_account_authorization_details_request.GetAccountAuthorizationDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.get_account_authorization_details_request.GetAccountAuthorizationDetailsRequest = {}
         if filter is not None:
             input_["filter"] = filter
         if max_items is not None:
@@ -3881,7 +3933,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_account_properties_request.GetAccountPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.get_account_properties_request.GetAccountPropertiesRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -3964,8 +4016,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_context_keys_for_custom_policy_request.GetContextKeysForCustomPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_input_list"] = policy_input_list
+        input_: capo_iam.types.get_context_keys_for_custom_policy_request.GetContextKeysForCustomPolicyRequest = {
+            "policy_input_list": policy_input_list
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4012,8 +4065,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_context_keys_for_principal_policy_request.GetContextKeysForPrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_source_arn"] = policy_source_arn
+        input_: capo_iam.types.get_context_keys_for_principal_policy_request.GetContextKeysForPrincipalPolicyRequest = {
+            "policy_source_arn": policy_source_arn
+        }
         if policy_input_list is not None:
             input_["policy_input_list"] = policy_input_list
 
@@ -4100,8 +4154,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_delegation_request_request.GetDelegationRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.get_delegation_request_request.GetDelegationRequestRequest = {
+            "delegation_request_id": delegation_request_id
+        }
         if delegation_permission_check is not None:
             input_["delegation_permission_check"] = delegation_permission_check
 
@@ -4150,8 +4205,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
+        input_: capo_iam.types.get_group_request.GetGroupRequest = {
+            "group_name": group_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -4223,9 +4279,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_group_policy_request.GetGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.get_group_policy_request.GetGroupPolicyRequest = {
+            "group_name": group_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4271,8 +4328,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_human_readable_summary_request.GetHumanReadableSummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["entity_arn"] = entity_arn
+        input_: capo_iam.types.get_human_readable_summary_request.GetHumanReadableSummaryRequest = {
+            "entity_arn": entity_arn
+        }
         if locale is not None:
             input_["locale"] = locale
 
@@ -4323,8 +4381,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_instance_profile_request.GetInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
+        input_: capo_iam.types.get_instance_profile_request.GetInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4415,7 +4474,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_login_profile_request.GetLoginProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.get_login_profile_request.GetLoginProfileRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
 
@@ -4462,8 +4521,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_mfa_device_request.GetMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["serial_number"] = serial_number
+        input_: capo_iam.types.get_mfa_device_request.GetMFADeviceRequest = {
+            "serial_number": serial_number
+        }
         if user_name is not None:
             input_["user_name"] = user_name
 
@@ -4509,8 +4569,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_open_id_connect_provider_request.GetOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
+        input_: capo_iam.types.get_open_id_connect_provider_request.GetOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4564,8 +4625,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_organizations_access_report_request.GetOrganizationsAccessReportRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
+        input_: capo_iam.types.get_organizations_access_report_request.GetOrganizationsAccessReportRequest = {
+            "job_id": job_id
+        }
         if max_items is not None:
             input_["max_items"] = max_items
         if marker is not None:
@@ -4650,8 +4712,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.get_policy_request.GetPolicyRequest = {
+            "policy_arn": policy_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4741,9 +4804,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_policy_version_request.GetPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["version_id"] = version_id
+        input_: capo_iam.types.get_policy_version_request.GetPolicyVersionRequest = {
+            "policy_arn": policy_arn,
+            "version_id": version_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4790,8 +4854,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_role_request.GetRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.get_role_request.GetRoleRequest = {
+            "role_name": role_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4878,9 +4943,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_role_policy_request.GetRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.get_role_policy_request.GetRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -4928,8 +4994,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_role_template_version_request.GetRoleTemplateVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["template_arn"] = template_arn
+        input_: capo_iam.types.get_role_template_version_request.GetRoleTemplateVersionRequest = {
+            "template_arn": template_arn
+        }
         if minor_version is not None:
             input_["minor_version"] = minor_version
 
@@ -4975,8 +5042,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_saml_provider_request.GetSAMLProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_provider_arn"] = saml_provider_arn
+        input_: capo_iam.types.get_saml_provider_request.GetSAMLProviderRequest = {
+            "saml_provider_arn": saml_provider_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5019,8 +5087,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_server_certificate_request.GetServerCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
+        input_: capo_iam.types.get_server_certificate_request.GetServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5073,8 +5142,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_service_last_accessed_details_request.GetServiceLastAccessedDetailsRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
+        input_: capo_iam.types.get_service_last_accessed_details_request.GetServiceLastAccessedDetailsRequest = {
+            "job_id": job_id
+        }
         if max_items is not None:
             input_["max_items"] = max_items
         if marker is not None:
@@ -5133,9 +5203,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_service_last_accessed_details_with_entities_request.GetServiceLastAccessedDetailsWithEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input_["job_id"] = job_id
-        input_["service_namespace"] = service_namespace
+        input_: capo_iam.types.get_service_last_accessed_details_with_entities_request.GetServiceLastAccessedDetailsWithEntitiesRequest = {
+            "job_id": job_id,
+            "service_namespace": service_namespace,
+        }
         if max_items is not None:
             input_["max_items"] = max_items
         if marker is not None:
@@ -5183,8 +5254,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_service_linked_role_deletion_status_request.GetServiceLinkedRoleDeletionStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["deletion_task_id"] = deletion_task_id
+        input_: capo_iam.types.get_service_linked_role_deletion_status_request.GetServiceLinkedRoleDeletionStatusRequest = {
+            "deletion_task_id": deletion_task_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5231,10 +5303,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_ssh_public_key_request.GetSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["ssh_public_key_id"] = ssh_public_key_id
-        input_["encoding"] = encoding
+        input_: capo_iam.types.get_ssh_public_key_request.GetSSHPublicKeyRequest = {
+            "user_name": user_name,
+            "ssh_public_key_id": ssh_public_key_id,
+            "encoding": encoding,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5283,7 +5356,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.get_user_request.GetUserRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
 
@@ -5374,9 +5447,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.get_user_policy_request.GetUserPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["policy_name"] = policy_name
+        input_: capo_iam.types.get_user_policy_request.GetUserPolicyRequest = {
+            "user_name": user_name,
+            "policy_name": policy_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -5431,7 +5505,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_access_keys_request.ListAccessKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_access_keys_request.ListAccessKeysRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if marker is not None:
@@ -5512,7 +5586,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_account_aliases_request.ListAccountAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_account_aliases_request.ListAccountAliasesRequest = {}
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -5587,8 +5661,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_attached_group_policies_request.ListAttachedGroupPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
+        input_: capo_iam.types.list_attached_group_policies_request.ListAttachedGroupPoliciesRequest = {
+            "group_name": group_name
+        }
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -5669,8 +5744,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_attached_role_policies_request.ListAttachedRolePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.list_attached_role_policies_request.ListAttachedRolePoliciesRequest = {
+            "role_name": role_name
+        }
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -5751,8 +5827,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_attached_user_policies_request.ListAttachedUserPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.list_attached_user_policies_request.ListAttachedUserPoliciesRequest = {
+            "user_name": user_name
+        }
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -5831,7 +5908,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_delegation_requests_request.ListDelegationRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_delegation_requests_request.ListDelegationRequestsRequest = {}
         if owner_id is not None:
             input_["owner_id"] = owner_id
         if marker is not None:
@@ -5895,8 +5972,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_entities_for_policy_request.ListEntitiesForPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.list_entities_for_policy_request.ListEntitiesForPolicyRequest = {
+            "policy_arn": policy_arn
+        }
         if entity_filter is not None:
             input_["entity_filter"] = entity_filter
         if path_prefix is not None:
@@ -5959,8 +6037,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_group_policies_request.ListGroupPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
+        input_: capo_iam.types.list_group_policies_request.ListGroupPoliciesRequest = {
+            "group_name": group_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6039,7 +6118,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_groups_request.ListGroupsRequest = {}
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -6121,8 +6200,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_groups_for_user_request.ListGroupsForUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.list_groups_for_user_request.ListGroupsForUserRequest = {
+            "user_name": user_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6195,7 +6275,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_instance_profiles_request.ListInstanceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_instance_profiles_request.ListInstanceProfilesRequest = {}
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -6271,8 +6351,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_instance_profiles_for_role_request.ListInstanceProfilesForRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.list_instance_profiles_for_role_request.ListInstanceProfilesForRoleRequest = {
+            "role_name": role_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6346,8 +6427,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_instance_profile_tags_request.ListInstanceProfileTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
+        input_: capo_iam.types.list_instance_profile_tags_request.ListInstanceProfileTagsRequest = {
+            "instance_profile_name": instance_profile_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6423,7 +6505,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_mfa_devices_request.ListMFADevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_mfa_devices_request.ListMFADevicesRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if marker is not None:
@@ -6502,8 +6584,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_mfa_device_tags_request.ListMFADeviceTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["serial_number"] = serial_number
+        input_: capo_iam.types.list_mfa_device_tags_request.ListMFADeviceTagsRequest = {
+            "serial_number": serial_number
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6566,7 +6649,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_open_id_connect_providers_request.ListOpenIDConnectProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_open_id_connect_providers_request.ListOpenIDConnectProvidersRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6614,8 +6697,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_open_id_connect_provider_tags_request.ListOpenIDConnectProviderTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
+        input_: capo_iam.types.list_open_id_connect_provider_tags_request.ListOpenIDConnectProviderTagsRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6687,7 +6771,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_organizations_features_request.ListOrganizationsFeaturesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_organizations_features_request.ListOrganizationsFeaturesRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6741,7 +6825,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_policies_request.ListPoliciesRequest = {}
         if scope is not None:
             input_["scope"] = scope
         if only_attached is not None:
@@ -6837,11 +6921,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_policies_granting_service_access_request.ListPoliciesGrantingServiceAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_policies_granting_service_access_request.ListPoliciesGrantingServiceAccessRequest = {
+            "arn": arn,
+            "service_namespaces": service_namespaces,
+        }
         if marker is not None:
             input_["marker"] = marker
-        input_["arn"] = arn
-        input_["service_namespaces"] = service_namespaces
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -6889,8 +6974,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_policy_tags_request.ListPolicyTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.list_policy_tags_request.ListPolicyTagsRequest = {
+            "policy_arn": policy_arn
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -6965,8 +7051,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_policy_versions_request.ListPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
+        input_: capo_iam.types.list_policy_versions_request.ListPolicyVersionsRequest = {
+            "policy_arn": policy_arn
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7040,8 +7127,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_role_policies_request.ListRolePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.list_role_policies_request.ListRolePoliciesRequest = {
+            "role_name": role_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7114,7 +7202,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_roles_request.ListRolesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_roles_request.ListRolesRequest = {}
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -7196,8 +7284,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_role_tags_request.ListRoleTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.list_role_tags_request.ListRoleTagsRequest = {
+            "role_name": role_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7260,7 +7349,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_saml_providers_request.ListSAMLProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_saml_providers_request.ListSAMLProvidersRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -7308,8 +7397,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_saml_provider_tags_request.ListSAMLProviderTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_provider_arn"] = saml_provider_arn
+        input_: capo_iam.types.list_saml_provider_tags_request.ListSAMLProviderTagsRequest = {
+            "saml_provider_arn": saml_provider_arn
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7382,7 +7472,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_server_certificates_request.ListServerCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_server_certificates_request.ListServerCertificatesRequest = {}
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -7458,8 +7548,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_server_certificate_tags_request.ListServerCertificateTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
+        input_: capo_iam.types.list_server_certificate_tags_request.ListServerCertificateTagsRequest = {
+            "server_certificate_name": server_certificate_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7537,7 +7628,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_service_specific_credentials_request.ListServiceSpecificCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_service_specific_credentials_request.ListServiceSpecificCredentialsRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if service_name is not None:
@@ -7602,7 +7693,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_signing_certificates_request.ListSigningCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_signing_certificates_request.ListSigningCertificatesRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if marker is not None:
@@ -7679,7 +7770,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_ssh_public_keys_request.ListSSHPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_ssh_public_keys_request.ListSSHPublicKeysRequest = {}
         if user_name is not None:
             input_["user_name"] = user_name
         if marker is not None:
@@ -7755,8 +7846,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_user_policies_request.ListUserPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.list_user_policies_request.ListUserPoliciesRequest = {
+            "user_name": user_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -7835,7 +7927,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_users_request.ListUsersRequest = {}
         if path_prefix is not None:
             input_["path_prefix"] = path_prefix
         if marker is not None:
@@ -7917,8 +8009,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_user_tags_request.ListUserTagsRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.list_user_tags_request.ListUserTagsRequest = {
+            "user_name": user_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -8000,7 +8093,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.list_virtual_mfa_devices_request.ListVirtualMFADevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.list_virtual_mfa_devices_request.ListVirtualMFADevicesRequest = {}
         if assignment_status is not None:
             input_["assignment_status"] = assignment_status
         if marker is not None:
@@ -8075,8 +8168,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_account_properties_request.PutAccountPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input_["properties"] = properties
+        input_: capo_iam.types.put_account_properties_request.PutAccountPropertiesRequest = {
+            "properties": properties
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8129,10 +8223,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_group_policy_request.PutGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["policy_name"] = policy_name
-        input_["policy_document"] = policy_document
+        input_: capo_iam.types.put_group_policy_request.PutGroupPolicyRequest = {
+            "group_name": group_name,
+            "policy_name": policy_name,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8178,9 +8273,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_role_permissions_boundary_request.PutRolePermissionsBoundaryRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["permissions_boundary"] = permissions_boundary
+        input_: capo_iam.types.put_role_permissions_boundary_request.PutRolePermissionsBoundaryRequest = {
+            "role_name": role_name,
+            "permissions_boundary": permissions_boundary,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8234,10 +8330,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_role_policy_request.PutRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_name"] = policy_name
-        input_["policy_document"] = policy_document
+        input_: capo_iam.types.put_role_policy_request.PutRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_name": policy_name,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8282,9 +8379,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_user_permissions_boundary_request.PutUserPermissionsBoundaryRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["permissions_boundary"] = permissions_boundary
+        input_: capo_iam.types.put_user_permissions_boundary_request.PutUserPermissionsBoundaryRequest = {
+            "user_name": user_name,
+            "permissions_boundary": permissions_boundary,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8337,10 +8435,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.put_user_policy_request.PutUserPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["policy_name"] = policy_name
-        input_["policy_document"] = policy_document
+        input_: capo_iam.types.put_user_policy_request.PutUserPolicyRequest = {
+            "user_name": user_name,
+            "policy_name": policy_name,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8385,8 +8484,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.reject_delegation_request_request.RejectDelegationRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.reject_delegation_request_request.RejectDelegationRequestRequest = {
+            "delegation_request_id": delegation_request_id
+        }
         if notes is not None:
             input_["notes"] = notes
 
@@ -8433,9 +8533,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.remove_client_id_from_open_id_connect_provider_request.RemoveClientIDFromOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
-        input_["client_id"] = client_id
+        input_: capo_iam.types.remove_client_id_from_open_id_connect_provider_request.RemoveClientIDFromOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn,
+            "client_id": client_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8486,9 +8587,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.remove_role_from_instance_profile_request.RemoveRoleFromInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
-        input_["role_name"] = role_name
+        input_: capo_iam.types.remove_role_from_instance_profile_request.RemoveRoleFromInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name,
+            "role_name": role_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8538,9 +8640,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.remove_user_from_group_request.RemoveUserFromGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
-        input_["user_name"] = user_name
+        input_: capo_iam.types.remove_user_from_group_request.RemoveUserFromGroupRequest = {
+            "group_name": group_name,
+            "user_name": user_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8584,10 +8687,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.reset_service_specific_credential_request.ResetServiceSpecificCredentialRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.reset_service_specific_credential_request.ResetServiceSpecificCredentialRequest = {
+            "service_specific_credential_id": service_specific_credential_id
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["service_specific_credential_id"] = service_specific_credential_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8637,11 +8741,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.resync_mfa_device_request.ResyncMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["serial_number"] = serial_number
-        input_["authentication_code1"] = authentication_code1
-        input_["authentication_code2"] = authentication_code2
+        input_: capo_iam.types.resync_mfa_device_request.ResyncMFADeviceRequest = {
+            "user_name": user_name,
+            "serial_number": serial_number,
+            "authentication_code1": authentication_code1,
+            "authentication_code2": authentication_code2,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8684,8 +8789,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.send_delegation_token_request.SendDelegationTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.send_delegation_token_request.SendDelegationTokenRequest = {
+            "delegation_request_id": delegation_request_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8730,9 +8836,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.set_default_policy_version_request.SetDefaultPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["version_id"] = version_id
+        input_: capo_iam.types.set_default_policy_version_request.SetDefaultPolicyVersionRequest = {
+            "policy_arn": policy_arn,
+            "version_id": version_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8778,8 +8885,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.set_security_token_service_preferences_request.SetSecurityTokenServicePreferencesRequest = {}  # type: ignore[typeddict-item]
-        input_["global_endpoint_token_version"] = global_endpoint_token_version
+        input_: capo_iam.types.set_security_token_service_preferences_request.SetSecurityTokenServicePreferencesRequest = {
+            "global_endpoint_token_version": global_endpoint_token_version
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -8860,8 +8968,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.simulate_custom_policy_request.SimulateCustomPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_input_list"] = policy_input_list
+        input_: capo_iam.types.simulate_custom_policy_request.SimulateCustomPolicyRequest = {
+            "policy_input_list": policy_input_list,
+            "action_names": action_names,
+        }
         if permissions_boundary_policy_input_list is not None:
             input_["permissions_boundary_policy_input_list"] = (
                 permissions_boundary_policy_input_list
@@ -8870,7 +8980,6 @@ class AsyncIAMClient:
             input_["ordered_organization_policy_input_list"] = (
                 ordered_organization_policy_input_list
             )
-        input_["action_names"] = action_names
         if resource_arns is not None:
             input_["resource_arns"] = resource_arns
         if resource_policy is not None:
@@ -9029,8 +9138,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.simulate_principal_policy_request.SimulatePrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_source_arn"] = policy_source_arn
+        input_: capo_iam.types.simulate_principal_policy_request.SimulatePrincipalPolicyRequest = {
+            "policy_source_arn": policy_source_arn,
+            "action_names": action_names,
+        }
         if policy_input_list is not None:
             input_["policy_input_list"] = policy_input_list
         if permissions_boundary_policy_input_list is not None:
@@ -9039,7 +9150,6 @@ class AsyncIAMClient:
             )
         if policy_exclusion_list is not None:
             input_["policy_exclusion_list"] = policy_exclusion_list
-        input_["action_names"] = action_names
         if resource_arns is not None:
             input_["resource_arns"] = resource_arns
         if resource_policy is not None:
@@ -9162,9 +9272,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_instance_profile_request.TagInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_instance_profile_request.TagInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9210,9 +9321,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_mfa_device_request.TagMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["serial_number"] = serial_number
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_mfa_device_request.TagMFADeviceRequest = {
+            "serial_number": serial_number,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9258,9 +9370,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_open_id_connect_provider_request.TagOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_open_id_connect_provider_request.TagOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9306,9 +9419,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_policy_request.TagPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_policy_request.TagPolicyRequest = {
+            "policy_arn": policy_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9360,9 +9474,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_role_request.TagRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_role_request.TagRoleRequest = {
+            "role_name": role_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9408,9 +9523,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_saml_provider_request.TagSAMLProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_provider_arn"] = saml_provider_arn
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_saml_provider_request.TagSAMLProviderRequest = {
+            "saml_provider_arn": saml_provider_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9456,9 +9572,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_server_certificate_request.TagServerCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_server_certificate_request.TagServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9510,9 +9627,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.tag_user_request.TagUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["tags"] = tags
+        input_: capo_iam.types.tag_user_request.TagUserRequest = {
+            "user_name": user_name,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9557,9 +9675,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_instance_profile_request.UntagInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["instance_profile_name"] = instance_profile_name
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_instance_profile_request.UntagInstanceProfileRequest = {
+            "instance_profile_name": instance_profile_name,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9604,9 +9723,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_mfa_device_request.UntagMFADeviceRequest = {}  # type: ignore[typeddict-item]
-        input_["serial_number"] = serial_number
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_mfa_device_request.UntagMFADeviceRequest = {
+            "serial_number": serial_number,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9651,9 +9771,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_open_id_connect_provider_request.UntagOpenIDConnectProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_open_id_connect_provider_request.UntagOpenIDConnectProviderRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9698,9 +9819,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_policy_request.UntagPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_arn"] = policy_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_policy_request.UntagPolicyRequest = {
+            "policy_arn": policy_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9750,9 +9872,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_role_request.UntagRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_role_request.UntagRoleRequest = {
+            "role_name": role_name,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9797,9 +9920,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_saml_provider_request.UntagSAMLProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["saml_provider_arn"] = saml_provider_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_saml_provider_request.UntagSAMLProviderRequest = {
+            "saml_provider_arn": saml_provider_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9844,9 +9968,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_server_certificate_request.UntagServerCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_server_certificate_request.UntagServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9896,9 +10021,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.untag_user_request.UntagUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["tag_keys"] = tag_keys
+        input_: capo_iam.types.untag_user_request.UntagUserRequest = {
+            "user_name": user_name,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -9953,11 +10079,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_access_key_request.UpdateAccessKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.update_access_key_request.UpdateAccessKeyRequest = {
+            "access_key_id": access_key_id,
+            "status": status,
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["access_key_id"] = access_key_id
-        input_["status"] = status
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10036,7 +10163,7 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_account_password_policy_request.UpdateAccountPasswordPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.update_account_password_policy_request.UpdateAccountPasswordPolicyRequest = {}
         if minimum_password_length is not None:
             input_["minimum_password_length"] = minimum_password_length
         if require_symbols is not None:
@@ -10106,9 +10233,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_assume_role_policy_request.UpdateAssumeRolePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["policy_document"] = policy_document
+        input_: capo_iam.types.update_assume_role_policy_request.UpdateAssumeRolePolicyRequest = {
+            "role_name": role_name,
+            "policy_document": policy_document,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10153,8 +10281,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_delegation_request_request.UpdateDelegationRequestRequest = {}  # type: ignore[typeddict-item]
-        input_["delegation_request_id"] = delegation_request_id
+        input_: capo_iam.types.update_delegation_request_request.UpdateDelegationRequestRequest = {
+            "delegation_request_id": delegation_request_id
+        }
         if notes is not None:
             input_["notes"] = notes
 
@@ -10209,8 +10338,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["group_name"] = group_name
+        input_: capo_iam.types.update_group_request.UpdateGroupRequest = {
+            "group_name": group_name
+        }
         if new_path is not None:
             input_["new_path"] = new_path
         if new_group_name is not None:
@@ -10270,8 +10400,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_login_profile_request.UpdateLoginProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.update_login_profile_request.UpdateLoginProfileRequest = {
+            "user_name": user_name
+        }
         if password is not None:
             input_["password"] = password
         if password_reset_required is not None:
@@ -10320,9 +10451,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_open_id_connect_provider_thumbprint_request.UpdateOpenIDConnectProviderThumbprintRequest = {}  # type: ignore[typeddict-item]
-        input_["open_id_connect_provider_arn"] = open_id_connect_provider_arn
-        input_["thumbprint_list"] = thumbprint_list
+        input_: capo_iam.types.update_open_id_connect_provider_thumbprint_request.UpdateOpenIDConnectProviderThumbprintRequest = {
+            "open_id_connect_provider_arn": open_id_connect_provider_arn,
+            "thumbprint_list": thumbprint_list,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10374,8 +10506,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_role_request.UpdateRoleRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
+        input_: capo_iam.types.update_role_request.UpdateRoleRequest = {
+            "role_name": role_name
+        }
         if description is not None:
             input_["description"] = description
         if max_session_duration is not None:
@@ -10427,9 +10560,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_role_description_request.UpdateRoleDescriptionRequest = {}  # type: ignore[typeddict-item]
-        input_["role_name"] = role_name
-        input_["description"] = description
+        input_: capo_iam.types.update_role_description_request.UpdateRoleDescriptionRequest = {
+            "role_name": role_name,
+            "description": description,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10491,10 +10625,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_saml_provider_request.UpdateSAMLProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.update_saml_provider_request.UpdateSAMLProviderRequest = {
+            "saml_provider_arn": saml_provider_arn
+        }
         if saml_metadata_document is not None:
             input_["saml_metadata_document"] = saml_metadata_document
-        input_["saml_provider_arn"] = saml_provider_arn
         if assertion_encryption_mode is not None:
             input_["assertion_encryption_mode"] = assertion_encryption_mode
         if add_private_key is not None:
@@ -10549,8 +10684,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_server_certificate_request.UpdateServerCertificateRequest = {}  # type: ignore[typeddict-item]
-        input_["server_certificate_name"] = server_certificate_name
+        input_: capo_iam.types.update_server_certificate_request.UpdateServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name
+        }
         if new_path is not None:
             input_["new_path"] = new_path
         if new_server_certificate_name is not None:
@@ -10598,11 +10734,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_service_specific_credential_request.UpdateServiceSpecificCredentialRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.update_service_specific_credential_request.UpdateServiceSpecificCredentialRequest = {
+            "service_specific_credential_id": service_specific_credential_id,
+            "status": status,
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["service_specific_credential_id"] = service_specific_credential_id
-        input_["status"] = status
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10657,11 +10794,12 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_signing_certificate_request.UpdateSigningCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.update_signing_certificate_request.UpdateSigningCertificateRequest = {
+            "certificate_id": certificate_id,
+            "status": status,
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["certificate_id"] = certificate_id
-        input_["status"] = status
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10706,10 +10844,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_ssh_public_key_request.UpdateSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["ssh_public_key_id"] = ssh_public_key_id
-        input_["status"] = status
+        input_: capo_iam.types.update_ssh_public_key_request.UpdateSSHPublicKeyRequest = {
+            "user_name": user_name,
+            "ssh_public_key_id": ssh_public_key_id,
+            "status": status,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10764,8 +10903,9 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
+        input_: capo_iam.types.update_user_request.UpdateUserRequest = {
+            "user_name": user_name
+        }
         if new_path is not None:
             input_["new_path"] = new_path
         if new_user_name is not None:
@@ -10835,12 +10975,13 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.upload_server_certificate_request.UploadServerCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.upload_server_certificate_request.UploadServerCertificateRequest = {
+            "server_certificate_name": server_certificate_name,
+            "certificate_body": certificate_body,
+            "private_key": private_key,
+        }
         if path is not None:
             input_["path"] = path
-        input_["server_certificate_name"] = server_certificate_name
-        input_["certificate_body"] = certificate_body
-        input_["private_key"] = private_key
         if certificate_chain is not None:
             input_["certificate_chain"] = certificate_chain
         if tags is not None:
@@ -10903,10 +11044,11 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.upload_signing_certificate_request.UploadSigningCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_iam.types.upload_signing_certificate_request.UploadSigningCertificateRequest = {
+            "certificate_body": certificate_body
+        }
         if user_name is not None:
             input_["user_name"] = user_name
-        input_["certificate_body"] = certificate_body
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -10954,9 +11096,10 @@ class AsyncIAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_iam.types.upload_ssh_public_key_request.UploadSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["user_name"] = user_name
-        input_["ssh_public_key_body"] = ssh_public_key_body
+        input_: capo_iam.types.upload_ssh_public_key_request.UploadSSHPublicKeyRequest = {
+            "user_name": user_name,
+            "ssh_public_key_body": ssh_public_key_body,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -288,8 +288,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.create_activity_input.CreateActivityInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_sfn.types.create_activity_input.CreateActivityInput = {
+            "name": name
+        }
         if tags is not None:
             input_["tags"] = tags
         if encryption_configuration is not None:
@@ -375,10 +376,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.create_state_machine_input.CreateStateMachineInput = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["definition"] = definition
-        input_["role_arn"] = role_arn
+        input_: capo_sfn.types.create_state_machine_input.CreateStateMachineInput = {
+            "name": name,
+            "definition": definition,
+            "role_arn": role_arn,
+        }
         if type is not None:
             input_["type"] = type
         if logging_configuration is not None:
@@ -448,11 +450,12 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.create_state_machine_alias_input.CreateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sfn.types.create_state_machine_alias_input.CreateStateMachineAliasInput = {
+            "name": name,
+            "routing_configuration": routing_configuration,
+        }
         if description is not None:
             input_["description"] = description
-        input_["name"] = name
-        input_["routing_configuration"] = routing_configuration
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -494,8 +497,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.delete_activity_input.DeleteActivityInput = {}  # type: ignore[typeddict-item]
-        input_["activity_arn"] = activity_arn
+        input_: capo_sfn.types.delete_activity_input.DeleteActivityInput = {
+            "activity_arn": activity_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -538,8 +542,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.delete_state_machine_input.DeleteStateMachineInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.delete_state_machine_input.DeleteStateMachineInput = {
+            "state_machine_arn": state_machine_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -586,8 +591,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.delete_state_machine_alias_input.DeleteStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: capo_sfn.types.delete_state_machine_alias_input.DeleteStateMachineAliasInput = {
+            "state_machine_alias_arn": state_machine_alias_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -631,8 +637,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.delete_state_machine_version_input.DeleteStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_version_arn"] = state_machine_version_arn
+        input_: capo_sfn.types.delete_state_machine_version_input.DeleteStateMachineVersionInput = {
+            "state_machine_version_arn": state_machine_version_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -675,8 +682,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_activity_input.DescribeActivityInput = {}  # type: ignore[typeddict-item]
-        input_["activity_arn"] = activity_arn
+        input_: capo_sfn.types.describe_activity_input.DescribeActivityInput = {
+            "activity_arn": activity_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -724,8 +732,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_execution_input.DescribeExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.describe_execution_input.DescribeExecutionInput = {
+            "execution_arn": execution_arn
+        }
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -770,8 +779,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_map_run_input.DescribeMapRunInput = {}  # type: ignore[typeddict-item]
-        input_["map_run_arn"] = map_run_arn
+        input_: capo_sfn.types.describe_map_run_input.DescribeMapRunInput = {
+            "map_run_arn": map_run_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -819,8 +829,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_state_machine_input.DescribeStateMachineInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.describe_state_machine_input.DescribeStateMachineInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -866,8 +877,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_state_machine_alias_input.DescribeStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: capo_sfn.types.describe_state_machine_alias_input.DescribeStateMachineAliasInput = {
+            "state_machine_alias_arn": state_machine_alias_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -915,8 +927,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.describe_state_machine_for_execution_input.DescribeStateMachineForExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.describe_state_machine_for_execution_input.DescribeStateMachineForExecutionInput = {
+            "execution_arn": execution_arn
+        }
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -967,8 +980,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.get_activity_task_input.GetActivityTaskInput = {}  # type: ignore[typeddict-item]
-        input_["activity_arn"] = activity_arn
+        input_: capo_sfn.types.get_activity_task_input.GetActivityTaskInput = {
+            "activity_arn": activity_arn
+        }
         if worker_name is not None:
             input_["worker_name"] = worker_name
 
@@ -1027,8 +1041,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.get_execution_history_input.GetExecutionHistoryInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.get_execution_history_input.GetExecutionHistoryInput = {
+            "execution_arn": execution_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if reverse_order is not None:
@@ -1109,7 +1124,7 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_activities_input.ListActivitiesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sfn.types.list_activities_input.ListActivitiesInput = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1197,7 +1212,7 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_executions_input.ListExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sfn.types.list_executions_input.ListExecutionsInput = {}
         if state_machine_arn is not None:
             input_["state_machine_arn"] = state_machine_arn
         if status_filter is not None:
@@ -1292,8 +1307,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_map_runs_input.ListMapRunsInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.list_map_runs_input.ListMapRunsInput = {
+            "execution_arn": execution_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1372,8 +1388,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_state_machine_aliases_input.ListStateMachineAliasesInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.list_state_machine_aliases_input.ListStateMachineAliasesInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1421,7 +1438,7 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_state_machines_input.ListStateMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_sfn.types.list_state_machines_input.ListStateMachinesInput = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1494,8 +1511,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_state_machine_versions_input.ListStateMachineVersionsInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.list_state_machine_versions_input.ListStateMachineVersionsInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1542,8 +1560,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_sfn.types.list_tags_for_resource_input.ListTagsForResourceInput = {
+            "resource_arn": resource_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1596,8 +1615,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.publish_state_machine_version_input.PublishStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.publish_state_machine_version_input.PublishStateMachineVersionInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if revision_id is not None:
             input_["revision_id"] = revision_id
         if description is not None:
@@ -1649,8 +1669,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.redrive_execution_input.RedriveExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.redrive_execution_input.RedriveExecutionInput = {
+            "execution_arn": execution_arn
+        }
         if client_token is None:
             client_token = str(uuid.uuid4())
         input_["client_token"] = client_token
@@ -1704,8 +1725,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.send_task_failure_input.SendTaskFailureInput = {}  # type: ignore[typeddict-item]
-        input_["task_token"] = task_token
+        input_: capo_sfn.types.send_task_failure_input.SendTaskFailureInput = {
+            "task_token": task_token
+        }
         if error is not None:
             input_["error"] = error
         if cause is not None:
@@ -1753,8 +1775,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.send_task_heartbeat_input.SendTaskHeartbeatInput = {}  # type: ignore[typeddict-item]
-        input_["task_token"] = task_token
+        input_: capo_sfn.types.send_task_heartbeat_input.SendTaskHeartbeatInput = {
+            "task_token": task_token
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1804,9 +1827,10 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.send_task_success_input.SendTaskSuccessInput = {}  # type: ignore[typeddict-item]
-        input_["task_token"] = task_token
-        input_["output"] = output
+        input_: capo_sfn.types.send_task_success_input.SendTaskSuccessInput = {
+            "task_token": task_token,
+            "output": output,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1864,8 +1888,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.start_execution_input.StartExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.start_execution_input.StartExecutionInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if name is not None:
             input_["name"] = name
         if input is not None:
@@ -1929,8 +1954,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.start_sync_execution_input.StartSyncExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.start_sync_execution_input.StartSyncExecutionInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if name is not None:
             input_["name"] = name
         if input is not None:
@@ -1989,8 +2015,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.stop_execution_input.StopExecutionInput = {}  # type: ignore[typeddict-item]
-        input_["execution_arn"] = execution_arn
+        input_: capo_sfn.types.stop_execution_input.StopExecutionInput = {
+            "execution_arn": execution_arn
+        }
         if error is not None:
             input_["error"] = error
         if cause is not None:
@@ -2040,9 +2067,10 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_sfn.types.tag_resource_input.TagResourceInput = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2109,8 +2137,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.test_state_input.TestStateInput = {}  # type: ignore[typeddict-item]
-        input_["definition"] = definition
+        input_: capo_sfn.types.test_state_input.TestStateInput = {
+            "definition": definition
+        }
         if role_arn is not None:
             input_["role_arn"] = role_arn
         if input is not None:
@@ -2173,9 +2202,10 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_sfn.types.untag_resource_input.UntagResourceInput = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2231,8 +2261,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.update_map_run_input.UpdateMapRunInput = {}  # type: ignore[typeddict-item]
-        input_["map_run_arn"] = map_run_arn
+        input_: capo_sfn.types.update_map_run_input.UpdateMapRunInput = {
+            "map_run_arn": map_run_arn
+        }
         if max_concurrency is not None:
             input_["max_concurrency"] = max_concurrency
         if tolerated_failure_percentage is not None:
@@ -2314,8 +2345,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.update_state_machine_input.UpdateStateMachineInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_arn"] = state_machine_arn
+        input_: capo_sfn.types.update_state_machine_input.UpdateStateMachineInput = {
+            "state_machine_arn": state_machine_arn
+        }
         if definition is not None:
             input_["definition"] = definition
         if role_arn is not None:
@@ -2385,8 +2417,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.update_state_machine_alias_input.UpdateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input_["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: capo_sfn.types.update_state_machine_alias_input.UpdateStateMachineAliasInput = {
+            "state_machine_alias_arn": state_machine_alias_arn
+        }
         if description is not None:
             input_["description"] = description
         if routing_configuration is not None:
@@ -2442,8 +2475,9 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sfn.types.validate_state_machine_definition_input.ValidateStateMachineDefinitionInput = {}  # type: ignore[typeddict-item]
-        input_["definition"] = definition
+        input_: capo_sfn.types.validate_state_machine_definition_input.ValidateStateMachineDefinitionInput = {
+            "definition": definition
+        }
         if type is not None:
             input_["type"] = type
         if severity is not None:

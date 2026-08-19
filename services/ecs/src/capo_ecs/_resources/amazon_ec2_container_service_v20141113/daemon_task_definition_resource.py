@@ -78,8 +78,9 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_task_definition"] = daemon_task_definition
+        input_: capo_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {
+            "daemon_task_definition": daemon_task_definition
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -129,8 +130,9 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_task_definition"] = daemon_task_definition
+        input_: capo_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {
+            "daemon_task_definition": daemon_task_definition
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -196,7 +198,7 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}
         if family_prefix is not None:
             input_["family_prefix"] = family_prefix
         if family is not None:
@@ -279,13 +281,14 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["family"] = family
+        input_: capo_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {
+            "family": family,
+            "container_definitions": container_definitions,
+        }
         if task_role_arn is not None:
             input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["container_definitions"] = container_definitions
         if cpu is not None:
             input_["cpu"] = cpu
         if memory is not None:
@@ -353,8 +356,9 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_task_definition"] = daemon_task_definition
+        input_: capo_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {
+            "daemon_task_definition": daemon_task_definition
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -405,8 +409,9 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["daemon_task_definition"] = daemon_task_definition
+        input_: capo_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {
+            "daemon_task_definition": daemon_task_definition
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -473,7 +478,7 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}
         if family_prefix is not None:
             input_["family_prefix"] = family_prefix
         if family is not None:
@@ -557,13 +562,14 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["family"] = family
+        input_: capo_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {
+            "family": family,
+            "container_definitions": container_definitions,
+        }
         if task_role_arn is not None:
             input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["container_definitions"] = container_definitions
         if cpu is not None:
             input_["cpu"] = cpu
         if memory is not None:

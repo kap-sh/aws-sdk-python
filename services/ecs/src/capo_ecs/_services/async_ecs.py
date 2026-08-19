@@ -268,9 +268,10 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.continue_service_deployment_request.ContinueServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_deployment_arn"] = service_deployment_arn
-        input_["hook_id"] = hook_id
+        input_: capo_ecs.types.continue_service_deployment_request.ContinueServiceDeploymentRequest = {
+            "service_deployment_arn": service_deployment_arn,
+            "hook_id": hook_id,
+        }
         if action is not None:
             input_["action"] = action
 
@@ -329,8 +330,9 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_account_setting_request.DeleteAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_ecs.types.delete_account_setting_request.DeleteAccountSettingRequest = {
+            "name": name
+        }
         if principal_arn is not None:
             input_["principal_arn"] = principal_arn
 
@@ -383,8 +385,9 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.deregister_task_definition_request.DeregisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["task_definition"] = task_definition
+        input_: capo_ecs.types.deregister_task_definition_request.DeregisterTaskDefinitionRequest = {
+            "task_definition": task_definition
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -439,8 +442,9 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_task_definition_request.DescribeTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["task_definition"] = task_definition
+        input_: capo_ecs.types.describe_task_definition_request.DescribeTaskDefinitionRequest = {
+            "task_definition": task_definition
+        }
         if include is not None:
             input_["include"] = include
 
@@ -489,7 +493,7 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.discover_poll_endpoint_request.DiscoverPollEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.discover_poll_endpoint_request.DiscoverPollEndpointRequest = {}
         if container_instance is not None:
             input_["container_instance"] = container_instance
         if cluster is not None:
@@ -558,7 +562,7 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.list_account_settings_request.ListAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_account_settings_request.ListAccountSettingsRequest = {}
         if name is not None:
             input_["name"] = name
         if value is not None:
@@ -649,8 +653,9 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.list_services_by_namespace_request.ListServicesByNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input_["namespace"] = namespace
+        input_: capo_ecs.types.list_services_by_namespace_request.ListServicesByNamespaceRequest = {
+            "namespace": namespace
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -729,8 +734,9 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_ecs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -793,7 +799,7 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.list_task_definition_families_request.ListTaskDefinitionFamiliesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_task_definition_families_request.ListTaskDefinitionFamiliesRequest = {}
         if family_prefix is not None:
             input_["family_prefix"] = family_prefix
         if status is not None:
@@ -887,9 +893,10 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.put_account_setting_request.PutAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["value"] = value
+        input_: capo_ecs.types.put_account_setting_request.PutAccountSettingRequest = {
+            "name": name,
+            "value": value,
+        }
         if principal_arn is not None:
             input_["principal_arn"] = principal_arn
 
@@ -944,9 +951,10 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.put_account_setting_default_request.PutAccountSettingDefaultRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["value"] = value
+        input_: capo_ecs.types.put_account_setting_default_request.PutAccountSettingDefaultRequest = {
+            "name": name,
+            "value": value,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1002,9 +1010,10 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_ecs.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1059,9 +1068,10 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_ecs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_ecs.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

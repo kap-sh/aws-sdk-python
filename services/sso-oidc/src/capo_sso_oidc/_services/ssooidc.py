@@ -216,10 +216,11 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso_oidc.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["client_id"] = client_id
-        input_["client_secret"] = client_secret
-        input_["grant_type"] = grant_type
+        input_: capo_sso_oidc.types.create_token_request.CreateTokenRequest = {
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": grant_type,
+        }
         if device_code is not None:
             input_["device_code"] = device_code
         if code is not None:
@@ -329,9 +330,10 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso_oidc.types.create_token_with_iam_request.CreateTokenWithIAMRequest = {}  # type: ignore[typeddict-item]
-        input_["client_id"] = client_id
-        input_["grant_type"] = grant_type
+        input_: capo_sso_oidc.types.create_token_with_iam_request.CreateTokenWithIAMRequest = {
+            "client_id": client_id,
+            "grant_type": grant_type,
+        }
         if code is not None:
             input_["code"] = code
         if refresh_token is not None:
@@ -417,9 +419,10 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso_oidc.types.register_client_request.RegisterClientRequest = {}  # type: ignore[typeddict-item]
-        input_["client_name"] = client_name
-        input_["client_type"] = client_type
+        input_: capo_sso_oidc.types.register_client_request.RegisterClientRequest = {
+            "client_name": client_name,
+            "client_type": client_type,
+        }
         if scopes is not None:
             input_["scopes"] = scopes
         if redirect_uris is not None:
@@ -483,10 +486,11 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_sso_oidc.types.start_device_authorization_request.StartDeviceAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input_["client_id"] = client_id
-        input_["client_secret"] = client_secret
-        input_["start_url"] = start_url
+        input_: capo_sso_oidc.types.start_device_authorization_request.StartDeviceAuthorizationRequest = {
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "start_url": start_url,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

@@ -89,8 +89,9 @@ class FunctionVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.publish_version_request.PublishVersionRequest = {
+            "function_name": function_name
+        }
         if code_sha256 is not None:
             input_["code_sha256"] = code_sha256
         if description is not None:
@@ -152,8 +153,9 @@ class FunctionVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:
@@ -227,8 +229,9 @@ class AsyncFunctionVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.publish_version_request.PublishVersionRequest = {
+            "function_name": function_name
+        }
         if code_sha256 is not None:
             input_["code_sha256"] = code_sha256
         if description is not None:
@@ -291,8 +294,9 @@ class AsyncFunctionVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input_["function_name"] = function_name
+        input_: capo_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {
+            "function_name": function_name
+        }
         if marker is not None:
             input_["marker"] = marker
         if max_items is not None:

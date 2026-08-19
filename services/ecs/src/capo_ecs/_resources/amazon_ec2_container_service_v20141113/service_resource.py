@@ -124,10 +124,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["primary_task_set"] = primary_task_set
+        input_: capo_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "primary_task_set": primary_task_set,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -205,10 +206,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {
+            "infrastructure_role_arn": infrastructure_role_arn
+        }
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["infrastructure_role_arn"] = infrastructure_role_arn
         if service_name is not None:
             input_["service_name"] = service_name
         if cluster is not None:
@@ -377,10 +379,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.create_service_request.CreateServiceRequest = {
+            "service_name": service_name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service_name"] = service_name
         if task_definition is not None:
             input_["task_definition"] = task_definition
         if availability_zone_rebalancing is not None:
@@ -480,8 +483,9 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -537,10 +541,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.delete_service_request.DeleteServiceRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service"] = service
         if force is not None:
             input_["force"] = force
 
@@ -593,8 +598,9 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
         if include is not None:
             input_["include"] = include
 
@@ -655,10 +661,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_services_request.DescribeServicesRequest = {
+            "services": services
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["services"] = services
         if include is not None:
             input_["include"] = include
 
@@ -725,8 +732,9 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["service"] = service
+        input_: capo_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if status is not None:
@@ -801,7 +809,7 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_services_request.ListServicesRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if next_token is not None:
@@ -872,8 +880,9 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_deployment_arn"] = service_deployment_arn
+        input_: capo_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {
+            "service_deployment_arn": service_deployment_arn
+        }
         if stop_type is not None:
             input_["stop_type"] = stop_type
 
@@ -947,8 +956,9 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if health_check_path is not None:
@@ -1108,10 +1118,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_service_request.UpdateServiceRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service"] = service
         if desired_count is not None:
             input_["desired_count"] = desired_count
         if task_definition is not None:
@@ -1220,10 +1231,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input_["cluster"] = cluster
-        input_["service"] = service
-        input_["primary_task_set"] = primary_task_set
+        input_: capo_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {
+            "cluster": cluster,
+            "service": service,
+            "primary_task_set": primary_task_set,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1302,10 +1314,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {
+            "infrastructure_role_arn": infrastructure_role_arn
+        }
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["infrastructure_role_arn"] = infrastructure_role_arn
         if service_name is not None:
             input_["service_name"] = service_name
         if cluster is not None:
@@ -1475,10 +1488,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.create_service_request.CreateServiceRequest = {
+            "service_name": service_name
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service_name"] = service_name
         if task_definition is not None:
             input_["task_definition"] = task_definition
         if availability_zone_rebalancing is not None:
@@ -1579,8 +1593,9 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -1637,10 +1652,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.delete_service_request.DeleteServiceRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service"] = service
         if force is not None:
             input_["force"] = force
 
@@ -1694,8 +1710,9 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
         if include is not None:
             input_["include"] = include
 
@@ -1757,10 +1774,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.describe_services_request.DescribeServicesRequest = {
+            "services": services
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["services"] = services
         if include is not None:
             input_["include"] = include
 
@@ -1828,8 +1846,9 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input_["service"] = service
+        input_: capo_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
         if status is not None:
@@ -1905,7 +1924,7 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.list_services_request.ListServicesRequest = {}
         if cluster is not None:
             input_["cluster"] = cluster
         if next_token is not None:
@@ -1977,8 +1996,9 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input_["service_deployment_arn"] = service_deployment_arn
+        input_: capo_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {
+            "service_deployment_arn": service_deployment_arn
+        }
         if stop_type is not None:
             input_["stop_type"] = stop_type
 
@@ -2053,8 +2073,9 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input_["service_arn"] = service_arn
+        input_: capo_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {
+            "service_arn": service_arn
+        }
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if health_check_path is not None:
@@ -2215,10 +2236,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_ecs.types.update_service_request.UpdateServiceRequest = {
+            "service": service
+        }
         if cluster is not None:
             input_["cluster"] = cluster
-        input_["service"] = service
         if desired_count is not None:
             input_["desired_count"] = desired_count
         if task_definition is not None:
