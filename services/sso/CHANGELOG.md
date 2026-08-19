@@ -1,5 +1,11 @@
 # aws-sdk-sso
 
+## 0.6.0
+
+### Minor Changes
+
+- c397a47: get rid of some type ignores, improve typing
+
 ## 0.5.0
 
 ### Minor Changes

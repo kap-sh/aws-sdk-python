@@ -1,5 +1,11 @@
 # aws-sdk-sts
 
+## 0.7.0
+
+### Minor Changes
+
+- c397a47: get rid of some type ignores, improve typing
+
 ## 0.6.0
 
 ### Minor Changes
