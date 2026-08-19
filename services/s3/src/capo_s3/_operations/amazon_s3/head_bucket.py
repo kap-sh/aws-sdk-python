@@ -15,20 +15,25 @@ import capo_s3.types.head_bucket_output
 import capo_s3.types.head_bucket_request
 import capo_s3.types.location_type
 from capo_s3._protocol.errors import find_error_element, parse_error_metadata
-from capo_s3._protocol.xml import fromstring
+from capo_s3._protocol.xml import Element, fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
 from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_s3.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {404: "NotFound"}
+
 
 def handle_error(response: zapros.Response) -> Never:
     body = response.read()
-    if not body:
-        raise UnknownServiceError(code=None, message=None, response=response)
-    root = fromstring(body)
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "NotFound":
             raise capo_s3.errors.not_found.NotFound.from_xml(error_el, message)
