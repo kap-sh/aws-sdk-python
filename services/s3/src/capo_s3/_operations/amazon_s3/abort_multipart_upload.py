@@ -18,17 +18,25 @@ import capo_s3.types.if_match_initiated_time
 import capo_s3.types.request_charged
 import capo_s3.types.request_payer
 from capo_s3._protocol.errors import find_error_element, parse_error_metadata
-from capo_s3._protocol.xml import fromstring
+from capo_s3._protocol.xml import Element, fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
 from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_s3.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {404: "NoSuchUpload"}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "NoSuchUpload":
             raise capo_s3.errors.no_such_upload.NoSuchUpload.from_xml(error_el, message)

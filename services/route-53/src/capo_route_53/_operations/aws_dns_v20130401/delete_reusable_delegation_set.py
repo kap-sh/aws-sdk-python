@@ -18,16 +18,24 @@ import capo_route_53.errors.no_such_delegation_set
 import capo_route_53.types.delete_reusable_delegation_set_request
 import capo_route_53.types.delete_reusable_delegation_set_response
 from capo_route_53._protocol.errors import find_error_element, parse_error_metadata
-from capo_route_53._protocol.xml import fromstring
+from capo_route_53._protocol.xml import Element, fromstring
 from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_route_53.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {400: "InvalidInput"}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "DelegationSetInUse":
             raise capo_route_53.errors.delegation_set_in_use.DelegationSetInUse.from_xml(

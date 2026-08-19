@@ -26,11 +26,22 @@ from capo_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolv
 from capo_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_route_53.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {
+    404: "NoSuchCidrCollectionException",
+    409: "CidrCollectionVersionMismatchException",
+}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "CidrBlockInUseException":
             raise capo_route_53.errors.cidr_block_in_use_exception.CidrBlockInUseException.from_xml(

@@ -23,11 +23,19 @@ from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, reso
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_cloudfront.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {409: "PublicKeyAlreadyExists"}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "InvalidArgument":
             raise capo_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(

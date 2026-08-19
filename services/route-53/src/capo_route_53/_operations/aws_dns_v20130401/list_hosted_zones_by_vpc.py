@@ -24,7 +24,10 @@ from capo_route_53.errors import UnknownServiceError
 
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
+    body = response.read()
+    if not body:
+        raise UnknownServiceError(code=None, message=None, response=response)
+    root = fromstring(body)
     code, message = parse_error_metadata(root)
     error_el = find_error_element(root)
     match code:

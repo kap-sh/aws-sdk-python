@@ -18,16 +18,24 @@ import capo_cloudfront.types.distribution_list
 import capo_cloudfront.types.list_distributions_by_connection_mode_request
 import capo_cloudfront.types.list_distributions_by_connection_mode_result
 from capo_cloudfront._protocol.errors import find_error_element, parse_error_metadata
-from capo_cloudfront._protocol.xml import fromstring
+from capo_cloudfront._protocol.xml import Element, fromstring
 from capo_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_cloudfront._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_cloudfront.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {400: "InvalidArgument", 403: "AccessDenied"}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "AccessDenied":
             raise capo_cloudfront.errors.access_denied.AccessDenied.from_xml(

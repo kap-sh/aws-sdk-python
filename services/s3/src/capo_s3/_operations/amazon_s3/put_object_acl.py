@@ -26,11 +26,19 @@ from capo_s3._rule_engine._endpoint_runtime import apply_label
 from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_s3.errors import UnknownServiceError
 
+STATUS_CODE_TO_CODE = {404: "NoSuchKey"}
+
 
 def handle_error(response: zapros.Response) -> Never:
-    root = fromstring(response.read())
-    code, message = parse_error_metadata(root)
-    error_el = find_error_element(root)
+    body = response.read()
+    if body:
+        root = fromstring(body)
+        code, message = parse_error_metadata(root)
+        error_el = find_error_element(root)
+    else:
+        code = STATUS_CODE_TO_CODE.get(response.status)
+        message = None
+        error_el = Element("Error")
     match code:
         case "NoSuchKey":
             raise capo_s3.errors.no_such_key.NoSuchKey.from_xml(error_el, message)
