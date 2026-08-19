@@ -1,5 +1,11 @@
 # aws-sdk-iam
 
+## 0.11.0
+
+### Minor Changes
+
+- c397a47: get rid of some type ignores, improve typing
+
 ## 0.10.0
 
 ### Minor Changes

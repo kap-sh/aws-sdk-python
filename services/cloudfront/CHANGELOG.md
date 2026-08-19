@@ -1,5 +1,12 @@
 # aws-sdk-cloudfront
 
+## 0.7.0
+
+### Minor Changes
+
+- ae570f9: resolve errors from status code when response has no body
+- c397a47: get rid of some type ignores, improve typing
+
 ## 0.6.0
 
 ### Minor Changes
