@@ -1,5 +1,9 @@
 # AWS SDK for Python - Releases
 
+## 2026-08-20
+
+- [aws-sdk-s3 v0.13.0](services/s3/CHANGELOG.md)
+
 ## 2026-08-19
 
 - [aws-sdk-bedrock-runtime v0.4.0](services/bedrock-runtime/CHANGELOG.md)
