@@ -23,7 +23,7 @@ from capo_s3._auth._providers import (
 from capo_s3._auth._signers import SigV4Signer
 from capo_s3._auth._sigv4 import presign_sigv4
 from capo_s3._auth._zapros_handler import AuthMiddleware
-from capo_s3._checksums import ChecksumMiddleware
+from capo_s3._checksums import ChecksumMiddleware, strip_checksum_headers
 from capo_s3._iter import ensure_async_iterator
 from capo_s3._pagination import resolve_path as _resolve_path
 from capo_s3._services._aws_config import aaws_config
@@ -2394,6 +2394,7 @@ class AsyncS3Client:
         request = capo_s3._operations.amazon_s3.delete_object.build_request(
             options_, input_
         )
+        request = strip_checksum_headers(request)
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
             raise RuntimeError("presign requires SigV4 credentials")
@@ -4068,6 +4069,7 @@ class AsyncS3Client:
         request = capo_s3._operations.amazon_s3.get_object.build_request(
             options_, input_
         )
+        request = strip_checksum_headers(request)
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
             raise RuntimeError("presign requires SigV4 credentials")
@@ -5034,6 +5036,7 @@ class AsyncS3Client:
         request = capo_s3._operations.amazon_s3.head_object.build_request(
             options_, input_
         )
+        request = strip_checksum_headers(request)
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
             raise RuntimeError("presign requires SigV4 credentials")
@@ -7932,6 +7935,7 @@ class AsyncS3Client:
         request = capo_s3._operations.amazon_s3.put_object.build_request(
             options_, input_
         )
+        request = strip_checksum_headers(request)
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
             raise RuntimeError("presign requires SigV4 credentials")
@@ -9322,6 +9326,7 @@ class AsyncS3Client:
         request = capo_s3._operations.amazon_s3.upload_part.build_request(
             options_, input_
         )
+        request = strip_checksum_headers(request)
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
             raise RuntimeError("presign requires SigV4 credentials")

@@ -185,10 +185,30 @@ ALGORITHMS: dict[ChecksumAlgorithm, Algorithm] = {
 }
 
 LEGACY_MD5_HEADER = "Content-MD5"
+SDK_ALGORITHM_HEADER = "x-amz-sdk-checksum-algorithm"
 _FLEXIBLE_HEADERS: frozenset[str] = frozenset(
     spec.header for spec in ALGORITHMS.values()
 )
+_STRIPPED_HEADERS: frozenset[str] = _FLEXIBLE_HEADERS | {
+    SDK_ALGORITHM_HEADER,
+    LEGACY_MD5_HEADER.lower(),
+}
 DEFAULT_REQUEST_ALGORITHM: ChecksumAlgorithm = "CRC32"
+
+
+def strip_checksum_headers(request: Request) -> Request:
+    """Drop every header that binds a request to a body, in place.
+
+    For presigning: the URL is handed to someone else, who supplies the body,
+    and presigning signs whatever headers it finds -- so any checksum left here
+    is one the holder of the URL must reproduce exactly. That covers
+    Content-MD5 as much as the x-amz-checksum-* family, and
+    x-amz-sdk-checksum-algorithm goes too, since the service rejects that
+    header without a matching value.
+    """
+    for name in [key for key in request.headers if key.lower() in _STRIPPED_HEADERS]:
+        del request.headers[name]
+    return request
 
 
 def compute(algorithm: ChecksumAlgorithm, data: Buffer) -> str:
