@@ -1,5 +1,12 @@
 # aws-sdk-s3
 
+## 0.13.0
+
+### Minor Changes
+
+- 65c88ab: raise typed NotFound for S3 HeadObject/HeadBucket empty-body 404s
+- 4849b09: respect smithy checksum trait
+
 ## 0.12.0
 
 ### Minor Changes
