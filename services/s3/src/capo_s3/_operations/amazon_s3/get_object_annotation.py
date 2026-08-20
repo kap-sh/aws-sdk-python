@@ -184,6 +184,20 @@ def get_signer(
     raise RuntimeError("Auth was not resolved")
 
 
+RESPONSE_CHECKSUM_ALGORITHMS = (
+    "CRC64NVME",
+    "CRC32",
+    "CRC32C",
+    "SHA256",
+    "SHA1",
+    "SHA512",
+    "MD5",
+    "XXHASH64",
+    "XXHASH3",
+    "XXHASH128",
+)
+
+
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input_: capo_s3.types.get_object_annotation_request.GetObjectAnnotationRequest,
@@ -236,11 +250,14 @@ def build_request(
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
+    context: zapros.RequestContext = {"signer": signer}
+    if input_.get("checksum_mode") == "ENABLED":
+        context["checksum_algorithms"] = RESPONSE_CHECKSUM_ALGORITHMS
     normalized_url = zapros.URL(url)
     for k, v in params:
         normalized_url.search_params.append(k, v)
     return zapros.Request(
-        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
+        normalized_url, "GET", headers=headers, body=body, context=context
     )
 
 

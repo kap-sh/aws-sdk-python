@@ -23,6 +23,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Faster CRC32C; the checksums are identical either way
+crc32c = ["google-crc32c"]
+# The XXHASH64, XXHASH3 and XXHASH128 checksum algorithms
+xxhash = ["xxhash"]
 # IAM Identity Center (SSO), assume-role and web-identity credentials providers
 sso = [
     "capo-sso>=0.2.0",

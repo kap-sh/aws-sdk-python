@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._checksums
 import capo_s3._protocol.eventstream
 import capo_s3.errors.encryption_type_mismatch
 import capo_s3.errors.invalid_request
@@ -387,6 +388,10 @@ def build_request(
         header.lower() for header in headers
     ]:
         raise ValueError("Content-Length is required for streaming input")
+    if "checksum_algorithm" in input_:
+        capo_s3._checksums.set_request_checksum(
+            headers, body, input_.get("checksum_algorithm")
+        )
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     for k, v in params:

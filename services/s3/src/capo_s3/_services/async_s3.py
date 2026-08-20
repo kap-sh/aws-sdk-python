@@ -23,6 +23,7 @@ from capo_s3._auth._providers import (
 from capo_s3._auth._signers import SigV4Signer
 from capo_s3._auth._sigv4 import presign_sigv4
 from capo_s3._auth._zapros_handler import AuthMiddleware
+from capo_s3._checksums import ChecksumMiddleware
 from capo_s3._iter import ensure_async_iterator
 from capo_s3._pagination import resolve_path as _resolve_path
 from capo_s3._services._aws_config import aaws_config
@@ -457,8 +458,10 @@ class AsyncS3Client:
         accelerate: bool | None = None,
         disable_s3_express_session_auth: bool | None = None,
     ):
-        self._client = AsyncClient(http_handler).wrap_with_middleware(
-            lambda next: AuthMiddleware(next)
+        self._client = (
+            AsyncClient(http_handler)
+            .wrap_with_middleware(lambda next: AuthMiddleware(next))
+            .wrap_with_middleware(lambda next: ChecksumMiddleware(next))
         )
         if credentials is not None and credentials_provider is not None:
             warnings.warn(

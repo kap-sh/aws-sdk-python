@@ -1,6 +1,12 @@
 from __future__ import annotations
 
 from ._base import (
+    ChecksumMismatch as ChecksumMismatch,
+)
+from ._base import (
+    ChecksumUnavailable as ChecksumUnavailable,
+)
+from ._base import (
     DeserializationError as DeserializationError,
 )
 from ._base import (
