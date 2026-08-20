@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._checksums
 import capo_s3._protocol.eventstream
 import capo_s3.types.accelerate_configuration
 import capo_s3.types.checksum_algorithm
@@ -94,6 +95,10 @@ def build_request(
     )
     body: bytes | None = tostring(payload_root[0])
     headers["content-type"] = "application/xml"
+    if "checksum_algorithm" in input_:
+        capo_s3._checksums.set_request_checksum(
+            headers, body, input_.get("checksum_algorithm")
+        )
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     for k, v in params:

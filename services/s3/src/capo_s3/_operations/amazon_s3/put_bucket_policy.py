@@ -9,6 +9,7 @@ from typing_extensions import Never
 
 import capo_s3._auth._signers
 import capo_s3._auth._sigv4
+import capo_s3._checksums
 import capo_s3._protocol.eventstream
 import capo_s3.types.checksum_algorithm
 import capo_s3.types.put_bucket_policy_request
@@ -95,6 +96,9 @@ def build_request(
         headers["x-amz-expected-bucket-owner"] = input_["expected_bucket_owner"]
     body: bytes | None = input_["policy"].encode()
     headers["content-type"] = "text/plain"
+    capo_s3._checksums.set_request_checksum(
+        headers, body, input_.get("checksum_algorithm")
+    )
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     for k, v in params:

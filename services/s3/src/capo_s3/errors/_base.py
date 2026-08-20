@@ -92,3 +92,19 @@ class WaiterTimeoutError(S3Error):
         )
         self.waiter_name = waiter_name
         self.max_wait_time = max_wait_time
+
+
+class ChecksumUnavailable(S3Error):
+    """An algorithm whose backing package is not installed."""
+
+
+class ChecksumMismatch(S3Error):
+    """A response body did not match the checksum the service sent."""
+
+    def __init__(self, algorithm: str, expected: str, actual: str) -> None:
+        super().__init__(
+            f"{algorithm} checksum mismatch: expected {expected}, got {actual}"
+        )
+        self.algorithm = algorithm
+        self.expected = expected
+        self.actual = actual
