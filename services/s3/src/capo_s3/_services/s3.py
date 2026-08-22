@@ -2375,6 +2375,12 @@ class S3Client:
             "session_token": creds.get("session_token"),
             "signing_region": signer._auth_scheme["signingRegion"],
             "signing_name": signer._auth_scheme["signingName"],
+            "disable_double_encoding": signer._auth_scheme.get(
+                "disableDoubleEncoding", False
+            ),
+            "disable_normalize_path": signer._auth_scheme.get(
+                "disableNormalizePath", False
+            ),
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
@@ -4020,6 +4026,12 @@ class S3Client:
             "session_token": creds.get("session_token"),
             "signing_region": signer._auth_scheme["signingRegion"],
             "signing_name": signer._auth_scheme["signingName"],
+            "disable_double_encoding": signer._auth_scheme.get(
+                "disableDoubleEncoding", False
+            ),
+            "disable_normalize_path": signer._auth_scheme.get(
+                "disableNormalizePath", False
+            ),
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
@@ -4970,6 +4982,12 @@ class S3Client:
             "session_token": creds.get("session_token"),
             "signing_region": signer._auth_scheme["signingRegion"],
             "signing_name": signer._auth_scheme["signingName"],
+            "disable_double_encoding": signer._auth_scheme.get(
+                "disableDoubleEncoding", False
+            ),
+            "disable_normalize_path": signer._auth_scheme.get(
+                "disableNormalizePath", False
+            ),
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
@@ -7829,6 +7847,12 @@ class S3Client:
             "session_token": creds.get("session_token"),
             "signing_region": signer._auth_scheme["signingRegion"],
             "signing_name": signer._auth_scheme["signingName"],
+            "disable_double_encoding": signer._auth_scheme.get(
+                "disableDoubleEncoding", False
+            ),
+            "disable_normalize_path": signer._auth_scheme.get(
+                "disableNormalizePath", False
+            ),
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 
@@ -9201,6 +9225,12 @@ class S3Client:
             "session_token": creds.get("session_token"),
             "signing_region": signer._auth_scheme["signingRegion"],
             "signing_name": signer._auth_scheme["signingName"],
+            "disable_double_encoding": signer._auth_scheme.get(
+                "disableDoubleEncoding", False
+            ),
+            "disable_normalize_path": signer._auth_scheme.get(
+                "disableNormalizePath", False
+            ),
         }
         return str(presign_sigv4(request, ctx, expires_in=expire_in).url)
 

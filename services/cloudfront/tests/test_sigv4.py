@@ -56,28 +56,45 @@ class TestUriEncode:
         assert _uri_encode("é") == "%C3%A9"
 
 
+def _s3_path(path: str) -> str:
+    return _canonical_path(path, double_encode=False, normalize=False)
+
+
+def _std_path(path: str) -> str:
+    return _canonical_path(path, double_encode=True, normalize=True)
+
+
 class TestCanonicalPath:
     def test_empty_becomes_root(self):
-        assert _canonical_path("", service="s3") == "/"
-        assert _canonical_path("", service="iam") == "/"
+        assert _s3_path("") == "/"
+        assert _std_path("") == "/"
 
     def test_s3_passthrough(self):
         # S3 must NOT normalize or re-encode the path.
         assert (
-            _canonical_path("/my-bucket/key%20with%20space", service="s3")
-            == "/my-bucket/key%20with%20space"
+            _s3_path("/my-bucket/key%20with%20space") == "/my-bucket/key%20with%20space"
         )
 
     def test_s3_preserves_double_slash(self):
-        assert _canonical_path("/a//b", service="s3") == "/a//b"
+        assert _s3_path("/a//b") == "/a//b"
+
+    def test_s3_preserves_dot_segments(self):
+        assert _s3_path("/a/../b/./c") == "/a/../b/./c"
 
     def test_non_s3_double_encodes(self):
         # "/foo bar" → first encode → "/foo%20bar" → second → "/foo%2520bar"
-        assert _canonical_path("/foo bar", service="iam") == "/foo%2520bar"
+        assert _std_path("/foo bar") == "/foo%2520bar"
 
     def test_non_s3_already_encoded_double_encodes(self):
         # "/foo%20bar" gets unquoted to "/foo bar", then double-encoded.
-        assert _canonical_path("/foo%20bar", service="iam") == "/foo%2520bar"
+        assert _std_path("/foo%20bar") == "/foo%2520bar"
+
+    def test_non_s3_removes_dot_segments(self):
+        # Mirrors botocore's normalize_url_path: "." dropped, ".." pops,
+        # empty segments collapsed, trailing slash preserved.
+        assert _std_path("/a/./b/../c") == "/a/c"
+        assert _std_path("/a//b/") == "/a/b/"
+        assert _std_path("/../a") == "/a"
 
 
 class TestCanonicalQuery:
@@ -178,6 +195,8 @@ _TEST_SUITE_CTX: SigV4AuthContext = {
     "session_token": None,
     "signing_region": "us-east-1",
     "signing_name": "service",
+    "disable_double_encoding": False,
+    "disable_normalize_path": False,
 }
 
 
@@ -272,6 +291,8 @@ _S3_DOCS_CTX: SigV4AuthContext = {
     "session_token": None,
     "signing_region": "us-east-1",
     "signing_name": "s3",
+    "disable_double_encoding": True,
+    "disable_normalize_path": True,
 }
 
 
@@ -329,6 +350,83 @@ def test_s3_sets_payload_hash_for_body():
     # sha256("hello")
     assert signed.headers["X-Amz-Content-SHA256"] == (
         "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    )
+
+
+# ---------------------------------------------------------------------------
+# S3-family signing names (s3express / s3-outposts / s3-object-lambda)
+#
+# The S3 endpoint ruleset resolves these signingNames with
+# ``disableDoubleEncoding: true``; all of them require x-amz-content-sha256.
+# Expected values computed with botocore.auth.S3SigV4Auth (the signer botocore
+# uses for every S3-client request regardless of signing name).
+# ---------------------------------------------------------------------------
+
+
+def _s3_family_ctx(signing_name: str, region: str) -> SigV4AuthContext:
+    return {
+        **_S3_DOCS_CTX,
+        "signing_name": signing_name,
+        "signing_region": region,
+    }
+
+
+def test_s3_outposts_put_with_encoded_key():
+    req = _make_request(
+        "PUT",
+        "https://s3-outposts.us-west-2.amazonaws.com/my%20key/a%20b",
+        {
+            "Host": "s3-outposts.us-west-2.amazonaws.com",
+            "X-Amz-Date": "20130524T000000Z",
+        },
+    )
+    signed = sign_sigv4(req, _s3_family_ctx("s3-outposts", "us-west-2"), b"hello")
+    assert signed.headers["X-Amz-Content-SHA256"] == (
+        "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    )
+    assert signed.headers["Authorization"] == (
+        "AWS4-HMAC-SHA256 "
+        "Credential=AKIAIOSFODNN7EXAMPLE/20130524/us-west-2/s3-outposts/aws4_request,"
+        "SignedHeaders=host;x-amz-content-sha256;x-amz-date,"
+        "Signature=ce4c8f4a6bf5529a48dd80017c2030e1596f621aa702dc78abd3ad48d57cfab2"
+    )
+
+
+def test_s3express_get_with_encoded_key():
+    host = "bucket--usw2-az1--x-s3.s3express-usw2-az1.us-west-2.amazonaws.com"
+    req = _make_request(
+        "GET",
+        f"https://{host}/a%20b?list-type=2",
+        {"Host": host, "X-Amz-Date": "20130524T000000Z"},
+    )
+    signed = sign_sigv4(req, _s3_family_ctx("s3express", "us-west-2"), b"")
+    assert signed.headers["X-Amz-Content-SHA256"] == (
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    )
+    assert signed.headers["Authorization"] == (
+        "AWS4-HMAC-SHA256 "
+        "Credential=AKIAIOSFODNN7EXAMPLE/20130524/us-west-2/s3express/aws4_request,"
+        "SignedHeaders=host;x-amz-content-sha256;x-amz-date,"
+        "Signature=5ef93a260772a5f749d875ec21920e7d69d8992b3c2ec70e22947858d3294409"
+    )
+
+
+def test_s3_object_lambda_get_with_encoded_key():
+    host = "ap.s3-object-lambda.us-east-1.amazonaws.com"
+    req = _make_request(
+        "GET",
+        f"https://{host}/dir/a%20b",
+        {"Host": host, "X-Amz-Date": "20130524T000000Z"},
+    )
+    signed = sign_sigv4(req, _s3_family_ctx("s3-object-lambda", "us-east-1"), b"")
+    assert signed.headers["X-Amz-Content-SHA256"] == (
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    )
+    assert signed.headers["Authorization"] == (
+        "AWS4-HMAC-SHA256 "
+        "Credential=AKIAIOSFODNN7EXAMPLE/20130524/us-east-1/s3-object-lambda/aws4_request,"
+        "SignedHeaders=host;x-amz-content-sha256;x-amz-date,"
+        "Signature=ca5ca0dbb344c8800b769925b115ac92136d7bcd09d1e164cd5407146f2a2ba1"
     )
 
 
@@ -394,7 +492,8 @@ def test_canonical_request_structure():
         query="",
         headers=headers,
         payload_hash="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        service="service",
+        double_encode=True,
+        normalize=True,
     )
     assert signed == "host;x-amz-date"
     assert cr == (

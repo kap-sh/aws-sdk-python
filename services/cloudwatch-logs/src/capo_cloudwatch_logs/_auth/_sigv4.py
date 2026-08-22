@@ -49,6 +49,11 @@ class SigV4AuthContext(TypedDict):
     session_token: str | None
     signing_region: str
     signing_name: str
+    # Rules-engine sigv4 auth-scheme flags (False = standard SigV4: normalize
+    # dot segments, double-encode the path). S3-family endpoint rulesets set
+    # ``disableDoubleEncoding`` so the path is signed exactly as sent.
+    disable_double_encoding: bool
+    disable_normalize_path: bool
 
 
 _SIGV4_ALGORITHM = "AWS4-HMAC-SHA256"
@@ -82,23 +87,49 @@ _UNSIGNED_HEADERS = frozenset(
 
 _MULTI_SPACE = re.compile(r" +")
 
+# Services that require the payload hash to travel in ``x-amz-content-sha256``.
+# Other services sign the hash into the canonical request without sending it.
+_S3_SIGNING_NAMES = frozenset({"s3", "s3express", "s3-outposts", "s3-object-lambda"})
+
 
 def _uri_encode(value: str) -> str:
     """RFC 3986 percent-encoding using only the unreserved set as safe."""
     return quote(value, safe="-_.~")
 
 
-def _canonical_path(path: str, *, service: str) -> str:
+def _remove_dot_segments(path: str) -> str:
+    """RFC 3986 §5.2.4 dot-segment removal (mirrors botocore's normalize_url_path)."""
+    segments: list[str] = []
+    for seg in path.split("/"):
+        if not seg or seg == ".":
+            continue
+        if seg == "..":
+            if segments:
+                segments.pop()
+        else:
+            segments.append(seg)
+    first = "/" if path.startswith("/") else ""
+    last = "/" if path.endswith("/") and segments else ""
+    return first + "/".join(segments) + last
+
+
+def _canonical_path(path: str, *, double_encode: bool, normalize: bool) -> str:
     """Build CanonicalURI.
 
-    Per the SigV4 spec, every segment is URI-encoded; for services other
-    than S3 each segment is URI-encoded **twice**. S3 keeps the path
-    exactly as provided (no normalization, no double-encoding).
+    Per the SigV4 spec, every segment is URI-encoded; standard services
+    normalize dot segments and URI-encode each segment **twice**. The
+    rules-engine ``disableNormalizePath`` / ``disableDoubleEncoding`` flags
+    turn those steps off — S3-family services set both, so the path is
+    signed exactly as provided.
     """
     if not path:
         return "/"
-    if service == "s3":
-        return path if path.startswith("/") else "/" + path
+    if not path.startswith("/"):
+        path = "/" + path
+    if normalize:
+        path = _remove_dot_segments(path)
+    if not double_encode:
+        return path
     decoded = unquote(path)
     first = quote(decoded, safe="/~")
     return quote(first, safe="/~")
@@ -148,9 +179,12 @@ def _build_canonical_request(
     query: str,
     headers: Headers,
     payload_hash: str,
-    service: str,
+    double_encode: bool,
+    normalize: bool,
 ) -> tuple[str, str]:
-    canonical_uri = _canonical_path(path, service=service)
+    canonical_uri = _canonical_path(
+        path, double_encode=double_encode, normalize=normalize
+    )
     canonical_query = _canonical_query(query)
     canonical_headers, signed_headers = _canonical_headers(headers)
     canonical_request = (
@@ -212,8 +246,8 @@ def sign_sigv4(
         date_stamp = now.strftime("%Y%m%d")
         headers["X-Amz-Date"] = amz_date
 
-    # Payload hash. For S3, x-amz-content-sha256 is mandatory and must be set
-    # BEFORE computing the canonical request (it gets signed).
+    # Payload hash. For S3-family services, x-amz-content-sha256 is mandatory
+    # and must be set BEFORE computing the canonical request (it gets signed).
     payload_hash = headers.get("X-Amz-Content-SHA256")
     if payload_hash is None:
         if body is None:
@@ -222,7 +256,7 @@ def sign_sigv4(
             payload_hash = (
                 hashlib.sha256(body).hexdigest() if body else _EMPTY_PAYLOAD_SHA256
             )
-    if service == "s3":
+    if service in _S3_SIGNING_NAMES:
         headers["X-Amz-Content-SHA256"] = payload_hash
 
     # Session token (STS / assumed-role credentials).
@@ -240,7 +274,8 @@ def sign_sigv4(
         query=request.url.search,
         headers=headers,
         payload_hash=payload_hash,
-        service=service,
+        double_encode=not ctx["disable_double_encoding"],
+        normalize=not ctx["disable_normalize_path"],
     )
 
     credential_scope = f"{date_stamp}/{region}/{service}/aws4_request"
@@ -343,9 +378,14 @@ def presign_sigv4(
     existing = list(URLSearchParams(request.url.search).entries())
     canonical_query = _canonical_query_from_pairs(existing + amz_params)
 
+    canonical_uri = _canonical_path(
+        request.url.pathname,
+        double_encode=not ctx["disable_double_encoding"],
+        normalize=not ctx["disable_normalize_path"],
+    )
     canonical_request = (
         f"{request.method.upper()}\n"
-        f"{_canonical_path(request.url.pathname, service=service)}\n"
+        f"{canonical_uri}\n"
         f"{canonical_query}\n"
         f"{canonical_headers}\n"
         f"{signed_headers}\n"
