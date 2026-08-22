@@ -1,5 +1,11 @@
 # aws-sdk-rds
 
+## 0.10.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.9.0
 
 ### Minor Changes

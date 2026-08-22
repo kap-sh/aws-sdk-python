@@ -1,5 +1,11 @@
 # aws-sdk-ec2
 
+## 0.15.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.14.0
 
 ### Minor Changes
