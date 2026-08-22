@@ -34,11 +34,11 @@ def serialize_json(value: RatingScaleItem) -> dict:
 
 def deserialize_json(data: dict) -> RatingScaleItem:
     out: RatingScaleItem = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("RatingScaleItem.definition required")
-    if "value" in data:
+    if data.get("value") is not None:
         import capo_bedrock.types.rating_scale_item_value
 
         out["value"] = capo_bedrock.types.rating_scale_item_value.deserialize_json(

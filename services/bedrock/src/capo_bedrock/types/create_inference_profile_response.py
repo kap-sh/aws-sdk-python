@@ -37,13 +37,13 @@ def serialize_json(value: CreateInferenceProfileResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateInferenceProfileResponse:
     out: CreateInferenceProfileResponse = {}  # type: ignore[typeddict-item]
-    if "inferenceProfileArn" in data:
+    if data.get("inferenceProfileArn") is not None:
         out["inference_profile_arn"] = data["inferenceProfileArn"]
     else:
         raise DeserializationError(
             "CreateInferenceProfileResponse.inference_profile_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.inference_profile_status
 
         out["status"] = capo_bedrock.types.inference_profile_status.deserialize_json(

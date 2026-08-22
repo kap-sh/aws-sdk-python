@@ -37,11 +37,11 @@ def serialize_json(value: EvaluationDataset) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationDataset:
     out: EvaluationDataset = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("EvaluationDataset.name required")
-    if "datasetLocation" in data:
+    if data.get("datasetLocation") is not None:
         import capo_bedrock.types.evaluation_dataset_location
 
         out["dataset_location"] = (

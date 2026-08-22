@@ -37,13 +37,13 @@ def serialize_json(value: VectorSearchBedrockRerankingModelConfiguration) -> dic
 
 def deserialize_json(data: dict) -> VectorSearchBedrockRerankingModelConfiguration:
     out: VectorSearchBedrockRerankingModelConfiguration = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "VectorSearchBedrockRerankingModelConfiguration.model_arn required"
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         import capo_bedrock.types.additional_model_request_fields
 
         out["additional_model_request_fields"] = (

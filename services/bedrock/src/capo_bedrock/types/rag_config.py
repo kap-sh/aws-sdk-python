@@ -47,7 +47,7 @@ def serialize_json(value: RAGConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> RAGConfig:
-    if "knowledgeBaseConfig" in data:
+    if data.get("knowledgeBaseConfig") is not None:
         import capo_bedrock.types.knowledge_base_config
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> RAGConfig:
                 data["knowledgeBaseConfig"]
             )
         }
-    elif "precomputedRagSourceConfig" in data:
+    elif data.get("precomputedRagSourceConfig") is not None:
         import capo_bedrock.types.evaluation_precomputed_rag_source_config
 
         return {

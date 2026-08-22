@@ -28,7 +28,7 @@ def serialize_json(value: GuardrailTopicsTierConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTopicsTierConfig:
     out: GuardrailTopicsTierConfig = {}  # type: ignore[typeddict-item]
-    if "tierName" in data:
+    if data.get("tierName") is not None:
         import capo_bedrock.types.guardrail_topics_tier_name
 
         out["tier_name"] = (

@@ -30,12 +30,12 @@ def serialize_json(value: DimensionalPriceRate) -> dict:
 
 def deserialize_json(data: dict) -> DimensionalPriceRate:
     out: DimensionalPriceRate = {}  # type: ignore[typeddict-item]
-    if "dimension" in data:
+    if data.get("dimension") is not None:
         out["dimension"] = data["dimension"]
-    if "price" in data:
+    if data.get("price") is not None:
         out["price"] = data["price"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "unit" in data:
+    if data.get("unit") is not None:
         out["unit"] = data["unit"]
     return out

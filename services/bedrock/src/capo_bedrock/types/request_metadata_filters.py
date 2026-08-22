@@ -76,7 +76,7 @@ def serialize_json(value: RequestMetadataFilters) -> dict:
 
 
 def deserialize_json(data: dict) -> RequestMetadataFilters:
-    if "equals" in data:
+    if data.get("equals") is not None:
         import capo_bedrock.types.request_metadata_map
 
         return {
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> RequestMetadataFilters:
                 data["equals"]
             )
         }
-    elif "notEquals" in data:
+    elif data.get("notEquals") is not None:
         import capo_bedrock.types.request_metadata_map
 
         return {
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> RequestMetadataFilters:
                 data["notEquals"]
             )
         }
-    elif "andAll" in data:
+    elif data.get("andAll") is not None:
         import capo_bedrock.types.request_metadata_filters_list
 
         return {
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> RequestMetadataFilters:
                 data["andAll"]
             )
         }
-    elif "orAll" in data:
+    elif data.get("orAll") is not None:
         import capo_bedrock.types.request_metadata_filters_list
 
         return {

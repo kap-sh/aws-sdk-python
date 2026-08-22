@@ -47,7 +47,7 @@ def serialize_json(value: EvaluationInferenceConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationInferenceConfig:
-    if "models" in data:
+    if data.get("models") is not None:
         import capo_bedrock.types.evaluation_model_configs
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> EvaluationInferenceConfig:
                 data["models"]
             )
         }
-    elif "ragConfigs" in data:
+    elif data.get("ragConfigs") is not None:
         import capo_bedrock.types.rag_configs
 
         return {

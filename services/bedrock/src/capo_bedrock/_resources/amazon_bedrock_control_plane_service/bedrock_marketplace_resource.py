@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -98,14 +99,16 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["model_source_identifier"] = model_source_identifier
-        input_["endpoint_config"] = endpoint_config
+        input_: capo_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {
+            "model_source_identifier": model_source_identifier,
+            "endpoint_config": endpoint_config,
+            "endpoint_name": endpoint_name,
+        }
         if accept_eula is not None:
             input_["accept_eula"] = accept_eula
-        input_["endpoint_name"] = endpoint_name
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -114,6 +117,7 @@ class BedrockMarketplaceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_marketplace_model_endpoint(
@@ -151,14 +155,16 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def deregister_marketplace_model_endpoint(
@@ -197,14 +203,16 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_marketplace_model_endpoint(
@@ -242,14 +250,16 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_marketplace_model_endpoints(
@@ -295,7 +305,7 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -308,6 +318,7 @@ class BedrockMarketplaceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def register_marketplace_model_endpoint(
@@ -348,15 +359,17 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_identifier"] = endpoint_identifier
-        input_["model_source_identifier"] = model_source_identifier
+        input_: capo_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {
+            "endpoint_identifier": endpoint_identifier,
+            "model_source_identifier": model_source_identifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_marketplace_model_endpoint(
@@ -402,17 +415,20 @@ class BedrockMarketplaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
-        input_["endpoint_config"] = endpoint_config
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        input_: capo_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn,
+            "endpoint_config": endpoint_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -470,14 +486,16 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["model_source_identifier"] = model_source_identifier
-        input_["endpoint_config"] = endpoint_config
+        input_: capo_bedrock.types.create_marketplace_model_endpoint_request.CreateMarketplaceModelEndpointRequest = {
+            "model_source_identifier": model_source_identifier,
+            "endpoint_config": endpoint_config,
+            "endpoint_name": endpoint_name,
+        }
         if accept_eula is not None:
             input_["accept_eula"] = accept_eula
-        input_["endpoint_name"] = endpoint_name
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -486,6 +504,7 @@ class AsyncBedrockMarketplaceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_marketplace_model_endpoint(
@@ -524,14 +543,16 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.delete_marketplace_model_endpoint_request.DeleteMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def deregister_marketplace_model_endpoint(
@@ -571,14 +592,16 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.deregister_marketplace_model_endpoint_request.DeregisterMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_marketplace_model_endpoint(
@@ -617,14 +640,16 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
+        input_: capo_bedrock.types.get_marketplace_model_endpoint_request.GetMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_marketplace_model_endpoints(
@@ -671,7 +696,7 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_marketplace_model_endpoints_request.ListMarketplaceModelEndpointsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -684,6 +709,7 @@ class AsyncBedrockMarketplaceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def register_marketplace_model_endpoint(
@@ -725,15 +751,17 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_identifier"] = endpoint_identifier
-        input_["model_source_identifier"] = model_source_identifier
+        input_: capo_bedrock.types.register_marketplace_model_endpoint_request.RegisterMarketplaceModelEndpointRequest = {
+            "endpoint_identifier": endpoint_identifier,
+            "model_source_identifier": model_source_identifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_marketplace_model_endpoint(
@@ -780,15 +808,18 @@ class AsyncBedrockMarketplaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["endpoint_arn"] = endpoint_arn
-        input_["endpoint_config"] = endpoint_config
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        input_: capo_bedrock.types.update_marketplace_model_endpoint_request.UpdateMarketplaceModelEndpointRequest = {
+            "endpoint_arn": endpoint_arn,
+            "endpoint_config": endpoint_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

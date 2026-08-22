@@ -103,7 +103,7 @@ def serialize_json(value: GuardrailContentFilter) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailContentFilter:
     out: GuardrailContentFilter = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.guardrail_content_filter_type
 
         out["type"] = capo_bedrock.types.guardrail_content_filter_type.deserialize_json(
@@ -111,7 +111,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
         )
     else:
         raise DeserializationError("GuardrailContentFilter.type required")
-    if "inputStrength" in data:
+    if data.get("inputStrength") is not None:
         import capo_bedrock.types.guardrail_filter_strength
 
         out["input_strength"] = (
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
         )
     else:
         raise DeserializationError("GuardrailContentFilter.input_strength required")
-    if "outputStrength" in data:
+    if data.get("outputStrength") is not None:
         import capo_bedrock.types.guardrail_filter_strength
 
         out["output_strength"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
         )
     else:
         raise DeserializationError("GuardrailContentFilter.output_strength required")
-    if "inputModalities" in data:
+    if data.get("inputModalities") is not None:
         import capo_bedrock.types.guardrail_modalities
 
         out["input_modalities"] = (
@@ -139,7 +139,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
                 data["inputModalities"]
             )
         )
-    if "outputModalities" in data:
+    if data.get("outputModalities") is not None:
         import capo_bedrock.types.guardrail_modalities
 
         out["output_modalities"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
                 data["outputModalities"]
             )
         )
-    if "inputAction" in data:
+    if data.get("inputAction") is not None:
         import capo_bedrock.types.guardrail_content_filter_action
 
         out["input_action"] = (
@@ -155,7 +155,7 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
                 data["inputAction"]
             )
         )
-    if "outputAction" in data:
+    if data.get("outputAction") is not None:
         import capo_bedrock.types.guardrail_content_filter_action
 
         out["output_action"] = (
@@ -163,8 +163,8 @@ def deserialize_json(data: dict) -> GuardrailContentFilter:
                 data["outputAction"]
             )
         )
-    if "inputEnabled" in data:
+    if data.get("inputEnabled") is not None:
         out["input_enabled"] = data["inputEnabled"]
-    if "outputEnabled" in data:
+    if data.get("outputEnabled") is not None:
         out["output_enabled"] = data["outputEnabled"]
     return out

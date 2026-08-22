@@ -32,7 +32,7 @@ def serialize_json(value: ModelDataSource) -> dict:
 
 
 def deserialize_json(data: dict) -> ModelDataSource:
-    if "s3DataSource" in data:
+    if data.get("s3DataSource") is not None:
         import capo_bedrock.types.s3_data_source
 
         return {

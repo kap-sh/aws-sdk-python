@@ -54,7 +54,7 @@ def serialize_json(value: EvaluationPrecomputedRagSourceConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationPrecomputedRagSourceConfig:
-    if "retrieveSourceConfig" in data:
+    if data.get("retrieveSourceConfig") is not None:
         import capo_bedrock.types.evaluation_precomputed_retrieve_source_config
 
         return {
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> EvaluationPrecomputedRagSourceConfig:
                 data["retrieveSourceConfig"]
             )
         }
-    elif "retrieveAndGenerateSourceConfig" in data:
+    elif data.get("retrieveAndGenerateSourceConfig") is not None:
         import capo_bedrock.types.evaluation_precomputed_retrieve_and_generate_source_config
 
         return {

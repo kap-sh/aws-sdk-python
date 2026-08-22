@@ -25,15 +25,25 @@ def serialize_json(value: RatingScaleItemValue) -> dict:
     if "stringValue" in value:
         return {"stringValue": value["stringValue"]}
     elif "floatValue" in value:
-        return {"floatValue": value["floatValue"]}
+        return {
+            "floatValue": (
+                "NaN"
+                if value["floatValue"] != value["floatValue"]
+                else "Infinity"
+                if value["floatValue"] == float("inf")
+                else "-Infinity"
+                if value["floatValue"] == float("-inf")
+                else value["floatValue"]
+            )
+        }
     else:
         raise SerializationError("RatingScaleItemValue: no variant present")
 
 
 def deserialize_json(data: dict) -> RatingScaleItemValue:
-    if "stringValue" in data:
+    if data.get("stringValue") is not None:
         return {"stringValue": data["stringValue"]}
-    elif "floatValue" in data:
-        return {"floatValue": data["floatValue"]}
+    elif data.get("floatValue") is not None:
+        return {"floatValue": float(data["floatValue"])}
     else:
         raise DeserializationError("RatingScaleItemValue: no recognized variant key")

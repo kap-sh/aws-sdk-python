@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -89,21 +90,24 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input_["source_model_arn"] = source_model_arn
-        input_["target_model_name"] = target_model_name
+        input_: capo_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {
+            "source_model_arn": source_model_arn,
+            "target_model_name": target_model_name,
+        }
         if model_kms_key_id is not None:
             input_["model_kms_key_id"] = model_kms_key_id
         if target_model_tags is not None:
             input_["target_model_tags"] = target_model_tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_model_copy_job(
@@ -141,14 +145,16 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_arn"] = job_arn
+        input_: capo_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {
+            "job_arn": job_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_model_copy_jobs(
@@ -214,7 +220,7 @@ class ModelCopyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -241,6 +247,7 @@ class ModelCopyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -293,21 +300,24 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input_["source_model_arn"] = source_model_arn
-        input_["target_model_name"] = target_model_name
+        input_: capo_bedrock.types.create_model_copy_job_request.CreateModelCopyJobRequest = {
+            "source_model_arn": source_model_arn,
+            "target_model_name": target_model_name,
+        }
         if model_kms_key_id is not None:
             input_["model_kms_key_id"] = model_kms_key_id
         if target_model_tags is not None:
             input_["target_model_tags"] = target_model_tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_model_copy_job(
@@ -346,14 +356,16 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_arn"] = job_arn
+        input_: capo_bedrock.types.get_model_copy_job_request.GetModelCopyJobRequest = {
+            "job_arn": job_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_model_copy_jobs(
@@ -420,7 +432,7 @@ class AsyncModelCopyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_copy_jobs_request.ListModelCopyJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -447,4 +459,5 @@ class AsyncModelCopyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

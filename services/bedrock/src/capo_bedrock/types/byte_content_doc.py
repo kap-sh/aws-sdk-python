@@ -34,15 +34,15 @@ def serialize_json(value: ByteContentDoc) -> dict:
 
 def deserialize_json(data: dict) -> ByteContentDoc:
     out: ByteContentDoc = {}  # type: ignore[typeddict-item]
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         out["identifier"] = data["identifier"]
     else:
         raise DeserializationError("ByteContentDoc.identifier required")
-    if "contentType" in data:
+    if data.get("contentType") is not None:
         out["content_type"] = data["contentType"]
     else:
         raise DeserializationError("ByteContentDoc.content_type required")
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock.types.byte_content_blob
 
         out["data"] = capo_bedrock.types.byte_content_blob.deserialize_json(

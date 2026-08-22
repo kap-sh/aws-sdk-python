@@ -36,7 +36,7 @@ def serialize_json(value: AutomatedReasoningPolicyAnnotatedContent) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotatedContent:
-    if "line" in data:
+    if data.get("line") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotated_line
 
         return {

@@ -57,7 +57,7 @@ def serialize_json(value: GuardrailManagedWordsConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailManagedWordsConfig:
     out: GuardrailManagedWordsConfig = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.guardrail_managed_words_type
 
         out["type"] = capo_bedrock.types.guardrail_managed_words_type.deserialize_json(
@@ -65,13 +65,13 @@ def deserialize_json(data: dict) -> GuardrailManagedWordsConfig:
         )
     else:
         raise DeserializationError("GuardrailManagedWordsConfig.type required")
-    if "inputAction" in data:
+    if data.get("inputAction") is not None:
         import capo_bedrock.types.guardrail_word_action
 
         out["input_action"] = capo_bedrock.types.guardrail_word_action.deserialize_json(
             data["inputAction"]
         )
-    if "outputAction" in data:
+    if data.get("outputAction") is not None:
         import capo_bedrock.types.guardrail_word_action
 
         out["output_action"] = (
@@ -79,8 +79,8 @@ def deserialize_json(data: dict) -> GuardrailManagedWordsConfig:
                 data["outputAction"]
             )
         )
-    if "inputEnabled" in data:
+    if data.get("inputEnabled") is not None:
         out["input_enabled"] = data["inputEnabled"]
-    if "outputEnabled" in data:
+    if data.get("outputEnabled") is not None:
         out["output_enabled"] = data["outputEnabled"]
     return out

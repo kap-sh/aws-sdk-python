@@ -36,13 +36,13 @@ def serialize_json(value: GetAutomatedReasoningPolicyTestCaseResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyTestCaseResponse:
     out: GetAutomatedReasoningPolicyTestCaseResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyTestCaseResponse.policy_arn required"
         )
-    if "testCase" in data:
+    if data.get("testCase") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_case
 
         out["test_case"] = (

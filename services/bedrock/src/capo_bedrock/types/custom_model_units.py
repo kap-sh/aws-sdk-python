@@ -29,8 +29,8 @@ def serialize_json(value: CustomModelUnits) -> dict:
 
 def deserialize_json(data: dict) -> CustomModelUnits:
     out: CustomModelUnits = {}  # type: ignore[typeddict-item]
-    if "customModelUnitsPerModelCopy" in data:
+    if data.get("customModelUnitsPerModelCopy") is not None:
         out["custom_model_units_per_model_copy"] = data["customModelUnitsPerModelCopy"]
-    if "customModelUnitsVersion" in data:
+    if data.get("customModelUnitsVersion") is not None:
         out["custom_model_units_version"] = data["customModelUnitsVersion"]
     return out

@@ -32,19 +32,19 @@ def serialize_json(value: AutomatedReasoningPolicyAddVariableAnnotation) -> dict
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAddVariableAnnotation:
     out: AutomatedReasoningPolicyAddVariableAnnotation = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyAddVariableAnnotation.name required"
         )
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyAddVariableAnnotation.type required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError(

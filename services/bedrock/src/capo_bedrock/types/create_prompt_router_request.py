@@ -71,15 +71,15 @@ def serialize_json(value: CreatePromptRouterRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePromptRouterRequest:
     out: CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "promptRouterName" in data:
+    if data.get("promptRouterName") is not None:
         out["prompt_router_name"] = data["promptRouterName"]
     else:
         raise DeserializationError(
             "CreatePromptRouterRequest.prompt_router_name required"
         )
-    if "models" in data:
+    if data.get("models") is not None:
         import capo_bedrock.types.prompt_router_target_models
 
         out["models"] = capo_bedrock.types.prompt_router_target_models.deserialize_json(
@@ -87,9 +87,9 @@ def deserialize_json(data: dict) -> CreatePromptRouterRequest:
         )
     else:
         raise DeserializationError("CreatePromptRouterRequest.models required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingCriteria" in data:
+    if data.get("routingCriteria") is not None:
         import capo_bedrock.types.routing_criteria
 
         out["routing_criteria"] = capo_bedrock.types.routing_criteria.deserialize_json(
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> CreatePromptRouterRequest:
         raise DeserializationError(
             "CreatePromptRouterRequest.routing_criteria required"
         )
-    if "fallbackModel" in data:
+    if data.get("fallbackModel") is not None:
         import capo_bedrock.types.prompt_router_target_model
 
         out["fallback_model"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> CreatePromptRouterRequest:
         )
     else:
         raise DeserializationError("CreatePromptRouterRequest.fallback_model required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

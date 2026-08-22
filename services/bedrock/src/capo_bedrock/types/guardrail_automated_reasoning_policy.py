@@ -31,13 +31,21 @@ def serialize_json(value: GuardrailAutomatedReasoningPolicy) -> dict:
         )
     )
     if "confidence_threshold" in value:
-        out["confidenceThreshold"] = value["confidence_threshold"]
+        out["confidenceThreshold"] = (
+            "NaN"
+            if value["confidence_threshold"] != value["confidence_threshold"]
+            else "Infinity"
+            if value["confidence_threshold"] == float("inf")
+            else "-Infinity"
+            if value["confidence_threshold"] == float("-inf")
+            else value["confidence_threshold"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> GuardrailAutomatedReasoningPolicy:
     out: GuardrailAutomatedReasoningPolicy = {}  # type: ignore[typeddict-item]
-    if "policies" in data:
+    if data.get("policies") is not None:
         import capo_bedrock.types.automated_reasoning_policy_arn_list
 
         out["policies"] = (
@@ -49,6 +57,6 @@ def deserialize_json(data: dict) -> GuardrailAutomatedReasoningPolicy:
         raise DeserializationError(
             "GuardrailAutomatedReasoningPolicy.policies required"
         )
-    if "confidenceThreshold" in data:
-        out["confidence_threshold"] = data["confidenceThreshold"]
+    if data.get("confidenceThreshold") is not None:
+        out["confidence_threshold"] = float(data["confidenceThreshold"])
     return out

@@ -48,7 +48,7 @@ def deserialize_json(
     data: dict,
 ) -> AutomatedReasoningPolicyBuildResultAssetManifestEntry:
     out: AutomatedReasoningPolicyBuildResultAssetManifestEntry = {}  # type: ignore[typeddict-item]
-    if "assetType" in data:
+    if data.get("assetType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_result_asset_type
 
         out["asset_type"] = (
@@ -60,8 +60,8 @@ def deserialize_json(
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildResultAssetManifestEntry.asset_type required"
         )
-    if "assetName" in data:
+    if data.get("assetName") is not None:
         out["asset_name"] = data["assetName"]
-    if "assetId" in data:
+    if data.get("assetId") is not None:
         out["asset_id"] = data["assetId"]
     return out

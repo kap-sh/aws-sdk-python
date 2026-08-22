@@ -101,19 +101,19 @@ def serialize_json(value: FoundationModelDetails) -> dict:
 
 def deserialize_json(data: dict) -> FoundationModelDetails:
     out: FoundationModelDetails = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("FoundationModelDetails.model_arn required")
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("FoundationModelDetails.model_id required")
-    if "modelName" in data:
+    if data.get("modelName") is not None:
         out["model_name"] = data["modelName"]
-    if "providerName" in data:
+    if data.get("providerName") is not None:
         out["provider_name"] = data["providerName"]
-    if "inputModalities" in data:
+    if data.get("inputModalities") is not None:
         import capo_bedrock.types.model_modality_list
 
         out["input_modalities"] = (
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> FoundationModelDetails:
                 data["inputModalities"]
             )
         )
-    if "outputModalities" in data:
+    if data.get("outputModalities") is not None:
         import capo_bedrock.types.model_modality_list
 
         out["output_modalities"] = (
@@ -129,9 +129,9 @@ def deserialize_json(data: dict) -> FoundationModelDetails:
                 data["outputModalities"]
             )
         )
-    if "responseStreamingSupported" in data:
+    if data.get("responseStreamingSupported") is not None:
         out["response_streaming_supported"] = data["responseStreamingSupported"]
-    if "customizationsSupported" in data:
+    if data.get("customizationsSupported") is not None:
         import capo_bedrock.types.model_customization_list
 
         out["customizations_supported"] = (
@@ -139,7 +139,7 @@ def deserialize_json(data: dict) -> FoundationModelDetails:
                 data["customizationsSupported"]
             )
         )
-    if "inferenceTypesSupported" in data:
+    if data.get("inferenceTypesSupported") is not None:
         import capo_bedrock.types.inference_type_list
 
         out["inference_types_supported"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> FoundationModelDetails:
                 data["inferenceTypesSupported"]
             )
         )
-    if "modelLifecycle" in data:
+    if data.get("modelLifecycle") is not None:
         import capo_bedrock.types.foundation_model_lifecycle
 
         out["model_lifecycle"] = (

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AutomatedReasoningPolicyTypeValueAnnotationL
 
     out: AutomatedReasoningPolicyTypeValueAnnotationList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_policy_type_value_annotation.deserialize_json(
                 item

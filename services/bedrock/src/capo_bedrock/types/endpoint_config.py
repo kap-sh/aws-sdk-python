@@ -32,7 +32,7 @@ def serialize_json(value: EndpointConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EndpointConfig:
-    if "sageMaker" in data:
+    if data.get("sageMaker") is not None:
         import capo_bedrock.types.sage_maker_endpoint
 
         return {

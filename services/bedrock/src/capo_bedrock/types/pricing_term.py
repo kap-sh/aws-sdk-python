@@ -26,7 +26,7 @@ def serialize_json(value: PricingTerm) -> dict:
 
 def deserialize_json(data: dict) -> PricingTerm:
     out: PricingTerm = {}  # type: ignore[typeddict-item]
-    if "rateCard" in data:
+    if data.get("rateCard") is not None:
         import capo_bedrock.types.rate_card
 
         out["rate_card"] = capo_bedrock.types.rate_card.deserialize_json(

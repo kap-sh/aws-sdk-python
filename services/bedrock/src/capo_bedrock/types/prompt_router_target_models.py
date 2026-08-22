@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> PromptRouterTargetModels:
 
     out: PromptRouterTargetModels = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.prompt_router_target_model.deserialize_json(item))
     return out

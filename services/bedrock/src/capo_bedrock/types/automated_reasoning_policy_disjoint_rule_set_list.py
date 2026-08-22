@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AutomatedReasoningPolicyDisjointRuleSetList:
 
     out: AutomatedReasoningPolicyDisjointRuleSetList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_policy_disjoint_rule_set.deserialize_json(
                 item

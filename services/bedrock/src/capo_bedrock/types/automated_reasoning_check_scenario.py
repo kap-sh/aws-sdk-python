@@ -31,7 +31,7 @@ def serialize_json(value: AutomatedReasoningCheckScenario) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckScenario:
     out: AutomatedReasoningCheckScenario = {}  # type: ignore[typeddict-item]
-    if "statements" in data:
+    if data.get("statements") is not None:
         import capo_bedrock.types.automated_reasoning_logic_statement_list
 
         out["statements"] = (

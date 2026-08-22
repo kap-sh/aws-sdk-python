@@ -35,7 +35,7 @@ def serialize_json(value: PutAccountDataRetentionResponse) -> dict:
 
 def deserialize_json(data: dict) -> PutAccountDataRetentionResponse:
     out: PutAccountDataRetentionResponse = {}  # type: ignore[typeddict-item]
-    if "mode" in data:
+    if data.get("mode") is not None:
         import capo_bedrock.types.data_retention_mode
 
         out["mode"] = capo_bedrock.types.data_retention_mode.deserialize_json(
@@ -43,7 +43,7 @@ def deserialize_json(data: dict) -> PutAccountDataRetentionResponse:
         )
     else:
         raise DeserializationError("PutAccountDataRetentionResponse.mode required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

@@ -31,6 +31,8 @@ def deserialize_json(
 
     out: AutomatedReasoningPolicyBuildResultAssetManifestList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_policy_build_result_asset_manifest_entry.deserialize_json(
                 item

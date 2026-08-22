@@ -28,7 +28,7 @@ def serialize_json(value: QueryTransformationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> QueryTransformationConfiguration:
     out: QueryTransformationConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.query_transformation_type
 
         out["type"] = capo_bedrock.types.query_transformation_type.deserialize_json(

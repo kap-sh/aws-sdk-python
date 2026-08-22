@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> Validators:
 
     out: Validators = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.validator.deserialize_json(item))
     return out

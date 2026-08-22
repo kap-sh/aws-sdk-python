@@ -32,17 +32,17 @@ def serialize_json(value: MetadataAttributeSchema) -> dict:
 
 def deserialize_json(data: dict) -> MetadataAttributeSchema:
     out: MetadataAttributeSchema = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("MetadataAttributeSchema.key required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.attribute_type
 
         out["type"] = capo_bedrock.types.attribute_type.deserialize_json(data["type"])
     else:
         raise DeserializationError("MetadataAttributeSchema.type required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("MetadataAttributeSchema.description required")

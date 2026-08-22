@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AutomatedReasoningPolicyAnnotatedChunkList:
 
     out: AutomatedReasoningPolicyAnnotatedChunkList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_policy_annotated_chunk.deserialize_json(
                 item

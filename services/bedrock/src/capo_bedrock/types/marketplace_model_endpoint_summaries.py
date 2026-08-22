@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> MarketplaceModelEndpointSummaries:
 
     out: MarketplaceModelEndpointSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.marketplace_model_endpoint_summary.deserialize_json(item)
         )

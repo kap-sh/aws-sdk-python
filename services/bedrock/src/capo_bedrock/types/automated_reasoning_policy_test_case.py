@@ -60,27 +60,35 @@ def serialize_json(value: AutomatedReasoningPolicyTestCase) -> dict:
 
     out["updatedAt"] = capo_bedrock.types.timestamp.serialize_json(value["updated_at"])
     if "confidence_threshold" in value:
-        out["confidenceThreshold"] = value["confidence_threshold"]
+        out["confidenceThreshold"] = (
+            "NaN"
+            if value["confidence_threshold"] != value["confidence_threshold"]
+            else "Infinity"
+            if value["confidence_threshold"] == float("inf")
+            else "-Infinity"
+            if value["confidence_threshold"] == float("-inf")
+            else value["confidence_threshold"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestCase:
     out: AutomatedReasoningPolicyTestCase = {}  # type: ignore[typeddict-item]
-    if "testCaseId" in data:
+    if data.get("testCaseId") is not None:
         out["test_case_id"] = data["testCaseId"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestCase.test_case_id required"
         )
-    if "guardContent" in data:
+    if data.get("guardContent") is not None:
         out["guard_content"] = data["guardContent"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestCase.guard_content required"
         )
-    if "queryContent" in data:
+    if data.get("queryContent") is not None:
         out["query_content"] = data["queryContent"]
-    if "expectedAggregatedFindingsResult" in data:
+    if data.get("expectedAggregatedFindingsResult") is not None:
         import capo_bedrock.types.automated_reasoning_check_result
 
         out["expected_aggregated_findings_result"] = (
@@ -88,7 +96,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestCase:
                 data["expectedAggregatedFindingsResult"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -98,7 +106,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestCase:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestCase.created_at required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -108,6 +116,6 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestCase:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestCase.updated_at required"
         )
-    if "confidenceThreshold" in data:
-        out["confidence_threshold"] = data["confidenceThreshold"]
+    if data.get("confidenceThreshold") is not None:
+        out["confidence_threshold"] = float(data["confidenceThreshold"])
     return out

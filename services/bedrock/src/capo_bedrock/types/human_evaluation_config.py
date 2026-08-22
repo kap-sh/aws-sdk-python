@@ -56,7 +56,7 @@ def serialize_json(value: HumanEvaluationConfig) -> dict:
 
 def deserialize_json(data: dict) -> HumanEvaluationConfig:
     out: HumanEvaluationConfig = {}  # type: ignore[typeddict-item]
-    if "humanWorkflowConfig" in data:
+    if data.get("humanWorkflowConfig") is not None:
         import capo_bedrock.types.human_workflow_config
 
         out["human_workflow_config"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> HumanEvaluationConfig:
                 data["humanWorkflowConfig"]
             )
         )
-    if "customMetrics" in data:
+    if data.get("customMetrics") is not None:
         import capo_bedrock.types.human_evaluation_custom_metrics
 
         out["custom_metrics"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> HumanEvaluationConfig:
                 data["customMetrics"]
             )
         )
-    if "datasetMetricConfigs" in data:
+    if data.get("datasetMetricConfigs") is not None:
         import capo_bedrock.types.evaluation_dataset_metric_configs
 
         out["dataset_metric_configs"] = (

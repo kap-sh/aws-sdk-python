@@ -48,7 +48,7 @@ def serialize_json(value: EvaluationModelConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationModelConfig:
-    if "bedrockModel" in data:
+    if data.get("bedrockModel") is not None:
         import capo_bedrock.types.evaluation_bedrock_model
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> EvaluationModelConfig:
                 data["bedrockModel"]
             )
         }
-    elif "precomputedInferenceSource" in data:
+    elif data.get("precomputedInferenceSource") is not None:
         import capo_bedrock.types.evaluation_precomputed_inference_source
 
         return {

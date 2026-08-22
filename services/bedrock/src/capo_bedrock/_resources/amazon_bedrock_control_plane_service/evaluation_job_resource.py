@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -96,14 +97,16 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifiers"] = job_identifiers
+        input_: capo_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {
+            "job_identifiers": job_identifiers
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_evaluation_job(
@@ -171,28 +174,31 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        input_: capo_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {
+            "job_name": job_name,
+            "role_arn": role_arn,
+            "evaluation_config": evaluation_config,
+            "inference_config": inference_config,
+            "output_data_config": output_data_config,
+        }
         if job_description is not None:
             input_["job_description"] = job_description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["role_arn"] = role_arn
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if customer_encryption_key_id is not None:
             input_["customer_encryption_key_id"] = customer_encryption_key_id
         if job_tags is not None:
             input_["job_tags"] = job_tags
         if application_type is not None:
             input_["application_type"] = application_type
-        input_["evaluation_config"] = evaluation_config
-        input_["inference_config"] = inference_config
-        input_["output_data_config"] = output_data_config
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_evaluation_job(
@@ -230,14 +236,16 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_evaluation_jobs(
@@ -298,7 +306,7 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -323,6 +331,7 @@ class EvaluationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_evaluation_job(
@@ -361,14 +370,16 @@ class EvaluationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -419,14 +430,16 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifiers"] = job_identifiers
+        input_: capo_bedrock.types.batch_delete_evaluation_job_request.BatchDeleteEvaluationJobRequest = {
+            "job_identifiers": job_identifiers
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_evaluation_job(
@@ -495,28 +508,31 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        input_: capo_bedrock.types.create_evaluation_job_request.CreateEvaluationJobRequest = {
+            "job_name": job_name,
+            "role_arn": role_arn,
+            "evaluation_config": evaluation_config,
+            "inference_config": inference_config,
+            "output_data_config": output_data_config,
+        }
         if job_description is not None:
             input_["job_description"] = job_description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["role_arn"] = role_arn
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if customer_encryption_key_id is not None:
             input_["customer_encryption_key_id"] = customer_encryption_key_id
         if job_tags is not None:
             input_["job_tags"] = job_tags
         if application_type is not None:
             input_["application_type"] = application_type
-        input_["evaluation_config"] = evaluation_config
-        input_["inference_config"] = inference_config
-        input_["output_data_config"] = output_data_config
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_evaluation_job(
@@ -555,14 +571,16 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_evaluation_job_request.GetEvaluationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_evaluation_jobs(
@@ -624,7 +642,7 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_evaluation_jobs_request.ListEvaluationJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -649,6 +667,7 @@ class AsyncEvaluationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_evaluation_job(
@@ -688,12 +707,14 @@ class AsyncEvaluationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_evaluation_job_request.StopEvaluationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

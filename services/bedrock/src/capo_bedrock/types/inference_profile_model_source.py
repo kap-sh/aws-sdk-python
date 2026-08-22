@@ -26,7 +26,7 @@ def serialize_json(value: InferenceProfileModelSource) -> dict:
 
 
 def deserialize_json(data: dict) -> InferenceProfileModelSource:
-    if "copyFrom" in data:
+    if data.get("copyFrom") is not None:
         return {"copyFrom": data["copyFrom"]}
     else:
         raise DeserializationError(

@@ -49,26 +49,26 @@ def serialize_json(value: CreateModelCopyJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateModelCopyJobRequest:
     out: CreateModelCopyJobRequest = {}  # type: ignore[typeddict-item]
-    if "sourceModelArn" in data:
+    if data.get("sourceModelArn") is not None:
         out["source_model_arn"] = data["sourceModelArn"]
     else:
         raise DeserializationError(
             "CreateModelCopyJobRequest.source_model_arn required"
         )
-    if "targetModelName" in data:
+    if data.get("targetModelName") is not None:
         out["target_model_name"] = data["targetModelName"]
     else:
         raise DeserializationError(
             "CreateModelCopyJobRequest.target_model_name required"
         )
-    if "modelKmsKeyId" in data:
+    if data.get("modelKmsKeyId") is not None:
         out["model_kms_key_id"] = data["modelKmsKeyId"]
-    if "targetModelTags" in data:
+    if data.get("targetModelTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["target_model_tags"] = capo_bedrock.types.tag_list.deserialize_json(
             data["targetModelTags"]
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

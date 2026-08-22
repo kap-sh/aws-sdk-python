@@ -26,7 +26,7 @@ def serialize_json(value: StartAutomatedReasoningPolicyTestWorkflowResponse) -> 
 
 def deserialize_json(data: dict) -> StartAutomatedReasoningPolicyTestWorkflowResponse:
     out: StartAutomatedReasoningPolicyTestWorkflowResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(

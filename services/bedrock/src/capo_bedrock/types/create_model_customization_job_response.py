@@ -24,7 +24,7 @@ def serialize_json(value: CreateModelCustomizationJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateModelCustomizationJobResponse:
     out: CreateModelCustomizationJobResponse = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError(

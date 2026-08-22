@@ -79,25 +79,25 @@ def serialize_json(value: AutomatedReasoningPolicyDefinitionQualityReport) -> di
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionQualityReport:
     out: AutomatedReasoningPolicyDefinitionQualityReport = {}  # type: ignore[typeddict-item]
-    if "typeCount" in data:
+    if data.get("typeCount") is not None:
         out["type_count"] = data["typeCount"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.type_count required"
         )
-    if "variableCount" in data:
+    if data.get("variableCount") is not None:
         out["variable_count"] = data["variableCount"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.variable_count required"
         )
-    if "ruleCount" in data:
+    if data.get("ruleCount") is not None:
         out["rule_count"] = data["ruleCount"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.rule_count required"
         )
-    if "unusedTypes" in data:
+    if data.get("unusedTypes") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_type_name_list
 
         out["unused_types"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionQualityRep
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.unused_types required"
         )
-    if "unusedTypeValues" in data:
+    if data.get("unusedTypeValues") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_type_value_pair_list
 
         out["unused_type_values"] = (
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionQualityRep
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.unused_type_values required"
         )
-    if "unusedVariables" in data:
+    if data.get("unusedVariables") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list
 
         out["unused_variables"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionQualityRep
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.unused_variables required"
         )
-    if "conflictingRules" in data:
+    if data.get("conflictingRules") is not None:
         import capo_bedrock.types.automated_reasoning_policy_conflicted_rule_id_list
 
         out["conflicting_rules"] = (
@@ -145,7 +145,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionQualityRep
         raise DeserializationError(
             "AutomatedReasoningPolicyDefinitionQualityReport.conflicting_rules required"
         )
-    if "disjointRuleSets" in data:
+    if data.get("disjointRuleSets") is not None:
         import capo_bedrock.types.automated_reasoning_policy_disjoint_rule_set_list
 
         out["disjoint_rule_sets"] = (

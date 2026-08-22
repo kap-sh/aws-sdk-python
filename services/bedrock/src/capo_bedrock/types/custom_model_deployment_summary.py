@@ -65,23 +65,23 @@ def serialize_json(value: CustomModelDeploymentSummary) -> dict:
 
 def deserialize_json(data: dict) -> CustomModelDeploymentSummary:
     out: CustomModelDeploymentSummary = {}  # type: ignore[typeddict-item]
-    if "customModelDeploymentArn" in data:
+    if data.get("customModelDeploymentArn") is not None:
         out["custom_model_deployment_arn"] = data["customModelDeploymentArn"]
     else:
         raise DeserializationError(
             "CustomModelDeploymentSummary.custom_model_deployment_arn required"
         )
-    if "customModelDeploymentName" in data:
+    if data.get("customModelDeploymentName") is not None:
         out["custom_model_deployment_name"] = data["customModelDeploymentName"]
     else:
         raise DeserializationError(
             "CustomModelDeploymentSummary.custom_model_deployment_name required"
         )
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("CustomModelDeploymentSummary.model_arn required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -89,7 +89,7 @@ def deserialize_json(data: dict) -> CustomModelDeploymentSummary:
         )
     else:
         raise DeserializationError("CustomModelDeploymentSummary.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.custom_model_deployment_status
 
         out["status"] = (
@@ -99,12 +99,12 @@ def deserialize_json(data: dict) -> CustomModelDeploymentSummary:
         )
     else:
         raise DeserializationError("CustomModelDeploymentSummary.status required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastUpdatedAt"]
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
     return out

@@ -94,21 +94,21 @@ def serialize_json(value: CreateModelInvocationJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateModelInvocationJobRequest:
     out: CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("CreateModelInvocationJobRequest.job_name required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateModelInvocationJobRequest.role_arn required")
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("CreateModelInvocationJobRequest.model_id required")
-    if "inputDataConfig" in data:
+    if data.get("inputDataConfig") is not None:
         import capo_bedrock.types.model_invocation_job_input_data_config
 
         out["input_data_config"] = (
@@ -120,7 +120,7 @@ def deserialize_json(data: dict) -> CreateModelInvocationJobRequest:
         raise DeserializationError(
             "CreateModelInvocationJobRequest.input_data_config required"
         )
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock.types.model_invocation_job_output_data_config
 
         out["output_data_config"] = (
@@ -132,19 +132,19 @@ def deserialize_json(data: dict) -> CreateModelInvocationJobRequest:
         raise DeserializationError(
             "CreateModelInvocationJobRequest.output_data_config required"
         )
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc_config"] = capo_bedrock.types.vpc_config.deserialize_json(
             data["vpcConfig"]
         )
-    if "timeoutDurationInHours" in data:
+    if data.get("timeoutDurationInHours") is not None:
         out["timeout_duration_in_hours"] = data["timeoutDurationInHours"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])
-    if "modelInvocationType" in data:
+    if data.get("modelInvocationType") is not None:
         import capo_bedrock.types.model_invocation_type
 
         out["model_invocation_type"] = (

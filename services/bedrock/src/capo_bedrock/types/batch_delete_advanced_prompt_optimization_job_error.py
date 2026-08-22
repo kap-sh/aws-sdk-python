@@ -31,18 +31,18 @@ def serialize_json(value: BatchDeleteAdvancedPromptOptimizationJobError) -> dict
 
 def deserialize_json(data: dict) -> BatchDeleteAdvancedPromptOptimizationJobError:
     out: BatchDeleteAdvancedPromptOptimizationJobError = {}  # type: ignore[typeddict-item]
-    if "jobIdentifier" in data:
+    if data.get("jobIdentifier") is not None:
         out["job_identifier"] = data["jobIdentifier"]
     else:
         raise DeserializationError(
             "BatchDeleteAdvancedPromptOptimizationJobError.job_identifier required"
         )
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
     else:
         raise DeserializationError(
             "BatchDeleteAdvancedPromptOptimizationJobError.code required"
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

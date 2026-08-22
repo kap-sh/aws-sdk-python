@@ -99,21 +99,21 @@ def serialize_json(value: GetAdvancedPromptOptimizationJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAdvancedPromptOptimizationJobResponse:
     out: GetAdvancedPromptOptimizationJobResponse = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.job_arn required"
         )
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.job_name required"
         )
-    if "jobDescription" in data:
+    if data.get("jobDescription") is not None:
         out["job_description"] = data["jobDescription"]
-    if "jobStatus" in data:
+    if data.get("jobStatus") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_job_status
 
         out["job_status"] = (
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> GetAdvancedPromptOptimizationJobResponse:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.job_status required"
         )
-    if "inputConfig" in data:
+    if data.get("inputConfig") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_input_config
 
         out["input_config"] = (
@@ -137,7 +137,7 @@ def deserialize_json(data: dict) -> GetAdvancedPromptOptimizationJobResponse:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.input_config required"
         )
-    if "outputConfig" in data:
+    if data.get("outputConfig") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_output_config
 
         out["output_config"] = (
@@ -149,9 +149,9 @@ def deserialize_json(data: dict) -> GetAdvancedPromptOptimizationJobResponse:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.output_config required"
         )
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -161,15 +161,15 @@ def deserialize_json(data: dict) -> GetAdvancedPromptOptimizationJobResponse:
         raise DeserializationError(
             "GetAdvancedPromptOptimizationJobResponse.creation_time required"
         )
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastModifiedTime"]
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
-    if "modelConfigurations" in data:
+    if data.get("modelConfigurations") is not None:
         import capo_bedrock.types.model_configurations
 
         out["model_configurations"] = (

@@ -38,7 +38,7 @@ def serialize_json(value: UpdateMarketplaceModelEndpointRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateMarketplaceModelEndpointRequest:
     out: UpdateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "endpointConfig" in data:
+    if data.get("endpointConfig") is not None:
         import capo_bedrock.types.endpoint_config
 
         out["endpoint_config"] = capo_bedrock.types.endpoint_config.deserialize_json(
@@ -48,6 +48,6 @@ def deserialize_json(data: dict) -> UpdateMarketplaceModelEndpointRequest:
         raise DeserializationError(
             "UpdateMarketplaceModelEndpointRequest.endpoint_config required"
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

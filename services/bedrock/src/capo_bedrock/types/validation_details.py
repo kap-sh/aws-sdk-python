@@ -44,19 +44,19 @@ def serialize_json(value: ValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> ValidationDetails:
     out: ValidationDetails = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.job_status_details
 
         out["status"] = capo_bedrock.types.job_status_details.deserialize_json(
             data["status"]
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["creationTime"]
         )
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(

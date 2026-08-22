@@ -52,25 +52,25 @@ def serialize_json(value: MarketplaceModelEndpointSummary) -> dict:
 
 def deserialize_json(data: dict) -> MarketplaceModelEndpointSummary:
     out: MarketplaceModelEndpointSummary = {}  # type: ignore[typeddict-item]
-    if "endpointArn" in data:
+    if data.get("endpointArn") is not None:
         out["endpoint_arn"] = data["endpointArn"]
     else:
         raise DeserializationError(
             "MarketplaceModelEndpointSummary.endpoint_arn required"
         )
-    if "modelSourceIdentifier" in data:
+    if data.get("modelSourceIdentifier") is not None:
         out["model_source_identifier"] = data["modelSourceIdentifier"]
     else:
         raise DeserializationError(
             "MarketplaceModelEndpointSummary.model_source_identifier required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.status
 
         out["status"] = capo_bedrock.types.status.deserialize_json(data["status"])
-    if "statusMessage" in data:
+    if data.get("statusMessage") is not None:
         out["status_message"] = data["statusMessage"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> MarketplaceModelEndpointSummary:
         raise DeserializationError(
             "MarketplaceModelEndpointSummary.created_at required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

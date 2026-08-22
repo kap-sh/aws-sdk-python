@@ -118,7 +118,7 @@ def serialize_json(value: AutomatedReasoningCheckFinding) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
-    if "valid" in data:
+    if data.get("valid") is not None:
         import capo_bedrock.types.automated_reasoning_check_valid_finding
 
         return {
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["valid"]
             )
         }
-    elif "invalid" in data:
+    elif data.get("invalid") is not None:
         import capo_bedrock.types.automated_reasoning_check_invalid_finding
 
         return {
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["invalid"]
             )
         }
-    elif "satisfiable" in data:
+    elif data.get("satisfiable") is not None:
         import capo_bedrock.types.automated_reasoning_check_satisfiable_finding
 
         return {
@@ -142,7 +142,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["satisfiable"]
             )
         }
-    elif "impossible" in data:
+    elif data.get("impossible") is not None:
         import capo_bedrock.types.automated_reasoning_check_impossible_finding
 
         return {
@@ -150,7 +150,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["impossible"]
             )
         }
-    elif "translationAmbiguous" in data:
+    elif data.get("translationAmbiguous") is not None:
         import capo_bedrock.types.automated_reasoning_check_translation_ambiguous_finding
 
         return {
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["translationAmbiguous"]
             )
         }
-    elif "tooComplex" in data:
+    elif data.get("tooComplex") is not None:
         import capo_bedrock.types.automated_reasoning_check_too_complex_finding
 
         return {
@@ -166,7 +166,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckFinding:
                 data["tooComplex"]
             )
         }
-    elif "noTranslations" in data:
+    elif data.get("noTranslations") is not None:
         import capo_bedrock.types.automated_reasoning_check_no_translations_finding
 
         return {

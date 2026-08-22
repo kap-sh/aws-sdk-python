@@ -26,7 +26,7 @@ def serialize_json(value: BedrockEvaluatorModel) -> dict:
 
 def deserialize_json(data: dict) -> BedrockEvaluatorModel:
     out: BedrockEvaluatorModel = {}  # type: ignore[typeddict-item]
-    if "modelIdentifier" in data:
+    if data.get("modelIdentifier") is not None:
         out["model_identifier"] = data["modelIdentifier"]
     else:
         raise DeserializationError("BedrockEvaluatorModel.model_identifier required")

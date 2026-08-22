@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> HumanEvaluationCustomMetrics:
 
     out: HumanEvaluationCustomMetrics = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.human_evaluation_custom_metric.deserialize_json(item)
         )

@@ -54,19 +54,19 @@ def serialize_json(value: AdvancedPromptOptimizationJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> AdvancedPromptOptimizationJobSummary:
     out: AdvancedPromptOptimizationJobSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError(
             "AdvancedPromptOptimizationJobSummary.job_arn required"
         )
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError(
             "AdvancedPromptOptimizationJobSummary.job_name required"
         )
-    if "jobStatus" in data:
+    if data.get("jobStatus") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_job_status
 
         out["job_status"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> AdvancedPromptOptimizationJobSummary:
         raise DeserializationError(
             "AdvancedPromptOptimizationJobSummary.job_status required"
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> AdvancedPromptOptimizationJobSummary:
         raise DeserializationError(
             "AdvancedPromptOptimizationJobSummary.creation_time required"
         )
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(

@@ -61,27 +61,27 @@ def serialize_json(value: CreateProvisionedModelThroughputRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateProvisionedModelThroughputRequest:
     out: CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "modelUnits" in data:
+    if data.get("modelUnits") is not None:
         out["model_units"] = data["modelUnits"]
     else:
         raise DeserializationError(
             "CreateProvisionedModelThroughputRequest.model_units required"
         )
-    if "provisionedModelName" in data:
+    if data.get("provisionedModelName") is not None:
         out["provisioned_model_name"] = data["provisionedModelName"]
     else:
         raise DeserializationError(
             "CreateProvisionedModelThroughputRequest.provisioned_model_name required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(
             "CreateProvisionedModelThroughputRequest.model_id required"
         )
-    if "commitmentDuration" in data:
+    if data.get("commitmentDuration") is not None:
         import capo_bedrock.types.commitment_duration
 
         out["commitment_duration"] = (
@@ -89,7 +89,7 @@ def deserialize_json(data: dict) -> CreateProvisionedModelThroughputRequest:
                 data["commitmentDuration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

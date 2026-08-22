@@ -48,19 +48,19 @@ def serialize_json(value: AutomatedReasoningPolicyScenario) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyScenario:
     out: AutomatedReasoningPolicyScenario = {}  # type: ignore[typeddict-item]
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyScenario.expression required"
         )
-    if "alternateExpression" in data:
+    if data.get("alternateExpression") is not None:
         out["alternate_expression"] = data["alternateExpression"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyScenario.alternate_expression required"
         )
-    if "expectedResult" in data:
+    if data.get("expectedResult") is not None:
         import capo_bedrock.types.automated_reasoning_check_result
 
         out["expected_result"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyScenario:
         raise DeserializationError(
             "AutomatedReasoningPolicyScenario.expected_result required"
         )
-    if "ruleIds" in data:
+    if data.get("ruleIds") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_rule_id_list
 
         out["rule_ids"] = (

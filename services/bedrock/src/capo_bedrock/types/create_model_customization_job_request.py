@@ -140,33 +140,33 @@ def serialize_json(value: CreateModelCustomizationJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
     out: CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.job_name required"
         )
-    if "customModelName" in data:
+    if data.get("customModelName") is not None:
         out["custom_model_name"] = data["customModelName"]
     else:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.custom_model_name required"
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.role_arn required"
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "baseModelIdentifier" in data:
+    if data.get("baseModelIdentifier") is not None:
         out["base_model_identifier"] = data["baseModelIdentifier"]
     else:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.base_model_identifier required"
         )
-    if "customizationType" in data:
+    if data.get("customizationType") is not None:
         import capo_bedrock.types.customization_type
 
         out["customization_type"] = (
@@ -174,19 +174,19 @@ def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
                 data["customizationType"]
             )
         )
-    if "customModelKmsKeyId" in data:
+    if data.get("customModelKmsKeyId") is not None:
         out["custom_model_kms_key_id"] = data["customModelKmsKeyId"]
-    if "jobTags" in data:
+    if data.get("jobTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["job_tags"] = capo_bedrock.types.tag_list.deserialize_json(data["jobTags"])
-    if "customModelTags" in data:
+    if data.get("customModelTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["custom_model_tags"] = capo_bedrock.types.tag_list.deserialize_json(
             data["customModelTags"]
         )
-    if "trainingDataConfig" in data:
+    if data.get("trainingDataConfig") is not None:
         import capo_bedrock.types.training_data_config
 
         out["training_data_config"] = (
@@ -198,7 +198,7 @@ def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.training_data_config required"
         )
-    if "validationDataConfig" in data:
+    if data.get("validationDataConfig") is not None:
         import capo_bedrock.types.validation_data_config
 
         out["validation_data_config"] = (
@@ -206,7 +206,7 @@ def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
                 data["validationDataConfig"]
             )
         )
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock.types.output_data_config
 
         out["output_data_config"] = (
@@ -218,7 +218,7 @@ def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
         raise DeserializationError(
             "CreateModelCustomizationJobRequest.output_data_config required"
         )
-    if "hyperParameters" in data:
+    if data.get("hyperParameters") is not None:
         import capo_bedrock.types.model_customization_hyper_parameters
 
         out["hyper_parameters"] = (
@@ -226,13 +226,13 @@ def deserialize_json(data: dict) -> CreateModelCustomizationJobRequest:
                 data["hyperParameters"]
             )
         )
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc_config"] = capo_bedrock.types.vpc_config.deserialize_json(
             data["vpcConfig"]
         )
-    if "customizationConfig" in data:
+    if data.get("customizationConfig") is not None:
         import capo_bedrock.types.customization_config
 
         out["customization_config"] = (

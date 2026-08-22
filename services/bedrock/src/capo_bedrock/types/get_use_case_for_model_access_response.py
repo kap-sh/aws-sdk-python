@@ -30,7 +30,7 @@ def serialize_json(value: GetUseCaseForModelAccessResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetUseCaseForModelAccessResponse:
     out: GetUseCaseForModelAccessResponse = {}  # type: ignore[typeddict-item]
-    if "formData" in data:
+    if data.get("formData") is not None:
         import capo_bedrock.types.acknowledgement_form_data_body
 
         out["form_data"] = (

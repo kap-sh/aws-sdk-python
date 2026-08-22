@@ -36,7 +36,7 @@ def serialize_json(value: ModelInvocationJobOutputDataConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> ModelInvocationJobOutputDataConfig:
-    if "s3OutputDataConfig" in data:
+    if data.get("s3OutputDataConfig") is not None:
         import capo_bedrock.types.model_invocation_job_s3_output_data_config
 
         return {

@@ -28,13 +28,13 @@ def serialize_json(value: CreateFoundationModelAgreementRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateFoundationModelAgreementRequest:
     out: CreateFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-    if "offerToken" in data:
+    if data.get("offerToken") is not None:
         out["offer_token"] = data["offerToken"]
     else:
         raise DeserializationError(
             "CreateFoundationModelAgreementRequest.offer_token required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(

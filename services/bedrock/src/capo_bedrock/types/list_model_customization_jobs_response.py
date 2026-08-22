@@ -36,9 +36,9 @@ def serialize_json(value: ListModelCustomizationJobsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListModelCustomizationJobsResponse:
     out: ListModelCustomizationJobsResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "modelCustomizationJobSummaries" in data:
+    if data.get("modelCustomizationJobSummaries") is not None:
         import capo_bedrock.types.model_customization_job_summaries
 
         out["model_customization_job_summaries"] = (

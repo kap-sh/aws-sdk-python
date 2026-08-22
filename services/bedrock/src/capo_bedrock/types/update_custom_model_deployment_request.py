@@ -27,7 +27,7 @@ def serialize_json(value: UpdateCustomModelDeploymentRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateCustomModelDeploymentRequest:
     out: UpdateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(

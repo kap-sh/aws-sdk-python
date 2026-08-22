@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -111,8 +112,9 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_name"] = model_name
+        input_: capo_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {
+            "model_name": model_name
+        }
         if model_source_config is not None:
             input_["model_source_config"] = model_source_config
         if custom_model_data_source is not None:
@@ -123,14 +125,16 @@ class CustomModelResource:
             input_["role_arn"] = role_arn
         if model_tags is not None:
             input_["model_tags"] = model_tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_custom_model(
@@ -169,14 +173,16 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_custom_model(
@@ -214,14 +220,16 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.get_custom_model_request.GetCustomModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_custom_models(
@@ -284,7 +292,7 @@ class CustomModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}
         if creation_time_before is not None:
             input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
@@ -313,6 +321,7 @@ class CustomModelResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -382,8 +391,9 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_name"] = model_name
+        input_: capo_bedrock.types.create_custom_model_request.CreateCustomModelRequest = {
+            "model_name": model_name
+        }
         if model_source_config is not None:
             input_["model_source_config"] = model_source_config
         if custom_model_data_source is not None:
@@ -394,14 +404,16 @@ class AsyncCustomModelResource:
             input_["role_arn"] = role_arn
         if model_tags is not None:
             input_["model_tags"] = model_tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_custom_model(
@@ -441,14 +453,16 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.delete_custom_model_request.DeleteCustomModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_custom_model(
@@ -487,14 +501,16 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_custom_model_request.GetCustomModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.get_custom_model_request.GetCustomModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_custom_models(
@@ -558,7 +574,7 @@ class AsyncCustomModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_custom_models_request.ListCustomModelsRequest = {}
         if creation_time_before is not None:
             input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
@@ -587,4 +603,5 @@ class AsyncCustomModelResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

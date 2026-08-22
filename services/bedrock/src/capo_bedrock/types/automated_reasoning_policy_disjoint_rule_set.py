@@ -40,7 +40,7 @@ def serialize_json(value: AutomatedReasoningPolicyDisjointRuleSet) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyDisjointRuleSet:
     out: AutomatedReasoningPolicyDisjointRuleSet = {}  # type: ignore[typeddict-item]
-    if "variables" in data:
+    if data.get("variables") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_variable_name_list
 
         out["variables"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDisjointRuleSet:
         raise DeserializationError(
             "AutomatedReasoningPolicyDisjointRuleSet.variables required"
         )
-    if "rules" in data:
+    if data.get("rules") is not None:
         import capo_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list
 
         out["rules"] = (

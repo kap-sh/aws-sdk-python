@@ -25,6 +25,6 @@ def serialize_json(value: PromptTemplate) -> dict:
 
 def deserialize_json(data: dict) -> PromptTemplate:
     out: PromptTemplate = {}  # type: ignore[typeddict-item]
-    if "textPromptTemplate" in data:
+    if data.get("textPromptTemplate") is not None:
         out["text_prompt_template"] = data["textPromptTemplate"]
     return out

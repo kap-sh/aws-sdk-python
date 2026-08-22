@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildWorkflowRepairContent) ->
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowRepairContent:
     out: AutomatedReasoningPolicyBuildWorkflowRepairContent = {}  # type: ignore[typeddict-item]
-    if "annotations" in data:
+    if data.get("annotations") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotation_list
 
         out["annotations"] = (

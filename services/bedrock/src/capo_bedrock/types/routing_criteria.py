@@ -13,14 +13,22 @@ class RoutingCriteria(TypedDict, closed=True):
 # --- restJson1 ser/de ---
 def serialize_json(value: RoutingCriteria) -> dict:
     out: dict = {}
-    out["responseQualityDifference"] = value["response_quality_difference"]
+    out["responseQualityDifference"] = (
+        "NaN"
+        if value["response_quality_difference"] != value["response_quality_difference"]
+        else "Infinity"
+        if value["response_quality_difference"] == float("inf")
+        else "-Infinity"
+        if value["response_quality_difference"] == float("-inf")
+        else value["response_quality_difference"]
+    )
     return out
 
 
 def deserialize_json(data: dict) -> RoutingCriteria:
     out: RoutingCriteria = {}  # type: ignore[typeddict-item]
-    if "responseQualityDifference" in data:
-        out["response_quality_difference"] = data["responseQualityDifference"]
+    if data.get("responseQualityDifference") is not None:
+        out["response_quality_difference"] = float(data["responseQualityDifference"])
     else:
         raise DeserializationError(
             "RoutingCriteria.response_quality_difference required"

@@ -70,7 +70,7 @@ def serialize_json(value: AutomatedReasoningPolicyDefinitionElement) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionElement:
-    if "policyDefinitionVariable" in data:
+    if data.get("policyDefinitionVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_variable
 
         return {
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionElement:
                 data["policyDefinitionVariable"]
             )
         }
-    elif "policyDefinitionType" in data:
+    elif data.get("policyDefinitionType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_type
 
         return {
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinitionElement:
                 data["policyDefinitionType"]
             )
         }
-    elif "policyDefinitionRule" in data:
+    elif data.get("policyDefinitionRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_rule
 
         return {

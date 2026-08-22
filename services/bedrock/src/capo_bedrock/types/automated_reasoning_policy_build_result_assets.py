@@ -140,7 +140,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildResultAssets) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
-    if "policyDefinition" in data:
+    if data.get("policyDefinition") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition
 
         return {
@@ -148,7 +148,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["policyDefinition"]
             )
         }
-    elif "qualityReport" in data:
+    elif data.get("qualityReport") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_quality_report
 
         return {
@@ -156,7 +156,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["qualityReport"]
             )
         }
-    elif "buildLog" in data:
+    elif data.get("buildLog") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_log
 
         return {
@@ -164,7 +164,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["buildLog"]
             )
         }
-    elif "generatedTestCases" in data:
+    elif data.get("generatedTestCases") is not None:
         import capo_bedrock.types.automated_reasoning_policy_generated_test_cases
 
         return {
@@ -172,7 +172,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["generatedTestCases"]
             )
         }
-    elif "policyScenarios" in data:
+    elif data.get("policyScenarios") is not None:
         import capo_bedrock.types.automated_reasoning_policy_scenarios
 
         return {
@@ -180,7 +180,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["policyScenarios"]
             )
         }
-    elif "assetManifest" in data:
+    elif data.get("assetManifest") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_result_asset_manifest
 
         return {
@@ -188,7 +188,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["assetManifest"]
             )
         }
-    elif "document" in data:
+    elif data.get("document") is not None:
         import capo_bedrock.types.automated_reasoning_policy_source_document
 
         return {
@@ -196,7 +196,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssets:
                 data["document"]
             )
         }
-    elif "fidelityReport" in data:
+    elif data.get("fidelityReport") is not None:
         import capo_bedrock.types.automated_reasoning_policy_fidelity_report
 
         return {

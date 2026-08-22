@@ -38,19 +38,19 @@ def serialize_json(value: AutomatedReasoningPolicyAtomicStatement) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAtomicStatement:
     out: AutomatedReasoningPolicyAtomicStatement = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyAtomicStatement.id required"
         )
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyAtomicStatement.text required"
         )
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock.types.automated_reasoning_policy_statement_location
 
         out["location"] = (

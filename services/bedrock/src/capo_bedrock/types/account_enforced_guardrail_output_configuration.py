@@ -105,19 +105,19 @@ def serialize_json(value: AccountEnforcedGuardrailOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AccountEnforcedGuardrailOutputConfiguration:
     out: AccountEnforcedGuardrailOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "configId" in data:
+    if data.get("configId") is not None:
         out["config_id"] = data["configId"]
-    if "guardrailArn" in data:
+    if data.get("guardrailArn") is not None:
         out["guardrail_arn"] = data["guardrailArn"]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
-    if "inputTags" in data:
+    if data.get("inputTags") is not None:
         import capo_bedrock.types.input_tags
 
         out["input_tags"] = capo_bedrock.types.input_tags.deserialize_json(
             data["inputTags"]
         )
-    if "selectiveContentGuarding" in data:
+    if data.get("selectiveContentGuarding") is not None:
         import capo_bedrock.types.selective_content_guarding
 
         out["selective_content_guarding"] = (
@@ -125,27 +125,27 @@ def deserialize_json(data: dict) -> AccountEnforcedGuardrailOutputConfiguration:
                 data["selectiveContentGuarding"]
             )
         )
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["createdAt"]
         )
-    if "createdBy" in data:
+    if data.get("createdBy") is not None:
         out["created_by"] = data["createdBy"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["updatedAt"]
         )
-    if "updatedBy" in data:
+    if data.get("updatedBy") is not None:
         out["updated_by"] = data["updatedBy"]
-    if "owner" in data:
+    if data.get("owner") is not None:
         out["owner"] = data["owner"]
-    if "modelEnforcement" in data:
+    if data.get("modelEnforcement") is not None:
         import capo_bedrock.types.model_enforcement
 
         out["model_enforcement"] = (

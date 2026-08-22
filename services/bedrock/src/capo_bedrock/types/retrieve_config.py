@@ -34,11 +34,11 @@ def serialize_json(value: RetrieveConfig) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveConfig:
     out: RetrieveConfig = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("RetrieveConfig.knowledge_base_id required")
-    if "knowledgeBaseRetrievalConfiguration" in data:
+    if data.get("knowledgeBaseRetrievalConfiguration") is not None:
         import capo_bedrock.types.knowledge_base_retrieval_configuration
 
         out["knowledge_base_retrieval_configuration"] = (

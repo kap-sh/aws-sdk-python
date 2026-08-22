@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyStatementLocation) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyStatementLocation:
     out: AutomatedReasoningPolicyStatementLocation = {}  # type: ignore[typeddict-item]
-    if "lines" in data:
+    if data.get("lines") is not None:
         import capo_bedrock.types.automated_reasoning_policy_line_number_list
 
         out["lines"] = (

@@ -44,7 +44,7 @@ def serialize_json(value: EvaluationRagConfigSummary) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationRagConfigSummary:
     out: EvaluationRagConfigSummary = {}  # type: ignore[typeddict-item]
-    if "bedrockKnowledgeBaseIdentifiers" in data:
+    if data.get("bedrockKnowledgeBaseIdentifiers") is not None:
         import capo_bedrock.types.evaluation_bedrock_knowledge_base_identifiers
 
         out["bedrock_knowledge_base_identifiers"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> EvaluationRagConfigSummary:
                 data["bedrockKnowledgeBaseIdentifiers"]
             )
         )
-    if "precomputedRagSourceIdentifiers" in data:
+    if data.get("precomputedRagSourceIdentifiers") is not None:
         import capo_bedrock.types.evaluation_precomputed_rag_source_identifiers
 
         out["precomputed_rag_source_identifiers"] = (

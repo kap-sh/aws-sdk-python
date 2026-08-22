@@ -32,12 +32,12 @@ def serialize_json(value: TeacherModelConfig) -> dict:
 
 def deserialize_json(data: dict) -> TeacherModelConfig:
     out: TeacherModelConfig = {}  # type: ignore[typeddict-item]
-    if "teacherModelIdentifier" in data:
+    if data.get("teacherModelIdentifier") is not None:
         out["teacher_model_identifier"] = data["teacherModelIdentifier"]
     else:
         raise DeserializationError(
             "TeacherModelConfig.teacher_model_identifier required"
         )
-    if "maxResponseLengthForInference" in data:
+    if data.get("maxResponseLengthForInference") is not None:
         out["max_response_length_for_inference"] = data["maxResponseLengthForInference"]
     return out

@@ -54,7 +54,7 @@ def serialize_json(value: RetrieveAndGenerateConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveAndGenerateConfiguration:
     out: RetrieveAndGenerateConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.retrieve_and_generate_type
 
         out["type"] = capo_bedrock.types.retrieve_and_generate_type.deserialize_json(
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> RetrieveAndGenerateConfiguration:
         )
     else:
         raise DeserializationError("RetrieveAndGenerateConfiguration.type required")
-    if "knowledgeBaseConfiguration" in data:
+    if data.get("knowledgeBaseConfiguration") is not None:
         import capo_bedrock.types.knowledge_base_retrieve_and_generate_configuration
 
         out["knowledge_base_configuration"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> RetrieveAndGenerateConfiguration:
                 data["knowledgeBaseConfiguration"]
             )
         )
-    if "externalSourcesConfiguration" in data:
+    if data.get("externalSourcesConfiguration") is not None:
         import capo_bedrock.types.external_sources_retrieve_and_generate_configuration
 
         out["external_sources_configuration"] = (

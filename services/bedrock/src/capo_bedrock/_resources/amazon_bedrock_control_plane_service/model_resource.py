@@ -69,14 +69,16 @@ class ModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_foundation_models(
@@ -125,7 +127,7 @@ class ModelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}
         if by_provider is not None:
             input_["by_provider"] = by_provider
         if by_customization_type is not None:
@@ -140,6 +142,7 @@ class ModelResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -183,14 +186,16 @@ class AsyncModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {}  # type: ignore[typeddict-item]
-        input_["model_identifier"] = model_identifier
+        input_: capo_bedrock.types.get_foundation_model_request.GetFoundationModelRequest = {
+            "model_identifier": model_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_foundation_models(
@@ -240,7 +245,7 @@ class AsyncModelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_foundation_models_request.ListFoundationModelsRequest = {}
         if by_provider is not None:
             input_["by_provider"] = by_provider
         if by_customization_type is not None:
@@ -255,4 +260,5 @@ class AsyncModelResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

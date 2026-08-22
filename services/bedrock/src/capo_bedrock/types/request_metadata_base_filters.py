@@ -37,13 +37,13 @@ def serialize_json(value: RequestMetadataBaseFilters) -> dict:
 
 def deserialize_json(data: dict) -> RequestMetadataBaseFilters:
     out: RequestMetadataBaseFilters = {}  # type: ignore[typeddict-item]
-    if "equals" in data:
+    if data.get("equals") is not None:
         import capo_bedrock.types.request_metadata_map
 
         out["equals"] = capo_bedrock.types.request_metadata_map.deserialize_json(
             data["equals"]
         )
-    if "notEquals" in data:
+    if data.get("notEquals") is not None:
         import capo_bedrock.types.request_metadata_map
 
         out["not_equals"] = capo_bedrock.types.request_metadata_map.deserialize_json(

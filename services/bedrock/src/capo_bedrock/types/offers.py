@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> Offers:
 
     out: Offers = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.offer.deserialize_json(item))
     return out

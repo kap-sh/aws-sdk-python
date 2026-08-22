@@ -24,7 +24,7 @@ def serialize_json(value: DeleteFoundationModelAgreementRequest) -> dict:
 
 def deserialize_json(data: dict) -> DeleteFoundationModelAgreementRequest:
     out: DeleteFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(

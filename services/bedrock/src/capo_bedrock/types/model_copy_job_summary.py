@@ -84,11 +84,11 @@ def serialize_json(value: ModelCopyJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> ModelCopyJobSummary:
     out: ModelCopyJobSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("ModelCopyJobSummary.job_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.model_copy_job_status
 
         out["status"] = capo_bedrock.types.model_copy_job_status.deserialize_json(
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> ModelCopyJobSummary:
         )
     else:
         raise DeserializationError("ModelCopyJobSummary.status required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -104,30 +104,30 @@ def deserialize_json(data: dict) -> ModelCopyJobSummary:
         )
     else:
         raise DeserializationError("ModelCopyJobSummary.creation_time required")
-    if "targetModelArn" in data:
+    if data.get("targetModelArn") is not None:
         out["target_model_arn"] = data["targetModelArn"]
     else:
         raise DeserializationError("ModelCopyJobSummary.target_model_arn required")
-    if "targetModelName" in data:
+    if data.get("targetModelName") is not None:
         out["target_model_name"] = data["targetModelName"]
-    if "sourceAccountId" in data:
+    if data.get("sourceAccountId") is not None:
         out["source_account_id"] = data["sourceAccountId"]
     else:
         raise DeserializationError("ModelCopyJobSummary.source_account_id required")
-    if "sourceModelArn" in data:
+    if data.get("sourceModelArn") is not None:
         out["source_model_arn"] = data["sourceModelArn"]
     else:
         raise DeserializationError("ModelCopyJobSummary.source_model_arn required")
-    if "targetModelKmsKeyArn" in data:
+    if data.get("targetModelKmsKeyArn") is not None:
         out["target_model_kms_key_arn"] = data["targetModelKmsKeyArn"]
-    if "targetModelTags" in data:
+    if data.get("targetModelTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["target_model_tags"] = capo_bedrock.types.tag_list.deserialize_json(
             data["targetModelTags"]
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
-    if "sourceModelName" in data:
+    if data.get("sourceModelName") is not None:
         out["source_model_name"] = data["sourceModelName"]
     return out

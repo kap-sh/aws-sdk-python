@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyScenarios) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyScenarios:
     out: AutomatedReasoningPolicyScenarios = {}  # type: ignore[typeddict-item]
-    if "policyScenarios" in data:
+    if data.get("policyScenarios") is not None:
         import capo_bedrock.types.automated_reasoning_policy_scenario_list
 
         out["policy_scenarios"] = (

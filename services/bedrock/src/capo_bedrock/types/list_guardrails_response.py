@@ -33,7 +33,7 @@ def serialize_json(value: ListGuardrailsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListGuardrailsResponse:
     out: ListGuardrailsResponse = {}  # type: ignore[typeddict-item]
-    if "guardrails" in data:
+    if data.get("guardrails") is not None:
         import capo_bedrock.types.guardrail_summaries
 
         out["guardrails"] = capo_bedrock.types.guardrail_summaries.deserialize_json(
@@ -41,6 +41,6 @@ def deserialize_json(data: dict) -> ListGuardrailsResponse:
         )
     else:
         raise DeserializationError("ListGuardrailsResponse.guardrails required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -40,25 +40,25 @@ def serialize_json(value: UpdateAutomatedReasoningPolicyResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAutomatedReasoningPolicyResponse:
     out: UpdateAutomatedReasoningPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyResponse.policy_arn required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyResponse.name required"
         )
-    if "definitionHash" in data:
+    if data.get("definitionHash") is not None:
         out["definition_hash"] = data["definitionHash"]
     else:
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyResponse.definition_hash required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

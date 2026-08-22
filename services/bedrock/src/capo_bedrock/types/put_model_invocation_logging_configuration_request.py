@@ -28,7 +28,7 @@ def serialize_json(value: PutModelInvocationLoggingConfigurationRequest) -> dict
 
 def deserialize_json(data: dict) -> PutModelInvocationLoggingConfigurationRequest:
     out: PutModelInvocationLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-    if "loggingConfig" in data:
+    if data.get("loggingConfig") is not None:
         import capo_bedrock.types.logging_config
 
         out["logging_config"] = capo_bedrock.types.logging_config.deserialize_json(

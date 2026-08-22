@@ -58,13 +58,14 @@ class AllowlistResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_use_case_for_model_access(
@@ -101,14 +102,16 @@ class AllowlistResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
-        input_["form_data"] = form_data
+        input_: capo_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {
+            "form_data": form_data
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -145,13 +148,14 @@ class AsyncAllowlistResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.get_use_case_for_model_access_request.GetUseCaseForModelAccessRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_use_case_for_model_access(
@@ -189,12 +193,14 @@ class AsyncAllowlistResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {}  # type: ignore[typeddict-item]
-        input_["form_data"] = form_data
+        input_: capo_bedrock.types.put_use_case_for_model_access_request.PutUseCaseForModelAccessRequest = {
+            "form_data": form_data
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

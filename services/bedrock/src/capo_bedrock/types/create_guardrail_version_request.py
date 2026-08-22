@@ -35,8 +35,8 @@ def serialize_json(value: CreateGuardrailVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateGuardrailVersionRequest:
     out: CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

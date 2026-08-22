@@ -30,8 +30,24 @@ class AutomatedReasoningPolicyFidelityReport(TypedDict, closed=True):
 # --- restJson1 ser/de ---
 def serialize_json(value: AutomatedReasoningPolicyFidelityReport) -> dict:
     out: dict = {}
-    out["coverageScore"] = value["coverage_score"]
-    out["accuracyScore"] = value["accuracy_score"]
+    out["coverageScore"] = (
+        "NaN"
+        if value["coverage_score"] != value["coverage_score"]
+        else "Infinity"
+        if value["coverage_score"] == float("inf")
+        else "-Infinity"
+        if value["coverage_score"] == float("-inf")
+        else value["coverage_score"]
+    )
+    out["accuracyScore"] = (
+        "NaN"
+        if value["accuracy_score"] != value["accuracy_score"]
+        else "Infinity"
+        if value["accuracy_score"] == float("inf")
+        else "-Infinity"
+        if value["accuracy_score"] == float("-inf")
+        else value["accuracy_score"]
+    )
     import capo_bedrock.types.automated_reasoning_policy_rule_report_map
 
     out["ruleReports"] = (
@@ -58,19 +74,19 @@ def serialize_json(value: AutomatedReasoningPolicyFidelityReport) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyFidelityReport:
     out: AutomatedReasoningPolicyFidelityReport = {}  # type: ignore[typeddict-item]
-    if "coverageScore" in data:
-        out["coverage_score"] = data["coverageScore"]
+    if data.get("coverageScore") is not None:
+        out["coverage_score"] = float(data["coverageScore"])
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyFidelityReport.coverage_score required"
         )
-    if "accuracyScore" in data:
-        out["accuracy_score"] = data["accuracyScore"]
+    if data.get("accuracyScore") is not None:
+        out["accuracy_score"] = float(data["accuracyScore"])
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyFidelityReport.accuracy_score required"
         )
-    if "ruleReports" in data:
+    if data.get("ruleReports") is not None:
         import capo_bedrock.types.automated_reasoning_policy_rule_report_map
 
         out["rule_reports"] = (
@@ -82,7 +98,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyFidelityReport:
         raise DeserializationError(
             "AutomatedReasoningPolicyFidelityReport.rule_reports required"
         )
-    if "variableReports" in data:
+    if data.get("variableReports") is not None:
         import capo_bedrock.types.automated_reasoning_policy_variable_report_map
 
         out["variable_reports"] = (
@@ -94,7 +110,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyFidelityReport:
         raise DeserializationError(
             "AutomatedReasoningPolicyFidelityReport.variable_reports required"
         )
-    if "documentSources" in data:
+    if data.get("documentSources") is not None:
         import capo_bedrock.types.automated_reasoning_policy_report_source_document_list
 
         out["document_sources"] = (

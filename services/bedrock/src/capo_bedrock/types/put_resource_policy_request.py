@@ -32,11 +32,11 @@ def serialize_json(value: PutResourcePolicyRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutResourcePolicyRequest:
     out: PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-    if "resourceArn" in data:
+    if data.get("resourceArn") is not None:
         out["resource_arn"] = data["resourceArn"]
     else:
         raise DeserializationError("PutResourcePolicyRequest.resource_arn required")
-    if "resourcePolicy" in data:
+    if data.get("resourcePolicy") is not None:
         out["resource_policy"] = data["resourcePolicy"]
     else:
         raise DeserializationError("PutResourcePolicyRequest.resource_policy required")

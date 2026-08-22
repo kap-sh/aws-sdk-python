@@ -36,7 +36,7 @@ def serialize_json(value: ListPromptRoutersResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListPromptRoutersResponse:
     out: ListPromptRoutersResponse = {}  # type: ignore[typeddict-item]
-    if "promptRouterSummaries" in data:
+    if data.get("promptRouterSummaries") is not None:
         import capo_bedrock.types.prompt_router_summaries
 
         out["prompt_router_summaries"] = (
@@ -44,6 +44,6 @@ def deserialize_json(data: dict) -> ListPromptRoutersResponse:
                 data["promptRouterSummaries"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

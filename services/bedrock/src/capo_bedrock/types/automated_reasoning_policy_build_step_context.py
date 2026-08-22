@@ -50,7 +50,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildStepContext) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStepContext:
-    if "planning" in data:
+    if data.get("planning") is not None:
         import capo_bedrock.types.automated_reasoning_policy_planning
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStepContext:
                 data["planning"]
             )
         }
-    elif "mutation" in data:
+    elif data.get("mutation") is not None:
         import capo_bedrock.types.automated_reasoning_policy_mutation
 
         return {

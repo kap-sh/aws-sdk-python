@@ -31,7 +31,7 @@ def serialize_json(value: GetFoundationModelResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFoundationModelResponse:
     out: GetFoundationModelResponse = {}  # type: ignore[typeddict-item]
-    if "modelDetails" in data:
+    if data.get("modelDetails") is not None:
         import capo_bedrock.types.foundation_model_details
 
         out["model_details"] = (

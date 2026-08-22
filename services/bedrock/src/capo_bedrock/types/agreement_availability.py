@@ -30,7 +30,7 @@ def serialize_json(value: AgreementAvailability) -> dict:
 
 def deserialize_json(data: dict) -> AgreementAvailability:
     out: AgreementAvailability = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.agreement_status
 
         out["status"] = capo_bedrock.types.agreement_status.deserialize_json(
@@ -38,6 +38,6 @@ def deserialize_json(data: dict) -> AgreementAvailability:
         )
     else:
         raise DeserializationError("AgreementAvailability.status required")
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

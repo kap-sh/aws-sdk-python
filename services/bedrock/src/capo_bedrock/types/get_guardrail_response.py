@@ -189,25 +189,25 @@ def serialize_json(value: GetGuardrailResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetGuardrailResponse:
     out: GetGuardrailResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetGuardrailResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
     else:
         raise DeserializationError("GetGuardrailResponse.guardrail_id required")
-    if "guardrailArn" in data:
+    if data.get("guardrailArn") is not None:
         out["guardrail_arn"] = data["guardrailArn"]
     else:
         raise DeserializationError("GetGuardrailResponse.guardrail_arn required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("GetGuardrailResponse.version required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.guardrail_status
 
         out["status"] = capo_bedrock.types.guardrail_status.deserialize_json(
@@ -215,7 +215,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
         )
     else:
         raise DeserializationError("GetGuardrailResponse.status required")
-    if "topicPolicy" in data:
+    if data.get("topicPolicy") is not None:
         import capo_bedrock.types.guardrail_topic_policy
 
         out["topic_policy"] = (
@@ -223,7 +223,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["topicPolicy"]
             )
         )
-    if "contentPolicy" in data:
+    if data.get("contentPolicy") is not None:
         import capo_bedrock.types.guardrail_content_policy
 
         out["content_policy"] = (
@@ -231,13 +231,13 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["contentPolicy"]
             )
         )
-    if "wordPolicy" in data:
+    if data.get("wordPolicy") is not None:
         import capo_bedrock.types.guardrail_word_policy
 
         out["word_policy"] = capo_bedrock.types.guardrail_word_policy.deserialize_json(
             data["wordPolicy"]
         )
-    if "sensitiveInformationPolicy" in data:
+    if data.get("sensitiveInformationPolicy") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_policy
 
         out["sensitive_information_policy"] = (
@@ -245,7 +245,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["sensitiveInformationPolicy"]
             )
         )
-    if "contextualGroundingPolicy" in data:
+    if data.get("contextualGroundingPolicy") is not None:
         import capo_bedrock.types.guardrail_contextual_grounding_policy
 
         out["contextual_grounding_policy"] = (
@@ -253,7 +253,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["contextualGroundingPolicy"]
             )
         )
-    if "automatedReasoningPolicy" in data:
+    if data.get("automatedReasoningPolicy") is not None:
         import capo_bedrock.types.guardrail_automated_reasoning_policy
 
         out["automated_reasoning_policy"] = (
@@ -261,7 +261,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["automatedReasoningPolicy"]
             )
         )
-    if "crossRegionDetails" in data:
+    if data.get("crossRegionDetails") is not None:
         import capo_bedrock.types.guardrail_cross_region_details
 
         out["cross_region_details"] = (
@@ -269,7 +269,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["crossRegionDetails"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -277,7 +277,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
         )
     else:
         raise DeserializationError("GetGuardrailResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -285,7 +285,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
         )
     else:
         raise DeserializationError("GetGuardrailResponse.updated_at required")
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock.types.guardrail_status_reasons
 
         out["status_reasons"] = (
@@ -293,7 +293,7 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["statusReasons"]
             )
         )
-    if "failureRecommendations" in data:
+    if data.get("failureRecommendations") is not None:
         import capo_bedrock.types.guardrail_failure_recommendations
 
         out["failure_recommendations"] = (
@@ -301,18 +301,18 @@ def deserialize_json(data: dict) -> GetGuardrailResponse:
                 data["failureRecommendations"]
             )
         )
-    if "blockedInputMessaging" in data:
+    if data.get("blockedInputMessaging") is not None:
         out["blocked_input_messaging"] = data["blockedInputMessaging"]
     else:
         raise DeserializationError(
             "GetGuardrailResponse.blocked_input_messaging required"
         )
-    if "blockedOutputsMessaging" in data:
+    if data.get("blockedOutputsMessaging") is not None:
         out["blocked_outputs_messaging"] = data["blockedOutputsMessaging"]
     else:
         raise DeserializationError(
             "GetGuardrailResponse.blocked_outputs_messaging required"
         )
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
     return out

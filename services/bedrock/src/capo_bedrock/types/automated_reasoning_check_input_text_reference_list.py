@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AutomatedReasoningCheckInputTextReferenceLis
 
     out: AutomatedReasoningCheckInputTextReferenceList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_check_input_text_reference.deserialize_json(
                 item

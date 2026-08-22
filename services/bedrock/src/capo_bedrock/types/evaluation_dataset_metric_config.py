@@ -44,7 +44,7 @@ def serialize_json(value: EvaluationDatasetMetricConfig) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationDatasetMetricConfig:
     out: EvaluationDatasetMetricConfig = {}  # type: ignore[typeddict-item]
-    if "taskType" in data:
+    if data.get("taskType") is not None:
         import capo_bedrock.types.evaluation_task_type
 
         out["task_type"] = capo_bedrock.types.evaluation_task_type.deserialize_json(
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> EvaluationDatasetMetricConfig:
         )
     else:
         raise DeserializationError("EvaluationDatasetMetricConfig.task_type required")
-    if "dataset" in data:
+    if data.get("dataset") is not None:
         import capo_bedrock.types.evaluation_dataset
 
         out["dataset"] = capo_bedrock.types.evaluation_dataset.deserialize_json(
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> EvaluationDatasetMetricConfig:
         )
     else:
         raise DeserializationError("EvaluationDatasetMetricConfig.dataset required")
-    if "metricNames" in data:
+    if data.get("metricNames") is not None:
         import capo_bedrock.types.evaluation_metric_names
 
         out["metric_names"] = (

@@ -41,7 +41,7 @@ def serialize_json(value: GuardrailTopicPolicyConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTopicPolicyConfig:
     out: GuardrailTopicPolicyConfig = {}  # type: ignore[typeddict-item]
-    if "topicsConfig" in data:
+    if data.get("topicsConfig") is not None:
         import capo_bedrock.types.guardrail_topics_config
 
         out["topics_config"] = (
@@ -51,7 +51,7 @@ def deserialize_json(data: dict) -> GuardrailTopicPolicyConfig:
         )
     else:
         raise DeserializationError("GuardrailTopicPolicyConfig.topics_config required")
-    if "tierConfig" in data:
+    if data.get("tierConfig") is not None:
         import capo_bedrock.types.guardrail_topics_tier_config
 
         out["tier_config"] = (

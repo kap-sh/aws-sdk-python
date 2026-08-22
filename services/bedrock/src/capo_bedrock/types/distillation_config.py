@@ -28,7 +28,7 @@ def serialize_json(value: DistillationConfig) -> dict:
 
 def deserialize_json(data: dict) -> DistillationConfig:
     out: DistillationConfig = {}  # type: ignore[typeddict-item]
-    if "teacherModelConfig" in data:
+    if data.get("teacherModelConfig") is not None:
         import capo_bedrock.types.teacher_model_config
 
         out["teacher_model_config"] = (

@@ -44,7 +44,7 @@ def serialize_json(value: AutomatedReasoningCheckTranslationAmbiguousFinding) ->
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslationAmbiguousFinding:
     out: AutomatedReasoningCheckTranslationAmbiguousFinding = {}  # type: ignore[typeddict-item]
-    if "options" in data:
+    if data.get("options") is not None:
         import capo_bedrock.types.automated_reasoning_check_translation_option_list
 
         out["options"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslationAmbiguousF
                 data["options"]
             )
         )
-    if "differenceScenarios" in data:
+    if data.get("differenceScenarios") is not None:
         import capo_bedrock.types.automated_reasoning_check_difference_scenario_list
 
         out["difference_scenarios"] = (

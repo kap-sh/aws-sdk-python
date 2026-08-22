@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyUpdateRuleMutation) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyUpdateRuleMutation:
     out: AutomatedReasoningPolicyUpdateRuleMutation = {}  # type: ignore[typeddict-item]
-    if "rule" in data:
+    if data.get("rule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_rule
 
         out["rule"] = (

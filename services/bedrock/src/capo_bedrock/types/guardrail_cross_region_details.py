@@ -32,8 +32,8 @@ def serialize_json(value: GuardrailCrossRegionDetails) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailCrossRegionDetails:
     out: GuardrailCrossRegionDetails = {}  # type: ignore[typeddict-item]
-    if "guardrailProfileId" in data:
+    if data.get("guardrailProfileId") is not None:
         out["guardrail_profile_id"] = data["guardrailProfileId"]
-    if "guardrailProfileArn" in data:
+    if data.get("guardrailProfileArn") is not None:
         out["guardrail_profile_arn"] = data["guardrailProfileArn"]
     return out

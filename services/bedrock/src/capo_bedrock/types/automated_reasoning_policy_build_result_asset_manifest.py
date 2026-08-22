@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildResultAssetManifest) -> d
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildResultAssetManifest:
     out: AutomatedReasoningPolicyBuildResultAssetManifest = {}  # type: ignore[typeddict-item]
-    if "entries" in data:
+    if data.get("entries") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_result_asset_manifest_list
 
         out["entries"] = (

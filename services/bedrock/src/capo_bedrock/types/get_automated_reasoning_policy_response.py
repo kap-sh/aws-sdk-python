@@ -70,45 +70,45 @@ def serialize_json(value: GetAutomatedReasoningPolicyResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyResponse:
     out: GetAutomatedReasoningPolicyResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyResponse.policy_arn required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetAutomatedReasoningPolicyResponse.name required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyResponse.version required"
         )
-    if "policyId" in data:
+    if data.get("policyId") is not None:
         out["policy_id"] = data["policyId"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyResponse.policy_id required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "definitionHash" in data:
+    if data.get("definitionHash") is not None:
         out["definition_hash"] = data["definitionHash"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyResponse.definition_hash required"
         )
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

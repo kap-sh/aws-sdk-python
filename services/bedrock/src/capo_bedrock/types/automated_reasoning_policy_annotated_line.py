@@ -29,8 +29,8 @@ def serialize_json(value: AutomatedReasoningPolicyAnnotatedLine) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotatedLine:
     out: AutomatedReasoningPolicyAnnotatedLine = {}  # type: ignore[typeddict-item]
-    if "lineNumber" in data:
+    if data.get("lineNumber") is not None:
         out["line_number"] = data["lineNumber"]
-    if "lineText" in data:
+    if data.get("lineText") is not None:
         out["line_text"] = data["lineText"]
     return out

@@ -61,11 +61,11 @@ def serialize_json(value: AutomatedReasoningPolicyDefinition) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinition:
     out: AutomatedReasoningPolicyDefinition = {}  # type: ignore[typeddict-item]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         out["version"] = "1"
-    if "types" in data:
+    if data.get("types") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_type_list
 
         out["types"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinition:
                 data["types"]
             )
         )
-    if "rules" in data:
+    if data.get("rules") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_rule_list
 
         out["rules"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyDefinition:
                 data["rules"]
             )
         )
-    if "variables" in data:
+    if data.get("variables") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_variable_list
 
         out["variables"] = (

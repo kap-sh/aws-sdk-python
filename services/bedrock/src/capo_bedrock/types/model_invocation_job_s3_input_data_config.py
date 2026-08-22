@@ -38,18 +38,18 @@ def serialize_json(value: ModelInvocationJobS3InputDataConfig) -> dict:
 
 def deserialize_json(data: dict) -> ModelInvocationJobS3InputDataConfig:
     out: ModelInvocationJobS3InputDataConfig = {}  # type: ignore[typeddict-item]
-    if "s3InputFormat" in data:
+    if data.get("s3InputFormat") is not None:
         import capo_bedrock.types.s3_input_format
 
         out["s3_input_format"] = capo_bedrock.types.s3_input_format.deserialize_json(
             data["s3InputFormat"]
         )
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError(
             "ModelInvocationJobS3InputDataConfig.s3_uri required"
         )
-    if "s3BucketOwner" in data:
+    if data.get("s3BucketOwner") is not None:
         out["s3_bucket_owner"] = data["s3BucketOwner"]
     return out

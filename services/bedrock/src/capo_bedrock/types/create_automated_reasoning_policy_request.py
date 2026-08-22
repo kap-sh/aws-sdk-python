@@ -63,17 +63,17 @@ def serialize_json(value: CreateAutomatedReasoningPolicyRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateAutomatedReasoningPolicyRequest:
     out: CreateAutomatedReasoningPolicyRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "CreateAutomatedReasoningPolicyRequest.name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "policyDefinition" in data:
+    if data.get("policyDefinition") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition
 
         out["policy_definition"] = (
@@ -81,9 +81,9 @@ def deserialize_json(data: dict) -> CreateAutomatedReasoningPolicyRequest:
                 data["policyDefinition"]
             )
         )
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

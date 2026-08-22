@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_bedrock._auth._signers
 import capo_bedrock._auth._sigv4
+import capo_bedrock._protocol.eventstream
 import capo_bedrock.errors.access_denied_exception
 import capo_bedrock.errors.internal_server_exception
 import capo_bedrock.errors.throttling_exception
@@ -32,19 +33,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -103,21 +104,47 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock.types.inference_type
+    import capo_bedrock.types.model_customization
+    import capo_bedrock.types.model_modality
+
     url = endpoint.url.rstrip("/") + "/foundation-models"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "by_provider" in input_:
-        params["byProvider"] = str(input_["by_provider"])
+        params.append(("byProvider", input_["by_provider"]))
     if "by_customization_type" in input_:
-        params["byCustomizationType"] = str(input_["by_customization_type"])
+        params.append(
+            (
+                "byCustomizationType",
+                capo_bedrock.types.model_customization.serialize_json(
+                    input_["by_customization_type"]
+                ),
+            )
+        )
     if "by_output_modality" in input_:
-        params["byOutputModality"] = str(input_["by_output_modality"])
+        params.append(
+            (
+                "byOutputModality",
+                capo_bedrock.types.model_modality.serialize_json(
+                    input_["by_output_modality"]
+                ),
+            )
+        )
     if "by_inference_type" in input_:
-        params["byInferenceType"] = str(input_["by_inference_type"])
+        params.append(
+            (
+                "byInferenceType",
+                capo_bedrock.types.inference_type.serialize_json(
+                    input_["by_inference_type"]
+                ),
+            )
+        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

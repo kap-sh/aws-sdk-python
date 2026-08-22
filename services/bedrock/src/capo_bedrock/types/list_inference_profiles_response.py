@@ -36,7 +36,7 @@ def serialize_json(value: ListInferenceProfilesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListInferenceProfilesResponse:
     out: ListInferenceProfilesResponse = {}  # type: ignore[typeddict-item]
-    if "inferenceProfileSummaries" in data:
+    if data.get("inferenceProfileSummaries") is not None:
         import capo_bedrock.types.inference_profile_summaries
 
         out["inference_profile_summaries"] = (
@@ -44,6 +44,6 @@ def deserialize_json(data: dict) -> ListInferenceProfilesResponse:
                 data["inferenceProfileSummaries"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

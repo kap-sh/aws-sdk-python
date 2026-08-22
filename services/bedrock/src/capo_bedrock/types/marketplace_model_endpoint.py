@@ -67,23 +67,23 @@ def serialize_json(value: MarketplaceModelEndpoint) -> dict:
 
 def deserialize_json(data: dict) -> MarketplaceModelEndpoint:
     out: MarketplaceModelEndpoint = {}  # type: ignore[typeddict-item]
-    if "endpointArn" in data:
+    if data.get("endpointArn") is not None:
         out["endpoint_arn"] = data["endpointArn"]
     else:
         raise DeserializationError("MarketplaceModelEndpoint.endpoint_arn required")
-    if "modelSourceIdentifier" in data:
+    if data.get("modelSourceIdentifier") is not None:
         out["model_source_identifier"] = data["modelSourceIdentifier"]
     else:
         raise DeserializationError(
             "MarketplaceModelEndpoint.model_source_identifier required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.status
 
         out["status"] = capo_bedrock.types.status.deserialize_json(data["status"])
-    if "statusMessage" in data:
+    if data.get("statusMessage") is not None:
         out["status_message"] = data["statusMessage"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> MarketplaceModelEndpoint:
         )
     else:
         raise DeserializationError("MarketplaceModelEndpoint.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> MarketplaceModelEndpoint:
         )
     else:
         raise DeserializationError("MarketplaceModelEndpoint.updated_at required")
-    if "endpointConfig" in data:
+    if data.get("endpointConfig") is not None:
         import capo_bedrock.types.endpoint_config
 
         out["endpoint_config"] = capo_bedrock.types.endpoint_config.deserialize_json(
@@ -107,10 +107,10 @@ def deserialize_json(data: dict) -> MarketplaceModelEndpoint:
         )
     else:
         raise DeserializationError("MarketplaceModelEndpoint.endpoint_config required")
-    if "endpointStatus" in data:
+    if data.get("endpointStatus") is not None:
         out["endpoint_status"] = data["endpointStatus"]
     else:
         raise DeserializationError("MarketplaceModelEndpoint.endpoint_status required")
-    if "endpointStatusMessage" in data:
+    if data.get("endpointStatusMessage") is not None:
         out["endpoint_status_message"] = data["endpointStatusMessage"]
     return out

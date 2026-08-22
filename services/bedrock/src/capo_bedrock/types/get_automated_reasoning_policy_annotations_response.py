@@ -54,25 +54,25 @@ def serialize_json(value: GetAutomatedReasoningPolicyAnnotationsResponse) -> dic
 
 def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyAnnotationsResponse:
     out: GetAutomatedReasoningPolicyAnnotationsResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyAnnotationsResponse.policy_arn required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyAnnotationsResponse.name required"
         )
-    if "buildWorkflowId" in data:
+    if data.get("buildWorkflowId") is not None:
         out["build_workflow_id"] = data["buildWorkflowId"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyAnnotationsResponse.build_workflow_id required"
         )
-    if "annotations" in data:
+    if data.get("annotations") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotation_list
 
         out["annotations"] = (
@@ -84,13 +84,13 @@ def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyAnnotationsRespon
         raise DeserializationError(
             "GetAutomatedReasoningPolicyAnnotationsResponse.annotations required"
         )
-    if "annotationSetHash" in data:
+    if data.get("annotationSetHash") is not None:
         out["annotation_set_hash"] = data["annotationSetHash"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyAnnotationsResponse.annotation_set_hash required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

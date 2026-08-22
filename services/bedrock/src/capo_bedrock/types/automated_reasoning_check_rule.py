@@ -32,8 +32,8 @@ def serialize_json(value: AutomatedReasoningCheckRule) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckRule:
     out: AutomatedReasoningCheckRule = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "policyVersionArn" in data:
+    if data.get("policyVersionArn") is not None:
         out["policy_version_arn"] = data["policyVersionArn"]
     return out

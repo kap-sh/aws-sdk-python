@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> AutomatedReasoningPolicyTestCaseList:
 
     out: AutomatedReasoningPolicyTestCaseList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_policy_test_case.deserialize_json(
                 item

@@ -84,33 +84,33 @@ def serialize_json(value: InferenceProfileSummary) -> dict:
 
 def deserialize_json(data: dict) -> InferenceProfileSummary:
     out: InferenceProfileSummary = {}  # type: ignore[typeddict-item]
-    if "inferenceProfileName" in data:
+    if data.get("inferenceProfileName") is not None:
         out["inference_profile_name"] = data["inferenceProfileName"]
     else:
         raise DeserializationError(
             "InferenceProfileSummary.inference_profile_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["updatedAt"]
         )
-    if "inferenceProfileArn" in data:
+    if data.get("inferenceProfileArn") is not None:
         out["inference_profile_arn"] = data["inferenceProfileArn"]
     else:
         raise DeserializationError(
             "InferenceProfileSummary.inference_profile_arn required"
         )
-    if "models" in data:
+    if data.get("models") is not None:
         import capo_bedrock.types.inference_profile_models
 
         out["models"] = capo_bedrock.types.inference_profile_models.deserialize_json(
@@ -118,13 +118,13 @@ def deserialize_json(data: dict) -> InferenceProfileSummary:
         )
     else:
         raise DeserializationError("InferenceProfileSummary.models required")
-    if "inferenceProfileId" in data:
+    if data.get("inferenceProfileId") is not None:
         out["inference_profile_id"] = data["inferenceProfileId"]
     else:
         raise DeserializationError(
             "InferenceProfileSummary.inference_profile_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.inference_profile_status
 
         out["status"] = capo_bedrock.types.inference_profile_status.deserialize_json(
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> InferenceProfileSummary:
         )
     else:
         raise DeserializationError("InferenceProfileSummary.status required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.inference_profile_type
 
         out["type"] = capo_bedrock.types.inference_profile_type.deserialize_json(

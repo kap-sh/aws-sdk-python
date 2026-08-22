@@ -39,15 +39,15 @@ def serialize_json(value: CustomMetricDefinition) -> dict:
 
 def deserialize_json(data: dict) -> CustomMetricDefinition:
     out: CustomMetricDefinition = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CustomMetricDefinition.name required")
-    if "instructions" in data:
+    if data.get("instructions") is not None:
         out["instructions"] = data["instructions"]
     else:
         raise DeserializationError("CustomMetricDefinition.instructions required")
-    if "ratingScale" in data:
+    if data.get("ratingScale") is not None:
         import capo_bedrock.types.rating_scale
 
         out["rating_scale"] = capo_bedrock.types.rating_scale.deserialize_json(

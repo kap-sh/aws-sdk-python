@@ -53,7 +53,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildStep) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStep:
     out: AutomatedReasoningPolicyBuildStep = {}  # type: ignore[typeddict-item]
-    if "context" in data:
+    if data.get("context") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_step_context
 
         out["context"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStep:
         )
     else:
         raise DeserializationError("AutomatedReasoningPolicyBuildStep.context required")
-    if "priorElement" in data:
+    if data.get("priorElement") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_element
 
         out["prior_element"] = (
@@ -71,7 +71,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStep:
                 data["priorElement"]
             )
         )
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_step_message_list
 
         out["messages"] = (

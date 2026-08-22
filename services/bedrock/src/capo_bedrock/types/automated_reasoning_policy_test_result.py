@@ -91,7 +91,7 @@ def serialize_json(value: AutomatedReasoningPolicyTestResult) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
     out: AutomatedReasoningPolicyTestResult = {}  # type: ignore[typeddict-item]
-    if "testCase" in data:
+    if data.get("testCase") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_case
 
         out["test_case"] = (
@@ -103,13 +103,13 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestResult.test_case required"
         )
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestResult.policy_arn required"
         )
-    if "testRunStatus" in data:
+    if data.get("testRunStatus") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_run_status
 
         out["test_run_status"] = (
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
         raise DeserializationError(
             "AutomatedReasoningPolicyTestResult.test_run_status required"
         )
-    if "testFindings" in data:
+    if data.get("testFindings") is not None:
         import capo_bedrock.types.automated_reasoning_check_finding_list
 
         out["test_findings"] = (
@@ -129,7 +129,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
                 data["testFindings"]
             )
         )
-    if "testRunResult" in data:
+    if data.get("testRunResult") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_run_result
 
         out["test_run_result"] = (
@@ -137,7 +137,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
                 data["testRunResult"]
             )
         )
-    if "aggregatedTestFindingsResult" in data:
+    if data.get("aggregatedTestFindingsResult") is not None:
         import capo_bedrock.types.automated_reasoning_check_result
 
         out["aggregated_test_findings_result"] = (
@@ -145,7 +145,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTestResult:
                 data["aggregatedTestFindingsResult"]
             )
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

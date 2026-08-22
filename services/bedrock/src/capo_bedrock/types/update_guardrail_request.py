@@ -141,13 +141,13 @@ def serialize_json(value: UpdateGuardrailRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateGuardrailRequest:
     out: UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateGuardrailRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "topicPolicyConfig" in data:
+    if data.get("topicPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_topic_policy_config
 
         out["topic_policy_config"] = (
@@ -155,7 +155,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["topicPolicyConfig"]
             )
         )
-    if "contentPolicyConfig" in data:
+    if data.get("contentPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_content_policy_config
 
         out["content_policy_config"] = (
@@ -163,7 +163,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["contentPolicyConfig"]
             )
         )
-    if "wordPolicyConfig" in data:
+    if data.get("wordPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_word_policy_config
 
         out["word_policy_config"] = (
@@ -171,7 +171,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["wordPolicyConfig"]
             )
         )
-    if "sensitiveInformationPolicyConfig" in data:
+    if data.get("sensitiveInformationPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_policy_config
 
         out["sensitive_information_policy_config"] = (
@@ -179,7 +179,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["sensitiveInformationPolicyConfig"]
             )
         )
-    if "contextualGroundingPolicyConfig" in data:
+    if data.get("contextualGroundingPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_contextual_grounding_policy_config
 
         out["contextual_grounding_policy_config"] = (
@@ -187,7 +187,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["contextualGroundingPolicyConfig"]
             )
         )
-    if "automatedReasoningPolicyConfig" in data:
+    if data.get("automatedReasoningPolicyConfig") is not None:
         import capo_bedrock.types.guardrail_automated_reasoning_policy_config
 
         out["automated_reasoning_policy_config"] = (
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["automatedReasoningPolicyConfig"]
             )
         )
-    if "crossRegionConfig" in data:
+    if data.get("crossRegionConfig") is not None:
         import capo_bedrock.types.guardrail_cross_region_config
 
         out["cross_region_config"] = (
@@ -203,18 +203,18 @@ def deserialize_json(data: dict) -> UpdateGuardrailRequest:
                 data["crossRegionConfig"]
             )
         )
-    if "blockedInputMessaging" in data:
+    if data.get("blockedInputMessaging") is not None:
         out["blocked_input_messaging"] = data["blockedInputMessaging"]
     else:
         raise DeserializationError(
             "UpdateGuardrailRequest.blocked_input_messaging required"
         )
-    if "blockedOutputsMessaging" in data:
+    if data.get("blockedOutputsMessaging") is not None:
         out["blocked_outputs_messaging"] = data["blockedOutputsMessaging"]
     else:
         raise DeserializationError(
             "UpdateGuardrailRequest.blocked_outputs_messaging required"
         )
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     return out

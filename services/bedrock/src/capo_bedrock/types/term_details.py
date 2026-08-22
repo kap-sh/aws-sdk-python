@@ -50,7 +50,7 @@ def serialize_json(value: TermDetails) -> dict:
 
 def deserialize_json(data: dict) -> TermDetails:
     out: TermDetails = {}  # type: ignore[typeddict-item]
-    if "usageBasedPricingTerm" in data:
+    if data.get("usageBasedPricingTerm") is not None:
         import capo_bedrock.types.pricing_term
 
         out["usage_based_pricing_term"] = (
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> TermDetails:
         )
     else:
         raise DeserializationError("TermDetails.usage_based_pricing_term required")
-    if "legalTerm" in data:
+    if data.get("legalTerm") is not None:
         import capo_bedrock.types.legal_term
 
         out["legal_term"] = capo_bedrock.types.legal_term.deserialize_json(
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> TermDetails:
         )
     else:
         raise DeserializationError("TermDetails.legal_term required")
-    if "supportTerm" in data:
+    if data.get("supportTerm") is not None:
         import capo_bedrock.types.support_term
 
         out["support_term"] = capo_bedrock.types.support_term.deserialize_json(
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> TermDetails:
         )
     else:
         raise DeserializationError("TermDetails.support_term required")
-    if "validityTerm" in data:
+    if data.get("validityTerm") is not None:
         import capo_bedrock.types.validity_term
 
         out["validity_term"] = capo_bedrock.types.validity_term.deserialize_json(

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AccountEnforcedGuardrailsOutputConfiguration
 
     out: AccountEnforcedGuardrailsOutputConfiguration = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.account_enforced_guardrail_output_configuration.deserialize_json(
                 item

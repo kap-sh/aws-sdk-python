@@ -44,7 +44,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildWorkflowSource) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSource:
     out: AutomatedReasoningPolicyBuildWorkflowSource = {}  # type: ignore[typeddict-item]
-    if "policyDefinition" in data:
+    if data.get("policyDefinition") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition
 
         out["policy_definition"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSource:
                 data["policyDefinition"]
             )
         )
-    if "workflowContent" in data:
+    if data.get("workflowContent") is not None:
         import capo_bedrock.types.automated_reasoning_policy_workflow_type_content
 
         out["workflow_content"] = (

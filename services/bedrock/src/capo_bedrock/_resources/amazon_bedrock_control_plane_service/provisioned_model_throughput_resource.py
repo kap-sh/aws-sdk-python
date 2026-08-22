@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -101,12 +102,14 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_units"] = model_units
-        input_["provisioned_model_name"] = provisioned_model_name
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {
+            "model_units": model_units,
+            "provisioned_model_name": provisioned_model_name,
+            "model_id": model_id,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if commitment_duration is not None:
             input_["commitment_duration"] = commitment_duration
         if tags is not None:
@@ -117,6 +120,7 @@ class ProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_provisioned_model_throughput(
@@ -155,14 +159,16 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_provisioned_model_throughput(
@@ -200,14 +206,16 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_provisioned_model_throughputs(
@@ -268,7 +276,7 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -293,6 +301,7 @@ class ProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_provisioned_model_throughput(
@@ -338,8 +347,9 @@ class ProvisionedModelThroughputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
         if desired_provisioned_model_name is not None:
             input_["desired_provisioned_model_name"] = desired_provisioned_model_name
         if desired_model_id is not None:
@@ -350,6 +360,7 @@ class ProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -409,12 +420,14 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_units"] = model_units
-        input_["provisioned_model_name"] = provisioned_model_name
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.create_provisioned_model_throughput_request.CreateProvisionedModelThroughputRequest = {
+            "model_units": model_units,
+            "provisioned_model_name": provisioned_model_name,
+            "model_id": model_id,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if commitment_duration is not None:
             input_["commitment_duration"] = commitment_duration
         if tags is not None:
@@ -425,6 +438,7 @@ class AsyncProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_provisioned_model_throughput(
@@ -464,14 +478,16 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.delete_provisioned_model_throughput_request.DeleteProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_provisioned_model_throughput(
@@ -510,14 +526,16 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.get_provisioned_model_throughput_request.GetProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_provisioned_model_throughputs(
@@ -579,7 +597,7 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_provisioned_model_throughputs_request.ListProvisionedModelThroughputsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -604,6 +622,7 @@ class AsyncProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_provisioned_model_throughput(
@@ -650,8 +669,9 @@ class AsyncProvisionedModelThroughputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-        input_["provisioned_model_id"] = provisioned_model_id
+        input_: capo_bedrock.types.update_provisioned_model_throughput_request.UpdateProvisionedModelThroughputRequest = {
+            "provisioned_model_id": provisioned_model_id
+        }
         if desired_provisioned_model_name is not None:
             input_["desired_provisioned_model_name"] = desired_provisioned_model_name
         if desired_model_id is not None:
@@ -662,4 +682,5 @@ class AsyncProvisionedModelThroughputResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

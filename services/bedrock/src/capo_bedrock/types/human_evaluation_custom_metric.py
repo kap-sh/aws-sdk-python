@@ -35,13 +35,13 @@ def serialize_json(value: HumanEvaluationCustomMetric) -> dict:
 
 def deserialize_json(data: dict) -> HumanEvaluationCustomMetric:
     out: HumanEvaluationCustomMetric = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("HumanEvaluationCustomMetric.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "ratingMethod" in data:
+    if data.get("ratingMethod") is not None:
         out["rating_method"] = data["ratingMethod"]
     else:
         raise DeserializationError("HumanEvaluationCustomMetric.rating_method required")

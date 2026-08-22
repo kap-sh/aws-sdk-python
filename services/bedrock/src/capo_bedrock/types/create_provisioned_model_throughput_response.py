@@ -26,7 +26,7 @@ def serialize_json(value: CreateProvisionedModelThroughputResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateProvisionedModelThroughputResponse:
     out: CreateProvisionedModelThroughputResponse = {}  # type: ignore[typeddict-item]
-    if "provisionedModelArn" in data:
+    if data.get("provisionedModelArn") is not None:
         out["provisioned_model_arn"] = data["provisionedModelArn"]
     else:
         raise DeserializationError(

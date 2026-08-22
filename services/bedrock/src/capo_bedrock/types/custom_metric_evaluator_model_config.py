@@ -30,7 +30,7 @@ def serialize_json(value: CustomMetricEvaluatorModelConfig) -> dict:
 
 def deserialize_json(data: dict) -> CustomMetricEvaluatorModelConfig:
     out: CustomMetricEvaluatorModelConfig = {}  # type: ignore[typeddict-item]
-    if "bedrockEvaluatorModels" in data:
+    if data.get("bedrockEvaluatorModels") is not None:
         import capo_bedrock.types.custom_metric_bedrock_evaluator_models
 
         out["bedrock_evaluator_models"] = (

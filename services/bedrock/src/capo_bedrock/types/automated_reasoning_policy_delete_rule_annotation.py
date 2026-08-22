@@ -24,7 +24,7 @@ def serialize_json(value: AutomatedReasoningPolicyDeleteRuleAnnotation) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyDeleteRuleAnnotation:
     out: AutomatedReasoningPolicyDeleteRuleAnnotation = {}  # type: ignore[typeddict-item]
-    if "ruleId" in data:
+    if data.get("ruleId") is not None:
         out["rule_id"] = data["ruleId"]
     else:
         raise DeserializationError(

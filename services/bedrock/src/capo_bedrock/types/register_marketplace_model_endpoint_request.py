@@ -29,7 +29,7 @@ def serialize_json(value: RegisterMarketplaceModelEndpointRequest) -> dict:
 
 def deserialize_json(data: dict) -> RegisterMarketplaceModelEndpointRequest:
     out: RegisterMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "modelSourceIdentifier" in data:
+    if data.get("modelSourceIdentifier") is not None:
         out["model_source_identifier"] = data["modelSourceIdentifier"]
     else:
         raise DeserializationError(

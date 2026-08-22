@@ -72,17 +72,17 @@ def serialize_json(value: GuardrailRegex) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailRegex:
     out: GuardrailRegex = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GuardrailRegex.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "pattern" in data:
+    if data.get("pattern") is not None:
         out["pattern"] = data["pattern"]
     else:
         raise DeserializationError("GuardrailRegex.pattern required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["action"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> GuardrailRegex:
         )
     else:
         raise DeserializationError("GuardrailRegex.action required")
-    if "inputAction" in data:
+    if data.get("inputAction") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["input_action"] = (
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> GuardrailRegex:
                 data["inputAction"]
             )
         )
-    if "outputAction" in data:
+    if data.get("outputAction") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["output_action"] = (
@@ -108,8 +108,8 @@ def deserialize_json(data: dict) -> GuardrailRegex:
                 data["outputAction"]
             )
         )
-    if "inputEnabled" in data:
+    if data.get("inputEnabled") is not None:
         out["input_enabled"] = data["inputEnabled"]
-    if "outputEnabled" in data:
+    if data.get("outputEnabled") is not None:
         out["output_enabled"] = data["outputEnabled"]
     return out

@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> ModelInvocationJobSummaries:
 
     out: ModelInvocationJobSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.model_invocation_job_summary.deserialize_json(item)
         )

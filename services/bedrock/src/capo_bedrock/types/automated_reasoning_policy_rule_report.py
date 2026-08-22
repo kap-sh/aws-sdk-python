@@ -56,7 +56,15 @@ def serialize_json(value: AutomatedReasoningPolicyRuleReport) -> dict:
             )
         )
     if "accuracy_score" in value:
-        out["accuracyScore"] = value["accuracy_score"]
+        out["accuracyScore"] = (
+            "NaN"
+            if value["accuracy_score"] != value["accuracy_score"]
+            else "Infinity"
+            if value["accuracy_score"] == float("inf")
+            else "-Infinity"
+            if value["accuracy_score"] == float("-inf")
+            else value["accuracy_score"]
+        )
     if "accuracy_justification" in value:
         out["accuracyJustification"] = value["accuracy_justification"]
     return out
@@ -64,11 +72,11 @@ def serialize_json(value: AutomatedReasoningPolicyRuleReport) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyRuleReport:
     out: AutomatedReasoningPolicyRuleReport = {}  # type: ignore[typeddict-item]
-    if "rule" in data:
+    if data.get("rule") is not None:
         out["rule"] = data["rule"]
     else:
         raise DeserializationError("AutomatedReasoningPolicyRuleReport.rule required")
-    if "groundingStatements" in data:
+    if data.get("groundingStatements") is not None:
         import capo_bedrock.types.automated_reasoning_policy_statement_reference_list
 
         out["grounding_statements"] = (
@@ -76,7 +84,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyRuleReport:
                 data["groundingStatements"]
             )
         )
-    if "groundingJustifications" in data:
+    if data.get("groundingJustifications") is not None:
         import capo_bedrock.types.automated_reasoning_policy_justification_list
 
         out["grounding_justifications"] = (
@@ -84,8 +92,8 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyRuleReport:
                 data["groundingJustifications"]
             )
         )
-    if "accuracyScore" in data:
-        out["accuracy_score"] = data["accuracyScore"]
-    if "accuracyJustification" in data:
+    if data.get("accuracyScore") is not None:
+        out["accuracy_score"] = float(data["accuracyScore"])
+    if data.get("accuracyJustification") is not None:
         out["accuracy_justification"] = data["accuracyJustification"]
     return out

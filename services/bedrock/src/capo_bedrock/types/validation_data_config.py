@@ -28,7 +28,7 @@ def serialize_json(value: ValidationDataConfig) -> dict:
 
 def deserialize_json(data: dict) -> ValidationDataConfig:
     out: ValidationDataConfig = {}  # type: ignore[typeddict-item]
-    if "validators" in data:
+    if data.get("validators") is not None:
         import capo_bedrock.types.validators
 
         out["validators"] = capo_bedrock.types.validators.deserialize_json(

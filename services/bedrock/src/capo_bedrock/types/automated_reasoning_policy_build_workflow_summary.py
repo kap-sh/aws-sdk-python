@@ -61,19 +61,19 @@ def serialize_json(value: AutomatedReasoningPolicyBuildWorkflowSummary) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSummary:
     out: AutomatedReasoningPolicyBuildWorkflowSummary = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildWorkflowSummary.policy_arn required"
         )
-    if "buildWorkflowId" in data:
+    if data.get("buildWorkflowId") is not None:
         out["build_workflow_id"] = data["buildWorkflowId"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildWorkflowSummary.build_workflow_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_status
 
         out["status"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSummary
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildWorkflowSummary.status required"
         )
-    if "buildWorkflowType" in data:
+    if data.get("buildWorkflowType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_type
 
         out["build_workflow_type"] = (
@@ -97,7 +97,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSummary
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildWorkflowSummary.build_workflow_type required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -107,7 +107,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildWorkflowSummary
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildWorkflowSummary.created_at required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

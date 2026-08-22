@@ -85,15 +85,15 @@ def serialize_json(value: GetImportedModelResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetImportedModelResponse:
     out: GetImportedModelResponse = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
-    if "modelName" in data:
+    if data.get("modelName") is not None:
         out["model_name"] = data["modelName"]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
-    if "modelDataSource" in data:
+    if data.get("modelDataSource") is not None:
         import capo_bedrock.types.model_data_source
 
         out["model_data_source"] = (
@@ -101,19 +101,19 @@ def deserialize_json(data: dict) -> GetImportedModelResponse:
                 data["modelDataSource"]
             )
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["creationTime"]
         )
-    if "modelArchitecture" in data:
+    if data.get("modelArchitecture") is not None:
         out["model_architecture"] = data["modelArchitecture"]
-    if "modelKmsKeyArn" in data:
+    if data.get("modelKmsKeyArn") is not None:
         out["model_kms_key_arn"] = data["modelKmsKeyArn"]
-    if "instructSupported" in data:
+    if data.get("instructSupported") is not None:
         out["instruct_supported"] = data["instructSupported"]
-    if "customModelUnits" in data:
+    if data.get("customModelUnits") is not None:
         import capo_bedrock.types.custom_model_units
 
         out["custom_model_units"] = (

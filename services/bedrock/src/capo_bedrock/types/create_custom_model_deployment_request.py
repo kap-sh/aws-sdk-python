@@ -51,24 +51,24 @@ def serialize_json(value: CreateCustomModelDeploymentRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateCustomModelDeploymentRequest:
     out: CreateCustomModelDeploymentRequest = {}  # type: ignore[typeddict-item]
-    if "modelDeploymentName" in data:
+    if data.get("modelDeploymentName") is not None:
         out["model_deployment_name"] = data["modelDeploymentName"]
     else:
         raise DeserializationError(
             "CreateCustomModelDeploymentRequest.model_deployment_name required"
         )
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "CreateCustomModelDeploymentRequest.model_arn required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

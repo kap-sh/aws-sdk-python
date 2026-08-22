@@ -24,7 +24,7 @@ def serialize_json(value: CreateCustomModelResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateCustomModelResponse:
     out: CreateCustomModelResponse = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("CreateCustomModelResponse.model_arn required")

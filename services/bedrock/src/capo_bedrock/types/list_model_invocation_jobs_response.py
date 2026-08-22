@@ -36,9 +36,9 @@ def serialize_json(value: ListModelInvocationJobsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListModelInvocationJobsResponse:
     out: ListModelInvocationJobsResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "invocationJobSummaries" in data:
+    if data.get("invocationJobSummaries") is not None:
         import capo_bedrock.types.model_invocation_job_summaries
 
         out["invocation_job_summaries"] = (

@@ -74,11 +74,11 @@ def serialize_json(value: CreateCustomModelRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateCustomModelRequest:
     out: CreateCustomModelRequest = {}  # type: ignore[typeddict-item]
-    if "modelName" in data:
+    if data.get("modelName") is not None:
         out["model_name"] = data["modelName"]
     else:
         raise DeserializationError("CreateCustomModelRequest.model_name required")
-    if "modelSourceConfig" in data:
+    if data.get("modelSourceConfig") is not None:
         import capo_bedrock.types.model_data_source
 
         out["model_source_config"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> CreateCustomModelRequest:
                 data["modelSourceConfig"]
             )
         )
-    if "customModelDataSource" in data:
+    if data.get("customModelDataSource") is not None:
         import capo_bedrock.types.custom_model_data_source
 
         out["custom_model_data_source"] = (
@@ -94,16 +94,16 @@ def deserialize_json(data: dict) -> CreateCustomModelRequest:
                 data["customModelDataSource"]
             )
         )
-    if "modelKmsKeyArn" in data:
+    if data.get("modelKmsKeyArn") is not None:
         out["model_kms_key_arn"] = data["modelKmsKeyArn"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "modelTags" in data:
+    if data.get("modelTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["model_tags"] = capo_bedrock.types.tag_list.deserialize_json(
             data["modelTags"]
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

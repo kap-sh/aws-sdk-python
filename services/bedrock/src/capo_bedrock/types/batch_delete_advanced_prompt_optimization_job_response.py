@@ -40,7 +40,7 @@ def serialize_json(value: BatchDeleteAdvancedPromptOptimizationJobResponse) -> d
 
 def deserialize_json(data: dict) -> BatchDeleteAdvancedPromptOptimizationJobResponse:
     out: BatchDeleteAdvancedPromptOptimizationJobResponse = {}  # type: ignore[typeddict-item]
-    if "errors" in data:
+    if data.get("errors") is not None:
         import capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_errors
 
         out["errors"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> BatchDeleteAdvancedPromptOptimizationJobResp
         raise DeserializationError(
             "BatchDeleteAdvancedPromptOptimizationJobResponse.errors required"
         )
-    if "advancedPromptOptimizationJobs" in data:
+    if data.get("advancedPromptOptimizationJobs") is not None:
         import capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_items
 
         out["advanced_prompt_optimization_jobs"] = (

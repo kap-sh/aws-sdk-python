@@ -24,7 +24,7 @@ def serialize_json(value: AdvancedPromptOptimizationOutputConfig) -> dict:
 
 def deserialize_json(data: dict) -> AdvancedPromptOptimizationOutputConfig:
     out: AdvancedPromptOptimizationOutputConfig = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError(

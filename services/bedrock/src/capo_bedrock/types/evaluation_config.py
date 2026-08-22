@@ -47,7 +47,7 @@ def serialize_json(value: EvaluationConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationConfig:
-    if "automated" in data:
+    if data.get("automated") is not None:
         import capo_bedrock.types.automated_evaluation_config
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> EvaluationConfig:
                 data["automated"]
             )
         }
-    elif "human" in data:
+    elif data.get("human") is not None:
         import capo_bedrock.types.human_evaluation_config
 
         return {

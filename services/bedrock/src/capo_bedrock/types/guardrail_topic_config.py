@@ -74,21 +74,21 @@ def serialize_json(value: GuardrailTopicConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTopicConfig:
     out: GuardrailTopicConfig = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GuardrailTopicConfig.name required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("GuardrailTopicConfig.definition required")
-    if "examples" in data:
+    if data.get("examples") is not None:
         import capo_bedrock.types.guardrail_topic_examples
 
         out["examples"] = capo_bedrock.types.guardrail_topic_examples.deserialize_json(
             data["examples"]
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.guardrail_topic_type
 
         out["type"] = capo_bedrock.types.guardrail_topic_type.deserialize_json(
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> GuardrailTopicConfig:
         )
     else:
         raise DeserializationError("GuardrailTopicConfig.type required")
-    if "inputAction" in data:
+    if data.get("inputAction") is not None:
         import capo_bedrock.types.guardrail_topic_action
 
         out["input_action"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> GuardrailTopicConfig:
                 data["inputAction"]
             )
         )
-    if "outputAction" in data:
+    if data.get("outputAction") is not None:
         import capo_bedrock.types.guardrail_topic_action
 
         out["output_action"] = (
@@ -112,8 +112,8 @@ def deserialize_json(data: dict) -> GuardrailTopicConfig:
                 data["outputAction"]
             )
         )
-    if "inputEnabled" in data:
+    if data.get("inputEnabled") is not None:
         out["input_enabled"] = data["inputEnabled"]
-    if "outputEnabled" in data:
+    if data.get("outputEnabled") is not None:
         out["output_enabled"] = data["outputEnabled"]
     return out

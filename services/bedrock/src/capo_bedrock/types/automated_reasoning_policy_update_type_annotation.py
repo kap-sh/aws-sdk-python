@@ -47,17 +47,17 @@ def serialize_json(value: AutomatedReasoningPolicyUpdateTypeAnnotation) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyUpdateTypeAnnotation:
     out: AutomatedReasoningPolicyUpdateTypeAnnotation = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyUpdateTypeAnnotation.name required"
         )
-    if "newName" in data:
+    if data.get("newName") is not None:
         out["new_name"] = data["newName"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "values" in data:
+    if data.get("values") is not None:
         import capo_bedrock.types.automated_reasoning_policy_type_value_annotation_list
 
         out["values"] = (

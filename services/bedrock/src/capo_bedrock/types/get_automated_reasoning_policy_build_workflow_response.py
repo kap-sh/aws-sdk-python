@@ -88,19 +88,19 @@ def serialize_json(value: GetAutomatedReasoningPolicyBuildWorkflowResponse) -> d
 
 def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyBuildWorkflowResponse:
     out: GetAutomatedReasoningPolicyBuildWorkflowResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResponse.policy_arn required"
         )
-    if "buildWorkflowId" in data:
+    if data.get("buildWorkflowId") is not None:
         out["build_workflow_id"] = data["buildWorkflowId"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResponse.build_workflow_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_status
 
         out["status"] = (
@@ -112,7 +112,7 @@ def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyBuildWorkflowResp
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResponse.status required"
         )
-    if "buildWorkflowType" in data:
+    if data.get("buildWorkflowType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_type
 
         out["build_workflow_type"] = (
@@ -124,9 +124,9 @@ def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyBuildWorkflowResp
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResponse.build_workflow_type required"
         )
-    if "documentName" in data:
+    if data.get("documentName") is not None:
         out["document_name"] = data["documentName"]
-    if "documentContentType" in data:
+    if data.get("documentContentType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_document_content_type
 
         out["document_content_type"] = (
@@ -134,9 +134,9 @@ def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyBuildWorkflowResp
                 data["documentContentType"]
             )
         )
-    if "documentDescription" in data:
+    if data.get("documentDescription") is not None:
         out["document_description"] = data["documentDescription"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -146,7 +146,7 @@ def deserialize_json(data: dict) -> GetAutomatedReasoningPolicyBuildWorkflowResp
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResponse.created_at required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

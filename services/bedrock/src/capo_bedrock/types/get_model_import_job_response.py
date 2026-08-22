@@ -111,17 +111,17 @@ def serialize_json(value: GetModelImportJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetModelImportJobResponse:
     out: GetModelImportJobResponse = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
-    if "importedModelName" in data:
+    if data.get("importedModelName") is not None:
         out["imported_model_name"] = data["importedModelName"]
-    if "importedModelArn" in data:
+    if data.get("importedModelArn") is not None:
         out["imported_model_arn"] = data["importedModelArn"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "modelDataSource" in data:
+    if data.get("modelDataSource") is not None:
         import capo_bedrock.types.model_data_source
 
         out["model_data_source"] = (
@@ -129,36 +129,36 @@ def deserialize_json(data: dict) -> GetModelImportJobResponse:
                 data["modelDataSource"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.model_import_job_status
 
         out["status"] = capo_bedrock.types.model_import_job_status.deserialize_json(
             data["status"]
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["creationTime"]
         )
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastModifiedTime"]
         )
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["end_time"] = capo_bedrock.types.timestamp.deserialize_json(data["endTime"])
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc_config"] = capo_bedrock.types.vpc_config.deserialize_json(
             data["vpcConfig"]
         )
-    if "importedModelKmsKeyArn" in data:
+    if data.get("importedModelKmsKeyArn") is not None:
         out["imported_model_kms_key_arn"] = data["importedModelKmsKeyArn"]
     return out

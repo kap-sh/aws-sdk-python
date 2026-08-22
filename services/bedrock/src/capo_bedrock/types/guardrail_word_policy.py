@@ -38,13 +38,13 @@ def serialize_json(value: GuardrailWordPolicy) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailWordPolicy:
     out: GuardrailWordPolicy = {}  # type: ignore[typeddict-item]
-    if "words" in data:
+    if data.get("words") is not None:
         import capo_bedrock.types.guardrail_words
 
         out["words"] = capo_bedrock.types.guardrail_words.deserialize_json(
             data["words"]
         )
-    if "managedWordLists" in data:
+    if data.get("managedWordLists") is not None:
         import capo_bedrock.types.guardrail_managed_word_lists
 
         out["managed_word_lists"] = (

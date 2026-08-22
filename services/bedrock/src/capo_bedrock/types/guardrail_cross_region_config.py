@@ -24,7 +24,7 @@ def serialize_json(value: GuardrailCrossRegionConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailCrossRegionConfig:
     out: GuardrailCrossRegionConfig = {}  # type: ignore[typeddict-item]
-    if "guardrailProfileIdentifier" in data:
+    if data.get("guardrailProfileIdentifier") is not None:
         out["guardrail_profile_identifier"] = data["guardrailProfileIdentifier"]
     else:
         raise DeserializationError(

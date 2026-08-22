@@ -59,17 +59,17 @@ def serialize_json(value: CreateInferenceProfileRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateInferenceProfileRequest:
     out: CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-    if "inferenceProfileName" in data:
+    if data.get("inferenceProfileName") is not None:
         out["inference_profile_name"] = data["inferenceProfileName"]
     else:
         raise DeserializationError(
             "CreateInferenceProfileRequest.inference_profile_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "modelSource" in data:
+    if data.get("modelSource") is not None:
         import capo_bedrock.types.inference_profile_model_source
 
         out["model_source"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> CreateInferenceProfileRequest:
         raise DeserializationError(
             "CreateInferenceProfileRequest.model_source required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

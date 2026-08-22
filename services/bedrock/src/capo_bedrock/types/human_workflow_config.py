@@ -33,10 +33,10 @@ def serialize_json(value: HumanWorkflowConfig) -> dict:
 
 def deserialize_json(data: dict) -> HumanWorkflowConfig:
     out: HumanWorkflowConfig = {}  # type: ignore[typeddict-item]
-    if "flowDefinitionArn" in data:
+    if data.get("flowDefinitionArn") is not None:
         out["flow_definition_arn"] = data["flowDefinitionArn"]
     else:
         raise DeserializationError("HumanWorkflowConfig.flow_definition_arn required")
-    if "instructions" in data:
+    if data.get("instructions") is not None:
         out["instructions"] = data["instructions"]
     return out

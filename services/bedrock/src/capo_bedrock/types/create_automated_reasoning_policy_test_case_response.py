@@ -30,13 +30,13 @@ def serialize_json(value: CreateAutomatedReasoningPolicyTestCaseResponse) -> dic
 
 def deserialize_json(data: dict) -> CreateAutomatedReasoningPolicyTestCaseResponse:
     out: CreateAutomatedReasoningPolicyTestCaseResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "CreateAutomatedReasoningPolicyTestCaseResponse.policy_arn required"
         )
-    if "testCaseId" in data:
+    if data.get("testCaseId") is not None:
         out["test_case_id"] = data["testCaseId"]
     else:
         raise DeserializationError(

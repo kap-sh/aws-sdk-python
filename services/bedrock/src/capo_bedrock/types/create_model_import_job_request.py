@@ -76,21 +76,21 @@ def serialize_json(value: CreateModelImportJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateModelImportJobRequest:
     out: CreateModelImportJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("CreateModelImportJobRequest.job_name required")
-    if "importedModelName" in data:
+    if data.get("importedModelName") is not None:
         out["imported_model_name"] = data["importedModelName"]
     else:
         raise DeserializationError(
             "CreateModelImportJobRequest.imported_model_name required"
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateModelImportJobRequest.role_arn required")
-    if "modelDataSource" in data:
+    if data.get("modelDataSource") is not None:
         import capo_bedrock.types.model_data_source
 
         out["model_data_source"] = (
@@ -102,24 +102,24 @@ def deserialize_json(data: dict) -> CreateModelImportJobRequest:
         raise DeserializationError(
             "CreateModelImportJobRequest.model_data_source required"
         )
-    if "jobTags" in data:
+    if data.get("jobTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["job_tags"] = capo_bedrock.types.tag_list.deserialize_json(data["jobTags"])
-    if "importedModelTags" in data:
+    if data.get("importedModelTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["imported_model_tags"] = capo_bedrock.types.tag_list.deserialize_json(
             data["importedModelTags"]
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc_config"] = capo_bedrock.types.vpc_config.deserialize_json(
             data["vpcConfig"]
         )
-    if "importedModelKmsKeyId" in data:
+    if data.get("importedModelKmsKeyId") is not None:
         out["imported_model_kms_key_id"] = data["importedModelKmsKeyId"]
     return out

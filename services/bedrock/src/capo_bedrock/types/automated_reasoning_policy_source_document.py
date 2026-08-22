@@ -55,7 +55,7 @@ def serialize_json(value: AutomatedReasoningPolicySourceDocument) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicySourceDocument:
     out: AutomatedReasoningPolicySourceDocument = {}  # type: ignore[typeddict-item]
-    if "document" in data:
+    if data.get("document") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_document_blob
 
         out["document"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicySourceDocument:
         raise DeserializationError(
             "AutomatedReasoningPolicySourceDocument.document required"
         )
-    if "documentContentType" in data:
+    if data.get("documentContentType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_document_content_type
 
         out["document_content_type"] = (
@@ -79,15 +79,15 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicySourceDocument:
         raise DeserializationError(
             "AutomatedReasoningPolicySourceDocument.document_content_type required"
         )
-    if "documentName" in data:
+    if data.get("documentName") is not None:
         out["document_name"] = data["documentName"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicySourceDocument.document_name required"
         )
-    if "documentDescription" in data:
+    if data.get("documentDescription") is not None:
         out["document_description"] = data["documentDescription"]
-    if "documentHash" in data:
+    if data.get("documentHash") is not None:
         out["document_hash"] = data["documentHash"]
     else:
         raise DeserializationError(

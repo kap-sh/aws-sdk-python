@@ -41,7 +41,7 @@ def deserialize_json(
     data: dict,
 ) -> AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation:
     out: AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation = {}  # type: ignore[typeddict-item]
-    if "ruleIds" in data:
+    if data.get("ruleIds") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_rule_id_list
 
         out["rule_ids"] = (
@@ -49,7 +49,7 @@ def deserialize_json(
                 data["ruleIds"]
             )
         )
-    if "feedback" in data:
+    if data.get("feedback") is not None:
         out["feedback"] = data["feedback"]
     else:
         raise DeserializationError(

@@ -32,7 +32,7 @@ def serialize_json(value: CreateMarketplaceModelEndpointResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateMarketplaceModelEndpointResponse:
     out: CreateMarketplaceModelEndpointResponse = {}  # type: ignore[typeddict-item]
-    if "marketplaceModelEndpoint" in data:
+    if data.get("marketplaceModelEndpoint") is not None:
         import capo_bedrock.types.marketplace_model_endpoint
 
         out["marketplace_model_endpoint"] = (

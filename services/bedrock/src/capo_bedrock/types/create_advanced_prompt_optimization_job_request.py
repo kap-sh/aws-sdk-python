@@ -76,17 +76,17 @@ def serialize_json(value: CreateAdvancedPromptOptimizationJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateAdvancedPromptOptimizationJobRequest:
     out: CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError(
             "CreateAdvancedPromptOptimizationJobRequest.job_name required"
         )
-    if "jobDescription" in data:
+    if data.get("jobDescription") is not None:
         out["job_description"] = data["jobDescription"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "inputConfig" in data:
+    if data.get("inputConfig") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_input_config
 
         out["input_config"] = (
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> CreateAdvancedPromptOptimizationJobRequest:
         raise DeserializationError(
             "CreateAdvancedPromptOptimizationJobRequest.input_config required"
         )
-    if "outputConfig" in data:
+    if data.get("outputConfig") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_output_config
 
         out["output_config"] = (
@@ -110,13 +110,13 @@ def deserialize_json(data: dict) -> CreateAdvancedPromptOptimizationJobRequest:
         raise DeserializationError(
             "CreateAdvancedPromptOptimizationJobRequest.output_config required"
         )
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])
-    if "modelConfigurations" in data:
+    if data.get("modelConfigurations") is not None:
         import capo_bedrock.types.model_configurations
 
         out["model_configurations"] = (

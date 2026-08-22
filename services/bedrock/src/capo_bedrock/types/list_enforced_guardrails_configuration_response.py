@@ -35,7 +35,7 @@ def serialize_json(value: ListEnforcedGuardrailsConfigurationResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListEnforcedGuardrailsConfigurationResponse:
     out: ListEnforcedGuardrailsConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "guardrailsConfig" in data:
+    if data.get("guardrailsConfig") is not None:
         import capo_bedrock.types.account_enforced_guardrails_output_configuration
 
         out["guardrails_config"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListEnforcedGuardrailsConfigurationResponse:
         raise DeserializationError(
             "ListEnforcedGuardrailsConfigurationResponse.guardrails_config required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

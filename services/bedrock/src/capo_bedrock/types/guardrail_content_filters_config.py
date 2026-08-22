@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> GuardrailContentFiltersConfig:
 
     out: GuardrailContentFiltersConfig = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.guardrail_content_filter_config.deserialize_json(item)
         )

@@ -31,10 +31,10 @@ def serialize_json(value: AutomatedReasoningLogicStatement) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningLogicStatement:
     out: AutomatedReasoningLogicStatement = {}  # type: ignore[typeddict-item]
-    if "logic" in data:
+    if data.get("logic") is not None:
         out["logic"] = data["logic"]
     else:
         raise DeserializationError("AutomatedReasoningLogicStatement.logic required")
-    if "naturalLanguage" in data:
+    if data.get("naturalLanguage") is not None:
         out["natural_language"] = data["naturalLanguage"]
     return out

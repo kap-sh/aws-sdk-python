@@ -28,13 +28,13 @@ def serialize_json(value: AutomatedReasoningPolicyStatementReference) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyStatementReference:
     out: AutomatedReasoningPolicyStatementReference = {}  # type: ignore[typeddict-item]
-    if "documentId" in data:
+    if data.get("documentId") is not None:
         out["document_id"] = data["documentId"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyStatementReference.document_id required"
         )
-    if "statementId" in data:
+    if data.get("statementId") is not None:
         out["statement_id"] = data["statementId"]
     else:
         raise DeserializationError(

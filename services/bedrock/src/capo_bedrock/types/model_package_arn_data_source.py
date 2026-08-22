@@ -24,7 +24,7 @@ def serialize_json(value: ModelPackageArnDataSource) -> dict:
 
 def deserialize_json(data: dict) -> ModelPackageArnDataSource:
     out: ModelPackageArnDataSource = {}  # type: ignore[typeddict-item]
-    if "modelPackageArn" in data:
+    if data.get("modelPackageArn") is not None:
         out["model_package_arn"] = data["modelPackageArn"]
     else:
         raise DeserializationError(

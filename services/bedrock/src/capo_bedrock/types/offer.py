@@ -37,13 +37,13 @@ def serialize_json(value: Offer) -> dict:
 
 def deserialize_json(data: dict) -> Offer:
     out: Offer = {}  # type: ignore[typeddict-item]
-    if "offerId" in data:
+    if data.get("offerId") is not None:
         out["offer_id"] = data["offerId"]
-    if "offerToken" in data:
+    if data.get("offerToken") is not None:
         out["offer_token"] = data["offerToken"]
     else:
         raise DeserializationError("Offer.offer_token required")
-    if "termDetails" in data:
+    if data.get("termDetails") is not None:
         import capo_bedrock.types.term_details
 
         out["term_details"] = capo_bedrock.types.term_details.deserialize_json(

@@ -35,7 +35,7 @@ def serialize_json(value: ListAutomatedReasoningPolicyTestResultsResponse) -> di
 
 def deserialize_json(data: dict) -> ListAutomatedReasoningPolicyTestResultsResponse:
     out: ListAutomatedReasoningPolicyTestResultsResponse = {}  # type: ignore[typeddict-item]
-    if "testResults" in data:
+    if data.get("testResults") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_list
 
         out["test_results"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListAutomatedReasoningPolicyTestResultsRespo
         raise DeserializationError(
             "ListAutomatedReasoningPolicyTestResultsResponse.test_results required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

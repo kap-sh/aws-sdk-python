@@ -33,13 +33,13 @@ def serialize_json(value: AutomatedReasoningPolicyBuildStepMessage) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildStepMessage:
     out: AutomatedReasoningPolicyBuildStepMessage = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildStepMessage.message required"
         )
-    if "messageType" in data:
+    if data.get("messageType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_message_type
 
         out["message_type"] = (

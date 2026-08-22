@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> CustomModelDeploymentSummaryList:
 
     out: CustomModelDeploymentSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.custom_model_deployment_summary.deserialize_json(item)
         )

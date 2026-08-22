@@ -30,13 +30,13 @@ def serialize_json(value: StartAutomatedReasoningPolicyBuildWorkflowResponse) ->
 
 def deserialize_json(data: dict) -> StartAutomatedReasoningPolicyBuildWorkflowResponse:
     out: StartAutomatedReasoningPolicyBuildWorkflowResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "StartAutomatedReasoningPolicyBuildWorkflowResponse.policy_arn required"
         )
-    if "buildWorkflowId" in data:
+    if data.get("buildWorkflowId") is not None:
         out["build_workflow_id"] = data["buildWorkflowId"]
     else:
         raise DeserializationError(

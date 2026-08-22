@@ -85,25 +85,25 @@ def serialize_json(value: GetCustomModelDeploymentResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetCustomModelDeploymentResponse:
     out: GetCustomModelDeploymentResponse = {}  # type: ignore[typeddict-item]
-    if "customModelDeploymentArn" in data:
+    if data.get("customModelDeploymentArn") is not None:
         out["custom_model_deployment_arn"] = data["customModelDeploymentArn"]
     else:
         raise DeserializationError(
             "GetCustomModelDeploymentResponse.custom_model_deployment_arn required"
         )
-    if "modelDeploymentName" in data:
+    if data.get("modelDeploymentName") is not None:
         out["model_deployment_name"] = data["modelDeploymentName"]
     else:
         raise DeserializationError(
             "GetCustomModelDeploymentResponse.model_deployment_name required"
         )
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "GetCustomModelDeploymentResponse.model_arn required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> GetCustomModelDeploymentResponse:
         raise DeserializationError(
             "GetCustomModelDeploymentResponse.created_at required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.custom_model_deployment_status
 
         out["status"] = (
@@ -123,9 +123,9 @@ def deserialize_json(data: dict) -> GetCustomModelDeploymentResponse:
         )
     else:
         raise DeserializationError("GetCustomModelDeploymentResponse.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "updateDetails" in data:
+    if data.get("updateDetails") is not None:
         import capo_bedrock.types.custom_model_deployment_update_details
 
         out["update_details"] = (
@@ -133,9 +133,9 @@ def deserialize_json(data: dict) -> GetCustomModelDeploymentResponse:
                 data["updateDetails"]
             )
         )
-    if "failureMessage" in data:
+    if data.get("failureMessage") is not None:
         out["failure_message"] = data["failureMessage"]
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

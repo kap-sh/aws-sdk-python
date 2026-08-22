@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -133,13 +134,17 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["custom_model_name"] = custom_model_name
-        input_["role_arn"] = role_arn
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["base_model_identifier"] = base_model_identifier
+        input_: capo_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {
+            "job_name": job_name,
+            "custom_model_name": custom_model_name,
+            "role_arn": role_arn,
+            "base_model_identifier": base_model_identifier,
+            "training_data_config": training_data_config,
+            "output_data_config": output_data_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if customization_type is not None:
             input_["customization_type"] = customization_type
         if custom_model_kms_key_id is not None:
@@ -148,10 +153,8 @@ class TrainingResource:
             input_["job_tags"] = job_tags
         if custom_model_tags is not None:
             input_["custom_model_tags"] = custom_model_tags
-        input_["training_data_config"] = training_data_config
         if validation_data_config is not None:
             input_["validation_data_config"] = validation_data_config
-        input_["output_data_config"] = output_data_config
         if hyper_parameters is not None:
             input_["hyper_parameters"] = hyper_parameters
         if vpc_config is not None:
@@ -164,6 +167,7 @@ class TrainingResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_model_customization_job(
@@ -201,14 +205,16 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_model_customization_jobs(
@@ -263,7 +269,7 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -286,6 +292,7 @@ class TrainingResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_model_customization_job(
@@ -324,14 +331,16 @@ class TrainingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -418,13 +427,17 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["custom_model_name"] = custom_model_name
-        input_["role_arn"] = role_arn
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["base_model_identifier"] = base_model_identifier
+        input_: capo_bedrock.types.create_model_customization_job_request.CreateModelCustomizationJobRequest = {
+            "job_name": job_name,
+            "custom_model_name": custom_model_name,
+            "role_arn": role_arn,
+            "base_model_identifier": base_model_identifier,
+            "training_data_config": training_data_config,
+            "output_data_config": output_data_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if customization_type is not None:
             input_["customization_type"] = customization_type
         if custom_model_kms_key_id is not None:
@@ -433,10 +446,8 @@ class AsyncTrainingResource:
             input_["job_tags"] = job_tags
         if custom_model_tags is not None:
             input_["custom_model_tags"] = custom_model_tags
-        input_["training_data_config"] = training_data_config
         if validation_data_config is not None:
             input_["validation_data_config"] = validation_data_config
-        input_["output_data_config"] = output_data_config
         if hyper_parameters is not None:
             input_["hyper_parameters"] = hyper_parameters
         if vpc_config is not None:
@@ -449,6 +460,7 @@ class AsyncTrainingResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_model_customization_job(
@@ -487,14 +499,16 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_model_customization_job_request.GetModelCustomizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_model_customization_jobs(
@@ -550,7 +564,7 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_customization_jobs_request.ListModelCustomizationJobsRequest = {}
         if creation_time_after is not None:
             input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
@@ -573,6 +587,7 @@ class AsyncTrainingResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_model_customization_job(
@@ -612,12 +627,14 @@ class AsyncTrainingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_model_customization_job_request.StopModelCustomizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

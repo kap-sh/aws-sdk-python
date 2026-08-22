@@ -56,13 +56,13 @@ def serialize_json(value: CreateMarketplaceModelEndpointRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateMarketplaceModelEndpointRequest:
     out: CreateMarketplaceModelEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "modelSourceIdentifier" in data:
+    if data.get("modelSourceIdentifier") is not None:
         out["model_source_identifier"] = data["modelSourceIdentifier"]
     else:
         raise DeserializationError(
             "CreateMarketplaceModelEndpointRequest.model_source_identifier required"
         )
-    if "endpointConfig" in data:
+    if data.get("endpointConfig") is not None:
         import capo_bedrock.types.endpoint_config
 
         out["endpoint_config"] = capo_bedrock.types.endpoint_config.deserialize_json(
@@ -72,19 +72,19 @@ def deserialize_json(data: dict) -> CreateMarketplaceModelEndpointRequest:
         raise DeserializationError(
             "CreateMarketplaceModelEndpointRequest.endpoint_config required"
         )
-    if "acceptEula" in data:
+    if data.get("acceptEula") is not None:
         out["accept_eula"] = data["acceptEula"]
     else:
         out["accept_eula"] = False
-    if "endpointName" in data:
+    if data.get("endpointName") is not None:
         out["endpoint_name"] = data["endpointName"]
     else:
         raise DeserializationError(
             "CreateMarketplaceModelEndpointRequest.endpoint_name required"
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

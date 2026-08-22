@@ -32,7 +32,7 @@ def serialize_json(value: BatchDeleteEvaluationJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> BatchDeleteEvaluationJobRequest:
     out: BatchDeleteEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobIdentifiers" in data:
+    if data.get("jobIdentifiers") is not None:
         import capo_bedrock.types.evaluation_job_identifiers
 
         out["job_identifiers"] = (

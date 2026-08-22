@@ -70,7 +70,7 @@ def serialize_json(value: AutomatedReasoningCheckValidFinding) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckValidFinding:
     out: AutomatedReasoningCheckValidFinding = {}  # type: ignore[typeddict-item]
-    if "translation" in data:
+    if data.get("translation") is not None:
         import capo_bedrock.types.automated_reasoning_check_translation
 
         out["translation"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckValidFinding:
                 data["translation"]
             )
         )
-    if "claimsTrueScenario" in data:
+    if data.get("claimsTrueScenario") is not None:
         import capo_bedrock.types.automated_reasoning_check_scenario
 
         out["claims_true_scenario"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckValidFinding:
                 data["claimsTrueScenario"]
             )
         )
-    if "supportingRules" in data:
+    if data.get("supportingRules") is not None:
         import capo_bedrock.types.automated_reasoning_check_rule_list
 
         out["supporting_rules"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckValidFinding:
                 data["supportingRules"]
             )
         )
-    if "logicWarning" in data:
+    if data.get("logicWarning") is not None:
         import capo_bedrock.types.automated_reasoning_check_logic_warning
 
         out["logic_warning"] = (

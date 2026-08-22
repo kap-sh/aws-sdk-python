@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -112,14 +113,16 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["role_arn"] = role_arn
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_id"] = model_id
-        input_["input_data_config"] = input_data_config
-        input_["output_data_config"] = output_data_config
+        input_: capo_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {
+            "job_name": job_name,
+            "role_arn": role_arn,
+            "model_id": model_id,
+            "input_data_config": input_data_config,
+            "output_data_config": output_data_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if vpc_config is not None:
             input_["vpc_config"] = vpc_config
         if timeout_duration_in_hours is not None:
@@ -134,6 +137,7 @@ class ModelInvocationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_model_invocation_job(
@@ -171,14 +175,16 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_model_invocation_jobs(
@@ -235,7 +241,7 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}
         if submit_time_after is not None:
             input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
@@ -258,6 +264,7 @@ class ModelInvocationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_model_invocation_job(
@@ -296,14 +303,16 @@ class ModelInvocationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -373,14 +382,16 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
-        input_["role_arn"] = role_arn
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_id"] = model_id
-        input_["input_data_config"] = input_data_config
-        input_["output_data_config"] = output_data_config
+        input_: capo_bedrock.types.create_model_invocation_job_request.CreateModelInvocationJobRequest = {
+            "job_name": job_name,
+            "role_arn": role_arn,
+            "model_id": model_id,
+            "input_data_config": input_data_config,
+            "output_data_config": output_data_config,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if vpc_config is not None:
             input_["vpc_config"] = vpc_config
         if timeout_duration_in_hours is not None:
@@ -395,6 +406,7 @@ class AsyncModelInvocationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_model_invocation_job(
@@ -433,14 +445,16 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_model_invocation_job_request.GetModelInvocationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_model_invocation_jobs(
@@ -498,7 +512,7 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_model_invocation_jobs_request.ListModelInvocationJobsRequest = {}
         if submit_time_after is not None:
             input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
@@ -521,6 +535,7 @@ class AsyncModelInvocationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_model_invocation_job(
@@ -560,12 +575,14 @@ class AsyncModelInvocationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_model_invocation_job_request.StopModelInvocationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

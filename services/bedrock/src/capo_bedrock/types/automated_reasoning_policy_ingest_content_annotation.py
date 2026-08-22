@@ -24,7 +24,7 @@ def serialize_json(value: AutomatedReasoningPolicyIngestContentAnnotation) -> di
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyIngestContentAnnotation:
     out: AutomatedReasoningPolicyIngestContentAnnotation = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         out["content"] = data["content"]
     else:
         raise DeserializationError(

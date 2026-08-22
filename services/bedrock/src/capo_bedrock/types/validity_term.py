@@ -18,6 +18,6 @@ def serialize_json(value: ValidityTerm) -> dict:
 
 def deserialize_json(data: dict) -> ValidityTerm:
     out: ValidityTerm = {}  # type: ignore[typeddict-item]
-    if "agreementDuration" in data:
+    if data.get("agreementDuration") is not None:
         out["agreement_duration"] = data["agreementDuration"]
     return out

@@ -50,11 +50,11 @@ def serialize_json(value: ModelConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModelConfiguration:
     out: ModelConfiguration = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("ModelConfiguration.model_id required")
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock.types.inference_configuration
 
         out["inference_config"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> ModelConfiguration:
                 data["inferenceConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         import capo_bedrock.types.additional_model_request_fields
 
         out["additional_model_request_fields"] = (

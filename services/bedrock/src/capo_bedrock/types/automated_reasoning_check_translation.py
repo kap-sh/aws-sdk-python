@@ -65,13 +65,21 @@ def serialize_json(value: AutomatedReasoningCheckTranslation) -> dict:
                 value["untranslated_claims"]
             )
         )
-    out["confidence"] = value["confidence"]
+    out["confidence"] = (
+        "NaN"
+        if value["confidence"] != value["confidence"]
+        else "Infinity"
+        if value["confidence"] == float("inf")
+        else "-Infinity"
+        if value["confidence"] == float("-inf")
+        else value["confidence"]
+    )
     return out
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslation:
     out: AutomatedReasoningCheckTranslation = {}  # type: ignore[typeddict-item]
-    if "premises" in data:
+    if data.get("premises") is not None:
         import capo_bedrock.types.automated_reasoning_logic_statement_list
 
         out["premises"] = (
@@ -79,7 +87,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslation:
                 data["premises"]
             )
         )
-    if "claims" in data:
+    if data.get("claims") is not None:
         import capo_bedrock.types.automated_reasoning_logic_statement_list
 
         out["claims"] = (
@@ -89,7 +97,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslation:
         )
     else:
         raise DeserializationError("AutomatedReasoningCheckTranslation.claims required")
-    if "untranslatedPremises" in data:
+    if data.get("untranslatedPremises") is not None:
         import capo_bedrock.types.automated_reasoning_check_input_text_reference_list
 
         out["untranslated_premises"] = (
@@ -97,7 +105,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslation:
                 data["untranslatedPremises"]
             )
         )
-    if "untranslatedClaims" in data:
+    if data.get("untranslatedClaims") is not None:
         import capo_bedrock.types.automated_reasoning_check_input_text_reference_list
 
         out["untranslated_claims"] = (
@@ -105,8 +113,8 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckTranslation:
                 data["untranslatedClaims"]
             )
         )
-    if "confidence" in data:
-        out["confidence"] = data["confidence"]
+    if data.get("confidence") is not None:
+        out["confidence"] = float(data["confidence"])
     else:
         raise DeserializationError(
             "AutomatedReasoningCheckTranslation.confidence required"

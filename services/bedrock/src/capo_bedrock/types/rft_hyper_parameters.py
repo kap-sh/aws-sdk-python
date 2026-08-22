@@ -48,7 +48,15 @@ def serialize_json(value: RFTHyperParameters) -> dict:
     if "batch_size" in value:
         out["batchSize"] = value["batch_size"]
     if "learning_rate" in value:
-        out["learningRate"] = value["learning_rate"]
+        out["learningRate"] = (
+            "NaN"
+            if value["learning_rate"] != value["learning_rate"]
+            else "Infinity"
+            if value["learning_rate"] == float("inf")
+            else "-Infinity"
+            if value["learning_rate"] == float("-inf")
+            else value["learning_rate"]
+        )
     if "max_prompt_length" in value:
         out["maxPromptLength"] = value["max_prompt_length"]
     if "training_sample_per_prompt" in value:
@@ -68,24 +76,24 @@ def serialize_json(value: RFTHyperParameters) -> dict:
 
 def deserialize_json(data: dict) -> RFTHyperParameters:
     out: RFTHyperParameters = {}  # type: ignore[typeddict-item]
-    if "epochCount" in data:
+    if data.get("epochCount") is not None:
         out["epoch_count"] = data["epochCount"]
-    if "batchSize" in data:
+    if data.get("batchSize") is not None:
         out["batch_size"] = data["batchSize"]
-    if "learningRate" in data:
-        out["learning_rate"] = data["learningRate"]
-    if "maxPromptLength" in data:
+    if data.get("learningRate") is not None:
+        out["learning_rate"] = float(data["learningRate"])
+    if data.get("maxPromptLength") is not None:
         out["max_prompt_length"] = data["maxPromptLength"]
-    if "trainingSamplePerPrompt" in data:
+    if data.get("trainingSamplePerPrompt") is not None:
         out["training_sample_per_prompt"] = data["trainingSamplePerPrompt"]
-    if "inferenceMaxTokens" in data:
+    if data.get("inferenceMaxTokens") is not None:
         out["inference_max_tokens"] = data["inferenceMaxTokens"]
-    if "reasoningEffort" in data:
+    if data.get("reasoningEffort") is not None:
         import capo_bedrock.types.reasoning_effort
 
         out["reasoning_effort"] = capo_bedrock.types.reasoning_effort.deserialize_json(
             data["reasoningEffort"]
         )
-    if "evalInterval" in data:
+    if data.get("evalInterval") is not None:
         out["eval_interval"] = data["evalInterval"]
     return out

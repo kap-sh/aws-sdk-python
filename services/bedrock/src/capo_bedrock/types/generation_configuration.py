@@ -66,13 +66,13 @@ def serialize_json(value: GenerationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GenerationConfiguration:
     out: GenerationConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptTemplate" in data:
+    if data.get("promptTemplate") is not None:
         import capo_bedrock.types.prompt_template
 
         out["prompt_template"] = capo_bedrock.types.prompt_template.deserialize_json(
             data["promptTemplate"]
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock.types.guardrail_configuration
 
         out["guardrail_configuration"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> GenerationConfiguration:
                 data["guardrailConfiguration"]
             )
         )
-    if "kbInferenceConfig" in data:
+    if data.get("kbInferenceConfig") is not None:
         import capo_bedrock.types.kb_inference_config
 
         out["kb_inference_config"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> GenerationConfiguration:
                 data["kbInferenceConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         import capo_bedrock.types.additional_model_request_fields
 
         out["additional_model_request_fields"] = (

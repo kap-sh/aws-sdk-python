@@ -30,7 +30,7 @@ def serialize_json(value: BatchDeleteAdvancedPromptOptimizationJobRequest) -> di
 
 def deserialize_json(data: dict) -> BatchDeleteAdvancedPromptOptimizationJobRequest:
     out: BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobIdentifiers" in data:
+    if data.get("jobIdentifiers") is not None:
         import capo_bedrock.types.advanced_prompt_optimization_job_identifiers
 
         out["job_identifiers"] = (

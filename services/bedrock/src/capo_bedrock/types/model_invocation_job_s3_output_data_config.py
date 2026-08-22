@@ -34,14 +34,14 @@ def serialize_json(value: ModelInvocationJobS3OutputDataConfig) -> dict:
 
 def deserialize_json(data: dict) -> ModelInvocationJobS3OutputDataConfig:
     out: ModelInvocationJobS3OutputDataConfig = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError(
             "ModelInvocationJobS3OutputDataConfig.s3_uri required"
         )
-    if "s3EncryptionKeyId" in data:
+    if data.get("s3EncryptionKeyId") is not None:
         out["s3_encryption_key_id"] = data["s3EncryptionKeyId"]
-    if "s3BucketOwner" in data:
+    if data.get("s3BucketOwner") is not None:
         out["s3_bucket_owner"] = data["s3BucketOwner"]
     return out

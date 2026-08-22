@@ -92,11 +92,11 @@ def serialize_json(value: PromptRouterSummary) -> dict:
 
 def deserialize_json(data: dict) -> PromptRouterSummary:
     out: PromptRouterSummary = {}  # type: ignore[typeddict-item]
-    if "promptRouterName" in data:
+    if data.get("promptRouterName") is not None:
         out["prompt_router_name"] = data["promptRouterName"]
     else:
         raise DeserializationError("PromptRouterSummary.prompt_router_name required")
-    if "routingCriteria" in data:
+    if data.get("routingCriteria") is not None:
         import capo_bedrock.types.routing_criteria
 
         out["routing_criteria"] = capo_bedrock.types.routing_criteria.deserialize_json(
@@ -104,25 +104,25 @@ def deserialize_json(data: dict) -> PromptRouterSummary:
         )
     else:
         raise DeserializationError("PromptRouterSummary.routing_criteria required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["created_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["createdAt"]
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["updatedAt"]
         )
-    if "promptRouterArn" in data:
+    if data.get("promptRouterArn") is not None:
         out["prompt_router_arn"] = data["promptRouterArn"]
     else:
         raise DeserializationError("PromptRouterSummary.prompt_router_arn required")
-    if "models" in data:
+    if data.get("models") is not None:
         import capo_bedrock.types.prompt_router_target_models
 
         out["models"] = capo_bedrock.types.prompt_router_target_models.deserialize_json(
@@ -130,7 +130,7 @@ def deserialize_json(data: dict) -> PromptRouterSummary:
         )
     else:
         raise DeserializationError("PromptRouterSummary.models required")
-    if "fallbackModel" in data:
+    if data.get("fallbackModel") is not None:
         import capo_bedrock.types.prompt_router_target_model
 
         out["fallback_model"] = (
@@ -140,7 +140,7 @@ def deserialize_json(data: dict) -> PromptRouterSummary:
         )
     else:
         raise DeserializationError("PromptRouterSummary.fallback_model required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.prompt_router_status
 
         out["status"] = capo_bedrock.types.prompt_router_status.deserialize_json(
@@ -148,7 +148,7 @@ def deserialize_json(data: dict) -> PromptRouterSummary:
         )
     else:
         raise DeserializationError("PromptRouterSummary.status required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.prompt_router_type
 
         out["type"] = capo_bedrock.types.prompt_router_type.deserialize_json(

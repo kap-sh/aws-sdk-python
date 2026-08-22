@@ -34,7 +34,7 @@ def serialize_json(value: CustomModelDataSource) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomModelDataSource:
-    if "modelPackageArnDataSource" in data:
+    if data.get("modelPackageArnDataSource") is not None:
         import capo_bedrock.types.model_package_arn_data_source
 
         return {

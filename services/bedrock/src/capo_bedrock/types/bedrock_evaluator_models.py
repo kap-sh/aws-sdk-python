@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> BedrockEvaluatorModels:
 
     out: BedrockEvaluatorModels = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.bedrock_evaluator_model.deserialize_json(item))
     return out

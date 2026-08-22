@@ -58,13 +58,14 @@ class DataRetentionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def put_account_data_retention(
@@ -101,14 +102,16 @@ class DataRetentionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
-        input_["mode"] = mode
+        input_: capo_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {
+            "mode": mode
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -145,13 +148,14 @@ class AsyncDataRetentionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.get_account_data_retention_request.GetAccountDataRetentionRequest = {}
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def put_account_data_retention(
@@ -189,12 +193,14 @@ class AsyncDataRetentionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {}  # type: ignore[typeddict-item]
-        input_["mode"] = mode
+        input_: capo_bedrock.types.put_account_data_retention_request.PutAccountDataRetentionRequest = {
+            "mode": mode
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

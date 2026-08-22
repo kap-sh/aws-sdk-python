@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> BatchDeleteAdvancedPromptOptimizationJobItem
 
     out: BatchDeleteAdvancedPromptOptimizationJobItems = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_item.deserialize_json(
                 item

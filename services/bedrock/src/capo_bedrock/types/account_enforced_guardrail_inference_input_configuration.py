@@ -54,19 +54,19 @@ def serialize_json(value: AccountEnforcedGuardrailInferenceInputConfiguration) -
 
 def deserialize_json(data: dict) -> AccountEnforcedGuardrailInferenceInputConfiguration:
     out: AccountEnforcedGuardrailInferenceInputConfiguration = {}  # type: ignore[typeddict-item]
-    if "guardrailIdentifier" in data:
+    if data.get("guardrailIdentifier") is not None:
         out["guardrail_identifier"] = data["guardrailIdentifier"]
     else:
         raise DeserializationError(
             "AccountEnforcedGuardrailInferenceInputConfiguration.guardrail_identifier required"
         )
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
     else:
         raise DeserializationError(
             "AccountEnforcedGuardrailInferenceInputConfiguration.guardrail_version required"
         )
-    if "selectiveContentGuarding" in data:
+    if data.get("selectiveContentGuarding") is not None:
         import capo_bedrock.types.selective_content_guarding
 
         out["selective_content_guarding"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> AccountEnforcedGuardrailInferenceInputConfig
                 data["selectiveContentGuarding"]
             )
         )
-    if "modelEnforcement" in data:
+    if data.get("modelEnforcement") is not None:
         import capo_bedrock.types.model_enforcement
 
         out["model_enforcement"] = (

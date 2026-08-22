@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> EvaluationTaskTypes:
 
     out: EvaluationTaskTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.evaluation_task_type.deserialize_json(item))
     return out

@@ -34,7 +34,7 @@ def serialize_json(value: EvaluatorModelConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluatorModelConfig:
-    if "bedrockEvaluatorModels" in data:
+    if data.get("bedrockEvaluatorModels") is not None:
         import capo_bedrock.types.bedrock_evaluator_models
 
         return {

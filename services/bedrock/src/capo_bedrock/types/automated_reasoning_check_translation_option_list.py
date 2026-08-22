@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AutomatedReasoningCheckTranslationOptionList
 
     out: AutomatedReasoningCheckTranslationOptionList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.automated_reasoning_check_translation_option.deserialize_json(
                 item

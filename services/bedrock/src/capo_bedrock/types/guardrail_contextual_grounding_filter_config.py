@@ -34,7 +34,15 @@ def serialize_json(value: GuardrailContextualGroundingFilterConfig) -> dict:
             value["type"]
         )
     )
-    out["threshold"] = value["threshold"]
+    out["threshold"] = (
+        "NaN"
+        if value["threshold"] != value["threshold"]
+        else "Infinity"
+        if value["threshold"] == float("inf")
+        else "-Infinity"
+        if value["threshold"] == float("-inf")
+        else value["threshold"]
+    )
     if "action" in value:
         import capo_bedrock.types.guardrail_contextual_grounding_action
 
@@ -50,7 +58,7 @@ def serialize_json(value: GuardrailContextualGroundingFilterConfig) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailContextualGroundingFilterConfig:
     out: GuardrailContextualGroundingFilterConfig = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.guardrail_contextual_grounding_filter_type
 
         out["type"] = (
@@ -62,13 +70,13 @@ def deserialize_json(data: dict) -> GuardrailContextualGroundingFilterConfig:
         raise DeserializationError(
             "GuardrailContextualGroundingFilterConfig.type required"
         )
-    if "threshold" in data:
-        out["threshold"] = data["threshold"]
+    if data.get("threshold") is not None:
+        out["threshold"] = float(data["threshold"])
     else:
         raise DeserializationError(
             "GuardrailContextualGroundingFilterConfig.threshold required"
         )
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock.types.guardrail_contextual_grounding_action
 
         out["action"] = (
@@ -76,6 +84,6 @@ def deserialize_json(data: dict) -> GuardrailContextualGroundingFilterConfig:
                 data["action"]
             )
         )
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     return out

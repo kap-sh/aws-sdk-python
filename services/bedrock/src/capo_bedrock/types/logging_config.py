@@ -58,7 +58,7 @@ def serialize_json(value: LoggingConfig) -> dict:
 
 def deserialize_json(data: dict) -> LoggingConfig:
     out: LoggingConfig = {}  # type: ignore[typeddict-item]
-    if "cloudWatchConfig" in data:
+    if data.get("cloudWatchConfig") is not None:
         import capo_bedrock.types.cloud_watch_config
 
         out["cloud_watch_config"] = (
@@ -66,20 +66,20 @@ def deserialize_json(data: dict) -> LoggingConfig:
                 data["cloudWatchConfig"]
             )
         )
-    if "s3Config" in data:
+    if data.get("s3Config") is not None:
         import capo_bedrock.types.s3_config
 
         out["s3_config"] = capo_bedrock.types.s3_config.deserialize_json(
             data["s3Config"]
         )
-    if "textDataDeliveryEnabled" in data:
+    if data.get("textDataDeliveryEnabled") is not None:
         out["text_data_delivery_enabled"] = data["textDataDeliveryEnabled"]
-    if "imageDataDeliveryEnabled" in data:
+    if data.get("imageDataDeliveryEnabled") is not None:
         out["image_data_delivery_enabled"] = data["imageDataDeliveryEnabled"]
-    if "embeddingDataDeliveryEnabled" in data:
+    if data.get("embeddingDataDeliveryEnabled") is not None:
         out["embedding_data_delivery_enabled"] = data["embeddingDataDeliveryEnabled"]
-    if "videoDataDeliveryEnabled" in data:
+    if data.get("videoDataDeliveryEnabled") is not None:
         out["video_data_delivery_enabled"] = data["videoDataDeliveryEnabled"]
-    if "audioDataDeliveryEnabled" in data:
+    if data.get("audioDataDeliveryEnabled") is not None:
         out["audio_data_delivery_enabled"] = data["audioDataDeliveryEnabled"]
     return out

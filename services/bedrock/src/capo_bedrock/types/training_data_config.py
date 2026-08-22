@@ -36,9 +36,9 @@ def serialize_json(value: TrainingDataConfig) -> dict:
 
 def deserialize_json(data: dict) -> TrainingDataConfig:
     out: TrainingDataConfig = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
-    if "invocationLogsConfig" in data:
+    if data.get("invocationLogsConfig") is not None:
         import capo_bedrock.types.invocation_logs_config
 
         out["invocation_logs_config"] = (

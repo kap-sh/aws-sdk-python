@@ -38,19 +38,19 @@ def serialize_json(value: UpdateGuardrailResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateGuardrailResponse:
     out: UpdateGuardrailResponse = {}  # type: ignore[typeddict-item]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
     else:
         raise DeserializationError("UpdateGuardrailResponse.guardrail_id required")
-    if "guardrailArn" in data:
+    if data.get("guardrailArn") is not None:
         out["guardrail_arn"] = data["guardrailArn"]
     else:
         raise DeserializationError("UpdateGuardrailResponse.guardrail_arn required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("UpdateGuardrailResponse.version required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(

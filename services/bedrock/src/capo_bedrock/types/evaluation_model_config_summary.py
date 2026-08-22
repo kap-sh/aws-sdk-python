@@ -44,7 +44,7 @@ def serialize_json(value: EvaluationModelConfigSummary) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationModelConfigSummary:
     out: EvaluationModelConfigSummary = {}  # type: ignore[typeddict-item]
-    if "bedrockModelIdentifiers" in data:
+    if data.get("bedrockModelIdentifiers") is not None:
         import capo_bedrock.types.evaluation_bedrock_model_identifiers
 
         out["bedrock_model_identifiers"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> EvaluationModelConfigSummary:
                 data["bedrockModelIdentifiers"]
             )
         )
-    if "precomputedInferenceSourceIdentifiers" in data:
+    if data.get("precomputedInferenceSourceIdentifiers") is not None:
         import capo_bedrock.types.evaluation_precomputed_inference_source_identifiers
 
         out["precomputed_inference_source_identifiers"] = (

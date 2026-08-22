@@ -42,7 +42,7 @@ def serialize_json(
 def deserialize_json(
     data: dict,
 ) -> AutomatedReasoningPolicyGenerateFidelityReportContent:
-    if "documents" in data:
+    if data.get("documents") is not None:
         import capo_bedrock.types.automated_reasoning_policy_generate_fidelity_report_document_list
 
         return {

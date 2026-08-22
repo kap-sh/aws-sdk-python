@@ -25,6 +25,6 @@ def serialize_json(value: PromptRouterTargetModel) -> dict:
 
 def deserialize_json(data: dict) -> PromptRouterTargetModel:
     out: PromptRouterTargetModel = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     return out

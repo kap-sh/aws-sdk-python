@@ -40,7 +40,7 @@ def serialize_json(value: AutomatedEvaluationCustomMetricSource) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedEvaluationCustomMetricSource:
-    if "customMetricDefinition" in data:
+    if data.get("customMetricDefinition") is not None:
         import capo_bedrock.types.custom_metric_definition
 
         return {

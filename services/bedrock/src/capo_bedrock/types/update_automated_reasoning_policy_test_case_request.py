@@ -63,7 +63,15 @@ def serialize_json(value: UpdateAutomatedReasoningPolicyTestCaseRequest) -> dict
         )
     )
     if "confidence_threshold" in value:
-        out["confidenceThreshold"] = value["confidence_threshold"]
+        out["confidenceThreshold"] = (
+            "NaN"
+            if value["confidence_threshold"] != value["confidence_threshold"]
+            else "Infinity"
+            if value["confidence_threshold"] == float("inf")
+            else "-Infinity"
+            if value["confidence_threshold"] == float("-inf")
+            else value["confidence_threshold"]
+        )
     if "client_request_token" in value:
         out["clientRequestToken"] = value["client_request_token"]
     return out
@@ -71,15 +79,15 @@ def serialize_json(value: UpdateAutomatedReasoningPolicyTestCaseRequest) -> dict
 
 def deserialize_json(data: dict) -> UpdateAutomatedReasoningPolicyTestCaseRequest:
     out: UpdateAutomatedReasoningPolicyTestCaseRequest = {}  # type: ignore[typeddict-item]
-    if "guardContent" in data:
+    if data.get("guardContent") is not None:
         out["guard_content"] = data["guardContent"]
     else:
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyTestCaseRequest.guard_content required"
         )
-    if "queryContent" in data:
+    if data.get("queryContent") is not None:
         out["query_content"] = data["queryContent"]
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -89,7 +97,7 @@ def deserialize_json(data: dict) -> UpdateAutomatedReasoningPolicyTestCaseReques
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyTestCaseRequest.last_updated_at required"
         )
-    if "expectedAggregatedFindingsResult" in data:
+    if data.get("expectedAggregatedFindingsResult") is not None:
         import capo_bedrock.types.automated_reasoning_check_result
 
         out["expected_aggregated_findings_result"] = (
@@ -101,8 +109,8 @@ def deserialize_json(data: dict) -> UpdateAutomatedReasoningPolicyTestCaseReques
         raise DeserializationError(
             "UpdateAutomatedReasoningPolicyTestCaseRequest.expected_aggregated_findings_result required"
         )
-    if "confidenceThreshold" in data:
-        out["confidence_threshold"] = data["confidenceThreshold"]
-    if "clientRequestToken" in data:
+    if data.get("confidenceThreshold") is not None:
+        out["confidence_threshold"] = float(data["confidenceThreshold"])
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

@@ -41,15 +41,15 @@ def serialize_json(value: EvaluationBedrockModel) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationBedrockModel:
     out: EvaluationBedrockModel = {}  # type: ignore[typeddict-item]
-    if "modelIdentifier" in data:
+    if data.get("modelIdentifier") is not None:
         out["model_identifier"] = data["modelIdentifier"]
     else:
         raise DeserializationError("EvaluationBedrockModel.model_identifier required")
-    if "inferenceParams" in data:
+    if data.get("inferenceParams") is not None:
         out["inference_params"] = data["inferenceParams"]
     else:
         out["inference_params"] = "{}"
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock.types.performance_configuration
 
         out["performance_config"] = (

@@ -26,7 +26,7 @@ def serialize_json(value: InvocationLogSource) -> dict:
 
 
 def deserialize_json(data: dict) -> InvocationLogSource:
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         return {"s3Uri": data["s3Uri"]}
     else:
         raise DeserializationError("InvocationLogSource: no recognized variant key")

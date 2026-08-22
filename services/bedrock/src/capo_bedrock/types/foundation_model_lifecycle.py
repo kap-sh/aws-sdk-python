@@ -61,7 +61,7 @@ def serialize_json(value: FoundationModelLifecycle) -> dict:
 
 def deserialize_json(data: dict) -> FoundationModelLifecycle:
     out: FoundationModelLifecycle = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.foundation_model_lifecycle_status
 
         out["status"] = (
@@ -71,25 +71,25 @@ def deserialize_json(data: dict) -> FoundationModelLifecycle:
         )
     else:
         raise DeserializationError("FoundationModelLifecycle.status required")
-    if "startOfLifeTime" in data:
+    if data.get("startOfLifeTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["start_of_life_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["startOfLifeTime"]
         )
-    if "endOfLifeTime" in data:
+    if data.get("endOfLifeTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["end_of_life_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["endOfLifeTime"]
         )
-    if "legacyTime" in data:
+    if data.get("legacyTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["legacy_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["legacyTime"]
         )
-    if "publicExtendedAccessTime" in data:
+    if data.get("publicExtendedAccessTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["public_extended_access_time"] = (

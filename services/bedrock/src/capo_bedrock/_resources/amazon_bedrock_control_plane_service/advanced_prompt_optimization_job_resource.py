@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -84,14 +85,16 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifiers"] = job_identifiers
+        input_: capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {
+            "job_identifiers": job_identifiers
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_advanced_prompt_optimization_job(
@@ -150,25 +153,28 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        input_: capo_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {
+            "job_name": job_name,
+            "input_config": input_config,
+            "output_config": output_config,
+            "model_configurations": model_configurations,
+        }
         if job_description is not None:
             input_["job_description"] = job_description
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_config"] = input_config
-        input_["output_config"] = output_config
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
             input_["tags"] = tags
-        input_["model_configurations"] = model_configurations
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_advanced_prompt_optimization_job(
@@ -206,14 +212,16 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_advanced_prompt_optimization_jobs(
@@ -258,7 +266,7 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -273,6 +281,7 @@ class AdvancedPromptOptimizationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_advanced_prompt_optimization_job(
@@ -311,14 +320,16 @@ class AdvancedPromptOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -361,14 +372,16 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifiers"] = job_identifiers
+        input_: capo_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.BatchDeleteAdvancedPromptOptimizationJobRequest = {
+            "job_identifiers": job_identifiers
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_advanced_prompt_optimization_job(
@@ -428,25 +441,28 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_name"] = job_name
+        input_: capo_bedrock.types.create_advanced_prompt_optimization_job_request.CreateAdvancedPromptOptimizationJobRequest = {
+            "job_name": job_name,
+            "input_config": input_config,
+            "output_config": output_config,
+            "model_configurations": model_configurations,
+        }
         if job_description is not None:
             input_["job_description"] = job_description
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_config"] = input_config
-        input_["output_config"] = output_config
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
             input_["tags"] = tags
-        input_["model_configurations"] = model_configurations
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_advanced_prompt_optimization_job(
@@ -485,14 +501,16 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.get_advanced_prompt_optimization_job_request.GetAdvancedPromptOptimizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_advanced_prompt_optimization_jobs(
@@ -538,7 +556,7 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_advanced_prompt_optimization_jobs_request.ListAdvancedPromptOptimizationJobsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -553,6 +571,7 @@ class AsyncAdvancedPromptOptimizationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_advanced_prompt_optimization_job(
@@ -592,12 +611,14 @@ class AsyncAdvancedPromptOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input_["job_identifier"] = job_identifier
+        input_: capo_bedrock.types.stop_advanced_prompt_optimization_job_request.StopAdvancedPromptOptimizationJobRequest = {
+            "job_identifier": job_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

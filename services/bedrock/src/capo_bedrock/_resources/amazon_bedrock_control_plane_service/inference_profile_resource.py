@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -93,13 +94,15 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_name"] = inference_profile_name
+        input_: capo_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {
+            "inference_profile_name": inference_profile_name,
+            "model_source": model_source,
+        }
         if description is not None:
             input_["description"] = description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_source"] = model_source
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -108,6 +111,7 @@ class InferenceProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -147,14 +151,16 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_identifier"] = inference_profile_identifier
+        input_: capo_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {
+            "inference_profile_identifier": inference_profile_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -193,14 +199,16 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_identifier"] = inference_profile_identifier
+        input_: capo_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {
+            "inference_profile_identifier": inference_profile_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -245,7 +253,7 @@ class InferenceProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -258,6 +266,7 @@ class InferenceProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -316,13 +325,15 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_name"] = inference_profile_name
+        input_: capo_bedrock.types.create_inference_profile_request.CreateInferenceProfileRequest = {
+            "inference_profile_name": inference_profile_name,
+            "model_source": model_source,
+        }
         if description is not None:
             input_["description"] = description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["model_source"] = model_source
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -331,6 +342,7 @@ class AsyncInferenceProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -371,14 +383,16 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_identifier"] = inference_profile_identifier
+        input_: capo_bedrock.types.get_inference_profile_request.GetInferenceProfileRequest = {
+            "inference_profile_identifier": inference_profile_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -418,14 +432,16 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["inference_profile_identifier"] = inference_profile_identifier
+        input_: capo_bedrock.types.delete_inference_profile_request.DeleteInferenceProfileRequest = {
+            "inference_profile_identifier": inference_profile_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -471,7 +487,7 @@ class AsyncInferenceProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_inference_profiles_request.ListInferenceProfilesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -484,4 +500,5 @@ class AsyncInferenceProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

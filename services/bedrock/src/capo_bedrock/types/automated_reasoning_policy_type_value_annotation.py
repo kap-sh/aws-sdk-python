@@ -68,7 +68,7 @@ def serialize_json(value: AutomatedReasoningPolicyTypeValueAnnotation) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyTypeValueAnnotation:
-    if "addTypeValue" in data:
+    if data.get("addTypeValue") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_type_value
 
         return {
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTypeValueAnnotation:
                 data["addTypeValue"]
             )
         }
-    elif "updateTypeValue" in data:
+    elif data.get("updateTypeValue") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_type_value
 
         return {
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyTypeValueAnnotation:
                 data["updateTypeValue"]
             )
         }
-    elif "deleteTypeValue" in data:
+    elif data.get("deleteTypeValue") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_type_value
 
         return {

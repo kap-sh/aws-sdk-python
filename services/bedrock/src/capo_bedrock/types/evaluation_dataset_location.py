@@ -26,7 +26,7 @@ def serialize_json(value: EvaluationDatasetLocation) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationDatasetLocation:
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         return {"s3Uri": data["s3Uri"]}
     else:
         raise DeserializationError(

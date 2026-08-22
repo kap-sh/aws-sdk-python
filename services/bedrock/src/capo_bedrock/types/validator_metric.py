@@ -17,12 +17,20 @@ class ValidatorMetric(TypedDict, closed=True):
 def serialize_json(value: ValidatorMetric) -> dict:
     out: dict = {}
     if "validation_loss" in value:
-        out["validationLoss"] = value["validation_loss"]
+        out["validationLoss"] = (
+            "NaN"
+            if value["validation_loss"] != value["validation_loss"]
+            else "Infinity"
+            if value["validation_loss"] == float("inf")
+            else "-Infinity"
+            if value["validation_loss"] == float("-inf")
+            else value["validation_loss"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> ValidatorMetric:
     out: ValidatorMetric = {}  # type: ignore[typeddict-item]
-    if "validationLoss" in data:
-        out["validation_loss"] = data["validationLoss"]
+    if data.get("validationLoss") is not None:
+        out["validation_loss"] = float(data["validationLoss"])
     return out

@@ -69,15 +69,15 @@ def serialize_json(value: CustomModelSummary) -> dict:
 
 def deserialize_json(data: dict) -> CustomModelSummary:
     out: CustomModelSummary = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("CustomModelSummary.model_arn required")
-    if "modelName" in data:
+    if data.get("modelName") is not None:
         out["model_name"] = data["modelName"]
     else:
         raise DeserializationError("CustomModelSummary.model_name required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -85,15 +85,15 @@ def deserialize_json(data: dict) -> CustomModelSummary:
         )
     else:
         raise DeserializationError("CustomModelSummary.creation_time required")
-    if "baseModelArn" in data:
+    if data.get("baseModelArn") is not None:
         out["base_model_arn"] = data["baseModelArn"]
     else:
         raise DeserializationError("CustomModelSummary.base_model_arn required")
-    if "baseModelName" in data:
+    if data.get("baseModelName") is not None:
         out["base_model_name"] = data["baseModelName"]
     else:
         raise DeserializationError("CustomModelSummary.base_model_name required")
-    if "customizationType" in data:
+    if data.get("customizationType") is not None:
         import capo_bedrock.types.customization_type
 
         out["customization_type"] = (
@@ -101,9 +101,9 @@ def deserialize_json(data: dict) -> CustomModelSummary:
                 data["customizationType"]
             )
         )
-    if "ownerAccountId" in data:
+    if data.get("ownerAccountId") is not None:
         out["owner_account_id"] = data["ownerAccountId"]
-    if "modelStatus" in data:
+    if data.get("modelStatus") is not None:
         import capo_bedrock.types.model_status
 
         out["model_status"] = capo_bedrock.types.model_status.deserialize_json(

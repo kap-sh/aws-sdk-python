@@ -39,13 +39,13 @@ def serialize_json(value: SelectiveContentGuarding) -> dict:
 
 def deserialize_json(data: dict) -> SelectiveContentGuarding:
     out: SelectiveContentGuarding = {}  # type: ignore[typeddict-item]
-    if "system" in data:
+    if data.get("system") is not None:
         import capo_bedrock.types.selective_guarding_mode
 
         out["system"] = capo_bedrock.types.selective_guarding_mode.deserialize_json(
             data["system"]
         )
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock.types.selective_guarding_mode
 
         out["messages"] = capo_bedrock.types.selective_guarding_mode.deserialize_json(

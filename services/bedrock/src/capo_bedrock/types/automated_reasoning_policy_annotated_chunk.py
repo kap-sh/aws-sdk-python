@@ -34,9 +34,9 @@ def serialize_json(value: AutomatedReasoningPolicyAnnotatedChunk) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotatedChunk:
     out: AutomatedReasoningPolicyAnnotatedChunk = {}  # type: ignore[typeddict-item]
-    if "pageNumber" in data:
+    if data.get("pageNumber") is not None:
         out["page_number"] = data["pageNumber"]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotated_content_list
 
         out["content"] = (

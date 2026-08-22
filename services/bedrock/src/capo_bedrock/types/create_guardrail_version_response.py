@@ -28,13 +28,13 @@ def serialize_json(value: CreateGuardrailVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateGuardrailVersionResponse:
     out: CreateGuardrailVersionResponse = {}  # type: ignore[typeddict-item]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
     else:
         raise DeserializationError(
             "CreateGuardrailVersionResponse.guardrail_id required"
         )
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("CreateGuardrailVersionResponse.version required")

@@ -51,7 +51,7 @@ def serialize_json(value: StatusDetails) -> dict:
 
 def deserialize_json(data: dict) -> StatusDetails:
     out: StatusDetails = {}  # type: ignore[typeddict-item]
-    if "validationDetails" in data:
+    if data.get("validationDetails") is not None:
         import capo_bedrock.types.validation_details
 
         out["validation_details"] = (
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> StatusDetails:
                 data["validationDetails"]
             )
         )
-    if "dataProcessingDetails" in data:
+    if data.get("dataProcessingDetails") is not None:
         import capo_bedrock.types.data_processing_details
 
         out["data_processing_details"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> StatusDetails:
                 data["dataProcessingDetails"]
             )
         )
-    if "trainingDetails" in data:
+    if data.get("trainingDetails") is not None:
         import capo_bedrock.types.training_details
 
         out["training_details"] = capo_bedrock.types.training_details.deserialize_json(

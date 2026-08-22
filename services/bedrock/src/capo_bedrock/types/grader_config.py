@@ -32,7 +32,7 @@ def serialize_json(value: GraderConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> GraderConfig:
-    if "lambdaGrader" in data:
+    if data.get("lambdaGrader") is not None:
         import capo_bedrock.types.lambda_grader_config
 
         return {

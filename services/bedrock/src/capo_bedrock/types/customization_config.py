@@ -47,7 +47,7 @@ def serialize_json(value: CustomizationConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomizationConfig:
-    if "distillationConfig" in data:
+    if data.get("distillationConfig") is not None:
         import capo_bedrock.types.distillation_config
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> CustomizationConfig:
                 data["distillationConfig"]
             )
         }
-    elif "rftConfig" in data:
+    elif data.get("rftConfig") is not None:
         import capo_bedrock.types.rft_config
 
         return {

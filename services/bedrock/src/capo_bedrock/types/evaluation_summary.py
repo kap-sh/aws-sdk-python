@@ -134,15 +134,15 @@ def serialize_json(value: EvaluationSummary) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationSummary:
     out: EvaluationSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("EvaluationSummary.job_arn required")
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("EvaluationSummary.job_name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.evaluation_job_status
 
         out["status"] = capo_bedrock.types.evaluation_job_status.deserialize_json(
@@ -150,7 +150,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
         )
     else:
         raise DeserializationError("EvaluationSummary.status required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
         )
     else:
         raise DeserializationError("EvaluationSummary.creation_time required")
-    if "jobType" in data:
+    if data.get("jobType") is not None:
         import capo_bedrock.types.evaluation_job_type
 
         out["job_type"] = capo_bedrock.types.evaluation_job_type.deserialize_json(
@@ -166,7 +166,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
         )
     else:
         raise DeserializationError("EvaluationSummary.job_type required")
-    if "evaluationTaskTypes" in data:
+    if data.get("evaluationTaskTypes") is not None:
         import capo_bedrock.types.evaluation_task_types
 
         out["evaluation_task_types"] = (
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
         )
     else:
         raise DeserializationError("EvaluationSummary.evaluation_task_types required")
-    if "modelIdentifiers" in data:
+    if data.get("modelIdentifiers") is not None:
         import capo_bedrock.types.evaluation_bedrock_model_identifiers
 
         out["model_identifiers"] = (
@@ -186,7 +186,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
         )
     else:
         out["model_identifiers"] = []
-    if "ragIdentifiers" in data:
+    if data.get("ragIdentifiers") is not None:
         import capo_bedrock.types.evaluation_bedrock_knowledge_base_identifiers
 
         out["rag_identifiers"] = (
@@ -194,7 +194,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
                 data["ragIdentifiers"]
             )
         )
-    if "evaluatorModelIdentifiers" in data:
+    if data.get("evaluatorModelIdentifiers") is not None:
         import capo_bedrock.types.evaluator_model_identifiers
 
         out["evaluator_model_identifiers"] = (
@@ -202,7 +202,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
                 data["evaluatorModelIdentifiers"]
             )
         )
-    if "customMetricsEvaluatorModelIdentifiers" in data:
+    if data.get("customMetricsEvaluatorModelIdentifiers") is not None:
         import capo_bedrock.types.evaluator_model_identifiers
 
         out["custom_metrics_evaluator_model_identifiers"] = (
@@ -210,7 +210,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
                 data["customMetricsEvaluatorModelIdentifiers"]
             )
         )
-    if "inferenceConfigSummary" in data:
+    if data.get("inferenceConfigSummary") is not None:
         import capo_bedrock.types.evaluation_inference_config_summary
 
         out["inference_config_summary"] = (
@@ -218,7 +218,7 @@ def deserialize_json(data: dict) -> EvaluationSummary:
                 data["inferenceConfigSummary"]
             )
         )
-    if "applicationType" in data:
+    if data.get("applicationType") is not None:
         import capo_bedrock.types.application_type
 
         out["application_type"] = capo_bedrock.types.application_type.deserialize_json(

@@ -126,11 +126,11 @@ def serialize_json(value: GetEvaluationJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetEvaluationJobResponse:
     out: GetEvaluationJobResponse = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("GetEvaluationJobResponse.job_name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.evaluation_job_status
 
         out["status"] = capo_bedrock.types.evaluation_job_status.deserialize_json(
@@ -138,19 +138,19 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         )
     else:
         raise DeserializationError("GetEvaluationJobResponse.status required")
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("GetEvaluationJobResponse.job_arn required")
-    if "jobDescription" in data:
+    if data.get("jobDescription") is not None:
         out["job_description"] = data["jobDescription"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("GetEvaluationJobResponse.role_arn required")
-    if "customerEncryptionKeyId" in data:
+    if data.get("customerEncryptionKeyId") is not None:
         out["customer_encryption_key_id"] = data["customerEncryptionKeyId"]
-    if "jobType" in data:
+    if data.get("jobType") is not None:
         import capo_bedrock.types.evaluation_job_type
 
         out["job_type"] = capo_bedrock.types.evaluation_job_type.deserialize_json(
@@ -158,13 +158,13 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         )
     else:
         raise DeserializationError("GetEvaluationJobResponse.job_type required")
-    if "applicationType" in data:
+    if data.get("applicationType") is not None:
         import capo_bedrock.types.application_type
 
         out["application_type"] = capo_bedrock.types.application_type.deserialize_json(
             data["applicationType"]
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock.types.evaluation_config
 
         out["evaluation_config"] = (
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         raise DeserializationError(
             "GetEvaluationJobResponse.evaluation_config required"
         )
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock.types.evaluation_inference_config
 
         out["inference_config"] = (
@@ -186,7 +186,7 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         )
     else:
         raise DeserializationError("GetEvaluationJobResponse.inference_config required")
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock.types.evaluation_output_data_config
 
         out["output_data_config"] = (
@@ -198,7 +198,7 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         raise DeserializationError(
             "GetEvaluationJobResponse.output_data_config required"
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -206,13 +206,13 @@ def deserialize_json(data: dict) -> GetEvaluationJobResponse:
         )
     else:
         raise DeserializationError("GetEvaluationJobResponse.creation_time required")
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastModifiedTime"]
         )
-    if "failureMessages" in data:
+    if data.get("failureMessages") is not None:
         import capo_bedrock.types.error_messages
 
         out["failure_messages"] = capo_bedrock.types.error_messages.deserialize_json(

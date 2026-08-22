@@ -38,13 +38,13 @@ def serialize_json(value: RFTConfig) -> dict:
 
 def deserialize_json(data: dict) -> RFTConfig:
     out: RFTConfig = {}  # type: ignore[typeddict-item]
-    if "graderConfig" in data:
+    if data.get("graderConfig") is not None:
         import capo_bedrock.types.grader_config
 
         out["grader_config"] = capo_bedrock.types.grader_config.deserialize_json(
             data["graderConfig"]
         )
-    if "hyperParameters" in data:
+    if data.get("hyperParameters") is not None:
         import capo_bedrock.types.rft_hyper_parameters
 
         out["hyper_parameters"] = (

@@ -210,7 +210,7 @@ def serialize_json(value: AutomatedReasoningPolicyAnnotation) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
-    if "addType" in data:
+    if data.get("addType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_type_annotation
 
         return {
@@ -218,7 +218,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["addType"]
             )
         }
-    elif "updateType" in data:
+    elif data.get("updateType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_type_annotation
 
         return {
@@ -226,7 +226,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["updateType"]
             )
         }
-    elif "deleteType" in data:
+    elif data.get("deleteType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_type_annotation
 
         return {
@@ -234,7 +234,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["deleteType"]
             )
         }
-    elif "addVariable" in data:
+    elif data.get("addVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_variable_annotation
 
         return {
@@ -242,7 +242,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["addVariable"]
             )
         }
-    elif "updateVariable" in data:
+    elif data.get("updateVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_variable_annotation
 
         return {
@@ -250,7 +250,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["updateVariable"]
             )
         }
-    elif "deleteVariable" in data:
+    elif data.get("deleteVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_variable_annotation
 
         return {
@@ -258,7 +258,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["deleteVariable"]
             )
         }
-    elif "addRule" in data:
+    elif data.get("addRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_rule_annotation
 
         return {
@@ -266,7 +266,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["addRule"]
             )
         }
-    elif "updateRule" in data:
+    elif data.get("updateRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_rule_annotation
 
         return {
@@ -274,7 +274,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["updateRule"]
             )
         }
-    elif "deleteRule" in data:
+    elif data.get("deleteRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_rule_annotation
 
         return {
@@ -282,7 +282,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["deleteRule"]
             )
         }
-    elif "addRuleFromNaturalLanguage" in data:
+    elif data.get("addRuleFromNaturalLanguage") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_rule_from_natural_language_annotation
 
         return {
@@ -290,7 +290,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["addRuleFromNaturalLanguage"]
             )
         }
-    elif "updateFromRulesFeedback" in data:
+    elif data.get("updateFromRulesFeedback") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_from_rule_feedback_annotation
 
         return {
@@ -298,7 +298,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["updateFromRulesFeedback"]
             )
         }
-    elif "updateFromScenarioFeedback" in data:
+    elif data.get("updateFromScenarioFeedback") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_from_scenario_feedback_annotation
 
         return {
@@ -306,7 +306,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyAnnotation:
                 data["updateFromScenarioFeedback"]
             )
         }
-    elif "ingestContent" in data:
+    elif data.get("ingestContent") is not None:
         import capo_bedrock.types.automated_reasoning_policy_ingest_content_annotation
 
         return {

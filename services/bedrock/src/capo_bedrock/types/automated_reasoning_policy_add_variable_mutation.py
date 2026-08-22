@@ -30,7 +30,7 @@ def serialize_json(value: AutomatedReasoningPolicyAddVariableMutation) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyAddVariableMutation:
     out: AutomatedReasoningPolicyAddVariableMutation = {}  # type: ignore[typeddict-item]
-    if "variable" in data:
+    if data.get("variable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_definition_variable
 
         out["variable"] = (

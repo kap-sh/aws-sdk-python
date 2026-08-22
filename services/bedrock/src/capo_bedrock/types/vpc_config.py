@@ -34,7 +34,7 @@ def serialize_json(value: VpcConfig) -> dict:
 
 def deserialize_json(data: dict) -> VpcConfig:
     out: VpcConfig = {}  # type: ignore[typeddict-item]
-    if "subnetIds" in data:
+    if data.get("subnetIds") is not None:
         import capo_bedrock.types.subnet_ids
 
         out["subnet_ids"] = capo_bedrock.types.subnet_ids.deserialize_json(
@@ -42,7 +42,7 @@ def deserialize_json(data: dict) -> VpcConfig:
         )
     else:
         raise DeserializationError("VpcConfig.subnet_ids required")
-    if "securityGroupIds" in data:
+    if data.get("securityGroupIds") is not None:
         import capo_bedrock.types.security_group_ids
 
         out["security_group_ids"] = (

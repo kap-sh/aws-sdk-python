@@ -44,21 +44,21 @@ def serialize_json(value: SageMakerEndpoint) -> dict:
 
 def deserialize_json(data: dict) -> SageMakerEndpoint:
     out: SageMakerEndpoint = {}  # type: ignore[typeddict-item]
-    if "initialInstanceCount" in data:
+    if data.get("initialInstanceCount") is not None:
         out["initial_instance_count"] = data["initialInstanceCount"]
     else:
         raise DeserializationError("SageMakerEndpoint.initial_instance_count required")
-    if "instanceType" in data:
+    if data.get("instanceType") is not None:
         out["instance_type"] = data["instanceType"]
     else:
         raise DeserializationError("SageMakerEndpoint.instance_type required")
-    if "executionRole" in data:
+    if data.get("executionRole") is not None:
         out["execution_role"] = data["executionRole"]
     else:
         raise DeserializationError("SageMakerEndpoint.execution_role required")
-    if "kmsEncryptionKey" in data:
+    if data.get("kmsEncryptionKey") is not None:
         out["kms_encryption_key"] = data["kmsEncryptionKey"]
-    if "vpc" in data:
+    if data.get("vpc") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc"] = capo_bedrock.types.vpc_config.deserialize_json(data["vpc"])

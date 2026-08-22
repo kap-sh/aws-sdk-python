@@ -33,8 +33,8 @@ def serialize_json(value: UpdateProvisionedModelThroughputRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateProvisionedModelThroughputRequest:
     out: UpdateProvisionedModelThroughputRequest = {}  # type: ignore[typeddict-item]
-    if "desiredProvisionedModelName" in data:
+    if data.get("desiredProvisionedModelName") is not None:
         out["desired_provisioned_model_name"] = data["desiredProvisionedModelName"]
-    if "desiredModelId" in data:
+    if data.get("desiredModelId") is not None:
         out["desired_model_id"] = data["desiredModelId"]
     return out

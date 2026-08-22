@@ -49,11 +49,11 @@ def serialize_json(value: InvocationLogsConfig) -> dict:
 
 def deserialize_json(data: dict) -> InvocationLogsConfig:
     out: InvocationLogsConfig = {}  # type: ignore[typeddict-item]
-    if "usePromptResponse" in data:
+    if data.get("usePromptResponse") is not None:
         out["use_prompt_response"] = data["usePromptResponse"]
     else:
         out["use_prompt_response"] = False
-    if "invocationLogSource" in data:
+    if data.get("invocationLogSource") is not None:
         import capo_bedrock.types.invocation_log_source
 
         out["invocation_log_source"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> InvocationLogsConfig:
         raise DeserializationError(
             "InvocationLogsConfig.invocation_log_source required"
         )
-    if "requestMetadataFilters" in data:
+    if data.get("requestMetadataFilters") is not None:
         import capo_bedrock.types.request_metadata_filters
 
         out["request_metadata_filters"] = (

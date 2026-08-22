@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> CustomMetricBedrockEvaluatorModels:
 
     out: CustomMetricBedrockEvaluatorModels = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.custom_metric_bedrock_evaluator_model.deserialize_json(
                 item

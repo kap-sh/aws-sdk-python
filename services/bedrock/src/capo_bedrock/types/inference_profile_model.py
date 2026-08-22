@@ -23,6 +23,6 @@ def serialize_json(value: InferenceProfileModel) -> dict:
 
 def deserialize_json(data: dict) -> InferenceProfileModel:
     out: InferenceProfileModel = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     return out

@@ -95,31 +95,31 @@ def serialize_json(value: CreateEvaluationJobRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateEvaluationJobRequest:
     out: CreateEvaluationJobRequest = {}  # type: ignore[typeddict-item]
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("CreateEvaluationJobRequest.job_name required")
-    if "jobDescription" in data:
+    if data.get("jobDescription") is not None:
         out["job_description"] = data["jobDescription"]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateEvaluationJobRequest.role_arn required")
-    if "customerEncryptionKeyId" in data:
+    if data.get("customerEncryptionKeyId") is not None:
         out["customer_encryption_key_id"] = data["customerEncryptionKeyId"]
-    if "jobTags" in data:
+    if data.get("jobTags") is not None:
         import capo_bedrock.types.tag_list
 
         out["job_tags"] = capo_bedrock.types.tag_list.deserialize_json(data["jobTags"])
-    if "applicationType" in data:
+    if data.get("applicationType") is not None:
         import capo_bedrock.types.application_type
 
         out["application_type"] = capo_bedrock.types.application_type.deserialize_json(
             data["applicationType"]
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock.types.evaluation_config
 
         out["evaluation_config"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> CreateEvaluationJobRequest:
         raise DeserializationError(
             "CreateEvaluationJobRequest.evaluation_config required"
         )
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock.types.evaluation_inference_config
 
         out["inference_config"] = (
@@ -143,7 +143,7 @@ def deserialize_json(data: dict) -> CreateEvaluationJobRequest:
         raise DeserializationError(
             "CreateEvaluationJobRequest.inference_config required"
         )
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock.types.evaluation_output_data_config
 
         out["output_data_config"] = (

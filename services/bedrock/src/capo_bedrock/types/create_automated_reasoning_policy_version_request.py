@@ -43,15 +43,15 @@ def serialize_json(value: CreateAutomatedReasoningPolicyVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateAutomatedReasoningPolicyVersionRequest:
     out: CreateAutomatedReasoningPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "lastUpdatedDefinitionHash" in data:
+    if data.get("lastUpdatedDefinitionHash") is not None:
         out["last_updated_definition_hash"] = data["lastUpdatedDefinitionHash"]
     else:
         raise DeserializationError(
             "CreateAutomatedReasoningPolicyVersionRequest.last_updated_definition_hash required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock.types.tag_list
 
         out["tags"] = capo_bedrock.types.tag_list.deserialize_json(data["tags"])

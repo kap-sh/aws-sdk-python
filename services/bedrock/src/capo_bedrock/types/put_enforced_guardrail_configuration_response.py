@@ -38,14 +38,14 @@ def serialize_json(value: PutEnforcedGuardrailConfigurationResponse) -> dict:
 
 def deserialize_json(data: dict) -> PutEnforcedGuardrailConfigurationResponse:
     out: PutEnforcedGuardrailConfigurationResponse = {}  # type: ignore[typeddict-item]
-    if "configId" in data:
+    if data.get("configId") is not None:
         out["config_id"] = data["configId"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock.types.timestamp
 
         out["updated_at"] = capo_bedrock.types.timestamp.deserialize_json(
             data["updatedAt"]
         )
-    if "updatedBy" in data:
+    if data.get("updatedBy") is not None:
         out["updated_by"] = data["updatedBy"]
     return out

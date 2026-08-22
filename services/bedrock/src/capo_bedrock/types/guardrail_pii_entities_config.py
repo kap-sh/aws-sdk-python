@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> GuardrailPiiEntitiesConfig:
 
     out: GuardrailPiiEntitiesConfig = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.guardrail_pii_entity_config.deserialize_json(item)
         )

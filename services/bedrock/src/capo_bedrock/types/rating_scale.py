@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> RatingScale:
 
     out: RatingScale = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.rating_scale_item.deserialize_json(item))
     return out

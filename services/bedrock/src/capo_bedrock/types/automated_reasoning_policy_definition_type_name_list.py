@@ -16,4 +16,4 @@ def serialize_json(value: AutomatedReasoningPolicyDefinitionTypeNameList) -> lis
 
 
 def deserialize_json(data: list) -> AutomatedReasoningPolicyDefinitionTypeNameList:
-    return list(data)
+    return [item for item in data if item is not None]

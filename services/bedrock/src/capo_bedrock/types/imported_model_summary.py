@@ -50,15 +50,15 @@ def serialize_json(value: ImportedModelSummary) -> dict:
 
 def deserialize_json(data: dict) -> ImportedModelSummary:
     out: ImportedModelSummary = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("ImportedModelSummary.model_arn required")
-    if "modelName" in data:
+    if data.get("modelName") is not None:
         out["model_name"] = data["modelName"]
     else:
         raise DeserializationError("ImportedModelSummary.model_name required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -66,8 +66,8 @@ def deserialize_json(data: dict) -> ImportedModelSummary:
         )
     else:
         raise DeserializationError("ImportedModelSummary.creation_time required")
-    if "instructSupported" in data:
+    if data.get("instructSupported") is not None:
         out["instruct_supported"] = data["instructSupported"]
-    if "modelArchitecture" in data:
+    if data.get("modelArchitecture") is not None:
         out["model_architecture"] = data["modelArchitecture"]
     return out

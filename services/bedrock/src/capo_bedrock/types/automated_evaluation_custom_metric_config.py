@@ -40,7 +40,7 @@ def serialize_json(value: AutomatedEvaluationCustomMetricConfig) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedEvaluationCustomMetricConfig:
     out: AutomatedEvaluationCustomMetricConfig = {}  # type: ignore[typeddict-item]
-    if "customMetrics" in data:
+    if data.get("customMetrics") is not None:
         import capo_bedrock.types.automated_evaluation_custom_metrics
 
         out["custom_metrics"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> AutomatedEvaluationCustomMetricConfig:
         raise DeserializationError(
             "AutomatedEvaluationCustomMetricConfig.custom_metrics required"
         )
-    if "evaluatorModelConfig" in data:
+    if data.get("evaluatorModelConfig") is not None:
         import capo_bedrock.types.custom_metric_evaluator_model_config
 
         out["evaluator_model_config"] = (

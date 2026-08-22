@@ -46,7 +46,7 @@ def serialize_json(value: StartAutomatedReasoningPolicyTestWorkflowRequest) -> d
 
 def deserialize_json(data: dict) -> StartAutomatedReasoningPolicyTestWorkflowRequest:
     out: StartAutomatedReasoningPolicyTestWorkflowRequest = {}  # type: ignore[typeddict-item]
-    if "testCaseIds" in data:
+    if data.get("testCaseIds") is not None:
         import capo_bedrock.types.automated_reasoning_policy_test_case_id_list
 
         out["test_case_ids"] = (
@@ -54,6 +54,6 @@ def deserialize_json(data: dict) -> StartAutomatedReasoningPolicyTestWorkflowReq
                 data["testCaseIds"]
             )
         )
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
     return out

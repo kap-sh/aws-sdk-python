@@ -30,7 +30,7 @@ def deserialize_json(
     data: dict,
 ) -> AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation:
     out: AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation = {}  # type: ignore[typeddict-item]
-    if "naturalLanguage" in data:
+    if data.get("naturalLanguage") is not None:
         out["natural_language"] = data["naturalLanguage"]
     else:
         raise DeserializationError(

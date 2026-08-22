@@ -16,5 +16,7 @@ def serialize_json(input_to_serialize: ModelCustomizationHyperParameters) -> dic
 def deserialize_json(data: dict) -> ModelCustomizationHyperParameters:
     out: ModelCustomizationHyperParameters = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

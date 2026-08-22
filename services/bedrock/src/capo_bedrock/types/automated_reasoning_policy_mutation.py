@@ -146,7 +146,7 @@ def serialize_json(value: AutomatedReasoningPolicyMutation) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
-    if "addType" in data:
+    if data.get("addType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_type_mutation
 
         return {
@@ -154,7 +154,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["addType"]
             )
         }
-    elif "updateType" in data:
+    elif data.get("updateType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_type_mutation
 
         return {
@@ -162,7 +162,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["updateType"]
             )
         }
-    elif "deleteType" in data:
+    elif data.get("deleteType") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_type_mutation
 
         return {
@@ -170,7 +170,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["deleteType"]
             )
         }
-    elif "addVariable" in data:
+    elif data.get("addVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_variable_mutation
 
         return {
@@ -178,7 +178,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["addVariable"]
             )
         }
-    elif "updateVariable" in data:
+    elif data.get("updateVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_variable_mutation
 
         return {
@@ -186,7 +186,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["updateVariable"]
             )
         }
-    elif "deleteVariable" in data:
+    elif data.get("deleteVariable") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_variable_mutation
 
         return {
@@ -194,7 +194,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["deleteVariable"]
             )
         }
-    elif "addRule" in data:
+    elif data.get("addRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_add_rule_mutation
 
         return {
@@ -202,7 +202,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["addRule"]
             )
         }
-    elif "updateRule" in data:
+    elif data.get("updateRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_update_rule_mutation
 
         return {
@@ -210,7 +210,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyMutation:
                 data["updateRule"]
             )
         }
-    elif "deleteRule" in data:
+    elif data.get("deleteRule") is not None:
         import capo_bedrock.types.automated_reasoning_policy_delete_rule_mutation
 
         return {

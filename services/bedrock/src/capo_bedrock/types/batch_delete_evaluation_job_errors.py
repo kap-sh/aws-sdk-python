@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> BatchDeleteEvaluationJobErrors:
 
     out: BatchDeleteEvaluationJobErrors = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock.types.batch_delete_evaluation_job_error.deserialize_json(item)
         )

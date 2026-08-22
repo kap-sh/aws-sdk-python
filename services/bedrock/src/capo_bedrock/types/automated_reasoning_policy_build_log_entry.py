@@ -50,7 +50,7 @@ def serialize_json(value: AutomatedReasoningPolicyBuildLogEntry) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildLogEntry:
     out: AutomatedReasoningPolicyBuildLogEntry = {}  # type: ignore[typeddict-item]
-    if "annotation" in data:
+    if data.get("annotation") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotation
 
         out["annotation"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildLogEntry:
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildLogEntry.annotation required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.automated_reasoning_policy_annotation_status
 
         out["status"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyBuildLogEntry:
         raise DeserializationError(
             "AutomatedReasoningPolicyBuildLogEntry.status required"
         )
-    if "buildSteps" in data:
+    if data.get("buildSteps") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_step_list
 
         out["build_steps"] = (

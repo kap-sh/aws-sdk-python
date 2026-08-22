@@ -29,6 +29,8 @@ def serialize_json(input_to_serialize: AutomatedReasoningPolicyRuleReportMap) ->
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyRuleReportMap:
     out: AutomatedReasoningPolicyRuleReportMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock.types.automated_reasoning_policy_rule_report
 
         out[key] = (

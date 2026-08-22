@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -99,15 +100,17 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["prompt_router_name"] = prompt_router_name
-        input_["models"] = models
+        input_: capo_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {
+            "prompt_router_name": prompt_router_name,
+            "models": models,
+            "routing_criteria": routing_criteria,
+            "fallback_model": fallback_model,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if description is not None:
             input_["description"] = description
-        input_["routing_criteria"] = routing_criteria
-        input_["fallback_model"] = fallback_model
         if tags is not None:
             input_["tags"] = tags
 
@@ -116,6 +119,7 @@ class PromptRouterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -153,14 +157,16 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_router_arn"] = prompt_router_arn
+        input_: capo_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {
+            "prompt_router_arn": prompt_router_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -198,14 +204,16 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_router_arn"] = prompt_router_arn
+        input_: capo_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {
+            "prompt_router_arn": prompt_router_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -248,7 +256,7 @@ class PromptRouterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -261,6 +269,7 @@ class PromptRouterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -323,15 +332,17 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
-        input_["prompt_router_name"] = prompt_router_name
-        input_["models"] = models
+        input_: capo_bedrock.types.create_prompt_router_request.CreatePromptRouterRequest = {
+            "prompt_router_name": prompt_router_name,
+            "models": models,
+            "routing_criteria": routing_criteria,
+            "fallback_model": fallback_model,
+        }
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
         if description is not None:
             input_["description"] = description
-        input_["routing_criteria"] = routing_criteria
-        input_["fallback_model"] = fallback_model
         if tags is not None:
             input_["tags"] = tags
 
@@ -340,6 +351,7 @@ class AsyncPromptRouterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -378,14 +390,16 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_router_arn"] = prompt_router_arn
+        input_: capo_bedrock.types.get_prompt_router_request.GetPromptRouterRequest = {
+            "prompt_router_arn": prompt_router_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -424,14 +438,16 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_router_arn"] = prompt_router_arn
+        input_: capo_bedrock.types.delete_prompt_router_request.DeletePromptRouterRequest = {
+            "prompt_router_arn": prompt_router_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -475,7 +491,7 @@ class AsyncPromptRouterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_prompt_routers_request.ListPromptRoutersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -488,4 +504,5 @@ class AsyncPromptRouterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

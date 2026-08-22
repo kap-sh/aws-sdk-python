@@ -17,12 +17,20 @@ class TrainingMetrics(TypedDict, closed=True):
 def serialize_json(value: TrainingMetrics) -> dict:
     out: dict = {}
     if "training_loss" in value:
-        out["trainingLoss"] = value["training_loss"]
+        out["trainingLoss"] = (
+            "NaN"
+            if value["training_loss"] != value["training_loss"]
+            else "Infinity"
+            if value["training_loss"] == float("inf")
+            else "-Infinity"
+            if value["training_loss"] == float("-inf")
+            else value["training_loss"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> TrainingMetrics:
     out: TrainingMetrics = {}  # type: ignore[typeddict-item]
-    if "trainingLoss" in data:
-        out["training_loss"] = data["trainingLoss"]
+    if data.get("trainingLoss") is not None:
+        out["training_loss"] = float(data["trainingLoss"])
     return out

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock._auth._signers
@@ -138,8 +139,11 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {
+            "name": name,
+            "blocked_input_messaging": blocked_input_messaging,
+            "blocked_outputs_messaging": blocked_outputs_messaging,
+        }
         if description is not None:
             input_["description"] = description
         if topic_policy_config is not None:
@@ -162,20 +166,20 @@ class GuardrailsResource:
             )
         if cross_region_config is not None:
             input_["cross_region_config"] = cross_region_config
-        input_["blocked_input_messaging"] = blocked_input_messaging
-        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
             input_["tags"] = tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -217,8 +221,9 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.get_guardrail_request.GetGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if guardrail_version is not None:
             input_["guardrail_version"] = guardrail_version
 
@@ -227,6 +232,7 @@ class GuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -306,9 +312,12 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
-        input_["name"] = name
+        input_: capo_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier,
+            "name": name,
+            "blocked_input_messaging": blocked_input_messaging,
+            "blocked_outputs_messaging": blocked_outputs_messaging,
+        }
         if description is not None:
             input_["description"] = description
         if topic_policy_config is not None:
@@ -331,8 +340,6 @@ class GuardrailsResource:
             )
         if cross_region_config is not None:
             input_["cross_region_config"] = cross_region_config
-        input_["blocked_input_messaging"] = blocked_input_messaging
-        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
 
@@ -341,6 +348,7 @@ class GuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -384,8 +392,9 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if guardrail_version is not None:
             input_["guardrail_version"] = guardrail_version
 
@@ -394,6 +403,7 @@ class GuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -439,7 +449,7 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}
         if guardrail_identifier is not None:
             input_["guardrail_identifier"] = guardrail_identifier
         if max_results is not None:
@@ -452,6 +462,7 @@ class GuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_guardrail_version(
@@ -499,18 +510,21 @@ class GuardrailsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if description is not None:
             input_["description"] = description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -601,8 +615,11 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock.types.create_guardrail_request.CreateGuardrailRequest = {
+            "name": name,
+            "blocked_input_messaging": blocked_input_messaging,
+            "blocked_outputs_messaging": blocked_outputs_messaging,
+        }
         if description is not None:
             input_["description"] = description
         if topic_policy_config is not None:
@@ -625,20 +642,20 @@ class AsyncGuardrailsResource:
             )
         if cross_region_config is not None:
             input_["cross_region_config"] = cross_region_config
-        input_["blocked_input_messaging"] = blocked_input_messaging
-        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
         if tags is not None:
             input_["tags"] = tags
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -681,8 +698,9 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_guardrail_request.GetGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.get_guardrail_request.GetGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if guardrail_version is not None:
             input_["guardrail_version"] = guardrail_version
 
@@ -691,6 +709,7 @@ class AsyncGuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -771,9 +790,12 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
-        input_["name"] = name
+        input_: capo_bedrock.types.update_guardrail_request.UpdateGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier,
+            "name": name,
+            "blocked_input_messaging": blocked_input_messaging,
+            "blocked_outputs_messaging": blocked_outputs_messaging,
+        }
         if description is not None:
             input_["description"] = description
         if topic_policy_config is not None:
@@ -796,8 +818,6 @@ class AsyncGuardrailsResource:
             )
         if cross_region_config is not None:
             input_["cross_region_config"] = cross_region_config
-        input_["blocked_input_messaging"] = blocked_input_messaging
-        input_["blocked_outputs_messaging"] = blocked_outputs_messaging
         if kms_key_id is not None:
             input_["kms_key_id"] = kms_key_id
 
@@ -806,6 +826,7 @@ class AsyncGuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -850,8 +871,9 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.delete_guardrail_request.DeleteGuardrailRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if guardrail_version is not None:
             input_["guardrail_version"] = guardrail_version
 
@@ -860,6 +882,7 @@ class AsyncGuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -906,7 +929,7 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock.types.list_guardrails_request.ListGuardrailsRequest = {}
         if guardrail_identifier is not None:
             input_["guardrail_identifier"] = guardrail_identifier
         if max_results is not None:
@@ -919,6 +942,7 @@ class AsyncGuardrailsResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_guardrail_version(
@@ -967,16 +991,19 @@ class AsyncGuardrailsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["guardrail_identifier"] = guardrail_identifier
+        input_: capo_bedrock.types.create_guardrail_version_request.CreateGuardrailVersionRequest = {
+            "guardrail_identifier": guardrail_identifier
+        }
         if description is not None:
             input_["description"] = description
-        if client_request_token is not None:
-            input_["client_request_token"] = client_request_token
+        if client_request_token is None:
+            client_request_token = str(uuid.uuid4())
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

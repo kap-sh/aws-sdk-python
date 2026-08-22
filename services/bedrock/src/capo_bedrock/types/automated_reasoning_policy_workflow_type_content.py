@@ -84,7 +84,7 @@ def serialize_json(value: AutomatedReasoningPolicyWorkflowTypeContent) -> dict:
 
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyWorkflowTypeContent:
-    if "documents" in data:
+    if data.get("documents") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_document_list
 
         return {
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyWorkflowTypeContent:
                 data["documents"]
             )
         }
-    elif "policyRepairAssets" in data:
+    elif data.get("policyRepairAssets") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_workflow_repair_content
 
         return {
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyWorkflowTypeContent:
                 data["policyRepairAssets"]
             )
         }
-    elif "generateFidelityReportContent" in data:
+    elif data.get("generateFidelityReportContent") is not None:
         import capo_bedrock.types.automated_reasoning_policy_generate_fidelity_report_content
 
         return {
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyWorkflowTypeContent:
                 data["generateFidelityReportContent"]
             )
         }
-    elif "iterativeRefinementContent" in data:
+    elif data.get("iterativeRefinementContent") is not None:
         import capo_bedrock.types.automated_reasoning_policy_iterative_refinement_content
 
         return {

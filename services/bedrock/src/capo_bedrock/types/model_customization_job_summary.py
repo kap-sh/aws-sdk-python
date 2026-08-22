@@ -96,21 +96,21 @@ def serialize_json(value: ModelCustomizationJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> ModelCustomizationJobSummary:
     out: ModelCustomizationJobSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("ModelCustomizationJobSummary.job_arn required")
-    if "baseModelArn" in data:
+    if data.get("baseModelArn") is not None:
         out["base_model_arn"] = data["baseModelArn"]
     else:
         raise DeserializationError(
             "ModelCustomizationJobSummary.base_model_arn required"
         )
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("ModelCustomizationJobSummary.job_name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.model_customization_job_status
 
         out["status"] = (
@@ -120,19 +120,19 @@ def deserialize_json(data: dict) -> ModelCustomizationJobSummary:
         )
     else:
         raise DeserializationError("ModelCustomizationJobSummary.status required")
-    if "statusDetails" in data:
+    if data.get("statusDetails") is not None:
         import capo_bedrock.types.status_details
 
         out["status_details"] = capo_bedrock.types.status_details.deserialize_json(
             data["statusDetails"]
         )
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastModifiedTime"]
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["creation_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -142,15 +142,15 @@ def deserialize_json(data: dict) -> ModelCustomizationJobSummary:
         raise DeserializationError(
             "ModelCustomizationJobSummary.creation_time required"
         )
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["end_time"] = capo_bedrock.types.timestamp.deserialize_json(data["endTime"])
-    if "customModelArn" in data:
+    if data.get("customModelArn") is not None:
         out["custom_model_arn"] = data["customModelArn"]
-    if "customModelName" in data:
+    if data.get("customModelName") is not None:
         out["custom_model_name"] = data["customModelName"]
-    if "customizationType" in data:
+    if data.get("customizationType") is not None:
         import capo_bedrock.types.customization_type
 
         out["customization_type"] = (

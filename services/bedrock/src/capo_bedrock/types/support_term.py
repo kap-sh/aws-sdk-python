@@ -18,6 +18,6 @@ def serialize_json(value: SupportTerm) -> dict:
 
 def deserialize_json(data: dict) -> SupportTerm:
     out: SupportTerm = {}  # type: ignore[typeddict-item]
-    if "refundPolicyDescription" in data:
+    if data.get("refundPolicyDescription") is not None:
         out["refund_policy_description"] = data["refundPolicyDescription"]
     return out

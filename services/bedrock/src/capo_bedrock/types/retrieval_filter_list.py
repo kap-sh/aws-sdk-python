@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> RetrievalFilterList:
 
     out: RetrievalFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.retrieval_filter.deserialize_json(item))
     return out

@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> EvaluationSummaries:
 
     out: EvaluationSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.evaluation_summary.deserialize_json(item))
     return out

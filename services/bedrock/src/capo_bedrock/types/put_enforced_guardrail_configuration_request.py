@@ -37,9 +37,9 @@ def serialize_json(value: PutEnforcedGuardrailConfigurationRequest) -> dict:
 
 def deserialize_json(data: dict) -> PutEnforcedGuardrailConfigurationRequest:
     out: PutEnforcedGuardrailConfigurationRequest = {}  # type: ignore[typeddict-item]
-    if "configId" in data:
+    if data.get("configId") is not None:
         out["config_id"] = data["configId"]
-    if "guardrailInferenceConfig" in data:
+    if data.get("guardrailInferenceConfig") is not None:
         import capo_bedrock.types.account_enforced_guardrail_inference_input_configuration
 
         out["guardrail_inference_config"] = (

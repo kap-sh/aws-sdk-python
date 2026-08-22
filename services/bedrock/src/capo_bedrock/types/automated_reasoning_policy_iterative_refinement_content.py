@@ -37,7 +37,7 @@ def serialize_json(value: AutomatedReasoningPolicyIterativeRefinementContent) ->
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyIterativeRefinementContent:
     out: AutomatedReasoningPolicyIterativeRefinementContent = {}  # type: ignore[typeddict-item]
-    if "documents" in data:
+    if data.get("documents") is not None:
         import capo_bedrock.types.automated_reasoning_policy_iterative_refinement_document_list
 
         out["documents"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> AutomatedReasoningPolicyIterativeRefinementC
         raise DeserializationError(
             "AutomatedReasoningPolicyIterativeRefinementContent.documents required"
         )
-    if "feedback" in data:
+    if data.get("feedback") is not None:
         out["feedback"] = data["feedback"]
     return out

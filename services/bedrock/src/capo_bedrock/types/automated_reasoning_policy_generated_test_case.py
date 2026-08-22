@@ -38,19 +38,19 @@ def serialize_json(value: AutomatedReasoningPolicyGeneratedTestCase) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningPolicyGeneratedTestCase:
     out: AutomatedReasoningPolicyGeneratedTestCase = {}  # type: ignore[typeddict-item]
-    if "queryContent" in data:
+    if data.get("queryContent") is not None:
         out["query_content"] = data["queryContent"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyGeneratedTestCase.query_content required"
         )
-    if "guardContent" in data:
+    if data.get("guardContent") is not None:
         out["guard_content"] = data["guardContent"]
     else:
         raise DeserializationError(
             "AutomatedReasoningPolicyGeneratedTestCase.guard_content required"
         )
-    if "expectedAggregatedFindingsResult" in data:
+    if data.get("expectedAggregatedFindingsResult") is not None:
         import capo_bedrock.types.automated_reasoning_check_result
 
         out["expected_aggregated_findings_result"] = (

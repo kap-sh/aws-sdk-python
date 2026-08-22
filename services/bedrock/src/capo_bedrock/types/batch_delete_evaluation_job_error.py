@@ -33,16 +33,16 @@ def serialize_json(value: BatchDeleteEvaluationJobError) -> dict:
 
 def deserialize_json(data: dict) -> BatchDeleteEvaluationJobError:
     out: BatchDeleteEvaluationJobError = {}  # type: ignore[typeddict-item]
-    if "jobIdentifier" in data:
+    if data.get("jobIdentifier") is not None:
         out["job_identifier"] = data["jobIdentifier"]
     else:
         raise DeserializationError(
             "BatchDeleteEvaluationJobError.job_identifier required"
         )
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
     else:
         raise DeserializationError("BatchDeleteEvaluationJobError.code required")
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

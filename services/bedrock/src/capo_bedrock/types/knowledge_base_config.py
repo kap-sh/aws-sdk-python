@@ -47,7 +47,7 @@ def serialize_json(value: KnowledgeBaseConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> KnowledgeBaseConfig:
-    if "retrieveConfig" in data:
+    if data.get("retrieveConfig") is not None:
         import capo_bedrock.types.retrieve_config
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseConfig:
                 data["retrieveConfig"]
             )
         }
-    elif "retrieveAndGenerateConfig" in data:
+    elif data.get("retrieveAndGenerateConfig") is not None:
         import capo_bedrock.types.retrieve_and_generate_configuration
 
         return {

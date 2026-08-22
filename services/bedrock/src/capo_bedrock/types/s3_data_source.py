@@ -24,7 +24,7 @@ def serialize_json(value: S3DataSource) -> dict:
 
 def deserialize_json(data: dict) -> S3DataSource:
     out: S3DataSource = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError("S3DataSource.s3_uri required")

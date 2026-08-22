@@ -24,7 +24,7 @@ def serialize_json(value: EvaluationPrecomputedRetrieveSourceConfig) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationPrecomputedRetrieveSourceConfig:
     out: EvaluationPrecomputedRetrieveSourceConfig = {}  # type: ignore[typeddict-item]
-    if "ragSourceIdentifier" in data:
+    if data.get("ragSourceIdentifier") is not None:
         out["rag_source_identifier"] = data["ragSourceIdentifier"]
     else:
         raise DeserializationError(

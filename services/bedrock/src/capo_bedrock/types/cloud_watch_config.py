@@ -37,15 +37,15 @@ def serialize_json(value: CloudWatchConfig) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchConfig:
     out: CloudWatchConfig = {}  # type: ignore[typeddict-item]
-    if "logGroupName" in data:
+    if data.get("logGroupName") is not None:
         out["log_group_name"] = data["logGroupName"]
     else:
         raise DeserializationError("CloudWatchConfig.log_group_name required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CloudWatchConfig.role_arn required")
-    if "largeDataDeliveryS3Config" in data:
+    if data.get("largeDataDeliveryS3Config") is not None:
         import capo_bedrock.types.s3_config
 
         out["large_data_delivery_s3_config"] = (

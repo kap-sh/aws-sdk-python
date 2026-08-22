@@ -30,7 +30,7 @@ def serialize_json(value: GuardrailContextualGroundingPolicy) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailContextualGroundingPolicy:
     out: GuardrailContextualGroundingPolicy = {}  # type: ignore[typeddict-item]
-    if "filters" in data:
+    if data.get("filters") is not None:
         import capo_bedrock.types.guardrail_contextual_grounding_filters
 
         out["filters"] = (

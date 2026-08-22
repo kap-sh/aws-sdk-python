@@ -30,13 +30,13 @@ def serialize_json(value: ListFoundationModelAgreementOffersResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListFoundationModelAgreementOffersResponse:
     out: ListFoundationModelAgreementOffersResponse = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(
             "ListFoundationModelAgreementOffersResponse.model_id required"
         )
-    if "offers" in data:
+    if data.get("offers") is not None:
         import capo_bedrock.types.offers
 
         out["offers"] = capo_bedrock.types.offers.deserialize_json(data["offers"])

@@ -34,13 +34,13 @@ def serialize_json(value: CustomModelDeploymentUpdateDetails) -> dict:
 
 def deserialize_json(data: dict) -> CustomModelDeploymentUpdateDetails:
     out: CustomModelDeploymentUpdateDetails = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "CustomModelDeploymentUpdateDetails.model_arn required"
         )
-    if "updateStatus" in data:
+    if data.get("updateStatus") is not None:
         import capo_bedrock.types.custom_model_deployment_update_status
 
         out["update_status"] = (

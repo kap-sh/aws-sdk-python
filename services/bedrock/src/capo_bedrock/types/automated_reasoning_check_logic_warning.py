@@ -56,7 +56,7 @@ def serialize_json(value: AutomatedReasoningCheckLogicWarning) -> dict:
 
 def deserialize_json(data: dict) -> AutomatedReasoningCheckLogicWarning:
     out: AutomatedReasoningCheckLogicWarning = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.automated_reasoning_check_logic_warning_type
 
         out["type"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckLogicWarning:
                 data["type"]
             )
         )
-    if "premises" in data:
+    if data.get("premises") is not None:
         import capo_bedrock.types.automated_reasoning_logic_statement_list
 
         out["premises"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> AutomatedReasoningCheckLogicWarning:
                 data["premises"]
             )
         )
-    if "claims" in data:
+    if data.get("claims") is not None:
         import capo_bedrock.types.automated_reasoning_logic_statement_list
 
         out["claims"] = (

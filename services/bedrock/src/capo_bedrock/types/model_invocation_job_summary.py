@@ -163,33 +163,33 @@ def serialize_json(value: ModelInvocationJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> ModelInvocationJobSummary:
     out: ModelInvocationJobSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("ModelInvocationJobSummary.job_arn required")
-    if "jobName" in data:
+    if data.get("jobName") is not None:
         out["job_name"] = data["jobName"]
     else:
         raise DeserializationError("ModelInvocationJobSummary.job_name required")
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("ModelInvocationJobSummary.model_id required")
-    if "clientRequestToken" in data:
+    if data.get("clientRequestToken") is not None:
         out["client_request_token"] = data["clientRequestToken"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("ModelInvocationJobSummary.role_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock.types.model_invocation_job_status
 
         out["status"] = capo_bedrock.types.model_invocation_job_status.deserialize_json(
             data["status"]
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "submitTime" in data:
+    if data.get("submitTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["submit_time"] = capo_bedrock.types.timestamp.deserialize_json(
@@ -197,17 +197,17 @@ def deserialize_json(data: dict) -> ModelInvocationJobSummary:
         )
     else:
         raise DeserializationError("ModelInvocationJobSummary.submit_time required")
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["last_modified_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["lastModifiedTime"]
         )
-    if "endTime" in data:
+    if data.get("endTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["end_time"] = capo_bedrock.types.timestamp.deserialize_json(data["endTime"])
-    if "inputDataConfig" in data:
+    if data.get("inputDataConfig") is not None:
         import capo_bedrock.types.model_invocation_job_input_data_config
 
         out["input_data_config"] = (
@@ -219,7 +219,7 @@ def deserialize_json(data: dict) -> ModelInvocationJobSummary:
         raise DeserializationError(
             "ModelInvocationJobSummary.input_data_config required"
         )
-    if "outputDataConfig" in data:
+    if data.get("outputDataConfig") is not None:
         import capo_bedrock.types.model_invocation_job_output_data_config
 
         out["output_data_config"] = (
@@ -231,21 +231,21 @@ def deserialize_json(data: dict) -> ModelInvocationJobSummary:
         raise DeserializationError(
             "ModelInvocationJobSummary.output_data_config required"
         )
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock.types.vpc_config
 
         out["vpc_config"] = capo_bedrock.types.vpc_config.deserialize_json(
             data["vpcConfig"]
         )
-    if "timeoutDurationInHours" in data:
+    if data.get("timeoutDurationInHours") is not None:
         out["timeout_duration_in_hours"] = data["timeoutDurationInHours"]
-    if "jobExpirationTime" in data:
+    if data.get("jobExpirationTime") is not None:
         import capo_bedrock.types.timestamp
 
         out["job_expiration_time"] = capo_bedrock.types.timestamp.deserialize_json(
             data["jobExpirationTime"]
         )
-    if "modelInvocationType" in data:
+    if data.get("modelInvocationType") is not None:
         import capo_bedrock.types.model_invocation_type
 
         out["model_invocation_type"] = (
@@ -253,12 +253,12 @@ def deserialize_json(data: dict) -> ModelInvocationJobSummary:
                 data["modelInvocationType"]
             )
         )
-    if "totalRecordCount" in data:
+    if data.get("totalRecordCount") is not None:
         out["total_record_count"] = data["totalRecordCount"]
-    if "processedRecordCount" in data:
+    if data.get("processedRecordCount") is not None:
         out["processed_record_count"] = data["processedRecordCount"]
-    if "successRecordCount" in data:
+    if data.get("successRecordCount") is not None:
         out["success_record_count"] = data["successRecordCount"]
-    if "errorRecordCount" in data:
+    if data.get("errorRecordCount") is not None:
         out["error_record_count"] = data["errorRecordCount"]
     return out

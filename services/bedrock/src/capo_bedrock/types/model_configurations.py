@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> ModelConfigurations:
 
     out: ModelConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.model_configuration.deserialize_json(item))
     return out

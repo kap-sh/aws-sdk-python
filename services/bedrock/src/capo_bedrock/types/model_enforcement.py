@@ -36,7 +36,7 @@ def serialize_json(value: ModelEnforcement) -> dict:
 
 def deserialize_json(data: dict) -> ModelEnforcement:
     out: ModelEnforcement = {}  # type: ignore[typeddict-item]
-    if "includedModels" in data:
+    if data.get("includedModels") is not None:
         import capo_bedrock.types.included_models_list
 
         out["included_models"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> ModelEnforcement:
         )
     else:
         raise DeserializationError("ModelEnforcement.included_models required")
-    if "excludedModels" in data:
+    if data.get("excludedModels") is not None:
         import capo_bedrock.types.excluded_models_list
 
         out["excluded_models"] = (

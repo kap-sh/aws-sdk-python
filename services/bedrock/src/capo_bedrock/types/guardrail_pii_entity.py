@@ -70,7 +70,7 @@ def serialize_json(value: GuardrailPiiEntity) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailPiiEntity:
     out: GuardrailPiiEntity = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock.types.guardrail_pii_entity_type
 
         out["type"] = capo_bedrock.types.guardrail_pii_entity_type.deserialize_json(
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> GuardrailPiiEntity:
         )
     else:
         raise DeserializationError("GuardrailPiiEntity.type required")
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["action"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> GuardrailPiiEntity:
         )
     else:
         raise DeserializationError("GuardrailPiiEntity.action required")
-    if "inputAction" in data:
+    if data.get("inputAction") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["input_action"] = (
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> GuardrailPiiEntity:
                 data["inputAction"]
             )
         )
-    if "outputAction" in data:
+    if data.get("outputAction") is not None:
         import capo_bedrock.types.guardrail_sensitive_information_action
 
         out["output_action"] = (
@@ -104,8 +104,8 @@ def deserialize_json(data: dict) -> GuardrailPiiEntity:
                 data["outputAction"]
             )
         )
-    if "inputEnabled" in data:
+    if data.get("inputEnabled") is not None:
         out["input_enabled"] = data["inputEnabled"]
-    if "outputEnabled" in data:
+    if data.get("outputEnabled") is not None:
         out["output_enabled"] = data["outputEnabled"]
     return out

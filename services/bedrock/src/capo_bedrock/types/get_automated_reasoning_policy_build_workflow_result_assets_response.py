@@ -49,19 +49,19 @@ def deserialize_json(
     data: dict,
 ) -> GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse:
     out: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse = {}  # type: ignore[typeddict-item]
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse.policy_arn required"
         )
-    if "buildWorkflowId" in data:
+    if data.get("buildWorkflowId") is not None:
         out["build_workflow_id"] = data["buildWorkflowId"]
     else:
         raise DeserializationError(
             "GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse.build_workflow_id required"
         )
-    if "buildWorkflowAssets" in data:
+    if data.get("buildWorkflowAssets") is not None:
         import capo_bedrock.types.automated_reasoning_policy_build_result_assets
 
         out["build_workflow_assets"] = (

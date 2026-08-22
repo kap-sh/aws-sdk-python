@@ -25,6 +25,6 @@ def serialize_json(value: CreatePromptRouterResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreatePromptRouterResponse:
     out: CreatePromptRouterResponse = {}  # type: ignore[typeddict-item]
-    if "promptRouterArn" in data:
+    if data.get("promptRouterArn") is not None:
         out["prompt_router_arn"] = data["promptRouterArn"]
     return out

@@ -74,15 +74,17 @@ class SubscriptionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-        input_["offer_token"] = offer_token
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest = {
+            "offer_token": offer_token,
+            "model_id": model_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_foundation_model_agreement(
@@ -121,14 +123,16 @@ class SubscriptionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_foundation_model_agreement_request.DeleteFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.delete_foundation_model_agreement_request.DeleteFoundationModelAgreementRequest = {
+            "model_id": model_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_foundation_model_availability(
@@ -166,14 +170,16 @@ class SubscriptionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest = {
+            "model_id": model_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_foundation_model_agreement_offers(
@@ -213,8 +219,9 @@ class SubscriptionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest = {
+            "model_id": model_id
+        }
         if offer_type is not None:
             input_["offer_type"] = offer_type
 
@@ -223,6 +230,7 @@ class SubscriptionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -269,15 +277,17 @@ class AsyncSubscriptionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-        input_["offer_token"] = offer_token
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.create_foundation_model_agreement_request.CreateFoundationModelAgreementRequest = {
+            "offer_token": offer_token,
+            "model_id": model_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_foundation_model_agreement(
@@ -317,14 +327,16 @@ class AsyncSubscriptionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.delete_foundation_model_agreement_request.DeleteFoundationModelAgreementRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.delete_foundation_model_agreement_request.DeleteFoundationModelAgreementRequest = {
+            "model_id": model_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_foundation_model_availability(
@@ -363,14 +375,16 @@ class AsyncSubscriptionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.get_foundation_model_availability_request.GetFoundationModelAvailabilityRequest = {
+            "model_id": model_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_foundation_model_agreement_offers(
@@ -411,8 +425,9 @@ class AsyncSubscriptionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest = {}  # type: ignore[typeddict-item]
-        input_["model_id"] = model_id
+        input_: capo_bedrock.types.list_foundation_model_agreement_offers_request.ListFoundationModelAgreementOffersRequest = {
+            "model_id": model_id
+        }
         if offer_type is not None:
             input_["offer_type"] = offer_type
 
@@ -421,4 +436,5 @@ class AsyncSubscriptionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

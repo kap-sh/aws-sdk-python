@@ -24,7 +24,7 @@ def serialize_json(value: EvaluationPrecomputedInferenceSource) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationPrecomputedInferenceSource:
     out: EvaluationPrecomputedInferenceSource = {}  # type: ignore[typeddict-item]
-    if "inferenceSourceIdentifier" in data:
+    if data.get("inferenceSourceIdentifier") is not None:
         out["inference_source_identifier"] = data["inferenceSourceIdentifier"]
     else:
         raise DeserializationError(

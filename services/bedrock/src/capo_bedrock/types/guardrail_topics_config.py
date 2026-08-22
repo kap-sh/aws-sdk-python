@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> GuardrailTopicsConfig:
 
     out: GuardrailTopicsConfig = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock.types.guardrail_topic_config.deserialize_json(item))
     return out
