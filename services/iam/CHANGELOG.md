@@ -1,5 +1,11 @@
 # aws-sdk-iam
 
+## 0.12.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.11.0
 
 ### Minor Changes

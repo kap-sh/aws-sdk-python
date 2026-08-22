@@ -1,5 +1,11 @@
 # aws-sdk-s3
 
+## 0.14.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.13.0
 
 ### Minor Changes

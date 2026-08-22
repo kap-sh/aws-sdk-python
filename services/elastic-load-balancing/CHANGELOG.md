@@ -1,5 +1,11 @@
 # aws-sdk-elastic-load-balancing
 
+## 0.8.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.7.0
 
 ### Minor Changes

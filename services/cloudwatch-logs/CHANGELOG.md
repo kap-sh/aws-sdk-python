@@ -1,5 +1,11 @@
 # aws-sdk-cloudwatch-logs
 
+## 0.5.0
+
+### Minor Changes
+
+- aa2cb1f: cache signing key calculation
+
 ## 0.4.0
 
 ### Minor Changes
