@@ -100,23 +100,23 @@ def serialize_json(value: CreateMemoryInput) -> dict:
 
 def deserialize_json(data: dict) -> CreateMemoryInput:
     out: CreateMemoryInput = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateMemoryInput.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "memoryExecutionRoleArn" in data:
+    if data.get("memoryExecutionRoleArn") is not None:
         out["memory_execution_role_arn"] = data["memoryExecutionRoleArn"]
-    if "eventExpiryDuration" in data:
+    if data.get("eventExpiryDuration") is not None:
         out["event_expiry_duration"] = data["eventExpiryDuration"]
     else:
         raise DeserializationError("CreateMemoryInput.event_expiry_duration required")
-    if "memoryStrategies" in data:
+    if data.get("memoryStrategies") is not None:
         import capo_bedrock_agentcore_control.types.memory_strategy_input_list
 
         out["memory_strategies"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> CreateMemoryInput:
                 data["memoryStrategies"]
             )
         )
-    if "indexedKeys" in data:
+    if data.get("indexedKeys") is not None:
         import capo_bedrock_agentcore_control.types.indexed_keys_list
 
         out["indexed_keys"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> CreateMemoryInput:
                 data["indexedKeys"]
             )
         )
-    if "streamDeliveryResources" in data:
+    if data.get("streamDeliveryResources") is not None:
         import capo_bedrock_agentcore_control.types.stream_delivery_resources
 
         out["stream_delivery_resources"] = (
@@ -140,7 +140,7 @@ def deserialize_json(data: dict) -> CreateMemoryInput:
                 data["streamDeliveryResources"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

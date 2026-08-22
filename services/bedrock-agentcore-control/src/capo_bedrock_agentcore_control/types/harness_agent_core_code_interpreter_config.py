@@ -25,6 +25,6 @@ def serialize_json(value: HarnessAgentCoreCodeInterpreterConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreCodeInterpreterConfig:
     out: HarnessAgentCoreCodeInterpreterConfig = {}  # type: ignore[typeddict-item]
-    if "codeInterpreterArn" in data:
+    if data.get("codeInterpreterArn") is not None:
         out["code_interpreter_arn"] = data["codeInterpreterArn"]
     return out

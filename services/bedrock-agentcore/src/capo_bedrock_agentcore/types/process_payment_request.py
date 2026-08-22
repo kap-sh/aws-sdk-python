@@ -67,21 +67,21 @@ def serialize_json(value: ProcessPaymentRequest) -> dict:
 
 def deserialize_json(data: dict) -> ProcessPaymentRequest:
     out: ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError("ProcessPaymentRequest.payment_manager_arn required")
-    if "paymentSessionId" in data:
+    if data.get("paymentSessionId") is not None:
         out["payment_session_id"] = data["paymentSessionId"]
     else:
         raise DeserializationError("ProcessPaymentRequest.payment_session_id required")
-    if "paymentInstrumentId" in data:
+    if data.get("paymentInstrumentId") is not None:
         out["payment_instrument_id"] = data["paymentInstrumentId"]
     else:
         raise DeserializationError(
             "ProcessPaymentRequest.payment_instrument_id required"
         )
-    if "paymentType" in data:
+    if data.get("paymentType") is not None:
         import capo_bedrock_agentcore.types.payment_type
 
         out["payment_type"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> ProcessPaymentRequest:
         )
     else:
         raise DeserializationError("ProcessPaymentRequest.payment_type required")
-    if "paymentInput" in data:
+    if data.get("paymentInput") is not None:
         import capo_bedrock_agentcore.types.payment_input
 
         out["payment_input"] = (
@@ -101,6 +101,6 @@ def deserialize_json(data: dict) -> ProcessPaymentRequest:
         )
     else:
         raise DeserializationError("ProcessPaymentRequest.payment_input required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

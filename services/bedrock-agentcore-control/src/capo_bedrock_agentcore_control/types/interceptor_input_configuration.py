@@ -19,7 +19,7 @@ def serialize_json(value: InterceptorInputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> InterceptorInputConfiguration:
     out: InterceptorInputConfiguration = {}  # type: ignore[typeddict-item]
-    if "passRequestHeaders" in data:
+    if data.get("passRequestHeaders") is not None:
         out["pass_request_headers"] = data["passRequestHeaders"]
     else:
         raise DeserializationError(

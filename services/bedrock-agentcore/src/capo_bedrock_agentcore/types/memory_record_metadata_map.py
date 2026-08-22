@@ -29,6 +29,8 @@ def serialize_json(input_to_serialize: MemoryRecordMetadataMap) -> dict:
 def deserialize_json(data: dict) -> MemoryRecordMetadataMap:
     out: MemoryRecordMetadataMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock_agentcore.types.memory_record_metadata_value
 
         out[key] = (

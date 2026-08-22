@@ -25,6 +25,6 @@ def serialize_json(value: HarnessAgentCoreBrowserConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreBrowserConfig:
     out: HarnessAgentCoreBrowserConfig = {}  # type: ignore[typeddict-item]
-    if "browserArn" in data:
+    if data.get("browserArn") is not None:
         out["browser_arn"] = data["browserArn"]
     return out

@@ -37,11 +37,11 @@ def serialize_json(value: DeleteMemoryOutput) -> dict:
 
 def deserialize_json(data: dict) -> DeleteMemoryOutput:
     out: DeleteMemoryOutput = {}  # type: ignore[typeddict-item]
-    if "memoryId" in data:
+    if data.get("memoryId") is not None:
         out["memory_id"] = data["memoryId"]
     else:
         raise DeserializationError("DeleteMemoryOutput.memory_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.memory_status
 
         out["status"] = (

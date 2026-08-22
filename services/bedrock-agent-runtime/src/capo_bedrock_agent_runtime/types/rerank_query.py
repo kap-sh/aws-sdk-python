@@ -42,7 +42,7 @@ def serialize_json(value: RerankQuery) -> dict:
 
 def deserialize_json(data: dict) -> RerankQuery:
     out: RerankQuery = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.rerank_query_content_type
 
         out["type"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> RerankQuery:
         )
     else:
         raise DeserializationError("RerankQuery.type required")
-    if "textQuery" in data:
+    if data.get("textQuery") is not None:
         import capo_bedrock_agent_runtime.types.rerank_text_document
 
         out["text_query"] = (

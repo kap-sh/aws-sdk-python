@@ -70,7 +70,7 @@ def serialize_json(value: ModifyStrategyConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModifyStrategyConfiguration:
     out: ModifyStrategyConfiguration = {}  # type: ignore[typeddict-item]
-    if "extraction" in data:
+    if data.get("extraction") is not None:
         import capo_bedrock_agentcore_control.types.modify_extraction_configuration
 
         out["extraction"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> ModifyStrategyConfiguration:
                 data["extraction"]
             )
         )
-    if "consolidation" in data:
+    if data.get("consolidation") is not None:
         import capo_bedrock_agentcore_control.types.modify_consolidation_configuration
 
         out["consolidation"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> ModifyStrategyConfiguration:
                 data["consolidation"]
             )
         )
-    if "reflection" in data:
+    if data.get("reflection") is not None:
         import capo_bedrock_agentcore_control.types.modify_reflection_configuration
 
         out["reflection"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> ModifyStrategyConfiguration:
                 data["reflection"]
             )
         )
-    if "selfManagedConfiguration" in data:
+    if data.get("selfManagedConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.modify_self_managed_configuration
 
         out["self_managed_configuration"] = (

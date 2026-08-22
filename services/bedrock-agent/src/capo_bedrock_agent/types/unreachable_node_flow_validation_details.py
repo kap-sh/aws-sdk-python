@@ -24,7 +24,7 @@ def serialize_json(value: UnreachableNodeFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> UnreachableNodeFlowValidationDetails:
     out: UnreachableNodeFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError("UnreachableNodeFlowValidationDetails.node required")

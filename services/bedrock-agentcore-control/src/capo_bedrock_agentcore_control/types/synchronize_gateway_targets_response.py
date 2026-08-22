@@ -31,7 +31,7 @@ def serialize_json(value: SynchronizeGatewayTargetsResponse) -> dict:
 
 def deserialize_json(data: dict) -> SynchronizeGatewayTargetsResponse:
     out: SynchronizeGatewayTargetsResponse = {}  # type: ignore[typeddict-item]
-    if "targets" in data:
+    if data.get("targets") is not None:
         import capo_bedrock_agentcore_control.types.gateway_target_list
 
         out["targets"] = (

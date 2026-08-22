@@ -30,7 +30,7 @@ def serialize_json(value: StringValidation) -> dict:
 
 def deserialize_json(data: dict) -> StringValidation:
     out: StringValidation = {}  # type: ignore[typeddict-item]
-    if "allowedValues" in data:
+    if data.get("allowedValues") is not None:
         import capo_bedrock_agentcore_control.types.allowed_string_values_list
 
         out["allowed_values"] = (

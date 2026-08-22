@@ -24,7 +24,7 @@ def serialize_json(value: PromptAgentResource) -> dict:
 
 def deserialize_json(data: dict) -> PromptAgentResource:
     out: PromptAgentResource = {}  # type: ignore[typeddict-item]
-    if "agentIdentifier" in data:
+    if data.get("agentIdentifier") is not None:
         out["agent_identifier"] = data["agentIdentifier"]
     else:
         raise DeserializationError("PromptAgentResource.agent_identifier required")

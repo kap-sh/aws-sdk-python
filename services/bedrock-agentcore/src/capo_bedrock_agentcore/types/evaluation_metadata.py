@@ -34,7 +34,7 @@ def serialize_json(value: EvaluationMetadata) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationMetadata:
-    if "sessionMetadata" in data:
+    if data.get("sessionMetadata") is not None:
         import capo_bedrock_agentcore.types.session_metadata_list
 
         return {

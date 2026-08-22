@@ -56,11 +56,11 @@ def serialize_json(value: McpServerTargetConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> McpServerTargetConfiguration:
     out: McpServerTargetConfiguration = {}  # type: ignore[typeddict-item]
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
     else:
         raise DeserializationError("McpServerTargetConfiguration.endpoint required")
-    if "mcpToolSchema" in data:
+    if data.get("mcpToolSchema") is not None:
         import capo_bedrock_agentcore_control.types.mcp_tool_schema_configuration
 
         out["mcp_tool_schema"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> McpServerTargetConfiguration:
                 data["mcpToolSchema"]
             )
         )
-    if "listingMode" in data:
+    if data.get("listingMode") is not None:
         import capo_bedrock_agentcore_control.types.listing_mode
 
         out["listing_mode"] = (
@@ -76,6 +76,6 @@ def deserialize_json(data: dict) -> McpServerTargetConfiguration:
                 data["listingMode"]
             )
         )
-    if "resourcePriority" in data:
+    if data.get("resourcePriority") is not None:
         out["resource_priority"] = data["resourcePriority"]
     return out

@@ -18,6 +18,6 @@ def serialize_json(value: MessageBasedTrigger) -> dict:
 
 def deserialize_json(data: dict) -> MessageBasedTrigger:
     out: MessageBasedTrigger = {}  # type: ignore[typeddict-item]
-    if "messageCount" in data:
+    if data.get("messageCount") is not None:
         out["message_count"] = data["messageCount"]
     return out

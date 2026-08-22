@@ -26,7 +26,7 @@ def serialize_json(value: ContainerConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ContainerConfiguration:
     out: ContainerConfiguration = {}  # type: ignore[typeddict-item]
-    if "containerUri" in data:
+    if data.get("containerUri") is not None:
         out["container_uri"] = data["containerUri"]
     else:
         raise DeserializationError("ContainerConfiguration.container_uri required")

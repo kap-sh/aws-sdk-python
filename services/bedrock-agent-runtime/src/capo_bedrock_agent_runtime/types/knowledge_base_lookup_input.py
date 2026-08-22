@@ -32,8 +32,8 @@ def serialize_json(value: KnowledgeBaseLookupInput) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseLookupInput:
     out: KnowledgeBaseLookupInput = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     return out

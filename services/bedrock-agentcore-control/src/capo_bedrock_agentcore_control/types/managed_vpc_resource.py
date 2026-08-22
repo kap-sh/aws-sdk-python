@@ -71,11 +71,11 @@ def serialize_json(value: ManagedVpcResource) -> dict:
 
 def deserialize_json(data: dict) -> ManagedVpcResource:
     out: ManagedVpcResource = {}  # type: ignore[typeddict-item]
-    if "vpcIdentifier" in data:
+    if data.get("vpcIdentifier") is not None:
         out["vpc_identifier"] = data["vpcIdentifier"]
     else:
         raise DeserializationError("ManagedVpcResource.vpc_identifier required")
-    if "subnetIds" in data:
+    if data.get("subnetIds") is not None:
         import capo_bedrock_agentcore_control.types.subnet_ids
 
         out["subnet_ids"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> ManagedVpcResource:
         )
     else:
         raise DeserializationError("ManagedVpcResource.subnet_ids required")
-    if "endpointIpAddressType" in data:
+    if data.get("endpointIpAddressType") is not None:
         import capo_bedrock_agentcore_control.types.endpoint_ip_address_type
 
         out["endpoint_ip_address_type"] = (
@@ -97,7 +97,7 @@ def deserialize_json(data: dict) -> ManagedVpcResource:
         raise DeserializationError(
             "ManagedVpcResource.endpoint_ip_address_type required"
         )
-    if "securityGroupIds" in data:
+    if data.get("securityGroupIds") is not None:
         import capo_bedrock_agentcore_control.types.security_group_ids
 
         out["security_group_ids"] = (
@@ -105,12 +105,12 @@ def deserialize_json(data: dict) -> ManagedVpcResource:
                 data["securityGroupIds"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(
             data["tags"]
         )
-    if "routingDomain" in data:
+    if data.get("routingDomain") is not None:
         out["routing_domain"] = data["routingDomain"]
     return out

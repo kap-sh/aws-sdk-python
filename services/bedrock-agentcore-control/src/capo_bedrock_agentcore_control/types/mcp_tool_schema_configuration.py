@@ -44,7 +44,7 @@ def serialize_json(value: McpToolSchemaConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> McpToolSchemaConfiguration:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agentcore_control.types.s3_configuration
 
         return {
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> McpToolSchemaConfiguration:
                 data["s3"]
             )
         }
-    elif "inlinePayload" in data:
+    elif data.get("inlinePayload") is not None:
         return {"inlinePayload": data["inlinePayload"]}
     else:
         raise DeserializationError(

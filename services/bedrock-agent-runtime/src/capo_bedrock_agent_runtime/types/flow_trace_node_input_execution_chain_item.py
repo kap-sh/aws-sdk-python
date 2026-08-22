@@ -38,15 +38,15 @@ def serialize_json(value: FlowTraceNodeInputExecutionChainItem) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceNodeInputExecutionChainItem:
     out: FlowTraceNodeInputExecutionChainItem = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError(
             "FlowTraceNodeInputExecutionChainItem.node_name required"
         )
-    if "index" in data:
+    if data.get("index") is not None:
         out["index"] = data["index"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.flow_control_node_type
 
         out["type"] = (

@@ -50,7 +50,7 @@ def serialize_json(value: PostProcessingTrace) -> dict:
 
 
 def deserialize_json(data: dict) -> PostProcessingTrace:
-    if "modelInvocationInput" in data:
+    if data.get("modelInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.model_invocation_input
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> PostProcessingTrace:
                 data["modelInvocationInput"]
             )
         }
-    elif "modelInvocationOutput" in data:
+    elif data.get("modelInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.post_processing_model_invocation_output
 
         return {

@@ -101,13 +101,13 @@ def serialize_json(value: CustomJWTAuthorizerConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
     out: CustomJWTAuthorizerConfiguration = {}  # type: ignore[typeddict-item]
-    if "discoveryUrl" in data:
+    if data.get("discoveryUrl") is not None:
         out["discovery_url"] = data["discoveryUrl"]
     else:
         raise DeserializationError(
             "CustomJWTAuthorizerConfiguration.discovery_url required"
         )
-    if "allowedAudience" in data:
+    if data.get("allowedAudience") is not None:
         import capo_bedrock_agentcore_control.types.allowed_audience_list
 
         out["allowed_audience"] = (
@@ -115,7 +115,7 @@ def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
                 data["allowedAudience"]
             )
         )
-    if "allowedClients" in data:
+    if data.get("allowedClients") is not None:
         import capo_bedrock_agentcore_control.types.allowed_clients_list
 
         out["allowed_clients"] = (
@@ -123,7 +123,7 @@ def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
                 data["allowedClients"]
             )
         )
-    if "allowedScopes" in data:
+    if data.get("allowedScopes") is not None:
         import capo_bedrock_agentcore_control.types.allowed_scopes_type
 
         out["allowed_scopes"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
                 data["allowedScopes"]
             )
         )
-    if "customClaims" in data:
+    if data.get("customClaims") is not None:
         import capo_bedrock_agentcore_control.types.custom_claim_validations_type
 
         out["custom_claims"] = (
@@ -139,7 +139,7 @@ def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
                 data["customClaims"]
             )
         )
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> CustomJWTAuthorizerConfiguration:
                 data["privateEndpoint"]
             )
         )
-    if "privateEndpointOverrides" in data:
+    if data.get("privateEndpointOverrides") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint_overrides
 
         out["private_endpoint_overrides"] = (

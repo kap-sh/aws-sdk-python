@@ -30,13 +30,13 @@ def serialize_json(value: GetResourceApiKeyRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetResourceApiKeyRequest:
     out: GetResourceApiKeyRequest = {}  # type: ignore[typeddict-item]
-    if "workloadIdentityToken" in data:
+    if data.get("workloadIdentityToken") is not None:
         out["workload_identity_token"] = data["workloadIdentityToken"]
     else:
         raise DeserializationError(
             "GetResourceApiKeyRequest.workload_identity_token required"
         )
-    if "resourceCredentialProviderName" in data:
+    if data.get("resourceCredentialProviderName") is not None:
         out["resource_credential_provider_name"] = data[
             "resourceCredentialProviderName"
         ]

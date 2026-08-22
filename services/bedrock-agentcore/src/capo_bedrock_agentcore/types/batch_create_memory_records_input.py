@@ -37,7 +37,7 @@ def serialize_json(value: BatchCreateMemoryRecordsInput) -> dict:
 
 def deserialize_json(data: dict) -> BatchCreateMemoryRecordsInput:
     out: BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-    if "records" in data:
+    if data.get("records") is not None:
         import capo_bedrock_agentcore.types.memory_records_create_input_list
 
         out["records"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> BatchCreateMemoryRecordsInput:
         )
     else:
         raise DeserializationError("BatchCreateMemoryRecordsInput.records required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

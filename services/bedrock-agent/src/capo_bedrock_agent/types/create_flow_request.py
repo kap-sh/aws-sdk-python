@@ -65,27 +65,27 @@ def serialize_json(value: CreateFlowRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateFlowRequest:
     out: CreateFlowRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateFlowRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError("CreateFlowRequest.execution_role_arn required")
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agent.types.flow_definition
 
         out["definition"] = capo_bedrock_agent.types.flow_definition.deserialize_json(
             data["definition"]
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent.types.tags_map
 
         out["tags"] = capo_bedrock_agent.types.tags_map.deserialize_json(data["tags"])

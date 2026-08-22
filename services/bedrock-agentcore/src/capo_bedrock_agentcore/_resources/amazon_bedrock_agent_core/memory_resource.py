@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -125,17 +126,20 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_delete_memory_records(
@@ -176,15 +180,17 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
+        input_: capo_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def batch_update_memory_records(
@@ -225,15 +231,17 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
+        input_: capo_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_event(
@@ -292,17 +300,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.create_event_input.CreateEventInput = {
+            "memory_id": memory_id,
+            "actor_id": actor_id,
+            "event_timestamp": event_timestamp,
+            "payload": payload,
+        }
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["event_timestamp"] = event_timestamp
-        input_["payload"] = payload
         if branch is not None:
             input_["branch"] = branch
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if metadata is not None:
             input_["metadata"] = metadata
 
@@ -311,6 +321,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_event(
@@ -356,17 +367,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["event_id"] = event_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "event_id": event_id,
+            "actor_id": actor_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_memory_record(
@@ -408,15 +421,17 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["memory_record_id"] = memory_record_id
+        input_: capo_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {
+            "memory_id": memory_id,
+            "memory_record_id": memory_record_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_event(
@@ -462,17 +477,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["actor_id"] = actor_id
-        input_["event_id"] = event_id
+        input_: capo_bedrock_agentcore.types.get_event_input.GetEventInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "actor_id": actor_id,
+            "event_id": event_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_memory_record(
@@ -514,15 +531,17 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["memory_record_id"] = memory_record_id
+        input_: capo_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {
+            "memory_id": memory_id,
+            "memory_record_id": memory_record_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_actors(
@@ -570,8 +589,9 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_actors_input.ListActorsInput = {
+            "memory_id": memory_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -582,6 +602,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_events(
@@ -639,10 +660,11 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.list_events_input.ListEventsInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "actor_id": actor_id,
+        }
         if include_payloads is not None:
             input_["include_payloads"] = include_payloads
         if filter is not None:
@@ -657,6 +679,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_memory_extraction_jobs(
@@ -705,8 +728,9 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {
+            "memory_id": memory_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if filter is not None:
@@ -719,6 +743,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_memory_records(
@@ -780,8 +805,9 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {
+            "memory_id": memory_id
+        }
         if namespace is not None:
             input_["namespace"] = namespace
         if namespace_path is not None:
@@ -800,6 +826,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_sessions(
@@ -853,9 +880,10 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {
+            "memory_id": memory_id,
+            "actor_id": actor_id,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -868,6 +896,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def retrieve_memory_records(
@@ -923,13 +952,14 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "search_criteria": search_criteria,
+        }
         if namespace is not None:
             input_["namespace"] = namespace
         if namespace_path is not None:
             input_["namespace_path"] = namespace_path
-        input_["search_criteria"] = search_criteria
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -940,6 +970,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_memory_extraction_job(
@@ -982,17 +1013,20 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["extraction_job"] = extraction_job
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {
+            "memory_id": memory_id,
+            "extraction_job": extraction_job,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -1041,17 +1075,20 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_delete_memory_records(
@@ -1093,15 +1130,17 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
+        input_: capo_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def batch_update_memory_records(
@@ -1143,15 +1182,17 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["records"] = records
+        input_: capo_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "records": records,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_event(
@@ -1211,17 +1252,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.create_event_input.CreateEventInput = {
+            "memory_id": memory_id,
+            "actor_id": actor_id,
+            "event_timestamp": event_timestamp,
+            "payload": payload,
+        }
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["event_timestamp"] = event_timestamp
-        input_["payload"] = payload
         if branch is not None:
             input_["branch"] = branch
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if metadata is not None:
             input_["metadata"] = metadata
 
@@ -1230,6 +1273,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_event(
@@ -1276,17 +1320,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["event_id"] = event_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "event_id": event_id,
+            "actor_id": actor_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_memory_record(
@@ -1329,15 +1375,17 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["memory_record_id"] = memory_record_id
+        input_: capo_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {
+            "memory_id": memory_id,
+            "memory_record_id": memory_record_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_event(
@@ -1384,17 +1432,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["actor_id"] = actor_id
-        input_["event_id"] = event_id
+        input_: capo_bedrock_agentcore.types.get_event_input.GetEventInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "actor_id": actor_id,
+            "event_id": event_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_memory_record(
@@ -1437,15 +1487,17 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["memory_record_id"] = memory_record_id
+        input_: capo_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {
+            "memory_id": memory_id,
+            "memory_record_id": memory_record_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_actors(
@@ -1494,8 +1546,9 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_actors_input.ListActorsInput = {
+            "memory_id": memory_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1506,6 +1559,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_events(
@@ -1564,10 +1618,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["session_id"] = session_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.list_events_input.ListEventsInput = {
+            "memory_id": memory_id,
+            "session_id": session_id,
+            "actor_id": actor_id,
+        }
         if include_payloads is not None:
             input_["include_payloads"] = include_payloads
         if filter is not None:
@@ -1582,6 +1637,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_memory_extraction_jobs(
@@ -1631,8 +1687,9 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {
+            "memory_id": memory_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if filter is not None:
@@ -1645,6 +1702,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_memory_records(
@@ -1707,8 +1765,9 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {
+            "memory_id": memory_id
+        }
         if namespace is not None:
             input_["namespace"] = namespace
         if namespace_path is not None:
@@ -1727,6 +1786,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_sessions(
@@ -1781,9 +1841,10 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["actor_id"] = actor_id
+        input_: capo_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {
+            "memory_id": memory_id,
+            "actor_id": actor_id,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1796,6 +1857,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def retrieve_memory_records(
@@ -1852,13 +1914,14 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {
+            "memory_id": memory_id,
+            "search_criteria": search_criteria,
+        }
         if namespace is not None:
             input_["namespace"] = namespace
         if namespace_path is not None:
             input_["namespace_path"] = namespace_path
-        input_["search_criteria"] = search_criteria
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1869,6 +1932,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_memory_extraction_job(
@@ -1912,15 +1976,18 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
-        input_["extraction_job"] = extraction_job
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {
+            "memory_id": memory_id,
+            "extraction_job": extraction_job,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

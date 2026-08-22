@@ -75,15 +75,17 @@ class GenerateQueryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.generate_query_request.GenerateQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["query_generation_input"] = query_generation_input
-        input_["transformation_configuration"] = transformation_configuration
+        input_: capo_bedrock_agent_runtime.types.generate_query_request.GenerateQueryRequest = {
+            "query_generation_input": query_generation_input,
+            "transformation_configuration": transformation_configuration,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -135,13 +137,15 @@ class AsyncGenerateQueryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.generate_query_request.GenerateQueryRequest = {}  # type: ignore[typeddict-item]
-        input_["query_generation_input"] = query_generation_input
-        input_["transformation_configuration"] = transformation_configuration
+        input_: capo_bedrock_agent_runtime.types.generate_query_request.GenerateQueryRequest = {
+            "query_generation_input": query_generation_input,
+            "transformation_configuration": transformation_configuration,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

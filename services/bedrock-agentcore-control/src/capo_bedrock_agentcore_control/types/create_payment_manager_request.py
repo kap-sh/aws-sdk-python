@@ -74,13 +74,13 @@ def serialize_json(value: CreatePaymentManagerRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePaymentManagerRequest:
     out: CreatePaymentManagerRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreatePaymentManagerRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.payments_authorizer_type
 
         out["authorizer_type"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> CreatePaymentManagerRequest:
         raise DeserializationError(
             "CreatePaymentManagerRequest.authorizer_type required"
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -100,13 +100,13 @@ def deserialize_json(data: dict) -> CreatePaymentManagerRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreatePaymentManagerRequest.role_arn required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

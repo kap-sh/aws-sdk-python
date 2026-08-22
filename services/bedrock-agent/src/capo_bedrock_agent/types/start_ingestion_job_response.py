@@ -28,7 +28,7 @@ def serialize_json(value: StartIngestionJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> StartIngestionJobResponse:
     out: StartIngestionJobResponse = {}  # type: ignore[typeddict-item]
-    if "ingestionJob" in data:
+    if data.get("ingestionJob") is not None:
         import capo_bedrock_agent.types.ingestion_job
 
         out["ingestion_job"] = capo_bedrock_agent.types.ingestion_job.deserialize_json(

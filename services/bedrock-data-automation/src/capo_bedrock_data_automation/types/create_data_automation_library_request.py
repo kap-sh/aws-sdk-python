@@ -55,17 +55,17 @@ def serialize_json(value: CreateDataAutomationLibraryRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateDataAutomationLibraryRequest:
     out: CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-    if "libraryName" in data:
+    if data.get("libraryName") is not None:
         out["library_name"] = data["libraryName"]
     else:
         raise DeserializationError(
             "CreateDataAutomationLibraryRequest.library_name required"
         )
-    if "libraryDescription" in data:
+    if data.get("libraryDescription") is not None:
         out["library_description"] = data["libraryDescription"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationLibraryRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation.types.tag_list
 
         out["tags"] = capo_bedrock_data_automation.types.tag_list.deserialize_json(

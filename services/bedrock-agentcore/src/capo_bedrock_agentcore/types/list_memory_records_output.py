@@ -37,7 +37,7 @@ def serialize_json(value: ListMemoryRecordsOutput) -> dict:
 
 def deserialize_json(data: dict) -> ListMemoryRecordsOutput:
     out: ListMemoryRecordsOutput = {}  # type: ignore[typeddict-item]
-    if "memoryRecordSummaries" in data:
+    if data.get("memoryRecordSummaries") is not None:
         import capo_bedrock_agentcore.types.memory_record_summary_list
 
         out["memory_record_summaries"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListMemoryRecordsOutput:
         raise DeserializationError(
             "ListMemoryRecordsOutput.memory_record_summaries required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -68,11 +68,11 @@ def serialize_json(value: UpdateEvaluatorRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateEvaluatorRequest:
     out: UpdateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "evaluatorConfig" in data:
+    if data.get("evaluatorConfig") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_config
 
         out["evaluator_config"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> UpdateEvaluatorRequest:
                 data["evaluatorConfig"]
             )
         )
-    if "level" in data:
+    if data.get("level") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_level
 
         out["level"] = (
@@ -88,6 +88,6 @@ def deserialize_json(data: dict) -> UpdateEvaluatorRequest:
                 data["level"]
             )
         )
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
     return out

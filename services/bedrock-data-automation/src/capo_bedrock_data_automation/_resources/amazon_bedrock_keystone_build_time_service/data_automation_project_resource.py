@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_data_automation._auth._signers
@@ -116,15 +117,16 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        input_: capo_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {
+            "project_name": project_name,
+            "standard_output_configuration": standard_output_configuration,
+        }
         if project_description is not None:
             input_["project_description"] = project_description
         if project_stage is not None:
             input_["project_stage"] = project_stage
         if project_type is not None:
             input_["project_type"] = project_type
-        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
             input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
@@ -133,8 +135,9 @@ class DataAutomationProjectResource:
             input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -145,6 +148,7 @@ class DataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -186,8 +190,9 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {
+            "project_arn": project_arn
+        }
         if project_stage is not None:
             input_["project_stage"] = project_stage
 
@@ -196,6 +201,7 @@ class DataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -254,13 +260,14 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {
+            "project_arn": project_arn,
+            "standard_output_configuration": standard_output_configuration,
+        }
         if project_stage is not None:
             input_["project_stage"] = project_stage
         if project_description is not None:
             input_["project_description"] = project_description
-        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
             input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
@@ -277,6 +284,7 @@ class DataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -314,14 +322,16 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {
+            "project_arn": project_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -373,7 +383,7 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -392,6 +402,7 @@ class DataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -459,15 +470,16 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_name"] = project_name
+        input_: capo_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {
+            "project_name": project_name,
+            "standard_output_configuration": standard_output_configuration,
+        }
         if project_description is not None:
             input_["project_description"] = project_description
         if project_stage is not None:
             input_["project_stage"] = project_stage
         if project_type is not None:
             input_["project_type"] = project_type
-        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
             input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
@@ -476,8 +488,9 @@ class AsyncDataAutomationProjectResource:
             input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -488,6 +501,7 @@ class AsyncDataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -530,8 +544,9 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {
+            "project_arn": project_arn
+        }
         if project_stage is not None:
             input_["project_stage"] = project_stage
 
@@ -540,6 +555,7 @@ class AsyncDataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -599,13 +615,14 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {
+            "project_arn": project_arn,
+            "standard_output_configuration": standard_output_configuration,
+        }
         if project_stage is not None:
             input_["project_stage"] = project_stage
         if project_description is not None:
             input_["project_description"] = project_description
-        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
             input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
@@ -622,6 +639,7 @@ class AsyncDataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -660,14 +678,16 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input_["project_arn"] = project_arn
+        input_: capo_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {
+            "project_arn": project_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -720,7 +740,7 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -739,4 +759,5 @@ class AsyncDataAutomationProjectResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

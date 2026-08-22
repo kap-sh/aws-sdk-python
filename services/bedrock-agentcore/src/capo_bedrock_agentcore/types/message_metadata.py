@@ -22,11 +22,11 @@ def serialize_json(value: MessageMetadata) -> dict:
 
 def deserialize_json(data: dict) -> MessageMetadata:
     out: MessageMetadata = {}  # type: ignore[typeddict-item]
-    if "eventId" in data:
+    if data.get("eventId") is not None:
         out["event_id"] = data["eventId"]
     else:
         raise DeserializationError("MessageMetadata.event_id required")
-    if "messageIndex" in data:
+    if data.get("messageIndex") is not None:
         out["message_index"] = data["messageIndex"]
     else:
         raise DeserializationError("MessageMetadata.message_index required")

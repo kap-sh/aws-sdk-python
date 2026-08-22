@@ -32,19 +32,19 @@ def serialize_json(value: MalformedConditionExpressionFlowValidationDetails) -> 
 
 def deserialize_json(data: dict) -> MalformedConditionExpressionFlowValidationDetails:
     out: MalformedConditionExpressionFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(
             "MalformedConditionExpressionFlowValidationDetails.node required"
         )
-    if "condition" in data:
+    if data.get("condition") is not None:
         out["condition"] = data["condition"]
     else:
         raise DeserializationError(
             "MalformedConditionExpressionFlowValidationDetails.condition required"
         )
-    if "cause" in data:
+    if data.get("cause") is not None:
         out["cause"] = data["cause"]
     else:
         raise DeserializationError(

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> FlowTraceNodeInputExecutionChain:
 
     out: FlowTraceNodeInputExecutionChain = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.flow_trace_node_input_execution_chain_item.deserialize_json(
                 item

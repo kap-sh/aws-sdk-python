@@ -36,11 +36,11 @@ def serialize_json(value: PrivateEndpointOverride) -> dict:
 
 def deserialize_json(data: dict) -> PrivateEndpointOverride:
     out: PrivateEndpointOverride = {}  # type: ignore[typeddict-item]
-    if "domain" in data:
+    if data.get("domain") is not None:
         out["domain"] = data["domain"]
     else:
         raise DeserializationError("PrivateEndpointOverride.domain required")
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (

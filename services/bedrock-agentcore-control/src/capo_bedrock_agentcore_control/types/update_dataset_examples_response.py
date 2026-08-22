@@ -50,15 +50,15 @@ def serialize_json(value: UpdateDatasetExamplesResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateDatasetExamplesResponse:
     out: UpdateDatasetExamplesResponse = {}  # type: ignore[typeddict-item]
-    if "datasetArn" in data:
+    if data.get("datasetArn") is not None:
         out["dataset_arn"] = data["datasetArn"]
     else:
         raise DeserializationError("UpdateDatasetExamplesResponse.dataset_arn required")
-    if "datasetId" in data:
+    if data.get("datasetId") is not None:
         out["dataset_id"] = data["datasetId"]
     else:
         raise DeserializationError("UpdateDatasetExamplesResponse.dataset_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.dataset_status
 
         out["status"] = (
@@ -68,13 +68,13 @@ def deserialize_json(data: dict) -> UpdateDatasetExamplesResponse:
         )
     else:
         raise DeserializationError("UpdateDatasetExamplesResponse.status required")
-    if "updatedCount" in data:
+    if data.get("updatedCount") is not None:
         out["updated_count"] = data["updatedCount"]
     else:
         raise DeserializationError(
             "UpdateDatasetExamplesResponse.updated_count required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (

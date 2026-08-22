@@ -48,21 +48,21 @@ def serialize_json(value: CollaboratorConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CollaboratorConfiguration:
     out: CollaboratorConfiguration = {}  # type: ignore[typeddict-item]
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     else:
         raise DeserializationError(
             "CollaboratorConfiguration.collaborator_name required"
         )
-    if "collaboratorInstruction" in data:
+    if data.get("collaboratorInstruction") is not None:
         out["collaborator_instruction"] = data["collaboratorInstruction"]
     else:
         raise DeserializationError(
             "CollaboratorConfiguration.collaborator_instruction required"
         )
-    if "agentAliasArn" in data:
+    if data.get("agentAliasArn") is not None:
         out["agent_alias_arn"] = data["agentAliasArn"]
-    if "relayConversationHistory" in data:
+    if data.get("relayConversationHistory") is not None:
         import capo_bedrock_agent_runtime.types.relay_conversation_history
 
         out["relay_conversation_history"] = (

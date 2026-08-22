@@ -44,7 +44,7 @@ def serialize_json(value: UserPreferenceOverrideConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> UserPreferenceOverrideConfigurationInput:
     out: UserPreferenceOverrideConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "extraction" in data:
+    if data.get("extraction") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_override_extraction_configuration_input
 
         out["extraction"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> UserPreferenceOverrideConfigurationInput:
                 data["extraction"]
             )
         )
-    if "consolidation" in data:
+    if data.get("consolidation") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_override_consolidation_configuration_input
 
         out["consolidation"] = (

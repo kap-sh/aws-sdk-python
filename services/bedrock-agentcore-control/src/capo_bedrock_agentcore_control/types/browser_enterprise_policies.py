@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> BrowserEnterprisePolicies:
 
     out: BrowserEnterprisePolicies = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.browser_enterprise_policy.deserialize_json(
                 item

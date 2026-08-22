@@ -16,7 +16,15 @@ class HarnessSummarizationConfiguration(TypedDict, closed=True):
 def serialize_json(value: HarnessSummarizationConfiguration) -> dict:
     out: dict = {}
     if "summary_ratio" in value:
-        out["summaryRatio"] = value["summary_ratio"]
+        out["summaryRatio"] = (
+            "NaN"
+            if value["summary_ratio"] != value["summary_ratio"]
+            else "Infinity"
+            if value["summary_ratio"] == float("inf")
+            else "-Infinity"
+            if value["summary_ratio"] == float("-inf")
+            else value["summary_ratio"]
+        )
     if "preserve_recent_messages" in value:
         out["preserveRecentMessages"] = value["preserve_recent_messages"]
     if "summarization_system_prompt" in value:
@@ -26,10 +34,10 @@ def serialize_json(value: HarnessSummarizationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSummarizationConfiguration:
     out: HarnessSummarizationConfiguration = {}  # type: ignore[typeddict-item]
-    if "summaryRatio" in data:
-        out["summary_ratio"] = data["summaryRatio"]
-    if "preserveRecentMessages" in data:
+    if data.get("summaryRatio") is not None:
+        out["summary_ratio"] = float(data["summaryRatio"])
+    if data.get("preserveRecentMessages") is not None:
         out["preserve_recent_messages"] = data["preserveRecentMessages"]
-    if "summarizationSystemPrompt" in data:
+    if data.get("summarizationSystemPrompt") is not None:
         out["summarization_system_prompt"] = data["summarizationSystemPrompt"]
     return out

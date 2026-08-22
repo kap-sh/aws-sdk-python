@@ -53,19 +53,19 @@ def serialize_json(value: Function) -> dict:
 
 def deserialize_json(data: dict) -> Function:
     out: Function = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("Function.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         import capo_bedrock_agent.types.parameter_map
 
         out["parameters"] = capo_bedrock_agent.types.parameter_map.deserialize_json(
             data["parameters"]
         )
-    if "requireConfirmation" in data:
+    if data.get("requireConfirmation") is not None:
         import capo_bedrock_agent.types.require_confirmation
 
         out["require_confirmation"] = (

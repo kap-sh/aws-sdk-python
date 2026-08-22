@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -107,17 +108,19 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_flow_request.CreateFlowRequest = {
+            "name": name,
+            "execution_role_arn": execution_role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
             input_["definition"] = definition
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -126,6 +129,7 @@ class FlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -163,14 +167,16 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.get_flow_request.GetFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -226,22 +232,24 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {
+            "name": name,
+            "execution_role_arn": execution_role_arn,
+            "flow_identifier": flow_identifier,
+        }
         if description is not None:
             input_["description"] = description
-        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
             input_["definition"] = definition
-        input_["flow_identifier"] = flow_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -282,8 +290,9 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -292,6 +301,7 @@ class FlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -330,7 +340,7 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -341,6 +351,7 @@ class FlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def prepare_flow(
@@ -380,14 +391,16 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -452,17 +465,19 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_flow_request.CreateFlowRequest = {
+            "name": name,
+            "execution_role_arn": execution_role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
             input_["definition"] = definition
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -471,6 +486,7 @@ class AsyncFlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -509,14 +525,16 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.get_flow_request.GetFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -573,22 +591,24 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {
+            "name": name,
+            "execution_role_arn": execution_role_arn,
+            "flow_identifier": flow_identifier,
+        }
         if description is not None:
             input_["description"] = description
-        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
             input_["definition"] = definition
-        input_["flow_identifier"] = flow_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -630,8 +650,9 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -640,6 +661,7 @@ class AsyncFlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -679,7 +701,7 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -690,6 +712,7 @@ class AsyncFlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def prepare_flow(
@@ -730,12 +753,14 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {
+            "flow_identifier": flow_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

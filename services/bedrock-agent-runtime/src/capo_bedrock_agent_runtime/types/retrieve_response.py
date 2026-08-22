@@ -48,7 +48,7 @@ def serialize_json(value: RetrieveResponse) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveResponse:
     out: RetrieveResponse = {}  # type: ignore[typeddict-item]
-    if "retrievalResults" in data:
+    if data.get("retrievalResults") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_retrieval_results
 
         out["retrieval_results"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> RetrieveResponse:
         )
     else:
         raise DeserializationError("RetrieveResponse.retrieval_results required")
-    if "guardrailAction" in data:
+    if data.get("guardrailAction") is not None:
         import capo_bedrock_agent_runtime.types.guadrail_action
 
         out["guardrail_action"] = (
@@ -66,6 +66,6 @@ def deserialize_json(data: dict) -> RetrieveResponse:
                 data["guardrailAction"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

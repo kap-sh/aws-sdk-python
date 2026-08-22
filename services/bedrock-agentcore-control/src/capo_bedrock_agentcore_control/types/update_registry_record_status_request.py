@@ -41,7 +41,7 @@ def serialize_json(value: UpdateRegistryRecordStatusRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateRegistryRecordStatusRequest:
     out: UpdateRegistryRecordStatusRequest = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_status
 
         out["status"] = (
@@ -51,7 +51,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordStatusRequest:
         )
     else:
         raise DeserializationError("UpdateRegistryRecordStatusRequest.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
     else:
         raise DeserializationError(

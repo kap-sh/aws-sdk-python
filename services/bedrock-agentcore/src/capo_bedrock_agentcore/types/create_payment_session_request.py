@@ -51,24 +51,24 @@ def serialize_json(value: CreatePaymentSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePaymentSessionRequest:
     out: CreatePaymentSessionRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "CreatePaymentSessionRequest.payment_manager_arn required"
         )
-    if "limits" in data:
+    if data.get("limits") is not None:
         import capo_bedrock_agentcore.types.session_limits
 
         out["limits"] = capo_bedrock_agentcore.types.session_limits.deserialize_json(
             data["limits"]
         )
-    if "expiryTimeInMinutes" in data:
+    if data.get("expiryTimeInMinutes") is not None:
         out["expiry_time_in_minutes"] = data["expiryTimeInMinutes"]
     else:
         raise DeserializationError(
             "CreatePaymentSessionRequest.expiry_time_in_minutes required"
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

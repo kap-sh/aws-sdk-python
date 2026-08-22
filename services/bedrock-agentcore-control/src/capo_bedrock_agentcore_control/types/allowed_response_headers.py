@@ -16,4 +16,4 @@ def serialize_json(value: AllowedResponseHeaders) -> list:
 
 
 def deserialize_json(data: list) -> AllowedResponseHeaders:
-    return list(data)
+    return [item for item in data if item is not None]

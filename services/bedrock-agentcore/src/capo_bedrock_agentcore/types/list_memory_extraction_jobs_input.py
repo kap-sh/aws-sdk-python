@@ -44,11 +44,11 @@ def serialize_json(value: ListMemoryExtractionJobsInput) -> dict:
 
 def deserialize_json(data: dict) -> ListMemoryExtractionJobsInput:
     out: ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 20
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_bedrock_agentcore.types.extraction_job_filter_input
 
         out["filter"] = (
@@ -56,6 +56,6 @@ def deserialize_json(data: dict) -> ListMemoryExtractionJobsInput:
                 data["filter"]
             )
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

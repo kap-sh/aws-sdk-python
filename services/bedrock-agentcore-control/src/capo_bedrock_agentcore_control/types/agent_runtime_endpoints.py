@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AgentRuntimeEndpoints:
 
     out: AgentRuntimeEndpoints = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.agent_runtime_endpoint.deserialize_json(
                 item

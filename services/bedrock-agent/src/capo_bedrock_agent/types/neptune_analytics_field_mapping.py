@@ -27,11 +27,11 @@ def serialize_json(value: NeptuneAnalyticsFieldMapping) -> dict:
 
 def deserialize_json(data: dict) -> NeptuneAnalyticsFieldMapping:
     out: NeptuneAnalyticsFieldMapping = {}  # type: ignore[typeddict-item]
-    if "textField" in data:
+    if data.get("textField") is not None:
         out["text_field"] = data["textField"]
     else:
         raise DeserializationError("NeptuneAnalyticsFieldMapping.text_field required")
-    if "metadataField" in data:
+    if data.get("metadataField") is not None:
         out["metadata_field"] = data["metadataField"]
     else:
         raise DeserializationError(

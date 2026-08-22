@@ -35,11 +35,11 @@ def serialize_json(value: ContentStopEvent) -> dict:
 
 def deserialize_json(data: dict) -> ContentStopEvent:
     out: ContentStopEvent = {}  # type: ignore[typeddict-item]
-    if "exitCode" in data:
+    if data.get("exitCode") is not None:
         out["exit_code"] = data["exitCode"]
     else:
         raise DeserializationError("ContentStopEvent.exit_code required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.command_execution_status
 
         out["status"] = (

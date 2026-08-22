@@ -84,8 +84,9 @@ class WorkloadIdentity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_workload_identity_request.CreateWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_workload_identity_request.CreateWorkloadIdentityRequest = {
+            "name": name
+        }
         if allowed_resource_oauth2_return_urls is not None:
             input_["allowed_resource_oauth2_return_urls"] = (
                 allowed_resource_oauth2_return_urls
@@ -98,6 +99,7 @@ class WorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -136,14 +138,16 @@ class WorkloadIdentity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_workload_identity_request.GetWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_workload_identity_request.GetWorkloadIdentityRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -186,8 +190,9 @@ class WorkloadIdentity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_workload_identity_request.UpdateWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_workload_identity_request.UpdateWorkloadIdentityRequest = {
+            "name": name
+        }
         if allowed_resource_oauth2_return_urls is not None:
             input_["allowed_resource_oauth2_return_urls"] = (
                 allowed_resource_oauth2_return_urls
@@ -198,6 +203,7 @@ class WorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -236,14 +242,16 @@ class WorkloadIdentity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_workload_identity_request.DeleteWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_workload_identity_request.DeleteWorkloadIdentityRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_workload_identities(
@@ -284,7 +292,7 @@ class WorkloadIdentity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_workload_identities_request.ListWorkloadIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_workload_identities_request.ListWorkloadIdentitiesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -295,6 +303,7 @@ class WorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -345,8 +354,9 @@ class AsyncWorkloadIdentity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_workload_identity_request.CreateWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_workload_identity_request.CreateWorkloadIdentityRequest = {
+            "name": name
+        }
         if allowed_resource_oauth2_return_urls is not None:
             input_["allowed_resource_oauth2_return_urls"] = (
                 allowed_resource_oauth2_return_urls
@@ -359,6 +369,7 @@ class AsyncWorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -398,14 +409,16 @@ class AsyncWorkloadIdentity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_workload_identity_request.GetWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_workload_identity_request.GetWorkloadIdentityRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -449,8 +462,9 @@ class AsyncWorkloadIdentity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_workload_identity_request.UpdateWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_workload_identity_request.UpdateWorkloadIdentityRequest = {
+            "name": name
+        }
         if allowed_resource_oauth2_return_urls is not None:
             input_["allowed_resource_oauth2_return_urls"] = (
                 allowed_resource_oauth2_return_urls
@@ -461,6 +475,7 @@ class AsyncWorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -500,14 +515,16 @@ class AsyncWorkloadIdentity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_workload_identity_request.DeleteWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_workload_identity_request.DeleteWorkloadIdentityRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_workload_identities(
@@ -549,7 +566,7 @@ class AsyncWorkloadIdentity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_workload_identities_request.ListWorkloadIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_workload_identities_request.ListWorkloadIdentitiesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -560,4 +577,5 @@ class AsyncWorkloadIdentity:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

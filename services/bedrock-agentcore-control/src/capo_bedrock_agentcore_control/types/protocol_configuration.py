@@ -32,7 +32,7 @@ def serialize_json(value: ProtocolConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ProtocolConfiguration:
     out: ProtocolConfiguration = {}  # type: ignore[typeddict-item]
-    if "serverProtocol" in data:
+    if data.get("serverProtocol") is not None:
         import capo_bedrock_agentcore_control.types.server_protocol
 
         out["server_protocol"] = (

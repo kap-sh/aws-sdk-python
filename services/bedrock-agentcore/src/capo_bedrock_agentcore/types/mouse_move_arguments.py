@@ -22,11 +22,11 @@ def serialize_json(value: MouseMoveArguments) -> dict:
 
 def deserialize_json(data: dict) -> MouseMoveArguments:
     out: MouseMoveArguments = {}  # type: ignore[typeddict-item]
-    if "x" in data:
+    if data.get("x") is not None:
         out["x"] = data["x"]
     else:
         raise DeserializationError("MouseMoveArguments.x required")
-    if "y" in data:
+    if data.get("y") is not None:
         out["y"] = data["y"]
     else:
         raise DeserializationError("MouseMoveArguments.y required")

@@ -200,19 +200,19 @@ def serialize_json(value: Harness) -> dict:
 
 def deserialize_json(data: dict) -> Harness:
     out: Harness = {}  # type: ignore[typeddict-item]
-    if "harnessId" in data:
+    if data.get("harnessId") is not None:
         out["harness_id"] = data["harnessId"]
     else:
         raise DeserializationError("Harness.harness_id required")
-    if "harnessName" in data:
+    if data.get("harnessName") is not None:
         out["harness_name"] = data["harnessName"]
     else:
         raise DeserializationError("Harness.harness_name required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("Harness.arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.harness_status
 
         out["status"] = (
@@ -222,11 +222,11 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.status required")
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError("Harness.execution_role_arn required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -236,7 +236,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -246,7 +246,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.updated_at required")
-    if "model" in data:
+    if data.get("model") is not None:
         import capo_bedrock_agentcore_control.types.harness_model_configuration
 
         out["model"] = (
@@ -256,7 +256,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.model required")
-    if "systemPrompt" in data:
+    if data.get("systemPrompt") is not None:
         import capo_bedrock_agentcore_control.types.harness_system_prompt
 
         out["system_prompt"] = (
@@ -266,7 +266,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.system_prompt required")
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore_control.types.harness_tools
 
         out["tools"] = (
@@ -276,7 +276,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.tools required")
-    if "skills" in data:
+    if data.get("skills") is not None:
         import capo_bedrock_agentcore_control.types.harness_skills
 
         out["skills"] = (
@@ -286,7 +286,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.skills required")
-    if "allowedTools" in data:
+    if data.get("allowedTools") is not None:
         import capo_bedrock_agentcore_control.types.harness_allowed_tools
 
         out["allowed_tools"] = (
@@ -296,7 +296,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.allowed_tools required")
-    if "truncation" in data:
+    if data.get("truncation") is not None:
         import capo_bedrock_agentcore_control.types.harness_truncation_configuration
 
         out["truncation"] = (
@@ -306,7 +306,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.truncation required")
-    if "environment" in data:
+    if data.get("environment") is not None:
         import capo_bedrock_agentcore_control.types.harness_environment_provider
 
         out["environment"] = (
@@ -316,7 +316,7 @@ def deserialize_json(data: dict) -> Harness:
         )
     else:
         raise DeserializationError("Harness.environment required")
-    if "environmentArtifact" in data:
+    if data.get("environmentArtifact") is not None:
         import capo_bedrock_agentcore_control.types.harness_environment_artifact
 
         out["environment_artifact"] = (
@@ -324,7 +324,7 @@ def deserialize_json(data: dict) -> Harness:
                 data["environmentArtifact"]
             )
         )
-    if "environmentVariables" in data:
+    if data.get("environmentVariables") is not None:
         import capo_bedrock_agentcore_control.types.environment_variables_map
 
         out["environment_variables"] = (
@@ -332,7 +332,7 @@ def deserialize_json(data: dict) -> Harness:
                 data["environmentVariables"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -340,7 +340,7 @@ def deserialize_json(data: dict) -> Harness:
                 data["authorizerConfiguration"]
             )
         )
-    if "memory" in data:
+    if data.get("memory") is not None:
         import capo_bedrock_agentcore_control.types.harness_memory_configuration
 
         out["memory"] = (
@@ -348,12 +348,12 @@ def deserialize_json(data: dict) -> Harness:
                 data["memory"]
             )
         )
-    if "maxIterations" in data:
+    if data.get("maxIterations") is not None:
         out["max_iterations"] = data["maxIterations"]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "timeoutSeconds" in data:
+    if data.get("timeoutSeconds") is not None:
         out["timeout_seconds"] = data["timeoutSeconds"]
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
     return out

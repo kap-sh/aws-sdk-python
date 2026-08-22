@@ -47,19 +47,19 @@ def serialize_json(value: HarnessToolUseBlock) -> dict:
 
 def deserialize_json(data: dict) -> HarnessToolUseBlock:
     out: HarnessToolUseBlock = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("HarnessToolUseBlock.name required")
-    if "toolUseId" in data:
+    if data.get("toolUseId") is not None:
         out["tool_use_id"] = data["toolUseId"]
     else:
         raise DeserializationError("HarnessToolUseBlock.tool_use_id required")
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     else:
         raise DeserializationError("HarnessToolUseBlock.input required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.harness_tool_use_type
 
         out["type"] = (
@@ -67,6 +67,6 @@ def deserialize_json(data: dict) -> HarnessToolUseBlock:
                 data["type"]
             )
         )
-    if "serverName" in data:
+    if data.get("serverName") is not None:
         out["server_name"] = data["serverName"]
     return out

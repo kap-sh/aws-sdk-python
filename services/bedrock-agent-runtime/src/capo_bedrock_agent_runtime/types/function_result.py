@@ -70,11 +70,11 @@ def serialize_json(value: FunctionResult) -> dict:
 
 def deserialize_json(data: dict) -> FunctionResult:
     out: FunctionResult = {}  # type: ignore[typeddict-item]
-    if "actionGroup" in data:
+    if data.get("actionGroup") is not None:
         out["action_group"] = data["actionGroup"]
     else:
         raise DeserializationError("FunctionResult.action_group required")
-    if "confirmationState" in data:
+    if data.get("confirmationState") is not None:
         import capo_bedrock_agent_runtime.types.confirmation_state
 
         out["confirmation_state"] = (
@@ -82,9 +82,9 @@ def deserialize_json(data: dict) -> FunctionResult:
                 data["confirmationState"]
             )
         )
-    if "function" in data:
+    if data.get("function") is not None:
         out["function"] = data["function"]
-    if "responseBody" in data:
+    if data.get("responseBody") is not None:
         import capo_bedrock_agent_runtime.types.response_body
 
         out["response_body"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> FunctionResult:
                 data["responseBody"]
             )
         )
-    if "responseState" in data:
+    if data.get("responseState") is not None:
         import capo_bedrock_agent_runtime.types.response_state
 
         out["response_state"] = (
@@ -100,6 +100,6 @@ def deserialize_json(data: dict) -> FunctionResult:
                 data["responseState"]
             )
         )
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     return out

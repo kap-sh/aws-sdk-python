@@ -100,8 +100,9 @@ class ApiKeyCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_api_key_credential_provider_request.CreateApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_api_key_credential_provider_request.CreateApiKeyCredentialProviderRequest = {
+            "name": name
+        }
         if api_key is not None:
             input_["api_key"] = api_key
         if api_key_secret_config is not None:
@@ -116,6 +117,7 @@ class ApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -155,14 +157,16 @@ class ApiKeyCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_api_key_credential_provider_request.GetApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_api_key_credential_provider_request.GetApiKeyCredentialProviderRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -217,8 +221,9 @@ class ApiKeyCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_api_key_credential_provider_request.UpdateApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_api_key_credential_provider_request.UpdateApiKeyCredentialProviderRequest = {
+            "name": name
+        }
         if api_key is not None:
             input_["api_key"] = api_key
         if api_key_secret_config is not None:
@@ -231,6 +236,7 @@ class ApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -269,14 +275,16 @@ class ApiKeyCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_api_key_credential_provider_request.DeleteApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_api_key_credential_provider_request.DeleteApiKeyCredentialProviderRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_api_key_credential_providers(
@@ -319,7 +327,7 @@ class ApiKeyCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_api_key_credential_providers_request.ListApiKeyCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_api_key_credential_providers_request.ListApiKeyCredentialProvidersRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -330,6 +338,7 @@ class ApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -393,8 +402,9 @@ class AsyncApiKeyCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_api_key_credential_provider_request.CreateApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_api_key_credential_provider_request.CreateApiKeyCredentialProviderRequest = {
+            "name": name
+        }
         if api_key is not None:
             input_["api_key"] = api_key
         if api_key_secret_config is not None:
@@ -409,6 +419,7 @@ class AsyncApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -449,14 +460,16 @@ class AsyncApiKeyCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_api_key_credential_provider_request.GetApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_api_key_credential_provider_request.GetApiKeyCredentialProviderRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -512,8 +525,9 @@ class AsyncApiKeyCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_api_key_credential_provider_request.UpdateApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_api_key_credential_provider_request.UpdateApiKeyCredentialProviderRequest = {
+            "name": name
+        }
         if api_key is not None:
             input_["api_key"] = api_key
         if api_key_secret_config is not None:
@@ -526,6 +540,7 @@ class AsyncApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -565,14 +580,16 @@ class AsyncApiKeyCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_api_key_credential_provider_request.DeleteApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_api_key_credential_provider_request.DeleteApiKeyCredentialProviderRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_api_key_credential_providers(
@@ -616,7 +633,7 @@ class AsyncApiKeyCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_api_key_credential_providers_request.ListApiKeyCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_api_key_credential_providers_request.ListApiKeyCredentialProvidersRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -627,4 +644,5 @@ class AsyncApiKeyCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

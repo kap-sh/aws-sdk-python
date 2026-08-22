@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> Citations:
 
     out: Citations = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent_runtime.types.citation.deserialize_json(item))
     return out

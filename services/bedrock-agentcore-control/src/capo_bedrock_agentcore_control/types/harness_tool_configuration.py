@@ -93,7 +93,7 @@ def serialize_json(value: HarnessToolConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessToolConfiguration:
-    if "remoteMcp" in data:
+    if data.get("remoteMcp") is not None:
         import capo_bedrock_agentcore_control.types.harness_remote_mcp_config
 
         return {
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> HarnessToolConfiguration:
                 data["remoteMcp"]
             )
         }
-    elif "agentCoreBrowser" in data:
+    elif data.get("agentCoreBrowser") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_browser_config
 
         return {
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> HarnessToolConfiguration:
                 data["agentCoreBrowser"]
             )
         }
-    elif "agentCoreGateway" in data:
+    elif data.get("agentCoreGateway") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_gateway_config
 
         return {
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> HarnessToolConfiguration:
                 data["agentCoreGateway"]
             )
         }
-    elif "inlineFunction" in data:
+    elif data.get("inlineFunction") is not None:
         import capo_bedrock_agentcore_control.types.harness_inline_function_config
 
         return {
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> HarnessToolConfiguration:
                 data["inlineFunction"]
             )
         }
-    elif "agentCoreCodeInterpreter" in data:
+    elif data.get("agentCoreCodeInterpreter") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_code_interpreter_config
 
         return {

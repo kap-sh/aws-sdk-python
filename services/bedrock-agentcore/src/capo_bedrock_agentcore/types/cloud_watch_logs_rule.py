@@ -31,7 +31,7 @@ def serialize_json(value: CloudWatchLogsRule) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchLogsRule:
     out: CloudWatchLogsRule = {}  # type: ignore[typeddict-item]
-    if "filters" in data:
+    if data.get("filters") is not None:
         import capo_bedrock_agentcore.types.cloud_watch_logs_filter_list
 
         out["filters"] = (

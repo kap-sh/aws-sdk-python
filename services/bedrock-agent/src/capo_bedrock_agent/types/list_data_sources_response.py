@@ -37,7 +37,7 @@ def serialize_json(value: ListDataSourcesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListDataSourcesResponse:
     out: ListDataSourcesResponse = {}  # type: ignore[typeddict-item]
-    if "dataSourceSummaries" in data:
+    if data.get("dataSourceSummaries") is not None:
         import capo_bedrock_agent.types.data_source_summaries
 
         out["data_source_summaries"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListDataSourcesResponse:
         raise DeserializationError(
             "ListDataSourcesResponse.data_source_summaries required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

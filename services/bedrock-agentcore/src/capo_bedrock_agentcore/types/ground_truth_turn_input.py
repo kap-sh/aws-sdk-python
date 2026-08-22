@@ -23,7 +23,7 @@ def serialize_json(value: GroundTruthTurnInput) -> dict:
 
 
 def deserialize_json(data: dict) -> GroundTruthTurnInput:
-    if "prompt" in data:
+    if data.get("prompt") is not None:
         return {"prompt": data["prompt"]}
     else:
         raise DeserializationError("GroundTruthTurnInput: no recognized variant key")

@@ -37,11 +37,11 @@ def serialize_json(value: IamPrincipal) -> dict:
 
 def deserialize_json(data: dict) -> IamPrincipal:
     out: IamPrincipal = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("IamPrincipal.arn required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agentcore_control.types.principal_match_operator
 
         out["operator"] = (

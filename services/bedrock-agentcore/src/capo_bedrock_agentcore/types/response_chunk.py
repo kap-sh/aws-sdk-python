@@ -59,7 +59,7 @@ def serialize_json(value: ResponseChunk) -> dict:
 
 def deserialize_json(data: dict) -> ResponseChunk:
     out: ResponseChunk = {}  # type: ignore[typeddict-item]
-    if "contentStart" in data:
+    if data.get("contentStart") is not None:
         import capo_bedrock_agentcore.types.content_start_event
 
         out["content_start"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> ResponseChunk:
                 data["contentStart"]
             )
         )
-    if "contentDelta" in data:
+    if data.get("contentDelta") is not None:
         import capo_bedrock_agentcore.types.content_delta_event
 
         out["content_delta"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> ResponseChunk:
                 data["contentDelta"]
             )
         )
-    if "contentStop" in data:
+    if data.get("contentStop") is not None:
         import capo_bedrock_agentcore.types.content_stop_event
 
         out["content_stop"] = (

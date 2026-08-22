@@ -19,7 +19,7 @@ def serialize_json(value: HierarchicalChunkingLevelConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HierarchicalChunkingLevelConfiguration:
     out: HierarchicalChunkingLevelConfiguration = {}  # type: ignore[typeddict-item]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
     else:
         raise DeserializationError(

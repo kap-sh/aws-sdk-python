@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -149,10 +150,12 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_name"] = agent_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.create_agent_request.CreateAgentRequest = {
+            "agent_name": agent_name
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if instruction is not None:
             input_["instruction"] = instruction
         if foundation_model is not None:
@@ -185,6 +188,7 @@ class AgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_agent(
@@ -225,8 +229,9 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {
+            "agent_id": agent_id
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -235,6 +240,7 @@ class AgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_agent(
@@ -272,14 +278,16 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.get_agent_request.GetAgentRequest = {
+            "agent_id": agent_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_agents(
@@ -318,7 +326,7 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -329,6 +337,7 @@ class AgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def prepare_agent(
@@ -368,14 +377,16 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {
+            "agent_id": agent_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_agent(
@@ -463,9 +474,11 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_name"] = agent_name
+        input_: capo_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {
+            "agent_id": agent_id,
+            "agent_name": agent_name,
+            "agent_resource_role_arn": agent_resource_role_arn,
+        }
         if instruction is not None:
             input_["instruction"] = instruction
         if foundation_model is not None:
@@ -478,7 +491,6 @@ class AgentResource:
             input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
             input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
-        input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if prompt_override_configuration is not None:
@@ -495,6 +507,7 @@ class AgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -593,10 +606,12 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_name"] = agent_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.create_agent_request.CreateAgentRequest = {
+            "agent_name": agent_name
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if instruction is not None:
             input_["instruction"] = instruction
         if foundation_model is not None:
@@ -629,6 +644,7 @@ class AsyncAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_agent(
@@ -670,8 +686,9 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {
+            "agent_id": agent_id
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -680,6 +697,7 @@ class AsyncAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_agent(
@@ -718,14 +736,16 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.get_agent_request.GetAgentRequest = {
+            "agent_id": agent_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_agents(
@@ -765,7 +785,7 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -776,6 +796,7 @@ class AsyncAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def prepare_agent(
@@ -816,14 +837,16 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
+        input_: capo_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {
+            "agent_id": agent_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_agent(
@@ -912,9 +935,11 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_name"] = agent_name
+        input_: capo_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {
+            "agent_id": agent_id,
+            "agent_name": agent_name,
+            "agent_resource_role_arn": agent_resource_role_arn,
+        }
         if instruction is not None:
             input_["instruction"] = instruction
         if foundation_model is not None:
@@ -927,7 +952,6 @@ class AsyncAgentResource:
             input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
             input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
-        input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if prompt_override_configuration is not None:
@@ -944,4 +968,5 @@ class AsyncAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

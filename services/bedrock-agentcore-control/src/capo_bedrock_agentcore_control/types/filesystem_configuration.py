@@ -65,7 +65,7 @@ def serialize_json(value: FilesystemConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> FilesystemConfiguration:
-    if "sessionStorage" in data:
+    if data.get("sessionStorage") is not None:
         import capo_bedrock_agentcore_control.types.session_storage_configuration
 
         return {
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> FilesystemConfiguration:
                 data["sessionStorage"]
             )
         }
-    elif "s3FilesAccessPoint" in data:
+    elif data.get("s3FilesAccessPoint") is not None:
         import capo_bedrock_agentcore_control.types.s3_files_access_point_configuration
 
         return {
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> FilesystemConfiguration:
                 data["s3FilesAccessPoint"]
             )
         }
-    elif "efsAccessPoint" in data:
+    elif data.get("efsAccessPoint") is not None:
         import capo_bedrock_agentcore_control.types.efs_access_point_configuration
 
         return {

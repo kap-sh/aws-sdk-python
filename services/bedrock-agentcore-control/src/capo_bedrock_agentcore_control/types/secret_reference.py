@@ -30,11 +30,11 @@ def serialize_json(value: SecretReference) -> dict:
 
 def deserialize_json(data: dict) -> SecretReference:
     out: SecretReference = {}  # type: ignore[typeddict-item]
-    if "secretId" in data:
+    if data.get("secretId") is not None:
         out["secret_id"] = data["secretId"]
     else:
         raise DeserializationError("SecretReference.secret_id required")
-    if "jsonKey" in data:
+    if data.get("jsonKey") is not None:
         out["json_key"] = data["jsonKey"]
     else:
         raise DeserializationError("SecretReference.json_key required")

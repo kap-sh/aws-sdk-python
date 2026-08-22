@@ -35,19 +35,19 @@ def serialize_json(value: StopCodeInterpreterSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StopCodeInterpreterSessionResponse:
     out: StopCodeInterpreterSessionResponse = {}  # type: ignore[typeddict-item]
-    if "codeInterpreterIdentifier" in data:
+    if data.get("codeInterpreterIdentifier") is not None:
         out["code_interpreter_identifier"] = data["codeInterpreterIdentifier"]
     else:
         raise DeserializationError(
             "StopCodeInterpreterSessionResponse.code_interpreter_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError(
             "StopCodeInterpreterSessionResponse.session_id required"
         )
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

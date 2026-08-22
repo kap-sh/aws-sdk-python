@@ -44,7 +44,7 @@ def serialize_json(value: VpcConfig) -> dict:
 
 def deserialize_json(data: dict) -> VpcConfig:
     out: VpcConfig = {}  # type: ignore[typeddict-item]
-    if "securityGroups" in data:
+    if data.get("securityGroups") is not None:
         import capo_bedrock_agentcore_control.types.security_groups
 
         out["security_groups"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> VpcConfig:
         )
     else:
         raise DeserializationError("VpcConfig.security_groups required")
-    if "subnets" in data:
+    if data.get("subnets") is not None:
         import capo_bedrock_agentcore_control.types.subnets
 
         out["subnets"] = capo_bedrock_agentcore_control.types.subnets.deserialize_json(
@@ -62,6 +62,6 @@ def deserialize_json(data: dict) -> VpcConfig:
         )
     else:
         raise DeserializationError("VpcConfig.subnets required")
-    if "requireServiceS3Endpoint" in data:
+    if data.get("requireServiceS3Endpoint") is not None:
         out["require_service_s3_endpoint"] = data["requireServiceS3Endpoint"]
     return out

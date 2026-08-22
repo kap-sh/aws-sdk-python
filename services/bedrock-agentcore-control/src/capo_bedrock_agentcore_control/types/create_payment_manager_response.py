@@ -103,23 +103,23 @@ def serialize_json(value: CreatePaymentManagerResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
     out: CreatePaymentManagerResponse = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "CreatePaymentManagerResponse.payment_manager_arn required"
         )
-    if "paymentManagerId" in data:
+    if data.get("paymentManagerId") is not None:
         out["payment_manager_id"] = data["paymentManagerId"]
     else:
         raise DeserializationError(
             "CreatePaymentManagerResponse.payment_manager_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreatePaymentManagerResponse.name required")
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.payments_authorizer_type
 
         out["authorizer_type"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
         raise DeserializationError(
             "CreatePaymentManagerResponse.authorizer_type required"
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -139,11 +139,11 @@ def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
                 data["authorizerConfiguration"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreatePaymentManagerResponse.role_arn required")
-    if "workloadIdentityDetails" in data:
+    if data.get("workloadIdentityDetails") is not None:
         import capo_bedrock_agentcore_control.types.workload_identity_details
 
         out["workload_identity_details"] = (
@@ -151,7 +151,7 @@ def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
                 data["workloadIdentityDetails"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -161,7 +161,7 @@ def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
         )
     else:
         raise DeserializationError("CreatePaymentManagerResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.payment_manager_status
 
         out["status"] = (
@@ -171,7 +171,7 @@ def deserialize_json(data: dict) -> CreatePaymentManagerResponse:
         )
     else:
         raise DeserializationError("CreatePaymentManagerResponse.status required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

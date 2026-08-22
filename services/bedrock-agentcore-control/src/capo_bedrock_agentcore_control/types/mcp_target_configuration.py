@@ -97,7 +97,7 @@ def serialize_json(value: McpTargetConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> McpTargetConfiguration:
-    if "openApiSchema" in data:
+    if data.get("openApiSchema") is not None:
         import capo_bedrock_agentcore_control.types.api_schema_configuration
 
         return {
@@ -105,7 +105,7 @@ def deserialize_json(data: dict) -> McpTargetConfiguration:
                 data["openApiSchema"]
             )
         }
-    elif "smithyModel" in data:
+    elif data.get("smithyModel") is not None:
         import capo_bedrock_agentcore_control.types.api_schema_configuration
 
         return {
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> McpTargetConfiguration:
                 data["smithyModel"]
             )
         }
-    elif "lambda" in data:
+    elif data.get("lambda") is not None:
         import capo_bedrock_agentcore_control.types.mcp_lambda_target_configuration
 
         return {
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> McpTargetConfiguration:
                 data["lambda"]
             )
         }
-    elif "mcpServer" in data:
+    elif data.get("mcpServer") is not None:
         import capo_bedrock_agentcore_control.types.mcp_server_target_configuration
 
         return {
@@ -129,7 +129,7 @@ def deserialize_json(data: dict) -> McpTargetConfiguration:
                 data["mcpServer"]
             )
         }
-    elif "apiGateway" in data:
+    elif data.get("apiGateway") is not None:
         import capo_bedrock_agentcore_control.types.api_gateway_target_configuration
 
         return {

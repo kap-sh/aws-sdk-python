@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -90,12 +91,14 @@ class BrowserProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_browser_profile_request.CreateBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_browser_profile_request.CreateBrowserProfileRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -104,6 +107,7 @@ class BrowserProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -141,14 +145,16 @@ class BrowserProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_browser_profile_request.GetBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["profile_id"] = profile_id
+        input_: capo_bedrock_agentcore_control.types.get_browser_profile_request.GetBrowserProfileRequest = {
+            "profile_id": profile_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -191,16 +197,19 @@ class BrowserProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_browser_profile_request.DeleteBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["profile_id"] = profile_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_browser_profile_request.DeleteBrowserProfileRequest = {
+            "profile_id": profile_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -247,7 +256,7 @@ class BrowserProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_browser_profiles_request.ListBrowserProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_browser_profiles_request.ListBrowserProfilesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -260,6 +269,7 @@ class BrowserProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -314,12 +324,14 @@ class AsyncBrowserProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_browser_profile_request.CreateBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_browser_profile_request.CreateBrowserProfileRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -328,6 +340,7 @@ class AsyncBrowserProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -366,14 +379,16 @@ class AsyncBrowserProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_browser_profile_request.GetBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["profile_id"] = profile_id
+        input_: capo_bedrock_agentcore_control.types.get_browser_profile_request.GetBrowserProfileRequest = {
+            "profile_id": profile_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -417,16 +432,19 @@ class AsyncBrowserProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_browser_profile_request.DeleteBrowserProfileRequest = {}  # type: ignore[typeddict-item]
-        input_["profile_id"] = profile_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_browser_profile_request.DeleteBrowserProfileRequest = {
+            "profile_id": profile_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -474,7 +492,7 @@ class AsyncBrowserProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_browser_profiles_request.ListBrowserProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_browser_profiles_request.ListBrowserProfilesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -487,4 +505,5 @@ class AsyncBrowserProfileResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

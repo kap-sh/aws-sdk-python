@@ -58,7 +58,7 @@ def serialize_json(value: ToolDescriptionRecommendationResult) -> dict:
 
 def deserialize_json(data: dict) -> ToolDescriptionRecommendationResult:
     out: ToolDescriptionRecommendationResult = {}  # type: ignore[typeddict-item]
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore.types.tool_description_result_list
 
         out["tools"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> ToolDescriptionRecommendationResult:
                 data["tools"]
             )
         )
-    if "configurationBundle" in data:
+    if data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore.types.recommendation_result_configuration_bundle
 
         out["configuration_bundle"] = (
@@ -74,8 +74,8 @@ def deserialize_json(data: dict) -> ToolDescriptionRecommendationResult:
                 data["configurationBundle"]
             )
         )
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         out["error_code"] = data["errorCode"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

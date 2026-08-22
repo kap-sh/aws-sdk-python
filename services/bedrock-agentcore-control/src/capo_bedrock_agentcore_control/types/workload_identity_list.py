@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> WorkloadIdentityList:
 
     out: WorkloadIdentityList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.workload_identity_type.deserialize_json(
                 item

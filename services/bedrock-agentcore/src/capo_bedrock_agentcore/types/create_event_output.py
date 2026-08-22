@@ -26,7 +26,7 @@ def serialize_json(value: CreateEventOutput) -> dict:
 
 def deserialize_json(data: dict) -> CreateEventOutput:
     out: CreateEventOutput = {}  # type: ignore[typeddict-item]
-    if "event" in data:
+    if data.get("event") is not None:
         import capo_bedrock_agentcore.types.event
 
         out["event"] = capo_bedrock_agentcore.types.event.deserialize_json(

@@ -77,13 +77,13 @@ def serialize_json(value: CreateRegistryRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateRegistryRequest:
     out: CreateRegistryRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateRegistryRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.registry_authorizer_type
 
         out["authorizer_type"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> CreateRegistryRequest:
                 data["authorizerType"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -99,9 +99,9 @@ def deserialize_json(data: dict) -> CreateRegistryRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "approvalConfiguration" in data:
+    if data.get("approvalConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.approval_configuration
 
         out["approval_configuration"] = (

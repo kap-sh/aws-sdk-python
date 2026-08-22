@@ -27,7 +27,7 @@ def serialize_json(value: UrlConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> UrlConfiguration:
     out: UrlConfiguration = {}  # type: ignore[typeddict-item]
-    if "seedUrls" in data:
+    if data.get("seedUrls") is not None:
         import capo_bedrock_agent.types.seed_urls
 
         out["seed_urls"] = capo_bedrock_agent.types.seed_urls.deserialize_json(

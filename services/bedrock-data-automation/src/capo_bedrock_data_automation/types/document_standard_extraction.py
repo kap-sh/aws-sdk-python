@@ -40,7 +40,7 @@ def serialize_json(value: DocumentStandardExtraction) -> dict:
 
 def deserialize_json(data: dict) -> DocumentStandardExtraction:
     out: DocumentStandardExtraction = {}  # type: ignore[typeddict-item]
-    if "granularity" in data:
+    if data.get("granularity") is not None:
         import capo_bedrock_data_automation.types.document_extraction_granularity
 
         out["granularity"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> DocumentStandardExtraction:
         )
     else:
         raise DeserializationError("DocumentStandardExtraction.granularity required")
-    if "boundingBox" in data:
+    if data.get("boundingBox") is not None:
         import capo_bedrock_data_automation.types.document_bounding_box
 
         out["bounding_box"] = (

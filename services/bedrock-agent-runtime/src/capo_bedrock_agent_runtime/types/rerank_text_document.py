@@ -18,6 +18,6 @@ def serialize_json(value: RerankTextDocument) -> dict:
 
 def deserialize_json(data: dict) -> RerankTextDocument:
     out: RerankTextDocument = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     return out

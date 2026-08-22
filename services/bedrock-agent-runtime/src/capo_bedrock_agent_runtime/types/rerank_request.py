@@ -55,7 +55,7 @@ def serialize_json(value: RerankRequest) -> dict:
 
 def deserialize_json(data: dict) -> RerankRequest:
     out: RerankRequest = {}  # type: ignore[typeddict-item]
-    if "queries" in data:
+    if data.get("queries") is not None:
         import capo_bedrock_agent_runtime.types.rerank_queries_list
 
         out["queries"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> RerankRequest:
         )
     else:
         raise DeserializationError("RerankRequest.queries required")
-    if "sources" in data:
+    if data.get("sources") is not None:
         import capo_bedrock_agent_runtime.types.rerank_sources_list
 
         out["sources"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> RerankRequest:
         )
     else:
         raise DeserializationError("RerankRequest.sources required")
-    if "rerankingConfiguration" in data:
+    if data.get("rerankingConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.reranking_configuration
 
         out["reranking_configuration"] = (
@@ -85,6 +85,6 @@ def deserialize_json(data: dict) -> RerankRequest:
         )
     else:
         raise DeserializationError("RerankRequest.reranking_configuration required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -57,15 +57,15 @@ def serialize_json(value: CreateAgentAliasRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateAgentAliasRequest:
     out: CreateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-    if "agentAliasName" in data:
+    if data.get("agentAliasName") is not None:
         out["agent_alias_name"] = data["agentAliasName"]
     else:
         raise DeserializationError("CreateAgentAliasRequest.agent_alias_name required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.agent_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> CreateAgentAliasRequest:
                 data["routingConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent.types.tags_map
 
         out["tags"] = capo_bedrock_agent.types.tags_map.deserialize_json(data["tags"])

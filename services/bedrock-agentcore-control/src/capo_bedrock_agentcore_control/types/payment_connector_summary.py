@@ -60,17 +60,17 @@ def serialize_json(value: PaymentConnectorSummary) -> dict:
 
 def deserialize_json(data: dict) -> PaymentConnectorSummary:
     out: PaymentConnectorSummary = {}  # type: ignore[typeddict-item]
-    if "paymentConnectorId" in data:
+    if data.get("paymentConnectorId") is not None:
         out["payment_connector_id"] = data["paymentConnectorId"]
     else:
         raise DeserializationError(
             "PaymentConnectorSummary.payment_connector_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PaymentConnectorSummary.name required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.payment_connector_type
 
         out["type"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> PaymentConnectorSummary:
         )
     else:
         raise DeserializationError("PaymentConnectorSummary.type required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.payment_connector_status
 
         out["status"] = (
@@ -90,7 +90,7 @@ def deserialize_json(data: dict) -> PaymentConnectorSummary:
         )
     else:
         raise DeserializationError("PaymentConnectorSummary.status required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (

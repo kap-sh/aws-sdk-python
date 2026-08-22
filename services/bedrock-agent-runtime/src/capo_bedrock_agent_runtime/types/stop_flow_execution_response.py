@@ -37,9 +37,9 @@ def serialize_json(value: StopFlowExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StopFlowExecutionResponse:
     out: StopFlowExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_status
 
         out["status"] = (

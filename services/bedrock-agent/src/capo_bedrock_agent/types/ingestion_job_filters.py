@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> IngestionJobFilters:
 
     out: IngestionJobFilters = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.ingestion_job_filter.deserialize_json(item))
     return out

@@ -18,6 +18,6 @@ def serialize_json(value: SessionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SessionConfiguration:
     out: SessionConfiguration = {}  # type: ignore[typeddict-item]
-    if "sessionTimeoutInSeconds" in data:
+    if data.get("sessionTimeoutInSeconds") is not None:
         out["session_timeout_in_seconds"] = data["sessionTimeoutInSeconds"]
     return out

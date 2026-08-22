@@ -37,14 +37,14 @@ def serialize_json(value: ParameterDetail) -> dict:
 
 def deserialize_json(data: dict) -> ParameterDetail:
     out: ParameterDetail = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.type
 
         out["type"] = capo_bedrock_agent.types.type.deserialize_json(data["type"])
     else:
         raise DeserializationError("ParameterDetail.type required")
-    if "required" in data:
+    if data.get("required") is not None:
         out["required"] = data["required"]
     return out

@@ -28,11 +28,11 @@ def serialize_json(value: WorkloadIdentityType) -> dict:
 
 def deserialize_json(data: dict) -> WorkloadIdentityType:
     out: WorkloadIdentityType = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("WorkloadIdentityType.name required")
-    if "workloadIdentityArn" in data:
+    if data.get("workloadIdentityArn") is not None:
         out["workload_identity_arn"] = data["workloadIdentityArn"]
     else:
         raise DeserializationError(

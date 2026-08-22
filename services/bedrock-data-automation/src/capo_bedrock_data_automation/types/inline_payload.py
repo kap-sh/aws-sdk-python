@@ -51,7 +51,7 @@ def serialize_json(value: InlinePayload) -> dict:
 
 
 def deserialize_json(data: dict) -> InlinePayload:
-    if "upsertEntitiesInfo" in data:
+    if data.get("upsertEntitiesInfo") is not None:
         import capo_bedrock_data_automation.types.upsert_entities_info
 
         return {
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> InlinePayload:
                 data["upsertEntitiesInfo"]
             )
         }
-    elif "deleteEntitiesInfo" in data:
+    elif data.get("deleteEntitiesInfo") is not None:
         import capo_bedrock_data_automation.types.delete_entities_info
 
         return {

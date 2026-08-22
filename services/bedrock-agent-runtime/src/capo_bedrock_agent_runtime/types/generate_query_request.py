@@ -42,7 +42,7 @@ def serialize_json(value: GenerateQueryRequest) -> dict:
 
 def deserialize_json(data: dict) -> GenerateQueryRequest:
     out: GenerateQueryRequest = {}  # type: ignore[typeddict-item]
-    if "queryGenerationInput" in data:
+    if data.get("queryGenerationInput") is not None:
         import capo_bedrock_agent_runtime.types.query_generation_input
 
         out["query_generation_input"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> GenerateQueryRequest:
         raise DeserializationError(
             "GenerateQueryRequest.query_generation_input required"
         )
-    if "transformationConfiguration" in data:
+    if data.get("transformationConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.transformation_configuration
 
         out["transformation_configuration"] = (

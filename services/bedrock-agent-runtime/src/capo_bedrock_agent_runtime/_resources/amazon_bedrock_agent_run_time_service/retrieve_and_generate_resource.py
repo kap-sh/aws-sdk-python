@@ -85,10 +85,11 @@ class RetrieveAndGenerateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.retrieve_and_generate_request.RetrieveAndGenerateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.retrieve_and_generate_request.RetrieveAndGenerateRequest = {
+            "input": input
+        }
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["input"] = input
         if retrieve_and_generate_configuration is not None:
             input_["retrieve_and_generate_configuration"] = (
                 retrieve_and_generate_configuration
@@ -101,6 +102,7 @@ class RetrieveAndGenerateResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -160,10 +162,11 @@ class AsyncRetrieveAndGenerateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.retrieve_and_generate_request.RetrieveAndGenerateRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.retrieve_and_generate_request.RetrieveAndGenerateRequest = {
+            "input": input
+        }
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["input"] = input
         if retrieve_and_generate_configuration is not None:
             input_["retrieve_and_generate_configuration"] = (
                 retrieve_and_generate_configuration
@@ -176,4 +179,5 @@ class AsyncRetrieveAndGenerateResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

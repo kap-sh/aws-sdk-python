@@ -79,13 +79,13 @@ def serialize_json(value: CreateFlowAliasResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateFlowAliasResponse:
     out: CreateFlowAliasResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateFlowAliasResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -97,7 +97,7 @@ def deserialize_json(data: dict) -> CreateFlowAliasResponse:
         raise DeserializationError(
             "CreateFlowAliasResponse.routing_configuration required"
         )
-    if "concurrencyConfiguration" in data:
+    if data.get("concurrencyConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_concurrency_configuration
 
         out["concurrency_configuration"] = (
@@ -105,19 +105,19 @@ def deserialize_json(data: dict) -> CreateFlowAliasResponse:
                 data["concurrencyConfiguration"]
             )
         )
-    if "flowId" in data:
+    if data.get("flowId") is not None:
         out["flow_id"] = data["flowId"]
     else:
         raise DeserializationError("CreateFlowAliasResponse.flow_id required")
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("CreateFlowAliasResponse.id required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("CreateFlowAliasResponse.arn required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> CreateFlowAliasResponse:
         )
     else:
         raise DeserializationError("CreateFlowAliasResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

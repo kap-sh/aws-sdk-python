@@ -34,13 +34,13 @@ def serialize_json(value: HarnessContentBlockDeltaEvent) -> dict:
 
 def deserialize_json(data: dict) -> HarnessContentBlockDeltaEvent:
     out: HarnessContentBlockDeltaEvent = {}  # type: ignore[typeddict-item]
-    if "contentBlockIndex" in data:
+    if data.get("contentBlockIndex") is not None:
         out["content_block_index"] = data["contentBlockIndex"]
     else:
         raise DeserializationError(
             "HarnessContentBlockDeltaEvent.content_block_index required"
         )
-    if "delta" in data:
+    if data.get("delta") is not None:
         import capo_bedrock_agentcore.types.harness_content_block_delta
 
         out["delta"] = (

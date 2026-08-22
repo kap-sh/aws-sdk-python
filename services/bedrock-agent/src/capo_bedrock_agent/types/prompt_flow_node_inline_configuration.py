@@ -59,7 +59,7 @@ def serialize_json(value: PromptFlowNodeInlineConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PromptFlowNodeInlineConfiguration:
     out: PromptFlowNodeInlineConfiguration = {}  # type: ignore[typeddict-item]
-    if "templateType" in data:
+    if data.get("templateType") is not None:
         import capo_bedrock_agent.types.prompt_template_type
 
         out["template_type"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> PromptFlowNodeInlineConfiguration:
         )
     else:
         out["template_type"] = "TEXT"
-    if "templateConfiguration" in data:
+    if data.get("templateConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_template_configuration
 
         out["template_configuration"] = (
@@ -81,11 +81,11 @@ def deserialize_json(data: dict) -> PromptFlowNodeInlineConfiguration:
         raise DeserializationError(
             "PromptFlowNodeInlineConfiguration.template_configuration required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         out["model_id"] = ""
-    if "inferenceConfiguration" in data:
+    if data.get("inferenceConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_inference_configuration
 
         out["inference_configuration"] = (
@@ -93,6 +93,6 @@ def deserialize_json(data: dict) -> PromptFlowNodeInlineConfiguration:
                 data["inferenceConfiguration"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
     return out

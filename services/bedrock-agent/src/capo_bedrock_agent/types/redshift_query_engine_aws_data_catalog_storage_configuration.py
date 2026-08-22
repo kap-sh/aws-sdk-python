@@ -36,7 +36,7 @@ def deserialize_json(
     data: dict,
 ) -> RedshiftQueryEngineAwsDataCatalogStorageConfiguration:
     out: RedshiftQueryEngineAwsDataCatalogStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "tableNames" in data:
+    if data.get("tableNames") is not None:
         import capo_bedrock_agent.types.aws_data_catalog_table_names
 
         out["table_names"] = (

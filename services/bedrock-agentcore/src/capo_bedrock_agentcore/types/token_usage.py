@@ -26,10 +26,10 @@ def serialize_json(value: TokenUsage) -> dict:
 
 def deserialize_json(data: dict) -> TokenUsage:
     out: TokenUsage = {}  # type: ignore[typeddict-item]
-    if "inputTokens" in data:
+    if data.get("inputTokens") is not None:
         out["input_tokens"] = data["inputTokens"]
-    if "outputTokens" in data:
+    if data.get("outputTokens") is not None:
         out["output_tokens"] = data["outputTokens"]
-    if "totalTokens" in data:
+    if data.get("totalTokens") is not None:
         out["total_tokens"] = data["totalTokens"]
     return out

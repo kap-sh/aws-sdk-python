@@ -32,7 +32,7 @@ def serialize_json(value: EvaluationInput) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationInput:
-    if "sessionSpans" in data:
+    if data.get("sessionSpans") is not None:
         import capo_bedrock_agentcore.types.spans
 
         return {

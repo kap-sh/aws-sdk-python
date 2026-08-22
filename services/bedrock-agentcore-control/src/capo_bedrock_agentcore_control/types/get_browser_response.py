@@ -137,23 +137,23 @@ def serialize_json(value: GetBrowserResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetBrowserResponse:
     out: GetBrowserResponse = {}  # type: ignore[typeddict-item]
-    if "browserId" in data:
+    if data.get("browserId") is not None:
         out["browser_id"] = data["browserId"]
     else:
         raise DeserializationError("GetBrowserResponse.browser_id required")
-    if "browserArn" in data:
+    if data.get("browserArn") is not None:
         out["browser_arn"] = data["browserArn"]
     else:
         raise DeserializationError("GetBrowserResponse.browser_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetBrowserResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.browser_network_configuration
 
         out["network_configuration"] = (
@@ -163,7 +163,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
         )
     else:
         raise DeserializationError("GetBrowserResponse.network_configuration required")
-    if "recording" in data:
+    if data.get("recording") is not None:
         import capo_bedrock_agentcore_control.types.recording_config
 
         out["recording"] = (
@@ -171,7 +171,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
                 data["recording"]
             )
         )
-    if "browserSigning" in data:
+    if data.get("browserSigning") is not None:
         import capo_bedrock_agentcore_control.types.browser_signing_config_output
 
         out["browser_signing"] = (
@@ -179,7 +179,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
                 data["browserSigning"]
             )
         )
-    if "enterprisePolicies" in data:
+    if data.get("enterprisePolicies") is not None:
         import capo_bedrock_agentcore_control.types.browser_enterprise_policies
 
         out["enterprise_policies"] = (
@@ -187,7 +187,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
                 data["enterprisePolicies"]
             )
         )
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore_control.types.certificates
 
         out["certificates"] = (
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
                 data["certificates"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_status
 
         out["status"] = (
@@ -205,9 +205,9 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
         )
     else:
         raise DeserializationError("GetBrowserResponse.status required")
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -217,7 +217,7 @@ def deserialize_json(data: dict) -> GetBrowserResponse:
         )
     else:
         raise DeserializationError("GetBrowserResponse.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (

@@ -24,7 +24,7 @@ def serialize_json(value: CreateRegistryResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateRegistryResponse:
     out: CreateRegistryResponse = {}  # type: ignore[typeddict-item]
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError("CreateRegistryResponse.registry_arn required")

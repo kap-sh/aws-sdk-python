@@ -27,13 +27,13 @@ def serialize_json(value: SemanticOverrideExtractionConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> SemanticOverrideExtractionConfigurationInput:
     out: SemanticOverrideExtractionConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "appendToPrompt" in data:
+    if data.get("appendToPrompt") is not None:
         out["append_to_prompt"] = data["appendToPrompt"]
     else:
         raise DeserializationError(
             "SemanticOverrideExtractionConfigurationInput.append_to_prompt required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(

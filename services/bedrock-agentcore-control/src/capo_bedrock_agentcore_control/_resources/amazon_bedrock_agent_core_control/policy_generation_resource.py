@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -97,19 +98,22 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.start_policy_generation_request.StartPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["resource"] = resource
-        input_["content"] = content
-        input_["name"] = name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.start_policy_generation_request.StartPolicyGenerationRequest = {
+            "policy_engine_id": policy_engine_id,
+            "resource": resource,
+            "content": content,
+            "name": name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -149,15 +153,17 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_generation_request.GetPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_generation_request.GetPolicyGenerationRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -203,18 +209,20 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generations_request.ListPolicyGenerationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_generations_request.ListPolicyGenerationsRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_policy_generation_summary(
@@ -254,15 +262,17 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_generation_summary_request.GetPolicyGenerationSummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_generation_summary_request.GetPolicyGenerationSummaryRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policy_generation_assets(
@@ -310,9 +320,10 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generation_assets_request.ListPolicyGenerationAssetsRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.list_policy_generation_assets_request.ListPolicyGenerationAssetsRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -323,6 +334,7 @@ class PolicyGenerationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policy_generation_summaries(
@@ -368,18 +380,20 @@ class PolicyGenerationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generation_summaries_request.ListPolicyGenerationSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_generation_summaries_request.ListPolicyGenerationSummariesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -435,19 +449,22 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.start_policy_generation_request.StartPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["resource"] = resource
-        input_["content"] = content
-        input_["name"] = name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.start_policy_generation_request.StartPolicyGenerationRequest = {
+            "policy_engine_id": policy_engine_id,
+            "resource": resource,
+            "content": content,
+            "name": name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -488,15 +505,17 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_generation_request.GetPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_generation_request.GetPolicyGenerationRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -543,18 +562,20 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generations_request.ListPolicyGenerationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_generations_request.ListPolicyGenerationsRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_policy_generation_summary(
@@ -595,15 +616,17 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_generation_summary_request.GetPolicyGenerationSummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_generation_summary_request.GetPolicyGenerationSummaryRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policy_generation_assets(
@@ -652,9 +675,10 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generation_assets_request.ListPolicyGenerationAssetsRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_generation_id"] = policy_generation_id
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.list_policy_generation_assets_request.ListPolicyGenerationAssetsRequest = {
+            "policy_generation_id": policy_generation_id,
+            "policy_engine_id": policy_engine_id,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -665,6 +689,7 @@ class AsyncPolicyGenerationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policy_generation_summaries(
@@ -711,16 +736,18 @@ class AsyncPolicyGenerationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_generation_summaries_request.ListPolicyGenerationSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_generation_summaries_request.ListPolicyGenerationSummariesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

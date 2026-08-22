@@ -37,7 +37,7 @@ def serialize_json(value: ListAgentAliasesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListAgentAliasesResponse:
     out: ListAgentAliasesResponse = {}  # type: ignore[typeddict-item]
-    if "agentAliasSummaries" in data:
+    if data.get("agentAliasSummaries") is not None:
         import capo_bedrock_agent.types.agent_alias_summaries
 
         out["agent_alias_summaries"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListAgentAliasesResponse:
         raise DeserializationError(
             "ListAgentAliasesResponse.agent_alias_summaries required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

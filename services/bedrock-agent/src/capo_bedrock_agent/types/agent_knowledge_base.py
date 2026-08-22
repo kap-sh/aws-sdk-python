@@ -62,23 +62,23 @@ def serialize_json(value: AgentKnowledgeBase) -> dict:
 
 def deserialize_json(data: dict) -> AgentKnowledgeBase:
     out: AgentKnowledgeBase = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("AgentKnowledgeBase.agent_id required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("AgentKnowledgeBase.agent_version required")
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("AgentKnowledgeBase.knowledge_base_id required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("AgentKnowledgeBase.description required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> AgentKnowledgeBase:
         )
     else:
         raise DeserializationError("AgentKnowledgeBase.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> AgentKnowledgeBase:
         )
     else:
         raise DeserializationError("AgentKnowledgeBase.updated_at required")
-    if "knowledgeBaseState" in data:
+    if data.get("knowledgeBaseState") is not None:
         import capo_bedrock_agent.types.knowledge_base_state
 
         out["knowledge_base_state"] = (

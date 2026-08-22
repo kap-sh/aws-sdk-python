@@ -56,7 +56,7 @@ def serialize_json(value: SensitiveDataConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SensitiveDataConfiguration:
     out: SensitiveDataConfiguration = {}  # type: ignore[typeddict-item]
-    if "detectionMode" in data:
+    if data.get("detectionMode") is not None:
         import capo_bedrock_data_automation.types.sensitive_data_detection_mode
 
         out["detection_mode"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> SensitiveDataConfiguration:
         )
     else:
         raise DeserializationError("SensitiveDataConfiguration.detection_mode required")
-    if "detectionScope" in data:
+    if data.get("detectionScope") is not None:
         import capo_bedrock_data_automation.types.sensitive_data_detection_scope
 
         out["detection_scope"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> SensitiveDataConfiguration:
                 data["detectionScope"]
             )
         )
-    if "piiEntitiesConfiguration" in data:
+    if data.get("piiEntitiesConfiguration") is not None:
         import capo_bedrock_data_automation.types.pii_entities_configuration
 
         out["pii_entities_configuration"] = (

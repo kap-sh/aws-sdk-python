@@ -26,7 +26,7 @@ def serialize_json(value: KeyShortcutArguments) -> dict:
 
 def deserialize_json(data: dict) -> KeyShortcutArguments:
     out: KeyShortcutArguments = {}  # type: ignore[typeddict-item]
-    if "keys" in data:
+    if data.get("keys") is not None:
         import capo_bedrock_agentcore.types.key_list
 
         out["keys"] = capo_bedrock_agentcore.types.key_list.deserialize_json(

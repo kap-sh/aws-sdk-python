@@ -72,17 +72,17 @@ def serialize_json(value: GetPolicyEngineSummaryResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetPolicyEngineSummaryResponse:
     out: GetPolicyEngineSummaryResponse = {}  # type: ignore[typeddict-item]
-    if "policyEngineId" in data:
+    if data.get("policyEngineId") is not None:
         out["policy_engine_id"] = data["policyEngineId"]
     else:
         raise DeserializationError(
             "GetPolicyEngineSummaryResponse.policy_engine_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetPolicyEngineSummaryResponse.name required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> GetPolicyEngineSummaryResponse:
         )
     else:
         raise DeserializationError("GetPolicyEngineSummaryResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -102,13 +102,13 @@ def deserialize_json(data: dict) -> GetPolicyEngineSummaryResponse:
         )
     else:
         raise DeserializationError("GetPolicyEngineSummaryResponse.updated_at required")
-    if "policyEngineArn" in data:
+    if data.get("policyEngineArn") is not None:
         out["policy_engine_arn"] = data["policyEngineArn"]
     else:
         raise DeserializationError(
             "GetPolicyEngineSummaryResponse.policy_engine_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.policy_engine_status
 
         out["status"] = (
@@ -118,6 +118,6 @@ def deserialize_json(data: dict) -> GetPolicyEngineSummaryResponse:
         )
     else:
         raise DeserializationError("GetPolicyEngineSummaryResponse.status required")
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
     return out

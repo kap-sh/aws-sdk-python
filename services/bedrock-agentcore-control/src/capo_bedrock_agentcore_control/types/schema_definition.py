@@ -71,7 +71,7 @@ def serialize_json(value: SchemaDefinition) -> dict:
 
 def deserialize_json(data: dict) -> SchemaDefinition:
     out: SchemaDefinition = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.schema_type
 
         out["type"] = capo_bedrock_agentcore_control.types.schema_type.deserialize_json(
@@ -79,7 +79,7 @@ def deserialize_json(data: dict) -> SchemaDefinition:
         )
     else:
         raise DeserializationError("SchemaDefinition.type required")
-    if "properties" in data:
+    if data.get("properties") is not None:
         import capo_bedrock_agentcore_control.types.schema_properties
 
         out["properties"] = (
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> SchemaDefinition:
                 data["properties"]
             )
         )
-    if "required" in data:
+    if data.get("required") is not None:
         import capo_bedrock_agentcore_control.types.required_properties
 
         out["required"] = (
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> SchemaDefinition:
                 data["required"]
             )
         )
-    if "items" in data:
+    if data.get("items") is not None:
         import capo_bedrock_agentcore_control.types.schema_definition
 
         out["items"] = (
@@ -103,6 +103,6 @@ def deserialize_json(data: dict) -> SchemaDefinition:
                 data["items"]
             )
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

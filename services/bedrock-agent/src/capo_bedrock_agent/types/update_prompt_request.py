@@ -59,17 +59,17 @@ def serialize_json(value: UpdatePromptRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdatePromptRequest:
     out: UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdatePromptRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "defaultVariant" in data:
+    if data.get("defaultVariant") is not None:
         out["default_variant"] = data["defaultVariant"]
-    if "variants" in data:
+    if data.get("variants") is not None:
         import capo_bedrock_agent.types.prompt_variant_list
 
         out["variants"] = capo_bedrock_agent.types.prompt_variant_list.deserialize_json(

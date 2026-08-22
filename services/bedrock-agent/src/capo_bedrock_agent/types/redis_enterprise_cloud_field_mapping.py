@@ -30,19 +30,19 @@ def serialize_json(value: RedisEnterpriseCloudFieldMapping) -> dict:
 
 def deserialize_json(data: dict) -> RedisEnterpriseCloudFieldMapping:
     out: RedisEnterpriseCloudFieldMapping = {}  # type: ignore[typeddict-item]
-    if "vectorField" in data:
+    if data.get("vectorField") is not None:
         out["vector_field"] = data["vectorField"]
     else:
         raise DeserializationError(
             "RedisEnterpriseCloudFieldMapping.vector_field required"
         )
-    if "textField" in data:
+    if data.get("textField") is not None:
         out["text_field"] = data["textField"]
     else:
         raise DeserializationError(
             "RedisEnterpriseCloudFieldMapping.text_field required"
         )
-    if "metadataField" in data:
+    if data.get("metadataField") is not None:
         out["metadata_field"] = data["metadataField"]
     else:
         raise DeserializationError(

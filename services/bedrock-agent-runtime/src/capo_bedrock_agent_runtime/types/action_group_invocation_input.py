@@ -79,13 +79,13 @@ def serialize_json(value: ActionGroupInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> ActionGroupInvocationInput:
     out: ActionGroupInvocationInput = {}  # type: ignore[typeddict-item]
-    if "actionGroupName" in data:
+    if data.get("actionGroupName") is not None:
         out["action_group_name"] = data["actionGroupName"]
-    if "verb" in data:
+    if data.get("verb") is not None:
         out["verb"] = data["verb"]
-    if "apiPath" in data:
+    if data.get("apiPath") is not None:
         out["api_path"] = data["apiPath"]
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         import capo_bedrock_agent_runtime.types.parameters
 
         out["parameters"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> ActionGroupInvocationInput:
                 data["parameters"]
             )
         )
-    if "requestBody" in data:
+    if data.get("requestBody") is not None:
         import capo_bedrock_agent_runtime.types.request_body
 
         out["request_body"] = (
@@ -101,9 +101,9 @@ def deserialize_json(data: dict) -> ActionGroupInvocationInput:
                 data["requestBody"]
             )
         )
-    if "function" in data:
+    if data.get("function") is not None:
         out["function"] = data["function"]
-    if "executionType" in data:
+    if data.get("executionType") is not None:
         import capo_bedrock_agent_runtime.types.execution_type
 
         out["execution_type"] = (
@@ -111,6 +111,6 @@ def deserialize_json(data: dict) -> ActionGroupInvocationInput:
                 data["executionType"]
             )
         )
-    if "invocationId" in data:
+    if data.get("invocationId") is not None:
         out["invocation_id"] = data["invocationId"]
     return out

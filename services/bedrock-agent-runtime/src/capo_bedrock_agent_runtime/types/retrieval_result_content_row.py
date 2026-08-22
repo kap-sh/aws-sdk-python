@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> RetrievalResultContentRow:
 
     out: RetrievalResultContentRow = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.retrieval_result_content_column.deserialize_json(
                 item

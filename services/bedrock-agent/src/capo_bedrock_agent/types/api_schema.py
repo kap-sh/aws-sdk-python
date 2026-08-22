@@ -37,13 +37,13 @@ def serialize_json(value: APISchema) -> dict:
 
 
 def deserialize_json(data: dict) -> APISchema:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agent.types.s3_identifier
 
         return {
             "s3": capo_bedrock_agent.types.s3_identifier.deserialize_json(data["s3"])
         }
-    elif "payload" in data:
+    elif data.get("payload") is not None:
         return {"payload": data["payload"]}
     else:
         raise DeserializationError("APISchema: no recognized variant key")

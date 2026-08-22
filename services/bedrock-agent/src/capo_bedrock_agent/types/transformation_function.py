@@ -30,7 +30,7 @@ def serialize_json(value: TransformationFunction) -> dict:
 
 def deserialize_json(data: dict) -> TransformationFunction:
     out: TransformationFunction = {}  # type: ignore[typeddict-item]
-    if "transformationLambdaConfiguration" in data:
+    if data.get("transformationLambdaConfiguration") is not None:
         import capo_bedrock_agent.types.transformation_lambda_configuration
 
         out["transformation_lambda_configuration"] = (

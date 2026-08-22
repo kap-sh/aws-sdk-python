@@ -72,23 +72,23 @@ def serialize_json(value: UpdateAgentRuntimeEndpointResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentRuntimeEndpointResponse:
     out: UpdateAgentRuntimeEndpointResponse = {}  # type: ignore[typeddict-item]
-    if "liveVersion" in data:
+    if data.get("liveVersion") is not None:
         out["live_version"] = data["liveVersion"]
-    if "targetVersion" in data:
+    if data.get("targetVersion") is not None:
         out["target_version"] = data["targetVersion"]
-    if "agentRuntimeEndpointArn" in data:
+    if data.get("agentRuntimeEndpointArn") is not None:
         out["agent_runtime_endpoint_arn"] = data["agentRuntimeEndpointArn"]
     else:
         raise DeserializationError(
             "UpdateAgentRuntimeEndpointResponse.agent_runtime_endpoint_arn required"
         )
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError(
             "UpdateAgentRuntimeEndpointResponse.agent_runtime_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_endpoint_status
 
         out["status"] = (
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeEndpointResponse:
         )
     else:
         raise DeserializationError("UpdateAgentRuntimeEndpointResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeEndpointResponse:
         raise DeserializationError(
             "UpdateAgentRuntimeEndpointResponse.created_at required"
         )
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (

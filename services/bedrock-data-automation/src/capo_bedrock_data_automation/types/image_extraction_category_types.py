@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> ImageExtractionCategoryTypes:
 
     out: ImageExtractionCategoryTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.image_extraction_category_type.deserialize_json(
                 item

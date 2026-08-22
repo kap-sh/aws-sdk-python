@@ -44,13 +44,13 @@ def serialize_json(value: LlmExtractionConfig) -> dict:
 
 def deserialize_json(data: dict) -> LlmExtractionConfig:
     out: LlmExtractionConfig = {}  # type: ignore[typeddict-item]
-    if "llmExtractionInstruction" in data:
+    if data.get("llmExtractionInstruction") is not None:
         out["llm_extraction_instruction"] = data["llmExtractionInstruction"]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("LlmExtractionConfig.definition required")
-    if "validation" in data:
+    if data.get("validation") is not None:
         import capo_bedrock_agentcore_control.types.validation
 
         out["validation"] = (

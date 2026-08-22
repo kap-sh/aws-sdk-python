@@ -32,7 +32,17 @@ def serialize_json(value: FilterValue) -> dict:
     if "stringValue" in value:
         return {"stringValue": value["stringValue"]}
     elif "doubleValue" in value:
-        return {"doubleValue": value["doubleValue"]}
+        return {
+            "doubleValue": (
+                "NaN"
+                if value["doubleValue"] != value["doubleValue"]
+                else "Infinity"
+                if value["doubleValue"] == float("inf")
+                else "-Infinity"
+                if value["doubleValue"] == float("-inf")
+                else value["doubleValue"]
+            )
+        }
     elif "booleanValue" in value:
         return {"booleanValue": value["booleanValue"]}
     else:
@@ -40,11 +50,11 @@ def serialize_json(value: FilterValue) -> dict:
 
 
 def deserialize_json(data: dict) -> FilterValue:
-    if "stringValue" in data:
+    if data.get("stringValue") is not None:
         return {"stringValue": data["stringValue"]}
-    elif "doubleValue" in data:
-        return {"doubleValue": data["doubleValue"]}
-    elif "booleanValue" in data:
+    elif data.get("doubleValue") is not None:
+        return {"doubleValue": float(data["doubleValue"])}
+    elif data.get("booleanValue") is not None:
         return {"booleanValue": data["booleanValue"]}
     else:
         raise DeserializationError("FilterValue: no recognized variant key")

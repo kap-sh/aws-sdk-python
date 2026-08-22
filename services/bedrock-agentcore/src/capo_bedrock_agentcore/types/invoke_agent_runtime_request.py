@@ -59,7 +59,7 @@ def serialize_json(value: InvokeAgentRuntimeRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeAgentRuntimeRequest:
     out: InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-    if "payload" in data:
+    if data.get("payload") is not None:
         import capo_bedrock_agentcore.types.body
 
         out["payload"] = capo_bedrock_agentcore.types.body.deserialize_json(

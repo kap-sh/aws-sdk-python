@@ -53,7 +53,7 @@ def serialize_json(value: GatewayInterceptorConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GatewayInterceptorConfiguration:
     out: GatewayInterceptorConfiguration = {}  # type: ignore[typeddict-item]
-    if "interceptor" in data:
+    if data.get("interceptor") is not None:
         import capo_bedrock_agentcore_control.types.interceptor_configuration
 
         out["interceptor"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> GatewayInterceptorConfiguration:
         raise DeserializationError(
             "GatewayInterceptorConfiguration.interceptor required"
         )
-    if "interceptionPoints" in data:
+    if data.get("interceptionPoints") is not None:
         import capo_bedrock_agentcore_control.types.gateway_interception_points
 
         out["interception_points"] = (
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> GatewayInterceptorConfiguration:
         raise DeserializationError(
             "GatewayInterceptorConfiguration.interception_points required"
         )
-    if "inputConfiguration" in data:
+    if data.get("inputConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.interceptor_input_configuration
 
         out["input_configuration"] = (

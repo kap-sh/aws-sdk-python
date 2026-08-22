@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -102,23 +103,26 @@ class PaymentInstrumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_payment_instrument_request.CreatePaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.create_payment_instrument_request.CreatePaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_type": payment_instrument_type,
+            "payment_instrument_details": payment_instrument_details,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_type"] = payment_instrument_type
-        input_["payment_instrument_details"] = payment_instrument_details
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -168,21 +172,23 @@ class PaymentInstrumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_instrument_request.GetPaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_instrument_request.GetPaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_instrument_id": payment_instrument_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if payment_connector_id is not None:
             input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -226,18 +232,20 @@ class PaymentInstrumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_payment_instrument_request.DeletePaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.delete_payment_instrument_request.DeletePaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_id": payment_instrument_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -290,12 +298,13 @@ class PaymentInstrumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_payment_instruments_request.ListPaymentInstrumentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_payment_instruments_request.ListPaymentInstrumentsRequest = {
+            "payment_manager_arn": payment_manager_arn
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if payment_connector_id is not None:
             input_["payment_connector_id"] = payment_connector_id
         if next_token is not None:
@@ -308,6 +317,7 @@ class PaymentInstrumentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_payment_instrument_balance(
@@ -359,22 +369,24 @@ class PaymentInstrumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_instrument_balance_request.GetPaymentInstrumentBalanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_instrument_balance_request.GetPaymentInstrumentBalanceRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_id": payment_instrument_id,
+            "chain": chain,
+            "token": token,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
-        input_["chain"] = chain
-        input_["token"] = token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -435,23 +447,26 @@ class AsyncPaymentInstrumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_payment_instrument_request.CreatePaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.create_payment_instrument_request.CreatePaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_type": payment_instrument_type,
+            "payment_instrument_details": payment_instrument_details,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_type"] = payment_instrument_type
-        input_["payment_instrument_details"] = payment_instrument_details
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -502,21 +517,23 @@ class AsyncPaymentInstrumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_instrument_request.GetPaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_instrument_request.GetPaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_instrument_id": payment_instrument_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if payment_connector_id is not None:
             input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -561,18 +578,20 @@ class AsyncPaymentInstrumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_payment_instrument_request.DeletePaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.delete_payment_instrument_request.DeletePaymentInstrumentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_id": payment_instrument_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -626,12 +645,13 @@ class AsyncPaymentInstrumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_payment_instruments_request.ListPaymentInstrumentsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_payment_instruments_request.ListPaymentInstrumentsRequest = {
+            "payment_manager_arn": payment_manager_arn
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if payment_connector_id is not None:
             input_["payment_connector_id"] = payment_connector_id
         if next_token is not None:
@@ -644,6 +664,7 @@ class AsyncPaymentInstrumentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_payment_instrument_balance(
@@ -696,20 +717,22 @@ class AsyncPaymentInstrumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_instrument_balance_request.GetPaymentInstrumentBalanceRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_instrument_balance_request.GetPaymentInstrumentBalanceRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_connector_id": payment_connector_id,
+            "payment_instrument_id": payment_instrument_id,
+            "chain": chain,
+            "token": token,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_connector_id"] = payment_connector_id
-        input_["payment_instrument_id"] = payment_instrument_id
-        input_["chain"] = chain
-        input_["token"] = token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

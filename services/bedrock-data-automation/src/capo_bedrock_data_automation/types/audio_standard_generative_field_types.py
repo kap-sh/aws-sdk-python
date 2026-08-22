@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> AudioStandardGenerativeFieldTypes:
 
     out: AudioStandardGenerativeFieldTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.audio_standard_generative_field_type.deserialize_json(
                 item

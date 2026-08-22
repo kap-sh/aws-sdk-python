@@ -27,13 +27,13 @@ def serialize_json(value: EpisodicExtractionOverride) -> dict:
 
 def deserialize_json(data: dict) -> EpisodicExtractionOverride:
     out: EpisodicExtractionOverride = {}  # type: ignore[typeddict-item]
-    if "appendToPrompt" in data:
+    if data.get("appendToPrompt") is not None:
         out["append_to_prompt"] = data["appendToPrompt"]
     else:
         raise DeserializationError(
             "EpisodicExtractionOverride.append_to_prompt required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("EpisodicExtractionOverride.model_id required")

@@ -27,8 +27,8 @@ def serialize_json(value: ModifyInvocationConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> ModifyInvocationConfigurationInput:
     out: ModifyInvocationConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "topicArn" in data:
+    if data.get("topicArn") is not None:
         out["topic_arn"] = data["topicArn"]
-    if "payloadDeliveryBucketName" in data:
+    if data.get("payloadDeliveryBucketName") is not None:
         out["payload_delivery_bucket_name"] = data["payloadDeliveryBucketName"]
     return out

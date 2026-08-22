@@ -66,7 +66,7 @@ def serialize_json(value: StandardOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> StandardOutputConfiguration:
     out: StandardOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "document" in data:
+    if data.get("document") is not None:
         import capo_bedrock_data_automation.types.document_standard_output_configuration
 
         out["document"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> StandardOutputConfiguration:
                 data["document"]
             )
         )
-    if "image" in data:
+    if data.get("image") is not None:
         import capo_bedrock_data_automation.types.image_standard_output_configuration
 
         out["image"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> StandardOutputConfiguration:
                 data["image"]
             )
         )
-    if "video" in data:
+    if data.get("video") is not None:
         import capo_bedrock_data_automation.types.video_standard_output_configuration
 
         out["video"] = (
@@ -90,7 +90,7 @@ def deserialize_json(data: dict) -> StandardOutputConfiguration:
                 data["video"]
             )
         )
-    if "audio" in data:
+    if data.get("audio") is not None:
         import capo_bedrock_data_automation.types.audio_standard_output_configuration
 
         out["audio"] = (

@@ -48,17 +48,17 @@ def serialize_json(value: ApiKeyCredentialProviderItem) -> dict:
 
 def deserialize_json(data: dict) -> ApiKeyCredentialProviderItem:
     out: ApiKeyCredentialProviderItem = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ApiKeyCredentialProviderItem.name required")
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(
             "ApiKeyCredentialProviderItem.credential_provider_arn required"
         )
-    if "createdTime" in data:
+    if data.get("createdTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_time"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> ApiKeyCredentialProviderItem:
         )
     else:
         raise DeserializationError("ApiKeyCredentialProviderItem.created_time required")
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_updated_time"] = (

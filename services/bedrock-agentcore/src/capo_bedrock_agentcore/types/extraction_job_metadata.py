@@ -64,11 +64,11 @@ def serialize_json(value: ExtractionJobMetadata) -> dict:
 
 def deserialize_json(data: dict) -> ExtractionJobMetadata:
     out: ExtractionJobMetadata = {}  # type: ignore[typeddict-item]
-    if "jobID" in data:
+    if data.get("jobID") is not None:
         out["job_id"] = data["jobID"]
     else:
         raise DeserializationError("ExtractionJobMetadata.job_id required")
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_agentcore.types.extraction_job_messages
 
         out["messages"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> ExtractionJobMetadata:
         )
     else:
         raise DeserializationError("ExtractionJobMetadata.messages required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.extraction_job_status
 
         out["status"] = (
@@ -86,12 +86,12 @@ def deserialize_json(data: dict) -> ExtractionJobMetadata:
                 data["status"]
             )
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "strategyId" in data:
+    if data.get("strategyId") is not None:
         out["strategy_id"] = data["strategyId"]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
     return out

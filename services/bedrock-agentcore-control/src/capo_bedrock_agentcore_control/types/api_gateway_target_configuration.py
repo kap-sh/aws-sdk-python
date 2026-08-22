@@ -36,15 +36,15 @@ def serialize_json(value: ApiGatewayTargetConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ApiGatewayTargetConfiguration:
     out: ApiGatewayTargetConfiguration = {}  # type: ignore[typeddict-item]
-    if "restApiId" in data:
+    if data.get("restApiId") is not None:
         out["rest_api_id"] = data["restApiId"]
     else:
         raise DeserializationError("ApiGatewayTargetConfiguration.rest_api_id required")
-    if "stage" in data:
+    if data.get("stage") is not None:
         out["stage"] = data["stage"]
     else:
         raise DeserializationError("ApiGatewayTargetConfiguration.stage required")
-    if "apiGatewayToolConfiguration" in data:
+    if data.get("apiGatewayToolConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.api_gateway_tool_configuration
 
         out["api_gateway_tool_configuration"] = (

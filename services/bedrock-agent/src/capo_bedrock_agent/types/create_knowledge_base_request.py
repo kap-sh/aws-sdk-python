@@ -68,19 +68,19 @@ def serialize_json(value: CreateKnowledgeBaseRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateKnowledgeBaseRequest:
     out: CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateKnowledgeBaseRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateKnowledgeBaseRequest.role_arn required")
-    if "knowledgeBaseConfiguration" in data:
+    if data.get("knowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.knowledge_base_configuration
 
         out["knowledge_base_configuration"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> CreateKnowledgeBaseRequest:
         raise DeserializationError(
             "CreateKnowledgeBaseRequest.knowledge_base_configuration required"
         )
-    if "storageConfiguration" in data:
+    if data.get("storageConfiguration") is not None:
         import capo_bedrock_agent.types.storage_configuration
 
         out["storage_configuration"] = (
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> CreateKnowledgeBaseRequest:
                 data["storageConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent.types.tags_map
 
         out["tags"] = capo_bedrock_agent.types.tags_map.deserialize_json(data["tags"])

@@ -24,7 +24,7 @@ def serialize_json(value: HarnessToolUseBlockDelta) -> dict:
 
 def deserialize_json(data: dict) -> HarnessToolUseBlockDelta:
     out: HarnessToolUseBlockDelta = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     else:
         raise DeserializationError("HarnessToolUseBlockDelta.input required")

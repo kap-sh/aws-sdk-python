@@ -76,29 +76,29 @@ def serialize_json(value: PaymentSession) -> dict:
 
 def deserialize_json(data: dict) -> PaymentSession:
     out: PaymentSession = {}  # type: ignore[typeddict-item]
-    if "paymentSessionId" in data:
+    if data.get("paymentSessionId") is not None:
         out["payment_session_id"] = data["paymentSessionId"]
     else:
         raise DeserializationError("PaymentSession.payment_session_id required")
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError("PaymentSession.payment_manager_arn required")
-    if "limits" in data:
+    if data.get("limits") is not None:
         import capo_bedrock_agentcore.types.session_limits
 
         out["limits"] = capo_bedrock_agentcore.types.session_limits.deserialize_json(
             data["limits"]
         )
-    if "userId" in data:
+    if data.get("userId") is not None:
         out["user_id"] = data["userId"]
     else:
         raise DeserializationError("PaymentSession.user_id required")
-    if "expiryTimeInMinutes" in data:
+    if data.get("expiryTimeInMinutes") is not None:
         out["expiry_time_in_minutes"] = data["expiryTimeInMinutes"]
     else:
         raise DeserializationError("PaymentSession.expiry_time_in_minutes required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> PaymentSession:
         )
     else:
         raise DeserializationError("PaymentSession.created_at required")
-    if "availableLimits" in data:
+    if data.get("availableLimits") is not None:
         import capo_bedrock_agentcore.types.available_limits
 
         out["available_limits"] = (
@@ -116,7 +116,7 @@ def deserialize_json(data: dict) -> PaymentSession:
                 data["availableLimits"]
             )
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["updated_at"] = (

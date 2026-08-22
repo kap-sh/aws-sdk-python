@@ -44,11 +44,11 @@ def serialize_json(value: PrepareAgentResponse) -> dict:
 
 def deserialize_json(data: dict) -> PrepareAgentResponse:
     out: PrepareAgentResponse = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("PrepareAgentResponse.agent_id required")
-    if "agentStatus" in data:
+    if data.get("agentStatus") is not None:
         import capo_bedrock_agent.types.agent_status
 
         out["agent_status"] = capo_bedrock_agent.types.agent_status.deserialize_json(
@@ -56,11 +56,11 @@ def deserialize_json(data: dict) -> PrepareAgentResponse:
         )
     else:
         raise DeserializationError("PrepareAgentResponse.agent_status required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("PrepareAgentResponse.agent_version required")
-    if "preparedAt" in data:
+    if data.get("preparedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["prepared_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

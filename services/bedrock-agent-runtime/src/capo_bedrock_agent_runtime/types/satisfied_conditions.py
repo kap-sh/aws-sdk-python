@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> SatisfiedConditions:
 
     out: SatisfiedConditions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.satisfied_condition.deserialize_json(item)
         )

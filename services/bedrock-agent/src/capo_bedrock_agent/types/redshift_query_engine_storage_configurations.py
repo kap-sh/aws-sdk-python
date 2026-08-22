@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> RedshiftQueryEngineStorageConfigurations:
 
     out: RedshiftQueryEngineStorageConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.redshift_query_engine_storage_configuration.deserialize_json(
                 item

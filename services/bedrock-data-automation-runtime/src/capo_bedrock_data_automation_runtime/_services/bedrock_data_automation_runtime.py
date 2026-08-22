@@ -199,13 +199,14 @@ class BedrockDataAutomationRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_request.InvokeDataAutomationRequest = {}  # type: ignore[typeddict-item]
-        input_["input_configuration"] = input_configuration
+        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_request.InvokeDataAutomationRequest = {
+            "input_configuration": input_configuration,
+            "data_automation_profile_arn": data_automation_profile_arn,
+        }
         if data_automation_configuration is not None:
             input_["data_automation_configuration"] = data_automation_configuration
         if blueprints is not None:
             input_["blueprints"] = blueprints
-        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if output_configuration is not None:
@@ -216,6 +217,7 @@ class BedrockDataAutomationRuntimeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_tags_for_resource(
@@ -250,14 +252,16 @@ class BedrockDataAutomationRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_bedrock_data_automation_runtime.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -294,15 +298,17 @@ class BedrockDataAutomationRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_bedrock_data_automation_runtime.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -338,15 +344,17 @@ class BedrockDataAutomationRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_bedrock_data_automation_runtime.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

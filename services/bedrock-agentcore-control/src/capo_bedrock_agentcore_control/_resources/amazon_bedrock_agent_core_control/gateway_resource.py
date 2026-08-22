@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -133,18 +134,20 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_gateway_request.CreateGatewayRequest = {
+            "name": name,
+            "role_arn": role_arn,
+            "authorizer_type": authorizer_type,
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["role_arn"] = role_arn
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if protocol_type is not None:
             input_["protocol_type"] = protocol_type
         if protocol_configuration is not None:
             input_["protocol_configuration"] = protocol_configuration
-        input_["authorizer_type"] = authorizer_type
         if authorizer_configuration is not None:
             input_["authorizer_configuration"] = authorizer_configuration
         if kms_key_arn is not None:
@@ -163,6 +166,7 @@ class GatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_gateway(
@@ -201,14 +205,16 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
+        input_: capo_bedrock_agentcore_control.types.delete_gateway_request.DeleteGatewayRequest = {
+            "gateway_identifier": gateway_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_gateway(
@@ -246,14 +252,16 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_gateway_request.GetGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
+        input_: capo_bedrock_agentcore_control.types.get_gateway_request.GetGatewayRequest = {
+            "gateway_identifier": gateway_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_gateways(
@@ -296,7 +304,7 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_gateways_request.ListGatewaysRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -307,6 +315,7 @@ class GatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_gateway(
@@ -383,17 +392,18 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_gateway_request.UpdateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_gateway_request.UpdateGatewayRequest = {
+            "gateway_identifier": gateway_identifier,
+            "name": name,
+            "role_arn": role_arn,
+            "authorizer_type": authorizer_type,
+        }
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
         if protocol_type is not None:
             input_["protocol_type"] = protocol_type
         if protocol_configuration is not None:
             input_["protocol_configuration"] = protocol_configuration
-        input_["authorizer_type"] = authorizer_type
         if authorizer_configuration is not None:
             input_["authorizer_configuration"] = authorizer_configuration
         if kms_key_arn is not None:
@@ -410,6 +420,7 @@ class GatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -496,18 +507,20 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_gateway_request.CreateGatewayRequest = {
+            "name": name,
+            "role_arn": role_arn,
+            "authorizer_type": authorizer_type,
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["role_arn"] = role_arn
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if protocol_type is not None:
             input_["protocol_type"] = protocol_type
         if protocol_configuration is not None:
             input_["protocol_configuration"] = protocol_configuration
-        input_["authorizer_type"] = authorizer_type
         if authorizer_configuration is not None:
             input_["authorizer_configuration"] = authorizer_configuration
         if kms_key_arn is not None:
@@ -526,6 +539,7 @@ class AsyncGatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_gateway(
@@ -565,14 +579,16 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
+        input_: capo_bedrock_agentcore_control.types.delete_gateway_request.DeleteGatewayRequest = {
+            "gateway_identifier": gateway_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_gateway(
@@ -611,14 +627,16 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_gateway_request.GetGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
+        input_: capo_bedrock_agentcore_control.types.get_gateway_request.GetGatewayRequest = {
+            "gateway_identifier": gateway_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_gateways(
@@ -662,7 +680,7 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_gateways_request.ListGatewaysRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -673,6 +691,7 @@ class AsyncGatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_gateway(
@@ -750,17 +769,18 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_gateway_request.UpdateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input_["gateway_identifier"] = gateway_identifier
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.update_gateway_request.UpdateGatewayRequest = {
+            "gateway_identifier": gateway_identifier,
+            "name": name,
+            "role_arn": role_arn,
+            "authorizer_type": authorizer_type,
+        }
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
         if protocol_type is not None:
             input_["protocol_type"] = protocol_type
         if protocol_configuration is not None:
             input_["protocol_configuration"] = protocol_configuration
-        input_["authorizer_type"] = authorizer_type
         if authorizer_configuration is not None:
             input_["authorizer_configuration"] = authorizer_configuration
         if kms_key_arn is not None:
@@ -777,4 +797,5 @@ class AsyncGatewayResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

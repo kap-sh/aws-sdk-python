@@ -40,7 +40,7 @@ def serialize_json(value: KnowledgeBaseQuery) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseQuery:
     out: KnowledgeBaseQuery = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_query_type
 
         out["type"] = (
@@ -50,11 +50,11 @@ def deserialize_json(data: dict) -> KnowledgeBaseQuery:
         )
     else:
         out["type"] = "TEXT"
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         out["text"] = ""
-    if "image" in data:
+    if data.get("image") is not None:
         import capo_bedrock_agent_runtime.types.input_image
 
         out["image"] = capo_bedrock_agent_runtime.types.input_image.deserialize_json(

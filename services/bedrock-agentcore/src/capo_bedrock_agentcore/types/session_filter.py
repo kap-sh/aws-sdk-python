@@ -31,7 +31,7 @@ def serialize_json(value: SessionFilter) -> dict:
 
 def deserialize_json(data: dict) -> SessionFilter:
     out: SessionFilter = {}  # type: ignore[typeddict-item]
-    if "eventFilter" in data:
+    if data.get("eventFilter") is not None:
         import capo_bedrock_agentcore.types.event_filter_condition
 
         out["event_filter"] = (

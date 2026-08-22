@@ -24,7 +24,7 @@ def serialize_json(value: TextContentDoc) -> dict:
 
 def deserialize_json(data: dict) -> TextContentDoc:
     out: TextContentDoc = {}  # type: ignore[typeddict-item]
-    if "data" in data:
+    if data.get("data") is not None:
         out["data"] = data["data"]
     else:
         raise DeserializationError("TextContentDoc.data required")

@@ -79,11 +79,11 @@ def serialize_json(value: GetFlowExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetFlowExecutionResponse:
     out: GetFlowExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("GetFlowExecutionResponse.execution_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_status
 
         out["status"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> GetFlowExecutionResponse:
         )
     else:
         raise DeserializationError("GetFlowExecutionResponse.status required")
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["started_at"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> GetFlowExecutionResponse:
         )
     else:
         raise DeserializationError("GetFlowExecutionResponse.started_at required")
-    if "endedAt" in data:
+    if data.get("endedAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["ended_at"] = (
@@ -111,7 +111,7 @@ def deserialize_json(data: dict) -> GetFlowExecutionResponse:
                 data["endedAt"]
             )
         )
-    if "errors" in data:
+    if data.get("errors") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_errors
 
         out["errors"] = (
@@ -119,17 +119,17 @@ def deserialize_json(data: dict) -> GetFlowExecutionResponse:
                 data["errors"]
             )
         )
-    if "flowAliasIdentifier" in data:
+    if data.get("flowAliasIdentifier") is not None:
         out["flow_alias_identifier"] = data["flowAliasIdentifier"]
     else:
         raise DeserializationError(
             "GetFlowExecutionResponse.flow_alias_identifier required"
         )
-    if "flowIdentifier" in data:
+    if data.get("flowIdentifier") is not None:
         out["flow_identifier"] = data["flowIdentifier"]
     else:
         raise DeserializationError("GetFlowExecutionResponse.flow_identifier required")
-    if "flowVersion" in data:
+    if data.get("flowVersion") is not None:
         out["flow_version"] = data["flowVersion"]
     else:
         raise DeserializationError("GetFlowExecutionResponse.flow_version required")

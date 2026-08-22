@@ -25,6 +25,6 @@ def serialize_json(value: LiveViewStream) -> dict:
 
 def deserialize_json(data: dict) -> LiveViewStream:
     out: LiveViewStream = {}  # type: ignore[typeddict-item]
-    if "streamEndpoint" in data:
+    if data.get("streamEndpoint") is not None:
         out["stream_endpoint"] = data["streamEndpoint"]
     return out

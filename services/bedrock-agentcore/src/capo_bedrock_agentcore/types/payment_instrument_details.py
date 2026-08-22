@@ -34,7 +34,7 @@ def serialize_json(value: PaymentInstrumentDetails) -> dict:
 
 
 def deserialize_json(data: dict) -> PaymentInstrumentDetails:
-    if "embeddedCryptoWallet" in data:
+    if data.get("embeddedCryptoWallet") is not None:
         import capo_bedrock_agentcore.types.embedded_crypto_wallet
 
         return {

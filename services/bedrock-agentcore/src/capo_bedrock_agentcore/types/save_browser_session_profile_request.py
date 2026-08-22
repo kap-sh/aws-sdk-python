@@ -41,18 +41,18 @@ def serialize_json(value: SaveBrowserSessionProfileRequest) -> dict:
 
 def deserialize_json(data: dict) -> SaveBrowserSessionProfileRequest:
     out: SaveBrowserSessionProfileRequest = {}  # type: ignore[typeddict-item]
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError(
             "SaveBrowserSessionProfileRequest.browser_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError(
             "SaveBrowserSessionProfileRequest.session_id required"
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> AgentCollaboratorSummaries:
 
     out: AgentCollaboratorSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.agent_collaborator_summary.deserialize_json(item)
         )

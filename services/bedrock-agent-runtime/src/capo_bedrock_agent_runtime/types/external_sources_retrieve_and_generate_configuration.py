@@ -45,13 +45,13 @@ def serialize_json(value: ExternalSourcesRetrieveAndGenerateConfiguration) -> di
 
 def deserialize_json(data: dict) -> ExternalSourcesRetrieveAndGenerateConfiguration:
     out: ExternalSourcesRetrieveAndGenerateConfiguration = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "ExternalSourcesRetrieveAndGenerateConfiguration.model_arn required"
         )
-    if "sources" in data:
+    if data.get("sources") is not None:
         import capo_bedrock_agent_runtime.types.external_sources
 
         out["sources"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> ExternalSourcesRetrieveAndGenerateConfigurat
         raise DeserializationError(
             "ExternalSourcesRetrieveAndGenerateConfiguration.sources required"
         )
-    if "generationConfiguration" in data:
+    if data.get("generationConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.external_sources_generation_configuration
 
         out["generation_configuration"] = (

@@ -36,7 +36,7 @@ def serialize_json(value: RetrievalFlowNodeServiceConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> RetrievalFlowNodeServiceConfiguration:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agent.types.retrieval_flow_node_s3_configuration
 
         return {

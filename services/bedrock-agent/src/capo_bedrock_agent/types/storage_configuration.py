@@ -134,7 +134,7 @@ def serialize_json(value: StorageConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> StorageConfiguration:
     out: StorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.knowledge_base_storage_type
 
         out["type"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
         )
     else:
         raise DeserializationError("StorageConfiguration.type required")
-    if "opensearchServerlessConfiguration" in data:
+    if data.get("opensearchServerlessConfiguration") is not None:
         import capo_bedrock_agent.types.open_search_serverless_configuration
 
         out["opensearch_serverless_configuration"] = (
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["opensearchServerlessConfiguration"]
             )
         )
-    if "opensearchManagedClusterConfiguration" in data:
+    if data.get("opensearchManagedClusterConfiguration") is not None:
         import capo_bedrock_agent.types.open_search_managed_cluster_configuration
 
         out["opensearch_managed_cluster_configuration"] = (
@@ -160,7 +160,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["opensearchManagedClusterConfiguration"]
             )
         )
-    if "pineconeConfiguration" in data:
+    if data.get("pineconeConfiguration") is not None:
         import capo_bedrock_agent.types.pinecone_configuration
 
         out["pinecone_configuration"] = (
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["pineconeConfiguration"]
             )
         )
-    if "redisEnterpriseCloudConfiguration" in data:
+    if data.get("redisEnterpriseCloudConfiguration") is not None:
         import capo_bedrock_agent.types.redis_enterprise_cloud_configuration
 
         out["redis_enterprise_cloud_configuration"] = (
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["redisEnterpriseCloudConfiguration"]
             )
         )
-    if "rdsConfiguration" in data:
+    if data.get("rdsConfiguration") is not None:
         import capo_bedrock_agent.types.rds_configuration
 
         out["rds_configuration"] = (
@@ -184,7 +184,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["rdsConfiguration"]
             )
         )
-    if "mongoDbAtlasConfiguration" in data:
+    if data.get("mongoDbAtlasConfiguration") is not None:
         import capo_bedrock_agent.types.mongo_db_atlas_configuration
 
         out["mongo_db_atlas_configuration"] = (
@@ -192,7 +192,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["mongoDbAtlasConfiguration"]
             )
         )
-    if "neptuneAnalyticsConfiguration" in data:
+    if data.get("neptuneAnalyticsConfiguration") is not None:
         import capo_bedrock_agent.types.neptune_analytics_configuration
 
         out["neptune_analytics_configuration"] = (
@@ -200,7 +200,7 @@ def deserialize_json(data: dict) -> StorageConfiguration:
                 data["neptuneAnalyticsConfiguration"]
             )
         )
-    if "s3VectorsConfiguration" in data:
+    if data.get("s3VectorsConfiguration") is not None:
         import capo_bedrock_agent.types.s3_vectors_configuration
 
         out["s3_vectors_configuration"] = (

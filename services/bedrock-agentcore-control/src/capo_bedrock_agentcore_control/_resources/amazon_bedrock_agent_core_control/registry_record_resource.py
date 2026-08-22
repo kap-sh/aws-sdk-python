@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -125,12 +126,13 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_registry_record_request.CreateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_registry_record_request.CreateRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "name": name,
+            "descriptor_type": descriptor_type,
+        }
         if description is not None:
             input_["description"] = description
-        input_["descriptor_type"] = descriptor_type
         if descriptors is not None:
             input_["descriptors"] = descriptors
         if record_version is not None:
@@ -139,14 +141,16 @@ class RegistryRecordResource:
             input_["synchronization_type"] = synchronization_type
         if synchronization_configuration is not None:
             input_["synchronization_configuration"] = synchronization_configuration
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -187,15 +191,17 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_registry_record_request.GetRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.get_registry_record_request.GetRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -266,9 +272,10 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_registry_record_request.UpdateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.update_registry_record_request.UpdateRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -291,6 +298,7 @@ class RegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -331,15 +339,17 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_registry_record_request.DeleteRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.delete_registry_record_request.DeleteRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -398,8 +408,9 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_registry_records_request.ListRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
+        input_: capo_bedrock_agentcore_control.types.list_registry_records_request.ListRegistryRecordsRequest = {
+            "registry_id": registry_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -416,6 +427,7 @@ class RegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def submit_registry_record_for_approval(
@@ -456,15 +468,17 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.submit_registry_record_for_approval_request.SubmitRegistryRecordForApprovalRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.submit_registry_record_for_approval_request.SubmitRegistryRecordForApprovalRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_registry_record_status(
@@ -509,17 +523,19 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_registry_record_status_request.UpdateRegistryRecordStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
-        input_["status"] = status
-        input_["status_reason"] = status_reason
+        input_: capo_bedrock_agentcore_control.types.update_registry_record_status_request.UpdateRegistryRecordStatusRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+            "status": status,
+            "status_reason": status_reason,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -593,12 +609,13 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_registry_record_request.CreateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_registry_record_request.CreateRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "name": name,
+            "descriptor_type": descriptor_type,
+        }
         if description is not None:
             input_["description"] = description
-        input_["descriptor_type"] = descriptor_type
         if descriptors is not None:
             input_["descriptors"] = descriptors
         if record_version is not None:
@@ -607,14 +624,16 @@ class AsyncRegistryRecordResource:
             input_["synchronization_type"] = synchronization_type
         if synchronization_configuration is not None:
             input_["synchronization_configuration"] = synchronization_configuration
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -656,15 +675,17 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_registry_record_request.GetRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.get_registry_record_request.GetRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -736,9 +757,10 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_registry_record_request.UpdateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.update_registry_record_request.UpdateRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -761,6 +783,7 @@ class AsyncRegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -802,15 +825,17 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_registry_record_request.DeleteRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.delete_registry_record_request.DeleteRegistryRecordRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -870,8 +895,9 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_registry_records_request.ListRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
+        input_: capo_bedrock_agentcore_control.types.list_registry_records_request.ListRegistryRecordsRequest = {
+            "registry_id": registry_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -888,6 +914,7 @@ class AsyncRegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def submit_registry_record_for_approval(
@@ -929,15 +956,17 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.submit_registry_record_for_approval_request.SubmitRegistryRecordForApprovalRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
+        input_: capo_bedrock_agentcore_control.types.submit_registry_record_for_approval_request.SubmitRegistryRecordForApprovalRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_registry_record_status(
@@ -983,15 +1012,17 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_registry_record_status_request.UpdateRegistryRecordStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["registry_id"] = registry_id
-        input_["record_id"] = record_id
-        input_["status"] = status
-        input_["status_reason"] = status_reason
+        input_: capo_bedrock_agentcore_control.types.update_registry_record_status_request.UpdateRegistryRecordStatusRequest = {
+            "registry_id": registry_id,
+            "record_id": record_id,
+            "status": status,
+            "status_reason": status_reason,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

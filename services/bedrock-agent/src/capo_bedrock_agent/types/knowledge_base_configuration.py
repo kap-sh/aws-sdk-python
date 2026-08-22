@@ -67,7 +67,7 @@ def serialize_json(value: KnowledgeBaseConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseConfiguration:
     out: KnowledgeBaseConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.knowledge_base_type
 
         out["type"] = capo_bedrock_agent.types.knowledge_base_type.deserialize_json(
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseConfiguration:
         )
     else:
         raise DeserializationError("KnowledgeBaseConfiguration.type required")
-    if "vectorKnowledgeBaseConfiguration" in data:
+    if data.get("vectorKnowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.vector_knowledge_base_configuration
 
         out["vector_knowledge_base_configuration"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseConfiguration:
                 data["vectorKnowledgeBaseConfiguration"]
             )
         )
-    if "kendraKnowledgeBaseConfiguration" in data:
+    if data.get("kendraKnowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.kendra_knowledge_base_configuration
 
         out["kendra_knowledge_base_configuration"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseConfiguration:
                 data["kendraKnowledgeBaseConfiguration"]
             )
         )
-    if "sqlKnowledgeBaseConfiguration" in data:
+    if data.get("sqlKnowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.sql_knowledge_base_configuration
 
         out["sql_knowledge_base_configuration"] = (

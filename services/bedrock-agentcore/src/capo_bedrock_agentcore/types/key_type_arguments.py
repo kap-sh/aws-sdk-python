@@ -19,7 +19,7 @@ def serialize_json(value: KeyTypeArguments) -> dict:
 
 def deserialize_json(data: dict) -> KeyTypeArguments:
     out: KeyTypeArguments = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("KeyTypeArguments.text required")

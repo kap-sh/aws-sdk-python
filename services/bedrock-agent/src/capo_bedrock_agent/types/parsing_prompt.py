@@ -26,7 +26,7 @@ def serialize_json(value: ParsingPrompt) -> dict:
 
 def deserialize_json(data: dict) -> ParsingPrompt:
     out: ParsingPrompt = {}  # type: ignore[typeddict-item]
-    if "parsingPromptText" in data:
+    if data.get("parsingPromptText") is not None:
         out["parsing_prompt_text"] = data["parsingPromptText"]
     else:
         raise DeserializationError("ParsingPrompt.parsing_prompt_text required")

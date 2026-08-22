@@ -45,7 +45,7 @@ def serialize_json(value: WebDataSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> WebDataSourceConfiguration:
     out: WebDataSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "sourceConfiguration" in data:
+    if data.get("sourceConfiguration") is not None:
         import capo_bedrock_agent.types.web_source_configuration
 
         out["source_configuration"] = (
@@ -57,7 +57,7 @@ def deserialize_json(data: dict) -> WebDataSourceConfiguration:
         raise DeserializationError(
             "WebDataSourceConfiguration.source_configuration required"
         )
-    if "crawlerConfiguration" in data:
+    if data.get("crawlerConfiguration") is not None:
         import capo_bedrock_agent.types.web_crawler_configuration
 
         out["crawler_configuration"] = (

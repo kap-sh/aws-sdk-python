@@ -140,17 +140,17 @@ def serialize_json(value: UpdateAgentRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentRequest:
     out: UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
     else:
         raise DeserializationError("UpdateAgentRequest.agent_name required")
-    if "instruction" in data:
+    if data.get("instruction") is not None:
         out["instruction"] = data["instruction"]
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "orchestrationType" in data:
+    if data.get("orchestrationType") is not None:
         import capo_bedrock_agent.types.orchestration_type
 
         out["orchestration_type"] = (
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> UpdateAgentRequest:
                 data["orchestrationType"]
             )
         )
-    if "customOrchestration" in data:
+    if data.get("customOrchestration") is not None:
         import capo_bedrock_agent.types.custom_orchestration
 
         out["custom_orchestration"] = (
@@ -166,17 +166,17 @@ def deserialize_json(data: dict) -> UpdateAgentRequest:
                 data["customOrchestration"]
             )
         )
-    if "idleSessionTTLInSeconds" in data:
+    if data.get("idleSessionTTLInSeconds") is not None:
         out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
-    if "agentResourceRoleArn" in data:
+    if data.get("agentResourceRoleArn") is not None:
         out["agent_resource_role_arn"] = data["agentResourceRoleArn"]
     else:
         raise DeserializationError(
             "UpdateAgentRequest.agent_resource_role_arn required"
         )
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "promptOverrideConfiguration" in data:
+    if data.get("promptOverrideConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_override_configuration
 
         out["prompt_override_configuration"] = (
@@ -184,7 +184,7 @@ def deserialize_json(data: dict) -> UpdateAgentRequest:
                 data["promptOverrideConfiguration"]
             )
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (
@@ -192,7 +192,7 @@ def deserialize_json(data: dict) -> UpdateAgentRequest:
                 data["guardrailConfiguration"]
             )
         )
-    if "memoryConfiguration" in data:
+    if data.get("memoryConfiguration") is not None:
         import capo_bedrock_agent.types.memory_configuration
 
         out["memory_configuration"] = (
@@ -200,7 +200,7 @@ def deserialize_json(data: dict) -> UpdateAgentRequest:
                 data["memoryConfiguration"]
             )
         )
-    if "agentCollaboration" in data:
+    if data.get("agentCollaboration") is not None:
         import capo_bedrock_agent.types.agent_collaboration
 
         out["agent_collaboration"] = (

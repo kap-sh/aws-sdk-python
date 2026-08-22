@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> NumericalScaleDefinitions:
 
     out: NumericalScaleDefinitions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.numerical_scale_definition.deserialize_json(
                 item

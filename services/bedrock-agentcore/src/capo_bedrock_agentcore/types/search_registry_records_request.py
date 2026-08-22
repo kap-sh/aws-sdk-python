@@ -41,11 +41,11 @@ def serialize_json(value: SearchRegistryRecordsRequest) -> dict:
 
 def deserialize_json(data: dict) -> SearchRegistryRecordsRequest:
     out: SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-    if "searchQuery" in data:
+    if data.get("searchQuery") is not None:
         out["search_query"] = data["searchQuery"]
     else:
         raise DeserializationError("SearchRegistryRecordsRequest.search_query required")
-    if "registryIds" in data:
+    if data.get("registryIds") is not None:
         import capo_bedrock_agentcore.types.registry_id_list
 
         out["registry_ids"] = (
@@ -55,10 +55,10 @@ def deserialize_json(data: dict) -> SearchRegistryRecordsRequest:
         )
     else:
         raise DeserializationError("SearchRegistryRecordsRequest.registry_ids required")
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 10
-    if "filters" in data:
+    if data.get("filters") is not None:
         out["filters"] = data["filters"]
     return out

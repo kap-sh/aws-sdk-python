@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -102,14 +103,16 @@ class Evaluator:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_evaluator_request.CreateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["evaluator_name"] = evaluator_name
+        input_: capo_bedrock_agentcore_control.types.create_evaluator_request.CreateEvaluatorRequest = {
+            "evaluator_name": evaluator_name,
+            "evaluator_config": evaluator_config,
+            "level": level,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["evaluator_config"] = evaluator_config
-        input_["level"] = level
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
@@ -120,6 +123,7 @@ class Evaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -161,8 +165,9 @@ class Evaluator:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_evaluator_request.GetEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.get_evaluator_request.GetEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -171,6 +176,7 @@ class Evaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -230,10 +236,12 @@ class Evaluator:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_evaluator_request.UpdateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.update_evaluator_request.UpdateEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if evaluator_config is not None:
@@ -248,6 +256,7 @@ class Evaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -286,14 +295,16 @@ class Evaluator:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_evaluator_request.DeleteEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.delete_evaluator_request.DeleteEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -332,7 +343,7 @@ class Evaluator:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_evaluators_request.ListEvaluatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_evaluators_request.ListEvaluatorsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -343,6 +354,7 @@ class Evaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -405,14 +417,16 @@ class AsyncEvaluator:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_evaluator_request.CreateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["evaluator_name"] = evaluator_name
+        input_: capo_bedrock_agentcore_control.types.create_evaluator_request.CreateEvaluatorRequest = {
+            "evaluator_name": evaluator_name,
+            "evaluator_config": evaluator_config,
+            "level": level,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["evaluator_config"] = evaluator_config
-        input_["level"] = level
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
@@ -423,6 +437,7 @@ class AsyncEvaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -465,8 +480,9 @@ class AsyncEvaluator:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_evaluator_request.GetEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.get_evaluator_request.GetEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
         if included_data is not None:
             input_["included_data"] = included_data
 
@@ -475,6 +491,7 @@ class AsyncEvaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -535,10 +552,12 @@ class AsyncEvaluator:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_evaluator_request.UpdateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.update_evaluator_request.UpdateEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if evaluator_config is not None:
@@ -553,6 +572,7 @@ class AsyncEvaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -592,14 +612,16 @@ class AsyncEvaluator:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_evaluator_request.DeleteEvaluatorRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
+        input_: capo_bedrock_agentcore_control.types.delete_evaluator_request.DeleteEvaluatorRequest = {
+            "evaluator_id": evaluator_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -639,7 +661,7 @@ class AsyncEvaluator:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_evaluators_request.ListEvaluatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_evaluators_request.ListEvaluatorsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -650,4 +672,5 @@ class AsyncEvaluator:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

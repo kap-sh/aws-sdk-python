@@ -23,7 +23,7 @@ def serialize_json(value: FlowTraceNodeInputContent) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowTraceNodeInputContent:
-    if "document" in data:
+    if data.get("document") is not None:
         return {"document": data["document"]}
     else:
         raise DeserializationError(

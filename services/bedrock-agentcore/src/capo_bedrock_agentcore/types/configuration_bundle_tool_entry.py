@@ -29,11 +29,11 @@ def serialize_json(value: ConfigurationBundleToolEntry) -> dict:
 
 def deserialize_json(data: dict) -> ConfigurationBundleToolEntry:
     out: ConfigurationBundleToolEntry = {}  # type: ignore[typeddict-item]
-    if "toolName" in data:
+    if data.get("toolName") is not None:
         out["tool_name"] = data["toolName"]
     else:
         raise DeserializationError("ConfigurationBundleToolEntry.tool_name required")
-    if "toolDescriptionJsonPath" in data:
+    if data.get("toolDescriptionJsonPath") is not None:
         out["tool_description_json_path"] = data["toolDescriptionJsonPath"]
     else:
         raise DeserializationError(

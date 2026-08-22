@@ -92,25 +92,25 @@ def serialize_json(value: RegistryRecordSummary) -> dict:
 
 def deserialize_json(data: dict) -> RegistryRecordSummary:
     out: RegistryRecordSummary = {}  # type: ignore[typeddict-item]
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError("RegistryRecordSummary.registry_arn required")
-    if "recordArn" in data:
+    if data.get("recordArn") is not None:
         out["record_arn"] = data["recordArn"]
     else:
         raise DeserializationError("RegistryRecordSummary.record_arn required")
-    if "recordId" in data:
+    if data.get("recordId") is not None:
         out["record_id"] = data["recordId"]
     else:
         raise DeserializationError("RegistryRecordSummary.record_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("RegistryRecordSummary.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "descriptorType" in data:
+    if data.get("descriptorType") is not None:
         import capo_bedrock_agentcore_control.types.descriptor_type
 
         out["descriptor_type"] = (
@@ -120,11 +120,11 @@ def deserialize_json(data: dict) -> RegistryRecordSummary:
         )
     else:
         raise DeserializationError("RegistryRecordSummary.descriptor_type required")
-    if "recordVersion" in data:
+    if data.get("recordVersion") is not None:
         out["record_version"] = data["recordVersion"]
     else:
         raise DeserializationError("RegistryRecordSummary.record_version required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_status
 
         out["status"] = (
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> RegistryRecordSummary:
         )
     else:
         raise DeserializationError("RegistryRecordSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> RegistryRecordSummary:
         )
     else:
         raise DeserializationError("RegistryRecordSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

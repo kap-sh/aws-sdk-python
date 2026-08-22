@@ -22,7 +22,7 @@ def serialize_json(value: PromptFlowNodeResourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PromptFlowNodeResourceConfiguration:
     out: PromptFlowNodeResourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptArn" in data:
+    if data.get("promptArn") is not None:
         out["prompt_arn"] = data["promptArn"]
     else:
         out["prompt_arn"] = ""

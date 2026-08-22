@@ -40,9 +40,9 @@ def serialize_json(value: DeleteDatasetExamplesRequest) -> dict:
 
 def deserialize_json(data: dict) -> DeleteDatasetExamplesRequest:
     out: DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "exampleIds" in data:
+    if data.get("exampleIds") is not None:
         import capo_bedrock_agentcore_control.types.example_id_list
 
         out["example_ids"] = (

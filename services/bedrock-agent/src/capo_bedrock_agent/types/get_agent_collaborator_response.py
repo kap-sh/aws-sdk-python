@@ -30,7 +30,7 @@ def serialize_json(value: GetAgentCollaboratorResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAgentCollaboratorResponse:
     out: GetAgentCollaboratorResponse = {}  # type: ignore[typeddict-item]
-    if "agentCollaborator" in data:
+    if data.get("agentCollaborator") is not None:
         import capo_bedrock_agent.types.agent_collaborator
 
         out["agent_collaborator"] = (

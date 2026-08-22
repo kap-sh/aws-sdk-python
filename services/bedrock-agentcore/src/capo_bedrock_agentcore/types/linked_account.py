@@ -76,7 +76,7 @@ def serialize_json(value: LinkedAccount) -> dict:
 
 
 def deserialize_json(data: dict) -> LinkedAccount:
-    if "email" in data:
+    if data.get("email") is not None:
         import capo_bedrock_agentcore.types.linked_account_email
 
         return {
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> LinkedAccount:
                 data["email"]
             )
         }
-    elif "sms" in data:
+    elif data.get("sms") is not None:
         import capo_bedrock_agentcore.types.linked_account_sms
 
         return {
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> LinkedAccount:
                 data["sms"]
             )
         }
-    elif "developerJwt" in data:
+    elif data.get("developerJwt") is not None:
         import capo_bedrock_agentcore.types.linked_account_developer_jwt
 
         return {
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> LinkedAccount:
                 data["developerJwt"]
             )
         }
-    elif "oAuth2" in data:
+    elif data.get("oAuth2") is not None:
         import capo_bedrock_agentcore.types.linked_account_o_auth2
 
         return {

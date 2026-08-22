@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> ConfigurationBundleVersionSummaryList:
 
     out: ConfigurationBundleVersionSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.configuration_bundle_version_summary.deserialize_json(
                 item

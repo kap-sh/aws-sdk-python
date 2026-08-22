@@ -28,7 +28,7 @@ def serialize_aws_json_1_1(value: ListTagsForResourceResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTagsForResourceResponse:
     out: ListTagsForResourceResponse = {}  # type: ignore[typeddict-item]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation_runtime.types.tag_list
 
         out["tags"] = (

@@ -38,15 +38,15 @@ def serialize_json(value: EndSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> EndSessionResponse:
     out: EndSessionResponse = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("EndSessionResponse.session_id required")
-    if "sessionArn" in data:
+    if data.get("sessionArn") is not None:
         out["session_arn"] = data["sessionArn"]
     else:
         raise DeserializationError("EndSessionResponse.session_arn required")
-    if "sessionStatus" in data:
+    if data.get("sessionStatus") is not None:
         import capo_bedrock_agent_runtime.types.session_status
 
         out["session_status"] = (

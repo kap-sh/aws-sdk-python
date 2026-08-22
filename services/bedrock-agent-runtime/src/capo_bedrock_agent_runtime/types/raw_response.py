@@ -18,6 +18,6 @@ def serialize_json(value: RawResponse) -> dict:
 
 def deserialize_json(data: dict) -> RawResponse:
     out: RawResponse = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         out["content"] = data["content"]
     return out

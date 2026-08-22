@@ -34,7 +34,7 @@ def serialize_json(value: GetDataAutomationProjectRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetDataAutomationProjectRequest:
     out: GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-    if "projectStage" in data:
+    if data.get("projectStage") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage
 
         out["project_stage"] = (

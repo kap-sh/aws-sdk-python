@@ -92,13 +92,13 @@ def serialize_json(value: AgentActionGroup) -> dict:
 
 def deserialize_json(data: dict) -> AgentActionGroup:
     out: AgentActionGroup = {}  # type: ignore[typeddict-item]
-    if "actionGroupName" in data:
+    if data.get("actionGroupName") is not None:
         out["action_group_name"] = data["actionGroupName"]
     else:
         raise DeserializationError("AgentActionGroup.action_group_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "parentActionGroupSignature" in data:
+    if data.get("parentActionGroupSignature") is not None:
         import capo_bedrock_agent_runtime.types.action_group_signature
 
         out["parent_action_group_signature"] = (
@@ -106,7 +106,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["parentActionGroupSignature"]
             )
         )
-    if "actionGroupExecutor" in data:
+    if data.get("actionGroupExecutor") is not None:
         import capo_bedrock_agent_runtime.types.action_group_executor
 
         out["action_group_executor"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["actionGroupExecutor"]
             )
         )
-    if "apiSchema" in data:
+    if data.get("apiSchema") is not None:
         import capo_bedrock_agent_runtime.types.api_schema
 
         out["api_schema"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["apiSchema"]
             )
         )
-    if "functionSchema" in data:
+    if data.get("functionSchema") is not None:
         import capo_bedrock_agent_runtime.types.function_schema
 
         out["function_schema"] = (
@@ -130,7 +130,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["functionSchema"]
             )
         )
-    if "parentActionGroupSignatureParams" in data:
+    if data.get("parentActionGroupSignatureParams") is not None:
         import capo_bedrock_agent_runtime.types.action_group_signature_params
 
         out["parent_action_group_signature_params"] = (

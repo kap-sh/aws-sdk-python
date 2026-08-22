@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> AgentRuntimes:
 
     out: AgentRuntimes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.agent_runtime.deserialize_json(item)
         )

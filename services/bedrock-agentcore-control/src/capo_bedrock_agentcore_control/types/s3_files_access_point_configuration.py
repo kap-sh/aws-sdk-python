@@ -28,13 +28,13 @@ def serialize_json(value: S3FilesAccessPointConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> S3FilesAccessPointConfiguration:
     out: S3FilesAccessPointConfiguration = {}  # type: ignore[typeddict-item]
-    if "accessPointArn" in data:
+    if data.get("accessPointArn") is not None:
         out["access_point_arn"] = data["accessPointArn"]
     else:
         raise DeserializationError(
             "S3FilesAccessPointConfiguration.access_point_arn required"
         )
-    if "mountPath" in data:
+    if data.get("mountPath") is not None:
         out["mount_path"] = data["mountPath"]
     else:
         raise DeserializationError(

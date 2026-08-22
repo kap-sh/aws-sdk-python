@@ -44,14 +44,14 @@ def serialize_json(value: CloudWatchLogsTraceConfig) -> dict:
     out["serviceNames"] = capo_bedrock_agentcore.types.service_name_list.serialize_json(
         value["service_names"]
     )
-    import capo_bedrock_agentcore.types._prelude.timestamp
+    import capo_bedrock_agentcore._protocol.serialize
 
-    out["startTime"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+    out["startTime"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
         value["start_time"]
     )
-    import capo_bedrock_agentcore.types._prelude.timestamp
+    import capo_bedrock_agentcore._protocol.serialize
 
-    out["endTime"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+    out["endTime"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
         value["end_time"]
     )
     if "rule" in value:
@@ -65,7 +65,7 @@ def serialize_json(value: CloudWatchLogsTraceConfig) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchLogsTraceConfig:
     out: CloudWatchLogsTraceConfig = {}  # type: ignore[typeddict-item]
-    if "logGroupArns" in data:
+    if data.get("logGroupArns") is not None:
         import capo_bedrock_agentcore.types.log_group_arn_list
 
         out["log_group_arns"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> CloudWatchLogsTraceConfig:
         )
     else:
         raise DeserializationError("CloudWatchLogsTraceConfig.log_group_arns required")
-    if "serviceNames" in data:
+    if data.get("serviceNames") is not None:
         import capo_bedrock_agentcore.types.service_name_list
 
         out["service_names"] = (
@@ -85,27 +85,23 @@ def deserialize_json(data: dict) -> CloudWatchLogsTraceConfig:
         )
     else:
         raise DeserializationError("CloudWatchLogsTraceConfig.service_names required")
-    if "startTime" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("startTime") is not None:
+        import datetime
 
-        out["start_time"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["startTime"]
-            )
+        out["start_time"] = datetime.datetime.fromisoformat(
+            data["startTime"].replace("Z", "+00:00")
         )
     else:
         raise DeserializationError("CloudWatchLogsTraceConfig.start_time required")
-    if "endTime" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("endTime") is not None:
+        import datetime
 
-        out["end_time"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["endTime"]
-            )
+        out["end_time"] = datetime.datetime.fromisoformat(
+            data["endTime"].replace("Z", "+00:00")
         )
     else:
         raise DeserializationError("CloudWatchLogsTraceConfig.end_time required")
-    if "rule" in data:
+    if data.get("rule") is not None:
         import capo_bedrock_agentcore.types.cloud_watch_logs_rule
 
         out["rule"] = (

@@ -28,10 +28,10 @@ def serialize_json(value: HarnessSkillGitAuth) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSkillGitAuth:
     out: HarnessSkillGitAuth = {}  # type: ignore[typeddict-item]
-    if "credentialArn" in data:
+    if data.get("credentialArn") is not None:
         out["credential_arn"] = data["credentialArn"]
     else:
         raise DeserializationError("HarnessSkillGitAuth.credential_arn required")
-    if "username" in data:
+    if data.get("username") is not None:
         out["username"] = data["username"]
     return out

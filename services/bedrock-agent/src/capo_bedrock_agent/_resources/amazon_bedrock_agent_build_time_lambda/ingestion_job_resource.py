@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -83,16 +84,18 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["ingestion_job_id"] = ingestion_job_id
+        input_: capo_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "ingestion_job_id": ingestion_job_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_ingestion_jobs(
@@ -144,9 +147,10 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
         if filters is not None:
             input_["filters"] = filters
         if sort_by is not None:
@@ -161,6 +165,7 @@ class IngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_ingestion_job(
@@ -210,11 +215,13 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
 
@@ -223,6 +230,7 @@ class IngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_ingestion_job(
@@ -267,16 +275,18 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["ingestion_job_id"] = ingestion_job_id
+        input_: capo_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "ingestion_job_id": ingestion_job_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -324,16 +334,18 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["ingestion_job_id"] = ingestion_job_id
+        input_: capo_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "ingestion_job_id": ingestion_job_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_ingestion_jobs(
@@ -386,9 +398,10 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
         if filters is not None:
             input_["filters"] = filters
         if sort_by is not None:
@@ -403,6 +416,7 @@ class AsyncIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_ingestion_job(
@@ -453,11 +467,13 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
 
@@ -466,6 +482,7 @@ class AsyncIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_ingestion_job(
@@ -511,14 +528,16 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["ingestion_job_id"] = ingestion_job_id
+        input_: capo_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "ingestion_job_id": ingestion_job_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

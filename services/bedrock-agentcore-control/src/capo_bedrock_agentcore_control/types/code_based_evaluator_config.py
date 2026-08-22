@@ -35,7 +35,7 @@ def serialize_json(value: CodeBasedEvaluatorConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> CodeBasedEvaluatorConfig:
-    if "lambdaConfig" in data:
+    if data.get("lambdaConfig") is not None:
         import capo_bedrock_agentcore_control.types.lambda_evaluator_config
 
         return {

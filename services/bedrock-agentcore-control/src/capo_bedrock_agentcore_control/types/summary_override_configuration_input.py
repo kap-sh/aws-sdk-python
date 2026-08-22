@@ -31,7 +31,7 @@ def serialize_json(value: SummaryOverrideConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> SummaryOverrideConfigurationInput:
     out: SummaryOverrideConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "consolidation" in data:
+    if data.get("consolidation") is not None:
         import capo_bedrock_agentcore_control.types.summary_override_consolidation_configuration_input
 
         out["consolidation"] = (

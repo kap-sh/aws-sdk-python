@@ -30,7 +30,7 @@ def serialize_json(value: SearchRegistryRecordsResponse) -> dict:
 
 def deserialize_json(data: dict) -> SearchRegistryRecordsResponse:
     out: SearchRegistryRecordsResponse = {}  # type: ignore[typeddict-item]
-    if "registryRecords" in data:
+    if data.get("registryRecords") is not None:
         import capo_bedrock_agentcore.types.registry_record_summary_list
 
         out["registry_records"] = (

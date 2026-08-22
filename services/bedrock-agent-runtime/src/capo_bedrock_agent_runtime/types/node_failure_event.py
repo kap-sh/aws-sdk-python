@@ -43,11 +43,11 @@ def serialize_json(value: NodeFailureEvent) -> dict:
 
 def deserialize_json(data: dict) -> NodeFailureEvent:
     out: NodeFailureEvent = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("NodeFailureEvent.node_name required")
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["timestamp"] = (
@@ -57,7 +57,7 @@ def deserialize_json(data: dict) -> NodeFailureEvent:
         )
     else:
         raise DeserializationError("NodeFailureEvent.timestamp required")
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         import capo_bedrock_agent_runtime.types.node_error_code
 
         out["error_code"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> NodeFailureEvent:
         )
     else:
         raise DeserializationError("NodeFailureEvent.error_code required")
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     else:
         raise DeserializationError("NodeFailureEvent.error_message required")

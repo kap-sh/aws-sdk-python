@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agentcore_control._auth._signers
 import capo_bedrock_agentcore_control._auth._sigv4
+import capo_bedrock_agentcore_control._protocol.eventstream
 import capo_bedrock_agentcore_control.errors.access_denied_exception
 import capo_bedrock_agentcore_control.errors.internal_server_exception
 import capo_bedrock_agentcore_control.errors.resource_not_found_exception
@@ -40,23 +41,23 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agentcore_control.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_agentcore_control.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_agentcore_control.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_agentcore_control.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agentcore_control.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -113,16 +114,26 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock_agentcore_control.types.included_data
+
     url = endpoint.url.rstrip("/") + "/evaluators/{evaluatorId}"
-    url = url.replace("{evaluatorId}", quote(str(input_["evaluator_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{evaluatorId}", quote(input_["evaluator_id"], safe=""))
+    params: list[tuple[str, str]] = []
     if "included_data" in input_:
-        params["includedData"] = str(input_["included_data"])
+        params.append(
+            (
+                "includedData",
+                capo_bedrock_agentcore_control.types.included_data.serialize_json(
+                    input_["included_data"]
+                ),
+            )
+        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

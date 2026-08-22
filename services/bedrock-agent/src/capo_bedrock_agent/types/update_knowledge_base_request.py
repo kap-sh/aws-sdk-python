@@ -59,17 +59,17 @@ def serialize_json(value: UpdateKnowledgeBaseRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateKnowledgeBaseRequest:
     out: UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateKnowledgeBaseRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("UpdateKnowledgeBaseRequest.role_arn required")
-    if "knowledgeBaseConfiguration" in data:
+    if data.get("knowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.knowledge_base_configuration
 
         out["knowledge_base_configuration"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> UpdateKnowledgeBaseRequest:
         raise DeserializationError(
             "UpdateKnowledgeBaseRequest.knowledge_base_configuration required"
         )
-    if "storageConfiguration" in data:
+    if data.get("storageConfiguration") is not None:
         import capo_bedrock_agent.types.storage_configuration
 
         out["storage_configuration"] = (

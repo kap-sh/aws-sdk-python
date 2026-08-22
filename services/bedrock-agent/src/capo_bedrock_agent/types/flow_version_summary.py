@@ -46,15 +46,15 @@ def serialize_json(value: FlowVersionSummary) -> dict:
 
 def deserialize_json(data: dict) -> FlowVersionSummary:
     out: FlowVersionSummary = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("FlowVersionSummary.id required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("FlowVersionSummary.arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.flow_status
 
         out["status"] = capo_bedrock_agent.types.flow_status.deserialize_json(
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> FlowVersionSummary:
         )
     else:
         raise DeserializationError("FlowVersionSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> FlowVersionSummary:
         )
     else:
         raise DeserializationError("FlowVersionSummary.created_at required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("FlowVersionSummary.version required")

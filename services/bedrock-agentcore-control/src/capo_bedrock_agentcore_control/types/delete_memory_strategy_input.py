@@ -19,7 +19,7 @@ def serialize_json(value: DeleteMemoryStrategyInput) -> dict:
 
 def deserialize_json(data: dict) -> DeleteMemoryStrategyInput:
     out: DeleteMemoryStrategyInput = {}  # type: ignore[typeddict-item]
-    if "memoryStrategyId" in data:
+    if data.get("memoryStrategyId") is not None:
         out["memory_strategy_id"] = data["memoryStrategyId"]
     else:
         raise DeserializationError(

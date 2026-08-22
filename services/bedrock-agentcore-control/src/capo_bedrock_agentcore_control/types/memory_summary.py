@@ -63,11 +63,11 @@ def serialize_json(value: MemorySummary) -> dict:
 
 def deserialize_json(data: dict) -> MemorySummary:
     out: MemorySummary = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.memory_status
 
         out["status"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> MemorySummary:
                 data["status"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> MemorySummary:
         )
     else:
         raise DeserializationError("MemorySummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (

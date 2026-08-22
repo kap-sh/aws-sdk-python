@@ -45,15 +45,15 @@ def serialize_json(value: HarnessAgentCoreMemoryConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreMemoryConfiguration:
     out: HarnessAgentCoreMemoryConfiguration = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("HarnessAgentCoreMemoryConfiguration.arn required")
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
-    if "messagesCount" in data:
+    if data.get("messagesCount") is not None:
         out["messages_count"] = data["messagesCount"]
-    if "retrievalConfig" in data:
+    if data.get("retrievalConfig") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_memory_retrieval_configs
 
         out["retrieval_config"] = (

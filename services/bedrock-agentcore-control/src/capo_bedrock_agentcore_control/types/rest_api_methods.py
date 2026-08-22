@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> RestApiMethods:
 
     out: RestApiMethods = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.rest_api_method.deserialize_json(item)
         )

@@ -36,13 +36,45 @@ def serialize_json(value: VariantResult) -> dict:
     out: dict = {}
     out["variantName"] = value["variant_name"]
     out["sampleSize"] = value["sample_size"]
-    out["mean"] = value["mean"]
+    out["mean"] = (
+        "NaN"
+        if value["mean"] != value["mean"]
+        else "Infinity"
+        if value["mean"] == float("inf")
+        else "-Infinity"
+        if value["mean"] == float("-inf")
+        else value["mean"]
+    )
     if "absolute_change" in value:
-        out["absoluteChange"] = value["absolute_change"]
+        out["absoluteChange"] = (
+            "NaN"
+            if value["absolute_change"] != value["absolute_change"]
+            else "Infinity"
+            if value["absolute_change"] == float("inf")
+            else "-Infinity"
+            if value["absolute_change"] == float("-inf")
+            else value["absolute_change"]
+        )
     if "percent_change" in value:
-        out["percentChange"] = value["percent_change"]
+        out["percentChange"] = (
+            "NaN"
+            if value["percent_change"] != value["percent_change"]
+            else "Infinity"
+            if value["percent_change"] == float("inf")
+            else "-Infinity"
+            if value["percent_change"] == float("-inf")
+            else value["percent_change"]
+        )
     if "p_value" in value:
-        out["pValue"] = value["p_value"]
+        out["pValue"] = (
+            "NaN"
+            if value["p_value"] != value["p_value"]
+            else "Infinity"
+            if value["p_value"] == float("inf")
+            else "-Infinity"
+            if value["p_value"] == float("-inf")
+            else value["p_value"]
+        )
     if "confidence_interval" in value:
         import capo_bedrock_agentcore.types.confidence_interval
 
@@ -57,25 +89,25 @@ def serialize_json(value: VariantResult) -> dict:
 
 def deserialize_json(data: dict) -> VariantResult:
     out: VariantResult = {}  # type: ignore[typeddict-item]
-    if "variantName" in data:
+    if data.get("variantName") is not None:
         out["variant_name"] = data["variantName"]
     else:
         raise DeserializationError("VariantResult.variant_name required")
-    if "sampleSize" in data:
+    if data.get("sampleSize") is not None:
         out["sample_size"] = data["sampleSize"]
     else:
         raise DeserializationError("VariantResult.sample_size required")
-    if "mean" in data:
-        out["mean"] = data["mean"]
+    if data.get("mean") is not None:
+        out["mean"] = float(data["mean"])
     else:
         raise DeserializationError("VariantResult.mean required")
-    if "absoluteChange" in data:
-        out["absolute_change"] = data["absoluteChange"]
-    if "percentChange" in data:
-        out["percent_change"] = data["percentChange"]
-    if "pValue" in data:
-        out["p_value"] = data["pValue"]
-    if "confidenceInterval" in data:
+    if data.get("absoluteChange") is not None:
+        out["absolute_change"] = float(data["absoluteChange"])
+    if data.get("percentChange") is not None:
+        out["percent_change"] = float(data["percentChange"])
+    if data.get("pValue") is not None:
+        out["p_value"] = float(data["pValue"])
+    if data.get("confidenceInterval") is not None:
         import capo_bedrock_agentcore.types.confidence_interval
 
         out["confidence_interval"] = (
@@ -83,7 +115,7 @@ def deserialize_json(data: dict) -> VariantResult:
                 data["confidenceInterval"]
             )
         )
-    if "isSignificant" in data:
+    if data.get("isSignificant") is not None:
         out["is_significant"] = data["isSignificant"]
     else:
         raise DeserializationError("VariantResult.is_significant required")

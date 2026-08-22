@@ -26,7 +26,7 @@ def serialize_json(value: UpdateAgentResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentResponse:
     out: UpdateAgentResponse = {}  # type: ignore[typeddict-item]
-    if "agent" in data:
+    if data.get("agent") is not None:
         import capo_bedrock_agent.types.agent
 
         out["agent"] = capo_bedrock_agent.types.agent.deserialize_json(data["agent"])

@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agent_runtime._auth._signers
 import capo_bedrock_agent_runtime._auth._sigv4
+import capo_bedrock_agent_runtime._protocol.eventstream
 import capo_bedrock_agent_runtime.errors.access_denied_exception
 import capo_bedrock_agent_runtime.errors.bad_gateway_exception
 import capo_bedrock_agent_runtime.errors.conflict_exception
@@ -42,39 +43,39 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "BadGatewayException":
             raise capo_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException.from_json(
-                data
+                data, message
             )
         case "ConflictException":
             raise capo_bedrock_agent_runtime.errors.conflict_exception.ConflictException.from_json(
-                data
+                data, message
             )
         case "DependencyFailedException":
             raise capo_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceQuotaExceededException":
             raise capo_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agent_runtime.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -131,26 +132,36 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock_agent_runtime.types.memory_type
+
     url = (
         endpoint.url.rstrip("/")
         + "/agents/{agentId}/agentAliases/{agentAliasId}/memories"
     )
-    url = url.replace("{agentId}", quote(str(input_["agent_id"]), safe=""))
-    url = url.replace("{agentAliasId}", quote(str(input_["agent_alias_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{agentId}", quote(input_["agent_id"], safe=""))
+    url = url.replace("{agentAliasId}", quote(input_["agent_alias_id"], safe=""))
+    params: list[tuple[str, str]] = []
     if "next_token" in input_:
-        params["nextToken"] = str(input_["next_token"])
+        params.append(("nextToken", input_["next_token"]))
     if "max_items" in input_:
-        params["maxItems"] = str(input_["max_items"])
+        params.append(("maxItems", str(input_["max_items"])))
     if "memory_type" in input_:
-        params["memoryType"] = str(input_["memory_type"])
+        params.append(
+            (
+                "memoryType",
+                capo_bedrock_agent_runtime.types.memory_type.serialize_json(
+                    input_["memory_type"]
+                ),
+            )
+        )
     if "memory_id" in input_:
-        params["memoryId"] = str(input_["memory_id"])
+        params.append(("memoryId", input_["memory_id"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

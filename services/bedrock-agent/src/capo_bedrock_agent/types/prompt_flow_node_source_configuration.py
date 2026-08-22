@@ -50,7 +50,7 @@ def serialize_json(value: PromptFlowNodeSourceConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> PromptFlowNodeSourceConfiguration:
-    if "resource" in data:
+    if data.get("resource") is not None:
         import capo_bedrock_agent.types.prompt_flow_node_resource_configuration
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> PromptFlowNodeSourceConfiguration:
                 data["resource"]
             )
         }
-    elif "inline" in data:
+    elif data.get("inline") is not None:
         import capo_bedrock_agent.types.prompt_flow_node_inline_configuration
 
         return {

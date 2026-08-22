@@ -36,11 +36,11 @@ def serialize_json(value: CreateRegistryRecordResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateRegistryRecordResponse:
     out: CreateRegistryRecordResponse = {}  # type: ignore[typeddict-item]
-    if "recordArn" in data:
+    if data.get("recordArn") is not None:
         out["record_arn"] = data["recordArn"]
     else:
         raise DeserializationError("CreateRegistryRecordResponse.record_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_status
 
         out["status"] = (

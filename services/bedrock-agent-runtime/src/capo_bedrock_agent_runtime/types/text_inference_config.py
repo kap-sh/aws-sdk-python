@@ -28,9 +28,25 @@ class TextInferenceConfig(TypedDict, closed=True):
 def serialize_json(value: TextInferenceConfig) -> dict:
     out: dict = {}
     if "temperature" in value:
-        out["temperature"] = value["temperature"]
+        out["temperature"] = (
+            "NaN"
+            if value["temperature"] != value["temperature"]
+            else "Infinity"
+            if value["temperature"] == float("inf")
+            else "-Infinity"
+            if value["temperature"] == float("-inf")
+            else value["temperature"]
+        )
     if "top_p" in value:
-        out["topP"] = value["top_p"]
+        out["topP"] = (
+            "NaN"
+            if value["top_p"] != value["top_p"]
+            else "Infinity"
+            if value["top_p"] == float("inf")
+            else "-Infinity"
+            if value["top_p"] == float("-inf")
+            else value["top_p"]
+        )
     if "max_tokens" in value:
         out["maxTokens"] = value["max_tokens"]
     if "stop_sequences" in value:
@@ -46,13 +62,13 @@ def serialize_json(value: TextInferenceConfig) -> dict:
 
 def deserialize_json(data: dict) -> TextInferenceConfig:
     out: TextInferenceConfig = {}  # type: ignore[typeddict-item]
-    if "temperature" in data:
-        out["temperature"] = data["temperature"]
-    if "topP" in data:
-        out["top_p"] = data["topP"]
-    if "maxTokens" in data:
+    if data.get("temperature") is not None:
+        out["temperature"] = float(data["temperature"])
+    if data.get("topP") is not None:
+        out["top_p"] = float(data["topP"])
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "stopSequences" in data:
+    if data.get("stopSequences") is not None:
         import capo_bedrock_agent_runtime.types.rag_stop_sequences
 
         out["stop_sequences"] = (

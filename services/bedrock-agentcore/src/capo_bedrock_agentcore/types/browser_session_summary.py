@@ -60,17 +60,17 @@ def serialize_json(value: BrowserSessionSummary) -> dict:
 
 def deserialize_json(data: dict) -> BrowserSessionSummary:
     out: BrowserSessionSummary = {}  # type: ignore[typeddict-item]
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError("BrowserSessionSummary.browser_identifier required")
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("BrowserSessionSummary.session_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.browser_session_status
 
         out["status"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> BrowserSessionSummary:
         )
     else:
         raise DeserializationError("BrowserSessionSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -90,7 +90,7 @@ def deserialize_json(data: dict) -> BrowserSessionSummary:
         )
     else:
         raise DeserializationError("BrowserSessionSummary.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

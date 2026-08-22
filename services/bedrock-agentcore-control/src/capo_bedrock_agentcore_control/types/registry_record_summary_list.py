@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> RegistryRecordSummaryList:
 
     out: RegistryRecordSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.registry_record_summary.deserialize_json(
                 item

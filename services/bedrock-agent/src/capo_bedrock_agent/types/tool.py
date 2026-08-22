@@ -45,7 +45,7 @@ def serialize_json(value: Tool) -> dict:
 
 
 def deserialize_json(data: dict) -> Tool:
-    if "toolSpec" in data:
+    if data.get("toolSpec") is not None:
         import capo_bedrock_agent.types.tool_specification
 
         return {
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> Tool:
                 data["toolSpec"]
             )
         }
-    elif "cachePoint" in data:
+    elif data.get("cachePoint") is not None:
         import capo_bedrock_agent.types.cache_point_block
 
         return {

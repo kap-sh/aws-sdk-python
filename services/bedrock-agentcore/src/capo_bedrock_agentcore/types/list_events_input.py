@@ -50,20 +50,20 @@ def serialize_json(value: ListEventsInput) -> dict:
 
 def deserialize_json(data: dict) -> ListEventsInput:
     out: ListEventsInput = {}  # type: ignore[typeddict-item]
-    if "includePayloads" in data:
+    if data.get("includePayloads") is not None:
         out["include_payloads"] = data["includePayloads"]
     else:
         out["include_payloads"] = True
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_bedrock_agentcore.types.filter_input
 
         out["filter"] = capo_bedrock_agentcore.types.filter_input.deserialize_json(
             data["filter"]
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 100
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

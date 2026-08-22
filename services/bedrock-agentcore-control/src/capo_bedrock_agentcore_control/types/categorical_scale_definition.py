@@ -22,11 +22,11 @@ def serialize_json(value: CategoricalScaleDefinition) -> dict:
 
 def deserialize_json(data: dict) -> CategoricalScaleDefinition:
     out: CategoricalScaleDefinition = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("CategoricalScaleDefinition.definition required")
-    if "label" in data:
+    if data.get("label") is not None:
         out["label"] = data["label"]
     else:
         raise DeserializationError("CategoricalScaleDefinition.label required")

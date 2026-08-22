@@ -37,7 +37,7 @@ def serialize_json(value: ListRegistriesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListRegistriesResponse:
     out: ListRegistriesResponse = {}  # type: ignore[typeddict-item]
-    if "registries" in data:
+    if data.get("registries") is not None:
         import capo_bedrock_agentcore_control.types.registry_summary_list
 
         out["registries"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListRegistriesResponse:
         )
     else:
         raise DeserializationError("ListRegistriesResponse.registries required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

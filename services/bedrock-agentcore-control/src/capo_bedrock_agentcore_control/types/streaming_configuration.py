@@ -18,6 +18,6 @@ def serialize_json(value: StreamingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> StreamingConfiguration:
     out: StreamingConfiguration = {}  # type: ignore[typeddict-item]
-    if "enableResponseStreaming" in data:
+    if data.get("enableResponseStreaming") is not None:
         out["enable_response_streaming"] = data["enableResponseStreaming"]
     return out

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> HarnessToolResultBlocksDelta:
 
     out: HarnessToolResultBlocksDelta = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.harness_tool_result_block_delta.deserialize_json(
                 item

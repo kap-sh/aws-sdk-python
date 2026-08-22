@@ -46,11 +46,11 @@ def serialize_json(value: CreateWorkloadIdentityRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateWorkloadIdentityRequest:
     out: CreateWorkloadIdentityRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateWorkloadIdentityRequest.name required")
-    if "allowedResourceOauth2ReturnUrls" in data:
+    if data.get("allowedResourceOauth2ReturnUrls") is not None:
         import capo_bedrock_agentcore_control.types.resource_oauth2_return_url_list_type
 
         out["allowed_resource_oauth2_return_urls"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> CreateWorkloadIdentityRequest:
                 data["allowedResourceOauth2ReturnUrls"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

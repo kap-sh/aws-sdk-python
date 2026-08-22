@@ -53,15 +53,15 @@ def serialize_json(value: CreateDatasetVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateDatasetVersionResponse:
     out: CreateDatasetVersionResponse = {}  # type: ignore[typeddict-item]
-    if "datasetArn" in data:
+    if data.get("datasetArn") is not None:
         out["dataset_arn"] = data["datasetArn"]
     else:
         raise DeserializationError("CreateDatasetVersionResponse.dataset_arn required")
-    if "datasetId" in data:
+    if data.get("datasetId") is not None:
         out["dataset_id"] = data["datasetId"]
     else:
         raise DeserializationError("CreateDatasetVersionResponse.dataset_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.dataset_status
 
         out["status"] = (
@@ -71,13 +71,13 @@ def deserialize_json(data: dict) -> CreateDatasetVersionResponse:
         )
     else:
         raise DeserializationError("CreateDatasetVersionResponse.status required")
-    if "datasetVersion" in data:
+    if data.get("datasetVersion") is not None:
         out["dataset_version"] = data["datasetVersion"]
     else:
         raise DeserializationError(
             "CreateDatasetVersionResponse.dataset_version required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (

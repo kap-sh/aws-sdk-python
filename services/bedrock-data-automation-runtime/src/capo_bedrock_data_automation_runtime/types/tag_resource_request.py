@@ -32,11 +32,11 @@ def serialize_aws_json_1_1(value: TagResourceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TagResourceRequest:
     out: TagResourceRequest = {}  # type: ignore[typeddict-item]
-    if "resourceARN" in data:
+    if data.get("resourceARN") is not None:
         out["resource_arn"] = data["resourceARN"]
     else:
         raise DeserializationError("TagResourceRequest.resource_arn required")
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation_runtime.types.tag_list
 
         out["tags"] = (

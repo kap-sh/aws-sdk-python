@@ -32,7 +32,7 @@ def serialize_json(value: CompleteResourceTokenAuthRequest) -> dict:
 
 def deserialize_json(data: dict) -> CompleteResourceTokenAuthRequest:
     out: CompleteResourceTokenAuthRequest = {}  # type: ignore[typeddict-item]
-    if "userIdentifier" in data:
+    if data.get("userIdentifier") is not None:
         import capo_bedrock_agentcore.types.user_identifier
 
         out["user_identifier"] = (
@@ -44,7 +44,7 @@ def deserialize_json(data: dict) -> CompleteResourceTokenAuthRequest:
         raise DeserializationError(
             "CompleteResourceTokenAuthRequest.user_identifier required"
         )
-    if "sessionUri" in data:
+    if data.get("sessionUri") is not None:
         out["session_uri"] = data["sessionUri"]
     else:
         raise DeserializationError(

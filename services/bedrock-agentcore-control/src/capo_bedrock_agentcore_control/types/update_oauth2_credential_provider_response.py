@@ -109,7 +109,7 @@ def serialize_json(value: UpdateOauth2CredentialProviderResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
     out: UpdateOauth2CredentialProviderResponse = {}  # type: ignore[typeddict-item]
-    if "clientSecretArn" in data:
+    if data.get("clientSecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["client_secret_arn"] = (
@@ -121,9 +121,9 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.client_secret_arn required"
         )
-    if "clientSecretJsonKey" in data:
+    if data.get("clientSecretJsonKey") is not None:
         out["client_secret_json_key"] = data["clientSecretJsonKey"]
-    if "clientSecretSource" in data:
+    if data.get("clientSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["client_secret_source"] = (
@@ -131,13 +131,13 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
                 data["clientSecretSource"]
             )
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.name required"
         )
-    if "credentialProviderVendor" in data:
+    if data.get("credentialProviderVendor") is not None:
         import capo_bedrock_agentcore_control.types.credential_provider_vendor_type
 
         out["credential_provider_vendor"] = (
@@ -149,15 +149,15 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.credential_provider_vendor required"
         )
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.credential_provider_arn required"
         )
-    if "callbackUrl" in data:
+    if data.get("callbackUrl") is not None:
         out["callback_url"] = data["callbackUrl"]
-    if "oauth2ProviderConfigOutput" in data:
+    if data.get("oauth2ProviderConfigOutput") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_provider_config_output
 
         out["oauth2_provider_config_output"] = (
@@ -169,7 +169,7 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.oauth2_provider_config_output required"
         )
-    if "createdTime" in data:
+    if data.get("createdTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_time"] = (
@@ -181,7 +181,7 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.created_time required"
         )
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_updated_time"] = (
@@ -193,7 +193,7 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderResponse.last_updated_time required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.status
 
         out["status"] = capo_bedrock_agentcore_control.types.status.deserialize_json(

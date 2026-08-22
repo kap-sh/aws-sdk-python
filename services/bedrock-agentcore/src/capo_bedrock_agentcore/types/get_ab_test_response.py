@@ -173,21 +173,21 @@ def serialize_json(value: GetABTestResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetABTestResponse:
     out: GetABTestResponse = {}  # type: ignore[typeddict-item]
-    if "abTestId" in data:
+    if data.get("abTestId") is not None:
         out["ab_test_id"] = data["abTestId"]
     else:
         raise DeserializationError("GetABTestResponse.ab_test_id required")
-    if "abTestArn" in data:
+    if data.get("abTestArn") is not None:
         out["ab_test_arn"] = data["abTestArn"]
     else:
         raise DeserializationError("GetABTestResponse.ab_test_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetABTestResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.ab_test_status
 
         out["status"] = capo_bedrock_agentcore.types.ab_test_status.deserialize_json(
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.status required")
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore.types.ab_test_execution_status
 
         out["execution_status"] = (
@@ -205,11 +205,11 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.execution_status required")
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
     else:
         raise DeserializationError("GetABTestResponse.gateway_arn required")
-    if "variants" in data:
+    if data.get("variants") is not None:
         import capo_bedrock_agentcore.types.variant_list
 
         out["variants"] = capo_bedrock_agentcore.types.variant_list.deserialize_json(
@@ -217,7 +217,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.variants required")
-    if "gatewayFilter" in data:
+    if data.get("gatewayFilter") is not None:
         import capo_bedrock_agentcore.types.gateway_filter
 
         out["gateway_filter"] = (
@@ -225,7 +225,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
                 data["gatewayFilter"]
             )
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock_agentcore.types.ab_test_evaluation_config
 
         out["evaluation_config"] = (
@@ -235,11 +235,11 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.evaluation_config required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "currentRunId" in data:
+    if data.get("currentRunId") is not None:
         out["current_run_id"] = data["currentRunId"]
-    if "errorDetails" in data:
+    if data.get("errorDetails") is not None:
         import capo_bedrock_agentcore.types.error_details_list
 
         out["error_details"] = (
@@ -247,7 +247,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
                 data["errorDetails"]
             )
         )
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["started_at"] = (
@@ -255,7 +255,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
                 data["startedAt"]
             )
         )
-    if "stoppedAt" in data:
+    if data.get("stoppedAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["stopped_at"] = (
@@ -263,7 +263,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
                 data["stoppedAt"]
             )
         )
-    if "maxDurationExpiresAt" in data:
+    if data.get("maxDurationExpiresAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["max_duration_expires_at"] = (
@@ -271,7 +271,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
                 data["maxDurationExpiresAt"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["created_at"] = (
@@ -281,7 +281,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -291,7 +291,7 @@ def deserialize_json(data: dict) -> GetABTestResponse:
         )
     else:
         raise DeserializationError("GetABTestResponse.updated_at required")
-    if "results" in data:
+    if data.get("results") is not None:
         import capo_bedrock_agentcore.types.ab_test_results
 
         out["results"] = capo_bedrock_agentcore.types.ab_test_results.deserialize_json(

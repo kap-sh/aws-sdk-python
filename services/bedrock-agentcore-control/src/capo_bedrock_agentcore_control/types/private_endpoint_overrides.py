@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> PrivateEndpointOverrides:
 
     out: PrivateEndpointOverrides = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.private_endpoint_override.deserialize_json(
                 item

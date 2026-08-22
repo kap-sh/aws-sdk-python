@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> CodeInterpreterSessionSummaries:
 
     out: CodeInterpreterSessionSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.code_interpreter_session_summary.deserialize_json(
                 item

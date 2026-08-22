@@ -60,7 +60,7 @@ def serialize_json(value: CustomContent) -> dict:
 
 def deserialize_json(data: dict) -> CustomContent:
     out: CustomContent = {}  # type: ignore[typeddict-item]
-    if "customDocumentIdentifier" in data:
+    if data.get("customDocumentIdentifier") is not None:
         import capo_bedrock_agent.types.custom_document_identifier
 
         out["custom_document_identifier"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> CustomContent:
         )
     else:
         raise DeserializationError("CustomContent.custom_document_identifier required")
-    if "sourceType" in data:
+    if data.get("sourceType") is not None:
         import capo_bedrock_agent.types.custom_source_type
 
         out["source_type"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> CustomContent:
         )
     else:
         raise DeserializationError("CustomContent.source_type required")
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent.types.custom_s3_location
 
         out["s3_location"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> CustomContent:
                 data["s3Location"]
             )
         )
-    if "inlineContent" in data:
+    if data.get("inlineContent") is not None:
         import capo_bedrock_agent.types.inline_content
 
         out["inline_content"] = (

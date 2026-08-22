@@ -53,15 +53,15 @@ def serialize_json(value: TrafficSplitEntry) -> dict:
 
 def deserialize_json(data: dict) -> TrafficSplitEntry:
     out: TrafficSplitEntry = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("TrafficSplitEntry.name required")
-    if "weight" in data:
+    if data.get("weight") is not None:
         out["weight"] = data["weight"]
     else:
         raise DeserializationError("TrafficSplitEntry.weight required")
-    if "configurationBundle" in data:
+    if data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_reference
 
         out["configuration_bundle"] = (
@@ -71,9 +71,9 @@ def deserialize_json(data: dict) -> TrafficSplitEntry:
         )
     else:
         raise DeserializationError("TrafficSplitEntry.configuration_bundle required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agentcore_control.types.traffic_split_metadata_map
 
         out["metadata"] = (

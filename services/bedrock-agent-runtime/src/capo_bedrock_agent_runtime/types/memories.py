@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> Memories:
 
     out: Memories = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent_runtime.types.memory.deserialize_json(item))
     return out

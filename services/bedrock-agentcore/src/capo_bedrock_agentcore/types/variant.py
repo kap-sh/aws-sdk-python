@@ -39,15 +39,15 @@ def serialize_json(value: Variant) -> dict:
 
 def deserialize_json(data: dict) -> Variant:
     out: Variant = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("Variant.name required")
-    if "weight" in data:
+    if data.get("weight") is not None:
         out["weight"] = data["weight"]
     else:
         raise DeserializationError("Variant.weight required")
-    if "variantConfiguration" in data:
+    if data.get("variantConfiguration") is not None:
         import capo_bedrock_agentcore.types.variant_configuration
 
         out["variant_configuration"] = (

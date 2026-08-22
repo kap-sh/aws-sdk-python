@@ -35,7 +35,7 @@ def serialize_json(value: ListPaymentManagersResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListPaymentManagersResponse:
     out: ListPaymentManagersResponse = {}  # type: ignore[typeddict-item]
-    if "paymentManagers" in data:
+    if data.get("paymentManagers") is not None:
         import capo_bedrock_agentcore_control.types.payment_manager_summaries
 
         out["payment_managers"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListPaymentManagersResponse:
         raise DeserializationError(
             "ListPaymentManagersResponse.payment_managers required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

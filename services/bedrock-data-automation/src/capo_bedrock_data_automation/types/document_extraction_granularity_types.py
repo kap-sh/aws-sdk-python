@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> DocumentExtractionGranularityTypes:
 
     out: DocumentExtractionGranularityTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.document_extraction_granularity_type.deserialize_json(
                 item

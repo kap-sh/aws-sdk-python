@@ -28,7 +28,7 @@ def serialize_json(value: BlueprintOptimizationOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BlueprintOptimizationOutputConfiguration:
     out: BlueprintOptimizationOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "s3Object" in data:
+    if data.get("s3Object") is not None:
         import capo_bedrock_data_automation.types.s3_object
 
         out["s3_object"] = (

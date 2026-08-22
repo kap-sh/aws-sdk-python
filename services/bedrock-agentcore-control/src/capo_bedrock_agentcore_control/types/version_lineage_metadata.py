@@ -55,7 +55,7 @@ def serialize_json(value: VersionLineageMetadata) -> dict:
 
 def deserialize_json(data: dict) -> VersionLineageMetadata:
     out: VersionLineageMetadata = {}  # type: ignore[typeddict-item]
-    if "parentVersionIds" in data:
+    if data.get("parentVersionIds") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_version_list
 
         out["parent_version_ids"] = (
@@ -63,9 +63,9 @@ def deserialize_json(data: dict) -> VersionLineageMetadata:
                 data["parentVersionIds"]
             )
         )
-    if "branchName" in data:
+    if data.get("branchName") is not None:
         out["branch_name"] = data["branchName"]
-    if "createdBy" in data:
+    if data.get("createdBy") is not None:
         import capo_bedrock_agentcore_control.types.version_created_by_source
 
         out["created_by"] = (
@@ -73,6 +73,6 @@ def deserialize_json(data: dict) -> VersionLineageMetadata:
                 data["createdBy"]
             )
         )
-    if "commitMessage" in data:
+    if data.get("commitMessage") is not None:
         out["commit_message"] = data["commitMessage"]
     return out

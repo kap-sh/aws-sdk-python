@@ -58,14 +58,14 @@ def serialize_json(value: RecommendationSummary) -> dict:
     out["status"] = capo_bedrock_agentcore.types.recommendation_status.serialize_json(
         value["status"]
     )
-    import capo_bedrock_agentcore.types._prelude.timestamp
+    import capo_bedrock_agentcore._protocol.serialize
 
-    out["createdAt"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+    out["createdAt"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
         value["created_at"]
     )
-    import capo_bedrock_agentcore.types._prelude.timestamp
+    import capo_bedrock_agentcore._protocol.serialize
 
-    out["updatedAt"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+    out["updatedAt"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
         value["updated_at"]
     )
     return out
@@ -73,21 +73,21 @@ def serialize_json(value: RecommendationSummary) -> dict:
 
 def deserialize_json(data: dict) -> RecommendationSummary:
     out: RecommendationSummary = {}  # type: ignore[typeddict-item]
-    if "recommendationId" in data:
+    if data.get("recommendationId") is not None:
         out["recommendation_id"] = data["recommendationId"]
     else:
         raise DeserializationError("RecommendationSummary.recommendation_id required")
-    if "recommendationArn" in data:
+    if data.get("recommendationArn") is not None:
         out["recommendation_arn"] = data["recommendationArn"]
     else:
         raise DeserializationError("RecommendationSummary.recommendation_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("RecommendationSummary.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.recommendation_type
 
         out["type"] = capo_bedrock_agentcore.types.recommendation_type.deserialize_json(
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> RecommendationSummary:
         )
     else:
         raise DeserializationError("RecommendationSummary.type required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.recommendation_status
 
         out["status"] = (
@@ -105,23 +105,19 @@ def deserialize_json(data: dict) -> RecommendationSummary:
         )
     else:
         raise DeserializationError("RecommendationSummary.status required")
-    if "createdAt" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("createdAt") is not None:
+        import datetime
 
-        out["created_at"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["createdAt"]
-            )
+        out["created_at"] = datetime.datetime.fromisoformat(
+            data["createdAt"].replace("Z", "+00:00")
         )
     else:
         raise DeserializationError("RecommendationSummary.created_at required")
-    if "updatedAt" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("updatedAt") is not None:
+        import datetime
 
-        out["updated_at"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["updatedAt"]
-            )
+        out["updated_at"] = datetime.datetime.fromisoformat(
+            data["updatedAt"].replace("Z", "+00:00")
         )
     else:
         raise DeserializationError("RecommendationSummary.updated_at required")

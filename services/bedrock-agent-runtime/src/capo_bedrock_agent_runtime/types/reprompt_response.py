@@ -31,9 +31,9 @@ def serialize_json(value: RepromptResponse) -> dict:
 
 def deserialize_json(data: dict) -> RepromptResponse:
     out: RepromptResponse = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_agent_runtime.types.source
 
         out["source"] = capo_bedrock_agent_runtime.types.source.deserialize_json(

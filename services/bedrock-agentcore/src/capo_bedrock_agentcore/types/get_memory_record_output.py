@@ -28,7 +28,7 @@ def serialize_json(value: GetMemoryRecordOutput) -> dict:
 
 def deserialize_json(data: dict) -> GetMemoryRecordOutput:
     out: GetMemoryRecordOutput = {}  # type: ignore[typeddict-item]
-    if "memoryRecord" in data:
+    if data.get("memoryRecord") is not None:
         import capo_bedrock_agentcore.types.memory_record
 
         out["memory_record"] = (

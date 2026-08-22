@@ -45,11 +45,11 @@ def serialize_json(value: DeleteGatewayResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteGatewayResponse:
     out: DeleteGatewayResponse = {}  # type: ignore[typeddict-item]
-    if "gatewayId" in data:
+    if data.get("gatewayId") is not None:
         out["gateway_id"] = data["gatewayId"]
     else:
         raise DeserializationError("DeleteGatewayResponse.gateway_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.gateway_status
 
         out["status"] = (
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> DeleteGatewayResponse:
         )
     else:
         raise DeserializationError("DeleteGatewayResponse.status required")
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock_agentcore_control.types.status_reasons
 
         out["status_reasons"] = (

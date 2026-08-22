@@ -50,7 +50,7 @@ def serialize_json(value: StartPolicyGenerationRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartPolicyGenerationRequest:
     out: StartPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-    if "resource" in data:
+    if data.get("resource") is not None:
         import capo_bedrock_agentcore_control.types.resource
 
         out["resource"] = (
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> StartPolicyGenerationRequest:
         )
     else:
         raise DeserializationError("StartPolicyGenerationRequest.resource required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore_control.types.content
 
         out["content"] = capo_bedrock_agentcore_control.types.content.deserialize_json(
@@ -68,10 +68,10 @@ def deserialize_json(data: dict) -> StartPolicyGenerationRequest:
         )
     else:
         raise DeserializationError("StartPolicyGenerationRequest.content required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("StartPolicyGenerationRequest.name required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

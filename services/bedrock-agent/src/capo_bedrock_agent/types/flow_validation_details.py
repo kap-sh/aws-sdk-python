@@ -482,7 +482,7 @@ def serialize_json(value: FlowValidationDetails) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowValidationDetails:
-    if "cyclicConnection" in data:
+    if data.get("cyclicConnection") is not None:
         import capo_bedrock_agent.types.cyclic_connection_flow_validation_details
 
         return {
@@ -490,7 +490,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["cyclicConnection"]
             )
         }
-    elif "duplicateConnections" in data:
+    elif data.get("duplicateConnections") is not None:
         import capo_bedrock_agent.types.duplicate_connections_flow_validation_details
 
         return {
@@ -498,7 +498,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["duplicateConnections"]
             )
         }
-    elif "duplicateConditionExpression" in data:
+    elif data.get("duplicateConditionExpression") is not None:
         import capo_bedrock_agent.types.duplicate_condition_expression_flow_validation_details
 
         return {
@@ -506,7 +506,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["duplicateConditionExpression"]
             )
         }
-    elif "unreachableNode" in data:
+    elif data.get("unreachableNode") is not None:
         import capo_bedrock_agent.types.unreachable_node_flow_validation_details
 
         return {
@@ -514,7 +514,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unreachableNode"]
             )
         }
-    elif "unknownConnectionSource" in data:
+    elif data.get("unknownConnectionSource") is not None:
         import capo_bedrock_agent.types.unknown_connection_source_flow_validation_details
 
         return {
@@ -522,7 +522,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownConnectionSource"]
             )
         }
-    elif "unknownConnectionSourceOutput" in data:
+    elif data.get("unknownConnectionSourceOutput") is not None:
         import capo_bedrock_agent.types.unknown_connection_source_output_flow_validation_details
 
         return {
@@ -530,7 +530,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownConnectionSourceOutput"]
             )
         }
-    elif "unknownConnectionTarget" in data:
+    elif data.get("unknownConnectionTarget") is not None:
         import capo_bedrock_agent.types.unknown_connection_target_flow_validation_details
 
         return {
@@ -538,7 +538,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownConnectionTarget"]
             )
         }
-    elif "unknownConnectionTargetInput" in data:
+    elif data.get("unknownConnectionTargetInput") is not None:
         import capo_bedrock_agent.types.unknown_connection_target_input_flow_validation_details
 
         return {
@@ -546,7 +546,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownConnectionTargetInput"]
             )
         }
-    elif "unknownConnectionCondition" in data:
+    elif data.get("unknownConnectionCondition") is not None:
         import capo_bedrock_agent.types.unknown_connection_condition_flow_validation_details
 
         return {
@@ -554,7 +554,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownConnectionCondition"]
             )
         }
-    elif "malformedConditionExpression" in data:
+    elif data.get("malformedConditionExpression") is not None:
         import capo_bedrock_agent.types.malformed_condition_expression_flow_validation_details
 
         return {
@@ -562,7 +562,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["malformedConditionExpression"]
             )
         }
-    elif "malformedNodeInputExpression" in data:
+    elif data.get("malformedNodeInputExpression") is not None:
         import capo_bedrock_agent.types.malformed_node_input_expression_flow_validation_details
 
         return {
@@ -570,7 +570,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["malformedNodeInputExpression"]
             )
         }
-    elif "mismatchedNodeInputType" in data:
+    elif data.get("mismatchedNodeInputType") is not None:
         import capo_bedrock_agent.types.mismatched_node_input_type_flow_validation_details
 
         return {
@@ -578,7 +578,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["mismatchedNodeInputType"]
             )
         }
-    elif "mismatchedNodeOutputType" in data:
+    elif data.get("mismatchedNodeOutputType") is not None:
         import capo_bedrock_agent.types.mismatched_node_output_type_flow_validation_details
 
         return {
@@ -586,7 +586,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["mismatchedNodeOutputType"]
             )
         }
-    elif "incompatibleConnectionDataType" in data:
+    elif data.get("incompatibleConnectionDataType") is not None:
         import capo_bedrock_agent.types.incompatible_connection_data_type_flow_validation_details
 
         return {
@@ -594,7 +594,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["incompatibleConnectionDataType"]
             )
         }
-    elif "missingConnectionConfiguration" in data:
+    elif data.get("missingConnectionConfiguration") is not None:
         import capo_bedrock_agent.types.missing_connection_configuration_flow_validation_details
 
         return {
@@ -602,7 +602,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingConnectionConfiguration"]
             )
         }
-    elif "missingDefaultCondition" in data:
+    elif data.get("missingDefaultCondition") is not None:
         import capo_bedrock_agent.types.missing_default_condition_flow_validation_details
 
         return {
@@ -610,7 +610,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingDefaultCondition"]
             )
         }
-    elif "missingEndingNodes" in data:
+    elif data.get("missingEndingNodes") is not None:
         import capo_bedrock_agent.types.missing_ending_nodes_flow_validation_details
 
         return {
@@ -618,7 +618,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingEndingNodes"]
             )
         }
-    elif "missingNodeConfiguration" in data:
+    elif data.get("missingNodeConfiguration") is not None:
         import capo_bedrock_agent.types.missing_node_configuration_flow_validation_details
 
         return {
@@ -626,7 +626,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingNodeConfiguration"]
             )
         }
-    elif "missingNodeInput" in data:
+    elif data.get("missingNodeInput") is not None:
         import capo_bedrock_agent.types.missing_node_input_flow_validation_details
 
         return {
@@ -634,7 +634,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingNodeInput"]
             )
         }
-    elif "missingNodeOutput" in data:
+    elif data.get("missingNodeOutput") is not None:
         import capo_bedrock_agent.types.missing_node_output_flow_validation_details
 
         return {
@@ -642,7 +642,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingNodeOutput"]
             )
         }
-    elif "missingStartingNodes" in data:
+    elif data.get("missingStartingNodes") is not None:
         import capo_bedrock_agent.types.missing_starting_nodes_flow_validation_details
 
         return {
@@ -650,7 +650,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingStartingNodes"]
             )
         }
-    elif "multipleNodeInputConnections" in data:
+    elif data.get("multipleNodeInputConnections") is not None:
         import capo_bedrock_agent.types.multiple_node_input_connections_flow_validation_details
 
         return {
@@ -658,7 +658,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["multipleNodeInputConnections"]
             )
         }
-    elif "unfulfilledNodeInput" in data:
+    elif data.get("unfulfilledNodeInput") is not None:
         import capo_bedrock_agent.types.unfulfilled_node_input_flow_validation_details
 
         return {
@@ -666,7 +666,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unfulfilledNodeInput"]
             )
         }
-    elif "unsatisfiedConnectionConditions" in data:
+    elif data.get("unsatisfiedConnectionConditions") is not None:
         import capo_bedrock_agent.types.unsatisfied_connection_conditions_flow_validation_details
 
         return {
@@ -674,7 +674,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unsatisfiedConnectionConditions"]
             )
         }
-    elif "unspecified" in data:
+    elif data.get("unspecified") is not None:
         import capo_bedrock_agent.types.unspecified_flow_validation_details
 
         return {
@@ -682,7 +682,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unspecified"]
             )
         }
-    elif "unknownNodeInput" in data:
+    elif data.get("unknownNodeInput") is not None:
         import capo_bedrock_agent.types.unknown_node_input_flow_validation_details
 
         return {
@@ -690,7 +690,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownNodeInput"]
             )
         }
-    elif "unknownNodeOutput" in data:
+    elif data.get("unknownNodeOutput") is not None:
         import capo_bedrock_agent.types.unknown_node_output_flow_validation_details
 
         return {
@@ -698,7 +698,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["unknownNodeOutput"]
             )
         }
-    elif "missingLoopInputNode" in data:
+    elif data.get("missingLoopInputNode") is not None:
         import capo_bedrock_agent.types.missing_loop_input_node_flow_validation_details
 
         return {
@@ -706,7 +706,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingLoopInputNode"]
             )
         }
-    elif "missingLoopControllerNode" in data:
+    elif data.get("missingLoopControllerNode") is not None:
         import capo_bedrock_agent.types.missing_loop_controller_node_flow_validation_details
 
         return {
@@ -714,7 +714,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["missingLoopControllerNode"]
             )
         }
-    elif "multipleLoopInputNodes" in data:
+    elif data.get("multipleLoopInputNodes") is not None:
         import capo_bedrock_agent.types.multiple_loop_input_nodes_flow_validation_details
 
         return {
@@ -722,7 +722,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["multipleLoopInputNodes"]
             )
         }
-    elif "multipleLoopControllerNodes" in data:
+    elif data.get("multipleLoopControllerNodes") is not None:
         import capo_bedrock_agent.types.multiple_loop_controller_nodes_flow_validation_details
 
         return {
@@ -730,7 +730,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["multipleLoopControllerNodes"]
             )
         }
-    elif "loopIncompatibleNodeType" in data:
+    elif data.get("loopIncompatibleNodeType") is not None:
         import capo_bedrock_agent.types.loop_incompatible_node_type_flow_validation_details
 
         return {
@@ -738,7 +738,7 @@ def deserialize_json(data: dict) -> FlowValidationDetails:
                 data["loopIncompatibleNodeType"]
             )
         }
-    elif "invalidLoopBoundary" in data:
+    elif data.get("invalidLoopBoundary") is not None:
         import capo_bedrock_agent.types.invalid_loop_boundary_flow_validation_details
 
         return {

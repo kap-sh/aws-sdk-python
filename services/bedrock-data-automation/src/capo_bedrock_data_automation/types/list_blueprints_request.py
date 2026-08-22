@@ -70,9 +70,9 @@ def serialize_json(value: ListBlueprintsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListBlueprintsRequest:
     out: ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
-    if "blueprintArn" in data:
+    if data.get("blueprintArn") is not None:
         out["blueprint_arn"] = data["blueprintArn"]
-    if "resourceOwner" in data:
+    if data.get("resourceOwner") is not None:
         import capo_bedrock_data_automation.types.resource_owner
 
         out["resource_owner"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> ListBlueprintsRequest:
                 data["resourceOwner"]
             )
         )
-    if "blueprintStageFilter" in data:
+    if data.get("blueprintStageFilter") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage_filter
 
         out["blueprint_stage_filter"] = (
@@ -88,11 +88,11 @@ def deserialize_json(data: dict) -> ListBlueprintsRequest:
                 data["blueprintStageFilter"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "projectFilter" in data:
+    if data.get("projectFilter") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_filter
 
         out["project_filter"] = (

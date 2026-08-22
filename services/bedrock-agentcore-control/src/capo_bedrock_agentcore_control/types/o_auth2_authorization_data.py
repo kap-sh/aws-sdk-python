@@ -23,10 +23,10 @@ def serialize_json(value: OAuth2AuthorizationData) -> dict:
 
 def deserialize_json(data: dict) -> OAuth2AuthorizationData:
     out: OAuth2AuthorizationData = {}  # type: ignore[typeddict-item]
-    if "authorizationUrl" in data:
+    if data.get("authorizationUrl") is not None:
         out["authorization_url"] = data["authorizationUrl"]
     else:
         raise DeserializationError("OAuth2AuthorizationData.authorization_url required")
-    if "userId" in data:
+    if data.get("userId") is not None:
         out["user_id"] = data["userId"]
     return out

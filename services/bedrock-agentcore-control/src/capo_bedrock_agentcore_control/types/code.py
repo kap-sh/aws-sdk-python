@@ -35,7 +35,7 @@ def serialize_json(value: Code) -> dict:
 
 
 def deserialize_json(data: dict) -> Code:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agentcore_control.types.s3_location
 
         return {

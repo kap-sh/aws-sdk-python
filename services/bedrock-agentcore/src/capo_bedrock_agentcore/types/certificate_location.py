@@ -34,7 +34,7 @@ def serialize_json(value: CertificateLocation) -> dict:
 
 
 def deserialize_json(data: dict) -> CertificateLocation:
-    if "secretsManager" in data:
+    if data.get("secretsManager") is not None:
         import capo_bedrock_agentcore.types.secrets_manager_location
 
         return {

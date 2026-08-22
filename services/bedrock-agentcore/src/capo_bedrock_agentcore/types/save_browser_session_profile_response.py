@@ -41,25 +41,25 @@ def serialize_json(value: SaveBrowserSessionProfileResponse) -> dict:
 
 def deserialize_json(data: dict) -> SaveBrowserSessionProfileResponse:
     out: SaveBrowserSessionProfileResponse = {}  # type: ignore[typeddict-item]
-    if "profileIdentifier" in data:
+    if data.get("profileIdentifier") is not None:
         out["profile_identifier"] = data["profileIdentifier"]
     else:
         raise DeserializationError(
             "SaveBrowserSessionProfileResponse.profile_identifier required"
         )
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError(
             "SaveBrowserSessionProfileResponse.browser_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError(
             "SaveBrowserSessionProfileResponse.session_id required"
         )
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

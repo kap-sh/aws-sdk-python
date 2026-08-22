@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> PatternObjectFilterList:
 
     out: PatternObjectFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.pattern_object_filter.deserialize_json(item)
         )

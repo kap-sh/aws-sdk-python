@@ -23,7 +23,7 @@ def serialize_json(value: MetadataValue) -> dict:
 
 
 def deserialize_json(data: dict) -> MetadataValue:
-    if "stringValue" in data:
+    if data.get("stringValue") is not None:
         return {"stringValue": data["stringValue"]}
     else:
         raise DeserializationError("MetadataValue: no recognized variant key")

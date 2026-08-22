@@ -24,7 +24,7 @@ def serialize_aws_json_1_1(value: OutputConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OutputConfiguration:
     out: OutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError("OutputConfiguration.s3_uri required")

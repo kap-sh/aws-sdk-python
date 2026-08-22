@@ -31,19 +31,19 @@ def serialize_json(value: InvalidLoopBoundaryFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> InvalidLoopBoundaryFlowValidationDetails:
     out: InvalidLoopBoundaryFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "connection" in data:
+    if data.get("connection") is not None:
         out["connection"] = data["connection"]
     else:
         raise DeserializationError(
             "InvalidLoopBoundaryFlowValidationDetails.connection required"
         )
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError(
             "InvalidLoopBoundaryFlowValidationDetails.source required"
         )
-    if "target" in data:
+    if data.get("target") is not None:
         out["target"] = data["target"]
     else:
         raise DeserializationError(

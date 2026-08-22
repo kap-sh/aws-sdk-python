@@ -60,7 +60,7 @@ def serialize_json(value: InvokeFlowRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeFlowRequest:
     out: InvokeFlowRequest = {}  # type: ignore[typeddict-item]
-    if "inputs" in data:
+    if data.get("inputs") is not None:
         import capo_bedrock_agent_runtime.types.flow_inputs
 
         out["inputs"] = capo_bedrock_agent_runtime.types.flow_inputs.deserialize_json(
@@ -68,9 +68,9 @@ def deserialize_json(data: dict) -> InvokeFlowRequest:
         )
     else:
         raise DeserializationError("InvokeFlowRequest.inputs required")
-    if "enableTrace" in data:
+    if data.get("enableTrace") is not None:
         out["enable_trace"] = data["enableTrace"]
-    if "modelPerformanceConfiguration" in data:
+    if data.get("modelPerformanceConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.model_performance_configuration
 
         out["model_performance_configuration"] = (
@@ -78,6 +78,6 @@ def deserialize_json(data: dict) -> InvokeFlowRequest:
                 data["modelPerformanceConfiguration"]
             )
         )
-    if "executionId" in data:
+    if data.get("executionId") is not None:
         out["execution_id"] = data["executionId"]
     return out

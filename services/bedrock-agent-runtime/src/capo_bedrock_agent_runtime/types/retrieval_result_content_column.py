@@ -39,11 +39,11 @@ def serialize_json(value: RetrievalResultContentColumn) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultContentColumn:
     out: RetrievalResultContentColumn = {}  # type: ignore[typeddict-item]
-    if "columnName" in data:
+    if data.get("columnName") is not None:
         out["column_name"] = data["columnName"]
-    if "columnValue" in data:
+    if data.get("columnValue") is not None:
         out["column_value"] = data["columnValue"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_content_column_type
 
         out["type"] = (

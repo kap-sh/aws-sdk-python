@@ -37,7 +37,7 @@ def serialize_json(value: HarnessMetadataEvent) -> dict:
 
 def deserialize_json(data: dict) -> HarnessMetadataEvent:
     out: HarnessMetadataEvent = {}  # type: ignore[typeddict-item]
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_agentcore.types.harness_token_usage
 
         out["usage"] = (
@@ -47,7 +47,7 @@ def deserialize_json(data: dict) -> HarnessMetadataEvent:
         )
     else:
         raise DeserializationError("HarnessMetadataEvent.usage required")
-    if "metrics" in data:
+    if data.get("metrics") is not None:
         import capo_bedrock_agentcore.types.harness_stream_metrics
 
         out["metrics"] = (

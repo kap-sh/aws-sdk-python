@@ -28,7 +28,7 @@ def serialize_json(value: WebSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> WebSourceConfiguration:
     out: WebSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "urlConfiguration" in data:
+    if data.get("urlConfiguration") is not None:
         import capo_bedrock_agent.types.url_configuration
 
         out["url_configuration"] = (

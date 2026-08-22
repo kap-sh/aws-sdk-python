@@ -43,7 +43,7 @@ def serialize_json(value: TextToSqlConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> TextToSqlConfiguration:
     out: TextToSqlConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.text_to_sql_configuration_type
 
         out["type"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> TextToSqlConfiguration:
         )
     else:
         raise DeserializationError("TextToSqlConfiguration.type required")
-    if "knowledgeBaseConfiguration" in data:
+    if data.get("knowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.text_to_sql_knowledge_base_configuration
 
         out["knowledge_base_configuration"] = (

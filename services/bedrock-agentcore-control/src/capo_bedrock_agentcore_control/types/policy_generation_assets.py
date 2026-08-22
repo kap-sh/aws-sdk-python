@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> PolicyGenerationAssets:
 
     out: PolicyGenerationAssets = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.policy_generation_asset.deserialize_json(
                 item

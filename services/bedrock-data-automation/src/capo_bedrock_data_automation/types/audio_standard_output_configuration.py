@@ -42,7 +42,7 @@ def serialize_json(value: AudioStandardOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AudioStandardOutputConfiguration:
     out: AudioStandardOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "extraction" in data:
+    if data.get("extraction") is not None:
         import capo_bedrock_data_automation.types.audio_standard_extraction
 
         out["extraction"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> AudioStandardOutputConfiguration:
                 data["extraction"]
             )
         )
-    if "generativeField" in data:
+    if data.get("generativeField") is not None:
         import capo_bedrock_data_automation.types.audio_standard_generative_field
 
         out["generative_field"] = (

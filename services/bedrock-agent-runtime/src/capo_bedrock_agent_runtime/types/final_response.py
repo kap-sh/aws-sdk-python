@@ -34,9 +34,9 @@ def serialize_json(value: FinalResponse) -> dict:
 
 def deserialize_json(data: dict) -> FinalResponse:
     out: FinalResponse = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

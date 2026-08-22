@@ -39,7 +39,7 @@ def serialize_json(value: ModifyExtractionConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> ModifyExtractionConfiguration:
-    if "customExtractionConfiguration" in data:
+    if data.get("customExtractionConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.custom_extraction_configuration_input
 
         return {

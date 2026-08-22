@@ -49,11 +49,11 @@ def serialize_json(value: FlowTraceNodeActionEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceNodeActionEvent:
     out: FlowTraceNodeActionEvent = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.node_name required")
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["timestamp"] = (
@@ -63,20 +63,20 @@ def deserialize_json(data: dict) -> FlowTraceNodeActionEvent:
         )
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.timestamp required")
-    if "requestId" in data:
+    if data.get("requestId") is not None:
         out["request_id"] = data["requestId"]
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.request_id required")
-    if "serviceName" in data:
+    if data.get("serviceName") is not None:
         out["service_name"] = data["serviceName"]
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.service_name required")
-    if "operationName" in data:
+    if data.get("operationName") is not None:
         out["operation_name"] = data["operationName"]
     else:
         raise DeserializationError("FlowTraceNodeActionEvent.operation_name required")
-    if "operationRequest" in data:
+    if data.get("operationRequest") is not None:
         out["operation_request"] = data["operationRequest"]
-    if "operationResponse" in data:
+    if data.get("operationResponse") is not None:
         out["operation_response"] = data["operationResponse"]
     return out

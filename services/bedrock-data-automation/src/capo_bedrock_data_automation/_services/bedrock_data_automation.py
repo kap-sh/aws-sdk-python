@@ -1,5 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#AmazonBedrockKeystoneBuildTimeService``."""
 
+import uuid
 import warnings
 from collections.abc import Iterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
@@ -219,18 +220,21 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.copy_blueprint_stage_request.CopyBlueprintStageRequest = {}  # type: ignore[typeddict-item]
-        input_["blueprint_arn"] = blueprint_arn
-        input_["source_stage"] = source_stage
-        input_["target_stage"] = target_stage
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_data_automation.types.copy_blueprint_stage_request.CopyBlueprintStageRequest = {
+            "blueprint_arn": blueprint_arn,
+            "source_stage": source_stage,
+            "target_stage": target_stage,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_blueprint_version(
@@ -272,16 +276,19 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.create_blueprint_version_request.CreateBlueprintVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["blueprint_arn"] = blueprint_arn
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_data_automation.types.create_blueprint_version_request.CreateBlueprintVersionRequest = {
+            "blueprint_arn": blueprint_arn
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_data_automation_library_entity(
@@ -323,16 +330,18 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_library_entity_request.GetDataAutomationLibraryEntityRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        input_["entity_type"] = entity_type
-        input_["entity_id"] = entity_id
+        input_: capo_bedrock_data_automation.types.get_data_automation_library_entity_request.GetDataAutomationLibraryEntityRequest = {
+            "library_arn": library_arn,
+            "entity_type": entity_type,
+            "entity_id": entity_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_data_automation_library_entities(
@@ -379,9 +388,10 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_library_entities_request.ListDataAutomationLibraryEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        input_["entity_type"] = entity_type
+        input_: capo_bedrock_data_automation.types.list_data_automation_library_entities_request.ListDataAutomationLibraryEntitiesRequest = {
+            "library_arn": library_arn,
+            "entity_type": entity_type,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -392,6 +402,7 @@ class BedrockDataAutomationClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def iter_list_data_automation_library_entities(
@@ -455,14 +466,16 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
+        input_: capo_bedrock_data_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {
+            "resource_arn": resource_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def tag_resource(
@@ -499,15 +512,17 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tags"] = tags
+        input_: capo_bedrock_data_automation.types.tag_resource_request.TagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tags": tags,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def untag_resource(
@@ -543,15 +558,17 @@ class BedrockDataAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input_["resource_arn"] = resource_arn
-        input_["tag_keys"] = tag_keys
+        input_: capo_bedrock_data_automation.types.untag_resource_request.UntagResourceRequest = {
+            "resource_arn": resource_arn,
+            "tag_keys": tag_keys,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

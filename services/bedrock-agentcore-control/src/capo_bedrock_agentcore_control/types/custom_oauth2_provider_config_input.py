@@ -118,7 +118,7 @@ def serialize_json(value: CustomOauth2ProviderConfigInput) -> dict:
 
 def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
     out: CustomOauth2ProviderConfigInput = {}  # type: ignore[typeddict-item]
-    if "oauthDiscovery" in data:
+    if data.get("oauthDiscovery") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_discovery
 
         out["oauth_discovery"] = (
@@ -130,15 +130,15 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
         raise DeserializationError(
             "CustomOauth2ProviderConfigInput.oauth_discovery required"
         )
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     else:
         out["client_id"] = ""
-    if "clientSecret" in data:
+    if data.get("clientSecret") is not None:
         out["client_secret"] = data["clientSecret"]
     else:
         out["client_secret"] = ""
-    if "clientSecretConfig" in data:
+    if data.get("clientSecretConfig") is not None:
         import capo_bedrock_agentcore_control.types.secret_reference
 
         out["client_secret_config"] = (
@@ -146,7 +146,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
                 data["clientSecretConfig"]
             )
         )
-    if "clientSecretSource" in data:
+    if data.get("clientSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["client_secret_source"] = (
@@ -154,7 +154,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
                 data["clientSecretSource"]
             )
         )
-    if "onBehalfOfTokenExchangeConfig" in data:
+    if data.get("onBehalfOfTokenExchangeConfig") is not None:
         import capo_bedrock_agentcore_control.types.on_behalf_of_token_exchange_config_type
 
         out["on_behalf_of_token_exchange_config"] = (
@@ -162,7 +162,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
                 data["onBehalfOfTokenExchangeConfig"]
             )
         )
-    if "clientAuthenticationMethod" in data:
+    if data.get("clientAuthenticationMethod") is not None:
         import capo_bedrock_agentcore_control.types.client_authentication_method_type
 
         out["client_authentication_method"] = (
@@ -170,7 +170,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
                 data["clientAuthenticationMethod"]
             )
         )
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (
@@ -178,7 +178,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigInput:
                 data["privateEndpoint"]
             )
         )
-    if "privateEndpointOverrides" in data:
+    if data.get("privateEndpointOverrides") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint_overrides
 
         out["private_endpoint_overrides"] = (

@@ -66,25 +66,25 @@ def serialize_json(value: FlowExecutionSummary) -> dict:
 
 def deserialize_json(data: dict) -> FlowExecutionSummary:
     out: FlowExecutionSummary = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     else:
         raise DeserializationError("FlowExecutionSummary.execution_arn required")
-    if "flowAliasIdentifier" in data:
+    if data.get("flowAliasIdentifier") is not None:
         out["flow_alias_identifier"] = data["flowAliasIdentifier"]
     else:
         raise DeserializationError(
             "FlowExecutionSummary.flow_alias_identifier required"
         )
-    if "flowIdentifier" in data:
+    if data.get("flowIdentifier") is not None:
         out["flow_identifier"] = data["flowIdentifier"]
     else:
         raise DeserializationError("FlowExecutionSummary.flow_identifier required")
-    if "flowVersion" in data:
+    if data.get("flowVersion") is not None:
         out["flow_version"] = data["flowVersion"]
     else:
         raise DeserializationError("FlowExecutionSummary.flow_version required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_status
 
         out["status"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> FlowExecutionSummary:
         )
     else:
         raise DeserializationError("FlowExecutionSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["created_at"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> FlowExecutionSummary:
         )
     else:
         raise DeserializationError("FlowExecutionSummary.created_at required")
-    if "endedAt" in data:
+    if data.get("endedAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["ended_at"] = (

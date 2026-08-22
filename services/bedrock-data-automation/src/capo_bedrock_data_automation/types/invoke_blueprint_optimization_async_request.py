@@ -76,7 +76,7 @@ def serialize_json(value: InvokeBlueprintOptimizationAsyncRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncRequest:
     out: InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
-    if "blueprint" in data:
+    if data.get("blueprint") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_object
 
         out["blueprint"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncRequest:
         raise DeserializationError(
             "InvokeBlueprintOptimizationAsyncRequest.blueprint required"
         )
-    if "samples" in data:
+    if data.get("samples") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_samples
 
         out["samples"] = (
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncRequest:
         raise DeserializationError(
             "InvokeBlueprintOptimizationAsyncRequest.samples required"
         )
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_output_configuration
 
         out["output_configuration"] = (
@@ -112,13 +112,13 @@ def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncRequest:
         raise DeserializationError(
             "InvokeBlueprintOptimizationAsyncRequest.output_configuration required"
         )
-    if "dataAutomationProfileArn" in data:
+    if data.get("dataAutomationProfileArn") is not None:
         out["data_automation_profile_arn"] = data["dataAutomationProfileArn"]
     else:
         raise DeserializationError(
             "InvokeBlueprintOptimizationAsyncRequest.data_automation_profile_arn required"
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation.types.tag_list
 
         out["tags"] = capo_bedrock_data_automation.types.tag_list.deserialize_json(

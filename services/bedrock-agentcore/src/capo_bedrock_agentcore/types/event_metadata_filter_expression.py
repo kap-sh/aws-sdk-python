@@ -45,7 +45,7 @@ def serialize_json(value: EventMetadataFilterExpression) -> dict:
 
 def deserialize_json(data: dict) -> EventMetadataFilterExpression:
     out: EventMetadataFilterExpression = {}  # type: ignore[typeddict-item]
-    if "left" in data:
+    if data.get("left") is not None:
         import capo_bedrock_agentcore.types.left_expression
 
         out["left"] = capo_bedrock_agentcore.types.left_expression.deserialize_json(
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> EventMetadataFilterExpression:
         )
     else:
         raise DeserializationError("EventMetadataFilterExpression.left required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agentcore.types.operator_type
 
         out["operator"] = capo_bedrock_agentcore.types.operator_type.deserialize_json(
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> EventMetadataFilterExpression:
         )
     else:
         raise DeserializationError("EventMetadataFilterExpression.operator required")
-    if "right" in data:
+    if data.get("right") is not None:
         import capo_bedrock_agentcore.types.right_expression
 
         out["right"] = capo_bedrock_agentcore.types.right_expression.deserialize_json(

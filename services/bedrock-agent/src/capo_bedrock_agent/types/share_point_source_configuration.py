@@ -59,13 +59,13 @@ def serialize_json(value: SharePointSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SharePointSourceConfiguration:
     out: SharePointSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "tenantId" in data:
+    if data.get("tenantId") is not None:
         out["tenant_id"] = data["tenantId"]
-    if "domain" in data:
+    if data.get("domain") is not None:
         out["domain"] = data["domain"]
     else:
         raise DeserializationError("SharePointSourceConfiguration.domain required")
-    if "siteUrls" in data:
+    if data.get("siteUrls") is not None:
         import capo_bedrock_agent.types.share_point_site_urls
 
         out["site_urls"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> SharePointSourceConfiguration:
         )
     else:
         raise DeserializationError("SharePointSourceConfiguration.site_urls required")
-    if "hostType" in data:
+    if data.get("hostType") is not None:
         import capo_bedrock_agent.types.share_point_host_type
 
         out["host_type"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> SharePointSourceConfiguration:
         )
     else:
         raise DeserializationError("SharePointSourceConfiguration.host_type required")
-    if "authType" in data:
+    if data.get("authType") is not None:
         import capo_bedrock_agent.types.share_point_auth_type
 
         out["auth_type"] = (
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> SharePointSourceConfiguration:
         )
     else:
         raise DeserializationError("SharePointSourceConfiguration.auth_type required")
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError(

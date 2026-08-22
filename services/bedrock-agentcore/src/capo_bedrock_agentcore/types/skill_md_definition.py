@@ -25,6 +25,6 @@ def serialize_json(value: SkillMdDefinition) -> dict:
 
 def deserialize_json(data: dict) -> SkillMdDefinition:
     out: SkillMdDefinition = {}  # type: ignore[typeddict-item]
-    if "inlineContent" in data:
+    if data.get("inlineContent") is not None:
         out["inline_content"] = data["inlineContent"]
     return out

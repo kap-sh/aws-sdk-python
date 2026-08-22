@@ -25,6 +25,6 @@ def serialize_json(value: InvokeDataAutomationLibraryIngestionJobResponse) -> di
 
 def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobResponse:
     out: InvokeDataAutomationLibraryIngestionJobResponse = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     return out

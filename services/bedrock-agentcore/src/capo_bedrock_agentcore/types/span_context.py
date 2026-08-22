@@ -27,12 +27,12 @@ def serialize_json(value: SpanContext) -> dict:
 
 def deserialize_json(data: dict) -> SpanContext:
     out: SpanContext = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("SpanContext.session_id required")
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "spanId" in data:
+    if data.get("spanId") is not None:
         out["span_id"] = data["spanId"]
     return out

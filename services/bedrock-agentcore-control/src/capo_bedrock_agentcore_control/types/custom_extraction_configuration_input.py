@@ -73,7 +73,7 @@ def serialize_json(value: CustomExtractionConfigurationInput) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomExtractionConfigurationInput:
-    if "semanticExtractionOverride" in data:
+    if data.get("semanticExtractionOverride") is not None:
         import capo_bedrock_agentcore_control.types.semantic_override_extraction_configuration_input
 
         return {
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> CustomExtractionConfigurationInput:
                 data["semanticExtractionOverride"]
             )
         }
-    elif "userPreferenceExtractionOverride" in data:
+    elif data.get("userPreferenceExtractionOverride") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_override_extraction_configuration_input
 
         return {
@@ -89,7 +89,7 @@ def deserialize_json(data: dict) -> CustomExtractionConfigurationInput:
                 data["userPreferenceExtractionOverride"]
             )
         }
-    elif "episodicExtractionOverride" in data:
+    elif data.get("episodicExtractionOverride") is not None:
         import capo_bedrock_agentcore_control.types.episodic_override_extraction_configuration_input
 
         return {

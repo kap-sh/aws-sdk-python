@@ -31,8 +31,8 @@ def serialize_json(value: ListAgentAliasesRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListAgentAliasesRequest:
     out: ListAgentAliasesRequest = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

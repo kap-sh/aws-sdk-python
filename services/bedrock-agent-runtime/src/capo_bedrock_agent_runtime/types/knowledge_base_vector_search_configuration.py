@@ -73,11 +73,11 @@ def serialize_json(value: KnowledgeBaseVectorSearchConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseVectorSearchConfiguration:
     out: KnowledgeBaseVectorSearchConfiguration = {}  # type: ignore[typeddict-item]
-    if "numberOfResults" in data:
+    if data.get("numberOfResults") is not None:
         out["number_of_results"] = data["numberOfResults"]
     else:
         out["number_of_results"] = 5
-    if "overrideSearchType" in data:
+    if data.get("overrideSearchType") is not None:
         import capo_bedrock_agent_runtime.types.search_type
 
         out["override_search_type"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseVectorSearchConfiguration:
                 data["overrideSearchType"]
             )
         )
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_filter
 
         out["filter"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseVectorSearchConfiguration:
                 data["filter"]
             )
         )
-    if "rerankingConfiguration" in data:
+    if data.get("rerankingConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.vector_search_reranking_configuration
 
         out["reranking_configuration"] = (
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseVectorSearchConfiguration:
                 data["rerankingConfiguration"]
             )
         )
-    if "implicitFilterConfiguration" in data:
+    if data.get("implicitFilterConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.implicit_filter_configuration
 
         out["implicit_filter_configuration"] = (

@@ -38,7 +38,7 @@ def serialize_json(value: HarnessMessage) -> dict:
 
 def deserialize_json(data: dict) -> HarnessMessage:
     out: HarnessMessage = {}  # type: ignore[typeddict-item]
-    if "role" in data:
+    if data.get("role") is not None:
         import capo_bedrock_agentcore.types.harness_conversation_role
 
         out["role"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> HarnessMessage:
         )
     else:
         raise DeserializationError("HarnessMessage.role required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore.types.harness_content_blocks
 
         out["content"] = (

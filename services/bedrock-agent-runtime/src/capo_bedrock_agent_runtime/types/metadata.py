@@ -32,17 +32,15 @@ class Metadata(TypedDict, closed=True):
 def serialize_json(value: Metadata) -> dict:
     out: dict = {}
     if "start_time" in value:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+        import capo_bedrock_agent_runtime._protocol.serialize
 
-        out["startTime"] = (
-            capo_bedrock_agent_runtime.types.date_timestamp.serialize_json(
-                value["start_time"]
-            )
+        out["startTime"] = capo_bedrock_agent_runtime._protocol.serialize.fmt_date_time(
+            value["start_time"]
         )
     if "end_time" in value:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+        import capo_bedrock_agent_runtime._protocol.serialize
 
-        out["endTime"] = capo_bedrock_agent_runtime.types.date_timestamp.serialize_json(
+        out["endTime"] = capo_bedrock_agent_runtime._protocol.serialize.fmt_date_time(
             value["end_time"]
         )
     if "total_time_ms" in value:
@@ -62,29 +60,25 @@ def serialize_json(value: Metadata) -> dict:
 
 def deserialize_json(data: dict) -> Metadata:
     out: Metadata = {}  # type: ignore[typeddict-item]
-    if "startTime" in data:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+    if data.get("startTime") is not None:
+        import datetime
 
-        out["start_time"] = (
-            capo_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
-                data["startTime"]
-            )
+        out["start_time"] = datetime.datetime.fromisoformat(
+            data["startTime"].replace("Z", "+00:00")
         )
-    if "endTime" in data:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+    if data.get("endTime") is not None:
+        import datetime
 
-        out["end_time"] = (
-            capo_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
-                data["endTime"]
-            )
+        out["end_time"] = datetime.datetime.fromisoformat(
+            data["endTime"].replace("Z", "+00:00")
         )
-    if "totalTimeMs" in data:
+    if data.get("totalTimeMs") is not None:
         out["total_time_ms"] = data["totalTimeMs"]
-    if "operationTotalTimeMs" in data:
+    if data.get("operationTotalTimeMs") is not None:
         out["operation_total_time_ms"] = data["operationTotalTimeMs"]
-    if "clientRequestId" in data:
+    if data.get("clientRequestId") is not None:
         out["client_request_id"] = data["clientRequestId"]
-    if "usage" in data:
+    if data.get("usage") is not None:
         import capo_bedrock_agent_runtime.types.usage
 
         out["usage"] = capo_bedrock_agent_runtime.types.usage.deserialize_json(

@@ -20,7 +20,7 @@ def serialize_json(value: RetrieveAndGenerateOutputEvent) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveAndGenerateOutputEvent:
     out: RetrieveAndGenerateOutputEvent = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("RetrieveAndGenerateOutputEvent.text required")

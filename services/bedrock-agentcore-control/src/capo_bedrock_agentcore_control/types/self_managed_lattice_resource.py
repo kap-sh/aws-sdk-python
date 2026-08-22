@@ -35,7 +35,7 @@ def serialize_json(value: SelfManagedLatticeResource) -> dict:
 
 
 def deserialize_json(data: dict) -> SelfManagedLatticeResource:
-    if "resourceConfigurationIdentifier" in data:
+    if data.get("resourceConfigurationIdentifier") is not None:
         return {
             "resourceConfigurationIdentifier": data["resourceConfigurationIdentifier"]
         }

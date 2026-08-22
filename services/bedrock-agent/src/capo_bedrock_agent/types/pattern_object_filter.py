@@ -41,11 +41,11 @@ def serialize_json(value: PatternObjectFilter) -> dict:
 
 def deserialize_json(data: dict) -> PatternObjectFilter:
     out: PatternObjectFilter = {}  # type: ignore[typeddict-item]
-    if "objectType" in data:
+    if data.get("objectType") is not None:
         out["object_type"] = data["objectType"]
     else:
         raise DeserializationError("PatternObjectFilter.object_type required")
-    if "inclusionFilters" in data:
+    if data.get("inclusionFilters") is not None:
         import capo_bedrock_agent.types.filter_list
 
         out["inclusion_filters"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> PatternObjectFilter:
                 data["inclusionFilters"]
             )
         )
-    if "exclusionFilters" in data:
+    if data.get("exclusionFilters") is not None:
         import capo_bedrock_agent.types.filter_list
 
         out["exclusion_filters"] = (

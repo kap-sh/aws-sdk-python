@@ -40,7 +40,7 @@ def serialize_json(value: QueryGenerationContext) -> dict:
 
 def deserialize_json(data: dict) -> QueryGenerationContext:
     out: QueryGenerationContext = {}  # type: ignore[typeddict-item]
-    if "tables" in data:
+    if data.get("tables") is not None:
         import capo_bedrock_agent.types.query_generation_tables
 
         out["tables"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> QueryGenerationContext:
                 data["tables"]
             )
         )
-    if "curatedQueries" in data:
+    if data.get("curatedQueries") is not None:
         import capo_bedrock_agent.types.curated_queries
 
         out["curated_queries"] = (

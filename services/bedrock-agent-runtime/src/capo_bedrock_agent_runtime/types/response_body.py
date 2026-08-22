@@ -23,6 +23,8 @@ def serialize_json(input_to_serialize: ResponseBody) -> dict:
 def deserialize_json(data: dict) -> ResponseBody:
     out: ResponseBody = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock_agent_runtime.types.content_body
 
         out[key] = capo_bedrock_agent_runtime.types.content_body.deserialize_json(value)

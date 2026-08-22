@@ -91,29 +91,29 @@ def serialize_json(value: StartPolicyGenerationResponse) -> dict:
 
 def deserialize_json(data: dict) -> StartPolicyGenerationResponse:
     out: StartPolicyGenerationResponse = {}  # type: ignore[typeddict-item]
-    if "policyEngineId" in data:
+    if data.get("policyEngineId") is not None:
         out["policy_engine_id"] = data["policyEngineId"]
     else:
         raise DeserializationError(
             "StartPolicyGenerationResponse.policy_engine_id required"
         )
-    if "policyGenerationId" in data:
+    if data.get("policyGenerationId") is not None:
         out["policy_generation_id"] = data["policyGenerationId"]
     else:
         raise DeserializationError(
             "StartPolicyGenerationResponse.policy_generation_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("StartPolicyGenerationResponse.name required")
-    if "policyGenerationArn" in data:
+    if data.get("policyGenerationArn") is not None:
         out["policy_generation_arn"] = data["policyGenerationArn"]
     else:
         raise DeserializationError(
             "StartPolicyGenerationResponse.policy_generation_arn required"
         )
-    if "resource" in data:
+    if data.get("resource") is not None:
         import capo_bedrock_agentcore_control.types.resource
 
         out["resource"] = (
@@ -123,7 +123,7 @@ def deserialize_json(data: dict) -> StartPolicyGenerationResponse:
         )
     else:
         raise DeserializationError("StartPolicyGenerationResponse.resource required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> StartPolicyGenerationResponse:
         )
     else:
         raise DeserializationError("StartPolicyGenerationResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -143,7 +143,7 @@ def deserialize_json(data: dict) -> StartPolicyGenerationResponse:
         )
     else:
         raise DeserializationError("StartPolicyGenerationResponse.updated_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.policy_generation_status
 
         out["status"] = (
@@ -153,9 +153,9 @@ def deserialize_json(data: dict) -> StartPolicyGenerationResponse:
         )
     else:
         raise DeserializationError("StartPolicyGenerationResponse.status required")
-    if "findings" in data:
+    if data.get("findings") is not None:
         out["findings"] = data["findings"]
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock_agentcore_control.types.policy_status_reasons
 
         out["status_reasons"] = (

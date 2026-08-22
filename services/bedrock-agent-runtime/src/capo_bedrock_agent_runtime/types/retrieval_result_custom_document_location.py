@@ -18,6 +18,6 @@ def serialize_json(value: RetrievalResultCustomDocumentLocation) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultCustomDocumentLocation:
     out: RetrievalResultCustomDocumentLocation = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     return out

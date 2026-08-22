@@ -158,19 +158,19 @@ def serialize_json(value: GetBrowserSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetBrowserSessionResponse:
     out: GetBrowserSessionResponse = {}  # type: ignore[typeddict-item]
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError(
             "GetBrowserSessionResponse.browser_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("GetBrowserSessionResponse.session_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -180,13 +180,13 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
         )
     else:
         raise DeserializationError("GetBrowserSessionResponse.created_at required")
-    if "viewPort" in data:
+    if data.get("viewPort") is not None:
         import capo_bedrock_agentcore.types.view_port
 
         out["view_port"] = capo_bedrock_agentcore.types.view_port.deserialize_json(
             data["viewPort"]
         )
-    if "extensions" in data:
+    if data.get("extensions") is not None:
         import capo_bedrock_agentcore.types.browser_extensions
 
         out["extensions"] = (
@@ -194,7 +194,7 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["extensions"]
             )
         )
-    if "enterprisePolicies" in data:
+    if data.get("enterprisePolicies") is not None:
         import capo_bedrock_agentcore.types.browser_enterprise_policies
 
         out["enterprise_policies"] = (
@@ -202,7 +202,7 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["enterprisePolicies"]
             )
         )
-    if "profileConfiguration" in data:
+    if data.get("profileConfiguration") is not None:
         import capo_bedrock_agentcore.types.browser_profile_configuration
 
         out["profile_configuration"] = (
@@ -210,9 +210,9 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["profileConfiguration"]
             )
         )
-    if "sessionTimeoutSeconds" in data:
+    if data.get("sessionTimeoutSeconds") is not None:
         out["session_timeout_seconds"] = data["sessionTimeoutSeconds"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.browser_session_status
 
         out["status"] = (
@@ -220,7 +220,7 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["status"]
             )
         )
-    if "streams" in data:
+    if data.get("streams") is not None:
         import capo_bedrock_agentcore.types.browser_session_stream
 
         out["streams"] = (
@@ -228,7 +228,7 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["streams"]
             )
         )
-    if "proxyConfiguration" in data:
+    if data.get("proxyConfiguration") is not None:
         import capo_bedrock_agentcore.types.proxy_configuration
 
         out["proxy_configuration"] = (
@@ -236,7 +236,7 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["proxyConfiguration"]
             )
         )
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore.types.certificates
 
         out["certificates"] = (
@@ -244,9 +244,9 @@ def deserialize_json(data: dict) -> GetBrowserSessionResponse:
                 data["certificates"]
             )
         )
-    if "sessionReplayArtifact" in data:
+    if data.get("sessionReplayArtifact") is not None:
         out["session_replay_artifact"] = data["sessionReplayArtifact"]
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

@@ -23,5 +23,7 @@ def serialize_json(input_to_serialize: OAuthCustomParameters) -> dict:
 def deserialize_json(data: dict) -> OAuthCustomParameters:
     out: OAuthCustomParameters = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

@@ -124,29 +124,29 @@ def serialize_json(value: Memory) -> dict:
 
 def deserialize_json(data: dict) -> Memory:
     out: Memory = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("Memory.arn required")
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("Memory.id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("Memory.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "memoryExecutionRoleArn" in data:
+    if data.get("memoryExecutionRoleArn") is not None:
         out["memory_execution_role_arn"] = data["memoryExecutionRoleArn"]
-    if "eventExpiryDuration" in data:
+    if data.get("eventExpiryDuration") is not None:
         out["event_expiry_duration"] = data["eventExpiryDuration"]
     else:
         raise DeserializationError("Memory.event_expiry_duration required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.memory_status
 
         out["status"] = (
@@ -156,9 +156,9 @@ def deserialize_json(data: dict) -> Memory:
         )
     else:
         raise DeserializationError("Memory.status required")
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> Memory:
         )
     else:
         raise DeserializationError("Memory.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -178,7 +178,7 @@ def deserialize_json(data: dict) -> Memory:
         )
     else:
         raise DeserializationError("Memory.updated_at required")
-    if "strategies" in data:
+    if data.get("strategies") is not None:
         import capo_bedrock_agentcore_control.types.memory_strategy_list
 
         out["strategies"] = (
@@ -186,7 +186,7 @@ def deserialize_json(data: dict) -> Memory:
                 data["strategies"]
             )
         )
-    if "indexedKeys" in data:
+    if data.get("indexedKeys") is not None:
         import capo_bedrock_agentcore_control.types.indexed_keys_list
 
         out["indexed_keys"] = (
@@ -194,7 +194,7 @@ def deserialize_json(data: dict) -> Memory:
                 data["indexedKeys"]
             )
         )
-    if "streamDeliveryResources" in data:
+    if data.get("streamDeliveryResources") is not None:
         import capo_bedrock_agentcore_control.types.stream_delivery_resources
 
         out["stream_delivery_resources"] = (

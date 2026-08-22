@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> AgentVersionSummaries:
 
     out: AgentVersionSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.agent_version_summary.deserialize_json(item)
         )

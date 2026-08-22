@@ -36,14 +36,14 @@ def serialize_json(value: OAuth2Authentication) -> dict:
 
 def deserialize_json(data: dict) -> OAuth2Authentication:
     out: OAuth2Authentication = {}  # type: ignore[typeddict-item]
-    if "sub" in data:
+    if data.get("sub") is not None:
         out["sub"] = data["sub"]
     else:
         raise DeserializationError("OAuth2Authentication.sub required")
-    if "emailAddress" in data:
+    if data.get("emailAddress") is not None:
         out["email_address"] = data["emailAddress"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "username" in data:
+    if data.get("username") is not None:
         out["username"] = data["username"]
     return out

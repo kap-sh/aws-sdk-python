@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -102,22 +103,25 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["agent_descriptor"] = agent_descriptor
-        input_["collaborator_name"] = collaborator_name
-        input_["collaboration_instruction"] = collaboration_instruction
+        input_: capo_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "agent_descriptor": agent_descriptor,
+            "collaborator_name": collaborator_name,
+            "collaboration_instruction": collaboration_instruction,
+        }
         if relay_conversation_history is not None:
             input_["relay_conversation_history"] = relay_conversation_history
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_agent_collaborator(
@@ -160,16 +164,18 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
+        input_: capo_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_agent_collaborator(
@@ -211,16 +217,18 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
+        input_: capo_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_agent_collaborators(
@@ -264,9 +272,10 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -277,6 +286,7 @@ class AgentCollaboratorResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_agent_collaborator(
@@ -330,13 +340,14 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
-        input_["agent_descriptor"] = agent_descriptor
-        input_["collaborator_name"] = collaborator_name
-        input_["collaboration_instruction"] = collaboration_instruction
+        input_: capo_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+            "agent_descriptor": agent_descriptor,
+            "collaborator_name": collaborator_name,
+            "collaboration_instruction": collaboration_instruction,
+        }
         if relay_conversation_history is not None:
             input_["relay_conversation_history"] = relay_conversation_history
 
@@ -345,6 +356,7 @@ class AgentCollaboratorResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -406,22 +418,25 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["agent_descriptor"] = agent_descriptor
-        input_["collaborator_name"] = collaborator_name
-        input_["collaboration_instruction"] = collaboration_instruction
+        input_: capo_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "agent_descriptor": agent_descriptor,
+            "collaborator_name": collaborator_name,
+            "collaboration_instruction": collaboration_instruction,
+        }
         if relay_conversation_history is not None:
             input_["relay_conversation_history"] = relay_conversation_history
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_agent_collaborator(
@@ -465,16 +480,18 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
+        input_: capo_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_agent_collaborator(
@@ -517,16 +534,18 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
+        input_: capo_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_agent_collaborators(
@@ -571,9 +590,10 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -584,6 +604,7 @@ class AsyncAgentCollaboratorResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_agent_collaborator(
@@ -638,13 +659,14 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["collaborator_id"] = collaborator_id
-        input_["agent_descriptor"] = agent_descriptor
-        input_["collaborator_name"] = collaborator_name
-        input_["collaboration_instruction"] = collaboration_instruction
+        input_: capo_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "collaborator_id": collaborator_id,
+            "agent_descriptor": agent_descriptor,
+            "collaborator_name": collaborator_name,
+            "collaboration_instruction": collaboration_instruction,
+        }
         if relay_conversation_history is not None:
             input_["relay_conversation_history"] = relay_conversation_history
 
@@ -653,4 +675,5 @@ class AsyncAgentCollaboratorResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

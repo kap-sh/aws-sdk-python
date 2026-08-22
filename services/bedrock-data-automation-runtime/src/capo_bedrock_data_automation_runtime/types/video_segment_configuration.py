@@ -37,7 +37,7 @@ def serialize_aws_json_1_1(value: VideoSegmentConfiguration) -> dict:
 
 
 def deserialize_aws_json_1_1(data: dict) -> VideoSegmentConfiguration:
-    if "timestampSegment" in data:
+    if data.get("timestampSegment") is not None:
         import capo_bedrock_data_automation_runtime.types.timestamp_segment
 
         return {

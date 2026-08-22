@@ -57,7 +57,7 @@ def serialize_json(value: MetadataConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> MetadataConfiguration:
     out: MetadataConfiguration = {}  # type: ignore[typeddict-item]
-    if "allowedRequestHeaders" in data:
+    if data.get("allowedRequestHeaders") is not None:
         import capo_bedrock_agentcore_control.types.allowed_request_headers
 
         out["allowed_request_headers"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> MetadataConfiguration:
                 data["allowedRequestHeaders"]
             )
         )
-    if "allowedQueryParameters" in data:
+    if data.get("allowedQueryParameters") is not None:
         import capo_bedrock_agentcore_control.types.allowed_query_parameters
 
         out["allowed_query_parameters"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> MetadataConfiguration:
                 data["allowedQueryParameters"]
             )
         )
-    if "allowedResponseHeaders" in data:
+    if data.get("allowedResponseHeaders") is not None:
         import capo_bedrock_agentcore_control.types.allowed_response_headers
 
         out["allowed_response_headers"] = (

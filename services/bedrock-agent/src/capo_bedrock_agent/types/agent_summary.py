@@ -67,15 +67,15 @@ def serialize_json(value: AgentSummary) -> dict:
 
 def deserialize_json(data: dict) -> AgentSummary:
     out: AgentSummary = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("AgentSummary.agent_id required")
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
     else:
         raise DeserializationError("AgentSummary.agent_name required")
-    if "agentStatus" in data:
+    if data.get("agentStatus") is not None:
         import capo_bedrock_agent.types.agent_status
 
         out["agent_status"] = capo_bedrock_agent.types.agent_status.deserialize_json(
@@ -83,9 +83,9 @@ def deserialize_json(data: dict) -> AgentSummary:
         )
     else:
         raise DeserializationError("AgentSummary.agent_status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -93,9 +93,9 @@ def deserialize_json(data: dict) -> AgentSummary:
         )
     else:
         raise DeserializationError("AgentSummary.updated_at required")
-    if "latestAgentVersion" in data:
+    if data.get("latestAgentVersion") is not None:
         out["latest_agent_version"] = data["latestAgentVersion"]
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (

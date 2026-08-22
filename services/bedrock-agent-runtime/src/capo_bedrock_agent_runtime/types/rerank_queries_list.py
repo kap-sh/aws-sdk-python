@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> RerankQueriesList:
 
     out: RerankQueriesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent_runtime.types.rerank_query.deserialize_json(item))
     return out

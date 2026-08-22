@@ -40,13 +40,13 @@ def serialize_json(value: FilterInput) -> dict:
 
 def deserialize_json(data: dict) -> FilterInput:
     out: FilterInput = {}  # type: ignore[typeddict-item]
-    if "branch" in data:
+    if data.get("branch") is not None:
         import capo_bedrock_agentcore.types.branch_filter
 
         out["branch"] = capo_bedrock_agentcore.types.branch_filter.deserialize_json(
             data["branch"]
         )
-    if "eventMetadata" in data:
+    if data.get("eventMetadata") is not None:
         import capo_bedrock_agentcore.types.event_metadata_filter_list
 
         out["event_metadata"] = (

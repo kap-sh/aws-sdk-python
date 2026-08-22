@@ -50,15 +50,15 @@ def serialize_json(value: DeleteDatasetExamplesResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteDatasetExamplesResponse:
     out: DeleteDatasetExamplesResponse = {}  # type: ignore[typeddict-item]
-    if "datasetArn" in data:
+    if data.get("datasetArn") is not None:
         out["dataset_arn"] = data["datasetArn"]
     else:
         raise DeserializationError("DeleteDatasetExamplesResponse.dataset_arn required")
-    if "datasetId" in data:
+    if data.get("datasetId") is not None:
         out["dataset_id"] = data["datasetId"]
     else:
         raise DeserializationError("DeleteDatasetExamplesResponse.dataset_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.dataset_status
 
         out["status"] = (
@@ -68,13 +68,13 @@ def deserialize_json(data: dict) -> DeleteDatasetExamplesResponse:
         )
     else:
         raise DeserializationError("DeleteDatasetExamplesResponse.status required")
-    if "deletedCount" in data:
+    if data.get("deletedCount") is not None:
         out["deleted_count"] = data["deletedCount"]
     else:
         raise DeserializationError(
             "DeleteDatasetExamplesResponse.deleted_count required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (

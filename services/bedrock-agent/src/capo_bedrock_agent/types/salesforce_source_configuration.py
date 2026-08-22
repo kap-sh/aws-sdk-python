@@ -36,11 +36,11 @@ def serialize_json(value: SalesforceSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SalesforceSourceConfiguration:
     out: SalesforceSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "hostUrl" in data:
+    if data.get("hostUrl") is not None:
         out["host_url"] = data["hostUrl"]
     else:
         raise DeserializationError("SalesforceSourceConfiguration.host_url required")
-    if "authType" in data:
+    if data.get("authType") is not None:
         import capo_bedrock_agent.types.salesforce_auth_type
 
         out["auth_type"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> SalesforceSourceConfiguration:
         )
     else:
         raise DeserializationError("SalesforceSourceConfiguration.auth_type required")
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError(

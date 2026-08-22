@@ -107,19 +107,19 @@ def serialize_json(value: GatewayRuleDetail) -> dict:
 
 def deserialize_json(data: dict) -> GatewayRuleDetail:
     out: GatewayRuleDetail = {}  # type: ignore[typeddict-item]
-    if "ruleId" in data:
+    if data.get("ruleId") is not None:
         out["rule_id"] = data["ruleId"]
     else:
         raise DeserializationError("GatewayRuleDetail.rule_id required")
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
     else:
         raise DeserializationError("GatewayRuleDetail.gateway_arn required")
-    if "priority" in data:
+    if data.get("priority") is not None:
         out["priority"] = data["priority"]
     else:
         raise DeserializationError("GatewayRuleDetail.priority required")
-    if "conditions" in data:
+    if data.get("conditions") is not None:
         import capo_bedrock_agentcore_control.types.conditions
 
         out["conditions"] = (
@@ -127,7 +127,7 @@ def deserialize_json(data: dict) -> GatewayRuleDetail:
                 data["conditions"]
             )
         )
-    if "actions" in data:
+    if data.get("actions") is not None:
         import capo_bedrock_agentcore_control.types.actions
 
         out["actions"] = capo_bedrock_agentcore_control.types.actions.deserialize_json(
@@ -135,9 +135,9 @@ def deserialize_json(data: dict) -> GatewayRuleDetail:
         )
     else:
         raise DeserializationError("GatewayRuleDetail.actions required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> GatewayRuleDetail:
         )
     else:
         raise DeserializationError("GatewayRuleDetail.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.gateway_rule_status
 
         out["status"] = (
@@ -157,7 +157,7 @@ def deserialize_json(data: dict) -> GatewayRuleDetail:
         )
     else:
         raise DeserializationError("GatewayRuleDetail.status required")
-    if "system" in data:
+    if data.get("system") is not None:
         import capo_bedrock_agentcore_control.types.system_managed_block
 
         out["system"] = (
@@ -165,7 +165,7 @@ def deserialize_json(data: dict) -> GatewayRuleDetail:
                 data["system"]
             )
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

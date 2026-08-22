@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> RetrievedReferences:
 
     out: RetrievedReferences = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.retrieved_reference.deserialize_json(item)
         )

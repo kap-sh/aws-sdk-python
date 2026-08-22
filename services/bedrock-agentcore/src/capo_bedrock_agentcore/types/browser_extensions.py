@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> BrowserExtensions:
 
     out: BrowserExtensions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.browser_extension.deserialize_json(item)
         )

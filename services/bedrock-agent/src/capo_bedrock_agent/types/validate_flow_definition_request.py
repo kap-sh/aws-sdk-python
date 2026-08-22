@@ -28,7 +28,7 @@ def serialize_json(value: ValidateFlowDefinitionRequest) -> dict:
 
 def deserialize_json(data: dict) -> ValidateFlowDefinitionRequest:
     out: ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agent.types.flow_definition
 
         out["definition"] = capo_bedrock_agent.types.flow_definition.deserialize_json(

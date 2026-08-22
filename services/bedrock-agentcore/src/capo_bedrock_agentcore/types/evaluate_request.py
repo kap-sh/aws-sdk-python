@@ -59,7 +59,7 @@ def serialize_json(value: EvaluateRequest) -> dict:
 
 def deserialize_json(data: dict) -> EvaluateRequest:
     out: EvaluateRequest = {}  # type: ignore[typeddict-item]
-    if "evaluationInput" in data:
+    if data.get("evaluationInput") is not None:
         import capo_bedrock_agentcore.types.evaluation_input
 
         out["evaluation_input"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> EvaluateRequest:
         )
     else:
         raise DeserializationError("EvaluateRequest.evaluation_input required")
-    if "evaluationTarget" in data:
+    if data.get("evaluationTarget") is not None:
         import capo_bedrock_agentcore.types.evaluation_target
 
         out["evaluation_target"] = (
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> EvaluateRequest:
                 data["evaluationTarget"]
             )
         )
-    if "evaluationReferenceInputs" in data:
+    if data.get("evaluationReferenceInputs") is not None:
         import capo_bedrock_agentcore.types.evaluation_reference_inputs
 
         out["evaluation_reference_inputs"] = (

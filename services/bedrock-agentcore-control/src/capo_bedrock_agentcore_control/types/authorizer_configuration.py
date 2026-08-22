@@ -35,7 +35,7 @@ def serialize_json(value: AuthorizerConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> AuthorizerConfiguration:
-    if "customJWTAuthorizer" in data:
+    if data.get("customJWTAuthorizer") is not None:
         import capo_bedrock_agentcore_control.types.custom_jwt_authorizer_configuration
 
         return {

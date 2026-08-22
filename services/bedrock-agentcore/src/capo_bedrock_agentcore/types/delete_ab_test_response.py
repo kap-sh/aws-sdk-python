@@ -36,15 +36,15 @@ def serialize_json(value: DeleteABTestResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteABTestResponse:
     out: DeleteABTestResponse = {}  # type: ignore[typeddict-item]
-    if "abTestId" in data:
+    if data.get("abTestId") is not None:
         out["ab_test_id"] = data["abTestId"]
     else:
         raise DeserializationError("DeleteABTestResponse.ab_test_id required")
-    if "abTestArn" in data:
+    if data.get("abTestArn") is not None:
         out["ab_test_arn"] = data["abTestArn"]
     else:
         raise DeserializationError("DeleteABTestResponse.ab_test_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.ab_test_status
 
         out["status"] = capo_bedrock_agentcore.types.ab_test_status.deserialize_json(

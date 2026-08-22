@@ -30,12 +30,12 @@ def serialize_json(value: CoinbaseCdpTokenResponseOutput) -> dict:
 
 def deserialize_json(data: dict) -> CoinbaseCdpTokenResponseOutput:
     out: CoinbaseCdpTokenResponseOutput = {}  # type: ignore[typeddict-item]
-    if "bearerToken" in data:
+    if data.get("bearerToken") is not None:
         out["bearer_token"] = data["bearerToken"]
     else:
         raise DeserializationError(
             "CoinbaseCdpTokenResponseOutput.bearer_token required"
         )
-    if "walletAuthToken" in data:
+    if data.get("walletAuthToken") is not None:
         out["wallet_auth_token"] = data["walletAuthToken"]
     return out

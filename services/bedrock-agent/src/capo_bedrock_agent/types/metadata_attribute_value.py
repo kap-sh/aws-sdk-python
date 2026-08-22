@@ -37,7 +37,15 @@ def serialize_json(value: MetadataAttributeValue) -> dict:
         value["type"]
     )
     if "number_value" in value:
-        out["numberValue"] = value["number_value"]
+        out["numberValue"] = (
+            "NaN"
+            if value["number_value"] != value["number_value"]
+            else "Infinity"
+            if value["number_value"] == float("inf")
+            else "-Infinity"
+            if value["number_value"] == float("-inf")
+            else value["number_value"]
+        )
     if "boolean_value" in value:
         out["booleanValue"] = value["boolean_value"]
     if "string_value" in value:
@@ -55,7 +63,7 @@ def serialize_json(value: MetadataAttributeValue) -> dict:
 
 def deserialize_json(data: dict) -> MetadataAttributeValue:
     out: MetadataAttributeValue = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.metadata_value_type
 
         out["type"] = capo_bedrock_agent.types.metadata_value_type.deserialize_json(
@@ -63,13 +71,13 @@ def deserialize_json(data: dict) -> MetadataAttributeValue:
         )
     else:
         raise DeserializationError("MetadataAttributeValue.type required")
-    if "numberValue" in data:
-        out["number_value"] = data["numberValue"]
-    if "booleanValue" in data:
+    if data.get("numberValue") is not None:
+        out["number_value"] = float(data["numberValue"])
+    if data.get("booleanValue") is not None:
         out["boolean_value"] = data["booleanValue"]
-    if "stringValue" in data:
+    if data.get("stringValue") is not None:
         out["string_value"] = data["stringValue"]
-    if "stringListValue" in data:
+    if data.get("stringListValue") is not None:
         import capo_bedrock_agent.types.string_list_value
 
         out["string_list_value"] = (

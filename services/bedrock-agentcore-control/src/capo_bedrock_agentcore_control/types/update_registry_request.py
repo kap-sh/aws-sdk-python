@@ -67,9 +67,9 @@ def serialize_json(value: UpdateRegistryRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateRegistryRequest:
     out: UpdateRegistryRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         import capo_bedrock_agentcore_control.types.updated_description
 
         out["description"] = (
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRequest:
                 data["description"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.updated_authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "approvalConfiguration" in data:
+    if data.get("approvalConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.updated_approval_configuration
 
         out["approval_configuration"] = (

@@ -85,15 +85,15 @@ def serialize_json(value: UpdateMemoryInput) -> dict:
 
 def deserialize_json(data: dict) -> UpdateMemoryInput:
     out: UpdateMemoryInput = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "eventExpiryDuration" in data:
+    if data.get("eventExpiryDuration") is not None:
         out["event_expiry_duration"] = data["eventExpiryDuration"]
-    if "memoryExecutionRoleArn" in data:
+    if data.get("memoryExecutionRoleArn") is not None:
         out["memory_execution_role_arn"] = data["memoryExecutionRoleArn"]
-    if "memoryStrategies" in data:
+    if data.get("memoryStrategies") is not None:
         import capo_bedrock_agentcore_control.types.modify_memory_strategies
 
         out["memory_strategies"] = (
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> UpdateMemoryInput:
                 data["memoryStrategies"]
             )
         )
-    if "addIndexedKeys" in data:
+    if data.get("addIndexedKeys") is not None:
         import capo_bedrock_agentcore_control.types.indexed_keys_list
 
         out["add_indexed_keys"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> UpdateMemoryInput:
                 data["addIndexedKeys"]
             )
         )
-    if "streamDeliveryResources" in data:
+    if data.get("streamDeliveryResources") is not None:
         import capo_bedrock_agentcore_control.types.stream_delivery_resources
 
         out["stream_delivery_resources"] = (

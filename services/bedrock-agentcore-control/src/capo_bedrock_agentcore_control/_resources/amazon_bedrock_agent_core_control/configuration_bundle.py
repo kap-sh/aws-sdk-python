@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -113,13 +114,15 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_configuration_bundle_request.CreateConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["bundle_name"] = bundle_name
+        input_: capo_bedrock_agentcore_control.types.create_configuration_bundle_request.CreateConfigurationBundleRequest = {
+            "bundle_name": bundle_name,
+            "components": components,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["components"] = components
         if branch_name is not None:
             input_["branch_name"] = branch_name
         if commit_message is not None:
@@ -134,6 +137,7 @@ class ConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -175,8 +179,9 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_request.GetConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_request.GetConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
         if branch_name is not None:
             input_["branch_name"] = branch_name
 
@@ -185,6 +190,7 @@ class ConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -253,10 +259,12 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_configuration_bundle_request.UpdateConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.update_configuration_bundle_request.UpdateConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if bundle_name is not None:
             input_["bundle_name"] = bundle_name
         if description is not None:
@@ -277,6 +285,7 @@ class ConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -315,14 +324,16 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_configuration_bundle_request.DeleteConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.delete_configuration_bundle_request.DeleteConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -361,7 +372,7 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_configuration_bundles_request.ListConfigurationBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_configuration_bundles_request.ListConfigurationBundlesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -372,6 +383,7 @@ class ConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_configuration_bundle_version(
@@ -411,15 +423,17 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_version_request.GetConfigurationBundleVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
-        input_["version_id"] = version_id
+        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_version_request.GetConfigurationBundleVersionRequest = {
+            "bundle_id": bundle_id,
+            "version_id": version_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_configuration_bundle_versions(
@@ -465,8 +479,9 @@ class ConfigurationBundle:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_configuration_bundle_versions_request.ListConfigurationBundleVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.list_configuration_bundle_versions_request.ListConfigurationBundleVersionsRequest = {
+            "bundle_id": bundle_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -479,6 +494,7 @@ class ConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -545,13 +561,15 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_configuration_bundle_request.CreateConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["bundle_name"] = bundle_name
+        input_: capo_bedrock_agentcore_control.types.create_configuration_bundle_request.CreateConfigurationBundleRequest = {
+            "bundle_name": bundle_name,
+            "components": components,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["components"] = components
         if branch_name is not None:
             input_["branch_name"] = branch_name
         if commit_message is not None:
@@ -566,6 +584,7 @@ class AsyncConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -608,8 +627,9 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_request.GetConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_request.GetConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
         if branch_name is not None:
             input_["branch_name"] = branch_name
 
@@ -618,6 +638,7 @@ class AsyncConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -687,10 +708,12 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_configuration_bundle_request.UpdateConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.update_configuration_bundle_request.UpdateConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if bundle_name is not None:
             input_["bundle_name"] = bundle_name
         if description is not None:
@@ -711,6 +734,7 @@ class AsyncConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -750,14 +774,16 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_configuration_bundle_request.DeleteConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.delete_configuration_bundle_request.DeleteConfigurationBundleRequest = {
+            "bundle_id": bundle_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -797,7 +823,7 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_configuration_bundles_request.ListConfigurationBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_configuration_bundles_request.ListConfigurationBundlesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -808,6 +834,7 @@ class AsyncConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_configuration_bundle_version(
@@ -848,15 +875,17 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_version_request.GetConfigurationBundleVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
-        input_["version_id"] = version_id
+        input_: capo_bedrock_agentcore_control.types.get_configuration_bundle_version_request.GetConfigurationBundleVersionRequest = {
+            "bundle_id": bundle_id,
+            "version_id": version_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_configuration_bundle_versions(
@@ -903,8 +932,9 @@ class AsyncConfigurationBundle:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_configuration_bundle_versions_request.ListConfigurationBundleVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["bundle_id"] = bundle_id
+        input_: capo_bedrock_agentcore_control.types.list_configuration_bundle_versions_request.ListConfigurationBundleVersionsRequest = {
+            "bundle_id": bundle_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -917,4 +947,5 @@ class AsyncConfigurationBundle:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

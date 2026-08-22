@@ -86,7 +86,7 @@ def serialize_aws_json_1_1(value: InvokeDataAutomationRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationRequest:
     out: InvokeDataAutomationRequest = {}  # type: ignore[typeddict-item]
-    if "inputConfiguration" in data:
+    if data.get("inputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.sync_input_configuration
 
         out["input_configuration"] = (
@@ -98,7 +98,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationRequest:
         raise DeserializationError(
             "InvokeDataAutomationRequest.input_configuration required"
         )
-    if "dataAutomationConfiguration" in data:
+    if data.get("dataAutomationConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.data_automation_configuration
 
         out["data_automation_configuration"] = (
@@ -106,7 +106,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationRequest:
                 data["dataAutomationConfiguration"]
             )
         )
-    if "blueprints" in data:
+    if data.get("blueprints") is not None:
         import capo_bedrock_data_automation_runtime.types.blueprint_list
 
         out["blueprints"] = (
@@ -114,13 +114,13 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationRequest:
                 data["blueprints"]
             )
         )
-    if "dataAutomationProfileArn" in data:
+    if data.get("dataAutomationProfileArn") is not None:
         out["data_automation_profile_arn"] = data["dataAutomationProfileArn"]
     else:
         raise DeserializationError(
             "InvokeDataAutomationRequest.data_automation_profile_arn required"
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -128,7 +128,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.output_configuration
 
         out["output_configuration"] = (

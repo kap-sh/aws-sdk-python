@@ -34,11 +34,11 @@ def serialize_json(value: DeleteGatewayRuleResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteGatewayRuleResponse:
     out: DeleteGatewayRuleResponse = {}  # type: ignore[typeddict-item]
-    if "ruleId" in data:
+    if data.get("ruleId") is not None:
         out["rule_id"] = data["ruleId"]
     else:
         raise DeserializationError("DeleteGatewayRuleResponse.rule_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.gateway_rule_status
 
         out["status"] = (

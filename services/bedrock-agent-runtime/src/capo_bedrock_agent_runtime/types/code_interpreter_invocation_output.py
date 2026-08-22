@@ -48,19 +48,19 @@ def serialize_json(value: CodeInterpreterInvocationOutput) -> dict:
 
 def deserialize_json(data: dict) -> CodeInterpreterInvocationOutput:
     out: CodeInterpreterInvocationOutput = {}  # type: ignore[typeddict-item]
-    if "executionOutput" in data:
+    if data.get("executionOutput") is not None:
         out["execution_output"] = data["executionOutput"]
-    if "executionError" in data:
+    if data.get("executionError") is not None:
         out["execution_error"] = data["executionError"]
-    if "files" in data:
+    if data.get("files") is not None:
         import capo_bedrock_agent_runtime.types.files
 
         out["files"] = capo_bedrock_agent_runtime.types.files.deserialize_json(
             data["files"]
         )
-    if "executionTimeout" in data:
+    if data.get("executionTimeout") is not None:
         out["execution_timeout"] = data["executionTimeout"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

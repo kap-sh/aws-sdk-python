@@ -23,10 +23,10 @@ def serialize_json(value: AudioSegment) -> dict:
 
 def deserialize_json(data: dict) -> AudioSegment:
     out: AudioSegment = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError("AudioSegment.s3_uri required")
-    if "transcription" in data:
+    if data.get("transcription") is not None:
         out["transcription"] = data["transcription"]
     return out

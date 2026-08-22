@@ -30,7 +30,7 @@ def serialize_json(value: RecommendationEvaluationConfig) -> dict:
 
 def deserialize_json(data: dict) -> RecommendationEvaluationConfig:
     out: RecommendationEvaluationConfig = {}  # type: ignore[typeddict-item]
-    if "evaluators" in data:
+    if data.get("evaluators") is not None:
         import capo_bedrock_agentcore.types.recommendation_evaluator_list
 
         out["evaluators"] = (

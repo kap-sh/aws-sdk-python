@@ -30,7 +30,7 @@ def serialize_json(value: PatternObjectFilterConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PatternObjectFilterConfiguration:
     out: PatternObjectFilterConfiguration = {}  # type: ignore[typeddict-item]
-    if "filters" in data:
+    if data.get("filters") is not None:
         import capo_bedrock_agent.types.pattern_object_filter_list
 
         out["filters"] = (

@@ -43,11 +43,11 @@ def serialize_json(value: EvaluatorMetric) -> dict:
 
 def deserialize_json(data: dict) -> EvaluatorMetric:
     out: EvaluatorMetric = {}  # type: ignore[typeddict-item]
-    if "evaluatorArn" in data:
+    if data.get("evaluatorArn") is not None:
         out["evaluator_arn"] = data["evaluatorArn"]
     else:
         raise DeserializationError("EvaluatorMetric.evaluator_arn required")
-    if "controlStats" in data:
+    if data.get("controlStats") is not None:
         import capo_bedrock_agentcore.types.control_stats
 
         out["control_stats"] = (
@@ -57,7 +57,7 @@ def deserialize_json(data: dict) -> EvaluatorMetric:
         )
     else:
         raise DeserializationError("EvaluatorMetric.control_stats required")
-    if "variantResults" in data:
+    if data.get("variantResults") is not None:
         import capo_bedrock_agentcore.types.variant_result_list
 
         out["variant_results"] = (

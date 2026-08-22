@@ -18,7 +18,15 @@ def serialize_json(value: HarnessAgentCoreMemoryRetrievalConfig) -> dict:
     if "top_k" in value:
         out["topK"] = value["top_k"]
     if "relevance_score" in value:
-        out["relevanceScore"] = value["relevance_score"]
+        out["relevanceScore"] = (
+            "NaN"
+            if value["relevance_score"] != value["relevance_score"]
+            else "Infinity"
+            if value["relevance_score"] == float("inf")
+            else "-Infinity"
+            if value["relevance_score"] == float("-inf")
+            else value["relevance_score"]
+        )
     if "strategy_id" in value:
         out["strategyId"] = value["strategy_id"]
     return out
@@ -26,10 +34,10 @@ def serialize_json(value: HarnessAgentCoreMemoryRetrievalConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreMemoryRetrievalConfig:
     out: HarnessAgentCoreMemoryRetrievalConfig = {}  # type: ignore[typeddict-item]
-    if "topK" in data:
+    if data.get("topK") is not None:
         out["top_k"] = data["topK"]
-    if "relevanceScore" in data:
-        out["relevance_score"] = data["relevanceScore"]
-    if "strategyId" in data:
+    if data.get("relevanceScore") is not None:
+        out["relevance_score"] = float(data["relevanceScore"])
+    if data.get("strategyId") is not None:
         out["strategy_id"] = data["strategyId"]
     return out

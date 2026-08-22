@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> AgentTraces:
 
     out: AgentTraces = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent_runtime.types.trace_part.deserialize_json(item))
     return out

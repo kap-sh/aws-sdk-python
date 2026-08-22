@@ -34,7 +34,7 @@ def serialize_json(value: ImplicitFilterConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ImplicitFilterConfiguration:
     out: ImplicitFilterConfiguration = {}  # type: ignore[typeddict-item]
-    if "metadataAttributes" in data:
+    if data.get("metadataAttributes") is not None:
         import capo_bedrock_agent_runtime.types.metadata_attribute_schema_list
 
         out["metadata_attributes"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> ImplicitFilterConfiguration:
         raise DeserializationError(
             "ImplicitFilterConfiguration.metadata_attributes required"
         )
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError("ImplicitFilterConfiguration.model_arn required")

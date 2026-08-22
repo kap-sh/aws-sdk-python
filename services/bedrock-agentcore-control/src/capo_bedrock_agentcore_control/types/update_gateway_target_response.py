@@ -177,15 +177,15 @@ def serialize_json(value: UpdateGatewayTargetResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
     out: UpdateGatewayTargetResponse = {}  # type: ignore[typeddict-item]
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.gateway_arn required")
-    if "targetId" in data:
+    if data.get("targetId") is not None:
         out["target_id"] = data["targetId"]
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.target_id required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
         )
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -205,7 +205,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
         )
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.updated_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.target_status
 
         out["status"] = (
@@ -215,7 +215,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
         )
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.status required")
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock_agentcore_control.types.status_reasons
 
         out["status_reasons"] = (
@@ -223,13 +223,13 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["statusReasons"]
             )
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateGatewayTargetResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "targetConfiguration" in data:
+    if data.get("targetConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.target_configuration
 
         out["target_configuration"] = (
@@ -241,7 +241,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
         raise DeserializationError(
             "UpdateGatewayTargetResponse.target_configuration required"
         )
-    if "credentialProviderConfigurations" in data:
+    if data.get("credentialProviderConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.credential_provider_configurations
 
         out["credential_provider_configurations"] = (
@@ -253,7 +253,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
         raise DeserializationError(
             "UpdateGatewayTargetResponse.credential_provider_configurations required"
         )
-    if "lastSynchronizedAt" in data:
+    if data.get("lastSynchronizedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_synchronized_at"] = (
@@ -261,7 +261,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["lastSynchronizedAt"]
             )
         )
-    if "metadataConfiguration" in data:
+    if data.get("metadataConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.metadata_configuration
 
         out["metadata_configuration"] = (
@@ -269,7 +269,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["metadataConfiguration"]
             )
         )
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (
@@ -277,7 +277,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["privateEndpoint"]
             )
         )
-    if "privateEndpointManagedResources" in data:
+    if data.get("privateEndpointManagedResources") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint_managed_resources
 
         out["private_endpoint_managed_resources"] = (
@@ -285,7 +285,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["privateEndpointManagedResources"]
             )
         )
-    if "authorizationData" in data:
+    if data.get("authorizationData") is not None:
         import capo_bedrock_agentcore_control.types.authorization_data
 
         out["authorization_data"] = (
@@ -293,7 +293,7 @@ def deserialize_json(data: dict) -> UpdateGatewayTargetResponse:
                 data["authorizationData"]
             )
         )
-    if "protocolType" in data:
+    if data.get("protocolType") is not None:
         import capo_bedrock_agentcore_control.types.target_protocol_type
 
         out["protocol_type"] = (

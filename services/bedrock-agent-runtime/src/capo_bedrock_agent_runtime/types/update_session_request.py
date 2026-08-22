@@ -36,7 +36,7 @@ def serialize_json(value: UpdateSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateSessionRequest:
     out: UpdateSessionRequest = {}  # type: ignore[typeddict-item]
-    if "sessionMetadata" in data:
+    if data.get("sessionMetadata") is not None:
         import capo_bedrock_agent_runtime.types.session_metadata_map
 
         out["session_metadata"] = (

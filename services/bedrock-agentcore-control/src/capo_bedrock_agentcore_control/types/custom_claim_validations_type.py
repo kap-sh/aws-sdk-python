@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> CustomClaimValidationsType:
 
     out: CustomClaimValidationsType = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.custom_claim_validation_type.deserialize_json(
                 item

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> SessionMetadataList:
 
     out: SessionMetadataList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.session_metadata_shape.deserialize_json(item)
         )

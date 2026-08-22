@@ -53,15 +53,15 @@ def serialize_json(value: ExternalProxy) -> dict:
 
 def deserialize_json(data: dict) -> ExternalProxy:
     out: ExternalProxy = {}  # type: ignore[typeddict-item]
-    if "server" in data:
+    if data.get("server") is not None:
         out["server"] = data["server"]
     else:
         raise DeserializationError("ExternalProxy.server required")
-    if "port" in data:
+    if data.get("port") is not None:
         out["port"] = data["port"]
     else:
         raise DeserializationError("ExternalProxy.port required")
-    if "domainPatterns" in data:
+    if data.get("domainPatterns") is not None:
         import capo_bedrock_agentcore.types.domain_patterns
 
         out["domain_patterns"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> ExternalProxy:
                 data["domainPatterns"]
             )
         )
-    if "credentials" in data:
+    if data.get("credentials") is not None:
         import capo_bedrock_agentcore.types.proxy_credentials
 
         out["credentials"] = (

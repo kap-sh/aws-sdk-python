@@ -44,7 +44,7 @@ def serialize_json(value: DeleteAgentRuntimeEndpointResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteAgentRuntimeEndpointResponse:
     out: DeleteAgentRuntimeEndpointResponse = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_endpoint_status
 
         out["status"] = (
@@ -54,8 +54,8 @@ def deserialize_json(data: dict) -> DeleteAgentRuntimeEndpointResponse:
         )
     else:
         raise DeserializationError("DeleteAgentRuntimeEndpointResponse.status required")
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
-    if "endpointName" in data:
+    if data.get("endpointName") is not None:
         out["endpoint_name"] = data["endpointName"]
     return out

@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> RerankSourcesList:
 
     out: RerankSourcesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.rerank_source.deserialize_json(item)
         )

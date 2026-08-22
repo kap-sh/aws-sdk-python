@@ -29,10 +29,10 @@ def serialize_json(value: Phrase) -> dict:
 
 def deserialize_json(data: dict) -> Phrase:
     out: Phrase = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("Phrase.text required")
-    if "displayAsText" in data:
+    if data.get("displayAsText") is not None:
         out["display_as_text"] = data["displayAsText"]
     return out

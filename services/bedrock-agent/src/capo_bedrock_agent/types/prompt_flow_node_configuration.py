@@ -43,7 +43,7 @@ def serialize_json(value: PromptFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PromptFlowNodeConfiguration:
     out: PromptFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "sourceConfiguration" in data:
+    if data.get("sourceConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_flow_node_source_configuration
 
         out["source_configuration"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> PromptFlowNodeConfiguration:
         raise DeserializationError(
             "PromptFlowNodeConfiguration.source_configuration required"
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (

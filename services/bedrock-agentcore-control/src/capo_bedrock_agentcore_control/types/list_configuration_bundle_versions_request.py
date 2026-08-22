@@ -38,7 +38,7 @@ def serialize_json(value: ListConfigurationBundleVersionsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListConfigurationBundleVersionsRequest:
     out: ListConfigurationBundleVersionsRequest = {}  # type: ignore[typeddict-item]
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_bedrock_agentcore_control.types.version_filter
 
         out["filter"] = (

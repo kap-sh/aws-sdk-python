@@ -23,10 +23,10 @@ def serialize_json(value: IamCredentialProvider) -> dict:
 
 def deserialize_json(data: dict) -> IamCredentialProvider:
     out: IamCredentialProvider = {}  # type: ignore[typeddict-item]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
     else:
         raise DeserializationError("IamCredentialProvider.service required")
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
     return out

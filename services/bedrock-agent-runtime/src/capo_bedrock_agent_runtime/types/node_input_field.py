@@ -88,11 +88,11 @@ def serialize_json(value: NodeInputField) -> dict:
 
 def deserialize_json(data: dict) -> NodeInputField:
     out: NodeInputField = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("NodeInputField.name required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.node_execution_content
 
         out["content"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> NodeInputField:
         )
     else:
         raise DeserializationError("NodeInputField.content required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_agent_runtime.types.node_input_source
 
         out["source"] = (
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> NodeInputField:
                 data["source"]
             )
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.flow_node_io_data_type
 
         out["type"] = (
@@ -118,7 +118,7 @@ def deserialize_json(data: dict) -> NodeInputField:
                 data["type"]
             )
         )
-    if "category" in data:
+    if data.get("category") is not None:
         import capo_bedrock_agent_runtime.types.flow_node_input_category
 
         out["category"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> NodeInputField:
                 data["category"]
             )
         )
-    if "executionChain" in data:
+    if data.get("executionChain") is not None:
         import capo_bedrock_agent_runtime.types.node_input_execution_chain
 
         out["execution_chain"] = (

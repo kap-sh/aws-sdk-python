@@ -60,11 +60,11 @@ def serialize_json(value: MemorySessionSummary) -> dict:
 
 def deserialize_json(data: dict) -> MemorySessionSummary:
     out: MemorySessionSummary = {}  # type: ignore[typeddict-item]
-    if "memoryId" in data:
+    if data.get("memoryId") is not None:
         out["memory_id"] = data["memoryId"]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "sessionStartTime" in data:
+    if data.get("sessionStartTime") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["session_start_time"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> MemorySessionSummary:
                 data["sessionStartTime"]
             )
         )
-    if "sessionExpiryTime" in data:
+    if data.get("sessionExpiryTime") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["session_expiry_time"] = (
@@ -80,6 +80,6 @@ def deserialize_json(data: dict) -> MemorySessionSummary:
                 data["sessionExpiryTime"]
             )
         )
-    if "summaryText" in data:
+    if data.get("summaryText") is not None:
         out["summary_text"] = data["summaryText"]
     return out

@@ -39,7 +39,7 @@ def serialize_json(value: ImageStandardGenerativeField) -> dict:
 
 def deserialize_json(data: dict) -> ImageStandardGenerativeField:
     out: ImageStandardGenerativeField = {}  # type: ignore[typeddict-item]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_bedrock_data_automation.types.state
 
         out["state"] = capo_bedrock_data_automation.types.state.deserialize_json(
@@ -47,7 +47,7 @@ def deserialize_json(data: dict) -> ImageStandardGenerativeField:
         )
     else:
         raise DeserializationError("ImageStandardGenerativeField.state required")
-    if "types" in data:
+    if data.get("types") is not None:
         import capo_bedrock_data_automation.types.image_standard_generative_field_types
 
         out["types"] = (

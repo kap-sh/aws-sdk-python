@@ -19,7 +19,7 @@ def serialize_json(value: FieldForReranking) -> dict:
 
 def deserialize_json(data: dict) -> FieldForReranking:
     out: FieldForReranking = {}  # type: ignore[typeddict-item]
-    if "fieldName" in data:
+    if data.get("fieldName") is not None:
         out["field_name"] = data["fieldName"]
     else:
         raise DeserializationError("FieldForReranking.field_name required")

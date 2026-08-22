@@ -24,7 +24,7 @@ def serialize_json(value: MultipleLoopInputNodesFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> MultipleLoopInputNodesFlowValidationDetails:
     out: MultipleLoopInputNodesFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "loopNode" in data:
+    if data.get("loopNode") is not None:
         out["loop_node"] = data["loopNode"]
     else:
         raise DeserializationError(

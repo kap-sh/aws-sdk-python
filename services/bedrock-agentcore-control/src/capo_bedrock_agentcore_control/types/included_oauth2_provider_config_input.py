@@ -75,17 +75,17 @@ def serialize_json(value: IncludedOauth2ProviderConfigInput) -> dict:
 
 def deserialize_json(data: dict) -> IncludedOauth2ProviderConfigInput:
     out: IncludedOauth2ProviderConfigInput = {}  # type: ignore[typeddict-item]
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     else:
         raise DeserializationError(
             "IncludedOauth2ProviderConfigInput.client_id required"
         )
-    if "clientSecret" in data:
+    if data.get("clientSecret") is not None:
         out["client_secret"] = data["clientSecret"]
     else:
         out["client_secret"] = ""
-    if "clientSecretConfig" in data:
+    if data.get("clientSecretConfig") is not None:
         import capo_bedrock_agentcore_control.types.secret_reference
 
         out["client_secret_config"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> IncludedOauth2ProviderConfigInput:
                 data["clientSecretConfig"]
             )
         )
-    if "clientSecretSource" in data:
+    if data.get("clientSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["client_secret_source"] = (
@@ -101,10 +101,10 @@ def deserialize_json(data: dict) -> IncludedOauth2ProviderConfigInput:
                 data["clientSecretSource"]
             )
         )
-    if "issuer" in data:
+    if data.get("issuer") is not None:
         out["issuer"] = data["issuer"]
-    if "authorizationEndpoint" in data:
+    if data.get("authorizationEndpoint") is not None:
         out["authorization_endpoint"] = data["authorizationEndpoint"]
-    if "tokenEndpoint" in data:
+    if data.get("tokenEndpoint") is not None:
         out["token_endpoint"] = data["tokenEndpoint"]
     return out

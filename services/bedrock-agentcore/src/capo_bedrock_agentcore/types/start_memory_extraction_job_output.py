@@ -19,7 +19,7 @@ def serialize_json(value: StartMemoryExtractionJobOutput) -> dict:
 
 def deserialize_json(data: dict) -> StartMemoryExtractionJobOutput:
     out: StartMemoryExtractionJobOutput = {}  # type: ignore[typeddict-item]
-    if "jobId" in data:
+    if data.get("jobId") is not None:
         out["job_id"] = data["jobId"]
     else:
         raise DeserializationError("StartMemoryExtractionJobOutput.job_id required")

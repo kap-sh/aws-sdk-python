@@ -31,11 +31,11 @@ def serialize_json(value: Amount) -> dict:
 
 def deserialize_json(data: dict) -> Amount:
     out: Amount = {}  # type: ignore[typeddict-item]
-    if "value" in data:
+    if data.get("value") is not None:
         out["value"] = data["value"]
     else:
         raise DeserializationError("Amount.value required")
-    if "currency" in data:
+    if data.get("currency") is not None:
         import capo_bedrock_agentcore.types.currency
 
         out["currency"] = capo_bedrock_agentcore.types.currency.deserialize_json(

@@ -34,7 +34,7 @@ def serialize_json(value: StreamUpdate) -> dict:
 
 
 def deserialize_json(data: dict) -> StreamUpdate:
-    if "automationStreamUpdate" in data:
+    if data.get("automationStreamUpdate") is not None:
         import capo_bedrock_agentcore.types.automation_stream_update
 
         return {

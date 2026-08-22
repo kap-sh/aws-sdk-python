@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agent._auth._signers
 import capo_bedrock_agent._auth._sigv4
+import capo_bedrock_agent._protocol.eventstream
 import capo_bedrock_agent.errors.access_denied_exception
 import capo_bedrock_agent.errors.internal_server_exception
 import capo_bedrock_agent.errors.throttling_exception
@@ -32,19 +33,19 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agent.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_agent.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_agent.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agent.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -106,16 +107,17 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/flows/"
-    params: dict[str, str] = {}
+    params: list[tuple[str, str]] = []
     if "max_results" in input_:
-        params["maxResults"] = str(input_["max_results"])
+        params.append(("maxResults", str(input_["max_results"])))
     if "next_token" in input_:
-        params["nextToken"] = str(input_["next_token"])
+        params.append(("nextToken", input_["next_token"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

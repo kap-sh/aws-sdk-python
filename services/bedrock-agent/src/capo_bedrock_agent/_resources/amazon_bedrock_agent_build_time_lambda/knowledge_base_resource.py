@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -110,11 +111,12 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["description"] = description
+        input_: capo_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+            "description": description,
+        }
         if knowledge_base_state is not None:
             input_["knowledge_base_state"] = knowledge_base_state
 
@@ -123,6 +125,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_knowledge_base(
@@ -179,14 +182,16 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {
+            "name": name,
+            "role_arn": role_arn,
+            "knowledge_base_configuration": knowledge_base_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
-        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
             input_["storage_configuration"] = storage_configuration
         if tags is not None:
@@ -197,6 +202,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_knowledge_base(
@@ -235,14 +241,16 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def disassociate_agent_knowledge_base(
@@ -285,16 +293,18 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_agent_knowledge_base(
@@ -336,16 +346,18 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_knowledge_base(
@@ -385,14 +397,16 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_agent_knowledge_bases(
@@ -436,9 +450,10 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -449,6 +464,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_knowledge_bases(
@@ -487,7 +503,7 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -498,6 +514,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_agent_knowledge_base(
@@ -548,10 +565,11 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
         if description is not None:
             input_["description"] = description
         if knowledge_base_state is not None:
@@ -562,6 +580,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_knowledge_base(
@@ -614,13 +633,14 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "name": name,
+            "role_arn": role_arn,
+            "knowledge_base_configuration": knowledge_base_configuration,
+        }
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
-        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
             input_["storage_configuration"] = storage_configuration
 
@@ -629,6 +649,7 @@ class KnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -684,11 +705,12 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["description"] = description
+        input_: capo_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+            "description": description,
+        }
         if knowledge_base_state is not None:
             input_["knowledge_base_state"] = knowledge_base_state
 
@@ -697,6 +719,7 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_knowledge_base(
@@ -754,14 +777,16 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {
+            "name": name,
+            "role_arn": role_arn,
+            "knowledge_base_configuration": knowledge_base_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
-        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
             input_["storage_configuration"] = storage_configuration
         if tags is not None:
@@ -772,6 +797,7 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_knowledge_base(
@@ -811,14 +837,16 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def disassociate_agent_knowledge_base(
@@ -862,16 +890,18 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_agent_knowledge_base(
@@ -914,16 +944,18 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_knowledge_base(
@@ -964,14 +996,16 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_agent_knowledge_bases(
@@ -1016,9 +1050,10 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1029,6 +1064,7 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_knowledge_bases(
@@ -1068,7 +1104,7 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1079,6 +1115,7 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_agent_knowledge_base(
@@ -1130,10 +1167,11 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "knowledge_base_id": knowledge_base_id,
+        }
         if description is not None:
             input_["description"] = description
         if knowledge_base_state is not None:
@@ -1144,6 +1182,7 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_knowledge_base(
@@ -1197,13 +1236,14 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "name": name,
+            "role_arn": role_arn,
+            "knowledge_base_configuration": knowledge_base_configuration,
+        }
         if description is not None:
             input_["description"] = description
-        input_["role_arn"] = role_arn
-        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
             input_["storage_configuration"] = storage_configuration
 
@@ -1212,4 +1252,5 @@ class AsyncKnowledgeBaseResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

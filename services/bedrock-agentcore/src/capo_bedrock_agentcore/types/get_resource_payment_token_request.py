@@ -40,13 +40,13 @@ def serialize_json(value: GetResourcePaymentTokenRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetResourcePaymentTokenRequest:
     out: GetResourcePaymentTokenRequest = {}  # type: ignore[typeddict-item]
-    if "workloadIdentityToken" in data:
+    if data.get("workloadIdentityToken") is not None:
         out["workload_identity_token"] = data["workloadIdentityToken"]
     else:
         raise DeserializationError(
             "GetResourcePaymentTokenRequest.workload_identity_token required"
         )
-    if "resourceCredentialProviderName" in data:
+    if data.get("resourceCredentialProviderName") is not None:
         out["resource_credential_provider_name"] = data[
             "resourceCredentialProviderName"
         ]
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> GetResourcePaymentTokenRequest:
         raise DeserializationError(
             "GetResourcePaymentTokenRequest.resource_credential_provider_name required"
         )
-    if "paymentTokenRequest" in data:
+    if data.get("paymentTokenRequest") is not None:
         import capo_bedrock_agentcore.types.payment_token_request_input
 
         out["payment_token_request"] = (

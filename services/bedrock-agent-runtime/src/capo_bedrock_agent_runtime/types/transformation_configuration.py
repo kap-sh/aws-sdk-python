@@ -43,7 +43,7 @@ def serialize_json(value: TransformationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> TransformationConfiguration:
     out: TransformationConfiguration = {}  # type: ignore[typeddict-item]
-    if "mode" in data:
+    if data.get("mode") is not None:
         import capo_bedrock_agent_runtime.types.query_transformation_mode
 
         out["mode"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> TransformationConfiguration:
         )
     else:
         raise DeserializationError("TransformationConfiguration.mode required")
-    if "textToSqlConfiguration" in data:
+    if data.get("textToSqlConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.text_to_sql_configuration
 
         out["text_to_sql_configuration"] = (

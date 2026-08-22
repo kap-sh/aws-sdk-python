@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> NodeOutputNextList:
 
     out: NodeOutputNextList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.node_output_next.deserialize_json(item)
         )

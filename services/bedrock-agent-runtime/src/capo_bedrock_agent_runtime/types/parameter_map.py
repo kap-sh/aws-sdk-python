@@ -27,6 +27,8 @@ def serialize_json(input_to_serialize: ParameterMap) -> dict:
 def deserialize_json(data: dict) -> ParameterMap:
     out: ParameterMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock_agent_runtime.types.parameter_detail
 
         out[key] = capo_bedrock_agent_runtime.types.parameter_detail.deserialize_json(

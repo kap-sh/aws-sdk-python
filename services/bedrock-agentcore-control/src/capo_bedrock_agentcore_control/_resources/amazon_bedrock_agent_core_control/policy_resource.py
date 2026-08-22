@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -107,22 +108,25 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["definition"] = definition
+        input_: capo_bedrock_agentcore_control.types.create_policy_request.CreatePolicyRequest = {
+            "name": name,
+            "definition": definition,
+            "policy_engine_id": policy_engine_id,
+        }
         if description is not None:
             input_["description"] = description
         if validation_mode is not None:
             input_["validation_mode"] = validation_mode
-        input_["policy_engine_id"] = policy_engine_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -162,15 +166,17 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_request.GetPolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -223,9 +229,10 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.update_policy_request.UpdatePolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
         if description is not None:
             input_["description"] = description
         if definition is not None:
@@ -238,6 +245,7 @@ class PolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -278,15 +286,17 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.delete_policy_request.DeletePolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -336,12 +346,13 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policies_request.ListPoliciesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
         if target_resource_scope is not None:
             input_["target_resource_scope"] = target_resource_scope
 
@@ -350,6 +361,7 @@ class PolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_policy_summary(
@@ -389,15 +401,17 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_summary_request.GetPolicySummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_summary_request.GetPolicySummaryRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policy_summaries(
@@ -447,12 +461,13 @@ class PolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_summaries_request.ListPolicySummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_summaries_request.ListPolicySummariesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
         if target_resource_scope is not None:
             input_["target_resource_scope"] = target_resource_scope
 
@@ -461,6 +476,7 @@ class PolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -522,22 +538,25 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["definition"] = definition
+        input_: capo_bedrock_agentcore_control.types.create_policy_request.CreatePolicyRequest = {
+            "name": name,
+            "definition": definition,
+            "policy_engine_id": policy_engine_id,
+        }
         if description is not None:
             input_["description"] = description
         if validation_mode is not None:
             input_["validation_mode"] = validation_mode
-        input_["policy_engine_id"] = policy_engine_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -578,15 +597,17 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_request.GetPolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -640,9 +661,10 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.update_policy_request.UpdatePolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
         if description is not None:
             input_["description"] = description
         if definition is not None:
@@ -655,6 +677,7 @@ class AsyncPolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -696,15 +719,17 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.delete_policy_request.DeletePolicyRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -755,12 +780,13 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policies_request.ListPoliciesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
         if target_resource_scope is not None:
             input_["target_resource_scope"] = target_resource_scope
 
@@ -769,6 +795,7 @@ class AsyncPolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_policy_summary(
@@ -809,15 +836,17 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_summary_request.GetPolicySummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
-        input_["policy_id"] = policy_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_summary_request.GetPolicySummaryRequest = {
+            "policy_engine_id": policy_engine_id,
+            "policy_id": policy_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policy_summaries(
@@ -868,12 +897,13 @@ class AsyncPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_summaries_request.ListPolicySummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_summaries_request.ListPolicySummariesRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
             input_["max_results"] = max_results
-        input_["policy_engine_id"] = policy_engine_id
         if target_resource_scope is not None:
             input_["target_resource_scope"] = target_resource_scope
 
@@ -882,4 +912,5 @@ class AsyncPolicyResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

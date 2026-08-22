@@ -31,9 +31,9 @@ def serialize_json(value: TextResponsePart) -> dict:
 
 def deserialize_json(data: dict) -> TextResponsePart:
     out: TextResponsePart = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "span" in data:
+    if data.get("span") is not None:
         import capo_bedrock_agent_runtime.types.span
 
         out["span"] = capo_bedrock_agent_runtime.types.span.deserialize_json(

@@ -35,7 +35,7 @@ def serialize_json(value: StartMemoryExtractionJobInput) -> dict:
 
 def deserialize_json(data: dict) -> StartMemoryExtractionJobInput:
     out: StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
-    if "extractionJob" in data:
+    if data.get("extractionJob") is not None:
         import capo_bedrock_agentcore.types.extraction_job
 
         out["extraction_job"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> StartMemoryExtractionJobInput:
         raise DeserializationError(
             "StartMemoryExtractionJobInput.extraction_job required"
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

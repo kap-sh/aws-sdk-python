@@ -48,7 +48,7 @@ def serialize_json(value: ResourceContent) -> dict:
 
 def deserialize_json(data: dict) -> ResourceContent:
     out: ResourceContent = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.resource_content_type
 
         out["type"] = (
@@ -58,13 +58,13 @@ def deserialize_json(data: dict) -> ResourceContent:
         )
     else:
         raise DeserializationError("ResourceContent.type required")
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
-    if "mimeType" in data:
+    if data.get("mimeType") is not None:
         out["mime_type"] = data["mimeType"]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "blob" in data:
+    if data.get("blob") is not None:
         import capo_bedrock_agentcore.types._prelude.blob
 
         out["blob"] = capo_bedrock_agentcore.types._prelude.blob.deserialize_json(

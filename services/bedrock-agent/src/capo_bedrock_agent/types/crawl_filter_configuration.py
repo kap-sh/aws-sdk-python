@@ -43,7 +43,7 @@ def serialize_json(value: CrawlFilterConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CrawlFilterConfiguration:
     out: CrawlFilterConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.crawl_filter_configuration_type
 
         out["type"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> CrawlFilterConfiguration:
         )
     else:
         raise DeserializationError("CrawlFilterConfiguration.type required")
-    if "patternObjectFilter" in data:
+    if data.get("patternObjectFilter") is not None:
         import capo_bedrock_agent.types.pattern_object_filter_configuration
 
         out["pattern_object_filter"] = (

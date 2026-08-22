@@ -40,13 +40,13 @@ def serialize_json(value: PayloadPart) -> dict:
 
 def deserialize_json(data: dict) -> PayloadPart:
     out: PayloadPart = {}  # type: ignore[typeddict-item]
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_agent_runtime.types.part_body
 
         out["bytes"] = capo_bedrock_agent_runtime.types.part_body.deserialize_json(
             data["bytes"]
         )
-    if "attribution" in data:
+    if data.get("attribution") is not None:
         import capo_bedrock_agent_runtime.types.attribution
 
         out["attribution"] = (

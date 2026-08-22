@@ -40,7 +40,7 @@ def serialize_json(value: Transformation) -> dict:
 
 def deserialize_json(data: dict) -> Transformation:
     out: Transformation = {}  # type: ignore[typeddict-item]
-    if "transformationFunction" in data:
+    if data.get("transformationFunction") is not None:
         import capo_bedrock_agent.types.transformation_function
 
         out["transformation_function"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> Transformation:
         )
     else:
         raise DeserializationError("Transformation.transformation_function required")
-    if "stepToApply" in data:
+    if data.get("stepToApply") is not None:
         import capo_bedrock_agent.types.step_type
 
         out["step_to_apply"] = capo_bedrock_agent.types.step_type.deserialize_json(

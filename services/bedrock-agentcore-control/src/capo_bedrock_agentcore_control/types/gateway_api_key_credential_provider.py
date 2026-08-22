@@ -51,17 +51,17 @@ def serialize_json(value: GatewayApiKeyCredentialProvider) -> dict:
 
 def deserialize_json(data: dict) -> GatewayApiKeyCredentialProvider:
     out: GatewayApiKeyCredentialProvider = {}  # type: ignore[typeddict-item]
-    if "providerArn" in data:
+    if data.get("providerArn") is not None:
         out["provider_arn"] = data["providerArn"]
     else:
         raise DeserializationError(
             "GatewayApiKeyCredentialProvider.provider_arn required"
         )
-    if "credentialParameterName" in data:
+    if data.get("credentialParameterName") is not None:
         out["credential_parameter_name"] = data["credentialParameterName"]
-    if "credentialPrefix" in data:
+    if data.get("credentialPrefix") is not None:
         out["credential_prefix"] = data["credentialPrefix"]
-    if "credentialLocation" in data:
+    if data.get("credentialLocation") is not None:
         import capo_bedrock_agentcore_control.types.api_key_credential_location
 
         out["credential_location"] = (

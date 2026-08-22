@@ -78,7 +78,7 @@ def serialize_json(value: OverrideConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> OverrideConfiguration:
     out: OverrideConfiguration = {}  # type: ignore[typeddict-item]
-    if "document" in data:
+    if data.get("document") is not None:
         import capo_bedrock_data_automation.types.document_override_configuration
 
         out["document"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> OverrideConfiguration:
                 data["document"]
             )
         )
-    if "image" in data:
+    if data.get("image") is not None:
         import capo_bedrock_data_automation.types.image_override_configuration
 
         out["image"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> OverrideConfiguration:
                 data["image"]
             )
         )
-    if "video" in data:
+    if data.get("video") is not None:
         import capo_bedrock_data_automation.types.video_override_configuration
 
         out["video"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> OverrideConfiguration:
                 data["video"]
             )
         )
-    if "audio" in data:
+    if data.get("audio") is not None:
         import capo_bedrock_data_automation.types.audio_override_configuration
 
         out["audio"] = (
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> OverrideConfiguration:
                 data["audio"]
             )
         )
-    if "modalityRouting" in data:
+    if data.get("modalityRouting") is not None:
         import capo_bedrock_data_automation.types.modality_routing_configuration
 
         out["modality_routing"] = (

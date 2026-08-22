@@ -37,11 +37,11 @@ def serialize_json(value: BlueprintOptimizationObject) -> dict:
 
 def deserialize_json(data: dict) -> BlueprintOptimizationObject:
     out: BlueprintOptimizationObject = {}  # type: ignore[typeddict-item]
-    if "blueprintArn" in data:
+    if data.get("blueprintArn") is not None:
         out["blueprint_arn"] = data["blueprintArn"]
     else:
         raise DeserializationError("BlueprintOptimizationObject.blueprint_arn required")
-    if "stage" in data:
+    if data.get("stage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["stage"] = (

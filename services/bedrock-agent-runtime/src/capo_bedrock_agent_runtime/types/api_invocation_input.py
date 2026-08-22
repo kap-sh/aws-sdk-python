@@ -80,15 +80,15 @@ def serialize_json(value: ApiInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> ApiInvocationInput:
     out: ApiInvocationInput = {}  # type: ignore[typeddict-item]
-    if "actionGroup" in data:
+    if data.get("actionGroup") is not None:
         out["action_group"] = data["actionGroup"]
     else:
         raise DeserializationError("ApiInvocationInput.action_group required")
-    if "httpMethod" in data:
+    if data.get("httpMethod") is not None:
         out["http_method"] = data["httpMethod"]
-    if "apiPath" in data:
+    if data.get("apiPath") is not None:
         out["api_path"] = data["apiPath"]
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         import capo_bedrock_agent_runtime.types.api_parameters
 
         out["parameters"] = (
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> ApiInvocationInput:
                 data["parameters"]
             )
         )
-    if "requestBody" in data:
+    if data.get("requestBody") is not None:
         import capo_bedrock_agent_runtime.types.api_request_body
 
         out["request_body"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> ApiInvocationInput:
                 data["requestBody"]
             )
         )
-    if "actionInvocationType" in data:
+    if data.get("actionInvocationType") is not None:
         import capo_bedrock_agent_runtime.types.action_invocation_type
 
         out["action_invocation_type"] = (
@@ -112,8 +112,8 @@ def deserialize_json(data: dict) -> ApiInvocationInput:
                 data["actionInvocationType"]
             )
         )
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     return out

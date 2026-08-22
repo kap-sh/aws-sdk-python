@@ -30,11 +30,11 @@ def serialize_json(value: InlineCodeFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> InlineCodeFlowNodeConfiguration:
     out: InlineCodeFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
     else:
         out["code"] = ""
-    if "language" in data:
+    if data.get("language") is not None:
         import capo_bedrock_agent.types.supported_languages
 
         out["language"] = capo_bedrock_agent.types.supported_languages.deserialize_json(

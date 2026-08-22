@@ -39,9 +39,9 @@ def serialize_json(value: SetTokenVaultCMKRequest) -> dict:
 
 def deserialize_json(data: dict) -> SetTokenVaultCMKRequest:
     out: SetTokenVaultCMKRequest = {}  # type: ignore[typeddict-item]
-    if "tokenVaultId" in data:
+    if data.get("tokenVaultId") is not None:
         out["token_vault_id"] = data["tokenVaultId"]
-    if "kmsConfiguration" in data:
+    if data.get("kmsConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.kms_configuration
 
         out["kms_configuration"] = (

@@ -26,7 +26,7 @@ def serialize_json(value: LeftExpression) -> dict:
 
 
 def deserialize_json(data: dict) -> LeftExpression:
-    if "metadataKey" in data:
+    if data.get("metadataKey") is not None:
         return {"metadataKey": data["metadataKey"]}
     else:
         raise DeserializationError("LeftExpression: no recognized variant key")

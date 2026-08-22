@@ -24,7 +24,7 @@ def serialize_json(value: CedarPolicy) -> dict:
 
 def deserialize_json(data: dict) -> CedarPolicy:
     out: CedarPolicy = {}  # type: ignore[typeddict-item]
-    if "statement" in data:
+    if data.get("statement") is not None:
         out["statement"] = data["statement"]
     else:
         raise DeserializationError("CedarPolicy.statement required")

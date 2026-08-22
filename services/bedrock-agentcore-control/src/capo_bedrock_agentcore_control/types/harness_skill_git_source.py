@@ -41,13 +41,13 @@ def serialize_json(value: HarnessSkillGitSource) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSkillGitSource:
     out: HarnessSkillGitSource = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
     else:
         raise DeserializationError("HarnessSkillGitSource.url required")
-    if "path" in data:
+    if data.get("path") is not None:
         out["path"] = data["path"]
-    if "auth" in data:
+    if data.get("auth") is not None:
         import capo_bedrock_agentcore_control.types.harness_skill_git_auth
 
         out["auth"] = (

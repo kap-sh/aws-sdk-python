@@ -47,9 +47,9 @@ def serialize_json(value: ActionGroupExecutor) -> dict:
 
 
 def deserialize_json(data: dict) -> ActionGroupExecutor:
-    if "lambda" in data:
+    if data.get("lambda") is not None:
         return {"lambda": data["lambda"]}
-    elif "customControl" in data:
+    elif data.get("customControl") is not None:
         import capo_bedrock_agent_runtime.types.custom_control_method
 
         return {

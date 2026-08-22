@@ -29,13 +29,13 @@ def serialize_json(value: PolicyGenerationDetails) -> dict:
 
 def deserialize_json(data: dict) -> PolicyGenerationDetails:
     out: PolicyGenerationDetails = {}  # type: ignore[typeddict-item]
-    if "policyGenerationId" in data:
+    if data.get("policyGenerationId") is not None:
         out["policy_generation_id"] = data["policyGenerationId"]
     else:
         raise DeserializationError(
             "PolicyGenerationDetails.policy_generation_id required"
         )
-    if "policyGenerationAssetId" in data:
+    if data.get("policyGenerationAssetId") is not None:
         out["policy_generation_asset_id"] = data["policyGenerationAssetId"]
     else:
         raise DeserializationError(

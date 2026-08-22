@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agentcore_control._auth._signers
 import capo_bedrock_agentcore_control._auth._sigv4
+import capo_bedrock_agentcore_control._protocol.eventstream
 import capo_bedrock_agentcore_control.errors.access_denied_exception
 import capo_bedrock_agentcore_control.errors.resource_not_found_exception
 import capo_bedrock_agentcore_control.errors.service_exception
@@ -38,23 +39,23 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agentcore_control.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_agentcore_control.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ServiceException":
             raise capo_bedrock_agentcore_control.errors.service_exception.ServiceException.from_json(
-                data
+                data, message
             )
         case "ThrottledException":
             raise capo_bedrock_agentcore_control.errors.throttled_exception.ThrottledException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agentcore_control.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -115,15 +116,25 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock_agentcore_control.types.memory_view
+
     url = endpoint.url.rstrip("/") + "/memories/{memoryId}/details"
-    url = url.replace("{memoryId}", quote(str(input_["memory_id"]), safe=""))
-    params: dict[str, str] = {}
-    params["view"] = str(input_.get("view", "full"))
+    url = url.replace("{memoryId}", quote(input_["memory_id"], safe=""))
+    params: list[tuple[str, str]] = []
+    params.append(
+        (
+            "view",
+            capo_bedrock_agentcore_control.types.memory_view.serialize_json(
+                input_.get("view", "full")
+            ),
+        )
+    )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

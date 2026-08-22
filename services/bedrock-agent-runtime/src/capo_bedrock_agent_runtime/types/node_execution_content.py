@@ -23,7 +23,7 @@ def serialize_json(value: NodeExecutionContent) -> dict:
 
 
 def deserialize_json(data: dict) -> NodeExecutionContent:
-    if "document" in data:
+    if data.get("document") is not None:
         return {"document": data["document"]}
     else:
         raise DeserializationError("NodeExecutionContent: no recognized variant key")

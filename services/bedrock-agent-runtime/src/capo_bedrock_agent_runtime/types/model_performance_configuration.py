@@ -31,7 +31,7 @@ def serialize_json(value: ModelPerformanceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModelPerformanceConfiguration:
     out: ModelPerformanceConfiguration = {}  # type: ignore[typeddict-item]
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_agent_runtime.types.performance_configuration
 
         out["performance_config"] = (

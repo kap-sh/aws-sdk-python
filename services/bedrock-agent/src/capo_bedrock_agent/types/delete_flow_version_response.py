@@ -28,11 +28,11 @@ def serialize_json(value: DeleteFlowVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteFlowVersionResponse:
     out: DeleteFlowVersionResponse = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("DeleteFlowVersionResponse.id required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("DeleteFlowVersionResponse.version required")

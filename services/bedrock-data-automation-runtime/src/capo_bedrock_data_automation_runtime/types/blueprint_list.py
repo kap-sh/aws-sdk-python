@@ -29,6 +29,8 @@ def deserialize_aws_json_1_1(data: list) -> BlueprintList:
 
     out: BlueprintList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation_runtime.types.blueprint.deserialize_aws_json_1_1(
                 item

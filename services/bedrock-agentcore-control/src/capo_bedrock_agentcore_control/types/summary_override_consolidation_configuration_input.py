@@ -27,13 +27,13 @@ def serialize_json(value: SummaryOverrideConsolidationConfigurationInput) -> dic
 
 def deserialize_json(data: dict) -> SummaryOverrideConsolidationConfigurationInput:
     out: SummaryOverrideConsolidationConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "appendToPrompt" in data:
+    if data.get("appendToPrompt") is not None:
         out["append_to_prompt"] = data["appendToPrompt"]
     else:
         raise DeserializationError(
             "SummaryOverrideConsolidationConfigurationInput.append_to_prompt required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(

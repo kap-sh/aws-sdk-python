@@ -37,7 +37,7 @@ def serialize_json(value: GetKnowledgeBaseDocumentsRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetKnowledgeBaseDocumentsRequest:
     out: GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-    if "documentIdentifiers" in data:
+    if data.get("documentIdentifiers") is not None:
         import capo_bedrock_agent.types.document_identifiers
 
         out["document_identifiers"] = (

@@ -25,6 +25,6 @@ def serialize_json(value: SessionSummaryConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SessionSummaryConfiguration:
     out: SessionSummaryConfiguration = {}  # type: ignore[typeddict-item]
-    if "maxRecentSessions" in data:
+    if data.get("maxRecentSessions") is not None:
         out["max_recent_sessions"] = data["maxRecentSessions"]
     return out

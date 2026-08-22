@@ -136,7 +136,7 @@ def serialize_json(value: BrowserAction) -> dict:
 
 
 def deserialize_json(data: dict) -> BrowserAction:
-    if "mouseClick" in data:
+    if data.get("mouseClick") is not None:
         import capo_bedrock_agentcore.types.mouse_click_arguments
 
         return {
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["mouseClick"]
             )
         }
-    elif "mouseMove" in data:
+    elif data.get("mouseMove") is not None:
         import capo_bedrock_agentcore.types.mouse_move_arguments
 
         return {
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["mouseMove"]
             )
         }
-    elif "mouseDrag" in data:
+    elif data.get("mouseDrag") is not None:
         import capo_bedrock_agentcore.types.mouse_drag_arguments
 
         return {
@@ -160,7 +160,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["mouseDrag"]
             )
         }
-    elif "mouseScroll" in data:
+    elif data.get("mouseScroll") is not None:
         import capo_bedrock_agentcore.types.mouse_scroll_arguments
 
         return {
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["mouseScroll"]
             )
         }
-    elif "keyType" in data:
+    elif data.get("keyType") is not None:
         import capo_bedrock_agentcore.types.key_type_arguments
 
         return {
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["keyType"]
             )
         }
-    elif "keyPress" in data:
+    elif data.get("keyPress") is not None:
         import capo_bedrock_agentcore.types.key_press_arguments
 
         return {
@@ -184,7 +184,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["keyPress"]
             )
         }
-    elif "keyShortcut" in data:
+    elif data.get("keyShortcut") is not None:
         import capo_bedrock_agentcore.types.key_shortcut_arguments
 
         return {
@@ -192,7 +192,7 @@ def deserialize_json(data: dict) -> BrowserAction:
                 data["keyShortcut"]
             )
         }
-    elif "screenshot" in data:
+    elif data.get("screenshot") is not None:
         import capo_bedrock_agentcore.types.screenshot_arguments
 
         return {

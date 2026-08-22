@@ -35,13 +35,13 @@ def serialize_json(value: ToolConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ToolConfiguration:
     out: ToolConfiguration = {}  # type: ignore[typeddict-item]
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agent.types.tools
 
         out["tools"] = capo_bedrock_agent.types.tools.deserialize_json(data["tools"])
     else:
         raise DeserializationError("ToolConfiguration.tools required")
-    if "toolChoice" in data:
+    if data.get("toolChoice") is not None:
         import capo_bedrock_agent.types.tool_choice
 
         out["tool_choice"] = capo_bedrock_agent.types.tool_choice.deserialize_json(

@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> InvocationSummaries:
 
     out: InvocationSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.invocation_summary.deserialize_json(item)
         )

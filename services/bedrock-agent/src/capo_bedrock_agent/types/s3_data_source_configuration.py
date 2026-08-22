@@ -40,11 +40,11 @@ def serialize_json(value: S3DataSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> S3DataSourceConfiguration:
     out: S3DataSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "bucketArn" in data:
+    if data.get("bucketArn") is not None:
         out["bucket_arn"] = data["bucketArn"]
     else:
         raise DeserializationError("S3DataSourceConfiguration.bucket_arn required")
-    if "inclusionPrefixes" in data:
+    if data.get("inclusionPrefixes") is not None:
         import capo_bedrock_agent.types.s3_prefixes
 
         out["inclusion_prefixes"] = (
@@ -52,6 +52,6 @@ def deserialize_json(data: dict) -> S3DataSourceConfiguration:
                 data["inclusionPrefixes"]
             )
         )
-    if "bucketOwnerAccountId" in data:
+    if data.get("bucketOwnerAccountId") is not None:
         out["bucket_owner_account_id"] = data["bucketOwnerAccountId"]
     return out

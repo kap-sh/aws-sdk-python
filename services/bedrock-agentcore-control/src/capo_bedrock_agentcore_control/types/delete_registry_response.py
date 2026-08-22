@@ -28,7 +28,7 @@ def serialize_json(value: DeleteRegistryResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteRegistryResponse:
     out: DeleteRegistryResponse = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_status
 
         out["status"] = (

@@ -83,35 +83,35 @@ def serialize_json(value: CreatePromptResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreatePromptResponse:
     out: CreatePromptResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreatePromptResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "defaultVariant" in data:
+    if data.get("defaultVariant") is not None:
         out["default_variant"] = data["defaultVariant"]
-    if "variants" in data:
+    if data.get("variants") is not None:
         import capo_bedrock_agent.types.prompt_variant_list
 
         out["variants"] = capo_bedrock_agent.types.prompt_variant_list.deserialize_json(
             data["variants"]
         )
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("CreatePromptResponse.id required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("CreatePromptResponse.arn required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("CreatePromptResponse.version required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -119,7 +119,7 @@ def deserialize_json(data: dict) -> CreatePromptResponse:
         )
     else:
         raise DeserializationError("CreatePromptResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

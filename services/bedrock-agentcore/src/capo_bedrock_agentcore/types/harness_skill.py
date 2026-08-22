@@ -52,9 +52,9 @@ def serialize_json(value: HarnessSkill) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessSkill:
-    if "path" in data:
+    if data.get("path") is not None:
         return {"path": data["path"]}
-    elif "s3" in data:
+    elif data.get("s3") is not None:
         import capo_bedrock_agentcore.types.harness_skill_s3_source
 
         return {
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> HarnessSkill:
                 data["s3"]
             )
         }
-    elif "git" in data:
+    elif data.get("git") is not None:
         import capo_bedrock_agentcore.types.harness_skill_git_source
 
         return {

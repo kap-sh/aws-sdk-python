@@ -30,7 +30,7 @@ def serialize_json(value: MatchPaths) -> dict:
 
 def deserialize_json(data: dict) -> MatchPaths:
     out: MatchPaths = {}  # type: ignore[typeddict-item]
-    if "anyOf" in data:
+    if data.get("anyOf") is not None:
         import capo_bedrock_agentcore_control.types.match_path_patterns
 
         out["any_of"] = (

@@ -18,22 +18,30 @@ class NumericalScaleDefinition(TypedDict, closed=True):
 def serialize_json(value: NumericalScaleDefinition) -> dict:
     out: dict = {}
     out["definition"] = value["definition"]
-    out["value"] = value["value"]
+    out["value"] = (
+        "NaN"
+        if value["value"] != value["value"]
+        else "Infinity"
+        if value["value"] == float("inf")
+        else "-Infinity"
+        if value["value"] == float("-inf")
+        else value["value"]
+    )
     out["label"] = value["label"]
     return out
 
 
 def deserialize_json(data: dict) -> NumericalScaleDefinition:
     out: NumericalScaleDefinition = {}  # type: ignore[typeddict-item]
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError("NumericalScaleDefinition.definition required")
-    if "value" in data:
-        out["value"] = data["value"]
+    if data.get("value") is not None:
+        out["value"] = float(data["value"])
     else:
         raise DeserializationError("NumericalScaleDefinition.value required")
-    if "label" in data:
+    if data.get("label") is not None:
         out["label"] = data["label"]
     else:
         raise DeserializationError("NumericalScaleDefinition.label required")

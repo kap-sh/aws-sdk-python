@@ -38,9 +38,9 @@ def serialize_json(value: QueryGenerationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> QueryGenerationConfiguration:
     out: QueryGenerationConfiguration = {}  # type: ignore[typeddict-item]
-    if "executionTimeoutSeconds" in data:
+    if data.get("executionTimeoutSeconds") is not None:
         out["execution_timeout_seconds"] = data["executionTimeoutSeconds"]
-    if "generationContext" in data:
+    if data.get("generationContext") is not None:
         import capo_bedrock_agent.types.query_generation_context
 
         out["generation_context"] = (

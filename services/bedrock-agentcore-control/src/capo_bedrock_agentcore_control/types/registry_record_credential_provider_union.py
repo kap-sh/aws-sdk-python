@@ -57,7 +57,7 @@ def serialize_json(value: RegistryRecordCredentialProviderUnion) -> dict:
 
 
 def deserialize_json(data: dict) -> RegistryRecordCredentialProviderUnion:
-    if "oauthCredentialProvider" in data:
+    if data.get("oauthCredentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_o_auth_credential_provider
 
         return {
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> RegistryRecordCredentialProviderUnion:
                 data["oauthCredentialProvider"]
             )
         }
-    elif "iamCredentialProvider" in data:
+    elif data.get("iamCredentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_iam_credential_provider
 
         return {

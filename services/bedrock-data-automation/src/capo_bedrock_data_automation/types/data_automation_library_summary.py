@@ -38,13 +38,13 @@ def serialize_json(value: DataAutomationLibrarySummary) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationLibrarySummary:
     out: DataAutomationLibrarySummary = {}  # type: ignore[typeddict-item]
-    if "libraryArn" in data:
+    if data.get("libraryArn") is not None:
         out["library_arn"] = data["libraryArn"]
     else:
         raise DeserializationError("DataAutomationLibrarySummary.library_arn required")
-    if "libraryName" in data:
+    if data.get("libraryName") is not None:
         out["library_name"] = data["libraryName"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (

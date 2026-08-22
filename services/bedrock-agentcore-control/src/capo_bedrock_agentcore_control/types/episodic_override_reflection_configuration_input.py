@@ -65,19 +65,19 @@ def serialize_json(value: EpisodicOverrideReflectionConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> EpisodicOverrideReflectionConfigurationInput:
     out: EpisodicOverrideReflectionConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "appendToPrompt" in data:
+    if data.get("appendToPrompt") is not None:
         out["append_to_prompt"] = data["appendToPrompt"]
     else:
         raise DeserializationError(
             "EpisodicOverrideReflectionConfigurationInput.append_to_prompt required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(
             "EpisodicOverrideReflectionConfigurationInput.model_id required"
         )
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespaces"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> EpisodicOverrideReflectionConfigurationInput
                 data["namespaces"]
             )
         )
-    if "namespaceTemplates" in data:
+    if data.get("namespaceTemplates") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespace_templates"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> EpisodicOverrideReflectionConfigurationInput
                 data["namespaceTemplates"]
             )
         )
-    if "memoryRecordSchema" in data:
+    if data.get("memoryRecordSchema") is not None:
         import capo_bedrock_agentcore_control.types.memory_record_schema
 
         out["memory_record_schema"] = (

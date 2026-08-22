@@ -29,7 +29,7 @@ def serialize_json(value: OrchestrationExecutor) -> dict:
 
 
 def deserialize_json(data: dict) -> OrchestrationExecutor:
-    if "lambda" in data:
+    if data.get("lambda") is not None:
         return {"lambda": data["lambda"]}
     else:
         raise DeserializationError("OrchestrationExecutor: no recognized variant key")

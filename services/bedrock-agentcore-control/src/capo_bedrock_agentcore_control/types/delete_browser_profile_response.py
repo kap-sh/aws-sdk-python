@@ -64,15 +64,15 @@ def serialize_json(value: DeleteBrowserProfileResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteBrowserProfileResponse:
     out: DeleteBrowserProfileResponse = {}  # type: ignore[typeddict-item]
-    if "profileId" in data:
+    if data.get("profileId") is not None:
         out["profile_id"] = data["profileId"]
     else:
         raise DeserializationError("DeleteBrowserProfileResponse.profile_id required")
-    if "profileArn" in data:
+    if data.get("profileArn") is not None:
         out["profile_arn"] = data["profileArn"]
     else:
         raise DeserializationError("DeleteBrowserProfileResponse.profile_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_profile_status
 
         out["status"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> DeleteBrowserProfileResponse:
         )
     else:
         raise DeserializationError("DeleteBrowserProfileResponse.status required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> DeleteBrowserProfileResponse:
         raise DeserializationError(
             "DeleteBrowserProfileResponse.last_updated_at required"
         )
-    if "lastSavedAt" in data:
+    if data.get("lastSavedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_saved_at"] = (

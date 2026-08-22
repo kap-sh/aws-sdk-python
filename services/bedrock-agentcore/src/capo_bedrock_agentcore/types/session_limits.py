@@ -28,7 +28,7 @@ def serialize_json(value: SessionLimits) -> dict:
 
 def deserialize_json(data: dict) -> SessionLimits:
     out: SessionLimits = {}  # type: ignore[typeddict-item]
-    if "maxSpendAmount" in data:
+    if data.get("maxSpendAmount") is not None:
         import capo_bedrock_agentcore.types.amount
 
         out["max_spend_amount"] = capo_bedrock_agentcore.types.amount.deserialize_json(

@@ -82,15 +82,15 @@ def serialize_json(value: AgentCollaborator) -> dict:
 
 def deserialize_json(data: dict) -> AgentCollaborator:
     out: AgentCollaborator = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("AgentCollaborator.agent_id required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("AgentCollaborator.agent_version required")
-    if "agentDescriptor" in data:
+    if data.get("agentDescriptor") is not None:
         import capo_bedrock_agent.types.agent_descriptor
 
         out["agent_descriptor"] = (
@@ -100,21 +100,21 @@ def deserialize_json(data: dict) -> AgentCollaborator:
         )
     else:
         raise DeserializationError("AgentCollaborator.agent_descriptor required")
-    if "collaboratorId" in data:
+    if data.get("collaboratorId") is not None:
         out["collaborator_id"] = data["collaboratorId"]
     else:
         raise DeserializationError("AgentCollaborator.collaborator_id required")
-    if "collaborationInstruction" in data:
+    if data.get("collaborationInstruction") is not None:
         out["collaboration_instruction"] = data["collaborationInstruction"]
     else:
         raise DeserializationError(
             "AgentCollaborator.collaboration_instruction required"
         )
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     else:
         raise DeserializationError("AgentCollaborator.collaborator_name required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> AgentCollaborator:
         )
     else:
         raise DeserializationError("AgentCollaborator.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> AgentCollaborator:
         )
     else:
         raise DeserializationError("AgentCollaborator.last_updated_at required")
-    if "relayConversationHistory" in data:
+    if data.get("relayConversationHistory") is not None:
         import capo_bedrock_agent.types.relay_conversation_history
 
         out["relay_conversation_history"] = (
@@ -140,6 +140,6 @@ def deserialize_json(data: dict) -> AgentCollaborator:
                 data["relayConversationHistory"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

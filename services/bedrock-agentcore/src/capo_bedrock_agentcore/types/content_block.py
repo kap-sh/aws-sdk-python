@@ -71,7 +71,7 @@ def serialize_json(value: ContentBlock) -> dict:
 
 def deserialize_json(data: dict) -> ContentBlock:
     out: ContentBlock = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.content_block_type
 
         out["type"] = capo_bedrock_agentcore.types.content_block_type.deserialize_json(
@@ -79,25 +79,25 @@ def deserialize_json(data: dict) -> ContentBlock:
         )
     else:
         raise DeserializationError("ContentBlock.type required")
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock_agentcore.types._prelude.blob
 
         out["data"] = capo_bedrock_agentcore.types._prelude.blob.deserialize_json(
             data["data"]
         )
-    if "mimeType" in data:
+    if data.get("mimeType") is not None:
         out["mime_type"] = data["mimeType"]
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "size" in data:
+    if data.get("size") is not None:
         out["size"] = data["size"]
-    if "resource" in data:
+    if data.get("resource") is not None:
         import capo_bedrock_agentcore.types.resource_content
 
         out["resource"] = (

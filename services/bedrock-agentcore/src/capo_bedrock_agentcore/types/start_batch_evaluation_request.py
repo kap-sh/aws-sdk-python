@@ -72,13 +72,13 @@ def serialize_json(value: StartBatchEvaluationRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartBatchEvaluationRequest:
     out: StartBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-    if "batchEvaluationName" in data:
+    if data.get("batchEvaluationName") is not None:
         out["batch_evaluation_name"] = data["batchEvaluationName"]
     else:
         raise DeserializationError(
             "StartBatchEvaluationRequest.batch_evaluation_name required"
         )
-    if "evaluators" in data:
+    if data.get("evaluators") is not None:
         import capo_bedrock_agentcore.types.evaluator_list
 
         out["evaluators"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> StartBatchEvaluationRequest:
                 data["evaluators"]
             )
         )
-    if "dataSourceConfig" in data:
+    if data.get("dataSourceConfig") is not None:
         import capo_bedrock_agentcore.types.data_source_config
 
         out["data_source_config"] = (
@@ -98,9 +98,9 @@ def deserialize_json(data: dict) -> StartBatchEvaluationRequest:
         raise DeserializationError(
             "StartBatchEvaluationRequest.data_source_config required"
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "evaluationMetadata" in data:
+    if data.get("evaluationMetadata") is not None:
         import capo_bedrock_agentcore.types.evaluation_metadata
 
         out["evaluation_metadata"] = (
@@ -108,6 +108,6 @@ def deserialize_json(data: dict) -> StartBatchEvaluationRequest:
                 data["evaluationMetadata"]
             )
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

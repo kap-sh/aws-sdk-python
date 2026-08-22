@@ -43,7 +43,7 @@ def serialize_json(value: ApiGatewayToolConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ApiGatewayToolConfiguration:
     out: ApiGatewayToolConfiguration = {}  # type: ignore[typeddict-item]
-    if "toolOverrides" in data:
+    if data.get("toolOverrides") is not None:
         import capo_bedrock_agentcore_control.types.api_gateway_tool_overrides
 
         out["tool_overrides"] = (
@@ -51,7 +51,7 @@ def deserialize_json(data: dict) -> ApiGatewayToolConfiguration:
                 data["toolOverrides"]
             )
         )
-    if "toolFilters" in data:
+    if data.get("toolFilters") is not None:
         import capo_bedrock_agentcore_control.types.api_gateway_tool_filters
 
         out["tool_filters"] = (

@@ -48,7 +48,7 @@ def serialize_json(value: ToolDescriptionSource) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolDescriptionSource:
-    if "toolDescriptionText" in data:
+    if data.get("toolDescriptionText") is not None:
         import capo_bedrock_agentcore.types.tool_description_text_input
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> ToolDescriptionSource:
                 data["toolDescriptionText"]
             )
         }
-    elif "configurationBundle" in data:
+    elif data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore.types.tool_description_configuration_bundle
 
         return {

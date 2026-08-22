@@ -24,7 +24,7 @@ def serialize_json(value: MissingDefaultConditionFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> MissingDefaultConditionFlowValidationDetails:
     out: MissingDefaultConditionFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(

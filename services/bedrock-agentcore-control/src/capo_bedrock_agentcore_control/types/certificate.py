@@ -32,7 +32,7 @@ def serialize_json(value: Certificate) -> dict:
 
 def deserialize_json(data: dict) -> Certificate:
     out: Certificate = {}  # type: ignore[typeddict-item]
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_agentcore_control.types.certificate_location
 
         out["location"] = (

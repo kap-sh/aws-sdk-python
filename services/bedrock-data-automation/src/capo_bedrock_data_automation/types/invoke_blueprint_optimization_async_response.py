@@ -24,7 +24,7 @@ def serialize_json(value: InvokeBlueprintOptimizationAsyncResponse) -> dict:
 
 def deserialize_json(data: dict) -> InvokeBlueprintOptimizationAsyncResponse:
     out: InvokeBlueprintOptimizationAsyncResponse = {}  # type: ignore[typeddict-item]
-    if "invocationArn" in data:
+    if data.get("invocationArn") is not None:
         out["invocation_arn"] = data["invocationArn"]
     else:
         raise DeserializationError(

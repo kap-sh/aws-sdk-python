@@ -40,7 +40,7 @@ def serialize_json(value: AuthorizingClaimMatchValueType) -> dict:
 
 def deserialize_json(data: dict) -> AuthorizingClaimMatchValueType:
     out: AuthorizingClaimMatchValueType = {}  # type: ignore[typeddict-item]
-    if "claimMatchValue" in data:
+    if data.get("claimMatchValue") is not None:
         import capo_bedrock_agentcore_control.types.claim_match_value_type
 
         out["claim_match_value"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> AuthorizingClaimMatchValueType:
         raise DeserializationError(
             "AuthorizingClaimMatchValueType.claim_match_value required"
         )
-    if "claimMatchOperator" in data:
+    if data.get("claimMatchOperator") is not None:
         import capo_bedrock_agentcore_control.types.claim_match_operator_type
 
         out["claim_match_operator"] = (

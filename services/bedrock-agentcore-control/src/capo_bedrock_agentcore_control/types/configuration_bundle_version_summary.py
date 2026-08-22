@@ -56,25 +56,25 @@ def serialize_json(value: ConfigurationBundleVersionSummary) -> dict:
 
 def deserialize_json(data: dict) -> ConfigurationBundleVersionSummary:
     out: ConfigurationBundleVersionSummary = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "ConfigurationBundleVersionSummary.bundle_arn required"
         )
-    if "bundleId" in data:
+    if data.get("bundleId") is not None:
         out["bundle_id"] = data["bundleId"]
     else:
         raise DeserializationError(
             "ConfigurationBundleVersionSummary.bundle_id required"
         )
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(
             "ConfigurationBundleVersionSummary.version_id required"
         )
-    if "lineageMetadata" in data:
+    if data.get("lineageMetadata") is not None:
         import capo_bedrock_agentcore_control.types.version_lineage_metadata
 
         out["lineage_metadata"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> ConfigurationBundleVersionSummary:
                 data["lineageMetadata"]
             )
         )
-    if "versionCreatedAt" in data:
+    if data.get("versionCreatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["version_created_at"] = (

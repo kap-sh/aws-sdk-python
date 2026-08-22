@@ -47,7 +47,7 @@ def serialize_json(value: FlowConnectionConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowConnectionConfiguration:
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock_agent.types.flow_data_connection_configuration
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> FlowConnectionConfiguration:
                 data["data"]
             )
         }
-    elif "conditional" in data:
+    elif data.get("conditional") is not None:
         import capo_bedrock_agent.types.flow_conditional_connection_configuration
 
         return {

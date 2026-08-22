@@ -30,7 +30,7 @@ def serialize_json(value: NotificationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> NotificationConfiguration:
     out: NotificationConfiguration = {}  # type: ignore[typeddict-item]
-    if "eventBridgeConfiguration" in data:
+    if data.get("eventBridgeConfiguration") is not None:
         import capo_bedrock_data_automation.types.event_bridge_configuration
 
         out["event_bridge_configuration"] = (

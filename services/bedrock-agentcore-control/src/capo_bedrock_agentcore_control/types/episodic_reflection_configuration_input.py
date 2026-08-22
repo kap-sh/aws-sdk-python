@@ -56,7 +56,7 @@ def serialize_json(value: EpisodicReflectionConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> EpisodicReflectionConfigurationInput:
     out: EpisodicReflectionConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespaces"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> EpisodicReflectionConfigurationInput:
                 data["namespaces"]
             )
         )
-    if "namespaceTemplates" in data:
+    if data.get("namespaceTemplates") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespace_templates"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> EpisodicReflectionConfigurationInput:
                 data["namespaceTemplates"]
             )
         )
-    if "memoryRecordSchema" in data:
+    if data.get("memoryRecordSchema") is not None:
         import capo_bedrock_agentcore_control.types.memory_record_schema
 
         out["memory_record_schema"] = (

@@ -40,7 +40,7 @@ def serialize_json(value: VideoStandardExtraction) -> dict:
 
 def deserialize_json(data: dict) -> VideoStandardExtraction:
     out: VideoStandardExtraction = {}  # type: ignore[typeddict-item]
-    if "category" in data:
+    if data.get("category") is not None:
         import capo_bedrock_data_automation.types.video_extraction_category
 
         out["category"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> VideoStandardExtraction:
         )
     else:
         raise DeserializationError("VideoStandardExtraction.category required")
-    if "boundingBox" in data:
+    if data.get("boundingBox") is not None:
         import capo_bedrock_data_automation.types.video_bounding_box
 
         out["bounding_box"] = (

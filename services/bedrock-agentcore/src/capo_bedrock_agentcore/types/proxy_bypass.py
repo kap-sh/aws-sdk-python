@@ -31,7 +31,7 @@ def serialize_json(value: ProxyBypass) -> dict:
 
 def deserialize_json(data: dict) -> ProxyBypass:
     out: ProxyBypass = {}  # type: ignore[typeddict-item]
-    if "domainPatterns" in data:
+    if data.get("domainPatterns") is not None:
         import capo_bedrock_agentcore.types.domain_patterns
 
         out["domain_patterns"] = (

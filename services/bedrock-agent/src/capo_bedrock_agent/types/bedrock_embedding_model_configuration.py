@@ -58,9 +58,9 @@ def serialize_json(value: BedrockEmbeddingModelConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BedrockEmbeddingModelConfiguration:
     out: BedrockEmbeddingModelConfiguration = {}  # type: ignore[typeddict-item]
-    if "dimensions" in data:
+    if data.get("dimensions") is not None:
         out["dimensions"] = data["dimensions"]
-    if "embeddingDataType" in data:
+    if data.get("embeddingDataType") is not None:
         import capo_bedrock_agent.types.embedding_data_type
 
         out["embedding_data_type"] = (
@@ -68,13 +68,13 @@ def deserialize_json(data: dict) -> BedrockEmbeddingModelConfiguration:
                 data["embeddingDataType"]
             )
         )
-    if "audio" in data:
+    if data.get("audio") is not None:
         import capo_bedrock_agent.types.audio_configurations
 
         out["audio"] = capo_bedrock_agent.types.audio_configurations.deserialize_json(
             data["audio"]
         )
-    if "video" in data:
+    if data.get("video") is not None:
         import capo_bedrock_agent.types.video_configurations
 
         out["video"] = capo_bedrock_agent.types.video_configurations.deserialize_json(

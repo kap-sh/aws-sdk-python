@@ -56,7 +56,7 @@ def serialize_json(value: Rule) -> dict:
 
 def deserialize_json(data: dict) -> Rule:
     out: Rule = {}  # type: ignore[typeddict-item]
-    if "samplingConfig" in data:
+    if data.get("samplingConfig") is not None:
         import capo_bedrock_agentcore_control.types.sampling_config
 
         out["sampling_config"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> Rule:
         )
     else:
         raise DeserializationError("Rule.sampling_config required")
-    if "filters" in data:
+    if data.get("filters") is not None:
         import capo_bedrock_agentcore_control.types.filter_list
 
         out["filters"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> Rule:
                 data["filters"]
             )
         )
-    if "sessionConfig" in data:
+    if data.get("sessionConfig") is not None:
         import capo_bedrock_agentcore_control.types.session_config
 
         out["session_config"] = (

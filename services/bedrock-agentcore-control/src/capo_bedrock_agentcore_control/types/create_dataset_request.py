@@ -73,15 +73,15 @@ def serialize_json(value: CreateDatasetRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateDatasetRequest:
     out: CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "datasetName" in data:
+    if data.get("datasetName") is not None:
         out["dataset_name"] = data["datasetName"]
     else:
         raise DeserializationError("CreateDatasetRequest.dataset_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_agentcore_control.types.data_source_type
 
         out["source"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> CreateDatasetRequest:
         )
     else:
         raise DeserializationError("CreateDatasetRequest.source required")
-    if "schemaType" in data:
+    if data.get("schemaType") is not None:
         import capo_bedrock_agentcore_control.types.dataset_schema_type
 
         out["schema_type"] = (
@@ -101,9 +101,9 @@ def deserialize_json(data: dict) -> CreateDatasetRequest:
         )
     else:
         raise DeserializationError("CreateDatasetRequest.schema_type required")
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

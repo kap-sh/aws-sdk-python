@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -119,17 +120,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_memory_input.CreateMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_memory_input.CreateMemoryInput = {
+            "name": name,
+            "event_expiry_duration": event_expiry_duration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if memory_execution_role_arn is not None:
             input_["memory_execution_role_arn"] = memory_execution_role_arn
-        input_["event_expiry_duration"] = event_expiry_duration
         if memory_strategies is not None:
             input_["memory_strategies"] = memory_strategies
         if indexed_keys is not None:
@@ -144,6 +147,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -185,8 +189,9 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_memory_input.GetMemoryInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.get_memory_input.GetMemoryInput = {
+            "memory_id": memory_id
+        }
         if view is not None:
             input_["view"] = view
 
@@ -195,6 +200,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -260,10 +266,12 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_memory_input.UpdateMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.update_memory_input.UpdateMemoryInput = {
+            "memory_id": memory_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if event_expiry_duration is not None:
@@ -282,6 +290,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -324,16 +333,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_memory_input.DeleteMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.delete_memory_input.DeleteMemoryInput = {
+            "memory_id": memory_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -373,7 +385,7 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_memories_input.ListMemoriesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_memories_input.ListMemoriesInput = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -384,6 +396,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -461,17 +474,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_memory_input.CreateMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_memory_input.CreateMemoryInput = {
+            "name": name,
+            "event_expiry_duration": event_expiry_duration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if memory_execution_role_arn is not None:
             input_["memory_execution_role_arn"] = memory_execution_role_arn
-        input_["event_expiry_duration"] = event_expiry_duration
         if memory_strategies is not None:
             input_["memory_strategies"] = memory_strategies
         if indexed_keys is not None:
@@ -486,6 +501,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -528,8 +544,9 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_memory_input.GetMemoryInput = {}  # type: ignore[typeddict-item]
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.get_memory_input.GetMemoryInput = {
+            "memory_id": memory_id
+        }
         if view is not None:
             input_["view"] = view
 
@@ -538,6 +555,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -604,10 +622,12 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_memory_input.UpdateMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.update_memory_input.UpdateMemoryInput = {
+            "memory_id": memory_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if event_expiry_duration is not None:
@@ -626,6 +646,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -669,16 +690,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_memory_input.DeleteMemoryInput = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["memory_id"] = memory_id
+        input_: capo_bedrock_agentcore_control.types.delete_memory_input.DeleteMemoryInput = {
+            "memory_id": memory_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -719,7 +743,7 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_memories_input.ListMemoriesInput = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_memories_input.ListMemoriesInput = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -730,4 +754,5 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

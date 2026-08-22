@@ -39,10 +39,10 @@ def serialize_json(value: RegistryRecordIamCredentialProvider) -> dict:
 
 def deserialize_json(data: dict) -> RegistryRecordIamCredentialProvider:
     out: RegistryRecordIamCredentialProvider = {}  # type: ignore[typeddict-item]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "service" in data:
+    if data.get("service") is not None:
         out["service"] = data["service"]
-    if "region" in data:
+    if data.get("region") is not None:
         out["region"] = data["region"]
     return out

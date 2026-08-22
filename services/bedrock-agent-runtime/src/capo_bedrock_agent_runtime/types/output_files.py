@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> OutputFiles:
 
     out: OutputFiles = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent_runtime.types.output_file.deserialize_json(item))
     return out

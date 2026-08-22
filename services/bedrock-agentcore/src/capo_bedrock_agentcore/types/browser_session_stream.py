@@ -43,7 +43,7 @@ def serialize_json(value: BrowserSessionStream) -> dict:
 
 def deserialize_json(data: dict) -> BrowserSessionStream:
     out: BrowserSessionStream = {}  # type: ignore[typeddict-item]
-    if "automationStream" in data:
+    if data.get("automationStream") is not None:
         import capo_bedrock_agentcore.types.automation_stream
 
         out["automation_stream"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> BrowserSessionStream:
         )
     else:
         raise DeserializationError("BrowserSessionStream.automation_stream required")
-    if "liveViewStream" in data:
+    if data.get("liveViewStream") is not None:
         import capo_bedrock_agentcore.types.live_view_stream
 
         out["live_view_stream"] = (

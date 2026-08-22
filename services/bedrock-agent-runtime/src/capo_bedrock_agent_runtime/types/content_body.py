@@ -31,9 +31,9 @@ def serialize_json(value: ContentBody) -> dict:
 
 def deserialize_json(data: dict) -> ContentBody:
     out: ContentBody = {}  # type: ignore[typeddict-item]
-    if "body" in data:
+    if data.get("body") is not None:
         out["body"] = data["body"]
-    if "images" in data:
+    if data.get("images") is not None:
         import capo_bedrock_agent_runtime.types.image_inputs
 
         out["images"] = capo_bedrock_agent_runtime.types.image_inputs.deserialize_json(

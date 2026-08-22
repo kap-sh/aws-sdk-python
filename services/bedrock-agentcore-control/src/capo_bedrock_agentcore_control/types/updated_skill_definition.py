@@ -31,7 +31,7 @@ def serialize_json(value: UpdatedSkillDefinition) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedSkillDefinition:
     out: UpdatedSkillDefinition = {}  # type: ignore[typeddict-item]
-    if "optionalValue" in data:
+    if data.get("optionalValue") is not None:
         import capo_bedrock_agentcore_control.types.skill_definition
 
         out["optional_value"] = (

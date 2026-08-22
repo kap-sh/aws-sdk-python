@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> FlowConnections:
 
     out: FlowConnections = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.flow_connection.deserialize_json(item))
     return out

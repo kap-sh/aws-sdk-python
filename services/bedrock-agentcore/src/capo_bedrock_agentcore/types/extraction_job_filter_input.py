@@ -43,13 +43,13 @@ def serialize_json(value: ExtractionJobFilterInput) -> dict:
 
 def deserialize_json(data: dict) -> ExtractionJobFilterInput:
     out: ExtractionJobFilterInput = {}  # type: ignore[typeddict-item]
-    if "strategyId" in data:
+    if data.get("strategyId") is not None:
         out["strategy_id"] = data["strategyId"]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.extraction_job_status
 
         out["status"] = (

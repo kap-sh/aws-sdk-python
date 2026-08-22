@@ -31,7 +31,7 @@ def serialize_json(value: SharePointCrawlerConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SharePointCrawlerConfiguration:
     out: SharePointCrawlerConfiguration = {}  # type: ignore[typeddict-item]
-    if "filterConfiguration" in data:
+    if data.get("filterConfiguration") is not None:
         import capo_bedrock_agent.types.crawl_filter_configuration
 
         out["filter_configuration"] = (

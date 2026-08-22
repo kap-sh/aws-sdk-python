@@ -109,15 +109,15 @@ def serialize_json(value: UpdateAgentActionGroupRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentActionGroupRequest:
     out: UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-    if "actionGroupName" in data:
+    if data.get("actionGroupName") is not None:
         out["action_group_name"] = data["actionGroupName"]
     else:
         raise DeserializationError(
             "UpdateAgentActionGroupRequest.action_group_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "parentActionGroupSignature" in data:
+    if data.get("parentActionGroupSignature") is not None:
         import capo_bedrock_agent.types.action_group_signature
 
         out["parent_action_group_signature"] = (
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> UpdateAgentActionGroupRequest:
                 data["parentActionGroupSignature"]
             )
         )
-    if "parentActionGroupSignatureParams" in data:
+    if data.get("parentActionGroupSignatureParams") is not None:
         import capo_bedrock_agent.types.action_group_signature_params
 
         out["parent_action_group_signature_params"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> UpdateAgentActionGroupRequest:
                 data["parentActionGroupSignatureParams"]
             )
         )
-    if "actionGroupExecutor" in data:
+    if data.get("actionGroupExecutor") is not None:
         import capo_bedrock_agent.types.action_group_executor
 
         out["action_group_executor"] = (
@@ -141,7 +141,7 @@ def deserialize_json(data: dict) -> UpdateAgentActionGroupRequest:
                 data["actionGroupExecutor"]
             )
         )
-    if "actionGroupState" in data:
+    if data.get("actionGroupState") is not None:
         import capo_bedrock_agent.types.action_group_state
 
         out["action_group_state"] = (
@@ -149,13 +149,13 @@ def deserialize_json(data: dict) -> UpdateAgentActionGroupRequest:
                 data["actionGroupState"]
             )
         )
-    if "apiSchema" in data:
+    if data.get("apiSchema") is not None:
         import capo_bedrock_agent.types.api_schema
 
         out["api_schema"] = capo_bedrock_agent.types.api_schema.deserialize_json(
             data["apiSchema"]
         )
-    if "functionSchema" in data:
+    if data.get("functionSchema") is not None:
         import capo_bedrock_agent.types.function_schema
 
         out["function_schema"] = (

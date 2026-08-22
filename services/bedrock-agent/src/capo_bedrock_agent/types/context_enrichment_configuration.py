@@ -41,7 +41,7 @@ def serialize_json(value: ContextEnrichmentConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ContextEnrichmentConfiguration:
     out: ContextEnrichmentConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.context_enrichment_type
 
         out["type"] = capo_bedrock_agent.types.context_enrichment_type.deserialize_json(
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> ContextEnrichmentConfiguration:
         )
     else:
         raise DeserializationError("ContextEnrichmentConfiguration.type required")
-    if "bedrockFoundationModelConfiguration" in data:
+    if data.get("bedrockFoundationModelConfiguration") is not None:
         import capo_bedrock_agent.types.bedrock_foundation_model_context_enrichment_configuration
 
         out["bedrock_foundation_model_configuration"] = (

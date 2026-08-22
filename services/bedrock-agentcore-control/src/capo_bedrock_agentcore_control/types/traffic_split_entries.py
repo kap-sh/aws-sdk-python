@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> TrafficSplitEntries:
 
     out: TrafficSplitEntries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.traffic_split_entry.deserialize_json(
                 item

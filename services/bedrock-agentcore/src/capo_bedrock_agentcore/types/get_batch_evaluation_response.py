@@ -75,9 +75,9 @@ def serialize_json(value: GetBatchEvaluationResponse) -> dict:
     out["status"] = capo_bedrock_agentcore.types.batch_evaluation_status.serialize_json(
         value["status"]
     )
-    import capo_bedrock_agentcore.types._prelude.timestamp
+    import capo_bedrock_agentcore._protocol.serialize
 
-    out["createdAt"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+    out["createdAt"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
         value["created_at"]
     )
     if "evaluators" in value:
@@ -119,37 +119,35 @@ def serialize_json(value: GetBatchEvaluationResponse) -> dict:
     if "description" in value:
         out["description"] = value["description"]
     if "updated_at" in value:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+        import capo_bedrock_agentcore._protocol.serialize
 
-        out["updatedAt"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
-                value["updated_at"]
-            )
+        out["updatedAt"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
+            value["updated_at"]
         )
     return out
 
 
 def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
     out: GetBatchEvaluationResponse = {}  # type: ignore[typeddict-item]
-    if "batchEvaluationId" in data:
+    if data.get("batchEvaluationId") is not None:
         out["batch_evaluation_id"] = data["batchEvaluationId"]
     else:
         raise DeserializationError(
             "GetBatchEvaluationResponse.batch_evaluation_id required"
         )
-    if "batchEvaluationArn" in data:
+    if data.get("batchEvaluationArn") is not None:
         out["batch_evaluation_arn"] = data["batchEvaluationArn"]
     else:
         raise DeserializationError(
             "GetBatchEvaluationResponse.batch_evaluation_arn required"
         )
-    if "batchEvaluationName" in data:
+    if data.get("batchEvaluationName") is not None:
         out["batch_evaluation_name"] = data["batchEvaluationName"]
     else:
         raise DeserializationError(
             "GetBatchEvaluationResponse.batch_evaluation_name required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.batch_evaluation_status
 
         out["status"] = (
@@ -159,17 +157,15 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
         )
     else:
         raise DeserializationError("GetBatchEvaluationResponse.status required")
-    if "createdAt" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("createdAt") is not None:
+        import datetime
 
-        out["created_at"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["createdAt"]
-            )
+        out["created_at"] = datetime.datetime.fromisoformat(
+            data["createdAt"].replace("Z", "+00:00")
         )
     else:
         raise DeserializationError("GetBatchEvaluationResponse.created_at required")
-    if "evaluators" in data:
+    if data.get("evaluators") is not None:
         import capo_bedrock_agentcore.types.evaluator_list
 
         out["evaluators"] = (
@@ -177,7 +173,7 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
                 data["evaluators"]
             )
         )
-    if "dataSourceConfig" in data:
+    if data.get("dataSourceConfig") is not None:
         import capo_bedrock_agentcore.types.data_source_config
 
         out["data_source_config"] = (
@@ -185,7 +181,7 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
                 data["dataSourceConfig"]
             )
         )
-    if "outputConfig" in data:
+    if data.get("outputConfig") is not None:
         import capo_bedrock_agentcore.types.output_config
 
         out["output_config"] = (
@@ -193,7 +189,7 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
                 data["outputConfig"]
             )
         )
-    if "evaluationResults" in data:
+    if data.get("evaluationResults") is not None:
         import capo_bedrock_agentcore.types.evaluation_job_results
 
         out["evaluation_results"] = (
@@ -201,7 +197,7 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
                 data["evaluationResults"]
             )
         )
-    if "errorDetails" in data:
+    if data.get("errorDetails") is not None:
         import capo_bedrock_agentcore.types.error_details_list
 
         out["error_details"] = (
@@ -209,14 +205,12 @@ def deserialize_json(data: dict) -> GetBatchEvaluationResponse:
                 data["errorDetails"]
             )
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "updatedAt" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("updatedAt") is not None:
+        import datetime
 
-        out["updated_at"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["updatedAt"]
-            )
+        out["updated_at"] = datetime.datetime.fromisoformat(
+            data["updatedAt"].replace("Z", "+00:00")
         )
     return out

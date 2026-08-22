@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -92,15 +93,17 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
+        input_: capo_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def invoke_browser(
@@ -143,16 +146,18 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        input_["action"] = action
+        input_: capo_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+            "action": action,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_browser_sessions(
@@ -202,8 +207,9 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
+        input_: capo_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {
+            "browser_identifier": browser_identifier
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -216,6 +222,7 @@ class BrowserSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_browser_session(
@@ -291,12 +298,13 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {
+            "browser_identifier": browser_identifier
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["browser_identifier"] = browser_identifier
         if name is not None:
             input_["name"] = name
         if session_timeout_seconds is not None:
@@ -313,14 +321,16 @@ class BrowserSessionResource:
             input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_browser_session(
@@ -370,21 +380,24 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_browser_stream(
@@ -432,18 +445,21 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        input_["stream_update"] = stream_update
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+            "stream_update": stream_update,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -489,15 +505,17 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
+        input_: capo_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def invoke_browser(
@@ -541,16 +559,18 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        input_["action"] = action
+        input_: capo_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+            "action": action,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_browser_sessions(
@@ -601,8 +621,9 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
+        input_: capo_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {
+            "browser_identifier": browser_identifier
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -615,6 +636,7 @@ class AsyncBrowserSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_browser_session(
@@ -691,12 +713,13 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {
+            "browser_identifier": browser_identifier
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["browser_identifier"] = browser_identifier
         if name is not None:
             input_["name"] = name
         if session_timeout_seconds is not None:
@@ -713,14 +736,16 @@ class AsyncBrowserSessionResource:
             input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_browser_session(
@@ -771,21 +796,24 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_browser_stream(
@@ -834,16 +862,19 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        input_["stream_update"] = stream_update
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+            "stream_update": stream_update,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

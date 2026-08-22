@@ -30,16 +30,16 @@ def serialize_json(value: MouseScrollArguments) -> dict:
 
 def deserialize_json(data: dict) -> MouseScrollArguments:
     out: MouseScrollArguments = {}  # type: ignore[typeddict-item]
-    if "x" in data:
+    if data.get("x") is not None:
         out["x"] = data["x"]
     else:
         raise DeserializationError("MouseScrollArguments.x required")
-    if "y" in data:
+    if data.get("y") is not None:
         out["y"] = data["y"]
     else:
         raise DeserializationError("MouseScrollArguments.y required")
-    if "deltaX" in data:
+    if data.get("deltaX") is not None:
         out["delta_x"] = data["deltaX"]
-    if "deltaY" in data:
+    if data.get("deltaY") is not None:
         out["delta_y"] = data["deltaY"]
     return out

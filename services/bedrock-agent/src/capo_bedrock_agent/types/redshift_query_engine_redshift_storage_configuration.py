@@ -24,7 +24,7 @@ def serialize_json(value: RedshiftQueryEngineRedshiftStorageConfiguration) -> di
 
 def deserialize_json(data: dict) -> RedshiftQueryEngineRedshiftStorageConfiguration:
     out: RedshiftQueryEngineRedshiftStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "databaseName" in data:
+    if data.get("databaseName") is not None:
         out["database_name"] = data["databaseName"]
     else:
         raise DeserializationError(

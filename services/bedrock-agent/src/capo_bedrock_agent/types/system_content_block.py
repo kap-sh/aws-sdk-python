@@ -41,9 +41,9 @@ def serialize_json(value: SystemContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> SystemContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "cachePoint" in data:
+    elif data.get("cachePoint") is not None:
         import capo_bedrock_agent.types.cache_point_block
 
         return {

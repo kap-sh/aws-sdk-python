@@ -37,13 +37,13 @@ def serialize_json(value: KnowledgeBaseDocument) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseDocument:
     out: KnowledgeBaseDocument = {}  # type: ignore[typeddict-item]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent.types.document_metadata
 
         out["metadata"] = capo_bedrock_agent.types.document_metadata.deserialize_json(
             data["metadata"]
         )
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent.types.document_content
 
         out["content"] = capo_bedrock_agent.types.document_content.deserialize_json(

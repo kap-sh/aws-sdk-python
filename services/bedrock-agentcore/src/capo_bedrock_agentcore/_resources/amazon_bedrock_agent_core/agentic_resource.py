@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from collections.abc import AsyncGenerator, Generator
 from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
@@ -88,10 +89,12 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
-        input_["agent_runtime_arn"] = agent_runtime_arn
+        input_: capo_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {
+            "agent_runtime_arn": agent_runtime_arn
+        }
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -100,6 +103,7 @@ class AgenticResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -177,15 +181,19 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {
+            "agent_runtime_arn": agent_runtime_arn,
+            "payload": payload,
+        }
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
         if mcp_session_id is not None:
             input_["mcp_session_id"] = mcp_session_id
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if mcp_protocol_version is not None:
             input_["mcp_protocol_version"] = mcp_protocol_version
         if runtime_user_id is not None:
@@ -198,19 +206,20 @@ class AgenticResource:
             input_["trace_state"] = trace_state
         if baggage is not None:
             input_["baggage"] = baggage
-        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if account_id is not None:
             input_["account_id"] = account_id
-        input_["payload"] = payload
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     @contextmanager
     def invoke_agent_runtime_command(
@@ -275,13 +284,17 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {
+            "agent_runtime_arn": agent_runtime_arn,
+            "body": body,
+        }
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
@@ -290,19 +303,20 @@ class AgenticResource:
             input_["trace_state"] = trace_state
         if baggage is not None:
             input_["baggage"] = baggage
-        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if account_id is not None:
             input_["account_id"] = account_id
-        input_["body"] = body
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def stop_runtime_session(
         self,
@@ -352,19 +366,22 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["runtime_session_id"] = runtime_session_id
-        input_["agent_runtime_arn"] = agent_runtime_arn
+        input_: capo_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {
+            "runtime_session_id": runtime_session_id,
+            "agent_runtime_arn": agent_runtime_arn,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -417,10 +434,12 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
-        input_["agent_runtime_arn"] = agent_runtime_arn
+        input_: capo_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {
+            "agent_runtime_arn": agent_runtime_arn
+        }
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if qualifier is not None:
             input_["qualifier"] = qualifier
 
@@ -429,6 +448,7 @@ class AsyncAgenticResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     @asynccontextmanager
@@ -507,15 +527,19 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {
+            "agent_runtime_arn": agent_runtime_arn,
+            "payload": payload,
+        }
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
         if mcp_session_id is not None:
             input_["mcp_session_id"] = mcp_session_id
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if mcp_protocol_version is not None:
             input_["mcp_protocol_version"] = mcp_protocol_version
         if runtime_user_id is not None:
@@ -528,19 +552,20 @@ class AsyncAgenticResource:
             input_["trace_state"] = trace_state
         if baggage is not None:
             input_["baggage"] = baggage
-        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if account_id is not None:
             input_["account_id"] = account_id
-        input_["payload"] = payload
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     @asynccontextmanager
     async def invoke_agent_runtime_command(
@@ -606,13 +631,17 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {
+            "agent_runtime_arn": agent_runtime_arn,
+            "body": body,
+        }
         if content_type is not None:
             input_["content_type"] = content_type
         if accept is not None:
             input_["accept"] = accept
-        if runtime_session_id is not None:
-            input_["runtime_session_id"] = runtime_session_id
+        if runtime_session_id is None:
+            runtime_session_id = str(uuid.uuid4())
+        input_["runtime_session_id"] = runtime_session_id
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
@@ -621,19 +650,20 @@ class AsyncAgenticResource:
             input_["trace_state"] = trace_state
         if baggage is not None:
             input_["baggage"] = baggage
-        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
             input_["qualifier"] = qualifier
         if account_id is not None:
             input_["account_id"] = account_id
-        input_["body"] = body
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()
 
     async def stop_runtime_session(
         self,
@@ -684,17 +714,20 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["runtime_session_id"] = runtime_session_id
-        input_["agent_runtime_arn"] = agent_runtime_arn
+        input_: capo_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {
+            "runtime_session_id": runtime_session_id,
+            "agent_runtime_arn": agent_runtime_arn,
+        }
         if qualifier is not None:
             input_["qualifier"] = qualifier
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

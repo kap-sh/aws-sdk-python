@@ -76,11 +76,11 @@ def serialize_json(value: ListDataAutomationProjectsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListDataAutomationProjectsRequest:
     out: ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "projectStageFilter" in data:
+    if data.get("projectStageFilter") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage_filter
 
         out["project_stage_filter"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> ListDataAutomationProjectsRequest:
                 data["projectStageFilter"]
             )
         )
-    if "blueprintFilter" in data:
+    if data.get("blueprintFilter") is not None:
         import capo_bedrock_data_automation.types.blueprint_filter
 
         out["blueprint_filter"] = (
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> ListDataAutomationProjectsRequest:
                 data["blueprintFilter"]
             )
         )
-    if "resourceOwner" in data:
+    if data.get("resourceOwner") is not None:
         import capo_bedrock_data_automation.types.resource_owner
 
         out["resource_owner"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> ListDataAutomationProjectsRequest:
                 data["resourceOwner"]
             )
         )
-    if "libraryFilter" in data:
+    if data.get("libraryFilter") is not None:
         import capo_bedrock_data_automation.types.data_automation_library_filter
 
         out["library_filter"] = (

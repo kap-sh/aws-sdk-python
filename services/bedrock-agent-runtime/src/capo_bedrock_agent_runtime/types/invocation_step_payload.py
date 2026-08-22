@@ -32,7 +32,7 @@ def serialize_json(value: InvocationStepPayload) -> dict:
 
 
 def deserialize_json(data: dict) -> InvocationStepPayload:
-    if "contentBlocks" in data:
+    if data.get("contentBlocks") is not None:
         import capo_bedrock_agent_runtime.types.bedrock_session_content_blocks
 
         return {

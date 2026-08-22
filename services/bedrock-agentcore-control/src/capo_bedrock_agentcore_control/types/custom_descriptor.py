@@ -25,6 +25,6 @@ def serialize_json(value: CustomDescriptor) -> dict:
 
 def deserialize_json(data: dict) -> CustomDescriptor:
     out: CustomDescriptor = {}  # type: ignore[typeddict-item]
-    if "inlineContent" in data:
+    if data.get("inlineContent") is not None:
         out["inline_content"] = data["inlineContent"]
     return out

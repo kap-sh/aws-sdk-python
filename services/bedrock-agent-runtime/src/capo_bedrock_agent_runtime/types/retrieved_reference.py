@@ -57,7 +57,7 @@ def serialize_json(value: RetrievedReference) -> dict:
 
 def deserialize_json(data: dict) -> RetrievedReference:
     out: RetrievedReference = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_content
 
         out["content"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> RetrievedReference:
                 data["content"]
             )
         )
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_location
 
         out["location"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> RetrievedReference:
                 data["location"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_metadata
 
         out["metadata"] = (

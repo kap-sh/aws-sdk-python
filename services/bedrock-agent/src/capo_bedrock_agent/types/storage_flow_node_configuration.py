@@ -30,7 +30,7 @@ def serialize_json(value: StorageFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> StorageFlowNodeConfiguration:
     out: StorageFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "serviceConfiguration" in data:
+    if data.get("serviceConfiguration") is not None:
         import capo_bedrock_agent.types.storage_flow_node_service_configuration
 
         out["service_configuration"] = (

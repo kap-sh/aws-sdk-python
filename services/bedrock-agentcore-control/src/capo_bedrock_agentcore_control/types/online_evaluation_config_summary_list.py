@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> OnlineEvaluationConfigSummaryList:
 
     out: OnlineEvaluationConfigSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.online_evaluation_config_summary.deserialize_json(
                 item

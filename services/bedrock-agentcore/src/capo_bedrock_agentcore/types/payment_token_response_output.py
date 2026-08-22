@@ -48,7 +48,7 @@ def serialize_json(value: PaymentTokenResponseOutput) -> dict:
 
 
 def deserialize_json(data: dict) -> PaymentTokenResponseOutput:
-    if "coinbaseCdpTokenResponse" in data:
+    if data.get("coinbaseCdpTokenResponse") is not None:
         import capo_bedrock_agentcore.types.coinbase_cdp_token_response_output
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> PaymentTokenResponseOutput:
                 data["coinbaseCdpTokenResponse"]
             )
         }
-    elif "stripePrivyTokenResponse" in data:
+    elif data.get("stripePrivyTokenResponse") is not None:
         import capo_bedrock_agentcore.types.stripe_privy_token_response_output
 
         return {

@@ -65,7 +65,7 @@ def serialize_json(value: ChatPromptTemplateConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ChatPromptTemplateConfiguration:
     out: ChatPromptTemplateConfiguration = {}  # type: ignore[typeddict-item]
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_agent.types.messages
 
         out["messages"] = capo_bedrock_agent.types.messages.deserialize_json(
@@ -73,13 +73,13 @@ def deserialize_json(data: dict) -> ChatPromptTemplateConfiguration:
         )
     else:
         raise DeserializationError("ChatPromptTemplateConfiguration.messages required")
-    if "system" in data:
+    if data.get("system") is not None:
         import capo_bedrock_agent.types.system_content_blocks
 
         out["system"] = capo_bedrock_agent.types.system_content_blocks.deserialize_json(
             data["system"]
         )
-    if "inputVariables" in data:
+    if data.get("inputVariables") is not None:
         import capo_bedrock_agent.types.prompt_input_variables_list
 
         out["input_variables"] = (
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> ChatPromptTemplateConfiguration:
                 data["inputVariables"]
             )
         )
-    if "toolConfiguration" in data:
+    if data.get("toolConfiguration") is not None:
         import capo_bedrock_agent.types.tool_configuration
 
         out["tool_configuration"] = (

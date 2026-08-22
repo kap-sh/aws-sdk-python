@@ -51,12 +51,10 @@ def serialize_json(value: InlineAgentTracePart) -> dict:
             )
         )
     if "event_time" in value:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+        import capo_bedrock_agent_runtime._protocol.serialize
 
-        out["eventTime"] = (
-            capo_bedrock_agent_runtime.types.date_timestamp.serialize_json(
-                value["event_time"]
-            )
+        out["eventTime"] = capo_bedrock_agent_runtime._protocol.serialize.fmt_date_time(
+            value["event_time"]
         )
     if "collaborator_name" in value:
         out["collaboratorName"] = value["collaborator_name"]
@@ -65,15 +63,15 @@ def serialize_json(value: InlineAgentTracePart) -> dict:
 
 def deserialize_json(data: dict) -> InlineAgentTracePart:
     out: InlineAgentTracePart = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_agent_runtime.types.trace
 
         out["trace"] = capo_bedrock_agent_runtime.types.trace.deserialize_json(
             data["trace"]
         )
-    if "callerChain" in data:
+    if data.get("callerChain") is not None:
         import capo_bedrock_agent_runtime.types.caller_chain
 
         out["caller_chain"] = (
@@ -81,15 +79,13 @@ def deserialize_json(data: dict) -> InlineAgentTracePart:
                 data["callerChain"]
             )
         )
-    if "eventTime" in data:
-        import capo_bedrock_agent_runtime.types.date_timestamp
+    if data.get("eventTime") is not None:
+        import datetime
 
-        out["event_time"] = (
-            capo_bedrock_agent_runtime.types.date_timestamp.deserialize_json(
-                data["eventTime"]
-            )
+        out["event_time"] = datetime.datetime.fromisoformat(
+            data["eventTime"].replace("Z", "+00:00")
         )
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     return out
 

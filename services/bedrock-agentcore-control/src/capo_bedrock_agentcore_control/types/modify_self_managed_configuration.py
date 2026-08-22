@@ -48,7 +48,7 @@ def serialize_json(value: ModifySelfManagedConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModifySelfManagedConfiguration:
     out: ModifySelfManagedConfiguration = {}  # type: ignore[typeddict-item]
-    if "triggerConditions" in data:
+    if data.get("triggerConditions") is not None:
         import capo_bedrock_agentcore_control.types.trigger_condition_input_list
 
         out["trigger_conditions"] = (
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> ModifySelfManagedConfiguration:
                 data["triggerConditions"]
             )
         )
-    if "invocationConfiguration" in data:
+    if data.get("invocationConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.modify_invocation_configuration_input
 
         out["invocation_configuration"] = (
@@ -64,6 +64,6 @@ def deserialize_json(data: dict) -> ModifySelfManagedConfiguration:
                 data["invocationConfiguration"]
             )
         )
-    if "historicalContextWindowSize" in data:
+    if data.get("historicalContextWindowSize") is not None:
         out["historical_context_window_size"] = data["historicalContextWindowSize"]
     return out

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> ImageStandardGenerativeFieldTypes:
 
     out: ImageStandardGenerativeFieldTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.image_standard_generative_field_type.deserialize_json(
                 item

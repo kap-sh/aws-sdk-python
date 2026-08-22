@@ -79,15 +79,15 @@ def serialize_json(value: ApiResult) -> dict:
 
 def deserialize_json(data: dict) -> ApiResult:
     out: ApiResult = {}  # type: ignore[typeddict-item]
-    if "actionGroup" in data:
+    if data.get("actionGroup") is not None:
         out["action_group"] = data["actionGroup"]
     else:
         raise DeserializationError("ApiResult.action_group required")
-    if "httpMethod" in data:
+    if data.get("httpMethod") is not None:
         out["http_method"] = data["httpMethod"]
-    if "apiPath" in data:
+    if data.get("apiPath") is not None:
         out["api_path"] = data["apiPath"]
-    if "confirmationState" in data:
+    if data.get("confirmationState") is not None:
         import capo_bedrock_agent_runtime.types.confirmation_state
 
         out["confirmation_state"] = (
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> ApiResult:
                 data["confirmationState"]
             )
         )
-    if "responseState" in data:
+    if data.get("responseState") is not None:
         import capo_bedrock_agent_runtime.types.response_state
 
         out["response_state"] = (
@@ -103,9 +103,9 @@ def deserialize_json(data: dict) -> ApiResult:
                 data["responseState"]
             )
         )
-    if "httpStatusCode" in data:
+    if data.get("httpStatusCode") is not None:
         out["http_status_code"] = data["httpStatusCode"]
-    if "responseBody" in data:
+    if data.get("responseBody") is not None:
         import capo_bedrock_agent_runtime.types.response_body
 
         out["response_body"] = (
@@ -113,6 +113,6 @@ def deserialize_json(data: dict) -> ApiResult:
                 data["responseBody"]
             )
         )
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     return out

@@ -40,7 +40,7 @@ def serialize_json(value: ScreenshotResult) -> dict:
 
 def deserialize_json(data: dict) -> ScreenshotResult:
     out: ScreenshotResult = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.browser_action_status
 
         out["status"] = (
@@ -50,9 +50,9 @@ def deserialize_json(data: dict) -> ScreenshotResult:
         )
     else:
         raise DeserializationError("ScreenshotResult.status required")
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock_agentcore.types._prelude.blob
 
         out["data"] = capo_bedrock_agentcore.types._prelude.blob.deserialize_json(

@@ -30,7 +30,7 @@ def serialize_json(value: AudioConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AudioConfiguration:
     out: AudioConfiguration = {}  # type: ignore[typeddict-item]
-    if "segmentationConfiguration" in data:
+    if data.get("segmentationConfiguration") is not None:
         import capo_bedrock_agent.types.audio_segmentation_configuration
 
         out["segmentation_configuration"] = (

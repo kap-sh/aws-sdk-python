@@ -70,7 +70,7 @@ def serialize_json(value: VectorIngestionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> VectorIngestionConfiguration:
     out: VectorIngestionConfiguration = {}  # type: ignore[typeddict-item]
-    if "chunkingConfiguration" in data:
+    if data.get("chunkingConfiguration") is not None:
         import capo_bedrock_agent.types.chunking_configuration
 
         out["chunking_configuration"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> VectorIngestionConfiguration:
                 data["chunkingConfiguration"]
             )
         )
-    if "customTransformationConfiguration" in data:
+    if data.get("customTransformationConfiguration") is not None:
         import capo_bedrock_agent.types.custom_transformation_configuration
 
         out["custom_transformation_configuration"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> VectorIngestionConfiguration:
                 data["customTransformationConfiguration"]
             )
         )
-    if "parsingConfiguration" in data:
+    if data.get("parsingConfiguration") is not None:
         import capo_bedrock_agent.types.parsing_configuration
 
         out["parsing_configuration"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> VectorIngestionConfiguration:
                 data["parsingConfiguration"]
             )
         )
-    if "contextEnrichmentConfiguration" in data:
+    if data.get("contextEnrichmentConfiguration") is not None:
         import capo_bedrock_agent.types.context_enrichment_configuration
 
         out["context_enrichment_configuration"] = (

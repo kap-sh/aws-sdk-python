@@ -21,10 +21,10 @@ def serialize_json(value: StreamingConfigurations) -> dict:
 
 def deserialize_json(data: dict) -> StreamingConfigurations:
     out: StreamingConfigurations = {}  # type: ignore[typeddict-item]
-    if "streamFinalResponse" in data:
+    if data.get("streamFinalResponse") is not None:
         out["stream_final_response"] = data["streamFinalResponse"]
     else:
         out["stream_final_response"] = False
-    if "applyGuardrailInterval" in data:
+    if data.get("applyGuardrailInterval") is not None:
         out["apply_guardrail_interval"] = data["applyGuardrailInterval"]
     return out

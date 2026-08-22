@@ -110,15 +110,15 @@ def serialize_json(value: Observation) -> dict:
 
 def deserialize_json(data: dict) -> Observation:
     out: Observation = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.type
 
         out["type"] = capo_bedrock_agent_runtime.types.type.deserialize_json(
             data["type"]
         )
-    if "actionGroupInvocationOutput" in data:
+    if data.get("actionGroupInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.action_group_invocation_output
 
         out["action_group_invocation_output"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> Observation:
                 data["actionGroupInvocationOutput"]
             )
         )
-    if "agentCollaboratorInvocationOutput" in data:
+    if data.get("agentCollaboratorInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.agent_collaborator_invocation_output
 
         out["agent_collaborator_invocation_output"] = (
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> Observation:
                 data["agentCollaboratorInvocationOutput"]
             )
         )
-    if "knowledgeBaseLookupOutput" in data:
+    if data.get("knowledgeBaseLookupOutput") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_lookup_output
 
         out["knowledge_base_lookup_output"] = (
@@ -142,7 +142,7 @@ def deserialize_json(data: dict) -> Observation:
                 data["knowledgeBaseLookupOutput"]
             )
         )
-    if "finalResponse" in data:
+    if data.get("finalResponse") is not None:
         import capo_bedrock_agent_runtime.types.final_response
 
         out["final_response"] = (
@@ -150,7 +150,7 @@ def deserialize_json(data: dict) -> Observation:
                 data["finalResponse"]
             )
         )
-    if "repromptResponse" in data:
+    if data.get("repromptResponse") is not None:
         import capo_bedrock_agent_runtime.types.reprompt_response
 
         out["reprompt_response"] = (
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> Observation:
                 data["repromptResponse"]
             )
         )
-    if "codeInterpreterInvocationOutput" in data:
+    if data.get("codeInterpreterInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.code_interpreter_invocation_output
 
         out["code_interpreter_invocation_output"] = (

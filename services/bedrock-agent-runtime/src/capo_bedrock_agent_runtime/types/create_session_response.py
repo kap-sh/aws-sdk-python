@@ -46,15 +46,15 @@ def serialize_json(value: CreateSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateSessionResponse:
     out: CreateSessionResponse = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("CreateSessionResponse.session_id required")
-    if "sessionArn" in data:
+    if data.get("sessionArn") is not None:
         out["session_arn"] = data["sessionArn"]
     else:
         raise DeserializationError("CreateSessionResponse.session_arn required")
-    if "sessionStatus" in data:
+    if data.get("sessionStatus") is not None:
         import capo_bedrock_agent_runtime.types.session_status
 
         out["session_status"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> CreateSessionResponse:
         )
     else:
         raise DeserializationError("CreateSessionResponse.session_status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["created_at"] = (

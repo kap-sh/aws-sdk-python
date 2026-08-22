@@ -76,23 +76,23 @@ def serialize_json(value: UpdatePaymentConnectorResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdatePaymentConnectorResponse:
     out: UpdatePaymentConnectorResponse = {}  # type: ignore[typeddict-item]
-    if "paymentConnectorId" in data:
+    if data.get("paymentConnectorId") is not None:
         out["payment_connector_id"] = data["paymentConnectorId"]
     else:
         raise DeserializationError(
             "UpdatePaymentConnectorResponse.payment_connector_id required"
         )
-    if "paymentManagerId" in data:
+    if data.get("paymentManagerId") is not None:
         out["payment_manager_id"] = data["paymentManagerId"]
     else:
         raise DeserializationError(
             "UpdatePaymentConnectorResponse.payment_manager_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdatePaymentConnectorResponse.name required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.payment_connector_type
 
         out["type"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> UpdatePaymentConnectorResponse:
         )
     else:
         raise DeserializationError("UpdatePaymentConnectorResponse.type required")
-    if "credentialProviderConfigurations" in data:
+    if data.get("credentialProviderConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.credentials_provider_configurations
 
         out["credential_provider_configurations"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> UpdatePaymentConnectorResponse:
         raise DeserializationError(
             "UpdatePaymentConnectorResponse.credential_provider_configurations required"
         )
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> UpdatePaymentConnectorResponse:
         raise DeserializationError(
             "UpdatePaymentConnectorResponse.last_updated_at required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.payment_connector_status
 
         out["status"] = (

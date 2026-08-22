@@ -35,17 +35,17 @@ def serialize_json(value: DeleteDataSourceResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteDataSourceResponse:
     out: DeleteDataSourceResponse = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError(
             "DeleteDataSourceResponse.knowledge_base_id required"
         )
-    if "dataSourceId" in data:
+    if data.get("dataSourceId") is not None:
         out["data_source_id"] = data["dataSourceId"]
     else:
         raise DeserializationError("DeleteDataSourceResponse.data_source_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.data_source_status
 
         out["status"] = capo_bedrock_agent.types.data_source_status.deserialize_json(

@@ -39,20 +39,20 @@ def serialize_json(value: MouseClickArguments) -> dict:
 
 def deserialize_json(data: dict) -> MouseClickArguments:
     out: MouseClickArguments = {}  # type: ignore[typeddict-item]
-    if "x" in data:
+    if data.get("x") is not None:
         out["x"] = data["x"]
     else:
         raise DeserializationError("MouseClickArguments.x required")
-    if "y" in data:
+    if data.get("y") is not None:
         out["y"] = data["y"]
     else:
         raise DeserializationError("MouseClickArguments.y required")
-    if "button" in data:
+    if data.get("button") is not None:
         import capo_bedrock_agentcore.types.mouse_button
 
         out["button"] = capo_bedrock_agentcore.types.mouse_button.deserialize_json(
             data["button"]
         )
-    if "clickCount" in data:
+    if data.get("clickCount") is not None:
         out["click_count"] = data["clickCount"]
     return out

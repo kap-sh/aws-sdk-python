@@ -13,9 +13,9 @@ from capo_bedrock_agentcore import AsyncBedrockAgentCoreClient
 
 
 async def main():
-    async with AsyncBedrockAgentCoreClient() as s3:
+    async with AsyncBedrockAgentCoreClient() as bedrock_agent_core:
         # Example: call the complete_resource_token_auth operation
-        response = await s3.complete_resource_token_auth()
+        response = await bedrock_agent_core.complete_resource_token_auth()
         print(response)
 ```
 
@@ -29,9 +29,9 @@ from capo_bedrock_agentcore.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncBedrockAgentCoreClient() as s3:
+    async with AsyncBedrockAgentCoreClient() as bedrock_agent_core:
         try:
-            await s3.complete_resource_token_auth()
+            await bedrock_agent_core.complete_resource_token_auth()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_bedrock_agentcore import AsyncBedrockAgentCoreClient
 
 
 async def main():
-    async with AsyncBedrockAgentCoreClient() as s3:
+    async with AsyncBedrockAgentCoreClient() as bedrock_agent_core:
         # Default: 3 attempts for every operation
-        response = await s3.complete_resource_token_auth()
+        response = await bedrock_agent_core.complete_resource_token_auth()
 
         # Override per operation
-        response = await s3.complete_resource_token_auth(config_overrides={"retry_max_attempts": 5})
+        response = await bedrock_agent_core.complete_resource_token_auth(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.complete_resource_token_auth(config_overrides={"retry_max_attempts": 1})
+        response = await bedrock_agent_core.complete_resource_token_auth(config_overrides={"retry_max_attempts": 1})
 ```

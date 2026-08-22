@@ -56,11 +56,11 @@ def serialize_json(value: FlowValidation) -> dict:
 
 def deserialize_json(data: dict) -> FlowValidation:
     out: FlowValidation = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("FlowValidation.message required")
-    if "severity" in data:
+    if data.get("severity") is not None:
         import capo_bedrock_agent.types.flow_validation_severity
 
         out["severity"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> FlowValidation:
         )
     else:
         raise DeserializationError("FlowValidation.severity required")
-    if "details" in data:
+    if data.get("details") is not None:
         import capo_bedrock_agent.types.flow_validation_details
 
         out["details"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> FlowValidation:
                 data["details"]
             )
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.flow_validation_type
 
         out["type"] = capo_bedrock_agent.types.flow_validation_type.deserialize_json(

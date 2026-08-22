@@ -53,7 +53,7 @@ def serialize_json(value: HarnessTruncationStrategyConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessTruncationStrategyConfiguration:
-    if "slidingWindow" in data:
+    if data.get("slidingWindow") is not None:
         import capo_bedrock_agentcore_control.types.harness_sliding_window_configuration
 
         return {
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> HarnessTruncationStrategyConfiguration:
                 data["slidingWindow"]
             )
         }
-    elif "summarization" in data:
+    elif data.get("summarization") is not None:
         import capo_bedrock_agentcore_control.types.harness_summarization_configuration
 
         return {

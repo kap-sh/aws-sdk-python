@@ -43,7 +43,7 @@ def serialize_json(value: VectorSearchRerankingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> VectorSearchRerankingConfiguration:
     out: VectorSearchRerankingConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.vector_search_reranking_configuration_type
 
         out["type"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> VectorSearchRerankingConfiguration:
         )
     else:
         raise DeserializationError("VectorSearchRerankingConfiguration.type required")
-    if "bedrockRerankingConfiguration" in data:
+    if data.get("bedrockRerankingConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.vector_search_bedrock_reranking_configuration
 
         out["bedrock_reranking_configuration"] = (

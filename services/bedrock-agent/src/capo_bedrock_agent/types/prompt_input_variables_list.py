@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> PromptInputVariablesList:
 
     out: PromptInputVariablesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.prompt_input_variable.deserialize_json(item)
         )

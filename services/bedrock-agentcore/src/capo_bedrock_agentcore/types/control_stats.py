@@ -19,22 +19,30 @@ def serialize_json(value: ControlStats) -> dict:
     out: dict = {}
     out["variantName"] = value["variant_name"]
     out["sampleSize"] = value["sample_size"]
-    out["mean"] = value["mean"]
+    out["mean"] = (
+        "NaN"
+        if value["mean"] != value["mean"]
+        else "Infinity"
+        if value["mean"] == float("inf")
+        else "-Infinity"
+        if value["mean"] == float("-inf")
+        else value["mean"]
+    )
     return out
 
 
 def deserialize_json(data: dict) -> ControlStats:
     out: ControlStats = {}  # type: ignore[typeddict-item]
-    if "variantName" in data:
+    if data.get("variantName") is not None:
         out["variant_name"] = data["variantName"]
     else:
         raise DeserializationError("ControlStats.variant_name required")
-    if "sampleSize" in data:
+    if data.get("sampleSize") is not None:
         out["sample_size"] = data["sampleSize"]
     else:
         raise DeserializationError("ControlStats.sample_size required")
-    if "mean" in data:
-        out["mean"] = data["mean"]
+    if data.get("mean") is not None:
+        out["mean"] = float(data["mean"])
     else:
         raise DeserializationError("ControlStats.mean required")
     return out

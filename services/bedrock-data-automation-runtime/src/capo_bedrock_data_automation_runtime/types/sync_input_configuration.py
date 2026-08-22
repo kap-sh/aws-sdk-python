@@ -33,7 +33,7 @@ def serialize_aws_json_1_1(value: SyncInputConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> SyncInputConfiguration:
     out: SyncInputConfiguration = {}  # type: ignore[typeddict-item]
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_data_automation_runtime.types._prelude.blob
 
         out["bytes"] = (
@@ -41,6 +41,6 @@ def deserialize_aws_json_1_1(data: dict) -> SyncInputConfiguration:
                 data["bytes"]
             )
         )
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     return out

@@ -29,7 +29,7 @@ def serialize_json(value: HarnessMessageStopEvent) -> dict:
 
 def deserialize_json(data: dict) -> HarnessMessageStopEvent:
     out: HarnessMessageStopEvent = {}  # type: ignore[typeddict-item]
-    if "stopReason" in data:
+    if data.get("stopReason") is not None:
         import capo_bedrock_agentcore.types.harness_stop_reason
 
         out["stop_reason"] = (

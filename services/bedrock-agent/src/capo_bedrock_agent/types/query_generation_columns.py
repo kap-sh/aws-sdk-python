@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> QueryGenerationColumns:
 
     out: QueryGenerationColumns = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.query_generation_column.deserialize_json(item)
         )

@@ -39,7 +39,7 @@ def serialize_json(value: ModifyConsolidationConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> ModifyConsolidationConfiguration:
-    if "customConsolidationConfiguration" in data:
+    if data.get("customConsolidationConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.custom_consolidation_configuration_input
 
         return {

@@ -34,11 +34,11 @@ def serialize_json(value: NeptuneAnalyticsConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> NeptuneAnalyticsConfiguration:
     out: NeptuneAnalyticsConfiguration = {}  # type: ignore[typeddict-item]
-    if "graphArn" in data:
+    if data.get("graphArn") is not None:
         out["graph_arn"] = data["graphArn"]
     else:
         raise DeserializationError("NeptuneAnalyticsConfiguration.graph_arn required")
-    if "fieldMapping" in data:
+    if data.get("fieldMapping") is not None:
         import capo_bedrock_agent.types.neptune_analytics_field_mapping
 
         out["field_mapping"] = (

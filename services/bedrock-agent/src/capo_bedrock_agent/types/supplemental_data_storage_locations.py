@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> SupplementalDataStorageLocations:
 
     out: SupplementalDataStorageLocations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.supplemental_data_storage_location.deserialize_json(
                 item

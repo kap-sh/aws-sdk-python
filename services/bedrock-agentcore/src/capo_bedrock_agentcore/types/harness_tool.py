@@ -46,7 +46,7 @@ def serialize_json(value: HarnessTool) -> dict:
 
 def deserialize_json(data: dict) -> HarnessTool:
     out: HarnessTool = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.harness_tool_type
 
         out["type"] = capo_bedrock_agentcore.types.harness_tool_type.deserialize_json(
@@ -54,9 +54,9 @@ def deserialize_json(data: dict) -> HarnessTool:
         )
     else:
         raise DeserializationError("HarnessTool.type required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "config" in data:
+    if data.get("config") is not None:
         import capo_bedrock_agentcore.types.harness_tool_configuration
 
         out["config"] = (

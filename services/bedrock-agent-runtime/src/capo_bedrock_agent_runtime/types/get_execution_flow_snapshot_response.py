@@ -50,36 +50,36 @@ def serialize_json(value: GetExecutionFlowSnapshotResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetExecutionFlowSnapshotResponse:
     out: GetExecutionFlowSnapshotResponse = {}  # type: ignore[typeddict-item]
-    if "flowIdentifier" in data:
+    if data.get("flowIdentifier") is not None:
         out["flow_identifier"] = data["flowIdentifier"]
     else:
         raise DeserializationError(
             "GetExecutionFlowSnapshotResponse.flow_identifier required"
         )
-    if "flowAliasIdentifier" in data:
+    if data.get("flowAliasIdentifier") is not None:
         out["flow_alias_identifier"] = data["flowAliasIdentifier"]
     else:
         raise DeserializationError(
             "GetExecutionFlowSnapshotResponse.flow_alias_identifier required"
         )
-    if "flowVersion" in data:
+    if data.get("flowVersion") is not None:
         out["flow_version"] = data["flowVersion"]
     else:
         raise DeserializationError(
             "GetExecutionFlowSnapshotResponse.flow_version required"
         )
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError(
             "GetExecutionFlowSnapshotResponse.execution_role_arn required"
         )
-    if "definition" in data:
+    if data.get("definition") is not None:
         out["definition"] = data["definition"]
     else:
         raise DeserializationError(
             "GetExecutionFlowSnapshotResponse.definition required"
         )
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
     return out

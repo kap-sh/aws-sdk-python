@@ -27,6 +27,6 @@ def serialize_json(value: CreateBlueprintVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateBlueprintVersionRequest:
     out: CreateBlueprintVersionRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

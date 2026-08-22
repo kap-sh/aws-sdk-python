@@ -28,7 +28,7 @@ def serialize_json(value: BrowserExtension) -> dict:
 
 def deserialize_json(data: dict) -> BrowserExtension:
     out: BrowserExtension = {}  # type: ignore[typeddict-item]
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_agentcore.types.resource_location
 
         out["location"] = (

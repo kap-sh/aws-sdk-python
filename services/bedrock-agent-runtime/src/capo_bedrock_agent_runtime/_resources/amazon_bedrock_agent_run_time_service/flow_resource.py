@@ -91,10 +91,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["inputs"] = inputs
+        input_: capo_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "inputs": inputs,
+        }
         if enable_trace is not None:
             input_["enable_trace"] = enable_trace
         if model_performance_configuration is not None:
@@ -107,7 +108,10 @@ class FlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
 
 class AsyncFlowResource:
@@ -169,10 +173,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["inputs"] = inputs
+        input_: capo_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "inputs": inputs,
+        }
         if enable_trace is not None:
             input_["enable_trace"] = enable_trace
         if model_performance_configuration is not None:
@@ -185,4 +190,7 @@ class AsyncFlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()

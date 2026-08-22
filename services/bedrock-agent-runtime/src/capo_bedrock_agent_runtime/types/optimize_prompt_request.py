@@ -31,7 +31,7 @@ def serialize_json(value: OptimizePromptRequest) -> dict:
 
 def deserialize_json(data: dict) -> OptimizePromptRequest:
     out: OptimizePromptRequest = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_agent_runtime.types.input_prompt
 
         out["input"] = capo_bedrock_agent_runtime.types.input_prompt.deserialize_json(
@@ -39,7 +39,7 @@ def deserialize_json(data: dict) -> OptimizePromptRequest:
         )
     else:
         raise DeserializationError("OptimizePromptRequest.input required")
-    if "targetModelId" in data:
+    if data.get("targetModelId") is not None:
         out["target_model_id"] = data["targetModelId"]
     else:
         raise DeserializationError("OptimizePromptRequest.target_model_id required")

@@ -23,6 +23,6 @@ def serialize_json(value: FlowAliasRoutingConfigurationListItem) -> dict:
 
 def deserialize_json(data: dict) -> FlowAliasRoutingConfigurationListItem:
     out: FlowAliasRoutingConfigurationListItem = {}  # type: ignore[typeddict-item]
-    if "flowVersion" in data:
+    if data.get("flowVersion") is not None:
         out["flow_version"] = data["flowVersion"]
     return out

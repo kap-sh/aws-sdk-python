@@ -35,7 +35,7 @@ def serialize_json(value: HttpTargetConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> HttpTargetConfiguration:
-    if "agentcoreRuntime" in data:
+    if data.get("agentcoreRuntime") is not None:
         import capo_bedrock_agentcore_control.types.runtime_target_configuration
 
         return {

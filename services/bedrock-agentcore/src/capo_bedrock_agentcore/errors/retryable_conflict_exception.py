@@ -18,7 +18,7 @@ def serialize_json(value: RetryableConflictException_) -> dict:
 
 def deserialize_json(data: dict) -> RetryableConflictException_:
     out: RetryableConflictException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("RetryableConflictException_.message required")
@@ -30,15 +30,18 @@ class RetryableConflictException(ServiceError):
 
     code: str | None = "RetryableConflictException"
 
-    def __init__(self, data: RetryableConflictException_):
+    def __init__(self, data: RetryableConflictException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=True,
             code="RetryableConflictException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "RetryableConflictException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "RetryableConflictException":
+        return cls(deserialize_json(data), message)

@@ -37,11 +37,11 @@ def serialize_json(value: FromUrlSynchronizationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FromUrlSynchronizationConfiguration:
     out: FromUrlSynchronizationConfiguration = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
     else:
         raise DeserializationError("FromUrlSynchronizationConfiguration.url required")
-    if "credentialProviderConfigurations" in data:
+    if data.get("credentialProviderConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_credential_provider_configuration_list
 
         out["credential_provider_configurations"] = (

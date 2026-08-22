@@ -31,7 +31,7 @@ def serialize_json(value: BedrockDataAutomationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BedrockDataAutomationConfiguration:
     out: BedrockDataAutomationConfiguration = {}  # type: ignore[typeddict-item]
-    if "parsingModality" in data:
+    if data.get("parsingModality") is not None:
         import capo_bedrock_agent.types.parsing_modality
 
         out["parsing_modality"] = (

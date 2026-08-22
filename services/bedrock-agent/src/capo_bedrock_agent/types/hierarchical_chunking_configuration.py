@@ -33,7 +33,7 @@ def serialize_json(value: HierarchicalChunkingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HierarchicalChunkingConfiguration:
     out: HierarchicalChunkingConfiguration = {}  # type: ignore[typeddict-item]
-    if "levelConfigurations" in data:
+    if data.get("levelConfigurations") is not None:
         import capo_bedrock_agent.types.hierarchical_chunking_level_configurations
 
         out["level_configurations"] = (
@@ -45,7 +45,7 @@ def deserialize_json(data: dict) -> HierarchicalChunkingConfiguration:
         raise DeserializationError(
             "HierarchicalChunkingConfiguration.level_configurations required"
         )
-    if "overlapTokens" in data:
+    if data.get("overlapTokens") is not None:
         out["overlap_tokens"] = data["overlapTokens"]
     else:
         raise DeserializationError(

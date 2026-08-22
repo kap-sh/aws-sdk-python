@@ -30,7 +30,7 @@ def serialize_json(value: StreamDeliveryResources) -> dict:
 
 def deserialize_json(data: dict) -> StreamDeliveryResources:
     out: StreamDeliveryResources = {}  # type: ignore[typeddict-item]
-    if "resources" in data:
+    if data.get("resources") is not None:
         import capo_bedrock_agentcore_control.types.stream_delivery_resources_list
 
         out["resources"] = (

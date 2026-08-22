@@ -83,7 +83,7 @@ def serialize_json(value: InlineSessionState) -> dict:
 
 def deserialize_json(data: dict) -> InlineSessionState:
     out: InlineSessionState = {}  # type: ignore[typeddict-item]
-    if "sessionAttributes" in data:
+    if data.get("sessionAttributes") is not None:
         import capo_bedrock_agent_runtime.types.session_attributes_map
 
         out["session_attributes"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> InlineSessionState:
                 data["sessionAttributes"]
             )
         )
-    if "promptSessionAttributes" in data:
+    if data.get("promptSessionAttributes") is not None:
         import capo_bedrock_agent_runtime.types.prompt_session_attributes_map
 
         out["prompt_session_attributes"] = (
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> InlineSessionState:
                 data["promptSessionAttributes"]
             )
         )
-    if "returnControlInvocationResults" in data:
+    if data.get("returnControlInvocationResults") is not None:
         import capo_bedrock_agent_runtime.types.return_control_invocation_results
 
         out["return_control_invocation_results"] = (
@@ -107,15 +107,15 @@ def deserialize_json(data: dict) -> InlineSessionState:
                 data["returnControlInvocationResults"]
             )
         )
-    if "invocationId" in data:
+    if data.get("invocationId") is not None:
         out["invocation_id"] = data["invocationId"]
-    if "files" in data:
+    if data.get("files") is not None:
         import capo_bedrock_agent_runtime.types.input_files
 
         out["files"] = capo_bedrock_agent_runtime.types.input_files.deserialize_json(
             data["files"]
         )
-    if "conversationHistory" in data:
+    if data.get("conversationHistory") is not None:
         import capo_bedrock_agent_runtime.types.conversation_history
 
         out["conversation_history"] = (

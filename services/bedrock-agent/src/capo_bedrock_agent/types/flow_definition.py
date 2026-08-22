@@ -38,13 +38,13 @@ def serialize_json(value: FlowDefinition) -> dict:
 
 def deserialize_json(data: dict) -> FlowDefinition:
     out: FlowDefinition = {}  # type: ignore[typeddict-item]
-    if "nodes" in data:
+    if data.get("nodes") is not None:
         import capo_bedrock_agent.types.flow_nodes
 
         out["nodes"] = capo_bedrock_agent.types.flow_nodes.deserialize_json(
             data["nodes"]
         )
-    if "connections" in data:
+    if data.get("connections") is not None:
         import capo_bedrock_agent.types.flow_connections
 
         out["connections"] = capo_bedrock_agent.types.flow_connections.deserialize_json(

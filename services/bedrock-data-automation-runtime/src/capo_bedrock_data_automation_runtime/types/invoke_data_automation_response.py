@@ -55,7 +55,7 @@ def serialize_aws_json_1_1(value: InvokeDataAutomationResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationResponse:
     out: InvokeDataAutomationResponse = {}  # type: ignore[typeddict-item]
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.output_configuration
 
         out["output_configuration"] = (
@@ -63,7 +63,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationResponse:
                 data["outputConfiguration"]
             )
         )
-    if "semanticModality" in data:
+    if data.get("semanticModality") is not None:
         import capo_bedrock_data_automation_runtime.types.semantic_modality
 
         out["semantic_modality"] = (
@@ -75,7 +75,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationResponse:
         raise DeserializationError(
             "InvokeDataAutomationResponse.semantic_modality required"
         )
-    if "outputSegments" in data:
+    if data.get("outputSegments") is not None:
         import capo_bedrock_data_automation_runtime.types.output_segment_list
 
         out["output_segments"] = (

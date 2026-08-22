@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> HarnessTools:
 
     out: HarnessTools = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.harness_tool.deserialize_json(item)
         )

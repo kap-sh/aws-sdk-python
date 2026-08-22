@@ -24,7 +24,7 @@ def serialize_json(value: RetrieveAndGenerateSessionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveAndGenerateSessionConfiguration:
     out: RetrieveAndGenerateSessionConfiguration = {}  # type: ignore[typeddict-item]
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
     else:
         raise DeserializationError(

@@ -54,25 +54,25 @@ def serialize_json(value: PaymentSessionSummary) -> dict:
 
 def deserialize_json(data: dict) -> PaymentSessionSummary:
     out: PaymentSessionSummary = {}  # type: ignore[typeddict-item]
-    if "paymentSessionId" in data:
+    if data.get("paymentSessionId") is not None:
         out["payment_session_id"] = data["paymentSessionId"]
     else:
         raise DeserializationError("PaymentSessionSummary.payment_session_id required")
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError("PaymentSessionSummary.payment_manager_arn required")
-    if "userId" in data:
+    if data.get("userId") is not None:
         out["user_id"] = data["userId"]
     else:
         raise DeserializationError("PaymentSessionSummary.user_id required")
-    if "expiryTimeInMinutes" in data:
+    if data.get("expiryTimeInMinutes") is not None:
         out["expiry_time_in_minutes"] = data["expiryTimeInMinutes"]
     else:
         raise DeserializationError(
             "PaymentSessionSummary.expiry_time_in_minutes required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> PaymentSessionSummary:
         )
     else:
         raise DeserializationError("PaymentSessionSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["updated_at"] = (

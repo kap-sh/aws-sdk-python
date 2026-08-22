@@ -47,13 +47,13 @@ def serialize_json(value: CreateDataAutomationProjectResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateDataAutomationProjectResponse:
     out: CreateDataAutomationProjectResponse = {}  # type: ignore[typeddict-item]
-    if "projectArn" in data:
+    if data.get("projectArn") is not None:
         out["project_arn"] = data["projectArn"]
     else:
         raise DeserializationError(
             "CreateDataAutomationProjectResponse.project_arn required"
         )
-    if "projectStage" in data:
+    if data.get("projectStage") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage
 
         out["project_stage"] = (
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectResponse:
                 data["projectStage"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_status
 
         out["status"] = (

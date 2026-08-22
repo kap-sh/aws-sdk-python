@@ -43,7 +43,7 @@ def serialize_json(value: HarnessTruncationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HarnessTruncationConfiguration:
     out: HarnessTruncationConfiguration = {}  # type: ignore[typeddict-item]
-    if "strategy" in data:
+    if data.get("strategy") is not None:
         import capo_bedrock_agentcore_control.types.harness_truncation_strategy
 
         out["strategy"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> HarnessTruncationConfiguration:
         )
     else:
         raise DeserializationError("HarnessTruncationConfiguration.strategy required")
-    if "config" in data:
+    if data.get("config") is not None:
         import capo_bedrock_agentcore_control.types.harness_truncation_strategy_configuration
 
         out["config"] = (

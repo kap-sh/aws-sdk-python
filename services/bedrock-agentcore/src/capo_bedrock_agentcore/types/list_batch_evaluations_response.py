@@ -34,7 +34,7 @@ def serialize_json(value: ListBatchEvaluationsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListBatchEvaluationsResponse:
     out: ListBatchEvaluationsResponse = {}  # type: ignore[typeddict-item]
-    if "batchEvaluations" in data:
+    if data.get("batchEvaluations") is not None:
         import capo_bedrock_agentcore.types.batch_evaluation_summary_list
 
         out["batch_evaluations"] = (
@@ -46,6 +46,6 @@ def deserialize_json(data: dict) -> ListBatchEvaluationsResponse:
         raise DeserializationError(
             "ListBatchEvaluationsResponse.batch_evaluations required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

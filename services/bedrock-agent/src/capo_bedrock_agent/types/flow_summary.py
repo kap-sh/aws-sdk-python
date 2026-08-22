@@ -64,21 +64,21 @@ def serialize_json(value: FlowSummary) -> dict:
 
 def deserialize_json(data: dict) -> FlowSummary:
     out: FlowSummary = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("FlowSummary.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("FlowSummary.id required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("FlowSummary.arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.flow_status
 
         out["status"] = capo_bedrock_agent.types.flow_status.deserialize_json(
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> FlowSummary:
         )
     else:
         raise DeserializationError("FlowSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> FlowSummary:
         )
     else:
         raise DeserializationError("FlowSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> FlowSummary:
         )
     else:
         raise DeserializationError("FlowSummary.updated_at required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("FlowSummary.version required")

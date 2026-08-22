@@ -46,7 +46,7 @@ def serialize_json(value: InvokeCodeInterpreterRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeCodeInterpreterRequest:
     out: InvokeCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         import capo_bedrock_agentcore.types.tool_name
 
         out["name"] = capo_bedrock_agentcore.types.tool_name.deserialize_json(
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> InvokeCodeInterpreterRequest:
         )
     else:
         raise DeserializationError("InvokeCodeInterpreterRequest.name required")
-    if "arguments" in data:
+    if data.get("arguments") is not None:
         import capo_bedrock_agentcore.types.tool_arguments
 
         out["arguments"] = capo_bedrock_agentcore.types.tool_arguments.deserialize_json(

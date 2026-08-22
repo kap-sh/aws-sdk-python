@@ -29,7 +29,7 @@ def serialize_json(value: FlowTraceEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceEvent:
     out: FlowTraceEvent = {}  # type: ignore[typeddict-item]
-    if "trace" in data:
+    if data.get("trace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace
 
         out["trace"] = capo_bedrock_agent_runtime.types.flow_trace.deserialize_json(

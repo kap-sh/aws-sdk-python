@@ -31,7 +31,7 @@ def serialize_json(value: InferenceConfig) -> dict:
 
 def deserialize_json(data: dict) -> InferenceConfig:
     out: InferenceConfig = {}  # type: ignore[typeddict-item]
-    if "textInferenceConfig" in data:
+    if data.get("textInferenceConfig") is not None:
         import capo_bedrock_agent_runtime.types.text_inference_config
 
         out["text_inference_config"] = (

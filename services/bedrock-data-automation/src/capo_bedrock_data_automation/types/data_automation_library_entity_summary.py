@@ -36,7 +36,7 @@ def serialize_json(value: DataAutomationLibraryEntitySummary) -> dict:
 
 
 def deserialize_json(data: dict) -> DataAutomationLibraryEntitySummary:
-    if "vocabulary" in data:
+    if data.get("vocabulary") is not None:
         import capo_bedrock_data_automation.types.vocabulary_entity_summary
 
         return {

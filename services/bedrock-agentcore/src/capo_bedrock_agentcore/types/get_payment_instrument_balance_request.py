@@ -64,25 +64,25 @@ def serialize_json(value: GetPaymentInstrumentBalanceRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetPaymentInstrumentBalanceRequest:
     out: GetPaymentInstrumentBalanceRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "GetPaymentInstrumentBalanceRequest.payment_manager_arn required"
         )
-    if "paymentConnectorId" in data:
+    if data.get("paymentConnectorId") is not None:
         out["payment_connector_id"] = data["paymentConnectorId"]
     else:
         raise DeserializationError(
             "GetPaymentInstrumentBalanceRequest.payment_connector_id required"
         )
-    if "paymentInstrumentId" in data:
+    if data.get("paymentInstrumentId") is not None:
         out["payment_instrument_id"] = data["paymentInstrumentId"]
     else:
         raise DeserializationError(
             "GetPaymentInstrumentBalanceRequest.payment_instrument_id required"
         )
-    if "chain" in data:
+    if data.get("chain") is not None:
         import capo_bedrock_agentcore.types.blockchain_chain_id
 
         out["chain"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> GetPaymentInstrumentBalanceRequest:
         )
     else:
         raise DeserializationError("GetPaymentInstrumentBalanceRequest.chain required")
-    if "token" in data:
+    if data.get("token") is not None:
         import capo_bedrock_agentcore.types.instrument_balance_token
 
         out["token"] = (

@@ -67,13 +67,13 @@ def serialize_json(value: CreateFlowAliasRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateFlowAliasRequest:
     out: CreateFlowAliasRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateFlowAliasRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> CreateFlowAliasRequest:
         raise DeserializationError(
             "CreateFlowAliasRequest.routing_configuration required"
         )
-    if "concurrencyConfiguration" in data:
+    if data.get("concurrencyConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_concurrency_configuration
 
         out["concurrency_configuration"] = (
@@ -93,9 +93,9 @@ def deserialize_json(data: dict) -> CreateFlowAliasRequest:
                 data["concurrencyConfiguration"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent.types.tags_map
 
         out["tags"] = capo_bedrock_agent.types.tags_map.deserialize_json(data["tags"])

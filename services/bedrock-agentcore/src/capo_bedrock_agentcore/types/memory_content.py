@@ -26,7 +26,7 @@ def serialize_json(value: MemoryContent) -> dict:
 
 
 def deserialize_json(data: dict) -> MemoryContent:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError("MemoryContent: no recognized variant key")

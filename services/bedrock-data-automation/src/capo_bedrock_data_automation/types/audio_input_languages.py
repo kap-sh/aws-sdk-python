@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> AudioInputLanguages:
 
     out: AudioInputLanguages = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_data_automation.types.language.deserialize_json(item))
     return out

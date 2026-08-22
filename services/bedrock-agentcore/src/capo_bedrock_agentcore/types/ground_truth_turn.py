@@ -44,7 +44,7 @@ def serialize_json(value: GroundTruthTurn) -> dict:
 
 def deserialize_json(data: dict) -> GroundTruthTurn:
     out: GroundTruthTurn = {}  # type: ignore[typeddict-item]
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_agentcore.types.ground_truth_turn_input
 
         out["input"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> GroundTruthTurn:
                 data["input"]
             )
         )
-    if "expectedResponse" in data:
+    if data.get("expectedResponse") is not None:
         import capo_bedrock_agentcore.types.evaluation_content
 
         out["expected_response"] = (

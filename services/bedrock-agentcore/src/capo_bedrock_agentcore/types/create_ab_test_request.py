@@ -81,17 +81,17 @@ def serialize_json(value: CreateABTestRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateABTestRequest:
     out: CreateABTestRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateABTestRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
     else:
         raise DeserializationError("CreateABTestRequest.gateway_arn required")
-    if "variants" in data:
+    if data.get("variants") is not None:
         import capo_bedrock_agentcore.types.variant_list
 
         out["variants"] = capo_bedrock_agentcore.types.variant_list.deserialize_json(
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> CreateABTestRequest:
         )
     else:
         raise DeserializationError("CreateABTestRequest.variants required")
-    if "gatewayFilter" in data:
+    if data.get("gatewayFilter") is not None:
         import capo_bedrock_agentcore.types.gateway_filter
 
         out["gateway_filter"] = (
@@ -107,7 +107,7 @@ def deserialize_json(data: dict) -> CreateABTestRequest:
                 data["gatewayFilter"]
             )
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock_agentcore.types.ab_test_evaluation_config
 
         out["evaluation_config"] = (
@@ -117,12 +117,12 @@ def deserialize_json(data: dict) -> CreateABTestRequest:
         )
     else:
         raise DeserializationError("CreateABTestRequest.evaluation_config required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateABTestRequest.role_arn required")
-    if "enableOnCreate" in data:
+    if data.get("enableOnCreate") is not None:
         out["enable_on_create"] = data["enableOnCreate"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

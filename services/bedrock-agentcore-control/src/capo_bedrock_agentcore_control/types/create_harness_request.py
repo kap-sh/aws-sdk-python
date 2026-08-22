@@ -198,17 +198,17 @@ def serialize_json(value: CreateHarnessRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateHarnessRequest:
     out: CreateHarnessRequest = {}  # type: ignore[typeddict-item]
-    if "harnessName" in data:
+    if data.get("harnessName") is not None:
         out["harness_name"] = data["harnessName"]
     else:
         raise DeserializationError("CreateHarnessRequest.harness_name required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError("CreateHarnessRequest.execution_role_arn required")
-    if "environment" in data:
+    if data.get("environment") is not None:
         import capo_bedrock_agentcore_control.types.harness_environment_provider_request
 
         out["environment"] = (
@@ -216,7 +216,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["environment"]
             )
         )
-    if "environmentArtifact" in data:
+    if data.get("environmentArtifact") is not None:
         import capo_bedrock_agentcore_control.types.harness_environment_artifact
 
         out["environment_artifact"] = (
@@ -224,7 +224,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["environmentArtifact"]
             )
         )
-    if "environmentVariables" in data:
+    if data.get("environmentVariables") is not None:
         import capo_bedrock_agentcore_control.types.environment_variables_map
 
         out["environment_variables"] = (
@@ -232,7 +232,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["environmentVariables"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -240,7 +240,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "model" in data:
+    if data.get("model") is not None:
         import capo_bedrock_agentcore_control.types.harness_model_configuration
 
         out["model"] = (
@@ -248,7 +248,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["model"]
             )
         )
-    if "systemPrompt" in data:
+    if data.get("systemPrompt") is not None:
         import capo_bedrock_agentcore_control.types.harness_system_prompt
 
         out["system_prompt"] = (
@@ -256,7 +256,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["systemPrompt"]
             )
         )
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore_control.types.harness_tools
 
         out["tools"] = (
@@ -264,7 +264,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["tools"]
             )
         )
-    if "skills" in data:
+    if data.get("skills") is not None:
         import capo_bedrock_agentcore_control.types.harness_skills
 
         out["skills"] = (
@@ -272,7 +272,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["skills"]
             )
         )
-    if "allowedTools" in data:
+    if data.get("allowedTools") is not None:
         import capo_bedrock_agentcore_control.types.harness_allowed_tools
 
         out["allowed_tools"] = (
@@ -280,7 +280,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["allowedTools"]
             )
         )
-    if "memory" in data:
+    if data.get("memory") is not None:
         import capo_bedrock_agentcore_control.types.harness_memory_configuration
 
         out["memory"] = (
@@ -288,7 +288,7 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["memory"]
             )
         )
-    if "truncation" in data:
+    if data.get("truncation") is not None:
         import capo_bedrock_agentcore_control.types.harness_truncation_configuration
 
         out["truncation"] = (
@@ -296,13 +296,13 @@ def deserialize_json(data: dict) -> CreateHarnessRequest:
                 data["truncation"]
             )
         )
-    if "maxIterations" in data:
+    if data.get("maxIterations") is not None:
         out["max_iterations"] = data["maxIterations"]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "timeoutSeconds" in data:
+    if data.get("timeoutSeconds") is not None:
         out["timeout_seconds"] = data["timeoutSeconds"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

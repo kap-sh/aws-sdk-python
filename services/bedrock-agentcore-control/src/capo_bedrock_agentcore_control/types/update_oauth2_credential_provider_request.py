@@ -44,13 +44,13 @@ def serialize_json(value: UpdateOauth2CredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderRequest:
     out: UpdateOauth2CredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderRequest.name required"
         )
-    if "credentialProviderVendor" in data:
+    if data.get("credentialProviderVendor") is not None:
         import capo_bedrock_agentcore_control.types.credential_provider_vendor_type
 
         out["credential_provider_vendor"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> UpdateOauth2CredentialProviderRequest:
         raise DeserializationError(
             "UpdateOauth2CredentialProviderRequest.credential_provider_vendor required"
         )
-    if "oauth2ProviderConfigInput" in data:
+    if data.get("oauth2ProviderConfigInput") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_provider_config_input
 
         out["oauth2_provider_config_input"] = (

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> PaymentCredentialProviders:
 
     out: PaymentCredentialProviders = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.payment_credential_provider_item.deserialize_json(
                 item

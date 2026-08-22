@@ -44,7 +44,7 @@ def serialize_json(value: GuardrailSensitiveInformationPolicyAssessment) -> dict
 
 def deserialize_json(data: dict) -> GuardrailSensitiveInformationPolicyAssessment:
     out: GuardrailSensitiveInformationPolicyAssessment = {}  # type: ignore[typeddict-item]
-    if "piiEntities" in data:
+    if data.get("piiEntities") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_pii_entity_filter_list
 
         out["pii_entities"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> GuardrailSensitiveInformationPolicyAssessmen
                 data["piiEntities"]
             )
         )
-    if "regexes" in data:
+    if data.get("regexes") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_regex_filter_list
 
         out["regexes"] = (

@@ -22,8 +22,8 @@ def serialize_json(value: Span) -> dict:
 
 def deserialize_json(data: dict) -> Span:
     out: Span = {}  # type: ignore[typeddict-item]
-    if "start" in data:
+    if data.get("start") is not None:
         out["start"] = data["start"]
-    if "end" in data:
+    if data.get("end") is not None:
         out["end"] = data["end"]
     return out

@@ -34,7 +34,7 @@ def serialize_json(value: UpdatePolicyEngineRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdatePolicyEngineRequest:
     out: UpdatePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         import capo_bedrock_agentcore_control.types.updated_description
 
         out["description"] = (

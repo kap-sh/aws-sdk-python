@@ -46,9 +46,9 @@ def serialize_json(value: Oauth2Discovery) -> dict:
 
 
 def deserialize_json(data: dict) -> Oauth2Discovery:
-    if "discoveryUrl" in data:
+    if data.get("discoveryUrl") is not None:
         return {"discoveryUrl": data["discoveryUrl"]}
-    elif "authorizationServerMetadata" in data:
+    elif data.get("authorizationServerMetadata") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_authorization_server_metadata
 
         return {

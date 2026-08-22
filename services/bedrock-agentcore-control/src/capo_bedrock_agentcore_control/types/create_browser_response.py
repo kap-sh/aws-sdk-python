@@ -46,15 +46,15 @@ def serialize_json(value: CreateBrowserResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateBrowserResponse:
     out: CreateBrowserResponse = {}  # type: ignore[typeddict-item]
-    if "browserId" in data:
+    if data.get("browserId") is not None:
         out["browser_id"] = data["browserId"]
     else:
         raise DeserializationError("CreateBrowserResponse.browser_id required")
-    if "browserArn" in data:
+    if data.get("browserArn") is not None:
         out["browser_arn"] = data["browserArn"]
     else:
         raise DeserializationError("CreateBrowserResponse.browser_arn required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> CreateBrowserResponse:
         )
     else:
         raise DeserializationError("CreateBrowserResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_status
 
         out["status"] = (

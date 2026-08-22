@@ -78,11 +78,11 @@ def serialize_json(value: DataAutomationLibrary) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationLibrary:
     out: DataAutomationLibrary = {}  # type: ignore[typeddict-item]
-    if "libraryArn" in data:
+    if data.get("libraryArn") is not None:
         out["library_arn"] = data["libraryArn"]
     else:
         raise DeserializationError("DataAutomationLibrary.library_arn required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (
@@ -92,13 +92,13 @@ def deserialize_json(data: dict) -> DataAutomationLibrary:
         )
     else:
         raise DeserializationError("DataAutomationLibrary.creation_time required")
-    if "libraryName" in data:
+    if data.get("libraryName") is not None:
         out["library_name"] = data["libraryName"]
     else:
         raise DeserializationError("DataAutomationLibrary.library_name required")
-    if "libraryDescription" in data:
+    if data.get("libraryDescription") is not None:
         out["library_description"] = data["libraryDescription"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_data_automation.types.data_automation_library_status
 
         out["status"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> DataAutomationLibrary:
         )
     else:
         raise DeserializationError("DataAutomationLibrary.status required")
-    if "entityTypes" in data:
+    if data.get("entityTypes") is not None:
         import capo_bedrock_data_automation.types.entity_type_info_list
 
         out["entity_types"] = (
@@ -116,9 +116,9 @@ def deserialize_json(data: dict) -> DataAutomationLibrary:
                 data["entityTypes"]
             )
         )
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "kmsEncryptionContext" in data:
+    if data.get("kmsEncryptionContext") is not None:
         import capo_bedrock_data_automation.types.kms_encryption_context
 
         out["kms_encryption_context"] = (

@@ -44,7 +44,7 @@ def serialize_json(value: Citation) -> dict:
 
 def deserialize_json(data: dict) -> Citation:
     out: Citation = {}  # type: ignore[typeddict-item]
-    if "generatedResponsePart" in data:
+    if data.get("generatedResponsePart") is not None:
         import capo_bedrock_agent_runtime.types.generated_response_part
 
         out["generated_response_part"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> Citation:
                 data["generatedResponsePart"]
             )
         )
-    if "retrievedReferences" in data:
+    if data.get("retrievedReferences") is not None:
         import capo_bedrock_agent_runtime.types.retrieved_references
 
         out["retrieved_references"] = (

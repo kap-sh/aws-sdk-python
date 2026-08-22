@@ -24,7 +24,7 @@ def serialize_json(value: GetOauth2CredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetOauth2CredentialProviderRequest:
     out: GetOauth2CredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetOauth2CredentialProviderRequest.name required")

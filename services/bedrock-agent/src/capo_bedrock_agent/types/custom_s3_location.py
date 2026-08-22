@@ -31,10 +31,10 @@ def serialize_json(value: CustomS3Location) -> dict:
 
 def deserialize_json(data: dict) -> CustomS3Location:
     out: CustomS3Location = {}  # type: ignore[typeddict-item]
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
     else:
         raise DeserializationError("CustomS3Location.uri required")
-    if "bucketOwnerAccountId" in data:
+    if data.get("bucketOwnerAccountId") is not None:
         out["bucket_owner_account_id"] = data["bucketOwnerAccountId"]
     return out

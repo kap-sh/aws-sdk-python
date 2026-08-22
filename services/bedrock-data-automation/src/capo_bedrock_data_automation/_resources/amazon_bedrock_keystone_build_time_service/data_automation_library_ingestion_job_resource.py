@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_data_automation._auth._signers
@@ -101,14 +102,16 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_configuration"] = input_configuration
-        input_["entity_type"] = entity_type
-        input_["operation_type"] = operation_type
-        input_["output_configuration"] = output_configuration
+        input_: capo_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {
+            "library_arn": library_arn,
+            "input_configuration": input_configuration,
+            "entity_type": entity_type,
+            "operation_type": operation_type,
+            "output_configuration": output_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if notification_configuration is not None:
             input_["notification_configuration"] = notification_configuration
         if tags is not None:
@@ -119,6 +122,7 @@ class DataAutomationLibraryIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -158,15 +162,17 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        input_["job_arn"] = job_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {
+            "library_arn": library_arn,
+            "job_arn": job_arn,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -211,8 +217,9 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {
+            "library_arn": library_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -223,6 +230,7 @@ class DataAutomationLibraryIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -286,14 +294,16 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_configuration"] = input_configuration
-        input_["entity_type"] = entity_type
-        input_["operation_type"] = operation_type
-        input_["output_configuration"] = output_configuration
+        input_: capo_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {
+            "library_arn": library_arn,
+            "input_configuration": input_configuration,
+            "entity_type": entity_type,
+            "operation_type": operation_type,
+            "output_configuration": output_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if notification_configuration is not None:
             input_["notification_configuration"] = notification_configuration
         if tags is not None:
@@ -304,6 +314,7 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -344,15 +355,17 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
-        input_["job_arn"] = job_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {
+            "library_arn": library_arn,
+            "job_arn": job_arn,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -398,8 +411,9 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {
+            "library_arn": library_arn
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -410,4 +424,5 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

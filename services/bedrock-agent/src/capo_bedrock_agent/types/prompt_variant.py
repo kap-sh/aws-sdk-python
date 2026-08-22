@@ -90,11 +90,11 @@ def serialize_json(value: PromptVariant) -> dict:
 
 def deserialize_json(data: dict) -> PromptVariant:
     out: PromptVariant = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PromptVariant.name required")
-    if "templateType" in data:
+    if data.get("templateType") is not None:
         import capo_bedrock_agent.types.prompt_template_type
 
         out["template_type"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> PromptVariant:
         )
     else:
         raise DeserializationError("PromptVariant.template_type required")
-    if "templateConfiguration" in data:
+    if data.get("templateConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_template_configuration
 
         out["template_configuration"] = (
@@ -114,9 +114,9 @@ def deserialize_json(data: dict) -> PromptVariant:
         )
     else:
         raise DeserializationError("PromptVariant.template_configuration required")
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
-    if "inferenceConfiguration" in data:
+    if data.get("inferenceConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_inference_configuration
 
         out["inference_configuration"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> PromptVariant:
                 data["inferenceConfiguration"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent.types.prompt_metadata_list
 
         out["metadata"] = (
@@ -132,9 +132,9 @@ def deserialize_json(data: dict) -> PromptVariant:
                 data["metadata"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
-    if "genAiResource" in data:
+    if data.get("genAiResource") is not None:
         import capo_bedrock_agent.types.prompt_gen_ai_resource
 
         out["gen_ai_resource"] = (

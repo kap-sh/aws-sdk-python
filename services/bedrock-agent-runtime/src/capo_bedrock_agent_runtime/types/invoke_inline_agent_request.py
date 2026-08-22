@@ -234,19 +234,19 @@ def serialize_json(value: InvokeInlineAgentRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
     out: InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
     else:
         raise DeserializationError("InvokeInlineAgentRequest.foundation_model required")
-    if "instruction" in data:
+    if data.get("instruction") is not None:
         out["instruction"] = data["instruction"]
     else:
         raise DeserializationError("InvokeInlineAgentRequest.instruction required")
-    if "idleSessionTTLInSeconds" in data:
+    if data.get("idleSessionTTLInSeconds") is not None:
         out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
-    if "actionGroups" in data:
+    if data.get("actionGroups") is not None:
         import capo_bedrock_agent_runtime.types.agent_action_groups
 
         out["action_groups"] = (
@@ -254,7 +254,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["actionGroups"]
             )
         )
-    if "knowledgeBases" in data:
+    if data.get("knowledgeBases") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_bases
 
         out["knowledge_bases"] = (
@@ -262,7 +262,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["knowledgeBases"]
             )
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_configuration_with_arn
 
         out["guardrail_configuration"] = (
@@ -270,7 +270,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["guardrailConfiguration"]
             )
         )
-    if "promptOverrideConfiguration" in data:
+    if data.get("promptOverrideConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.prompt_override_configuration
 
         out["prompt_override_configuration"] = (
@@ -278,7 +278,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["promptOverrideConfiguration"]
             )
         )
-    if "agentCollaboration" in data:
+    if data.get("agentCollaboration") is not None:
         import capo_bedrock_agent_runtime.types.agent_collaboration
 
         out["agent_collaboration"] = (
@@ -286,7 +286,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["agentCollaboration"]
             )
         )
-    if "collaboratorConfigurations" in data:
+    if data.get("collaboratorConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.collaborator_configurations
 
         out["collaborator_configurations"] = (
@@ -294,15 +294,15 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["collaboratorConfigurations"]
             )
         )
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
-    if "endSession" in data:
+    if data.get("endSession") is not None:
         out["end_session"] = data["endSession"]
-    if "enableTrace" in data:
+    if data.get("enableTrace") is not None:
         out["enable_trace"] = data["enableTrace"]
-    if "inputText" in data:
+    if data.get("inputText") is not None:
         out["input_text"] = data["inputText"]
-    if "streamingConfigurations" in data:
+    if data.get("streamingConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.streaming_configurations
 
         out["streaming_configurations"] = (
@@ -310,7 +310,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["streamingConfigurations"]
             )
         )
-    if "promptCreationConfigurations" in data:
+    if data.get("promptCreationConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.prompt_creation_configurations
 
         out["prompt_creation_configurations"] = (
@@ -318,7 +318,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["promptCreationConfigurations"]
             )
         )
-    if "inlineSessionState" in data:
+    if data.get("inlineSessionState") is not None:
         import capo_bedrock_agent_runtime.types.inline_session_state
 
         out["inline_session_state"] = (
@@ -326,7 +326,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["inlineSessionState"]
             )
         )
-    if "collaborators" in data:
+    if data.get("collaborators") is not None:
         import capo_bedrock_agent_runtime.types.collaborators
 
         out["collaborators"] = (
@@ -334,7 +334,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["collaborators"]
             )
         )
-    if "bedrockModelConfigurations" in data:
+    if data.get("bedrockModelConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.inline_bedrock_model_configurations
 
         out["bedrock_model_configurations"] = (
@@ -342,7 +342,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["bedrockModelConfigurations"]
             )
         )
-    if "orchestrationType" in data:
+    if data.get("orchestrationType") is not None:
         import capo_bedrock_agent_runtime.types.orchestration_type
 
         out["orchestration_type"] = (
@@ -350,7 +350,7 @@ def deserialize_json(data: dict) -> InvokeInlineAgentRequest:
                 data["orchestrationType"]
             )
         )
-    if "customOrchestration" in data:
+    if data.get("customOrchestration") is not None:
         import capo_bedrock_agent_runtime.types.custom_orchestration
 
         out["custom_orchestration"] = (

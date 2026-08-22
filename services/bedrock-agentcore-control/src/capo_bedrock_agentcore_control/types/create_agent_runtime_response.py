@@ -73,13 +73,13 @@ def serialize_json(value: CreateAgentRuntimeResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateAgentRuntimeResponse:
     out: CreateAgentRuntimeResponse = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeResponse.agent_runtime_arn required"
         )
-    if "workloadIdentityDetails" in data:
+    if data.get("workloadIdentityDetails") is not None:
         import capo_bedrock_agentcore_control.types.workload_identity_details
 
         out["workload_identity_details"] = (
@@ -87,19 +87,19 @@ def deserialize_json(data: dict) -> CreateAgentRuntimeResponse:
                 data["workloadIdentityDetails"]
             )
         )
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeResponse.agent_runtime_id required"
         )
-    if "agentRuntimeVersion" in data:
+    if data.get("agentRuntimeVersion") is not None:
         out["agent_runtime_version"] = data["agentRuntimeVersion"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeResponse.agent_runtime_version required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> CreateAgentRuntimeResponse:
         )
     else:
         raise DeserializationError("CreateAgentRuntimeResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_status
 
         out["status"] = (

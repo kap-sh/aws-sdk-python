@@ -24,7 +24,7 @@ def serialize_json(value: SessionStorageConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SessionStorageConfiguration:
     out: SessionStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "mountPath" in data:
+    if data.get("mountPath") is not None:
         out["mount_path"] = data["mountPath"]
     else:
         raise DeserializationError("SessionStorageConfiguration.mount_path required")

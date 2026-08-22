@@ -31,7 +31,7 @@ def serialize_json(value: GetKnowledgeBaseDocumentsResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetKnowledgeBaseDocumentsResponse:
     out: GetKnowledgeBaseDocumentsResponse = {}  # type: ignore[typeddict-item]
-    if "documentDetails" in data:
+    if data.get("documentDetails") is not None:
         import capo_bedrock_agent.types.knowledge_base_document_details
 
         out["document_details"] = (

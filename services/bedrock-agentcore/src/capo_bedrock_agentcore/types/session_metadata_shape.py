@@ -49,13 +49,13 @@ def serialize_json(value: SessionMetadataShape) -> dict:
 
 def deserialize_json(data: dict) -> SessionMetadataShape:
     out: SessionMetadataShape = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("SessionMetadataShape.session_id required")
-    if "testScenarioId" in data:
+    if data.get("testScenarioId") is not None:
         out["test_scenario_id"] = data["testScenarioId"]
-    if "groundTruth" in data:
+    if data.get("groundTruth") is not None:
         import capo_bedrock_agentcore.types.ground_truth_source
 
         out["ground_truth"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> SessionMetadataShape:
                 data["groundTruth"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agentcore.types.string_map
 
         out["metadata"] = capo_bedrock_agentcore.types.string_map.deserialize_json(

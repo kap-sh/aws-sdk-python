@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -81,22 +82,25 @@ class BrowserProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.save_browser_session_profile_request.SaveBrowserSessionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.save_browser_session_profile_request.SaveBrowserSessionProfileRequest = {
+            "profile_identifier": profile_identifier,
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["profile_identifier"] = profile_identifier
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -153,20 +157,23 @@ class AsyncBrowserProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.save_browser_session_profile_request.SaveBrowserSessionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.save_browser_session_profile_request.SaveBrowserSessionProfileRequest = {
+            "profile_identifier": profile_identifier,
+            "browser_identifier": browser_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["profile_identifier"] = profile_identifier
-        input_["browser_identifier"] = browser_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -30,8 +30,8 @@ def serialize_json(value: S3Configuration) -> dict:
 
 def deserialize_json(data: dict) -> S3Configuration:
     out: S3Configuration = {}  # type: ignore[typeddict-item]
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
-    if "bucketOwnerAccountId" in data:
+    if data.get("bucketOwnerAccountId") is not None:
         out["bucket_owner_account_id"] = data["bucketOwnerAccountId"]
     return out

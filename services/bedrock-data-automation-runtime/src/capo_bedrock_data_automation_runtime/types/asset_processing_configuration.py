@@ -31,7 +31,7 @@ def serialize_aws_json_1_1(value: AssetProcessingConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> AssetProcessingConfiguration:
     out: AssetProcessingConfiguration = {}  # type: ignore[typeddict-item]
-    if "video" in data:
+    if data.get("video") is not None:
         import capo_bedrock_data_automation_runtime.types.video_asset_processing_configuration
 
         out["video"] = (

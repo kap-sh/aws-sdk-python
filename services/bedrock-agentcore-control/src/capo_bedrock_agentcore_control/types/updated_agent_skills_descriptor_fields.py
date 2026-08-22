@@ -44,7 +44,7 @@ def serialize_json(value: UpdatedAgentSkillsDescriptorFields) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedAgentSkillsDescriptorFields:
     out: UpdatedAgentSkillsDescriptorFields = {}  # type: ignore[typeddict-item]
-    if "skillMd" in data:
+    if data.get("skillMd") is not None:
         import capo_bedrock_agentcore_control.types.updated_skill_md_definition
 
         out["skill_md"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> UpdatedAgentSkillsDescriptorFields:
                 data["skillMd"]
             )
         )
-    if "skillDefinition" in data:
+    if data.get("skillDefinition") is not None:
         import capo_bedrock_agentcore_control.types.updated_skill_definition
 
         out["skill_definition"] = (

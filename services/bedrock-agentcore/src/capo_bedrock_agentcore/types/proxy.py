@@ -32,7 +32,7 @@ def serialize_json(value: Proxy) -> dict:
 
 
 def deserialize_json(data: dict) -> Proxy:
-    if "externalProxy" in data:
+    if data.get("externalProxy") is not None:
         import capo_bedrock_agentcore.types.external_proxy
 
         return {

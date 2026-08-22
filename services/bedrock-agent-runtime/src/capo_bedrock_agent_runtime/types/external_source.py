@@ -58,7 +58,7 @@ def serialize_json(value: ExternalSource) -> dict:
 
 def deserialize_json(data: dict) -> ExternalSource:
     out: ExternalSource = {}  # type: ignore[typeddict-item]
-    if "sourceType" in data:
+    if data.get("sourceType") is not None:
         import capo_bedrock_agent_runtime.types.external_source_type
 
         out["source_type"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> ExternalSource:
         )
     else:
         raise DeserializationError("ExternalSource.source_type required")
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent_runtime.types.s3_object_doc
 
         out["s3_location"] = (
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> ExternalSource:
                 data["s3Location"]
             )
         )
-    if "byteContent" in data:
+    if data.get("byteContent") is not None:
         import capo_bedrock_agent_runtime.types.byte_content_doc
 
         out["byte_content"] = (

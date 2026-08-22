@@ -44,11 +44,11 @@ def serialize_json(value: LlmAsAJudgeEvaluatorConfig) -> dict:
 
 def deserialize_json(data: dict) -> LlmAsAJudgeEvaluatorConfig:
     out: LlmAsAJudgeEvaluatorConfig = {}  # type: ignore[typeddict-item]
-    if "instructions" in data:
+    if data.get("instructions") is not None:
         out["instructions"] = data["instructions"]
     else:
         raise DeserializationError("LlmAsAJudgeEvaluatorConfig.instructions required")
-    if "ratingScale" in data:
+    if data.get("ratingScale") is not None:
         import capo_bedrock_agentcore_control.types.rating_scale
 
         out["rating_scale"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> LlmAsAJudgeEvaluatorConfig:
         )
     else:
         raise DeserializationError("LlmAsAJudgeEvaluatorConfig.rating_scale required")
-    if "modelConfig" in data:
+    if data.get("modelConfig") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_model_config
 
         out["model_config"] = (

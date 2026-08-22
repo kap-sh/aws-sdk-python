@@ -24,7 +24,7 @@ def serialize_json(value: RecommendationEvaluatorReference) -> dict:
 
 def deserialize_json(data: dict) -> RecommendationEvaluatorReference:
     out: RecommendationEvaluatorReference = {}  # type: ignore[typeddict-item]
-    if "evaluatorArn" in data:
+    if data.get("evaluatorArn") is not None:
         out["evaluator_arn"] = data["evaluatorArn"]
     else:
         raise DeserializationError(

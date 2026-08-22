@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> DeleteMemoryStrategiesList:
 
     out: DeleteMemoryStrategiesList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.delete_memory_strategy_input.deserialize_json(
                 item

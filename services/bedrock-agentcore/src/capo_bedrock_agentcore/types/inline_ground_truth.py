@@ -57,7 +57,7 @@ def serialize_json(value: InlineGroundTruth) -> dict:
 
 def deserialize_json(data: dict) -> InlineGroundTruth:
     out: InlineGroundTruth = {}  # type: ignore[typeddict-item]
-    if "assertions" in data:
+    if data.get("assertions") is not None:
         import capo_bedrock_agentcore.types.evaluation_content_list
 
         out["assertions"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> InlineGroundTruth:
                 data["assertions"]
             )
         )
-    if "expectedTrajectory" in data:
+    if data.get("expectedTrajectory") is not None:
         import capo_bedrock_agentcore.types.evaluation_expected_trajectory
 
         out["expected_trajectory"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> InlineGroundTruth:
                 data["expectedTrajectory"]
             )
         )
-    if "turns" in data:
+    if data.get("turns") is not None:
         import capo_bedrock_agentcore.types.ground_truth_turn_list
 
         out["turns"] = (

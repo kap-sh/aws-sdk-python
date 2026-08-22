@@ -54,19 +54,19 @@ def serialize_json(value: InvocationStep) -> dict:
 
 def deserialize_json(data: dict) -> InvocationStep:
     out: InvocationStep = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("InvocationStep.session_id required")
-    if "invocationId" in data:
+    if data.get("invocationId") is not None:
         out["invocation_id"] = data["invocationId"]
     else:
         raise DeserializationError("InvocationStep.invocation_id required")
-    if "invocationStepId" in data:
+    if data.get("invocationStepId") is not None:
         out["invocation_step_id"] = data["invocationStepId"]
     else:
         raise DeserializationError("InvocationStep.invocation_step_id required")
-    if "invocationStepTime" in data:
+    if data.get("invocationStepTime") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["invocation_step_time"] = (
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> InvocationStep:
         )
     else:
         raise DeserializationError("InvocationStep.invocation_step_time required")
-    if "payload" in data:
+    if data.get("payload") is not None:
         import capo_bedrock_agent_runtime.types.invocation_step_payload
 
         out["payload"] = (

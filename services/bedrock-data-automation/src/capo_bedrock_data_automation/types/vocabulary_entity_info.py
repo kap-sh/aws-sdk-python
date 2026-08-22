@@ -44,11 +44,11 @@ def serialize_json(value: VocabularyEntityInfo) -> dict:
 
 def deserialize_json(data: dict) -> VocabularyEntityInfo:
     out: VocabularyEntityInfo = {}  # type: ignore[typeddict-item]
-    if "entityId" in data:
+    if data.get("entityId") is not None:
         out["entity_id"] = data["entityId"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "language" in data:
+    if data.get("language") is not None:
         import capo_bedrock_data_automation.types.language
 
         out["language"] = capo_bedrock_data_automation.types.language.deserialize_json(
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> VocabularyEntityInfo:
         )
     else:
         raise DeserializationError("VocabularyEntityInfo.language required")
-    if "phrases" in data:
+    if data.get("phrases") is not None:
         import capo_bedrock_data_automation.types.phrase_list
 
         out["phrases"] = (

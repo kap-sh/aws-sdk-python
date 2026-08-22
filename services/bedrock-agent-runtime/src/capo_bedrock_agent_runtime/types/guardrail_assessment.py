@@ -70,7 +70,7 @@ def serialize_json(value: GuardrailAssessment) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailAssessment:
     out: GuardrailAssessment = {}  # type: ignore[typeddict-item]
-    if "topicPolicy" in data:
+    if data.get("topicPolicy") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_topic_policy_assessment
 
         out["topic_policy"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> GuardrailAssessment:
                 data["topicPolicy"]
             )
         )
-    if "contentPolicy" in data:
+    if data.get("contentPolicy") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_content_policy_assessment
 
         out["content_policy"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> GuardrailAssessment:
                 data["contentPolicy"]
             )
         )
-    if "wordPolicy" in data:
+    if data.get("wordPolicy") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_word_policy_assessment
 
         out["word_policy"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> GuardrailAssessment:
                 data["wordPolicy"]
             )
         )
-    if "sensitiveInformationPolicy" in data:
+    if data.get("sensitiveInformationPolicy") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_sensitive_information_policy_assessment
 
         out["sensitive_information_policy"] = (

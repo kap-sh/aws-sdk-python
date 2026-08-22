@@ -32,7 +32,7 @@ def serialize_json(value: NodeTraceElements) -> dict:
 
 
 def deserialize_json(data: dict) -> NodeTraceElements:
-    if "agentTraces" in data:
+    if data.get("agentTraces") is not None:
         import capo_bedrock_agent_runtime.types.agent_traces
 
         return {

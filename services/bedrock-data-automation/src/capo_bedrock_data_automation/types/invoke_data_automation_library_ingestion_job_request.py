@@ -94,9 +94,9 @@ def serialize_json(value: InvokeDataAutomationLibraryIngestionJobRequest) -> dic
 
 def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobRequest:
     out: InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "inputConfiguration" in data:
+    if data.get("inputConfiguration") is not None:
         import capo_bedrock_data_automation.types.input_configuration
 
         out["input_configuration"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobReque
         raise DeserializationError(
             "InvokeDataAutomationLibraryIngestionJobRequest.input_configuration required"
         )
-    if "entityType" in data:
+    if data.get("entityType") is not None:
         import capo_bedrock_data_automation.types.entity_type
 
         out["entity_type"] = (
@@ -120,7 +120,7 @@ def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobReque
         raise DeserializationError(
             "InvokeDataAutomationLibraryIngestionJobRequest.entity_type required"
         )
-    if "operationType" in data:
+    if data.get("operationType") is not None:
         import capo_bedrock_data_automation.types.library_ingestion_job_operation_type
 
         out["operation_type"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobReque
         raise DeserializationError(
             "InvokeDataAutomationLibraryIngestionJobRequest.operation_type required"
         )
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation.types.output_configuration
 
         out["output_configuration"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobReque
         raise DeserializationError(
             "InvokeDataAutomationLibraryIngestionJobRequest.output_configuration required"
         )
-    if "notificationConfiguration" in data:
+    if data.get("notificationConfiguration") is not None:
         import capo_bedrock_data_automation.types.notification_configuration
 
         out["notification_configuration"] = (
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> InvokeDataAutomationLibraryIngestionJobReque
                 data["notificationConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation.types.tag_list
 
         out["tags"] = capo_bedrock_data_automation.types.tag_list.deserialize_json(

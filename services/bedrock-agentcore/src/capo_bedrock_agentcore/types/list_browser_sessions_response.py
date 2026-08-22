@@ -37,7 +37,7 @@ def serialize_json(value: ListBrowserSessionsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListBrowserSessionsResponse:
     out: ListBrowserSessionsResponse = {}  # type: ignore[typeddict-item]
-    if "items" in data:
+    if data.get("items") is not None:
         import capo_bedrock_agentcore.types.browser_session_summaries
 
         out["items"] = (
@@ -47,6 +47,6 @@ def deserialize_json(data: dict) -> ListBrowserSessionsResponse:
         )
     else:
         raise DeserializationError("ListBrowserSessionsResponse.items required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -87,11 +87,12 @@ class BlueprintOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
-        input_["blueprint"] = blueprint
-        input_["samples"] = samples
-        input_["output_configuration"] = output_configuration
-        input_["data_automation_profile_arn"] = data_automation_profile_arn
+        input_: capo_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {
+            "blueprint": blueprint,
+            "samples": samples,
+            "output_configuration": output_configuration,
+            "data_automation_profile_arn": data_automation_profile_arn,
+        }
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -102,6 +103,7 @@ class BlueprintOptimizationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -139,14 +141,16 @@ class BlueprintOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -203,11 +207,12 @@ class AsyncBlueprintOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
-        input_["blueprint"] = blueprint
-        input_["samples"] = samples
-        input_["output_configuration"] = output_configuration
-        input_["data_automation_profile_arn"] = data_automation_profile_arn
+        input_: capo_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {
+            "blueprint": blueprint,
+            "samples": samples,
+            "output_configuration": output_configuration,
+            "data_automation_profile_arn": data_automation_profile_arn,
+        }
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -218,6 +223,7 @@ class AsyncBlueprintOptimizationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -256,12 +262,14 @@ class AsyncBlueprintOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

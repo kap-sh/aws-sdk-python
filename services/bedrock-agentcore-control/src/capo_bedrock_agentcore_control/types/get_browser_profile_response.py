@@ -98,21 +98,21 @@ def serialize_json(value: GetBrowserProfileResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetBrowserProfileResponse:
     out: GetBrowserProfileResponse = {}  # type: ignore[typeddict-item]
-    if "profileId" in data:
+    if data.get("profileId") is not None:
         out["profile_id"] = data["profileId"]
     else:
         raise DeserializationError("GetBrowserProfileResponse.profile_id required")
-    if "profileArn" in data:
+    if data.get("profileArn") is not None:
         out["profile_arn"] = data["profileArn"]
     else:
         raise DeserializationError("GetBrowserProfileResponse.profile_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetBrowserProfileResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_profile_status
 
         out["status"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> GetBrowserProfileResponse:
         )
     else:
         raise DeserializationError("GetBrowserProfileResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> GetBrowserProfileResponse:
         )
     else:
         raise DeserializationError("GetBrowserProfileResponse.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -142,7 +142,7 @@ def deserialize_json(data: dict) -> GetBrowserProfileResponse:
         )
     else:
         raise DeserializationError("GetBrowserProfileResponse.last_updated_at required")
-    if "lastSavedAt" in data:
+    if data.get("lastSavedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_saved_at"] = (
@@ -150,8 +150,8 @@ def deserialize_json(data: dict) -> GetBrowserProfileResponse:
                 data["lastSavedAt"]
             )
         )
-    if "lastSavedBrowserSessionId" in data:
+    if data.get("lastSavedBrowserSessionId") is not None:
         out["last_saved_browser_session_id"] = data["lastSavedBrowserSessionId"]
-    if "lastSavedBrowserId" in data:
+    if data.get("lastSavedBrowserId") is not None:
         out["last_saved_browser_id"] = data["lastSavedBrowserId"]
     return out

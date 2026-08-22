@@ -40,11 +40,11 @@ def serialize_json(value: CreatePromptVersionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePromptVersionRequest:
     out: CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent.types.tags_map
 
         out["tags"] = capo_bedrock_agent.types.tags_map.deserialize_json(data["tags"])

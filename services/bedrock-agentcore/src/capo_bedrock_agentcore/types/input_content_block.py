@@ -35,13 +35,13 @@ def serialize_json(value: InputContentBlock) -> dict:
 
 def deserialize_json(data: dict) -> InputContentBlock:
     out: InputContentBlock = {}  # type: ignore[typeddict-item]
-    if "path" in data:
+    if data.get("path") is not None:
         out["path"] = data["path"]
     else:
         raise DeserializationError("InputContentBlock.path required")
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "blob" in data:
+    if data.get("blob") is not None:
         import capo_bedrock_agentcore.types.body
 
         out["blob"] = capo_bedrock_agentcore.types.body.deserialize_json(data["blob"])

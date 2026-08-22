@@ -94,15 +94,15 @@ def serialize_json(value: CreateGatewayTargetRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateGatewayTargetRequest:
     out: CreateGatewayTargetRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateGatewayTargetRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "targetConfiguration" in data:
+    if data.get("targetConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.target_configuration
 
         out["target_configuration"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> CreateGatewayTargetRequest:
         raise DeserializationError(
             "CreateGatewayTargetRequest.target_configuration required"
         )
-    if "credentialProviderConfigurations" in data:
+    if data.get("credentialProviderConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.credential_provider_configurations
 
         out["credential_provider_configurations"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> CreateGatewayTargetRequest:
                 data["credentialProviderConfigurations"]
             )
         )
-    if "metadataConfiguration" in data:
+    if data.get("metadataConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.metadata_configuration
 
         out["metadata_configuration"] = (
@@ -130,7 +130,7 @@ def deserialize_json(data: dict) -> CreateGatewayTargetRequest:
                 data["metadataConfiguration"]
             )
         )
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (

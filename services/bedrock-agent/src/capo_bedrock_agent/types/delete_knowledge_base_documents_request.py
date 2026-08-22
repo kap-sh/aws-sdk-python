@@ -42,9 +42,9 @@ def serialize_json(value: DeleteKnowledgeBaseDocumentsRequest) -> dict:
 
 def deserialize_json(data: dict) -> DeleteKnowledgeBaseDocumentsRequest:
     out: DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "documentIdentifiers" in data:
+    if data.get("documentIdentifiers") is not None:
         import capo_bedrock_agent.types.document_identifiers
 
         out["document_identifiers"] = (

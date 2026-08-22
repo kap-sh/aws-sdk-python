@@ -30,7 +30,7 @@ def serialize_json(value: SupplementalDataStorageConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SupplementalDataStorageConfiguration:
     out: SupplementalDataStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "storageLocations" in data:
+    if data.get("storageLocations") is not None:
         import capo_bedrock_agent.types.supplemental_data_storage_locations
 
         out["storage_locations"] = (

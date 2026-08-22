@@ -91,19 +91,19 @@ def serialize_json(value: UpdateABTestRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateABTestRequest:
     out: UpdateABTestRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "variants" in data:
+    if data.get("variants") is not None:
         import capo_bedrock_agentcore.types.variant_list
 
         out["variants"] = capo_bedrock_agentcore.types.variant_list.deserialize_json(
             data["variants"]
         )
-    if "gatewayFilter" in data:
+    if data.get("gatewayFilter") is not None:
         import capo_bedrock_agentcore.types.gateway_filter
 
         out["gateway_filter"] = (
@@ -111,7 +111,7 @@ def deserialize_json(data: dict) -> UpdateABTestRequest:
                 data["gatewayFilter"]
             )
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock_agentcore.types.ab_test_evaluation_config
 
         out["evaluation_config"] = (
@@ -119,9 +119,9 @@ def deserialize_json(data: dict) -> UpdateABTestRequest:
                 data["evaluationConfig"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore.types.ab_test_execution_status
 
         out["execution_status"] = (

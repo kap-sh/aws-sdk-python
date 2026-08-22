@@ -32,7 +32,7 @@ def serialize_json(value: GetAgentCardResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAgentCardResponse:
     out: GetAgentCardResponse = {}  # type: ignore[typeddict-item]
-    if "agentCard" in data:
+    if data.get("agentCard") is not None:
         out["agent_card"] = data["agentCard"]
     else:
         raise DeserializationError("GetAgentCardResponse.agent_card required")

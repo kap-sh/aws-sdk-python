@@ -76,15 +76,15 @@ def serialize_json(value: CreateEvaluatorRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateEvaluatorRequest:
     out: CreateEvaluatorRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "evaluatorName" in data:
+    if data.get("evaluatorName") is not None:
         out["evaluator_name"] = data["evaluatorName"]
     else:
         raise DeserializationError("CreateEvaluatorRequest.evaluator_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "evaluatorConfig" in data:
+    if data.get("evaluatorConfig") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_config
 
         out["evaluator_config"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> CreateEvaluatorRequest:
         )
     else:
         raise DeserializationError("CreateEvaluatorRequest.evaluator_config required")
-    if "level" in data:
+    if data.get("level") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_level
 
         out["level"] = (
@@ -104,9 +104,9 @@ def deserialize_json(data: dict) -> CreateEvaluatorRequest:
         )
     else:
         raise DeserializationError("CreateEvaluatorRequest.level required")
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

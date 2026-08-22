@@ -30,7 +30,7 @@ def serialize_json(value: GetDataAutomationLibraryResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDataAutomationLibraryResponse:
     out: GetDataAutomationLibraryResponse = {}  # type: ignore[typeddict-item]
-    if "library" in data:
+    if data.get("library") is not None:
         import capo_bedrock_data_automation.types.data_automation_library
 
         out["library"] = (

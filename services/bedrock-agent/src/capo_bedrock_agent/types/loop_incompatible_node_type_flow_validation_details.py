@@ -39,13 +39,13 @@ def serialize_json(value: LoopIncompatibleNodeTypeFlowValidationDetails) -> dict
 
 def deserialize_json(data: dict) -> LoopIncompatibleNodeTypeFlowValidationDetails:
     out: LoopIncompatibleNodeTypeFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(
             "LoopIncompatibleNodeTypeFlowValidationDetails.node required"
         )
-    if "incompatibleNodeType" in data:
+    if data.get("incompatibleNodeType") is not None:
         import capo_bedrock_agent.types.incompatible_loop_node_type
 
         out["incompatible_node_type"] = (
@@ -57,7 +57,7 @@ def deserialize_json(data: dict) -> LoopIncompatibleNodeTypeFlowValidationDetail
         raise DeserializationError(
             "LoopIncompatibleNodeTypeFlowValidationDetails.incompatible_node_type required"
         )
-    if "incompatibleNodeName" in data:
+    if data.get("incompatibleNodeName") is not None:
         out["incompatible_node_name"] = data["incompatibleNodeName"]
     else:
         raise DeserializationError(

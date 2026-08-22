@@ -34,7 +34,7 @@ def serialize_json(value: ListConfigurationBundlesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListConfigurationBundlesResponse:
     out: ListConfigurationBundlesResponse = {}  # type: ignore[typeddict-item]
-    if "bundles" in data:
+    if data.get("bundles") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_summary_list
 
         out["bundles"] = (
@@ -44,6 +44,6 @@ def deserialize_json(data: dict) -> ListConfigurationBundlesResponse:
         )
     else:
         raise DeserializationError("ListConfigurationBundlesResponse.bundles required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

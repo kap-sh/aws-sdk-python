@@ -41,23 +41,23 @@ def serialize_json(value: MouseDragArguments) -> dict:
 
 def deserialize_json(data: dict) -> MouseDragArguments:
     out: MouseDragArguments = {}  # type: ignore[typeddict-item]
-    if "endX" in data:
+    if data.get("endX") is not None:
         out["end_x"] = data["endX"]
     else:
         raise DeserializationError("MouseDragArguments.end_x required")
-    if "endY" in data:
+    if data.get("endY") is not None:
         out["end_y"] = data["endY"]
     else:
         raise DeserializationError("MouseDragArguments.end_y required")
-    if "startX" in data:
+    if data.get("startX") is not None:
         out["start_x"] = data["startX"]
     else:
         raise DeserializationError("MouseDragArguments.start_x required")
-    if "startY" in data:
+    if data.get("startY") is not None:
         out["start_y"] = data["startY"]
     else:
         raise DeserializationError("MouseDragArguments.start_y required")
-    if "button" in data:
+    if data.get("button") is not None:
         import capo_bedrock_agentcore.types.mouse_button
 
         out["button"] = capo_bedrock_agentcore.types.mouse_button.deserialize_json(

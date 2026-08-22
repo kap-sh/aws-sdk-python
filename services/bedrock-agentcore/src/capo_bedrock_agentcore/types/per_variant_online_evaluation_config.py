@@ -28,11 +28,11 @@ def serialize_json(value: PerVariantOnlineEvaluationConfig) -> dict:
 
 def deserialize_json(data: dict) -> PerVariantOnlineEvaluationConfig:
     out: PerVariantOnlineEvaluationConfig = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PerVariantOnlineEvaluationConfig.name required")
-    if "onlineEvaluationConfigArn" in data:
+    if data.get("onlineEvaluationConfigArn") is not None:
         out["online_evaluation_config_arn"] = data["onlineEvaluationConfigArn"]
     else:
         raise DeserializationError(

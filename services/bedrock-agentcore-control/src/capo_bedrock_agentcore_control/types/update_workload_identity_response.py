@@ -61,17 +61,17 @@ def serialize_json(value: UpdateWorkloadIdentityResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateWorkloadIdentityResponse:
     out: UpdateWorkloadIdentityResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateWorkloadIdentityResponse.name required")
-    if "workloadIdentityArn" in data:
+    if data.get("workloadIdentityArn") is not None:
         out["workload_identity_arn"] = data["workloadIdentityArn"]
     else:
         raise DeserializationError(
             "UpdateWorkloadIdentityResponse.workload_identity_arn required"
         )
-    if "allowedResourceOauth2ReturnUrls" in data:
+    if data.get("allowedResourceOauth2ReturnUrls") is not None:
         import capo_bedrock_agentcore_control.types.resource_oauth2_return_url_list_type
 
         out["allowed_resource_oauth2_return_urls"] = (
@@ -79,7 +79,7 @@ def deserialize_json(data: dict) -> UpdateWorkloadIdentityResponse:
                 data["allowedResourceOauth2ReturnUrls"]
             )
         )
-    if "createdTime" in data:
+    if data.get("createdTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_time"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> UpdateWorkloadIdentityResponse:
         raise DeserializationError(
             "UpdateWorkloadIdentityResponse.created_time required"
         )
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_updated_time"] = (

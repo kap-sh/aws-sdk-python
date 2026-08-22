@@ -22,7 +22,7 @@ def serialize_json(value: AgentFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AgentFlowNodeConfiguration:
     out: AgentFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "agentAliasArn" in data:
+    if data.get("agentAliasArn") is not None:
         out["agent_alias_arn"] = data["agentAliasArn"]
     else:
         out["agent_alias_arn"] = ""

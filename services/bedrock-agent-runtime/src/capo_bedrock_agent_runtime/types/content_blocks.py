@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> ContentBlocks:
 
     out: ContentBlocks = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.content_block.deserialize_json(item)
         )

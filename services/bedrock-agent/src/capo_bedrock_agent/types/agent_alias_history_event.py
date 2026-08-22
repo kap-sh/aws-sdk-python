@@ -48,7 +48,7 @@ def serialize_json(value: AgentAliasHistoryEvent) -> dict:
 
 def deserialize_json(data: dict) -> AgentAliasHistoryEvent:
     out: AgentAliasHistoryEvent = {}  # type: ignore[typeddict-item]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.agent_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -56,13 +56,13 @@ def deserialize_json(data: dict) -> AgentAliasHistoryEvent:
                 data["routingConfiguration"]
             )
         )
-    if "endDate" in data:
+    if data.get("endDate") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["end_date"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
             data["endDate"]
         )
-    if "startDate" in data:
+    if data.get("startDate") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["start_date"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

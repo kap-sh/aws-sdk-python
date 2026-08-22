@@ -71,21 +71,21 @@ def serialize_json(value: IngestionJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> IngestionJobSummary:
     out: IngestionJobSummary = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("IngestionJobSummary.knowledge_base_id required")
-    if "dataSourceId" in data:
+    if data.get("dataSourceId") is not None:
         out["data_source_id"] = data["dataSourceId"]
     else:
         raise DeserializationError("IngestionJobSummary.data_source_id required")
-    if "ingestionJobId" in data:
+    if data.get("ingestionJobId") is not None:
         out["ingestion_job_id"] = data["ingestionJobId"]
     else:
         raise DeserializationError("IngestionJobSummary.ingestion_job_id required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.ingestion_job_status
 
         out["status"] = capo_bedrock_agent.types.ingestion_job_status.deserialize_json(
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> IngestionJobSummary:
         )
     else:
         raise DeserializationError("IngestionJobSummary.status required")
-    if "startedAt" in data:
+    if data.get("startedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["started_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> IngestionJobSummary:
         )
     else:
         raise DeserializationError("IngestionJobSummary.started_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> IngestionJobSummary:
         )
     else:
         raise DeserializationError("IngestionJobSummary.updated_at required")
-    if "statistics" in data:
+    if data.get("statistics") is not None:
         import capo_bedrock_agent.types.ingestion_job_statistics
 
         out["statistics"] = (

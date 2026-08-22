@@ -28,13 +28,13 @@ def serialize_json(value: FlowDataConnectionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FlowDataConnectionConfiguration:
     out: FlowDataConnectionConfiguration = {}  # type: ignore[typeddict-item]
-    if "sourceOutput" in data:
+    if data.get("sourceOutput") is not None:
         out["source_output"] = data["sourceOutput"]
     else:
         raise DeserializationError(
             "FlowDataConnectionConfiguration.source_output required"
         )
-    if "targetInput" in data:
+    if data.get("targetInput") is not None:
         out["target_input"] = data["targetInput"]
     else:
         raise DeserializationError(

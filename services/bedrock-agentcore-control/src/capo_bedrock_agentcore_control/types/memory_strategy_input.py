@@ -93,7 +93,7 @@ def serialize_json(value: MemoryStrategyInput) -> dict:
 
 
 def deserialize_json(data: dict) -> MemoryStrategyInput:
-    if "semanticMemoryStrategy" in data:
+    if data.get("semanticMemoryStrategy") is not None:
         import capo_bedrock_agentcore_control.types.semantic_memory_strategy_input
 
         return {
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> MemoryStrategyInput:
                 data["semanticMemoryStrategy"]
             )
         }
-    elif "summaryMemoryStrategy" in data:
+    elif data.get("summaryMemoryStrategy") is not None:
         import capo_bedrock_agentcore_control.types.summary_memory_strategy_input
 
         return {
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> MemoryStrategyInput:
                 data["summaryMemoryStrategy"]
             )
         }
-    elif "userPreferenceMemoryStrategy" in data:
+    elif data.get("userPreferenceMemoryStrategy") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_memory_strategy_input
 
         return {
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> MemoryStrategyInput:
                 data["userPreferenceMemoryStrategy"]
             )
         }
-    elif "customMemoryStrategy" in data:
+    elif data.get("customMemoryStrategy") is not None:
         import capo_bedrock_agentcore_control.types.custom_memory_strategy_input
 
         return {
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> MemoryStrategyInput:
                 data["customMemoryStrategy"]
             )
         }
-    elif "episodicMemoryStrategy" in data:
+    elif data.get("episodicMemoryStrategy") is not None:
         import capo_bedrock_agentcore_control.types.episodic_memory_strategy_input
 
         return {

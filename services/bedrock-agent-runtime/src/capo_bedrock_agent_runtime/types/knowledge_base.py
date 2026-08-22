@@ -45,15 +45,15 @@ def serialize_json(value: KnowledgeBase) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBase:
     out: KnowledgeBase = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("KnowledgeBase.knowledge_base_id required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("KnowledgeBase.description required")
-    if "retrievalConfiguration" in data:
+    if data.get("retrievalConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_retrieval_configuration
 
         out["retrieval_configuration"] = (

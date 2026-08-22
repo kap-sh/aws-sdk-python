@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> NodeInputFields:
 
     out: NodeInputFields = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.node_input_field.deserialize_json(item)
         )

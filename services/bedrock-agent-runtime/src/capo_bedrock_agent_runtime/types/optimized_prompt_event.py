@@ -33,7 +33,7 @@ def serialize_json(value: OptimizedPromptEvent) -> dict:
 
 def deserialize_json(data: dict) -> OptimizedPromptEvent:
     out: OptimizedPromptEvent = {}  # type: ignore[typeddict-item]
-    if "optimizedPrompt" in data:
+    if data.get("optimizedPrompt") is not None:
         import capo_bedrock_agent_runtime.types.optimized_prompt
 
         out["optimized_prompt"] = (

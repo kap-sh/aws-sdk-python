@@ -34,7 +34,7 @@ def serialize_json(value: StorageFlowNodeServiceConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> StorageFlowNodeServiceConfiguration:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agent.types.storage_flow_node_s3_configuration
 
         return {

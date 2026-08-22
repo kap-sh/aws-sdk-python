@@ -18,7 +18,7 @@ def serialize_json(value: InvalidInputException_) -> dict:
 
 def deserialize_json(data: dict) -> InvalidInputException_:
     out: InvalidInputException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("InvalidInputException_.message required")
@@ -30,15 +30,18 @@ class InvalidInputException(ServiceError):
 
     code: str | None = "InvalidInputException"
 
-    def __init__(self, data: InvalidInputException_):
+    def __init__(self, data: InvalidInputException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="InvalidInputException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "InvalidInputException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "InvalidInputException":
+        return cls(deserialize_json(data), message)

@@ -32,7 +32,7 @@ def serialize_json(value: EntityDetails) -> dict:
 
 
 def deserialize_json(data: dict) -> EntityDetails:
-    if "vocabulary" in data:
+    if data.get("vocabulary") is not None:
         import capo_bedrock_data_automation.types.vocabulary_entity
 
         return {

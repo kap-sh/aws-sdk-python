@@ -119,12 +119,13 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+            "session_id": session_id,
+        }
         if session_state is not None:
             input_["session_state"] = session_state
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
-        input_["session_id"] = session_id
         if end_session is not None:
             input_["end_session"] = end_session
         if enable_trace is not None:
@@ -147,7 +148,10 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
 
 class AsyncInferenceResource:
@@ -232,12 +236,13 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+            "session_id": session_id,
+        }
         if session_state is not None:
             input_["session_state"] = session_state
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
-        input_["session_id"] = session_id
         if end_session is not None:
             input_["end_session"] = end_session
         if enable_trace is not None:
@@ -260,4 +265,7 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()

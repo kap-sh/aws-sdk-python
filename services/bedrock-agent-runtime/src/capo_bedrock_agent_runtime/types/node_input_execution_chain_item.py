@@ -38,13 +38,13 @@ def serialize_json(value: NodeInputExecutionChainItem) -> dict:
 
 def deserialize_json(data: dict) -> NodeInputExecutionChainItem:
     out: NodeInputExecutionChainItem = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("NodeInputExecutionChainItem.node_name required")
-    if "index" in data:
+    if data.get("index") is not None:
         out["index"] = data["index"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.flow_control_node_type
 
         out["type"] = (

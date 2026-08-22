@@ -48,7 +48,7 @@ def serialize_json(value: DataSourceType) -> dict:
 
 
 def deserialize_json(data: dict) -> DataSourceType:
-    if "inlineExamples" in data:
+    if data.get("inlineExamples") is not None:
         import capo_bedrock_agentcore_control.types.inline_examples_source
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> DataSourceType:
                 data["inlineExamples"]
             )
         }
-    elif "s3Source" in data:
+    elif data.get("s3Source") is not None:
         import capo_bedrock_agentcore_control.types.s3_source
 
         return {

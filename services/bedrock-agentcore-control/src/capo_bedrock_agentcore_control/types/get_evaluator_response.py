@@ -100,21 +100,21 @@ def serialize_json(value: GetEvaluatorResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetEvaluatorResponse:
     out: GetEvaluatorResponse = {}  # type: ignore[typeddict-item]
-    if "evaluatorArn" in data:
+    if data.get("evaluatorArn") is not None:
         out["evaluator_arn"] = data["evaluatorArn"]
     else:
         raise DeserializationError("GetEvaluatorResponse.evaluator_arn required")
-    if "evaluatorId" in data:
+    if data.get("evaluatorId") is not None:
         out["evaluator_id"] = data["evaluatorId"]
     else:
         raise DeserializationError("GetEvaluatorResponse.evaluator_id required")
-    if "evaluatorName" in data:
+    if data.get("evaluatorName") is not None:
         out["evaluator_name"] = data["evaluatorName"]
     else:
         raise DeserializationError("GetEvaluatorResponse.evaluator_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "evaluatorConfig" in data:
+    if data.get("evaluatorConfig") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_config
 
         out["evaluator_config"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> GetEvaluatorResponse:
         )
     else:
         raise DeserializationError("GetEvaluatorResponse.evaluator_config required")
-    if "level" in data:
+    if data.get("level") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_level
 
         out["level"] = (
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> GetEvaluatorResponse:
         )
     else:
         raise DeserializationError("GetEvaluatorResponse.level required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_status
 
         out["status"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> GetEvaluatorResponse:
         )
     else:
         raise DeserializationError("GetEvaluatorResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -154,7 +154,7 @@ def deserialize_json(data: dict) -> GetEvaluatorResponse:
         )
     else:
         raise DeserializationError("GetEvaluatorResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -164,8 +164,8 @@ def deserialize_json(data: dict) -> GetEvaluatorResponse:
         )
     else:
         raise DeserializationError("GetEvaluatorResponse.updated_at required")
-    if "lockedForModification" in data:
+    if data.get("lockedForModification") is not None:
         out["locked_for_modification"] = data["lockedForModification"]
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
     return out

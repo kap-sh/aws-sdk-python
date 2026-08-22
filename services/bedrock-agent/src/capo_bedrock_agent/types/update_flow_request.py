@@ -56,19 +56,19 @@ def serialize_json(value: UpdateFlowRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateFlowRequest:
     out: UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateFlowRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError("UpdateFlowRequest.execution_role_arn required")
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agent.types.flow_definition
 
         out["definition"] = capo_bedrock_agent.types.flow_definition.deserialize_json(

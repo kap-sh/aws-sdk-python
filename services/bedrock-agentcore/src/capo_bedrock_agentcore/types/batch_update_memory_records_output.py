@@ -39,7 +39,7 @@ def serialize_json(value: BatchUpdateMemoryRecordsOutput) -> dict:
 
 def deserialize_json(data: dict) -> BatchUpdateMemoryRecordsOutput:
     out: BatchUpdateMemoryRecordsOutput = {}  # type: ignore[typeddict-item]
-    if "successfulRecords" in data:
+    if data.get("successfulRecords") is not None:
         import capo_bedrock_agentcore.types.memory_records_output_list
 
         out["successful_records"] = (
@@ -51,7 +51,7 @@ def deserialize_json(data: dict) -> BatchUpdateMemoryRecordsOutput:
         raise DeserializationError(
             "BatchUpdateMemoryRecordsOutput.successful_records required"
         )
-    if "failedRecords" in data:
+    if data.get("failedRecords") is not None:
         import capo_bedrock_agentcore.types.memory_records_output_list
 
         out["failed_records"] = (

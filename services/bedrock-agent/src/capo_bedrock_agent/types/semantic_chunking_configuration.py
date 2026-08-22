@@ -25,15 +25,15 @@ def serialize_json(value: SemanticChunkingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SemanticChunkingConfiguration:
     out: SemanticChunkingConfiguration = {}  # type: ignore[typeddict-item]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
     else:
         raise DeserializationError("SemanticChunkingConfiguration.max_tokens required")
-    if "bufferSize" in data:
+    if data.get("bufferSize") is not None:
         out["buffer_size"] = data["bufferSize"]
     else:
         raise DeserializationError("SemanticChunkingConfiguration.buffer_size required")
-    if "breakpointPercentileThreshold" in data:
+    if data.get("breakpointPercentileThreshold") is not None:
         out["breakpoint_percentile_threshold"] = data["breakpointPercentileThreshold"]
     else:
         raise DeserializationError(

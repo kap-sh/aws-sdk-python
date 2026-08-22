@@ -29,7 +29,7 @@ def serialize_json(value: InlineAgentFilePart) -> dict:
 
 def deserialize_json(data: dict) -> InlineAgentFilePart:
     out: InlineAgentFilePart = {}  # type: ignore[typeddict-item]
-    if "files" in data:
+    if data.get("files") is not None:
         import capo_bedrock_agent_runtime.types.output_files
 
         out["files"] = capo_bedrock_agent_runtime.types.output_files.deserialize_json(

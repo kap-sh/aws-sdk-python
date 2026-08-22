@@ -28,13 +28,13 @@ def serialize_json(value: GetWorkloadAccessTokenForJWTRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetWorkloadAccessTokenForJWTRequest:
     out: GetWorkloadAccessTokenForJWTRequest = {}  # type: ignore[typeddict-item]
-    if "workloadName" in data:
+    if data.get("workloadName") is not None:
         out["workload_name"] = data["workloadName"]
     else:
         raise DeserializationError(
             "GetWorkloadAccessTokenForJWTRequest.workload_name required"
         )
-    if "userToken" in data:
+    if data.get("userToken") is not None:
         out["user_token"] = data["userToken"]
     else:
         raise DeserializationError(

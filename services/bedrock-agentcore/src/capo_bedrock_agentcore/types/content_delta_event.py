@@ -22,8 +22,8 @@ def serialize_json(value: ContentDeltaEvent) -> dict:
 
 def deserialize_json(data: dict) -> ContentDeltaEvent:
     out: ContentDeltaEvent = {}  # type: ignore[typeddict-item]
-    if "stdout" in data:
+    if data.get("stdout") is not None:
         out["stdout"] = data["stdout"]
-    if "stderr" in data:
+    if data.get("stderr") is not None:
         out["stderr"] = data["stderr"]
     return out

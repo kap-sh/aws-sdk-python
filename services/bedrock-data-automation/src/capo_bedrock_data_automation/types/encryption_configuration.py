@@ -35,11 +35,11 @@ def serialize_json(value: EncryptionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> EncryptionConfiguration:
     out: EncryptionConfiguration = {}  # type: ignore[typeddict-item]
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
     else:
         raise DeserializationError("EncryptionConfiguration.kms_key_id required")
-    if "kmsEncryptionContext" in data:
+    if data.get("kmsEncryptionContext") is not None:
         import capo_bedrock_data_automation.types.kms_encryption_context
 
         out["kms_encryption_context"] = (

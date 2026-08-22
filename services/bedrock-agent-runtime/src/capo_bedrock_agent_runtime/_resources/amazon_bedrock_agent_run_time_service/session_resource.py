@@ -93,7 +93,7 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}
         if session_metadata is not None:
             input_["session_metadata"] = session_metadata
         if encryption_key_arn is not None:
@@ -106,6 +106,7 @@ class SessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -143,14 +144,16 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -195,16 +198,18 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {
+            "session_identifier": session_identifier
+        }
         if session_metadata is not None:
             input_["session_metadata"] = session_metadata
-        input_["session_identifier"] = session_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -245,14 +250,16 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -295,7 +302,7 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -306,6 +313,7 @@ class SessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def end_session(
@@ -344,14 +352,16 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -406,7 +416,7 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}
         if session_metadata is not None:
             input_["session_metadata"] = session_metadata
         if encryption_key_arn is not None:
@@ -419,6 +429,7 @@ class AsyncSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -457,14 +468,16 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -510,16 +523,18 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {
+            "session_identifier": session_identifier
+        }
         if session_metadata is not None:
             input_["session_metadata"] = session_metadata
-        input_["session_identifier"] = session_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -561,14 +576,16 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -612,7 +629,7 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -623,6 +640,7 @@ class AsyncSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def end_session(
@@ -662,12 +680,14 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["session_identifier"] = session_identifier
+        input_: capo_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {
+            "session_identifier": session_identifier
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -23,6 +23,8 @@ def deserialize_json(data: list) -> Conditions:
 
     out: Conditions = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.condition.deserialize_json(item)
         )

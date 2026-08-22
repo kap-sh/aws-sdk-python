@@ -27,7 +27,7 @@ def serialize_json(value: CreateBlueprintResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateBlueprintResponse:
     out: CreateBlueprintResponse = {}  # type: ignore[typeddict-item]
-    if "blueprint" in data:
+    if data.get("blueprint") is not None:
         import capo_bedrock_data_automation.types.blueprint
 
         out["blueprint"] = (

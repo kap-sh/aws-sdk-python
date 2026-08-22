@@ -31,7 +31,7 @@ def serialize_json(value: SynchronizationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SynchronizationConfiguration:
     out: SynchronizationConfiguration = {}  # type: ignore[typeddict-item]
-    if "fromUrl" in data:
+    if data.get("fromUrl") is not None:
         import capo_bedrock_agentcore_control.types.from_url_synchronization_configuration
 
         out["from_url"] = (

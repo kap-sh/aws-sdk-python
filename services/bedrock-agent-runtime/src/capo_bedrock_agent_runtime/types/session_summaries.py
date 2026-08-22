@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> SessionSummaries:
 
     out: SessionSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.session_summary.deserialize_json(item)
         )

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -104,17 +105,19 @@ class CodeInterpreterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_code_interpreter_request.CreateCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_code_interpreter_request.CreateCodeInterpreterRequest = {
+            "name": name,
+            "network_configuration": network_configuration,
+        }
         if description is not None:
             input_["description"] = description
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["network_configuration"] = network_configuration
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -123,6 +126,7 @@ class CodeInterpreterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -160,14 +164,16 @@ class CodeInterpreterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_code_interpreter_request.GetCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_id"] = code_interpreter_id
+        input_: capo_bedrock_agentcore_control.types.get_code_interpreter_request.GetCodeInterpreterRequest = {
+            "code_interpreter_id": code_interpreter_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -211,16 +217,19 @@ class CodeInterpreterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_code_interpreter_request.DeleteCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_id"] = code_interpreter_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_code_interpreter_request.DeleteCodeInterpreterRequest = {
+            "code_interpreter_id": code_interpreter_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -267,7 +276,7 @@ class CodeInterpreterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_code_interpreters_request.ListCodeInterpretersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_code_interpreters_request.ListCodeInterpretersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -280,6 +289,7 @@ class CodeInterpreterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -344,17 +354,19 @@ class AsyncCodeInterpreterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_code_interpreter_request.CreateCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_code_interpreter_request.CreateCodeInterpreterRequest = {
+            "name": name,
+            "network_configuration": network_configuration,
+        }
         if description is not None:
             input_["description"] = description
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["network_configuration"] = network_configuration
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -363,6 +375,7 @@ class AsyncCodeInterpreterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -401,14 +414,16 @@ class AsyncCodeInterpreterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_code_interpreter_request.GetCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_id"] = code_interpreter_id
+        input_: capo_bedrock_agentcore_control.types.get_code_interpreter_request.GetCodeInterpreterRequest = {
+            "code_interpreter_id": code_interpreter_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -453,16 +468,19 @@ class AsyncCodeInterpreterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_code_interpreter_request.DeleteCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_id"] = code_interpreter_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_code_interpreter_request.DeleteCodeInterpreterRequest = {
+            "code_interpreter_id": code_interpreter_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -510,7 +528,7 @@ class AsyncCodeInterpreterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_code_interpreters_request.ListCodeInterpretersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_code_interpreters_request.ListCodeInterpretersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -523,4 +541,5 @@ class AsyncCodeInterpreterResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

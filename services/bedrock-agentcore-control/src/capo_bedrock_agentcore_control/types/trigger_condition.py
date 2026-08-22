@@ -71,7 +71,7 @@ def serialize_json(value: TriggerCondition) -> dict:
 
 
 def deserialize_json(data: dict) -> TriggerCondition:
-    if "messageBasedTrigger" in data:
+    if data.get("messageBasedTrigger") is not None:
         import capo_bedrock_agentcore_control.types.message_based_trigger
 
         return {
@@ -79,7 +79,7 @@ def deserialize_json(data: dict) -> TriggerCondition:
                 data["messageBasedTrigger"]
             )
         }
-    elif "tokenBasedTrigger" in data:
+    elif data.get("tokenBasedTrigger") is not None:
         import capo_bedrock_agentcore_control.types.token_based_trigger
 
         return {
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> TriggerCondition:
                 data["tokenBasedTrigger"]
             )
         }
-    elif "timeBasedTrigger" in data:
+    elif data.get("timeBasedTrigger") is not None:
         import capo_bedrock_agentcore_control.types.time_based_trigger
 
         return {

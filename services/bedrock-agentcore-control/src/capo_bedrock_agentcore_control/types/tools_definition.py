@@ -32,8 +32,8 @@ def serialize_json(value: ToolsDefinition) -> dict:
 
 def deserialize_json(data: dict) -> ToolsDefinition:
     out: ToolsDefinition = {}  # type: ignore[typeddict-item]
-    if "protocolVersion" in data:
+    if data.get("protocolVersion") is not None:
         out["protocol_version"] = data["protocolVersion"]
-    if "inlineContent" in data:
+    if data.get("inlineContent") is not None:
         out["inline_content"] = data["inlineContent"]
     return out

@@ -23,7 +23,7 @@ def serialize_json(value: ToolInputSchema) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolInputSchema:
-    if "json" in data:
+    if data.get("json") is not None:
         return {"json": data["json"]}
     else:
         raise DeserializationError("ToolInputSchema: no recognized variant key")

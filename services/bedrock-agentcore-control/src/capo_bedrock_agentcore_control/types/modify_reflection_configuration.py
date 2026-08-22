@@ -55,7 +55,7 @@ def serialize_json(value: ModifyReflectionConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> ModifyReflectionConfiguration:
-    if "episodicReflectionConfiguration" in data:
+    if data.get("episodicReflectionConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.episodic_reflection_configuration_input
 
         return {
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> ModifyReflectionConfiguration:
                 data["episodicReflectionConfiguration"]
             )
         }
-    elif "customReflectionConfiguration" in data:
+    elif data.get("customReflectionConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.custom_reflection_configuration_input
 
         return {

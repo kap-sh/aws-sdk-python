@@ -43,7 +43,7 @@ def serialize_json(value: TokenExchangeGrantTypeConfigType) -> dict:
 
 def deserialize_json(data: dict) -> TokenExchangeGrantTypeConfigType:
     out: TokenExchangeGrantTypeConfigType = {}  # type: ignore[typeddict-item]
-    if "actorTokenContent" in data:
+    if data.get("actorTokenContent") is not None:
         import capo_bedrock_agentcore_control.types.actor_token_content_type
 
         out["actor_token_content"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> TokenExchangeGrantTypeConfigType:
         raise DeserializationError(
             "TokenExchangeGrantTypeConfigType.actor_token_content required"
         )
-    if "actorTokenScopes" in data:
+    if data.get("actorTokenScopes") is not None:
         import capo_bedrock_agentcore_control.types.scopes_list_type
 
         out["actor_token_scopes"] = (

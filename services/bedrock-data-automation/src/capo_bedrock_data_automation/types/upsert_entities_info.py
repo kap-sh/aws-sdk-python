@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> UpsertEntitiesInfo:
 
     out: UpsertEntitiesInfo = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.upsert_entity_info.deserialize_json(item)
         )

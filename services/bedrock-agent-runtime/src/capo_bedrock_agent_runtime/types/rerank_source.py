@@ -40,7 +40,7 @@ def serialize_json(value: RerankSource) -> dict:
 
 def deserialize_json(data: dict) -> RerankSource:
     out: RerankSource = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.rerank_source_type
 
         out["type"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> RerankSource:
         )
     else:
         raise DeserializationError("RerankSource.type required")
-    if "inlineDocumentSource" in data:
+    if data.get("inlineDocumentSource") is not None:
         import capo_bedrock_agent_runtime.types.rerank_document
 
         out["inline_document_source"] = (

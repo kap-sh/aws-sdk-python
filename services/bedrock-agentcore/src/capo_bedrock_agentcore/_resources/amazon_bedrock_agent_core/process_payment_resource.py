@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -92,24 +93,27 @@ class ProcessPaymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+            "payment_instrument_id": payment_instrument_id,
+            "payment_type": payment_type,
+            "payment_input": payment_input,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
-        input_["payment_instrument_id"] = payment_instrument_id
-        input_["payment_type"] = payment_type
-        input_["payment_input"] = payment_input
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -172,22 +176,25 @@ class AsyncProcessPaymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+            "payment_instrument_id": payment_instrument_id,
+            "payment_type": payment_type,
+            "payment_input": payment_input,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
-        input_["payment_instrument_id"] = payment_instrument_id
-        input_["payment_type"] = payment_type
-        input_["payment_input"] = payment_input
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

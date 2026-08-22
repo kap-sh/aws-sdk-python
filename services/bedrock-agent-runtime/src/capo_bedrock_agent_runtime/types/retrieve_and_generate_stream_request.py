@@ -61,9 +61,9 @@ def serialize_json(value: RetrieveAndGenerateStreamRequest) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveAndGenerateStreamRequest:
     out: RetrieveAndGenerateStreamRequest = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_agent_runtime.types.retrieve_and_generate_input
 
         out["input"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> RetrieveAndGenerateStreamRequest:
         )
     else:
         raise DeserializationError("RetrieveAndGenerateStreamRequest.input required")
-    if "retrieveAndGenerateConfiguration" in data:
+    if data.get("retrieveAndGenerateConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.retrieve_and_generate_configuration
 
         out["retrieve_and_generate_configuration"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> RetrieveAndGenerateStreamRequest:
                 data["retrieveAndGenerateConfiguration"]
             )
         )
-    if "sessionConfiguration" in data:
+    if data.get("sessionConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.retrieve_and_generate_session_configuration
 
         out["session_configuration"] = (

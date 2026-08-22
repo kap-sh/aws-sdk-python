@@ -35,7 +35,7 @@ def serialize_json(value: GeneratedQuery) -> dict:
 
 def deserialize_json(data: dict) -> GeneratedQuery:
     out: GeneratedQuery = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.generated_query_type
 
         out["type"] = (
@@ -43,6 +43,6 @@ def deserialize_json(data: dict) -> GeneratedQuery:
                 data["type"]
             )
         )
-    if "sql" in data:
+    if data.get("sql") is not None:
         out["sql"] = data["sql"]
     return out

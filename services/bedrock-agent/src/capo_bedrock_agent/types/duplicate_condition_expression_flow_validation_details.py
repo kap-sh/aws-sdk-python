@@ -30,13 +30,13 @@ def serialize_json(value: DuplicateConditionExpressionFlowValidationDetails) -> 
 
 def deserialize_json(data: dict) -> DuplicateConditionExpressionFlowValidationDetails:
     out: DuplicateConditionExpressionFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(
             "DuplicateConditionExpressionFlowValidationDetails.node required"
         )
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     else:
         raise DeserializationError(

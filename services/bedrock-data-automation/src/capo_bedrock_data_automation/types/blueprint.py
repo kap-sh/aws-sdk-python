@@ -110,15 +110,15 @@ def serialize_json(value: Blueprint) -> dict:
 
 def deserialize_json(data: dict) -> Blueprint:
     out: Blueprint = {}  # type: ignore[typeddict-item]
-    if "blueprintArn" in data:
+    if data.get("blueprintArn") is not None:
         out["blueprint_arn"] = data["blueprintArn"]
     else:
         raise DeserializationError("Blueprint.blueprint_arn required")
-    if "schema" in data:
+    if data.get("schema") is not None:
         out["schema"] = data["schema"]
     else:
         raise DeserializationError("Blueprint.schema required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_data_automation.types.type
 
         out["type"] = capo_bedrock_data_automation.types.type.deserialize_json(
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> Blueprint:
         )
     else:
         raise DeserializationError("Blueprint.type required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (
@@ -136,7 +136,7 @@ def deserialize_json(data: dict) -> Blueprint:
         )
     else:
         raise DeserializationError("Blueprint.creation_time required")
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["last_modified_time"] = (
@@ -146,13 +146,13 @@ def deserialize_json(data: dict) -> Blueprint:
         )
     else:
         raise DeserializationError("Blueprint.last_modified_time required")
-    if "blueprintName" in data:
+    if data.get("blueprintName") is not None:
         out["blueprint_name"] = data["blueprintName"]
     else:
         raise DeserializationError("Blueprint.blueprint_name required")
-    if "blueprintVersion" in data:
+    if data.get("blueprintVersion") is not None:
         out["blueprint_version"] = data["blueprintVersion"]
-    if "blueprintStage" in data:
+    if data.get("blueprintStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["blueprint_stage"] = (
@@ -160,9 +160,9 @@ def deserialize_json(data: dict) -> Blueprint:
                 data["blueprintStage"]
             )
         )
-    if "kmsKeyId" in data:
+    if data.get("kmsKeyId") is not None:
         out["kms_key_id"] = data["kmsKeyId"]
-    if "kmsEncryptionContext" in data:
+    if data.get("kmsEncryptionContext") is not None:
         import capo_bedrock_data_automation.types.kms_encryption_context
 
         out["kms_encryption_context"] = (
@@ -170,7 +170,7 @@ def deserialize_json(data: dict) -> Blueprint:
                 data["kmsEncryptionContext"]
             )
         )
-    if "optimizationSamples" in data:
+    if data.get("optimizationSamples") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_samples
 
         out["optimization_samples"] = (
@@ -178,7 +178,7 @@ def deserialize_json(data: dict) -> Blueprint:
                 data["optimizationSamples"]
             )
         )
-    if "optimizationTime" in data:
+    if data.get("optimizationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["optimization_time"] = (

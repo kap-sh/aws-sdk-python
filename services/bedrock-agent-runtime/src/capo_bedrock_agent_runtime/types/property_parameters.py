@@ -31,7 +31,7 @@ def serialize_json(value: PropertyParameters) -> dict:
 
 def deserialize_json(data: dict) -> PropertyParameters:
     out: PropertyParameters = {}  # type: ignore[typeddict-item]
-    if "properties" in data:
+    if data.get("properties") is not None:
         import capo_bedrock_agent_runtime.types.parameter_list
 
         out["properties"] = (

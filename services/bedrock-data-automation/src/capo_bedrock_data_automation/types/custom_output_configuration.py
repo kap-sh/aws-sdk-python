@@ -42,7 +42,7 @@ def serialize_json(value: CustomOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CustomOutputConfiguration:
     out: CustomOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "blueprints" in data:
+    if data.get("blueprints") is not None:
         import capo_bedrock_data_automation.types.blueprint_items
 
         out["blueprints"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> CustomOutputConfiguration:
                 data["blueprints"]
             )
         )
-    if "document" in data:
+    if data.get("document") is not None:
         import capo_bedrock_data_automation.types.document_custom_output_configuration
 
         out["document"] = (

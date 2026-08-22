@@ -33,7 +33,7 @@ def serialize_json(value: BatchUpdateMemoryRecordsInput) -> dict:
 
 def deserialize_json(data: dict) -> BatchUpdateMemoryRecordsInput:
     out: BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-    if "records" in data:
+    if data.get("records") is not None:
         import capo_bedrock_agentcore.types.memory_records_update_input_list
 
         out["records"] = (

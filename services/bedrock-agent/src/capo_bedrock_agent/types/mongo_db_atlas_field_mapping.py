@@ -30,15 +30,15 @@ def serialize_json(value: MongoDbAtlasFieldMapping) -> dict:
 
 def deserialize_json(data: dict) -> MongoDbAtlasFieldMapping:
     out: MongoDbAtlasFieldMapping = {}  # type: ignore[typeddict-item]
-    if "vectorField" in data:
+    if data.get("vectorField") is not None:
         out["vector_field"] = data["vectorField"]
     else:
         raise DeserializationError("MongoDbAtlasFieldMapping.vector_field required")
-    if "textField" in data:
+    if data.get("textField") is not None:
         out["text_field"] = data["textField"]
     else:
         raise DeserializationError("MongoDbAtlasFieldMapping.text_field required")
-    if "metadataField" in data:
+    if data.get("metadataField") is not None:
         out["metadata_field"] = data["metadataField"]
     else:
         raise DeserializationError("MongoDbAtlasFieldMapping.metadata_field required")

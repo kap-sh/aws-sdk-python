@@ -82,10 +82,11 @@ class RerankResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
-        input_["queries"] = queries
-        input_["sources"] = sources
-        input_["reranking_configuration"] = reranking_configuration
+        input_: capo_bedrock_agent_runtime.types.rerank_request.RerankRequest = {
+            "queries": queries,
+            "sources": sources,
+            "reranking_configuration": reranking_configuration,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -94,6 +95,7 @@ class RerankResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -149,10 +151,11 @@ class AsyncRerankResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
-        input_["queries"] = queries
-        input_["sources"] = sources
-        input_["reranking_configuration"] = reranking_configuration
+        input_: capo_bedrock_agent_runtime.types.rerank_request.RerankRequest = {
+            "queries": queries,
+            "sources": sources,
+            "reranking_configuration": reranking_configuration,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
 
@@ -161,4 +164,5 @@ class AsyncRerankResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

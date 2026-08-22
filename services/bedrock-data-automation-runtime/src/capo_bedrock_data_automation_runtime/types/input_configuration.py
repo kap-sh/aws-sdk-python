@@ -37,11 +37,11 @@ def serialize_aws_json_1_1(value: InputConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InputConfiguration:
     out: InputConfiguration = {}  # type: ignore[typeddict-item]
-    if "s3Uri" in data:
+    if data.get("s3Uri") is not None:
         out["s3_uri"] = data["s3Uri"]
     else:
         raise DeserializationError("InputConfiguration.s3_uri required")
-    if "assetProcessingConfiguration" in data:
+    if data.get("assetProcessingConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.asset_processing_configuration
 
         out["asset_processing_configuration"] = (

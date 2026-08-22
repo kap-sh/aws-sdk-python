@@ -53,13 +53,13 @@ def serialize_json(value: CreateOauth2CredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateOauth2CredentialProviderRequest:
     out: CreateOauth2CredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "CreateOauth2CredentialProviderRequest.name required"
         )
-    if "credentialProviderVendor" in data:
+    if data.get("credentialProviderVendor") is not None:
         import capo_bedrock_agentcore_control.types.credential_provider_vendor_type
 
         out["credential_provider_vendor"] = (
@@ -71,7 +71,7 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderRequest:
         raise DeserializationError(
             "CreateOauth2CredentialProviderRequest.credential_provider_vendor required"
         )
-    if "oauth2ProviderConfigInput" in data:
+    if data.get("oauth2ProviderConfigInput") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_provider_config_input
 
         out["oauth2_provider_config_input"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderRequest:
         raise DeserializationError(
             "CreateOauth2CredentialProviderRequest.oauth2_provider_config_input required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

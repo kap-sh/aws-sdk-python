@@ -29,7 +29,7 @@ def serialize_json(value: HarnessSystemContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessSystemContentBlock:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError(

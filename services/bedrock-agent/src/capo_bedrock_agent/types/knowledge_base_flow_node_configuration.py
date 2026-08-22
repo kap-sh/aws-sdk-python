@@ -100,13 +100,13 @@ def serialize_json(value: KnowledgeBaseFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseFlowNodeConfiguration:
     out: KnowledgeBaseFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         out["knowledge_base_id"] = ""
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (
@@ -114,9 +114,9 @@ def deserialize_json(data: dict) -> KnowledgeBaseFlowNodeConfiguration:
                 data["guardrailConfiguration"]
             )
         )
-    if "numberOfResults" in data:
+    if data.get("numberOfResults") is not None:
         out["number_of_results"] = data["numberOfResults"]
-    if "promptTemplate" in data:
+    if data.get("promptTemplate") is not None:
         import capo_bedrock_agent.types.knowledge_base_prompt_template
 
         out["prompt_template"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseFlowNodeConfiguration:
                 data["promptTemplate"]
             )
         )
-    if "inferenceConfiguration" in data:
+    if data.get("inferenceConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_inference_configuration
 
         out["inference_configuration"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseFlowNodeConfiguration:
                 data["inferenceConfiguration"]
             )
         )
-    if "rerankingConfiguration" in data:
+    if data.get("rerankingConfiguration") is not None:
         import capo_bedrock_agent.types.vector_search_reranking_configuration
 
         out["reranking_configuration"] = (
@@ -140,7 +140,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseFlowNodeConfiguration:
                 data["rerankingConfiguration"]
             )
         )
-    if "orchestrationConfiguration" in data:
+    if data.get("orchestrationConfiguration") is not None:
         import capo_bedrock_agent.types.knowledge_base_orchestration_configuration
 
         out["orchestration_configuration"] = (

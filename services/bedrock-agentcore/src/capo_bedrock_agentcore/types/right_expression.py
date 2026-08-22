@@ -32,7 +32,7 @@ def serialize_json(value: RightExpression) -> dict:
 
 
 def deserialize_json(data: dict) -> RightExpression:
-    if "metadataValue" in data:
+    if data.get("metadataValue") is not None:
         import capo_bedrock_agentcore.types.metadata_value
 
         return {

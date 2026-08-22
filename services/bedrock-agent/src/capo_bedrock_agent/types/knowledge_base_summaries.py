@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> KnowledgeBaseSummaries:
 
     out: KnowledgeBaseSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.knowledge_base_summary.deserialize_json(item)
         )

@@ -33,11 +33,11 @@ def serialize_json(value: ApiGatewayToolFilter) -> dict:
 
 def deserialize_json(data: dict) -> ApiGatewayToolFilter:
     out: ApiGatewayToolFilter = {}  # type: ignore[typeddict-item]
-    if "filterPath" in data:
+    if data.get("filterPath") is not None:
         out["filter_path"] = data["filterPath"]
     else:
         raise DeserializationError("ApiGatewayToolFilter.filter_path required")
-    if "methods" in data:
+    if data.get("methods") is not None:
         import capo_bedrock_agentcore_control.types.rest_api_methods
 
         out["methods"] = (

@@ -29,8 +29,8 @@ def serialize_json(value: PreProcessingParsedResponse) -> dict:
 
 def deserialize_json(data: dict) -> PreProcessingParsedResponse:
     out: PreProcessingParsedResponse = {}  # type: ignore[typeddict-item]
-    if "rationale" in data:
+    if data.get("rationale") is not None:
         out["rationale"] = data["rationale"]
-    if "isValid" in data:
+    if data.get("isValid") is not None:
         out["is_valid"] = data["isValid"]
     return out

@@ -39,7 +39,7 @@ def serialize_json(value: FlowFailureEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowFailureEvent:
     out: FlowFailureEvent = {}  # type: ignore[typeddict-item]
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["timestamp"] = (
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> FlowFailureEvent:
         )
     else:
         raise DeserializationError("FlowFailureEvent.timestamp required")
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         import capo_bedrock_agent_runtime.types.flow_error_code
 
         out["error_code"] = (
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> FlowFailureEvent:
         )
     else:
         raise DeserializationError("FlowFailureEvent.error_code required")
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     else:
         raise DeserializationError("FlowFailureEvent.error_message required")

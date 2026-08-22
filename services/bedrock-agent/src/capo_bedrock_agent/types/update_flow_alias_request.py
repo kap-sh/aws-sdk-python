@@ -60,13 +60,13 @@ def serialize_json(value: UpdateFlowAliasRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateFlowAliasRequest:
     out: UpdateFlowAliasRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateFlowAliasRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> UpdateFlowAliasRequest:
         raise DeserializationError(
             "UpdateFlowAliasRequest.routing_configuration required"
         )
-    if "concurrencyConfiguration" in data:
+    if data.get("concurrencyConfiguration") is not None:
         import capo_bedrock_agent.types.flow_alias_concurrency_configuration
 
         out["concurrency_configuration"] = (

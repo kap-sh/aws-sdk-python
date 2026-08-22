@@ -38,15 +38,15 @@ def serialize_json(value: DeleteAgentAliasResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteAgentAliasResponse:
     out: DeleteAgentAliasResponse = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("DeleteAgentAliasResponse.agent_id required")
-    if "agentAliasId" in data:
+    if data.get("agentAliasId") is not None:
         out["agent_alias_id"] = data["agentAliasId"]
     else:
         raise DeserializationError("DeleteAgentAliasResponse.agent_alias_id required")
-    if "agentAliasStatus" in data:
+    if data.get("agentAliasStatus") is not None:
         import capo_bedrock_agent.types.agent_alias_status
 
         out["agent_alias_status"] = (

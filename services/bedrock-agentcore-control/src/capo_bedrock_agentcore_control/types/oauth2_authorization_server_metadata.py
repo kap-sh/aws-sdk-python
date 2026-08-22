@@ -60,23 +60,23 @@ def serialize_json(value: Oauth2AuthorizationServerMetadata) -> dict:
 
 def deserialize_json(data: dict) -> Oauth2AuthorizationServerMetadata:
     out: Oauth2AuthorizationServerMetadata = {}  # type: ignore[typeddict-item]
-    if "issuer" in data:
+    if data.get("issuer") is not None:
         out["issuer"] = data["issuer"]
     else:
         raise DeserializationError("Oauth2AuthorizationServerMetadata.issuer required")
-    if "authorizationEndpoint" in data:
+    if data.get("authorizationEndpoint") is not None:
         out["authorization_endpoint"] = data["authorizationEndpoint"]
     else:
         raise DeserializationError(
             "Oauth2AuthorizationServerMetadata.authorization_endpoint required"
         )
-    if "tokenEndpoint" in data:
+    if data.get("tokenEndpoint") is not None:
         out["token_endpoint"] = data["tokenEndpoint"]
     else:
         raise DeserializationError(
             "Oauth2AuthorizationServerMetadata.token_endpoint required"
         )
-    if "responseTypes" in data:
+    if data.get("responseTypes") is not None:
         import capo_bedrock_agentcore_control.types.response_list_type
 
         out["response_types"] = (
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> Oauth2AuthorizationServerMetadata:
                 data["responseTypes"]
             )
         )
-    if "tokenEndpointAuthMethods" in data:
+    if data.get("tokenEndpointAuthMethods") is not None:
         import capo_bedrock_agentcore_control.types.token_endpoint_auth_methods_type
 
         out["token_endpoint_auth_methods"] = (

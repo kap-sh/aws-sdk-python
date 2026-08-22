@@ -54,7 +54,7 @@ def serialize_json(value: ParsingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ParsingConfiguration:
     out: ParsingConfiguration = {}  # type: ignore[typeddict-item]
-    if "parsingStrategy" in data:
+    if data.get("parsingStrategy") is not None:
         import capo_bedrock_agent.types.parsing_strategy
 
         out["parsing_strategy"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> ParsingConfiguration:
         )
     else:
         raise DeserializationError("ParsingConfiguration.parsing_strategy required")
-    if "bedrockFoundationModelConfiguration" in data:
+    if data.get("bedrockFoundationModelConfiguration") is not None:
         import capo_bedrock_agent.types.bedrock_foundation_model_configuration
 
         out["bedrock_foundation_model_configuration"] = (
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> ParsingConfiguration:
                 data["bedrockFoundationModelConfiguration"]
             )
         )
-    if "bedrockDataAutomationConfiguration" in data:
+    if data.get("bedrockDataAutomationConfiguration") is not None:
         import capo_bedrock_agent.types.bedrock_data_automation_configuration
 
         out["bedrock_data_automation_configuration"] = (

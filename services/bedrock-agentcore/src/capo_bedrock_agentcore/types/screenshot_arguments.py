@@ -29,7 +29,7 @@ def serialize_json(value: ScreenshotArguments) -> dict:
 
 def deserialize_json(data: dict) -> ScreenshotArguments:
     out: ScreenshotArguments = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_agentcore.types.screenshot_format
 
         out["format"] = capo_bedrock_agentcore.types.screenshot_format.deserialize_json(

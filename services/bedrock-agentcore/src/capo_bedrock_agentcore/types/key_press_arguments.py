@@ -23,10 +23,10 @@ def serialize_json(value: KeyPressArguments) -> dict:
 
 def deserialize_json(data: dict) -> KeyPressArguments:
     out: KeyPressArguments = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("KeyPressArguments.key required")
-    if "presses" in data:
+    if data.get("presses") is not None:
         out["presses"] = data["presses"]
     return out

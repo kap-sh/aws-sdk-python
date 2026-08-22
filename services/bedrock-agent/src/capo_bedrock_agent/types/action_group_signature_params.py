@@ -16,5 +16,7 @@ def serialize_json(input_to_serialize: ActionGroupSignatureParams) -> dict:
 def deserialize_json(data: dict) -> ActionGroupSignatureParams:
     out: ActionGroupSignatureParams = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

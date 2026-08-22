@@ -31,7 +31,7 @@ def serialize_json(value: GeneratedResponsePart) -> dict:
 
 def deserialize_json(data: dict) -> GeneratedResponsePart:
     out: GeneratedResponsePart = {}  # type: ignore[typeddict-item]
-    if "textResponsePart" in data:
+    if data.get("textResponsePart") is not None:
         import capo_bedrock_agent_runtime.types.text_response_part
 
         out["text_response_part"] = (

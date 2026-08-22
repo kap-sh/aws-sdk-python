@@ -46,13 +46,13 @@ def serialize_json(value: BedrockFoundationModelConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BedrockFoundationModelConfiguration:
     out: BedrockFoundationModelConfiguration = {}  # type: ignore[typeddict-item]
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(
             "BedrockFoundationModelConfiguration.model_arn required"
         )
-    if "parsingPrompt" in data:
+    if data.get("parsingPrompt") is not None:
         import capo_bedrock_agent.types.parsing_prompt
 
         out["parsing_prompt"] = (
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> BedrockFoundationModelConfiguration:
                 data["parsingPrompt"]
             )
         )
-    if "parsingModality" in data:
+    if data.get("parsingModality") is not None:
         import capo_bedrock_agent.types.parsing_modality
 
         out["parsing_modality"] = (

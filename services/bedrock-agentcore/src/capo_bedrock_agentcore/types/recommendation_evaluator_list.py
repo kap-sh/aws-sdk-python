@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> RecommendationEvaluatorList:
 
     out: RecommendationEvaluatorList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.recommendation_evaluator_reference.deserialize_json(
                 item

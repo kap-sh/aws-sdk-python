@@ -248,15 +248,17 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.complete_resource_token_auth_request.CompleteResourceTokenAuthRequest = {}  # type: ignore[typeddict-item]
-        input_["user_identifier"] = user_identifier
-        input_["session_uri"] = session_uri
+        input_: capo_bedrock_agentcore.types.complete_resource_token_auth_request.CompleteResourceTokenAuthRequest = {
+            "user_identifier": user_identifier,
+            "session_uri": session_uri,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_api_key(
@@ -297,15 +299,17 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_resource_api_key_request.GetResourceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_identity_token"] = workload_identity_token
-        input_["resource_credential_provider_name"] = resource_credential_provider_name
+        input_: capo_bedrock_agentcore.types.get_resource_api_key_request.GetResourceApiKeyRequest = {
+            "workload_identity_token": workload_identity_token,
+            "resource_credential_provider_name": resource_credential_provider_name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_oauth2_token(
@@ -374,11 +378,12 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_resource_oauth2_token_request.GetResourceOauth2TokenRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_identity_token"] = workload_identity_token
-        input_["resource_credential_provider_name"] = resource_credential_provider_name
-        input_["scopes"] = scopes
-        input_["oauth2_flow"] = oauth2_flow
+        input_: capo_bedrock_agentcore.types.get_resource_oauth2_token_request.GetResourceOauth2TokenRequest = {
+            "workload_identity_token": workload_identity_token,
+            "resource_credential_provider_name": resource_credential_provider_name,
+            "scopes": scopes,
+            "oauth2_flow": oauth2_flow,
+        }
         if session_uri is not None:
             input_["session_uri"] = session_uri
         if resource_oauth2_return_url is not None:
@@ -399,6 +404,7 @@ class BedrockAgentCoreClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_resource_payment_token(
@@ -441,16 +447,18 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_resource_payment_token_request.GetResourcePaymentTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_identity_token"] = workload_identity_token
-        input_["resource_credential_provider_name"] = resource_credential_provider_name
-        input_["payment_token_request"] = payment_token_request
+        input_: capo_bedrock_agentcore.types.get_resource_payment_token_request.GetResourcePaymentTokenRequest = {
+            "workload_identity_token": workload_identity_token,
+            "resource_credential_provider_name": resource_credential_provider_name,
+            "payment_token_request": payment_token_request,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_workload_access_token(
@@ -489,14 +497,16 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_workload_access_token_request.GetWorkloadAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_name"] = workload_name
+        input_: capo_bedrock_agentcore.types.get_workload_access_token_request.GetWorkloadAccessTokenRequest = {
+            "workload_name": workload_name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_workload_access_token_for_jwt(
@@ -537,15 +547,17 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_workload_access_token_for_jwt_request.GetWorkloadAccessTokenForJWTRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_name"] = workload_name
-        input_["user_token"] = user_token
+        input_: capo_bedrock_agentcore.types.get_workload_access_token_for_jwt_request.GetWorkloadAccessTokenForJWTRequest = {
+            "workload_name": workload_name,
+            "user_token": user_token,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_workload_access_token_for_user_id(
@@ -586,15 +598,17 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_workload_access_token_for_user_id_request.GetWorkloadAccessTokenForUserIdRequest = {}  # type: ignore[typeddict-item]
-        input_["workload_name"] = workload_name
-        input_["user_id"] = user_id
+        input_: capo_bedrock_agentcore.types.get_workload_access_token_for_user_id_request.GetWorkloadAccessTokenForUserIdRequest = {
+            "workload_name": workload_name,
+            "user_id": user_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     @contextmanager
@@ -649,15 +663,16 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_code_interpreter_request.InvokeCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: capo_bedrock_agentcore.types.invoke_code_interpreter_request.InvokeCodeInterpreterRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier,
+            "name": name,
+        }
         if session_id is not None:
             input_["session_id"] = session_id
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["name"] = name
         if arguments is not None:
             input_["arguments"] = arguments
 
@@ -666,7 +681,10 @@ class BedrockAgentCoreClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     @contextmanager
     def invoke_harness(
@@ -739,12 +757,13 @@ class BedrockAgentCoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.invoke_harness_request.InvokeHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_arn"] = harness_arn
-        input_["runtime_session_id"] = runtime_session_id
+        input_: capo_bedrock_agentcore.types.invoke_harness_request.InvokeHarnessRequest = {
+            "harness_arn": harness_arn,
+            "runtime_session_id": runtime_session_id,
+            "messages": messages,
+        }
         if runtime_user_id is not None:
             input_["runtime_user_id"] = runtime_user_id
-        input_["messages"] = messages
         if model is not None:
             input_["model"] = model
         if system_prompt is not None:
@@ -769,7 +788,10 @@ class BedrockAgentCoreClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
     def __enter__(self) -> Self:
         return self

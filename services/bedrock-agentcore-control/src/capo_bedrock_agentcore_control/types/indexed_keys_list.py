@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> IndexedKeysList:
 
     out: IndexedKeysList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.indexed_key.deserialize_json(item)
         )

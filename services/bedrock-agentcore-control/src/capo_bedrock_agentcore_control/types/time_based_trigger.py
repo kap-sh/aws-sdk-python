@@ -18,6 +18,6 @@ def serialize_json(value: TimeBasedTrigger) -> dict:
 
 def deserialize_json(data: dict) -> TimeBasedTrigger:
     out: TimeBasedTrigger = {}  # type: ignore[typeddict-item]
-    if "idleSessionTimeout" in data:
+    if data.get("idleSessionTimeout") is not None:
         out["idle_session_timeout"] = data["idleSessionTimeout"]
     return out

@@ -24,7 +24,7 @@ def serialize_json(value: Secret) -> dict:
 
 def deserialize_json(data: dict) -> Secret:
     out: Secret = {}  # type: ignore[typeddict-item]
-    if "secretArn" in data:
+    if data.get("secretArn") is not None:
         out["secret_arn"] = data["secretArn"]
     else:
         raise DeserializationError("Secret.secret_arn required")

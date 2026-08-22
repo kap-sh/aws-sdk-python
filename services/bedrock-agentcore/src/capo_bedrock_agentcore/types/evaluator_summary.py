@@ -43,9 +43,9 @@ def serialize_json(value: EvaluatorSummary) -> dict:
 
 def deserialize_json(data: dict) -> EvaluatorSummary:
     out: EvaluatorSummary = {}  # type: ignore[typeddict-item]
-    if "evaluatorId" in data:
+    if data.get("evaluatorId") is not None:
         out["evaluator_id"] = data["evaluatorId"]
-    if "statistics" in data:
+    if data.get("statistics") is not None:
         import capo_bedrock_agentcore.types.evaluator_statistics
 
         out["statistics"] = (
@@ -53,8 +53,8 @@ def deserialize_json(data: dict) -> EvaluatorSummary:
                 data["statistics"]
             )
         )
-    if "totalEvaluated" in data:
+    if data.get("totalEvaluated") is not None:
         out["total_evaluated"] = data["totalEvaluated"]
-    if "totalFailed" in data:
+    if data.get("totalFailed") is not None:
         out["total_failed"] = data["totalFailed"]
     return out

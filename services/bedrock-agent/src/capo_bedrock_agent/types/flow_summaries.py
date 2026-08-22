@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> FlowSummaries:
 
     out: FlowSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.flow_summary.deserialize_json(item))
     return out

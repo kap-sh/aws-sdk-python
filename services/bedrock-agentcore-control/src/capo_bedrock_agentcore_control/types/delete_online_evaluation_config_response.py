@@ -38,19 +38,19 @@ def serialize_json(value: DeleteOnlineEvaluationConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteOnlineEvaluationConfigResponse:
     out: DeleteOnlineEvaluationConfigResponse = {}  # type: ignore[typeddict-item]
-    if "onlineEvaluationConfigArn" in data:
+    if data.get("onlineEvaluationConfigArn") is not None:
         out["online_evaluation_config_arn"] = data["onlineEvaluationConfigArn"]
     else:
         raise DeserializationError(
             "DeleteOnlineEvaluationConfigResponse.online_evaluation_config_arn required"
         )
-    if "onlineEvaluationConfigId" in data:
+    if data.get("onlineEvaluationConfigId") is not None:
         out["online_evaluation_config_id"] = data["onlineEvaluationConfigId"]
     else:
         raise DeserializationError(
             "DeleteOnlineEvaluationConfigResponse.online_evaluation_config_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_config_status
 
         out["status"] = (

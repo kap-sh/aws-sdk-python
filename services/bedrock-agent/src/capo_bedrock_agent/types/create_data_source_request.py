@@ -88,15 +88,15 @@ def serialize_json(value: CreateDataSourceRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateDataSourceRequest:
     out: CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateDataSourceRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "dataSourceConfiguration" in data:
+    if data.get("dataSourceConfiguration") is not None:
         import capo_bedrock_agent.types.data_source_configuration
 
         out["data_source_configuration"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> CreateDataSourceRequest:
         raise DeserializationError(
             "CreateDataSourceRequest.data_source_configuration required"
         )
-    if "dataDeletionPolicy" in data:
+    if data.get("dataDeletionPolicy") is not None:
         import capo_bedrock_agent.types.data_deletion_policy
 
         out["data_deletion_policy"] = (
@@ -116,7 +116,7 @@ def deserialize_json(data: dict) -> CreateDataSourceRequest:
                 data["dataDeletionPolicy"]
             )
         )
-    if "serverSideEncryptionConfiguration" in data:
+    if data.get("serverSideEncryptionConfiguration") is not None:
         import capo_bedrock_agent.types.server_side_encryption_configuration
 
         out["server_side_encryption_configuration"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> CreateDataSourceRequest:
                 data["serverSideEncryptionConfiguration"]
             )
         )
-    if "vectorIngestionConfiguration" in data:
+    if data.get("vectorIngestionConfiguration") is not None:
         import capo_bedrock_agent.types.vector_ingestion_configuration
 
         out["vector_ingestion_configuration"] = (

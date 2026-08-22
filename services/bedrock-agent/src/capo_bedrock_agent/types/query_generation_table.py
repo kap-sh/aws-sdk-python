@@ -55,19 +55,19 @@ def serialize_json(value: QueryGenerationTable) -> dict:
 
 def deserialize_json(data: dict) -> QueryGenerationTable:
     out: QueryGenerationTable = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("QueryGenerationTable.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "inclusion" in data:
+    if data.get("inclusion") is not None:
         import capo_bedrock_agent.types.include_exclude
 
         out["inclusion"] = capo_bedrock_agent.types.include_exclude.deserialize_json(
             data["inclusion"]
         )
-    if "columns" in data:
+    if data.get("columns") is not None:
         import capo_bedrock_agent.types.query_generation_columns
 
         out["columns"] = (

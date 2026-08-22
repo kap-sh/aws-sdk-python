@@ -44,7 +44,7 @@ def serialize_json(value: CloudWatchLogsInputConfig) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchLogsInputConfig:
     out: CloudWatchLogsInputConfig = {}  # type: ignore[typeddict-item]
-    if "logGroupNames" in data:
+    if data.get("logGroupNames") is not None:
         import capo_bedrock_agentcore_control.types.log_group_names_list
 
         out["log_group_names"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> CloudWatchLogsInputConfig:
         )
     else:
         raise DeserializationError("CloudWatchLogsInputConfig.log_group_names required")
-    if "serviceNames" in data:
+    if data.get("serviceNames") is not None:
         import capo_bedrock_agentcore_control.types.service_names_list
 
         out["service_names"] = (

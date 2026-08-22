@@ -29,7 +29,7 @@ def serialize_json(value: Resource) -> dict:
 
 
 def deserialize_json(data: dict) -> Resource:
-    if "arn" in data:
+    if data.get("arn") is not None:
         return {"arn": data["arn"]}
     else:
         raise DeserializationError("Resource: no recognized variant key")

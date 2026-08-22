@@ -28,10 +28,10 @@ def serialize_json(value: LambdaEvaluatorConfig) -> dict:
 
 def deserialize_json(data: dict) -> LambdaEvaluatorConfig:
     out: LambdaEvaluatorConfig = {}  # type: ignore[typeddict-item]
-    if "lambdaArn" in data:
+    if data.get("lambdaArn") is not None:
         out["lambda_arn"] = data["lambdaArn"]
     else:
         raise DeserializationError("LambdaEvaluatorConfig.lambda_arn required")
-    if "lambdaTimeoutInSeconds" in data:
+    if data.get("lambdaTimeoutInSeconds") is not None:
         out["lambda_timeout_in_seconds"] = data["lambdaTimeoutInSeconds"]
     return out

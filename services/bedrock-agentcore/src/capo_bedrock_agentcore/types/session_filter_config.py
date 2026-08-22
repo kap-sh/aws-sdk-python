@@ -19,17 +19,15 @@ class SessionFilterConfig(TypedDict, closed=True):
 def serialize_json(value: SessionFilterConfig) -> dict:
     out: dict = {}
     if "start_time" in value:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+        import capo_bedrock_agentcore._protocol.serialize
 
-        out["startTime"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
-                value["start_time"]
-            )
+        out["startTime"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
+            value["start_time"]
         )
     if "end_time" in value:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+        import capo_bedrock_agentcore._protocol.serialize
 
-        out["endTime"] = capo_bedrock_agentcore.types._prelude.timestamp.serialize_json(
+        out["endTime"] = capo_bedrock_agentcore._protocol.serialize.fmt_date_time(
             value["end_time"]
         )
     return out
@@ -37,20 +35,16 @@ def serialize_json(value: SessionFilterConfig) -> dict:
 
 def deserialize_json(data: dict) -> SessionFilterConfig:
     out: SessionFilterConfig = {}  # type: ignore[typeddict-item]
-    if "startTime" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("startTime") is not None:
+        import datetime
 
-        out["start_time"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["startTime"]
-            )
+        out["start_time"] = datetime.datetime.fromisoformat(
+            data["startTime"].replace("Z", "+00:00")
         )
-    if "endTime" in data:
-        import capo_bedrock_agentcore.types._prelude.timestamp
+    if data.get("endTime") is not None:
+        import datetime
 
-        out["end_time"] = (
-            capo_bedrock_agentcore.types._prelude.timestamp.deserialize_json(
-                data["endTime"]
-            )
+        out["end_time"] = datetime.datetime.fromisoformat(
+            data["endTime"].replace("Z", "+00:00")
         )
     return out

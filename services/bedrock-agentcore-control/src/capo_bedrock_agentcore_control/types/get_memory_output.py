@@ -28,7 +28,7 @@ def serialize_json(value: GetMemoryOutput) -> dict:
 
 def deserialize_json(data: dict) -> GetMemoryOutput:
     out: GetMemoryOutput = {}  # type: ignore[typeddict-item]
-    if "memory" in data:
+    if data.get("memory") is not None:
         import capo_bedrock_agentcore_control.types.memory
 
         out["memory"] = capo_bedrock_agentcore_control.types.memory.deserialize_json(

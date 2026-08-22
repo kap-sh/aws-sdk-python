@@ -41,9 +41,9 @@ def serialize_json(value: GetBlueprintRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetBlueprintRequest:
     out: GetBlueprintRequest = {}  # type: ignore[typeddict-item]
-    if "blueprintVersion" in data:
+    if data.get("blueprintVersion") is not None:
         out["blueprint_version"] = data["blueprintVersion"]
-    if "blueprintStage" in data:
+    if data.get("blueprintStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["blueprint_stage"] = (

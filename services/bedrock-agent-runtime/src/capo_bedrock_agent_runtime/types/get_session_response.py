@@ -75,15 +75,15 @@ def serialize_json(value: GetSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetSessionResponse:
     out: GetSessionResponse = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("GetSessionResponse.session_id required")
-    if "sessionArn" in data:
+    if data.get("sessionArn") is not None:
         out["session_arn"] = data["sessionArn"]
     else:
         raise DeserializationError("GetSessionResponse.session_arn required")
-    if "sessionStatus" in data:
+    if data.get("sessionStatus") is not None:
         import capo_bedrock_agent_runtime.types.session_status
 
         out["session_status"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> GetSessionResponse:
         )
     else:
         raise DeserializationError("GetSessionResponse.session_status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["created_at"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> GetSessionResponse:
         )
     else:
         raise DeserializationError("GetSessionResponse.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> GetSessionResponse:
         )
     else:
         raise DeserializationError("GetSessionResponse.last_updated_at required")
-    if "sessionMetadata" in data:
+    if data.get("sessionMetadata") is not None:
         import capo_bedrock_agent_runtime.types.session_metadata_map
 
         out["session_metadata"] = (
@@ -121,6 +121,6 @@ def deserialize_json(data: dict) -> GetSessionResponse:
                 data["sessionMetadata"]
             )
         )
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
     return out

@@ -19,7 +19,7 @@ def serialize_json(value: AudioSegmentationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AudioSegmentationConfiguration:
     out: AudioSegmentationConfiguration = {}  # type: ignore[typeddict-item]
-    if "fixedLengthDuration" in data:
+    if data.get("fixedLengthDuration") is not None:
         out["fixed_length_duration"] = data["fixedLengthDuration"]
     else:
         raise DeserializationError(

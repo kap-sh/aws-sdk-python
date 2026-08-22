@@ -51,11 +51,11 @@ def serialize_json(value: RetrieveMemoryRecordsInput) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveMemoryRecordsInput:
     out: RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
-    if "namespacePath" in data:
+    if data.get("namespacePath") is not None:
         out["namespace_path"] = data["namespacePath"]
-    if "searchCriteria" in data:
+    if data.get("searchCriteria") is not None:
         import capo_bedrock_agentcore.types.search_criteria
 
         out["search_criteria"] = (
@@ -67,9 +67,9 @@ def deserialize_json(data: dict) -> RetrieveMemoryRecordsInput:
         raise DeserializationError(
             "RetrieveMemoryRecordsInput.search_criteria required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 100

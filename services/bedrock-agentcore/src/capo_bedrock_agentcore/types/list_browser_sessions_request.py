@@ -43,11 +43,11 @@ def serialize_json(value: ListBrowserSessionsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListBrowserSessionsRequest:
     out: ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.browser_session_status
 
         out["status"] = (

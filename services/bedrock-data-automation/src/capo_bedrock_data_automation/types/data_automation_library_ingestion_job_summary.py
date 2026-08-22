@@ -68,13 +68,13 @@ def serialize_json(value: DataAutomationLibraryIngestionJobSummary) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJobSummary:
     out: DataAutomationLibraryIngestionJobSummary = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJobSummary.job_arn required"
         )
-    if "jobStatus" in data:
+    if data.get("jobStatus") is not None:
         import capo_bedrock_data_automation.types.library_ingestion_job_status
 
         out["job_status"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJobSummary:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJobSummary.job_status required"
         )
-    if "entityType" in data:
+    if data.get("entityType") is not None:
         import capo_bedrock_data_automation.types.entity_type
 
         out["entity_type"] = (
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJobSummary:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJobSummary.entity_type required"
         )
-    if "operationType" in data:
+    if data.get("operationType") is not None:
         import capo_bedrock_data_automation.types.library_ingestion_job_operation_type
 
         out["operation_type"] = (
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJobSummary:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJobSummary.operation_type required"
         )
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJobSummary:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJobSummary.creation_time required"
         )
-    if "completionTime" in data:
+    if data.get("completionTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["completion_time"] = (

@@ -39,7 +39,7 @@ def serialize_aws_json_1_1(value: OutputSegment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> OutputSegment:
     out: OutputSegment = {}  # type: ignore[typeddict-item]
-    if "customOutputStatus" in data:
+    if data.get("customOutputStatus") is not None:
         import capo_bedrock_data_automation_runtime.types.custom_output_status
 
         out["custom_output_status"] = (
@@ -47,8 +47,8 @@ def deserialize_aws_json_1_1(data: dict) -> OutputSegment:
                 data["customOutputStatus"]
             )
         )
-    if "customOutput" in data:
+    if data.get("customOutput") is not None:
         out["custom_output"] = data["customOutput"]
-    if "standardOutput" in data:
+    if data.get("standardOutput") is not None:
         out["standard_output"] = data["standardOutput"]
     return out

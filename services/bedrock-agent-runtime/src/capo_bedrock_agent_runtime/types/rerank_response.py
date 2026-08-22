@@ -35,7 +35,7 @@ def serialize_json(value: RerankResponse) -> dict:
 
 def deserialize_json(data: dict) -> RerankResponse:
     out: RerankResponse = {}  # type: ignore[typeddict-item]
-    if "results" in data:
+    if data.get("results") is not None:
         import capo_bedrock_agent_runtime.types.rerank_results_list
 
         out["results"] = (
@@ -45,6 +45,6 @@ def deserialize_json(data: dict) -> RerankResponse:
         )
     else:
         raise DeserializationError("RerankResponse.results required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

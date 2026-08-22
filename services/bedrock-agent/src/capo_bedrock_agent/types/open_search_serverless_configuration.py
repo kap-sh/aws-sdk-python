@@ -38,19 +38,19 @@ def serialize_json(value: OpenSearchServerlessConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> OpenSearchServerlessConfiguration:
     out: OpenSearchServerlessConfiguration = {}  # type: ignore[typeddict-item]
-    if "collectionArn" in data:
+    if data.get("collectionArn") is not None:
         out["collection_arn"] = data["collectionArn"]
     else:
         raise DeserializationError(
             "OpenSearchServerlessConfiguration.collection_arn required"
         )
-    if "vectorIndexName" in data:
+    if data.get("vectorIndexName") is not None:
         out["vector_index_name"] = data["vectorIndexName"]
     else:
         raise DeserializationError(
             "OpenSearchServerlessConfiguration.vector_index_name required"
         )
-    if "fieldMapping" in data:
+    if data.get("fieldMapping") is not None:
         import capo_bedrock_agent.types.open_search_serverless_field_mapping
 
         out["field_mapping"] = (

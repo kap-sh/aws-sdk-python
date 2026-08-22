@@ -27,7 +27,7 @@ def serialize_json(value: Attribution) -> dict:
 
 def deserialize_json(data: dict) -> Attribution:
     out: Attribution = {}  # type: ignore[typeddict-item]
-    if "citations" in data:
+    if data.get("citations") is not None:
         import capo_bedrock_agent_runtime.types.citations
 
         out["citations"] = capo_bedrock_agent_runtime.types.citations.deserialize_json(

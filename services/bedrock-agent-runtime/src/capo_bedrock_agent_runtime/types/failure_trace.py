@@ -43,13 +43,13 @@ def serialize_json(value: FailureTrace) -> dict:
 
 def deserialize_json(data: dict) -> FailureTrace:
     out: FailureTrace = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "failureCode" in data:
+    if data.get("failureCode") is not None:
         out["failure_code"] = data["failureCode"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

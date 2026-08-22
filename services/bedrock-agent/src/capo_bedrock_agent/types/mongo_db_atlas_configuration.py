@@ -69,31 +69,31 @@ def serialize_json(value: MongoDbAtlasConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> MongoDbAtlasConfiguration:
     out: MongoDbAtlasConfiguration = {}  # type: ignore[typeddict-item]
-    if "endpoint" in data:
+    if data.get("endpoint") is not None:
         out["endpoint"] = data["endpoint"]
     else:
         raise DeserializationError("MongoDbAtlasConfiguration.endpoint required")
-    if "databaseName" in data:
+    if data.get("databaseName") is not None:
         out["database_name"] = data["databaseName"]
     else:
         raise DeserializationError("MongoDbAtlasConfiguration.database_name required")
-    if "collectionName" in data:
+    if data.get("collectionName") is not None:
         out["collection_name"] = data["collectionName"]
     else:
         raise DeserializationError("MongoDbAtlasConfiguration.collection_name required")
-    if "vectorIndexName" in data:
+    if data.get("vectorIndexName") is not None:
         out["vector_index_name"] = data["vectorIndexName"]
     else:
         raise DeserializationError(
             "MongoDbAtlasConfiguration.vector_index_name required"
         )
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError(
             "MongoDbAtlasConfiguration.credentials_secret_arn required"
         )
-    if "fieldMapping" in data:
+    if data.get("fieldMapping") is not None:
         import capo_bedrock_agent.types.mongo_db_atlas_field_mapping
 
         out["field_mapping"] = (
@@ -103,8 +103,8 @@ def deserialize_json(data: dict) -> MongoDbAtlasConfiguration:
         )
     else:
         raise DeserializationError("MongoDbAtlasConfiguration.field_mapping required")
-    if "endpointServiceName" in data:
+    if data.get("endpointServiceName") is not None:
         out["endpoint_service_name"] = data["endpointServiceName"]
-    if "textIndexName" in data:
+    if data.get("textIndexName") is not None:
         out["text_index_name"] = data["textIndexName"]
     return out

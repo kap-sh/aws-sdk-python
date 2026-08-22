@@ -28,7 +28,7 @@ def serialize_json(value: PerformanceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PerformanceConfiguration:
     out: PerformanceConfiguration = {}  # type: ignore[typeddict-item]
-    if "latency" in data:
+    if data.get("latency") is not None:
         import capo_bedrock_agent.types.performance_config_latency
 
         out["latency"] = (

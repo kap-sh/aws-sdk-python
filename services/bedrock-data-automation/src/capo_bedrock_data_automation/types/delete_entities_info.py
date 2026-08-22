@@ -27,7 +27,7 @@ def serialize_json(value: DeleteEntitiesInfo) -> dict:
 
 def deserialize_json(data: dict) -> DeleteEntitiesInfo:
     out: DeleteEntitiesInfo = {}  # type: ignore[typeddict-item]
-    if "entityIds" in data:
+    if data.get("entityIds") is not None:
         import capo_bedrock_data_automation.types.entity_id_list
 
         out["entity_ids"] = (

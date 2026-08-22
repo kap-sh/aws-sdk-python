@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 from capo_bedrock_data_automation_runtime._services._pipeline import (
@@ -103,11 +104,14 @@ class AutomationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_configuration"] = input_configuration
-        input_["output_configuration"] = output_configuration
+        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {
+            "input_configuration": input_configuration,
+            "output_configuration": output_configuration,
+            "data_automation_profile_arn": data_automation_profile_arn,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if data_automation_configuration is not None:
             input_["data_automation_configuration"] = data_automation_configuration
         if encryption_configuration is not None:
@@ -116,7 +120,6 @@ class AutomationJobResource:
             input_["notification_configuration"] = notification_configuration
         if blueprints is not None:
             input_["blueprints"] = blueprints
-        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -125,6 +128,7 @@ class AutomationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -162,14 +166,16 @@ class AutomationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -243,11 +249,14 @@ class AsyncAutomationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["input_configuration"] = input_configuration
-        input_["output_configuration"] = output_configuration
+        input_: capo_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {
+            "input_configuration": input_configuration,
+            "output_configuration": output_configuration,
+            "data_automation_profile_arn": data_automation_profile_arn,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if data_automation_configuration is not None:
             input_["data_automation_configuration"] = data_automation_configuration
         if encryption_configuration is not None:
@@ -256,7 +265,6 @@ class AsyncAutomationJobResource:
             input_["notification_configuration"] = notification_configuration
         if blueprints is not None:
             input_["blueprints"] = blueprints
-        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if tags is not None:
             input_["tags"] = tags
 
@@ -265,6 +273,7 @@ class AsyncAutomationJobResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -305,12 +314,14 @@ class AsyncAutomationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
-        input_["invocation_arn"] = invocation_arn
+        input_: capo_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {
+            "invocation_arn": invocation_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

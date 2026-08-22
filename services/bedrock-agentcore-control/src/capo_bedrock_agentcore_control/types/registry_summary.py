@@ -83,21 +83,21 @@ def serialize_json(value: RegistrySummary) -> dict:
 
 def deserialize_json(data: dict) -> RegistrySummary:
     out: RegistrySummary = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("RegistrySummary.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
     else:
         raise DeserializationError("RegistrySummary.registry_id required")
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError("RegistrySummary.registry_arn required")
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.registry_authorizer_type
 
         out["authorizer_type"] = (
@@ -105,7 +105,7 @@ def deserialize_json(data: dict) -> RegistrySummary:
                 data["authorizerType"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_status
 
         out["status"] = (
@@ -115,9 +115,9 @@ def deserialize_json(data: dict) -> RegistrySummary:
         )
     else:
         raise DeserializationError("RegistrySummary.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -127,7 +127,7 @@ def deserialize_json(data: dict) -> RegistrySummary:
         )
     else:
         raise DeserializationError("RegistrySummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

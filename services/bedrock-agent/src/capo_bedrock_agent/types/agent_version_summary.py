@@ -69,11 +69,11 @@ def serialize_json(value: AgentVersionSummary) -> dict:
 
 def deserialize_json(data: dict) -> AgentVersionSummary:
     out: AgentVersionSummary = {}  # type: ignore[typeddict-item]
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
     else:
         raise DeserializationError("AgentVersionSummary.agent_name required")
-    if "agentStatus" in data:
+    if data.get("agentStatus") is not None:
         import capo_bedrock_agent.types.agent_status
 
         out["agent_status"] = capo_bedrock_agent.types.agent_status.deserialize_json(
@@ -81,11 +81,11 @@ def deserialize_json(data: dict) -> AgentVersionSummary:
         )
     else:
         raise DeserializationError("AgentVersionSummary.agent_status required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("AgentVersionSummary.agent_version required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> AgentVersionSummary:
         )
     else:
         raise DeserializationError("AgentVersionSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -101,9 +101,9 @@ def deserialize_json(data: dict) -> AgentVersionSummary:
         )
     else:
         raise DeserializationError("AgentVersionSummary.updated_at required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (

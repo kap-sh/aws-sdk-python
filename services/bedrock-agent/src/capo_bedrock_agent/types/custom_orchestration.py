@@ -31,7 +31,7 @@ def serialize_json(value: CustomOrchestration) -> dict:
 
 def deserialize_json(data: dict) -> CustomOrchestration:
     out: CustomOrchestration = {}  # type: ignore[typeddict-item]
-    if "executor" in data:
+    if data.get("executor") is not None:
         import capo_bedrock_agent.types.orchestration_executor
 
         out["executor"] = (

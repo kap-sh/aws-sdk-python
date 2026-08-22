@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -147,26 +148,29 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest = {
+            "name": name,
+            "gateway_arn": gateway_arn,
+            "variants": variants,
+            "evaluation_config": evaluation_config,
+            "role_arn": role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["gateway_arn"] = gateway_arn
-        input_["variants"] = variants
         if gateway_filter is not None:
             input_["gateway_filter"] = gateway_filter
-        input_["evaluation_config"] = evaluation_config
-        input_["role_arn"] = role_arn
         if enable_on_create is not None:
             input_["enable_on_create"] = enable_on_create
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_ab_test(
@@ -206,14 +210,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
+        input_: capo_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_batch_evaluation(
@@ -253,14 +259,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_recommendation(
@@ -299,14 +307,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["recommendation_id"] = recommendation_id
+        input_: capo_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {
+            "recommendation_id": recommendation_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def evaluate(
@@ -358,9 +368,10 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.evaluate_request.EvaluateRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
-        input_["evaluation_input"] = evaluation_input
+        input_: capo_bedrock_agentcore.types.evaluate_request.EvaluateRequest = {
+            "evaluator_id": evaluator_id,
+            "evaluation_input": evaluation_input,
+        }
         if evaluation_target is not None:
             input_["evaluation_target"] = evaluation_target
         if evaluation_reference_inputs is not None:
@@ -371,6 +382,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_ab_test(
@@ -409,14 +421,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
+        input_: capo_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_batch_evaluation(
@@ -455,14 +469,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_recommendation(
@@ -500,14 +516,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["recommendation_id"] = recommendation_id
+        input_: capo_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {
+            "recommendation_id": recommendation_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_ab_tests(
@@ -547,7 +565,7 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -558,6 +576,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_batch_evaluations(
@@ -597,7 +616,7 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -608,6 +627,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_recommendations(
@@ -652,7 +672,7 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -665,6 +685,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_batch_evaluation(
@@ -722,13 +743,15 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_name"] = batch_evaluation_name
+        input_: capo_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest = {
+            "batch_evaluation_name": batch_evaluation_name,
+            "data_source_config": data_source_config,
+        }
         if evaluators is not None:
             input_["evaluators"] = evaluators
-        input_["data_source_config"] = data_source_config
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if evaluation_metadata is not None:
             input_["evaluation_metadata"] = evaluation_metadata
         if description is not None:
@@ -739,6 +762,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_recommendation(
@@ -789,20 +813,23 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest = {
+            "name": name,
+            "type": type,
+            "recommendation_config": recommendation_config,
+        }
         if description is not None:
             input_["description"] = description
-        input_["type"] = type
-        input_["recommendation_config"] = recommendation_config
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_batch_evaluation(
@@ -842,14 +869,16 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_ab_test(
@@ -918,10 +947,12 @@ class EvaluationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -942,6 +973,7 @@ class EvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -1009,26 +1041,29 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore.types.create_ab_test_request.CreateABTestRequest = {
+            "name": name,
+            "gateway_arn": gateway_arn,
+            "variants": variants,
+            "evaluation_config": evaluation_config,
+            "role_arn": role_arn,
+        }
         if description is not None:
             input_["description"] = description
-        input_["gateway_arn"] = gateway_arn
-        input_["variants"] = variants
         if gateway_filter is not None:
             input_["gateway_filter"] = gateway_filter
-        input_["evaluation_config"] = evaluation_config
-        input_["role_arn"] = role_arn
         if enable_on_create is not None:
             input_["enable_on_create"] = enable_on_create
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_ab_test(
@@ -1069,14 +1104,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
+        input_: capo_bedrock_agentcore.types.delete_ab_test_request.DeleteABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_batch_evaluation(
@@ -1117,14 +1154,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.delete_batch_evaluation_request.DeleteBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_recommendation(
@@ -1164,14 +1203,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["recommendation_id"] = recommendation_id
+        input_: capo_bedrock_agentcore.types.delete_recommendation_request.DeleteRecommendationRequest = {
+            "recommendation_id": recommendation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def evaluate(
@@ -1224,9 +1265,10 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.evaluate_request.EvaluateRequest = {}  # type: ignore[typeddict-item]
-        input_["evaluator_id"] = evaluator_id
-        input_["evaluation_input"] = evaluation_input
+        input_: capo_bedrock_agentcore.types.evaluate_request.EvaluateRequest = {
+            "evaluator_id": evaluator_id,
+            "evaluation_input": evaluation_input,
+        }
         if evaluation_target is not None:
             input_["evaluation_target"] = evaluation_target
         if evaluation_reference_inputs is not None:
@@ -1237,6 +1279,7 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_ab_test(
@@ -1276,14 +1319,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
+        input_: capo_bedrock_agentcore.types.get_ab_test_request.GetABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_batch_evaluation(
@@ -1323,14 +1368,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.get_batch_evaluation_request.GetBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_recommendation(
@@ -1369,14 +1416,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["recommendation_id"] = recommendation_id
+        input_: capo_bedrock_agentcore.types.get_recommendation_request.GetRecommendationRequest = {
+            "recommendation_id": recommendation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_ab_tests(
@@ -1417,7 +1466,7 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_ab_tests_request.ListABTestsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1428,6 +1477,7 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_batch_evaluations(
@@ -1468,7 +1518,7 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_batch_evaluations_request.ListBatchEvaluationsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1479,6 +1529,7 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_recommendations(
@@ -1524,7 +1575,7 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_recommendations_request.ListRecommendationsRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -1537,6 +1588,7 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_batch_evaluation(
@@ -1595,13 +1647,15 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_name"] = batch_evaluation_name
+        input_: capo_bedrock_agentcore.types.start_batch_evaluation_request.StartBatchEvaluationRequest = {
+            "batch_evaluation_name": batch_evaluation_name,
+            "data_source_config": data_source_config,
+        }
         if evaluators is not None:
             input_["evaluators"] = evaluators
-        input_["data_source_config"] = data_source_config
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if evaluation_metadata is not None:
             input_["evaluation_metadata"] = evaluation_metadata
         if description is not None:
@@ -1612,6 +1666,7 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_recommendation(
@@ -1663,20 +1718,23 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore.types.start_recommendation_request.StartRecommendationRequest = {
+            "name": name,
+            "type": type,
+            "recommendation_config": recommendation_config,
+        }
         if description is not None:
             input_["description"] = description
-        input_["type"] = type
-        input_["recommendation_config"] = recommendation_config
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_batch_evaluation(
@@ -1717,14 +1775,16 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input_["batch_evaluation_id"] = batch_evaluation_id
+        input_: capo_bedrock_agentcore.types.stop_batch_evaluation_request.StopBatchEvaluationRequest = {
+            "batch_evaluation_id": batch_evaluation_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_ab_test(
@@ -1794,10 +1854,12 @@ class AsyncEvaluationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest = {}  # type: ignore[typeddict-item]
-        input_["ab_test_id"] = ab_test_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore.types.update_ab_test_request.UpdateABTestRequest = {
+            "ab_test_id": ab_test_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if name is not None:
             input_["name"] = name
         if description is not None:
@@ -1818,4 +1880,5 @@ class AsyncEvaluationResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

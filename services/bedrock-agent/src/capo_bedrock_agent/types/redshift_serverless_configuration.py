@@ -34,13 +34,13 @@ def serialize_json(value: RedshiftServerlessConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RedshiftServerlessConfiguration:
     out: RedshiftServerlessConfiguration = {}  # type: ignore[typeddict-item]
-    if "workgroupArn" in data:
+    if data.get("workgroupArn") is not None:
         out["workgroup_arn"] = data["workgroupArn"]
     else:
         raise DeserializationError(
             "RedshiftServerlessConfiguration.workgroup_arn required"
         )
-    if "authConfiguration" in data:
+    if data.get("authConfiguration") is not None:
         import capo_bedrock_agent.types.redshift_serverless_auth_configuration
 
         out["auth_configuration"] = (

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -81,15 +82,17 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
-        input_["session_id"] = session_id
+        input_: capo_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier,
+            "session_id": session_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_code_interpreter_sessions(
@@ -139,8 +142,9 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: capo_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -153,6 +157,7 @@ class CodeInterpreterSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_code_interpreter_session(
@@ -210,26 +215,29 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if name is not None:
             input_["name"] = name
         if session_timeout_seconds is not None:
             input_["session_timeout_seconds"] = session_timeout_seconds
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_code_interpreter_session(
@@ -279,21 +287,24 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -339,15 +350,17 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
-        input_["session_id"] = session_id
+        input_: capo_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier,
+            "session_id": session_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_code_interpreter_sessions(
@@ -398,8 +411,9 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: capo_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -412,6 +426,7 @@ class AsyncCodeInterpreterSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_code_interpreter_session(
@@ -470,26 +485,29 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if name is not None:
             input_["name"] = name
         if session_timeout_seconds is not None:
             input_["session_timeout_seconds"] = session_timeout_seconds
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_code_interpreter_session(
@@ -540,19 +558,22 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {
+            "code_interpreter_identifier": code_interpreter_identifier,
+            "session_id": session_id,
+        }
         if trace_id is not None:
             input_["trace_id"] = trace_id
         if trace_parent is not None:
             input_["trace_parent"] = trace_parent
-        input_["code_interpreter_identifier"] = code_interpreter_identifier
-        input_["session_id"] = session_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

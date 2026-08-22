@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> FieldsForReranking:
 
     out: FieldsForReranking = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.field_for_reranking.deserialize_json(item))
     return out

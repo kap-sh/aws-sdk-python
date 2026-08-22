@@ -32,7 +32,7 @@ def serialize_json(value: InlineExamplesSource) -> dict:
 
 def deserialize_json(data: dict) -> InlineExamplesSource:
     out: InlineExamplesSource = {}  # type: ignore[typeddict-item]
-    if "examples" in data:
+    if data.get("examples") is not None:
         import capo_bedrock_agentcore_control.types.dataset_example_list
 
         out["examples"] = (

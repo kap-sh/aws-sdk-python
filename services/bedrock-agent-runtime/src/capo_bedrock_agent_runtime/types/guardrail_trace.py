@@ -70,7 +70,7 @@ def serialize_json(value: GuardrailTrace) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailTrace:
     out: GuardrailTrace = {}  # type: ignore[typeddict-item]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_action
 
         out["action"] = (
@@ -78,9 +78,9 @@ def deserialize_json(data: dict) -> GuardrailTrace:
                 data["action"]
             )
         )
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "inputAssessments" in data:
+    if data.get("inputAssessments") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_assessment_list
 
         out["input_assessments"] = (
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> GuardrailTrace:
                 data["inputAssessments"]
             )
         )
-    if "outputAssessments" in data:
+    if data.get("outputAssessments") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_assessment_list
 
         out["output_assessments"] = (
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> GuardrailTrace:
                 data["outputAssessments"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

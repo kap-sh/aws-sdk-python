@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> EvaluationContentList:
 
     out: EvaluationContentList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.evaluation_content.deserialize_json(item)
         )

@@ -32,7 +32,7 @@ def serialize_json(value: PaymentOutput) -> dict:
 
 
 def deserialize_json(data: dict) -> PaymentOutput:
-    if "cryptoX402" in data:
+    if data.get("cryptoX402") is not None:
         import capo_bedrock_agentcore.types.crypto_x402_payment_output
 
         return {

@@ -147,19 +147,19 @@ def serialize_json(value: CreateGatewayRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateGatewayRequest:
     out: CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateGatewayRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("CreateGatewayRequest.role_arn required")
-    if "protocolType" in data:
+    if data.get("protocolType") is not None:
         import capo_bedrock_agentcore_control.types.gateway_protocol_type
 
         out["protocol_type"] = (
@@ -169,7 +169,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
         )
     else:
         out["protocol_type"] = "MCP"
-    if "protocolConfiguration" in data:
+    if data.get("protocolConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.gateway_protocol_configuration
 
         out["protocol_configuration"] = (
@@ -177,7 +177,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
                 data["protocolConfiguration"]
             )
         )
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_type
 
         out["authorizer_type"] = (
@@ -187,7 +187,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
         )
     else:
         raise DeserializationError("CreateGatewayRequest.authorizer_type required")
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -195,9 +195,9 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
-    if "interceptorConfigurations" in data:
+    if data.get("interceptorConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.gateway_interceptor_configurations
 
         out["interceptor_configurations"] = (
@@ -205,7 +205,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
                 data["interceptorConfigurations"]
             )
         )
-    if "policyEngineConfiguration" in data:
+    if data.get("policyEngineConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.gateway_policy_engine_configuration
 
         out["policy_engine_configuration"] = (
@@ -213,7 +213,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
                 data["policyEngineConfiguration"]
             )
         )
-    if "exceptionLevel" in data:
+    if data.get("exceptionLevel") is not None:
         import capo_bedrock_agentcore_control.types.exception_level
 
         out["exception_level"] = (
@@ -221,7 +221,7 @@ def deserialize_json(data: dict) -> CreateGatewayRequest:
                 data["exceptionLevel"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

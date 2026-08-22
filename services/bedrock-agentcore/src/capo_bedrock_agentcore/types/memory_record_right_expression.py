@@ -32,7 +32,7 @@ def serialize_json(value: MemoryRecordRightExpression) -> dict:
 
 
 def deserialize_json(data: dict) -> MemoryRecordRightExpression:
-    if "metadataValue" in data:
+    if data.get("metadataValue") is not None:
         import capo_bedrock_agentcore.types.memory_record_metadata_value
 
         return {

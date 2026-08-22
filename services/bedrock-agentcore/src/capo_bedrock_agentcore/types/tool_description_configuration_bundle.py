@@ -40,19 +40,19 @@ def serialize_json(value: ToolDescriptionConfigurationBundle) -> dict:
 
 def deserialize_json(data: dict) -> ToolDescriptionConfigurationBundle:
     out: ToolDescriptionConfigurationBundle = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "ToolDescriptionConfigurationBundle.bundle_arn required"
         )
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(
             "ToolDescriptionConfigurationBundle.version_id required"
         )
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore.types.configuration_bundle_tool_entry_list
 
         out["tools"] = (

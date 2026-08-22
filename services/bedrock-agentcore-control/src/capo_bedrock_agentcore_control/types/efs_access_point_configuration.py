@@ -30,13 +30,13 @@ def serialize_json(value: EfsAccessPointConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> EfsAccessPointConfiguration:
     out: EfsAccessPointConfiguration = {}  # type: ignore[typeddict-item]
-    if "accessPointArn" in data:
+    if data.get("accessPointArn") is not None:
         out["access_point_arn"] = data["accessPointArn"]
     else:
         raise DeserializationError(
             "EfsAccessPointConfiguration.access_point_arn required"
         )
-    if "mountPath" in data:
+    if data.get("mountPath") is not None:
         out["mount_path"] = data["mountPath"]
     else:
         raise DeserializationError("EfsAccessPointConfiguration.mount_path required")

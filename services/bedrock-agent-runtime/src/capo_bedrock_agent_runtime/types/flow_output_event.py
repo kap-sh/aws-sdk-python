@@ -43,11 +43,11 @@ def serialize_json(value: FlowOutputEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowOutputEvent:
     out: FlowOutputEvent = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("FlowOutputEvent.node_name required")
-    if "nodeType" in data:
+    if data.get("nodeType") is not None:
         import capo_bedrock_agent_runtime.types.node_type
 
         out["node_type"] = capo_bedrock_agent_runtime.types.node_type.deserialize_json(
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> FlowOutputEvent:
         )
     else:
         raise DeserializationError("FlowOutputEvent.node_type required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.flow_output_content
 
         out["content"] = (

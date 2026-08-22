@@ -44,7 +44,7 @@ def serialize_json(value: PIIEntitiesConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PIIEntitiesConfiguration:
     out: PIIEntitiesConfiguration = {}  # type: ignore[typeddict-item]
-    if "piiEntityTypes" in data:
+    if data.get("piiEntityTypes") is not None:
         import capo_bedrock_data_automation.types.pii_entity_types
 
         out["pii_entity_types"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> PIIEntitiesConfiguration:
                 data["piiEntityTypes"]
             )
         )
-    if "redactionMaskMode" in data:
+    if data.get("redactionMaskMode") is not None:
         import capo_bedrock_data_automation.types.pii_redaction_mask_mode
 
         out["redaction_mask_mode"] = (

@@ -69,7 +69,7 @@ def serialize_json(value: Validation) -> dict:
 
 
 def deserialize_json(data: dict) -> Validation:
-    if "stringValidation" in data:
+    if data.get("stringValidation") is not None:
         import capo_bedrock_agentcore_control.types.string_validation
 
         return {
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> Validation:
                 data["stringValidation"]
             )
         }
-    elif "stringListValidation" in data:
+    elif data.get("stringListValidation") is not None:
         import capo_bedrock_agentcore_control.types.string_list_validation
 
         return {
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> Validation:
                 data["stringListValidation"]
             )
         }
-    elif "numberValidation" in data:
+    elif data.get("numberValidation") is not None:
         import capo_bedrock_agentcore_control.types.number_validation
 
         return {

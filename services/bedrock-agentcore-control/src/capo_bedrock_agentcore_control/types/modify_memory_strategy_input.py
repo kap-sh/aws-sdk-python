@@ -81,15 +81,15 @@ def serialize_json(value: ModifyMemoryStrategyInput) -> dict:
 
 def deserialize_json(data: dict) -> ModifyMemoryStrategyInput:
     out: ModifyMemoryStrategyInput = {}  # type: ignore[typeddict-item]
-    if "memoryStrategyId" in data:
+    if data.get("memoryStrategyId") is not None:
         out["memory_strategy_id"] = data["memoryStrategyId"]
     else:
         raise DeserializationError(
             "ModifyMemoryStrategyInput.memory_strategy_id required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespaces"] = (
@@ -97,7 +97,7 @@ def deserialize_json(data: dict) -> ModifyMemoryStrategyInput:
                 data["namespaces"]
             )
         )
-    if "namespaceTemplates" in data:
+    if data.get("namespaceTemplates") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespace_templates"] = (
@@ -105,7 +105,7 @@ def deserialize_json(data: dict) -> ModifyMemoryStrategyInput:
                 data["namespaceTemplates"]
             )
         )
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         import capo_bedrock_agentcore_control.types.modify_strategy_configuration
 
         out["configuration"] = (
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> ModifyMemoryStrategyInput:
                 data["configuration"]
             )
         )
-    if "memoryRecordSchema" in data:
+    if data.get("memoryRecordSchema") is not None:
         import capo_bedrock_agentcore_control.types.memory_record_schema
 
         out["memory_record_schema"] = (

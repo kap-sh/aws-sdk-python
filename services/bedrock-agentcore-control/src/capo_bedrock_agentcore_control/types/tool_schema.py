@@ -50,7 +50,7 @@ def serialize_json(value: ToolSchema) -> dict:
 
 
 def deserialize_json(data: dict) -> ToolSchema:
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agentcore_control.types.s3_configuration
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> ToolSchema:
                 data["s3"]
             )
         }
-    elif "inlinePayload" in data:
+    elif data.get("inlinePayload") is not None:
         import capo_bedrock_agentcore_control.types.tool_definitions
 
         return {

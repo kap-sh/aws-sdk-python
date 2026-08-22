@@ -37,11 +37,11 @@ def serialize_json(value: HarnessAgentCoreGatewayConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreGatewayConfig:
     out: HarnessAgentCoreGatewayConfig = {}  # type: ignore[typeddict-item]
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
     else:
         raise DeserializationError("HarnessAgentCoreGatewayConfig.gateway_arn required")
-    if "outboundAuth" in data:
+    if data.get("outboundAuth") is not None:
         import capo_bedrock_agentcore.types.harness_gateway_outbound_auth
 
         out["outbound_auth"] = (

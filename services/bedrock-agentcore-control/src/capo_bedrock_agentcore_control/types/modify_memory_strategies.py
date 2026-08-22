@@ -57,7 +57,7 @@ def serialize_json(value: ModifyMemoryStrategies) -> dict:
 
 def deserialize_json(data: dict) -> ModifyMemoryStrategies:
     out: ModifyMemoryStrategies = {}  # type: ignore[typeddict-item]
-    if "addMemoryStrategies" in data:
+    if data.get("addMemoryStrategies") is not None:
         import capo_bedrock_agentcore_control.types.memory_strategy_input_list
 
         out["add_memory_strategies"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> ModifyMemoryStrategies:
                 data["addMemoryStrategies"]
             )
         )
-    if "modifyMemoryStrategies" in data:
+    if data.get("modifyMemoryStrategies") is not None:
         import capo_bedrock_agentcore_control.types.modify_memory_strategies_list
 
         out["modify_memory_strategies"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> ModifyMemoryStrategies:
                 data["modifyMemoryStrategies"]
             )
         )
-    if "deleteMemoryStrategies" in data:
+    if data.get("deleteMemoryStrategies") is not None:
         import capo_bedrock_agentcore_control.types.delete_memory_strategies_list
 
         out["delete_memory_strategies"] = (

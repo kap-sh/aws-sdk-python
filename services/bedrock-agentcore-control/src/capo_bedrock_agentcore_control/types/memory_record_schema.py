@@ -31,7 +31,7 @@ def serialize_json(value: MemoryRecordSchema) -> dict:
 
 def deserialize_json(data: dict) -> MemoryRecordSchema:
     out: MemoryRecordSchema = {}  # type: ignore[typeddict-item]
-    if "metadataSchema" in data:
+    if data.get("metadataSchema") is not None:
         import capo_bedrock_agentcore_control.types.metadata_schema_list
 
         out["metadata_schema"] = (

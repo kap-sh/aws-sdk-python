@@ -44,7 +44,7 @@ def serialize_json(value: UpdatedMcpDescriptorFields) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedMcpDescriptorFields:
     out: UpdatedMcpDescriptorFields = {}  # type: ignore[typeddict-item]
-    if "server" in data:
+    if data.get("server") is not None:
         import capo_bedrock_agentcore_control.types.updated_server_definition
 
         out["server"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> UpdatedMcpDescriptorFields:
                 data["server"]
             )
         )
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore_control.types.updated_tools_definition
 
         out["tools"] = (

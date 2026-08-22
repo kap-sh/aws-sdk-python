@@ -23,7 +23,7 @@ def serialize_aws_json_1_1(value: ListTagsForResourceRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> ListTagsForResourceRequest:
     out: ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-    if "resourceARN" in data:
+    if data.get("resourceARN") is not None:
         out["resource_arn"] = data["resourceARN"]
     else:
         raise DeserializationError("ListTagsForResourceRequest.resource_arn required")

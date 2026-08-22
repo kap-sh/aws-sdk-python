@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ExternalSources:
 
     out: ExternalSources = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.external_source.deserialize_json(item)
         )

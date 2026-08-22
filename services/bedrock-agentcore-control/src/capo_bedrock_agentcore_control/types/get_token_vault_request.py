@@ -25,6 +25,6 @@ def serialize_json(value: GetTokenVaultRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetTokenVaultRequest:
     out: GetTokenVaultRequest = {}  # type: ignore[typeddict-item]
-    if "tokenVaultId" in data:
+    if data.get("tokenVaultId") is not None:
         out["token_vault_id"] = data["tokenVaultId"]
     return out

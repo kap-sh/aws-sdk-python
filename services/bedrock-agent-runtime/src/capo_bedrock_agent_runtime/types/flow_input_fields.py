@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> FlowInputFields:
 
     out: FlowInputFields = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.flow_input_field.deserialize_json(item)
         )

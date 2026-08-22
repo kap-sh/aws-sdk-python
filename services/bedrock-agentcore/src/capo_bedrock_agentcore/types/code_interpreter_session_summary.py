@@ -62,19 +62,19 @@ def serialize_json(value: CodeInterpreterSessionSummary) -> dict:
 
 def deserialize_json(data: dict) -> CodeInterpreterSessionSummary:
     out: CodeInterpreterSessionSummary = {}  # type: ignore[typeddict-item]
-    if "codeInterpreterIdentifier" in data:
+    if data.get("codeInterpreterIdentifier") is not None:
         out["code_interpreter_identifier"] = data["codeInterpreterIdentifier"]
     else:
         raise DeserializationError(
             "CodeInterpreterSessionSummary.code_interpreter_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("CodeInterpreterSessionSummary.session_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.code_interpreter_session_status
 
         out["status"] = (
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> CodeInterpreterSessionSummary:
         )
     else:
         raise DeserializationError("CodeInterpreterSessionSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> CodeInterpreterSessionSummary:
         )
     else:
         raise DeserializationError("CodeInterpreterSessionSummary.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

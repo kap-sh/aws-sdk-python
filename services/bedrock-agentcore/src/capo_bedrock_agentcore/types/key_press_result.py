@@ -32,7 +32,7 @@ def serialize_json(value: KeyPressResult) -> dict:
 
 def deserialize_json(data: dict) -> KeyPressResult:
     out: KeyPressResult = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.browser_action_status
 
         out["status"] = (
@@ -42,6 +42,6 @@ def deserialize_json(data: dict) -> KeyPressResult:
         )
     else:
         raise DeserializationError("KeyPressResult.status required")
-    if "error" in data:
+    if data.get("error") is not None:
         out["error"] = data["error"]
     return out

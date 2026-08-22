@@ -37,7 +37,7 @@ def serialize_json(value: BlueprintOptimizationSample) -> dict:
 
 def deserialize_json(data: dict) -> BlueprintOptimizationSample:
     out: BlueprintOptimizationSample = {}  # type: ignore[typeddict-item]
-    if "assetS3Object" in data:
+    if data.get("assetS3Object") is not None:
         import capo_bedrock_data_automation.types.s3_object
 
         out["asset_s3_object"] = (
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> BlueprintOptimizationSample:
         raise DeserializationError(
             "BlueprintOptimizationSample.asset_s3_object required"
         )
-    if "groundTruthS3Object" in data:
+    if data.get("groundTruthS3Object") is not None:
         import capo_bedrock_data_automation.types.s3_object
 
         out["ground_truth_s3_object"] = (

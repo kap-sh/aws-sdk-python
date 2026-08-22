@@ -38,7 +38,7 @@ def serialize_json(value: DocumentOutputFormat) -> dict:
 
 def deserialize_json(data: dict) -> DocumentOutputFormat:
     out: DocumentOutputFormat = {}  # type: ignore[typeddict-item]
-    if "textFormat" in data:
+    if data.get("textFormat") is not None:
         import capo_bedrock_data_automation.types.document_output_text_format
 
         out["text_format"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> DocumentOutputFormat:
         )
     else:
         raise DeserializationError("DocumentOutputFormat.text_format required")
-    if "additionalFileFormat" in data:
+    if data.get("additionalFileFormat") is not None:
         import capo_bedrock_data_automation.types.document_output_additional_file_format
 
         out["additional_file_format"] = (

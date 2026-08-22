@@ -36,7 +36,7 @@ def deserialize_json(
     data: dict,
 ) -> BedrockFoundationModelContextEnrichmentConfiguration:
     out: BedrockFoundationModelContextEnrichmentConfiguration = {}  # type: ignore[typeddict-item]
-    if "enrichmentStrategyConfiguration" in data:
+    if data.get("enrichmentStrategyConfiguration") is not None:
         import capo_bedrock_agent.types.enrichment_strategy_configuration
 
         out["enrichment_strategy_configuration"] = (
@@ -48,7 +48,7 @@ def deserialize_json(
         raise DeserializationError(
             "BedrockFoundationModelContextEnrichmentConfiguration.enrichment_strategy_configuration required"
         )
-    if "modelArn" in data:
+    if data.get("modelArn") is not None:
         out["model_arn"] = data["modelArn"]
     else:
         raise DeserializationError(

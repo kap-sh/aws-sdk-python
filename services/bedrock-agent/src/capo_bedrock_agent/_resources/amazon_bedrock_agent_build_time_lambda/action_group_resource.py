@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -124,12 +125,14 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_name"] = action_group_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_name": action_group_name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if parent_action_group_signature is not None:
@@ -152,6 +155,7 @@ class ActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_agent_action_group(
@@ -196,10 +200,11 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
+        input_: capo_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -208,6 +213,7 @@ class ActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_agent_action_group(
@@ -249,16 +255,18 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
+        input_: capo_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_agent_action_groups(
@@ -302,9 +310,10 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -315,6 +324,7 @@ class ActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_agent_action_group(
@@ -386,11 +396,12 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
-        input_["action_group_name"] = action_group_name
+        input_: capo_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+            "action_group_name": action_group_name,
+        }
         if description is not None:
             input_["description"] = description
         if parent_action_group_signature is not None:
@@ -413,6 +424,7 @@ class ActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -492,12 +504,14 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_name"] = action_group_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_name": action_group_name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if parent_action_group_signature is not None:
@@ -520,6 +534,7 @@ class AsyncActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_agent_action_group(
@@ -565,10 +580,11 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
+        input_: capo_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+        }
         if skip_resource_in_use_check is not None:
             input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
@@ -577,6 +593,7 @@ class AsyncActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_agent_action_group(
@@ -619,16 +636,18 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
+        input_: capo_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_agent_action_groups(
@@ -673,9 +692,10 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
+        input_: capo_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -686,6 +706,7 @@ class AsyncActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_agent_action_group(
@@ -758,11 +779,12 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_version"] = agent_version
-        input_["action_group_id"] = action_group_id
-        input_["action_group_name"] = action_group_name
+        input_: capo_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {
+            "agent_id": agent_id,
+            "agent_version": agent_version,
+            "action_group_id": action_group_id,
+            "action_group_name": action_group_name,
+        }
         if description is not None:
             input_["description"] = description
         if parent_action_group_signature is not None:
@@ -785,4 +807,5 @@ class AsyncActionGroupResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

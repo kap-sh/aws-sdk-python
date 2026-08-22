@@ -25,11 +25,11 @@ def serialize_json(value: PromptCreationConfigurations) -> dict:
 
 def deserialize_json(data: dict) -> PromptCreationConfigurations:
     out: PromptCreationConfigurations = {}  # type: ignore[typeddict-item]
-    if "previousConversationTurnsToInclude" in data:
+    if data.get("previousConversationTurnsToInclude") is not None:
         out["previous_conversation_turns_to_include"] = data[
             "previousConversationTurnsToInclude"
         ]
-    if "excludePreviousThinkingSteps" in data:
+    if data.get("excludePreviousThinkingSteps") is not None:
         out["exclude_previous_thinking_steps"] = data["excludePreviousThinkingSteps"]
     else:
         out["exclude_previous_thinking_steps"] = False

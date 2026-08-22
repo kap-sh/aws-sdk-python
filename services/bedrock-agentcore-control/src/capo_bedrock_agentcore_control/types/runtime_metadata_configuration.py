@@ -19,7 +19,7 @@ def serialize_json(value: RuntimeMetadataConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RuntimeMetadataConfiguration:
     out: RuntimeMetadataConfiguration = {}  # type: ignore[typeddict-item]
-    if "requireMMDSV2" in data:
+    if data.get("requireMMDSV2") is not None:
         out["require_mmdsv2"] = data["requireMMDSV2"]
     else:
         raise DeserializationError(

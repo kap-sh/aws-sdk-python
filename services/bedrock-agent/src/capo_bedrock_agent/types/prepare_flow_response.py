@@ -30,11 +30,11 @@ def serialize_json(value: PrepareFlowResponse) -> dict:
 
 def deserialize_json(data: dict) -> PrepareFlowResponse:
     out: PrepareFlowResponse = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("PrepareFlowResponse.id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.flow_status
 
         out["status"] = capo_bedrock_agent.types.flow_status.deserialize_json(

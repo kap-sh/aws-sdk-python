@@ -28,11 +28,11 @@ def serialize_json(value: HarnessInlineFunctionConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessInlineFunctionConfig:
     out: HarnessInlineFunctionConfig = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("HarnessInlineFunctionConfig.description required")
-    if "inputSchema" in data:
+    if data.get("inputSchema") is not None:
         out["input_schema"] = data["inputSchema"]
     else:
         raise DeserializationError("HarnessInlineFunctionConfig.input_schema required")

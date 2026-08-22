@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -103,12 +104,14 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_policy_engine_request.CreatePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_policy_engine_request.CreatePolicyEngineRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
@@ -119,6 +122,7 @@ class PolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -156,14 +160,16 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_engine_request.GetPolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_engine_request.GetPolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -206,8 +212,9 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_policy_engine_request.UpdatePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.update_policy_engine_request.UpdatePolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if description is not None:
             input_["description"] = description
 
@@ -216,6 +223,7 @@ class PolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -254,14 +262,16 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_policy_engine_request.DeletePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.delete_policy_engine_request.DeletePolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -304,7 +314,7 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_engines_request.ListPolicyEnginesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_engines_request.ListPolicyEnginesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -315,6 +325,7 @@ class PolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_policy_engine_summary(
@@ -352,14 +363,16 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_engine_summary_request.GetPolicyEngineSummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_engine_summary_request.GetPolicyEngineSummaryRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_policy_engine_summaries(
@@ -402,7 +415,7 @@ class PolicyEngineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_engine_summaries_request.ListPolicyEngineSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_engine_summaries_request.ListPolicyEngineSummariesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -413,6 +426,7 @@ class PolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -471,12 +485,14 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_policy_engine_request.CreatePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_policy_engine_request.CreatePolicyEngineRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_key_arn is not None:
             input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
@@ -487,6 +503,7 @@ class AsyncPolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -525,14 +542,16 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_engine_request.GetPolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_engine_request.GetPolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -576,8 +595,9 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_policy_engine_request.UpdatePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.update_policy_engine_request.UpdatePolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
         if description is not None:
             input_["description"] = description
 
@@ -586,6 +606,7 @@ class AsyncPolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -625,14 +646,16 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_policy_engine_request.DeletePolicyEngineRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.delete_policy_engine_request.DeletePolicyEngineRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -676,7 +699,7 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_engines_request.ListPolicyEnginesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_engines_request.ListPolicyEnginesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -687,6 +710,7 @@ class AsyncPolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_policy_engine_summary(
@@ -725,14 +749,16 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_policy_engine_summary_request.GetPolicyEngineSummaryRequest = {}  # type: ignore[typeddict-item]
-        input_["policy_engine_id"] = policy_engine_id
+        input_: capo_bedrock_agentcore_control.types.get_policy_engine_summary_request.GetPolicyEngineSummaryRequest = {
+            "policy_engine_id": policy_engine_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_policy_engine_summaries(
@@ -776,7 +802,7 @@ class AsyncPolicyEngineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_policy_engine_summaries_request.ListPolicyEngineSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_policy_engine_summaries_request.ListPolicyEngineSummariesRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -787,4 +813,5 @@ class AsyncPolicyEngineResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

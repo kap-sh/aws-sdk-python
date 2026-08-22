@@ -40,17 +40,17 @@ def serialize_json(value: StripePrivyTokenRequestInput) -> dict:
 
 def deserialize_json(data: dict) -> StripePrivyTokenRequestInput:
     out: StripePrivyTokenRequestInput = {}  # type: ignore[typeddict-item]
-    if "requestHost" in data:
+    if data.get("requestHost") is not None:
         out["request_host"] = data["requestHost"]
-    if "requestPath" in data:
+    if data.get("requestPath") is not None:
         out["request_path"] = data["requestPath"]
     else:
         raise DeserializationError("StripePrivyTokenRequestInput.request_path required")
-    if "requestBody" in data:
+    if data.get("requestBody") is not None:
         out["request_body"] = data["requestBody"]
     else:
         raise DeserializationError("StripePrivyTokenRequestInput.request_body required")
-    if "includeAuthorizationSignature" in data:
+    if data.get("includeAuthorizationSignature") is not None:
         out["include_authorization_signature"] = data["includeAuthorizationSignature"]
     else:
         out["include_authorization_signature"] = False

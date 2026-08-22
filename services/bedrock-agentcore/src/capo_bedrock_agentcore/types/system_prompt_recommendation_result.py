@@ -52,9 +52,9 @@ def serialize_json(value: SystemPromptRecommendationResult) -> dict:
 
 def deserialize_json(data: dict) -> SystemPromptRecommendationResult:
     out: SystemPromptRecommendationResult = {}  # type: ignore[typeddict-item]
-    if "recommendedSystemPrompt" in data:
+    if data.get("recommendedSystemPrompt") is not None:
         out["recommended_system_prompt"] = data["recommendedSystemPrompt"]
-    if "configurationBundle" in data:
+    if data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore.types.recommendation_result_configuration_bundle
 
         out["configuration_bundle"] = (
@@ -62,8 +62,8 @@ def deserialize_json(data: dict) -> SystemPromptRecommendationResult:
                 data["configurationBundle"]
             )
         )
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         out["error_code"] = data["errorCode"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

@@ -76,7 +76,7 @@ def serialize_json(value: HarnessModelConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessModelConfiguration:
-    if "bedrockModelConfig" in data:
+    if data.get("bedrockModelConfig") is not None:
         import capo_bedrock_agentcore.types.harness_bedrock_model_config
 
         return {
@@ -84,7 +84,7 @@ def deserialize_json(data: dict) -> HarnessModelConfiguration:
                 data["bedrockModelConfig"]
             )
         }
-    elif "openAiModelConfig" in data:
+    elif data.get("openAiModelConfig") is not None:
         import capo_bedrock_agentcore.types.harness_open_ai_model_config
 
         return {
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> HarnessModelConfiguration:
                 data["openAiModelConfig"]
             )
         }
-    elif "geminiModelConfig" in data:
+    elif data.get("geminiModelConfig") is not None:
         import capo_bedrock_agentcore.types.harness_gemini_model_config
 
         return {
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> HarnessModelConfiguration:
                 data["geminiModelConfig"]
             )
         }
-    elif "liteLlmModelConfig" in data:
+    elif data.get("liteLlmModelConfig") is not None:
         import capo_bedrock_agentcore.types.harness_lite_llm_model_config
 
         return {

@@ -42,7 +42,7 @@ def serialize_json(value: TranscriptConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> TranscriptConfiguration:
     out: TranscriptConfiguration = {}  # type: ignore[typeddict-item]
-    if "speakerLabeling" in data:
+    if data.get("speakerLabeling") is not None:
         import capo_bedrock_data_automation.types.speaker_labeling_configuration
 
         out["speaker_labeling"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> TranscriptConfiguration:
                 data["speakerLabeling"]
             )
         )
-    if "channelLabeling" in data:
+    if data.get("channelLabeling") is not None:
         import capo_bedrock_data_automation.types.channel_labeling_configuration
 
         out["channel_labeling"] = (

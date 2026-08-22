@@ -31,7 +31,7 @@ def serialize_json(value: AutomationStreamUpdate) -> dict:
 
 def deserialize_json(data: dict) -> AutomationStreamUpdate:
     out: AutomationStreamUpdate = {}  # type: ignore[typeddict-item]
-    if "streamStatus" in data:
+    if data.get("streamStatus") is not None:
         import capo_bedrock_agentcore.types.automation_stream_status
 
         out["stream_status"] = (

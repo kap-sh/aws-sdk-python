@@ -31,7 +31,7 @@ def serialize_json(value: GetDataAutomationLibraryIngestionJobResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDataAutomationLibraryIngestionJobResponse:
     out: GetDataAutomationLibraryIngestionJobResponse = {}  # type: ignore[typeddict-item]
-    if "job" in data:
+    if data.get("job") is not None:
         import capo_bedrock_data_automation.types.data_automation_library_ingestion_job
 
         out["job"] = (

@@ -34,11 +34,11 @@ def serialize_json(value: GatewayPolicyEngineConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GatewayPolicyEngineConfiguration:
     out: GatewayPolicyEngineConfiguration = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("GatewayPolicyEngineConfiguration.arn required")
-    if "mode" in data:
+    if data.get("mode") is not None:
         import capo_bedrock_agentcore_control.types.gateway_policy_engine_mode
 
         out["mode"] = (

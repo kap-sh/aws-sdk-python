@@ -59,19 +59,19 @@ def serialize_json(value: HarnessSummary) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSummary:
     out: HarnessSummary = {}  # type: ignore[typeddict-item]
-    if "harnessId" in data:
+    if data.get("harnessId") is not None:
         out["harness_id"] = data["harnessId"]
     else:
         raise DeserializationError("HarnessSummary.harness_id required")
-    if "harnessName" in data:
+    if data.get("harnessName") is not None:
         out["harness_name"] = data["harnessName"]
     else:
         raise DeserializationError("HarnessSummary.harness_name required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("HarnessSummary.arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.harness_status
 
         out["status"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> HarnessSummary:
         )
     else:
         raise DeserializationError("HarnessSummary.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> HarnessSummary:
         )
     else:
         raise DeserializationError("HarnessSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

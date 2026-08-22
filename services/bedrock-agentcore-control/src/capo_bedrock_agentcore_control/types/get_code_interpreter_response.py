@@ -105,27 +105,27 @@ def serialize_json(value: GetCodeInterpreterResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetCodeInterpreterResponse:
     out: GetCodeInterpreterResponse = {}  # type: ignore[typeddict-item]
-    if "codeInterpreterId" in data:
+    if data.get("codeInterpreterId") is not None:
         out["code_interpreter_id"] = data["codeInterpreterId"]
     else:
         raise DeserializationError(
             "GetCodeInterpreterResponse.code_interpreter_id required"
         )
-    if "codeInterpreterArn" in data:
+    if data.get("codeInterpreterArn") is not None:
         out["code_interpreter_arn"] = data["codeInterpreterArn"]
     else:
         raise DeserializationError(
             "GetCodeInterpreterResponse.code_interpreter_arn required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetCodeInterpreterResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.code_interpreter_network_configuration
 
         out["network_configuration"] = (
@@ -137,7 +137,7 @@ def deserialize_json(data: dict) -> GetCodeInterpreterResponse:
         raise DeserializationError(
             "GetCodeInterpreterResponse.network_configuration required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.code_interpreter_status
 
         out["status"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> GetCodeInterpreterResponse:
         )
     else:
         raise DeserializationError("GetCodeInterpreterResponse.status required")
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore_control.types.certificates
 
         out["certificates"] = (
@@ -155,9 +155,9 @@ def deserialize_json(data: dict) -> GetCodeInterpreterResponse:
                 data["certificates"]
             )
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -167,7 +167,7 @@ def deserialize_json(data: dict) -> GetCodeInterpreterResponse:
         )
     else:
         raise DeserializationError("GetCodeInterpreterResponse.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (

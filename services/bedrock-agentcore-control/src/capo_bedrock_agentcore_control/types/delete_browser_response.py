@@ -42,11 +42,11 @@ def serialize_json(value: DeleteBrowserResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteBrowserResponse:
     out: DeleteBrowserResponse = {}  # type: ignore[typeddict-item]
-    if "browserId" in data:
+    if data.get("browserId") is not None:
         out["browser_id"] = data["browserId"]
     else:
         raise DeserializationError("DeleteBrowserResponse.browser_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_status
 
         out["status"] = (
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> DeleteBrowserResponse:
         )
     else:
         raise DeserializationError("DeleteBrowserResponse.status required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (

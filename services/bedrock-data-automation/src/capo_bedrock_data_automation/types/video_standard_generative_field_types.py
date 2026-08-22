@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> VideoStandardGenerativeFieldTypes:
 
     out: VideoStandardGenerativeFieldTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.video_standard_generative_field_type.deserialize_json(
                 item

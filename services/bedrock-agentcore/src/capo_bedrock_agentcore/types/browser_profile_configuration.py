@@ -26,7 +26,7 @@ def serialize_json(value: BrowserProfileConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BrowserProfileConfiguration:
     out: BrowserProfileConfiguration = {}  # type: ignore[typeddict-item]
-    if "profileIdentifier" in data:
+    if data.get("profileIdentifier") is not None:
         out["profile_identifier"] = data["profileIdentifier"]
     else:
         raise DeserializationError(

@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> GroundTruthTurnList:
 
     out: GroundTruthTurnList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.ground_truth_turn.deserialize_json(item)
         )

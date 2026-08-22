@@ -76,7 +76,7 @@ def serialize_json(value: UpdateApiKeyCredentialProviderResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateApiKeyCredentialProviderResponse:
     out: UpdateApiKeyCredentialProviderResponse = {}  # type: ignore[typeddict-item]
-    if "apiKeySecretArn" in data:
+    if data.get("apiKeySecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["api_key_secret_arn"] = (
@@ -88,9 +88,9 @@ def deserialize_json(data: dict) -> UpdateApiKeyCredentialProviderResponse:
         raise DeserializationError(
             "UpdateApiKeyCredentialProviderResponse.api_key_secret_arn required"
         )
-    if "apiKeySecretJsonKey" in data:
+    if data.get("apiKeySecretJsonKey") is not None:
         out["api_key_secret_json_key"] = data["apiKeySecretJsonKey"]
-    if "apiKeySecretSource" in data:
+    if data.get("apiKeySecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["api_key_secret_source"] = (
@@ -98,19 +98,19 @@ def deserialize_json(data: dict) -> UpdateApiKeyCredentialProviderResponse:
                 data["apiKeySecretSource"]
             )
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "UpdateApiKeyCredentialProviderResponse.name required"
         )
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(
             "UpdateApiKeyCredentialProviderResponse.credential_provider_arn required"
         )
-    if "createdTime" in data:
+    if data.get("createdTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_time"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> UpdateApiKeyCredentialProviderResponse:
         raise DeserializationError(
             "UpdateApiKeyCredentialProviderResponse.created_time required"
         )
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_updated_time"] = (

@@ -62,11 +62,11 @@ def serialize_json(value: FunctionInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> FunctionInvocationInput:
     out: FunctionInvocationInput = {}  # type: ignore[typeddict-item]
-    if "actionGroup" in data:
+    if data.get("actionGroup") is not None:
         out["action_group"] = data["actionGroup"]
     else:
         raise DeserializationError("FunctionInvocationInput.action_group required")
-    if "parameters" in data:
+    if data.get("parameters") is not None:
         import capo_bedrock_agent_runtime.types.function_parameters
 
         out["parameters"] = (
@@ -74,9 +74,9 @@ def deserialize_json(data: dict) -> FunctionInvocationInput:
                 data["parameters"]
             )
         )
-    if "function" in data:
+    if data.get("function") is not None:
         out["function"] = data["function"]
-    if "actionInvocationType" in data:
+    if data.get("actionInvocationType") is not None:
         import capo_bedrock_agent_runtime.types.action_invocation_type
 
         out["action_invocation_type"] = (
@@ -84,8 +84,8 @@ def deserialize_json(data: dict) -> FunctionInvocationInput:
                 data["actionInvocationType"]
             )
         )
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     return out

@@ -23,12 +23,12 @@ def serialize_json(value: InvokeAgentRuntimeCommandRequestBody) -> dict:
 
 def deserialize_json(data: dict) -> InvokeAgentRuntimeCommandRequestBody:
     out: InvokeAgentRuntimeCommandRequestBody = {}  # type: ignore[typeddict-item]
-    if "command" in data:
+    if data.get("command") is not None:
         out["command"] = data["command"]
     else:
         raise DeserializationError(
             "InvokeAgentRuntimeCommandRequestBody.command required"
         )
-    if "timeout" in data:
+    if data.get("timeout") is not None:
         out["timeout"] = data["timeout"]
     return out

@@ -37,13 +37,13 @@ def serialize_aws_json_1_1(value: DataAutomationConfiguration) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> DataAutomationConfiguration:
     out: DataAutomationConfiguration = {}  # type: ignore[typeddict-item]
-    if "dataAutomationProjectArn" in data:
+    if data.get("dataAutomationProjectArn") is not None:
         out["data_automation_project_arn"] = data["dataAutomationProjectArn"]
     else:
         raise DeserializationError(
             "DataAutomationConfiguration.data_automation_project_arn required"
         )
-    if "stage" in data:
+    if data.get("stage") is not None:
         import capo_bedrock_data_automation_runtime.types.data_automation_stage
 
         out["stage"] = (

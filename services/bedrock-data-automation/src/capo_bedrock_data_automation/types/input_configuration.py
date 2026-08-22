@@ -40,7 +40,7 @@ def serialize_json(value: InputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> InputConfiguration:
     out: InputConfiguration = {}  # type: ignore[typeddict-item]
-    if "s3Object" in data:
+    if data.get("s3Object") is not None:
         import capo_bedrock_data_automation.types.s3_object
 
         out["s3_object"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> InputConfiguration:
                 data["s3Object"]
             )
         )
-    if "inlinePayload" in data:
+    if data.get("inlinePayload") is not None:
         import capo_bedrock_data_automation.types.inline_payload
 
         out["inline_payload"] = (

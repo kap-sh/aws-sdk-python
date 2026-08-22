@@ -91,9 +91,9 @@ def serialize_json(value: ToolArguments) -> dict:
 
 def deserialize_json(data: dict) -> ToolArguments:
     out: ToolArguments = {}  # type: ignore[typeddict-item]
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
-    if "language" in data:
+    if data.get("language") is not None:
         import capo_bedrock_agentcore.types.programming_language
 
         out["language"] = (
@@ -101,19 +101,19 @@ def deserialize_json(data: dict) -> ToolArguments:
                 data["language"]
             )
         )
-    if "clearContext" in data:
+    if data.get("clearContext") is not None:
         out["clear_context"] = data["clearContext"]
-    if "command" in data:
+    if data.get("command") is not None:
         out["command"] = data["command"]
-    if "path" in data:
+    if data.get("path") is not None:
         out["path"] = data["path"]
-    if "paths" in data:
+    if data.get("paths") is not None:
         import capo_bedrock_agentcore.types.string_list
 
         out["paths"] = capo_bedrock_agentcore.types.string_list.deserialize_json(
             data["paths"]
         )
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore.types.input_content_block_list
 
         out["content"] = (
@@ -121,11 +121,11 @@ def deserialize_json(data: dict) -> ToolArguments:
                 data["content"]
             )
         )
-    if "directoryPath" in data:
+    if data.get("directoryPath") is not None:
         out["directory_path"] = data["directoryPath"]
-    if "taskId" in data:
+    if data.get("taskId") is not None:
         out["task_id"] = data["taskId"]
-    if "runtime" in data:
+    if data.get("runtime") is not None:
         import capo_bedrock_agentcore.types.language_runtime
 
         out["runtime"] = capo_bedrock_agentcore.types.language_runtime.deserialize_json(

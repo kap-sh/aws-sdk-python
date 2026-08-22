@@ -35,10 +35,10 @@ def serialize_json(value: S3VectorsConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> S3VectorsConfiguration:
     out: S3VectorsConfiguration = {}  # type: ignore[typeddict-item]
-    if "vectorBucketArn" in data:
+    if data.get("vectorBucketArn") is not None:
         out["vector_bucket_arn"] = data["vectorBucketArn"]
-    if "indexArn" in data:
+    if data.get("indexArn") is not None:
         out["index_arn"] = data["indexArn"]
-    if "indexName" in data:
+    if data.get("indexName") is not None:
         out["index_name"] = data["indexName"]
     return out

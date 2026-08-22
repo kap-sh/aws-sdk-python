@@ -28,7 +28,7 @@ def serialize_json(value: ConditionFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ConditionFlowNodeConfiguration:
     out: ConditionFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "conditions" in data:
+    if data.get("conditions") is not None:
         import capo_bedrock_agent.types.flow_conditions
 
         out["conditions"] = capo_bedrock_agent.types.flow_conditions.deserialize_json(

@@ -90,16 +90,18 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_flow_execution(
@@ -141,16 +143,18 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_flow_execution_events(
@@ -202,21 +206,23 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+            "event_type": event_type,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["event_type"] = event_type
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_flow_executions(
@@ -266,8 +272,9 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest = {
+            "flow_identifier": flow_identifier
+        }
         if flow_alias_identifier is not None:
             input_["flow_alias_identifier"] = flow_alias_identifier
         if max_results is not None:
@@ -280,6 +287,7 @@ class FlowExecutionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def start_flow_execution(
@@ -333,12 +341,13 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
+        input_: capo_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "inputs": inputs,
+        }
         if flow_execution_name is not None:
             input_["flow_execution_name"] = flow_execution_name
-        input_["inputs"] = inputs
         if model_performance_configuration is not None:
             input_["model_performance_configuration"] = model_performance_configuration
 
@@ -347,6 +356,7 @@ class FlowExecutionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def stop_flow_execution(
@@ -391,16 +401,18 @@ class FlowExecutionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -448,16 +460,18 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.get_execution_flow_snapshot_request.GetExecutionFlowSnapshotRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_flow_execution(
@@ -500,16 +514,18 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.get_flow_execution_request.GetFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_flow_execution_events(
@@ -562,21 +578,23 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.list_flow_execution_events_request.ListFlowExecutionEventsRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+            "event_type": event_type,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
             input_["next_token"] = next_token
-        input_["event_type"] = event_type
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_flow_executions(
@@ -627,8 +645,9 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
+        input_: capo_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest = {
+            "flow_identifier": flow_identifier
+        }
         if flow_alias_identifier is not None:
             input_["flow_alias_identifier"] = flow_alias_identifier
         if max_results is not None:
@@ -641,6 +660,7 @@ class AsyncFlowExecutionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def start_flow_execution(
@@ -695,12 +715,13 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
+        input_: capo_bedrock_agent_runtime.types.start_flow_execution_request.StartFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "inputs": inputs,
+        }
         if flow_execution_name is not None:
             input_["flow_execution_name"] = flow_execution_name
-        input_["inputs"] = inputs
         if model_performance_configuration is not None:
             input_["model_performance_configuration"] = model_performance_configuration
 
@@ -709,6 +730,7 @@ class AsyncFlowExecutionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def stop_flow_execution(
@@ -754,14 +776,16 @@ class AsyncFlowExecutionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input_["flow_identifier"] = flow_identifier
-        input_["flow_alias_identifier"] = flow_alias_identifier
-        input_["execution_identifier"] = execution_identifier
+        input_: capo_bedrock_agent_runtime.types.stop_flow_execution_request.StopFlowExecutionRequest = {
+            "flow_identifier": flow_identifier,
+            "flow_alias_identifier": flow_alias_identifier,
+            "execution_identifier": execution_identifier,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

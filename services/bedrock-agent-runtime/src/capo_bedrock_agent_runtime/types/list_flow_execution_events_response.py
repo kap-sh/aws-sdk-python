@@ -37,7 +37,7 @@ def serialize_json(value: ListFlowExecutionEventsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListFlowExecutionEventsResponse:
     out: ListFlowExecutionEventsResponse = {}  # type: ignore[typeddict-item]
-    if "flowExecutionEvents" in data:
+    if data.get("flowExecutionEvents") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_events
 
         out["flow_execution_events"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListFlowExecutionEventsResponse:
         raise DeserializationError(
             "ListFlowExecutionEventsResponse.flow_execution_events required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

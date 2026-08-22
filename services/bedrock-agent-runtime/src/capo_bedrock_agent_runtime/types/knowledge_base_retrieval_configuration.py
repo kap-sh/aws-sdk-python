@@ -30,7 +30,7 @@ def serialize_json(value: KnowledgeBaseRetrievalConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseRetrievalConfiguration:
     out: KnowledgeBaseRetrievalConfiguration = {}  # type: ignore[typeddict-item]
-    if "vectorSearchConfiguration" in data:
+    if data.get("vectorSearchConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_vector_search_configuration
 
         out["vector_search_configuration"] = (

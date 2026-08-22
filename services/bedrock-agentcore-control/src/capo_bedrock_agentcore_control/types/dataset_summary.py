@@ -92,21 +92,21 @@ def serialize_json(value: DatasetSummary) -> dict:
 
 def deserialize_json(data: dict) -> DatasetSummary:
     out: DatasetSummary = {}  # type: ignore[typeddict-item]
-    if "datasetArn" in data:
+    if data.get("datasetArn") is not None:
         out["dataset_arn"] = data["datasetArn"]
     else:
         raise DeserializationError("DatasetSummary.dataset_arn required")
-    if "datasetId" in data:
+    if data.get("datasetId") is not None:
         out["dataset_id"] = data["datasetId"]
     else:
         raise DeserializationError("DatasetSummary.dataset_id required")
-    if "datasetName" in data:
+    if data.get("datasetName") is not None:
         out["dataset_name"] = data["datasetName"]
     else:
         raise DeserializationError("DatasetSummary.dataset_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.dataset_status
 
         out["status"] = (
@@ -116,7 +116,7 @@ def deserialize_json(data: dict) -> DatasetSummary:
         )
     else:
         raise DeserializationError("DatasetSummary.status required")
-    if "draftStatus" in data:
+    if data.get("draftStatus") is not None:
         import capo_bedrock_agentcore_control.types.draft_status
 
         out["draft_status"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> DatasetSummary:
                 data["draftStatus"]
             )
         )
-    if "schemaType" in data:
+    if data.get("schemaType") is not None:
         import capo_bedrock_agentcore_control.types.dataset_schema_type
 
         out["schema_type"] = (
@@ -134,11 +134,11 @@ def deserialize_json(data: dict) -> DatasetSummary:
         )
     else:
         raise DeserializationError("DatasetSummary.schema_type required")
-    if "exampleCount" in data:
+    if data.get("exampleCount") is not None:
         out["example_count"] = data["exampleCount"]
     else:
         raise DeserializationError("DatasetSummary.example_count required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -148,7 +148,7 @@ def deserialize_json(data: dict) -> DatasetSummary:
         )
     else:
         raise DeserializationError("DatasetSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (

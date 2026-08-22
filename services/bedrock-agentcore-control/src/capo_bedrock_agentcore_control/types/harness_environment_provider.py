@@ -37,7 +37,7 @@ def serialize_json(value: HarnessEnvironmentProvider) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessEnvironmentProvider:
-    if "agentCoreRuntimeEnvironment" in data:
+    if data.get("agentCoreRuntimeEnvironment") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_runtime_environment
 
         return {

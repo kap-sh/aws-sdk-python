@@ -29,9 +29,9 @@ def serialize_json(value: Branch) -> dict:
 
 def deserialize_json(data: dict) -> Branch:
     out: Branch = {}  # type: ignore[typeddict-item]
-    if "rootEventId" in data:
+    if data.get("rootEventId") is not None:
         out["root_event_id"] = data["rootEventId"]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("Branch.name required")

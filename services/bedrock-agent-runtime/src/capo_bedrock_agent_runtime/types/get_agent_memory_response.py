@@ -34,9 +34,9 @@ def serialize_json(value: GetAgentMemoryResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAgentMemoryResponse:
     out: GetAgentMemoryResponse = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "memoryContents" in data:
+    if data.get("memoryContents") is not None:
         import capo_bedrock_agent_runtime.types.memories
 
         out["memory_contents"] = (

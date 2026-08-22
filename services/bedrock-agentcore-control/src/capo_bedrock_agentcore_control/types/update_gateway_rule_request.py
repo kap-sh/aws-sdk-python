@@ -62,9 +62,9 @@ def serialize_json(value: UpdateGatewayRuleRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateGatewayRuleRequest:
     out: UpdateGatewayRuleRequest = {}  # type: ignore[typeddict-item]
-    if "priority" in data:
+    if data.get("priority") is not None:
         out["priority"] = data["priority"]
-    if "conditions" in data:
+    if data.get("conditions") is not None:
         import capo_bedrock_agentcore_control.types.conditions
 
         out["conditions"] = (
@@ -72,12 +72,12 @@ def deserialize_json(data: dict) -> UpdateGatewayRuleRequest:
                 data["conditions"]
             )
         )
-    if "actions" in data:
+    if data.get("actions") is not None:
         import capo_bedrock_agentcore_control.types.actions
 
         out["actions"] = capo_bedrock_agentcore_control.types.actions.deserialize_json(
             data["actions"]
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

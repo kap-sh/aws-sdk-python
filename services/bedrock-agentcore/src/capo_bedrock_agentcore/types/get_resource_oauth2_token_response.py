@@ -50,13 +50,13 @@ def serialize_json(value: GetResourceOauth2TokenResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetResourceOauth2TokenResponse:
     out: GetResourceOauth2TokenResponse = {}  # type: ignore[typeddict-item]
-    if "authorizationUrl" in data:
+    if data.get("authorizationUrl") is not None:
         out["authorization_url"] = data["authorizationUrl"]
-    if "accessToken" in data:
+    if data.get("accessToken") is not None:
         out["access_token"] = data["accessToken"]
-    if "sessionUri" in data:
+    if data.get("sessionUri") is not None:
         out["session_uri"] = data["sessionUri"]
-    if "sessionStatus" in data:
+    if data.get("sessionStatus") is not None:
         import capo_bedrock_agentcore.types.session_status
 
         out["session_status"] = (

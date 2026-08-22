@@ -63,11 +63,11 @@ def serialize_json(value: MetadataSchemaEntry) -> dict:
 
 def deserialize_json(data: dict) -> MetadataSchemaEntry:
     out: MetadataSchemaEntry = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("MetadataSchemaEntry.key required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.metadata_value_type
 
         out["type"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> MetadataSchemaEntry:
                 data["type"]
             )
         )
-    if "extractionType" in data:
+    if data.get("extractionType") is not None:
         import capo_bedrock_agentcore_control.types.extraction_type
 
         out["extraction_type"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> MetadataSchemaEntry:
                 data["extractionType"]
             )
         )
-    if "extractionConfig" in data:
+    if data.get("extractionConfig") is not None:
         import capo_bedrock_agentcore_control.types.extraction_config
 
         out["extraction_config"] = (

@@ -52,15 +52,15 @@ def serialize_json(value: TokenBalance) -> dict:
 
 def deserialize_json(data: dict) -> TokenBalance:
     out: TokenBalance = {}  # type: ignore[typeddict-item]
-    if "amount" in data:
+    if data.get("amount") is not None:
         out["amount"] = data["amount"]
     else:
         raise DeserializationError("TokenBalance.amount required")
-    if "decimals" in data:
+    if data.get("decimals") is not None:
         out["decimals"] = data["decimals"]
     else:
         raise DeserializationError("TokenBalance.decimals required")
-    if "token" in data:
+    if data.get("token") is not None:
         import capo_bedrock_agentcore.types.instrument_balance_token
 
         out["token"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> TokenBalance:
         )
     else:
         raise DeserializationError("TokenBalance.token required")
-    if "network" in data:
+    if data.get("network") is not None:
         import capo_bedrock_agentcore.types.crypto_wallet_network
 
         out["network"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> TokenBalance:
         )
     else:
         raise DeserializationError("TokenBalance.network required")
-    if "chain" in data:
+    if data.get("chain") is not None:
         import capo_bedrock_agentcore.types.blockchain_chain_id
 
         out["chain"] = (

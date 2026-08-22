@@ -56,18 +56,18 @@ def serialize_aws_json_1_1(value: GetDataAutomationStatusResponse) -> dict:
             )
         )
     if "job_submission_time" in value:
-        import capo_bedrock_data_automation_runtime.types._prelude.timestamp
+        import capo_bedrock_data_automation_runtime._protocol.serialize
 
         out["jobSubmissionTime"] = (
-            capo_bedrock_data_automation_runtime.types._prelude.timestamp.serialize_aws_json_1_1(
+            capo_bedrock_data_automation_runtime._protocol.serialize.fmt_date_time(
                 value["job_submission_time"]
             )
         )
     if "job_completion_time" in value:
-        import capo_bedrock_data_automation_runtime.types._prelude.timestamp
+        import capo_bedrock_data_automation_runtime._protocol.serialize
 
         out["jobCompletionTime"] = (
-            capo_bedrock_data_automation_runtime.types._prelude.timestamp.serialize_aws_json_1_1(
+            capo_bedrock_data_automation_runtime._protocol.serialize.fmt_date_time(
                 value["job_completion_time"]
             )
         )
@@ -78,7 +78,7 @@ def serialize_aws_json_1_1(value: GetDataAutomationStatusResponse) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> GetDataAutomationStatusResponse:
     out: GetDataAutomationStatusResponse = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_data_automation_runtime.types.automation_job_status
 
         out["status"] = (
@@ -86,11 +86,11 @@ def deserialize_aws_json_1_1(data: dict) -> GetDataAutomationStatusResponse:
                 data["status"]
             )
         )
-    if "errorType" in data:
+    if data.get("errorType") is not None:
         out["error_type"] = data["errorType"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.output_configuration
 
         out["output_configuration"] = (
@@ -98,22 +98,18 @@ def deserialize_aws_json_1_1(data: dict) -> GetDataAutomationStatusResponse:
                 data["outputConfiguration"]
             )
         )
-    if "jobSubmissionTime" in data:
-        import capo_bedrock_data_automation_runtime.types._prelude.timestamp
+    if data.get("jobSubmissionTime") is not None:
+        import datetime
 
-        out["job_submission_time"] = (
-            capo_bedrock_data_automation_runtime.types._prelude.timestamp.deserialize_aws_json_1_1(
-                data["jobSubmissionTime"]
-            )
+        out["job_submission_time"] = datetime.datetime.fromisoformat(
+            data["jobSubmissionTime"].replace("Z", "+00:00")
         )
-    if "jobCompletionTime" in data:
-        import capo_bedrock_data_automation_runtime.types._prelude.timestamp
+    if data.get("jobCompletionTime") is not None:
+        import datetime
 
-        out["job_completion_time"] = (
-            capo_bedrock_data_automation_runtime.types._prelude.timestamp.deserialize_aws_json_1_1(
-                data["jobCompletionTime"]
-            )
+        out["job_completion_time"] = datetime.datetime.fromisoformat(
+            data["jobCompletionTime"].replace("Z", "+00:00")
         )
-    if "jobDurationInSeconds" in data:
+    if data.get("jobDurationInSeconds") is not None:
         out["job_duration_in_seconds"] = data["jobDurationInSeconds"]
     return out

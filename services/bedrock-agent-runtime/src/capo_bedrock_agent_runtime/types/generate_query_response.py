@@ -31,7 +31,7 @@ def serialize_json(value: GenerateQueryResponse) -> dict:
 
 def deserialize_json(data: dict) -> GenerateQueryResponse:
     out: GenerateQueryResponse = {}  # type: ignore[typeddict-item]
-    if "queries" in data:
+    if data.get("queries") is not None:
         import capo_bedrock_agent_runtime.types.generated_queries
 
         out["queries"] = (

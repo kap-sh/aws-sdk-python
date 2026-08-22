@@ -31,7 +31,7 @@ def serialize_json(value: ApiRequestBody) -> dict:
 
 def deserialize_json(data: dict) -> ApiRequestBody:
     out: ApiRequestBody = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.api_content_map
 
         out["content"] = (

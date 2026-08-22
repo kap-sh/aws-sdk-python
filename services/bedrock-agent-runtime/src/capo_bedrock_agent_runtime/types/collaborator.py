@@ -127,19 +127,19 @@ def serialize_json(value: Collaborator) -> dict:
 
 def deserialize_json(data: dict) -> Collaborator:
     out: Collaborator = {}  # type: ignore[typeddict-item]
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
     else:
         raise DeserializationError("Collaborator.foundation_model required")
-    if "instruction" in data:
+    if data.get("instruction") is not None:
         out["instruction"] = data["instruction"]
     else:
         raise DeserializationError("Collaborator.instruction required")
-    if "idleSessionTTLInSeconds" in data:
+    if data.get("idleSessionTTLInSeconds") is not None:
         out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
-    if "actionGroups" in data:
+    if data.get("actionGroups") is not None:
         import capo_bedrock_agent_runtime.types.agent_action_groups
 
         out["action_groups"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["actionGroups"]
             )
         )
-    if "knowledgeBases" in data:
+    if data.get("knowledgeBases") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_bases
 
         out["knowledge_bases"] = (
@@ -155,7 +155,7 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["knowledgeBases"]
             )
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_configuration_with_arn
 
         out["guardrail_configuration"] = (
@@ -163,7 +163,7 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["guardrailConfiguration"]
             )
         )
-    if "promptOverrideConfiguration" in data:
+    if data.get("promptOverrideConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.prompt_override_configuration
 
         out["prompt_override_configuration"] = (
@@ -171,7 +171,7 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["promptOverrideConfiguration"]
             )
         )
-    if "agentCollaboration" in data:
+    if data.get("agentCollaboration") is not None:
         import capo_bedrock_agent_runtime.types.agent_collaboration
 
         out["agent_collaboration"] = (
@@ -179,7 +179,7 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["agentCollaboration"]
             )
         )
-    if "collaboratorConfigurations" in data:
+    if data.get("collaboratorConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.collaborator_configurations
 
         out["collaborator_configurations"] = (
@@ -187,6 +187,6 @@ def deserialize_json(data: dict) -> Collaborator:
                 data["collaboratorConfigurations"]
             )
         )
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
     return out

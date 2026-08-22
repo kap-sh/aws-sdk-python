@@ -61,25 +61,25 @@ def serialize_json(value: HarnessAgentCoreRuntimeEnvironment) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironment:
     out: HarnessAgentCoreRuntimeEnvironment = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError(
             "HarnessAgentCoreRuntimeEnvironment.agent_runtime_arn required"
         )
-    if "agentRuntimeName" in data:
+    if data.get("agentRuntimeName") is not None:
         out["agent_runtime_name"] = data["agentRuntimeName"]
     else:
         raise DeserializationError(
             "HarnessAgentCoreRuntimeEnvironment.agent_runtime_name required"
         )
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
     else:
         raise DeserializationError(
             "HarnessAgentCoreRuntimeEnvironment.agent_runtime_id required"
         )
-    if "lifecycleConfiguration" in data:
+    if data.get("lifecycleConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.lifecycle_configuration
 
         out["lifecycle_configuration"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironment:
         raise DeserializationError(
             "HarnessAgentCoreRuntimeEnvironment.lifecycle_configuration required"
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.network_configuration
 
         out["network_configuration"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironment:
         raise DeserializationError(
             "HarnessAgentCoreRuntimeEnvironment.network_configuration required"
         )
-    if "filesystemConfigurations" in data:
+    if data.get("filesystemConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.filesystem_configurations
 
         out["filesystem_configurations"] = (

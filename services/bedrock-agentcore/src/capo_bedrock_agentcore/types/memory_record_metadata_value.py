@@ -50,7 +50,17 @@ def serialize_json(value: MemoryRecordMetadataValue) -> dict:
             )
         }
     elif "numberValue" in value:
-        return {"numberValue": value["numberValue"]}
+        return {
+            "numberValue": (
+                "NaN"
+                if value["numberValue"] != value["numberValue"]
+                else "Infinity"
+                if value["numberValue"] == float("inf")
+                else "-Infinity"
+                if value["numberValue"] == float("-inf")
+                else value["numberValue"]
+            )
+        }
     elif "dateTimeValue" in value:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
@@ -64,9 +74,9 @@ def serialize_json(value: MemoryRecordMetadataValue) -> dict:
 
 
 def deserialize_json(data: dict) -> MemoryRecordMetadataValue:
-    if "stringValue" in data:
+    if data.get("stringValue") is not None:
         return {"stringValue": data["stringValue"]}
-    elif "stringListValue" in data:
+    elif data.get("stringListValue") is not None:
         import capo_bedrock_agentcore.types.string_value_list
 
         return {
@@ -74,9 +84,9 @@ def deserialize_json(data: dict) -> MemoryRecordMetadataValue:
                 data["stringListValue"]
             )
         }
-    elif "numberValue" in data:
-        return {"numberValue": data["numberValue"]}
-    elif "dateTimeValue" in data:
+    elif data.get("numberValue") is not None:
+        return {"numberValue": float(data["numberValue"])}
+    elif data.get("dateTimeValue") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         return {

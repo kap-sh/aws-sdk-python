@@ -37,10 +37,10 @@ def serialize_json(value: ManagedResourceDetails) -> dict:
 
 def deserialize_json(data: dict) -> ManagedResourceDetails:
     out: ManagedResourceDetails = {}  # type: ignore[typeddict-item]
-    if "domain" in data:
+    if data.get("domain") is not None:
         out["domain"] = data["domain"]
-    if "resourceGatewayArn" in data:
+    if data.get("resourceGatewayArn") is not None:
         out["resource_gateway_arn"] = data["resourceGatewayArn"]
-    if "resourceAssociationArn" in data:
+    if data.get("resourceAssociationArn") is not None:
         out["resource_association_arn"] = data["resourceAssociationArn"]
     return out

@@ -124,7 +124,7 @@ def serialize_json(value: Trace) -> dict:
 
 
 def deserialize_json(data: dict) -> Trace:
-    if "guardrailTrace" in data:
+    if data.get("guardrailTrace") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_trace
 
         return {
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["guardrailTrace"]
             )
         }
-    elif "preProcessingTrace" in data:
+    elif data.get("preProcessingTrace") is not None:
         import capo_bedrock_agent_runtime.types.pre_processing_trace
 
         return {
@@ -140,7 +140,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["preProcessingTrace"]
             )
         }
-    elif "orchestrationTrace" in data:
+    elif data.get("orchestrationTrace") is not None:
         import capo_bedrock_agent_runtime.types.orchestration_trace
 
         return {
@@ -148,7 +148,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["orchestrationTrace"]
             )
         }
-    elif "postProcessingTrace" in data:
+    elif data.get("postProcessingTrace") is not None:
         import capo_bedrock_agent_runtime.types.post_processing_trace
 
         return {
@@ -156,7 +156,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["postProcessingTrace"]
             )
         }
-    elif "routingClassifierTrace" in data:
+    elif data.get("routingClassifierTrace") is not None:
         import capo_bedrock_agent_runtime.types.routing_classifier_trace
 
         return {
@@ -164,7 +164,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["routingClassifierTrace"]
             )
         }
-    elif "failureTrace" in data:
+    elif data.get("failureTrace") is not None:
         import capo_bedrock_agent_runtime.types.failure_trace
 
         return {
@@ -172,7 +172,7 @@ def deserialize_json(data: dict) -> Trace:
                 data["failureTrace"]
             )
         }
-    elif "customOrchestrationTrace" in data:
+    elif data.get("customOrchestrationTrace") is not None:
         import capo_bedrock_agent_runtime.types.custom_orchestration_trace
 
         return {

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> TriggerConditionInputList:
 
     out: TriggerConditionInputList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.trigger_condition_input.deserialize_json(
                 item

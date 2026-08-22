@@ -27,11 +27,11 @@ def serialize_json(value: CryptoX402PaymentOutput) -> dict:
 
 def deserialize_json(data: dict) -> CryptoX402PaymentOutput:
     out: CryptoX402PaymentOutput = {}  # type: ignore[typeddict-item]
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("CryptoX402PaymentOutput.version required")
-    if "payload" in data:
+    if data.get("payload") is not None:
         out["payload"] = data["payload"]
     else:
         raise DeserializationError("CryptoX402PaymentOutput.payload required")

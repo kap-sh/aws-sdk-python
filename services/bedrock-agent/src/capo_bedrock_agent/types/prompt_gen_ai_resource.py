@@ -32,7 +32,7 @@ def serialize_json(value: PromptGenAiResource) -> dict:
 
 
 def deserialize_json(data: dict) -> PromptGenAiResource:
-    if "agent" in data:
+    if data.get("agent") is not None:
         import capo_bedrock_agent.types.prompt_agent_resource
 
         return {

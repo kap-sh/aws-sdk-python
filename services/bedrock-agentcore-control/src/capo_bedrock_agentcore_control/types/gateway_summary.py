@@ -86,15 +86,15 @@ def serialize_json(value: GatewaySummary) -> dict:
 
 def deserialize_json(data: dict) -> GatewaySummary:
     out: GatewaySummary = {}  # type: ignore[typeddict-item]
-    if "gatewayId" in data:
+    if data.get("gatewayId") is not None:
         out["gateway_id"] = data["gatewayId"]
     else:
         raise DeserializationError("GatewaySummary.gateway_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GatewaySummary.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.gateway_status
 
         out["status"] = (
@@ -104,9 +104,9 @@ def deserialize_json(data: dict) -> GatewaySummary:
         )
     else:
         raise DeserializationError("GatewaySummary.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -116,7 +116,7 @@ def deserialize_json(data: dict) -> GatewaySummary:
         )
     else:
         raise DeserializationError("GatewaySummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> GatewaySummary:
         )
     else:
         raise DeserializationError("GatewaySummary.updated_at required")
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_type
 
         out["authorizer_type"] = (
@@ -136,7 +136,7 @@ def deserialize_json(data: dict) -> GatewaySummary:
         )
     else:
         raise DeserializationError("GatewaySummary.authorizer_type required")
-    if "protocolType" in data:
+    if data.get("protocolType") is not None:
         import capo_bedrock_agentcore_control.types.gateway_protocol_type
 
         out["protocol_type"] = (

@@ -30,8 +30,8 @@ def serialize_json(value: AgentAliasRoutingConfigurationListItem) -> dict:
 
 def deserialize_json(data: dict) -> AgentAliasRoutingConfigurationListItem:
     out: AgentAliasRoutingConfigurationListItem = {}  # type: ignore[typeddict-item]
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
-    if "provisionedThroughput" in data:
+    if data.get("provisionedThroughput") is not None:
         out["provisioned_throughput"] = data["provisionedThroughput"]
     return out

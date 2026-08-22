@@ -24,7 +24,7 @@ def serialize_json(value: FlowConditionalConnectionConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FlowConditionalConnectionConfiguration:
     out: FlowConditionalConnectionConfiguration = {}  # type: ignore[typeddict-item]
-    if "condition" in data:
+    if data.get("condition") is not None:
         out["condition"] = data["condition"]
     else:
         raise DeserializationError(

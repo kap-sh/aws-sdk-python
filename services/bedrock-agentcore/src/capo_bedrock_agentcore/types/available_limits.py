@@ -38,7 +38,7 @@ def serialize_json(value: AvailableLimits) -> dict:
 
 def deserialize_json(data: dict) -> AvailableLimits:
     out: AvailableLimits = {}  # type: ignore[typeddict-item]
-    if "availableSpendAmount" in data:
+    if data.get("availableSpendAmount") is not None:
         import capo_bedrock_agentcore.types.amount
 
         out["available_spend_amount"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> AvailableLimits:
                 data["availableSpendAmount"]
             )
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["updated_at"] = (

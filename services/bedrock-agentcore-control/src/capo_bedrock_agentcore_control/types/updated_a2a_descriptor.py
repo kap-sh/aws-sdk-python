@@ -31,7 +31,7 @@ def serialize_json(value: UpdatedA2aDescriptor) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedA2aDescriptor:
     out: UpdatedA2aDescriptor = {}  # type: ignore[typeddict-item]
-    if "optionalValue" in data:
+    if data.get("optionalValue") is not None:
         import capo_bedrock_agentcore_control.types.a2a_descriptor
 
         out["optional_value"] = (

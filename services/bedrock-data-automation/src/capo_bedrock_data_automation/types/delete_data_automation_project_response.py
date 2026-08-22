@@ -35,13 +35,13 @@ def serialize_json(value: DeleteDataAutomationProjectResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteDataAutomationProjectResponse:
     out: DeleteDataAutomationProjectResponse = {}  # type: ignore[typeddict-item]
-    if "projectArn" in data:
+    if data.get("projectArn") is not None:
         out["project_arn"] = data["projectArn"]
     else:
         raise DeserializationError(
             "DeleteDataAutomationProjectResponse.project_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_status
 
         out["status"] = (

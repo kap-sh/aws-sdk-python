@@ -36,11 +36,11 @@ def serialize_json(value: OutputFile) -> dict:
 
 def deserialize_json(data: dict) -> OutputFile:
     out: OutputFile = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "type" in data:
+    if data.get("type") is not None:
         out["type"] = data["type"]
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_agent_runtime.types.file_body
 
         out["bytes"] = capo_bedrock_agent_runtime.types.file_body.deserialize_json(

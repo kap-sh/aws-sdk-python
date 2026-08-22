@@ -37,7 +37,7 @@ def serialize_json(value: HarnessMemoryConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessMemoryConfiguration:
-    if "agentCoreMemoryConfiguration" in data:
+    if data.get("agentCoreMemoryConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.harness_agent_core_memory_configuration
 
         return {

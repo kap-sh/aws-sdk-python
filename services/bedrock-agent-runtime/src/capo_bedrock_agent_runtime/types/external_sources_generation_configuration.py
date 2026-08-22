@@ -83,7 +83,7 @@ def serialize_json(value: ExternalSourcesGenerationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ExternalSourcesGenerationConfiguration:
     out: ExternalSourcesGenerationConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptTemplate" in data:
+    if data.get("promptTemplate") is not None:
         import capo_bedrock_agent_runtime.types.prompt_template
 
         out["prompt_template"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> ExternalSourcesGenerationConfiguration:
                 data["promptTemplate"]
             )
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_configuration
 
         out["guardrail_configuration"] = (
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> ExternalSourcesGenerationConfiguration:
                 data["guardrailConfiguration"]
             )
         )
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock_agent_runtime.types.inference_config
 
         out["inference_config"] = (
@@ -107,7 +107,7 @@ def deserialize_json(data: dict) -> ExternalSourcesGenerationConfiguration:
                 data["inferenceConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         import capo_bedrock_agent_runtime.types.additional_model_request_fields
 
         out["additional_model_request_fields"] = (
@@ -115,7 +115,7 @@ def deserialize_json(data: dict) -> ExternalSourcesGenerationConfiguration:
                 data["additionalModelRequestFields"]
             )
         )
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_agent_runtime.types.performance_configuration
 
         out["performance_config"] = (

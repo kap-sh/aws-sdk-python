@@ -31,7 +31,7 @@ def serialize_json(value: GetDataAutomationLibraryEntityResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDataAutomationLibraryEntityResponse:
     out: GetDataAutomationLibraryEntityResponse = {}  # type: ignore[typeddict-item]
-    if "entity" in data:
+    if data.get("entity") is not None:
         import capo_bedrock_data_automation.types.entity_details
 
         out["entity"] = (

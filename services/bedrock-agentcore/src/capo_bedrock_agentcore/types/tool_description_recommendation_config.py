@@ -42,7 +42,7 @@ def serialize_json(value: ToolDescriptionRecommendationConfig) -> dict:
 
 def deserialize_json(data: dict) -> ToolDescriptionRecommendationConfig:
     out: ToolDescriptionRecommendationConfig = {}  # type: ignore[typeddict-item]
-    if "toolDescription" in data:
+    if data.get("toolDescription") is not None:
         import capo_bedrock_agentcore.types.tool_description_source
 
         out["tool_description"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> ToolDescriptionRecommendationConfig:
         raise DeserializationError(
             "ToolDescriptionRecommendationConfig.tool_description required"
         )
-    if "agentTraces" in data:
+    if data.get("agentTraces") is not None:
         import capo_bedrock_agentcore.types.agent_traces_config
 
         out["agent_traces"] = (

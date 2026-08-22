@@ -51,15 +51,15 @@ def serialize_json(value: CreateEvaluatorResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateEvaluatorResponse:
     out: CreateEvaluatorResponse = {}  # type: ignore[typeddict-item]
-    if "evaluatorArn" in data:
+    if data.get("evaluatorArn") is not None:
         out["evaluator_arn"] = data["evaluatorArn"]
     else:
         raise DeserializationError("CreateEvaluatorResponse.evaluator_arn required")
-    if "evaluatorId" in data:
+    if data.get("evaluatorId") is not None:
         out["evaluator_id"] = data["evaluatorId"]
     else:
         raise DeserializationError("CreateEvaluatorResponse.evaluator_id required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> CreateEvaluatorResponse:
         )
     else:
         raise DeserializationError("CreateEvaluatorResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_status
 
         out["status"] = (

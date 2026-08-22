@@ -36,7 +36,7 @@ def serialize_json(value: ImageInput) -> dict:
 
 def deserialize_json(data: dict) -> ImageInput:
     out: ImageInput = {}  # type: ignore[typeddict-item]
-    if "format" in data:
+    if data.get("format") is not None:
         import capo_bedrock_agent_runtime.types.image_input_format
 
         out["format"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> ImageInput:
         )
     else:
         raise DeserializationError("ImageInput.format required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_agent_runtime.types.image_input_source
 
         out["source"] = (

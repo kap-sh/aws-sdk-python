@@ -22,11 +22,11 @@ def serialize_json(value: GuardrailConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailConfiguration:
     out: GuardrailConfiguration = {}  # type: ignore[typeddict-item]
-    if "guardrailId" in data:
+    if data.get("guardrailId") is not None:
         out["guardrail_id"] = data["guardrailId"]
     else:
         raise DeserializationError("GuardrailConfiguration.guardrail_id required")
-    if "guardrailVersion" in data:
+    if data.get("guardrailVersion") is not None:
         out["guardrail_version"] = data["guardrailVersion"]
     else:
         raise DeserializationError("GuardrailConfiguration.guardrail_version required")

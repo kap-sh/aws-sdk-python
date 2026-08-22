@@ -34,9 +34,9 @@ def serialize_json(value: BedrockRerankingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BedrockRerankingConfiguration:
     out: BedrockRerankingConfiguration = {}  # type: ignore[typeddict-item]
-    if "numberOfResults" in data:
+    if data.get("numberOfResults") is not None:
         out["number_of_results"] = data["numberOfResults"]
-    if "modelConfiguration" in data:
+    if data.get("modelConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.bedrock_reranking_model_configuration
 
         out["model_configuration"] = (

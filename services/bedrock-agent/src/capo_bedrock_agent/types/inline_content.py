@@ -50,7 +50,7 @@ def serialize_json(value: InlineContent) -> dict:
 
 def deserialize_json(data: dict) -> InlineContent:
     out: InlineContent = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.inline_content_type
 
         out["type"] = capo_bedrock_agent.types.inline_content_type.deserialize_json(
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> InlineContent:
         )
     else:
         raise DeserializationError("InlineContent.type required")
-    if "byteContent" in data:
+    if data.get("byteContent") is not None:
         import capo_bedrock_agent.types.byte_content_doc
 
         out["byte_content"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> InlineContent:
                 data["byteContent"]
             )
         )
-    if "textContent" in data:
+    if data.get("textContent") is not None:
         import capo_bedrock_agent.types.text_content_doc
 
         out["text_content"] = (

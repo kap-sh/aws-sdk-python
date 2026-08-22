@@ -81,7 +81,7 @@ def serialize_json(value: CreateOauth2CredentialProviderResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateOauth2CredentialProviderResponse:
     out: CreateOauth2CredentialProviderResponse = {}  # type: ignore[typeddict-item]
-    if "clientSecretArn" in data:
+    if data.get("clientSecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["client_secret_arn"] = (
@@ -93,9 +93,9 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderResponse:
         raise DeserializationError(
             "CreateOauth2CredentialProviderResponse.client_secret_arn required"
         )
-    if "clientSecretJsonKey" in data:
+    if data.get("clientSecretJsonKey") is not None:
         out["client_secret_json_key"] = data["clientSecretJsonKey"]
-    if "clientSecretSource" in data:
+    if data.get("clientSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["client_secret_source"] = (
@@ -103,21 +103,21 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderResponse:
                 data["clientSecretSource"]
             )
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "CreateOauth2CredentialProviderResponse.name required"
         )
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(
             "CreateOauth2CredentialProviderResponse.credential_provider_arn required"
         )
-    if "callbackUrl" in data:
+    if data.get("callbackUrl") is not None:
         out["callback_url"] = data["callbackUrl"]
-    if "oauth2ProviderConfigOutput" in data:
+    if data.get("oauth2ProviderConfigOutput") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_provider_config_output
 
         out["oauth2_provider_config_output"] = (
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> CreateOauth2CredentialProviderResponse:
                 data["oauth2ProviderConfigOutput"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.status
 
         out["status"] = capo_bedrock_agentcore_control.types.status.deserialize_json(

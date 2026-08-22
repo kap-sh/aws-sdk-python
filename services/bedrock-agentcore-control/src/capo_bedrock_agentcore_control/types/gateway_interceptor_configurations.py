@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> GatewayInterceptorConfigurations:
 
     out: GatewayInterceptorConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.gateway_interceptor_configuration.deserialize_json(
                 item

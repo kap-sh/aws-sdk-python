@@ -36,13 +36,13 @@ def serialize_json(value: RedshiftProvisionedConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RedshiftProvisionedConfiguration:
     out: RedshiftProvisionedConfiguration = {}  # type: ignore[typeddict-item]
-    if "clusterIdentifier" in data:
+    if data.get("clusterIdentifier") is not None:
         out["cluster_identifier"] = data["clusterIdentifier"]
     else:
         raise DeserializationError(
             "RedshiftProvisionedConfiguration.cluster_identifier required"
         )
-    if "authConfiguration" in data:
+    if data.get("authConfiguration") is not None:
         import capo_bedrock_agent.types.redshift_provisioned_auth_configuration
 
         out["auth_configuration"] = (

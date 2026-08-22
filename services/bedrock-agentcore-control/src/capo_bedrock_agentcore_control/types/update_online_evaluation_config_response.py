@@ -63,19 +63,19 @@ def serialize_json(value: UpdateOnlineEvaluationConfigResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigResponse:
     out: UpdateOnlineEvaluationConfigResponse = {}  # type: ignore[typeddict-item]
-    if "onlineEvaluationConfigArn" in data:
+    if data.get("onlineEvaluationConfigArn") is not None:
         out["online_evaluation_config_arn"] = data["onlineEvaluationConfigArn"]
     else:
         raise DeserializationError(
             "UpdateOnlineEvaluationConfigResponse.online_evaluation_config_arn required"
         )
-    if "onlineEvaluationConfigId" in data:
+    if data.get("onlineEvaluationConfigId") is not None:
         out["online_evaluation_config_id"] = data["onlineEvaluationConfigId"]
     else:
         raise DeserializationError(
             "UpdateOnlineEvaluationConfigResponse.online_evaluation_config_id required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -87,7 +87,7 @@ def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigResponse:
         raise DeserializationError(
             "UpdateOnlineEvaluationConfigResponse.updated_at required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_config_status
 
         out["status"] = (
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigResponse:
         raise DeserializationError(
             "UpdateOnlineEvaluationConfigResponse.status required"
         )
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_execution_status
 
         out["execution_status"] = (
@@ -111,6 +111,6 @@ def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigResponse:
         raise DeserializationError(
             "UpdateOnlineEvaluationConfigResponse.execution_status required"
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
     return out

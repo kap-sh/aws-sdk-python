@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> InvocationInputs:
 
     out: InvocationInputs = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.invocation_input_member.deserialize_json(
                 item

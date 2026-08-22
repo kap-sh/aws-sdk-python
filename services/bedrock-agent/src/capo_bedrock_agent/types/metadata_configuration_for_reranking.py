@@ -43,7 +43,7 @@ def serialize_json(value: MetadataConfigurationForReranking) -> dict:
 
 def deserialize_json(data: dict) -> MetadataConfigurationForReranking:
     out: MetadataConfigurationForReranking = {}  # type: ignore[typeddict-item]
-    if "selectionMode" in data:
+    if data.get("selectionMode") is not None:
         import capo_bedrock_agent.types.reranking_metadata_selection_mode
 
         out["selection_mode"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> MetadataConfigurationForReranking:
         raise DeserializationError(
             "MetadataConfigurationForReranking.selection_mode required"
         )
-    if "selectiveModeConfiguration" in data:
+    if data.get("selectiveModeConfiguration") is not None:
         import capo_bedrock_agent.types.reranking_metadata_selective_mode_configuration
 
         out["selective_mode_configuration"] = (

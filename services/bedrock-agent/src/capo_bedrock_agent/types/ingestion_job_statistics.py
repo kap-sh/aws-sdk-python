@@ -41,37 +41,37 @@ def serialize_json(value: IngestionJobStatistics) -> dict:
 
 def deserialize_json(data: dict) -> IngestionJobStatistics:
     out: IngestionJobStatistics = {}  # type: ignore[typeddict-item]
-    if "numberOfDocumentsScanned" in data:
+    if data.get("numberOfDocumentsScanned") is not None:
         out["number_of_documents_scanned"] = data["numberOfDocumentsScanned"]
     else:
         out["number_of_documents_scanned"] = 0
-    if "numberOfMetadataDocumentsScanned" in data:
+    if data.get("numberOfMetadataDocumentsScanned") is not None:
         out["number_of_metadata_documents_scanned"] = data[
             "numberOfMetadataDocumentsScanned"
         ]
     else:
         out["number_of_metadata_documents_scanned"] = 0
-    if "numberOfNewDocumentsIndexed" in data:
+    if data.get("numberOfNewDocumentsIndexed") is not None:
         out["number_of_new_documents_indexed"] = data["numberOfNewDocumentsIndexed"]
     else:
         out["number_of_new_documents_indexed"] = 0
-    if "numberOfModifiedDocumentsIndexed" in data:
+    if data.get("numberOfModifiedDocumentsIndexed") is not None:
         out["number_of_modified_documents_indexed"] = data[
             "numberOfModifiedDocumentsIndexed"
         ]
     else:
         out["number_of_modified_documents_indexed"] = 0
-    if "numberOfMetadataDocumentsModified" in data:
+    if data.get("numberOfMetadataDocumentsModified") is not None:
         out["number_of_metadata_documents_modified"] = data[
             "numberOfMetadataDocumentsModified"
         ]
     else:
         out["number_of_metadata_documents_modified"] = 0
-    if "numberOfDocumentsDeleted" in data:
+    if data.get("numberOfDocumentsDeleted") is not None:
         out["number_of_documents_deleted"] = data["numberOfDocumentsDeleted"]
     else:
         out["number_of_documents_deleted"] = 0
-    if "numberOfDocumentsFailed" in data:
+    if data.get("numberOfDocumentsFailed") is not None:
         out["number_of_documents_failed"] = data["numberOfDocumentsFailed"]
     else:
         out["number_of_documents_failed"] = 0

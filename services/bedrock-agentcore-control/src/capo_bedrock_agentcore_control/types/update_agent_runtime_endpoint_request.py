@@ -47,10 +47,10 @@ def serialize_json(value: UpdateAgentRuntimeEndpointRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentRuntimeEndpointRequest:
     out: UpdateAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeVersion" in data:
+    if data.get("agentRuntimeVersion") is not None:
         out["agent_runtime_version"] = data["agentRuntimeVersion"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

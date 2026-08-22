@@ -50,7 +50,7 @@ def serialize_json(value: CredentialsProviderConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> CredentialsProviderConfiguration:
-    if "coinbaseCDP" in data:
+    if data.get("coinbaseCDP") is not None:
         import capo_bedrock_agentcore_control.types.payment_credential_provider_configuration
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> CredentialsProviderConfiguration:
                 data["coinbaseCDP"]
             )
         }
-    elif "stripePrivy" in data:
+    elif data.get("stripePrivy") is not None:
         import capo_bedrock_agentcore_control.types.payment_credential_provider_configuration
 
         return {

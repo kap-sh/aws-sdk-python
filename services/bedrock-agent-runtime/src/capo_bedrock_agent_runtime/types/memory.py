@@ -34,7 +34,7 @@ def serialize_json(value: Memory) -> dict:
 
 
 def deserialize_json(data: dict) -> Memory:
-    if "sessionSummary" in data:
+    if data.get("sessionSummary") is not None:
         import capo_bedrock_agent_runtime.types.memory_session_summary
 
         return {

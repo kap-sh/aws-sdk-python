@@ -158,7 +158,7 @@ def serialize_json(value: FlowExecutionEvent) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowExecutionEvent:
-    if "flowInputEvent" in data:
+    if data.get("flowInputEvent") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_input_event
 
         return {
@@ -166,7 +166,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["flowInputEvent"]
             )
         }
-    elif "flowOutputEvent" in data:
+    elif data.get("flowOutputEvent") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_output_event
 
         return {
@@ -174,7 +174,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["flowOutputEvent"]
             )
         }
-    elif "nodeInputEvent" in data:
+    elif data.get("nodeInputEvent") is not None:
         import capo_bedrock_agent_runtime.types.node_input_event
 
         return {
@@ -182,7 +182,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["nodeInputEvent"]
             )
         }
-    elif "nodeOutputEvent" in data:
+    elif data.get("nodeOutputEvent") is not None:
         import capo_bedrock_agent_runtime.types.node_output_event
 
         return {
@@ -190,7 +190,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["nodeOutputEvent"]
             )
         }
-    elif "conditionResultEvent" in data:
+    elif data.get("conditionResultEvent") is not None:
         import capo_bedrock_agent_runtime.types.condition_result_event
 
         return {
@@ -198,7 +198,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["conditionResultEvent"]
             )
         }
-    elif "nodeFailureEvent" in data:
+    elif data.get("nodeFailureEvent") is not None:
         import capo_bedrock_agent_runtime.types.node_failure_event
 
         return {
@@ -206,7 +206,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["nodeFailureEvent"]
             )
         }
-    elif "flowFailureEvent" in data:
+    elif data.get("flowFailureEvent") is not None:
         import capo_bedrock_agent_runtime.types.flow_failure_event
 
         return {
@@ -214,7 +214,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["flowFailureEvent"]
             )
         }
-    elif "nodeActionEvent" in data:
+    elif data.get("nodeActionEvent") is not None:
         import capo_bedrock_agent_runtime.types.node_action_event
 
         return {
@@ -222,7 +222,7 @@ def deserialize_json(data: dict) -> FlowExecutionEvent:
                 data["nodeActionEvent"]
             )
         }
-    elif "nodeDependencyEvent" in data:
+    elif data.get("nodeDependencyEvent") is not None:
         import capo_bedrock_agent_runtime.types.node_dependency_event
 
         return {

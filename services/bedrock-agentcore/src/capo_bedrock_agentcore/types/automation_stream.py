@@ -38,11 +38,11 @@ def serialize_json(value: AutomationStream) -> dict:
 
 def deserialize_json(data: dict) -> AutomationStream:
     out: AutomationStream = {}  # type: ignore[typeddict-item]
-    if "streamEndpoint" in data:
+    if data.get("streamEndpoint") is not None:
         out["stream_endpoint"] = data["streamEndpoint"]
     else:
         raise DeserializationError("AutomationStream.stream_endpoint required")
-    if "streamStatus" in data:
+    if data.get("streamStatus") is not None:
         import capo_bedrock_agentcore.types.automation_stream_status
 
         out["stream_status"] = (

@@ -56,25 +56,25 @@ def serialize_json(value: SubmitRegistryRecordForApprovalResponse) -> dict:
 
 def deserialize_json(data: dict) -> SubmitRegistryRecordForApprovalResponse:
     out: SubmitRegistryRecordForApprovalResponse = {}  # type: ignore[typeddict-item]
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError(
             "SubmitRegistryRecordForApprovalResponse.registry_arn required"
         )
-    if "recordArn" in data:
+    if data.get("recordArn") is not None:
         out["record_arn"] = data["recordArn"]
     else:
         raise DeserializationError(
             "SubmitRegistryRecordForApprovalResponse.record_arn required"
         )
-    if "recordId" in data:
+    if data.get("recordId") is not None:
         out["record_id"] = data["recordId"]
     else:
         raise DeserializationError(
             "SubmitRegistryRecordForApprovalResponse.record_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_status
 
         out["status"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> SubmitRegistryRecordForApprovalResponse:
         raise DeserializationError(
             "SubmitRegistryRecordForApprovalResponse.status required"
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

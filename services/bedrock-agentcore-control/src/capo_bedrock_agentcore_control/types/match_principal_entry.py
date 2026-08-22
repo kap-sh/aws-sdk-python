@@ -35,7 +35,7 @@ def serialize_json(value: MatchPrincipalEntry) -> dict:
 
 
 def deserialize_json(data: dict) -> MatchPrincipalEntry:
-    if "iamPrincipal" in data:
+    if data.get("iamPrincipal") is not None:
         import capo_bedrock_agentcore_control.types.iam_principal
 
         return {

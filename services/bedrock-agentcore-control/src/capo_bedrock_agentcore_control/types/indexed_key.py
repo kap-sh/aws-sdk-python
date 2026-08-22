@@ -34,11 +34,11 @@ def serialize_json(value: IndexedKey) -> dict:
 
 def deserialize_json(data: dict) -> IndexedKey:
     out: IndexedKey = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("IndexedKey.key required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.metadata_value_type
 
         out["type"] = (

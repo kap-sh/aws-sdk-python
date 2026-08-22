@@ -36,7 +36,7 @@ def serialize_json(value: Message) -> dict:
 
 def deserialize_json(data: dict) -> Message:
     out: Message = {}  # type: ignore[typeddict-item]
-    if "role" in data:
+    if data.get("role") is not None:
         import capo_bedrock_agent_runtime.types.conversation_role
 
         out["role"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> Message:
         )
     else:
         raise DeserializationError("Message.role required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.content_blocks
 
         out["content"] = (

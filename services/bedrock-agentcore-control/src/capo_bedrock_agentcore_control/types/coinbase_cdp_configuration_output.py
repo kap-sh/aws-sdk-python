@@ -75,11 +75,11 @@ def serialize_json(value: CoinbaseCdpConfigurationOutput) -> dict:
 
 def deserialize_json(data: dict) -> CoinbaseCdpConfigurationOutput:
     out: CoinbaseCdpConfigurationOutput = {}  # type: ignore[typeddict-item]
-    if "apiKeyId" in data:
+    if data.get("apiKeyId") is not None:
         out["api_key_id"] = data["apiKeyId"]
     else:
         raise DeserializationError("CoinbaseCdpConfigurationOutput.api_key_id required")
-    if "apiKeySecretArn" in data:
+    if data.get("apiKeySecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["api_key_secret_arn"] = (
@@ -91,9 +91,9 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationOutput:
         raise DeserializationError(
             "CoinbaseCdpConfigurationOutput.api_key_secret_arn required"
         )
-    if "apiKeySecretJsonKey" in data:
+    if data.get("apiKeySecretJsonKey") is not None:
         out["api_key_secret_json_key"] = data["apiKeySecretJsonKey"]
-    if "apiKeySecretSource" in data:
+    if data.get("apiKeySecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["api_key_secret_source"] = (
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationOutput:
                 data["apiKeySecretSource"]
             )
         )
-    if "walletSecretArn" in data:
+    if data.get("walletSecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["wallet_secret_arn"] = (
@@ -113,9 +113,9 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationOutput:
         raise DeserializationError(
             "CoinbaseCdpConfigurationOutput.wallet_secret_arn required"
         )
-    if "walletSecretJsonKey" in data:
+    if data.get("walletSecretJsonKey") is not None:
         out["wallet_secret_json_key"] = data["walletSecretJsonKey"]
-    if "walletSecretSource" in data:
+    if data.get("walletSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["wallet_secret_source"] = (

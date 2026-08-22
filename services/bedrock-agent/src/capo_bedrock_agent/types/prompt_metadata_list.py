@@ -25,6 +25,8 @@ def deserialize_json(data: list) -> PromptMetadataList:
 
     out: PromptMetadataList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.prompt_metadata_entry.deserialize_json(item)
         )

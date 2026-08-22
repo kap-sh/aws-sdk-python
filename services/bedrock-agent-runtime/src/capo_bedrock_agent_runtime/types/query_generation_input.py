@@ -31,7 +31,7 @@ def serialize_json(value: QueryGenerationInput) -> dict:
 
 def deserialize_json(data: dict) -> QueryGenerationInput:
     out: QueryGenerationInput = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.input_query_type
 
         out["type"] = (
@@ -41,7 +41,7 @@ def deserialize_json(data: dict) -> QueryGenerationInput:
         )
     else:
         raise DeserializationError("QueryGenerationInput.type required")
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("QueryGenerationInput.text required")

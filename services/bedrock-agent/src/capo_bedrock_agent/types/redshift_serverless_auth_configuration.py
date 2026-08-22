@@ -35,7 +35,7 @@ def serialize_json(value: RedshiftServerlessAuthConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RedshiftServerlessAuthConfiguration:
     out: RedshiftServerlessAuthConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.redshift_serverless_auth_type
 
         out["type"] = (
@@ -45,6 +45,6 @@ def deserialize_json(data: dict) -> RedshiftServerlessAuthConfiguration:
         )
     else:
         raise DeserializationError("RedshiftServerlessAuthConfiguration.type required")
-    if "usernamePasswordSecretArn" in data:
+    if data.get("usernamePasswordSecretArn") is not None:
         out["username_password_secret_arn"] = data["usernamePasswordSecretArn"]
     return out

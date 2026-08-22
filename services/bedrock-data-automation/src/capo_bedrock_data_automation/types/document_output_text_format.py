@@ -30,7 +30,7 @@ def serialize_json(value: DocumentOutputTextFormat) -> dict:
 
 def deserialize_json(data: dict) -> DocumentOutputTextFormat:
     out: DocumentOutputTextFormat = {}  # type: ignore[typeddict-item]
-    if "types" in data:
+    if data.get("types") is not None:
         import capo_bedrock_data_automation.types.document_output_text_format_types
 
         out["types"] = (

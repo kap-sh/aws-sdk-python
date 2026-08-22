@@ -38,7 +38,7 @@ def serialize_json(value: InterceptorConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> InterceptorConfiguration:
-    if "lambda" in data:
+    if data.get("lambda") is not None:
         import capo_bedrock_agentcore_control.types.lambda_interceptor_configuration
 
         return {

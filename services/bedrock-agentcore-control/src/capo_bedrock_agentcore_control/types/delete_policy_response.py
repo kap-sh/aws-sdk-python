@@ -92,19 +92,19 @@ def serialize_json(value: DeletePolicyResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeletePolicyResponse:
     out: DeletePolicyResponse = {}  # type: ignore[typeddict-item]
-    if "policyId" in data:
+    if data.get("policyId") is not None:
         out["policy_id"] = data["policyId"]
     else:
         raise DeserializationError("DeletePolicyResponse.policy_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DeletePolicyResponse.name required")
-    if "policyEngineId" in data:
+    if data.get("policyEngineId") is not None:
         out["policy_engine_id"] = data["policyEngineId"]
     else:
         raise DeserializationError("DeletePolicyResponse.policy_engine_id required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> DeletePolicyResponse:
         )
     else:
         raise DeserializationError("DeletePolicyResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -124,11 +124,11 @@ def deserialize_json(data: dict) -> DeletePolicyResponse:
         )
     else:
         raise DeserializationError("DeletePolicyResponse.updated_at required")
-    if "policyArn" in data:
+    if data.get("policyArn") is not None:
         out["policy_arn"] = data["policyArn"]
     else:
         raise DeserializationError("DeletePolicyResponse.policy_arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.policy_status
 
         out["status"] = (
@@ -138,7 +138,7 @@ def deserialize_json(data: dict) -> DeletePolicyResponse:
         )
     else:
         raise DeserializationError("DeletePolicyResponse.status required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agentcore_control.types.policy_definition
 
         out["definition"] = (
@@ -148,9 +148,9 @@ def deserialize_json(data: dict) -> DeletePolicyResponse:
         )
     else:
         raise DeserializationError("DeletePolicyResponse.definition required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock_agentcore_control.types.policy_status_reasons
 
         out["status_reasons"] = (

@@ -134,7 +134,7 @@ def serialize_json(value: RetrievalResultLocation) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultLocation:
     out: RetrievalResultLocation = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_location_type
 
         out["type"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
         )
     else:
         raise DeserializationError("RetrievalResultLocation.type required")
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_s3_location
 
         out["s3_location"] = (
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["s3Location"]
             )
         )
-    if "webLocation" in data:
+    if data.get("webLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_web_location
 
         out["web_location"] = (
@@ -160,7 +160,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["webLocation"]
             )
         )
-    if "confluenceLocation" in data:
+    if data.get("confluenceLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_confluence_location
 
         out["confluence_location"] = (
@@ -168,7 +168,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["confluenceLocation"]
             )
         )
-    if "salesforceLocation" in data:
+    if data.get("salesforceLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_salesforce_location
 
         out["salesforce_location"] = (
@@ -176,7 +176,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["salesforceLocation"]
             )
         )
-    if "sharePointLocation" in data:
+    if data.get("sharePointLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_share_point_location
 
         out["share_point_location"] = (
@@ -184,7 +184,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["sharePointLocation"]
             )
         )
-    if "customDocumentLocation" in data:
+    if data.get("customDocumentLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_custom_document_location
 
         out["custom_document_location"] = (
@@ -192,7 +192,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["customDocumentLocation"]
             )
         )
-    if "kendraDocumentLocation" in data:
+    if data.get("kendraDocumentLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_kendra_document_location
 
         out["kendra_document_location"] = (
@@ -200,7 +200,7 @@ def deserialize_json(data: dict) -> RetrievalResultLocation:
                 data["kendraDocumentLocation"]
             )
         )
-    if "sqlLocation" in data:
+    if data.get("sqlLocation") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_sql_location
 
         out["sql_location"] = (

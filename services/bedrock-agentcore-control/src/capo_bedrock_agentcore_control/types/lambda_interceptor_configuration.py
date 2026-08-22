@@ -24,7 +24,7 @@ def serialize_json(value: LambdaInterceptorConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> LambdaInterceptorConfiguration:
     out: LambdaInterceptorConfiguration = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("LambdaInterceptorConfiguration.arn required")

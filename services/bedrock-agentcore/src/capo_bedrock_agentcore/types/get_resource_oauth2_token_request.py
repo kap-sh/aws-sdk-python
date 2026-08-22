@@ -106,13 +106,13 @@ def serialize_json(value: GetResourceOauth2TokenRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
     out: GetResourceOauth2TokenRequest = {}  # type: ignore[typeddict-item]
-    if "workloadIdentityToken" in data:
+    if data.get("workloadIdentityToken") is not None:
         out["workload_identity_token"] = data["workloadIdentityToken"]
     else:
         raise DeserializationError(
             "GetResourceOauth2TokenRequest.workload_identity_token required"
         )
-    if "resourceCredentialProviderName" in data:
+    if data.get("resourceCredentialProviderName") is not None:
         out["resource_credential_provider_name"] = data[
             "resourceCredentialProviderName"
         ]
@@ -120,7 +120,7 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
         raise DeserializationError(
             "GetResourceOauth2TokenRequest.resource_credential_provider_name required"
         )
-    if "scopes" in data:
+    if data.get("scopes") is not None:
         import capo_bedrock_agentcore.types.scopes_list_type
 
         out["scopes"] = capo_bedrock_agentcore.types.scopes_list_type.deserialize_json(
@@ -128,7 +128,7 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
         )
     else:
         raise DeserializationError("GetResourceOauth2TokenRequest.scopes required")
-    if "oauth2Flow" in data:
+    if data.get("oauth2Flow") is not None:
         import capo_bedrock_agentcore.types.oauth2_flow_type
 
         out["oauth2_flow"] = (
@@ -138,13 +138,13 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
         )
     else:
         raise DeserializationError("GetResourceOauth2TokenRequest.oauth2_flow required")
-    if "sessionUri" in data:
+    if data.get("sessionUri") is not None:
         out["session_uri"] = data["sessionUri"]
-    if "resourceOauth2ReturnUrl" in data:
+    if data.get("resourceOauth2ReturnUrl") is not None:
         out["resource_oauth2_return_url"] = data["resourceOauth2ReturnUrl"]
-    if "forceAuthentication" in data:
+    if data.get("forceAuthentication") is not None:
         out["force_authentication"] = data["forceAuthentication"]
-    if "customParameters" in data:
+    if data.get("customParameters") is not None:
         import capo_bedrock_agentcore.types.custom_request_parameters_type
 
         out["custom_parameters"] = (
@@ -152,9 +152,9 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
                 data["customParameters"]
             )
         )
-    if "customState" in data:
+    if data.get("customState") is not None:
         out["custom_state"] = data["customState"]
-    if "resources" in data:
+    if data.get("resources") is not None:
         import capo_bedrock_agentcore.types.resources_list_type
 
         out["resources"] = (
@@ -162,7 +162,7 @@ def deserialize_json(data: dict) -> GetResourceOauth2TokenRequest:
                 data["resources"]
             )
         )
-    if "audiences" in data:
+    if data.get("audiences") is not None:
         import capo_bedrock_agentcore.types.audiences_list_type
 
         out["audiences"] = (

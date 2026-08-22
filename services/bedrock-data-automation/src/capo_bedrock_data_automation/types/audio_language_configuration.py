@@ -46,7 +46,7 @@ def serialize_json(value: AudioLanguageConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> AudioLanguageConfiguration:
     out: AudioLanguageConfiguration = {}  # type: ignore[typeddict-item]
-    if "inputLanguages" in data:
+    if data.get("inputLanguages") is not None:
         import capo_bedrock_data_automation.types.audio_input_languages
 
         out["input_languages"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> AudioLanguageConfiguration:
                 data["inputLanguages"]
             )
         )
-    if "generativeOutputLanguage" in data:
+    if data.get("generativeOutputLanguage") is not None:
         import capo_bedrock_data_automation.types.audio_generative_output_language
 
         out["generative_output_language"] = (
@@ -62,6 +62,6 @@ def deserialize_json(data: dict) -> AudioLanguageConfiguration:
                 data["generativeOutputLanguage"]
             )
         )
-    if "identifyMultipleLanguages" in data:
+    if data.get("identifyMultipleLanguages") is not None:
         out["identify_multiple_languages"] = data["identifyMultipleLanguages"]
     return out

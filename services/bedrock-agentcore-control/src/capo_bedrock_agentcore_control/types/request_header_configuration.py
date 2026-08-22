@@ -37,7 +37,7 @@ def serialize_json(value: RequestHeaderConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> RequestHeaderConfiguration:
-    if "requestHeaderAllowlist" in data:
+    if data.get("requestHeaderAllowlist") is not None:
         import capo_bedrock_agentcore_control.types.request_header_allowlist
 
         return {

@@ -54,7 +54,7 @@ def serialize_json(value: DocumentOverrideConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> DocumentOverrideConfiguration:
     out: DocumentOverrideConfiguration = {}  # type: ignore[typeddict-item]
-    if "splitter" in data:
+    if data.get("splitter") is not None:
         import capo_bedrock_data_automation.types.splitter_configuration
 
         out["splitter"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> DocumentOverrideConfiguration:
                 data["splitter"]
             )
         )
-    if "modalityProcessing" in data:
+    if data.get("modalityProcessing") is not None:
         import capo_bedrock_data_automation.types.modality_processing_configuration
 
         out["modality_processing"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> DocumentOverrideConfiguration:
                 data["modalityProcessing"]
             )
         )
-    if "sensitiveDataConfiguration" in data:
+    if data.get("sensitiveDataConfiguration") is not None:
         import capo_bedrock_data_automation.types.sensitive_data_configuration
 
         out["sensitive_data_configuration"] = (

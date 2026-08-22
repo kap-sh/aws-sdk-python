@@ -69,7 +69,7 @@ def serialize_json(value: RetrievalResultContent) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultContent:
     out: RetrievalResultContent = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_content_type
 
         out["type"] = (
@@ -77,25 +77,25 @@ def deserialize_json(data: dict) -> RetrievalResultContent:
                 data["type"]
             )
         )
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         out["text"] = ""
-    if "byteContent" in data:
+    if data.get("byteContent") is not None:
         out["byte_content"] = data["byteContent"]
-    if "video" in data:
+    if data.get("video") is not None:
         import capo_bedrock_agent_runtime.types.video_segment
 
         out["video"] = capo_bedrock_agent_runtime.types.video_segment.deserialize_json(
             data["video"]
         )
-    if "audio" in data:
+    if data.get("audio") is not None:
         import capo_bedrock_agent_runtime.types.audio_segment
 
         out["audio"] = capo_bedrock_agent_runtime.types.audio_segment.deserialize_json(
             data["audio"]
         )
-    if "row" in data:
+    if data.get("row") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_content_row
 
         out["row"] = (

@@ -114,9 +114,9 @@ def serialize_aws_json_1_1(value: InvokeDataAutomationAsyncRequest) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
     out: InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "inputConfiguration" in data:
+    if data.get("inputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.input_configuration
 
         out["input_configuration"] = (
@@ -128,7 +128,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
         raise DeserializationError(
             "InvokeDataAutomationAsyncRequest.input_configuration required"
         )
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.output_configuration
 
         out["output_configuration"] = (
@@ -140,7 +140,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
         raise DeserializationError(
             "InvokeDataAutomationAsyncRequest.output_configuration required"
         )
-    if "dataAutomationConfiguration" in data:
+    if data.get("dataAutomationConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.data_automation_configuration
 
         out["data_automation_configuration"] = (
@@ -148,7 +148,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
                 data["dataAutomationConfiguration"]
             )
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -156,7 +156,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "notificationConfiguration" in data:
+    if data.get("notificationConfiguration") is not None:
         import capo_bedrock_data_automation_runtime.types.notification_configuration
 
         out["notification_configuration"] = (
@@ -164,7 +164,7 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
                 data["notificationConfiguration"]
             )
         )
-    if "blueprints" in data:
+    if data.get("blueprints") is not None:
         import capo_bedrock_data_automation_runtime.types.blueprint_list
 
         out["blueprints"] = (
@@ -172,13 +172,13 @@ def deserialize_aws_json_1_1(data: dict) -> InvokeDataAutomationAsyncRequest:
                 data["blueprints"]
             )
         )
-    if "dataAutomationProfileArn" in data:
+    if data.get("dataAutomationProfileArn") is not None:
         out["data_automation_profile_arn"] = data["dataAutomationProfileArn"]
     else:
         raise DeserializationError(
             "InvokeDataAutomationAsyncRequest.data_automation_profile_arn required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation_runtime.types.tag_list
 
         out["tags"] = (

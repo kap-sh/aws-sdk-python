@@ -49,7 +49,7 @@ def serialize_json(value: CopyBlueprintStageRequest) -> dict:
 
 def deserialize_json(data: dict) -> CopyBlueprintStageRequest:
     out: CopyBlueprintStageRequest = {}  # type: ignore[typeddict-item]
-    if "sourceStage" in data:
+    if data.get("sourceStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["source_stage"] = (
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> CopyBlueprintStageRequest:
         )
     else:
         raise DeserializationError("CopyBlueprintStageRequest.source_stage required")
-    if "targetStage" in data:
+    if data.get("targetStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["target_stage"] = (
@@ -69,6 +69,6 @@ def deserialize_json(data: dict) -> CopyBlueprintStageRequest:
         )
     else:
         raise DeserializationError("CopyBlueprintStageRequest.target_stage required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

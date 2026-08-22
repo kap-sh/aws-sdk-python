@@ -25,6 +25,6 @@ def serialize_json(value: StartFlowExecutionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StartFlowExecutionResponse:
     out: StartFlowExecutionResponse = {}  # type: ignore[typeddict-item]
-    if "executionArn" in data:
+    if data.get("executionArn") is not None:
         out["execution_arn"] = data["executionArn"]
     return out

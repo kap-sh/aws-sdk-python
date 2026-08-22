@@ -24,7 +24,7 @@ def serialize_json(value: DeleteMemoryRecordOutput) -> dict:
 
 def deserialize_json(data: dict) -> DeleteMemoryRecordOutput:
     out: DeleteMemoryRecordOutput = {}  # type: ignore[typeddict-item]
-    if "memoryRecordId" in data:
+    if data.get("memoryRecordId") is not None:
         out["memory_record_id"] = data["memoryRecordId"]
     else:
         raise DeserializationError("DeleteMemoryRecordOutput.memory_record_id required")

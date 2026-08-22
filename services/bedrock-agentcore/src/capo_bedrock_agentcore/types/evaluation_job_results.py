@@ -51,17 +51,17 @@ def serialize_json(value: EvaluationJobResults) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationJobResults:
     out: EvaluationJobResults = {}  # type: ignore[typeddict-item]
-    if "numberOfSessionsCompleted" in data:
+    if data.get("numberOfSessionsCompleted") is not None:
         out["number_of_sessions_completed"] = data["numberOfSessionsCompleted"]
-    if "numberOfSessionsInProgress" in data:
+    if data.get("numberOfSessionsInProgress") is not None:
         out["number_of_sessions_in_progress"] = data["numberOfSessionsInProgress"]
-    if "numberOfSessionsFailed" in data:
+    if data.get("numberOfSessionsFailed") is not None:
         out["number_of_sessions_failed"] = data["numberOfSessionsFailed"]
-    if "totalNumberOfSessions" in data:
+    if data.get("totalNumberOfSessions") is not None:
         out["total_number_of_sessions"] = data["totalNumberOfSessions"]
-    if "numberOfSessionsIgnored" in data:
+    if data.get("numberOfSessionsIgnored") is not None:
         out["number_of_sessions_ignored"] = data["numberOfSessionsIgnored"]
-    if "evaluatorSummaries" in data:
+    if data.get("evaluatorSummaries") is not None:
         import capo_bedrock_agentcore.types.evaluator_summary_list
 
         out["evaluator_summaries"] = (

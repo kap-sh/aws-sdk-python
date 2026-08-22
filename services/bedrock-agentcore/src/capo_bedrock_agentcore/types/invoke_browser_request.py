@@ -33,7 +33,7 @@ def serialize_json(value: InvokeBrowserRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeBrowserRequest:
     out: InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_agentcore.types.browser_action
 
         out["action"] = capo_bedrock_agentcore.types.browser_action.deserialize_json(

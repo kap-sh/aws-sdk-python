@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> PaymentInstrumentSummaryList:
 
     out: PaymentInstrumentSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.payment_instrument_summary.deserialize_json(
                 item

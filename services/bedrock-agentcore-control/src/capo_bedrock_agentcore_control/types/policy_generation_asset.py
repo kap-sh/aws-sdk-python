@@ -52,13 +52,13 @@ def serialize_json(value: PolicyGenerationAsset) -> dict:
 
 def deserialize_json(data: dict) -> PolicyGenerationAsset:
     out: PolicyGenerationAsset = {}  # type: ignore[typeddict-item]
-    if "policyGenerationAssetId" in data:
+    if data.get("policyGenerationAssetId") is not None:
         out["policy_generation_asset_id"] = data["policyGenerationAssetId"]
     else:
         raise DeserializationError(
             "PolicyGenerationAsset.policy_generation_asset_id required"
         )
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agentcore_control.types.policy_definition
 
         out["definition"] = (
@@ -66,11 +66,11 @@ def deserialize_json(data: dict) -> PolicyGenerationAsset:
                 data["definition"]
             )
         )
-    if "rawTextFragment" in data:
+    if data.get("rawTextFragment") is not None:
         out["raw_text_fragment"] = data["rawTextFragment"]
     else:
         raise DeserializationError("PolicyGenerationAsset.raw_text_fragment required")
-    if "findings" in data:
+    if data.get("findings") is not None:
         import capo_bedrock_agentcore_control.types.findings
 
         out["findings"] = (

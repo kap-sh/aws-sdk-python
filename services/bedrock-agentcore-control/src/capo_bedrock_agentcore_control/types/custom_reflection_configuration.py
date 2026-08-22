@@ -37,7 +37,7 @@ def serialize_json(value: CustomReflectionConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomReflectionConfiguration:
-    if "episodicReflectionOverride" in data:
+    if data.get("episodicReflectionOverride") is not None:
         import capo_bedrock_agentcore_control.types.episodic_reflection_override
 
         return {

@@ -39,7 +39,7 @@ def serialize_json(value: PayloadType) -> dict:
 
 
 def deserialize_json(data: dict) -> PayloadType:
-    if "conversational" in data:
+    if data.get("conversational") is not None:
         import capo_bedrock_agentcore.types.conversational
 
         return {
@@ -47,7 +47,7 @@ def deserialize_json(data: dict) -> PayloadType:
                 data["conversational"]
             )
         }
-    elif "blob" in data:
+    elif data.get("blob") is not None:
         return {"blob": data["blob"]}
     else:
         raise DeserializationError("PayloadType: no recognized variant key")

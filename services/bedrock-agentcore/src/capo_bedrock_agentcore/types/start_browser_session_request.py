@@ -110,19 +110,19 @@ def serialize_json(value: StartBrowserSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartBrowserSessionRequest:
     out: StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "sessionTimeoutSeconds" in data:
+    if data.get("sessionTimeoutSeconds") is not None:
         out["session_timeout_seconds"] = data["sessionTimeoutSeconds"]
     else:
         out["session_timeout_seconds"] = 3600
-    if "viewPort" in data:
+    if data.get("viewPort") is not None:
         import capo_bedrock_agentcore.types.view_port
 
         out["view_port"] = capo_bedrock_agentcore.types.view_port.deserialize_json(
             data["viewPort"]
         )
-    if "extensions" in data:
+    if data.get("extensions") is not None:
         import capo_bedrock_agentcore.types.browser_extensions
 
         out["extensions"] = (
@@ -130,7 +130,7 @@ def deserialize_json(data: dict) -> StartBrowserSessionRequest:
                 data["extensions"]
             )
         )
-    if "profileConfiguration" in data:
+    if data.get("profileConfiguration") is not None:
         import capo_bedrock_agentcore.types.browser_profile_configuration
 
         out["profile_configuration"] = (
@@ -138,7 +138,7 @@ def deserialize_json(data: dict) -> StartBrowserSessionRequest:
                 data["profileConfiguration"]
             )
         )
-    if "proxyConfiguration" in data:
+    if data.get("proxyConfiguration") is not None:
         import capo_bedrock_agentcore.types.proxy_configuration
 
         out["proxy_configuration"] = (
@@ -146,7 +146,7 @@ def deserialize_json(data: dict) -> StartBrowserSessionRequest:
                 data["proxyConfiguration"]
             )
         )
-    if "enterprisePolicies" in data:
+    if data.get("enterprisePolicies") is not None:
         import capo_bedrock_agentcore.types.browser_enterprise_policies
 
         out["enterprise_policies"] = (
@@ -154,7 +154,7 @@ def deserialize_json(data: dict) -> StartBrowserSessionRequest:
                 data["enterprisePolicies"]
             )
         )
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore.types.certificates
 
         out["certificates"] = (
@@ -162,6 +162,6 @@ def deserialize_json(data: dict) -> StartBrowserSessionRequest:
                 data["certificates"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

@@ -91,17 +91,17 @@ def serialize_json(value: DeletePolicyEngineResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeletePolicyEngineResponse:
     out: DeletePolicyEngineResponse = {}  # type: ignore[typeddict-item]
-    if "policyEngineId" in data:
+    if data.get("policyEngineId") is not None:
         out["policy_engine_id"] = data["policyEngineId"]
     else:
         raise DeserializationError(
             "DeletePolicyEngineResponse.policy_engine_id required"
         )
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DeletePolicyEngineResponse.name required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -111,7 +111,7 @@ def deserialize_json(data: dict) -> DeletePolicyEngineResponse:
         )
     else:
         raise DeserializationError("DeletePolicyEngineResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -121,13 +121,13 @@ def deserialize_json(data: dict) -> DeletePolicyEngineResponse:
         )
     else:
         raise DeserializationError("DeletePolicyEngineResponse.updated_at required")
-    if "policyEngineArn" in data:
+    if data.get("policyEngineArn") is not None:
         out["policy_engine_arn"] = data["policyEngineArn"]
     else:
         raise DeserializationError(
             "DeletePolicyEngineResponse.policy_engine_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.policy_engine_status
 
         out["status"] = (
@@ -137,11 +137,11 @@ def deserialize_json(data: dict) -> DeletePolicyEngineResponse:
         )
     else:
         raise DeserializationError("DeletePolicyEngineResponse.status required")
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "statusReasons" in data:
+    if data.get("statusReasons") is not None:
         import capo_bedrock_agentcore_control.types.policy_status_reasons
 
         out["status_reasons"] = (

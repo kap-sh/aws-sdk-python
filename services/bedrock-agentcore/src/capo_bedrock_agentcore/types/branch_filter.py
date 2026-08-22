@@ -27,11 +27,11 @@ def serialize_json(value: BranchFilter) -> dict:
 
 def deserialize_json(data: dict) -> BranchFilter:
     out: BranchFilter = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("BranchFilter.name required")
-    if "includeParentBranches" in data:
+    if data.get("includeParentBranches") is not None:
         out["include_parent_branches"] = data["includeParentBranches"]
     else:
         out["include_parent_branches"] = True

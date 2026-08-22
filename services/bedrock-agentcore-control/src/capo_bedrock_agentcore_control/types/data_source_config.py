@@ -35,7 +35,7 @@ def serialize_json(value: DataSourceConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> DataSourceConfig:
-    if "cloudWatchLogs" in data:
+    if data.get("cloudWatchLogs") is not None:
         import capo_bedrock_agentcore_control.types.cloud_watch_logs_input_config
 
         return {

@@ -48,7 +48,7 @@ def serialize_json(value: ReasoningContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> ReasoningContentBlock:
-    if "reasoningText" in data:
+    if data.get("reasoningText") is not None:
         import capo_bedrock_agent_runtime.types.reasoning_text_block
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> ReasoningContentBlock:
                 data["reasoningText"]
             )
         }
-    elif "redactedContent" in data:
+    elif data.get("redactedContent") is not None:
         import capo_bedrock_agent_runtime.types._prelude.blob
 
         return {

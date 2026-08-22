@@ -31,7 +31,7 @@ def serialize_json(value: GatewayFilter) -> dict:
 
 def deserialize_json(data: dict) -> GatewayFilter:
     out: GatewayFilter = {}  # type: ignore[typeddict-item]
-    if "targetPaths" in data:
+    if data.get("targetPaths") is not None:
         import capo_bedrock_agentcore.types.target_path_list
 
         out["target_paths"] = (

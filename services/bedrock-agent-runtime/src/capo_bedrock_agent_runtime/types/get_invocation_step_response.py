@@ -30,7 +30,7 @@ def serialize_json(value: GetInvocationStepResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetInvocationStepResponse:
     out: GetInvocationStepResponse = {}  # type: ignore[typeddict-item]
-    if "invocationStep" in data:
+    if data.get("invocationStep") is not None:
         import capo_bedrock_agent_runtime.types.invocation_step
 
         out["invocation_step"] = (

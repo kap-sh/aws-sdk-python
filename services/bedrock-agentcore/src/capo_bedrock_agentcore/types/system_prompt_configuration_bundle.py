@@ -33,19 +33,19 @@ def serialize_json(value: SystemPromptConfigurationBundle) -> dict:
 
 def deserialize_json(data: dict) -> SystemPromptConfigurationBundle:
     out: SystemPromptConfigurationBundle = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "SystemPromptConfigurationBundle.bundle_arn required"
         )
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(
             "SystemPromptConfigurationBundle.version_id required"
         )
-    if "systemPromptJsonPath" in data:
+    if data.get("systemPromptJsonPath") is not None:
         out["system_prompt_json_path"] = data["systemPromptJsonPath"]
     else:
         raise DeserializationError(

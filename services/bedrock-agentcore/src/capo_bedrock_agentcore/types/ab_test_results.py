@@ -44,7 +44,7 @@ def serialize_json(value: ABTestResults) -> dict:
 
 def deserialize_json(data: dict) -> ABTestResults:
     out: ABTestResults = {}  # type: ignore[typeddict-item]
-    if "analysisTimestamp" in data:
+    if data.get("analysisTimestamp") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["analysis_timestamp"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> ABTestResults:
                 data["analysisTimestamp"]
             )
         )
-    if "evaluatorMetrics" in data:
+    if data.get("evaluatorMetrics") is not None:
         import capo_bedrock_agentcore.types.evaluator_metric_list
 
         out["evaluator_metrics"] = (

@@ -39,7 +39,7 @@ def serialize_json(value: CodeInterpreterNetworkConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CodeInterpreterNetworkConfiguration:
     out: CodeInterpreterNetworkConfiguration = {}  # type: ignore[typeddict-item]
-    if "networkMode" in data:
+    if data.get("networkMode") is not None:
         import capo_bedrock_agentcore_control.types.code_interpreter_network_mode
 
         out["network_mode"] = (
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> CodeInterpreterNetworkConfiguration:
         )
     else:
         out["network_mode"] = "SANDBOX"
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock_agentcore_control.types.vpc_config
 
         out["vpc_config"] = (

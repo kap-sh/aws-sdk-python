@@ -30,7 +30,7 @@ def serialize_json(value: EnrichmentStrategyConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> EnrichmentStrategyConfiguration:
     out: EnrichmentStrategyConfiguration = {}  # type: ignore[typeddict-item]
-    if "method" in data:
+    if data.get("method") is not None:
         import capo_bedrock_agent.types.enrichment_strategy_method
 
         out["method"] = (

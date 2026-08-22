@@ -51,15 +51,15 @@ def serialize_json(value: ActionGroupSummary) -> dict:
 
 def deserialize_json(data: dict) -> ActionGroupSummary:
     out: ActionGroupSummary = {}  # type: ignore[typeddict-item]
-    if "actionGroupId" in data:
+    if data.get("actionGroupId") is not None:
         out["action_group_id"] = data["actionGroupId"]
     else:
         raise DeserializationError("ActionGroupSummary.action_group_id required")
-    if "actionGroupName" in data:
+    if data.get("actionGroupName") is not None:
         out["action_group_name"] = data["actionGroupName"]
     else:
         raise DeserializationError("ActionGroupSummary.action_group_name required")
-    if "actionGroupState" in data:
+    if data.get("actionGroupState") is not None:
         import capo_bedrock_agent.types.action_group_state
 
         out["action_group_state"] = (
@@ -69,9 +69,9 @@ def deserialize_json(data: dict) -> ActionGroupSummary:
         )
     else:
         raise DeserializationError("ActionGroupSummary.action_group_state required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

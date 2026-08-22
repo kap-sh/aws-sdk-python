@@ -24,7 +24,7 @@ def serialize_json(value: DeleteApiKeyCredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> DeleteApiKeyCredentialProviderRequest:
     out: DeleteApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(

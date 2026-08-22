@@ -33,8 +33,8 @@ def serialize_json(value: UpdateDataAutomationLibraryRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateDataAutomationLibraryRequest:
     out: UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-    if "libraryDescription" in data:
+    if data.get("libraryDescription") is not None:
         out["library_description"] = data["libraryDescription"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

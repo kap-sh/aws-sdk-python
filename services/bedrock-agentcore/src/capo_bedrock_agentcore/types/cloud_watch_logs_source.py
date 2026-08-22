@@ -56,7 +56,7 @@ def serialize_json(value: CloudWatchLogsSource) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchLogsSource:
     out: CloudWatchLogsSource = {}  # type: ignore[typeddict-item]
-    if "serviceNames" in data:
+    if data.get("serviceNames") is not None:
         import capo_bedrock_agentcore.types.evaluation_string_list
 
         out["service_names"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> CloudWatchLogsSource:
         )
     else:
         raise DeserializationError("CloudWatchLogsSource.service_names required")
-    if "logGroupNames" in data:
+    if data.get("logGroupNames") is not None:
         import capo_bedrock_agentcore.types.evaluation_string_list
 
         out["log_group_names"] = (
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> CloudWatchLogsSource:
         )
     else:
         raise DeserializationError("CloudWatchLogsSource.log_group_names required")
-    if "filterConfig" in data:
+    if data.get("filterConfig") is not None:
         import capo_bedrock_agentcore.types.cloud_watch_filter_config
 
         out["filter_config"] = (

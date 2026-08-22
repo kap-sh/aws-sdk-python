@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> SensitiveDataDetectionScope:
 
     out: SensitiveDataDetectionScope = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.sensitive_data_detection_scope_type.deserialize_json(
                 item

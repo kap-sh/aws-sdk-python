@@ -93,7 +93,7 @@ def serialize_json(value: CustomConfigurationInput) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomConfigurationInput:
-    if "semanticOverride" in data:
+    if data.get("semanticOverride") is not None:
         import capo_bedrock_agentcore_control.types.semantic_override_configuration_input
 
         return {
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> CustomConfigurationInput:
                 data["semanticOverride"]
             )
         }
-    elif "summaryOverride" in data:
+    elif data.get("summaryOverride") is not None:
         import capo_bedrock_agentcore_control.types.summary_override_configuration_input
 
         return {
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> CustomConfigurationInput:
                 data["summaryOverride"]
             )
         }
-    elif "userPreferenceOverride" in data:
+    elif data.get("userPreferenceOverride") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_override_configuration_input
 
         return {
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> CustomConfigurationInput:
                 data["userPreferenceOverride"]
             )
         }
-    elif "episodicOverride" in data:
+    elif data.get("episodicOverride") is not None:
         import capo_bedrock_agentcore_control.types.episodic_override_configuration_input
 
         return {
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> CustomConfigurationInput:
                 data["episodicOverride"]
             )
         }
-    elif "selfManagedConfiguration" in data:
+    elif data.get("selfManagedConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.self_managed_configuration_input
 
         return {

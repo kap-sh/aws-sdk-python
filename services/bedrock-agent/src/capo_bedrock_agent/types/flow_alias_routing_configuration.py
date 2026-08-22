@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> FlowAliasRoutingConfiguration:
 
     out: FlowAliasRoutingConfiguration = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.flow_alias_routing_configuration_list_item.deserialize_json(
                 item

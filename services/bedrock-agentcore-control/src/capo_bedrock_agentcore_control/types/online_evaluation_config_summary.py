@@ -83,27 +83,27 @@ def serialize_json(value: OnlineEvaluationConfigSummary) -> dict:
 
 def deserialize_json(data: dict) -> OnlineEvaluationConfigSummary:
     out: OnlineEvaluationConfigSummary = {}  # type: ignore[typeddict-item]
-    if "onlineEvaluationConfigArn" in data:
+    if data.get("onlineEvaluationConfigArn") is not None:
         out["online_evaluation_config_arn"] = data["onlineEvaluationConfigArn"]
     else:
         raise DeserializationError(
             "OnlineEvaluationConfigSummary.online_evaluation_config_arn required"
         )
-    if "onlineEvaluationConfigId" in data:
+    if data.get("onlineEvaluationConfigId") is not None:
         out["online_evaluation_config_id"] = data["onlineEvaluationConfigId"]
     else:
         raise DeserializationError(
             "OnlineEvaluationConfigSummary.online_evaluation_config_id required"
         )
-    if "onlineEvaluationConfigName" in data:
+    if data.get("onlineEvaluationConfigName") is not None:
         out["online_evaluation_config_name"] = data["onlineEvaluationConfigName"]
     else:
         raise DeserializationError(
             "OnlineEvaluationConfigSummary.online_evaluation_config_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_config_status
 
         out["status"] = (
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> OnlineEvaluationConfigSummary:
         )
     else:
         raise DeserializationError("OnlineEvaluationConfigSummary.status required")
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_execution_status
 
         out["execution_status"] = (
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> OnlineEvaluationConfigSummary:
         raise DeserializationError(
             "OnlineEvaluationConfigSummary.execution_status required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -135,7 +135,7 @@ def deserialize_json(data: dict) -> OnlineEvaluationConfigSummary:
         )
     else:
         raise DeserializationError("OnlineEvaluationConfigSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -145,6 +145,6 @@ def deserialize_json(data: dict) -> OnlineEvaluationConfigSummary:
         )
     else:
         raise DeserializationError("OnlineEvaluationConfigSummary.updated_at required")
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
     return out

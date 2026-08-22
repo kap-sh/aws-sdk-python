@@ -31,7 +31,7 @@ def serialize_json(value: UpdatedAuthorizerConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedAuthorizerConfiguration:
     out: UpdatedAuthorizerConfiguration = {}  # type: ignore[typeddict-item]
-    if "optionalValue" in data:
+    if data.get("optionalValue") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["optional_value"] = (

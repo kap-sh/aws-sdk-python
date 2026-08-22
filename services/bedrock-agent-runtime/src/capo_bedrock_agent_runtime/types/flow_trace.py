@@ -90,7 +90,7 @@ def serialize_json(value: FlowTrace) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowTrace:
-    if "nodeInputTrace" in data:
+    if data.get("nodeInputTrace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_input_event
 
         return {
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> FlowTrace:
                 data["nodeInputTrace"]
             )
         }
-    elif "nodeOutputTrace" in data:
+    elif data.get("nodeOutputTrace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_output_event
 
         return {
@@ -106,7 +106,7 @@ def deserialize_json(data: dict) -> FlowTrace:
                 data["nodeOutputTrace"]
             )
         }
-    elif "conditionNodeResultTrace" in data:
+    elif data.get("conditionNodeResultTrace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_condition_node_result_event
 
         return {
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> FlowTrace:
                 data["conditionNodeResultTrace"]
             )
         }
-    elif "nodeActionTrace" in data:
+    elif data.get("nodeActionTrace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_action_event
 
         return {
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> FlowTrace:
                 data["nodeActionTrace"]
             )
         }
-    elif "nodeDependencyTrace" in data:
+    elif data.get("nodeDependencyTrace") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_dependency_event
 
         return {

@@ -58,11 +58,11 @@ def serialize_json(value: PaymentCredentialProviderItem) -> dict:
 
 def deserialize_json(data: dict) -> PaymentCredentialProviderItem:
     out: PaymentCredentialProviderItem = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("PaymentCredentialProviderItem.name required")
-    if "credentialProviderVendor" in data:
+    if data.get("credentialProviderVendor") is not None:
         import capo_bedrock_agentcore_control.types.payment_credential_provider_vendor_type
 
         out["credential_provider_vendor"] = (
@@ -74,13 +74,13 @@ def deserialize_json(data: dict) -> PaymentCredentialProviderItem:
         raise DeserializationError(
             "PaymentCredentialProviderItem.credential_provider_vendor required"
         )
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(
             "PaymentCredentialProviderItem.credential_provider_arn required"
         )
-    if "createdTime" in data:
+    if data.get("createdTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_time"] = (
@@ -92,7 +92,7 @@ def deserialize_json(data: dict) -> PaymentCredentialProviderItem:
         raise DeserializationError(
             "PaymentCredentialProviderItem.created_time required"
         )
-    if "lastUpdatedTime" in data:
+    if data.get("lastUpdatedTime") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_updated_time"] = (

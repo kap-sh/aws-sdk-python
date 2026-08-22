@@ -109,21 +109,21 @@ def serialize_json(value: UpdateRegistryResponse) -> dict:
 
 def deserialize_json(data: dict) -> UpdateRegistryResponse:
     out: UpdateRegistryResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("UpdateRegistryResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "registryId" in data:
+    if data.get("registryId") is not None:
         out["registry_id"] = data["registryId"]
     else:
         raise DeserializationError("UpdateRegistryResponse.registry_id required")
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError("UpdateRegistryResponse.registry_arn required")
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.registry_authorizer_type
 
         out["authorizer_type"] = (
@@ -131,7 +131,7 @@ def deserialize_json(data: dict) -> UpdateRegistryResponse:
                 data["authorizerType"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -139,7 +139,7 @@ def deserialize_json(data: dict) -> UpdateRegistryResponse:
                 data["authorizerConfiguration"]
             )
         )
-    if "approvalConfiguration" in data:
+    if data.get("approvalConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.approval_configuration
 
         out["approval_configuration"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> UpdateRegistryResponse:
                 data["approvalConfiguration"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_status
 
         out["status"] = (
@@ -157,9 +157,9 @@ def deserialize_json(data: dict) -> UpdateRegistryResponse:
         )
     else:
         raise DeserializationError("UpdateRegistryResponse.status required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -169,7 +169,7 @@ def deserialize_json(data: dict) -> UpdateRegistryResponse:
         )
     else:
         raise DeserializationError("UpdateRegistryResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (

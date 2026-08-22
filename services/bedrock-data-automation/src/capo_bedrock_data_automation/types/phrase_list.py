@@ -23,5 +23,7 @@ def deserialize_json(data: list) -> PhraseList:
 
     out: PhraseList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_data_automation.types.phrase.deserialize_json(item))
     return out

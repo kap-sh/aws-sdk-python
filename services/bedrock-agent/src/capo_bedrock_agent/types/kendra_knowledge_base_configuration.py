@@ -24,7 +24,7 @@ def serialize_json(value: KendraKnowledgeBaseConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KendraKnowledgeBaseConfiguration:
     out: KendraKnowledgeBaseConfiguration = {}  # type: ignore[typeddict-item]
-    if "kendraIndexArn" in data:
+    if data.get("kendraIndexArn") is not None:
         out["kendra_index_arn"] = data["kendraIndexArn"]
     else:
         raise DeserializationError(

@@ -86,7 +86,7 @@ def serialize_json(value: LinkedAccountOAuth2) -> dict:
 
 
 def deserialize_json(data: dict) -> LinkedAccountOAuth2:
-    if "google" in data:
+    if data.get("google") is not None:
         import capo_bedrock_agentcore.types.o_auth2_authentication
 
         return {
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> LinkedAccountOAuth2:
                 data["google"]
             )
         }
-    elif "apple" in data:
+    elif data.get("apple") is not None:
         import capo_bedrock_agentcore.types.o_auth2_authentication
 
         return {
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> LinkedAccountOAuth2:
                 data["apple"]
             )
         }
-    elif "x" in data:
+    elif data.get("x") is not None:
         import capo_bedrock_agentcore.types.o_auth2_authentication
 
         return {
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> LinkedAccountOAuth2:
                 data["x"]
             )
         }
-    elif "telegram" in data:
+    elif data.get("telegram") is not None:
         import capo_bedrock_agentcore.types.o_auth2_authentication
 
         return {
@@ -118,7 +118,7 @@ def deserialize_json(data: dict) -> LinkedAccountOAuth2:
                 data["telegram"]
             )
         }
-    elif "github" in data:
+    elif data.get("github") is not None:
         import capo_bedrock_agentcore.types.o_auth2_authentication
 
         return {

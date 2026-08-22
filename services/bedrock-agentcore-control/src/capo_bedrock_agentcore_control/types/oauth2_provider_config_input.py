@@ -149,7 +149,7 @@ def serialize_json(value: Oauth2ProviderConfigInput) -> dict:
 
 
 def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
-    if "customOauth2ProviderConfig" in data:
+    if data.get("customOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.custom_oauth2_provider_config_input
 
         return {
@@ -157,7 +157,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["customOauth2ProviderConfig"]
             )
         }
-    elif "googleOauth2ProviderConfig" in data:
+    elif data.get("googleOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.google_oauth2_provider_config_input
 
         return {
@@ -165,7 +165,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["googleOauth2ProviderConfig"]
             )
         }
-    elif "githubOauth2ProviderConfig" in data:
+    elif data.get("githubOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.github_oauth2_provider_config_input
 
         return {
@@ -173,7 +173,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["githubOauth2ProviderConfig"]
             )
         }
-    elif "slackOauth2ProviderConfig" in data:
+    elif data.get("slackOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.slack_oauth2_provider_config_input
 
         return {
@@ -181,7 +181,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["slackOauth2ProviderConfig"]
             )
         }
-    elif "salesforceOauth2ProviderConfig" in data:
+    elif data.get("salesforceOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.salesforce_oauth2_provider_config_input
 
         return {
@@ -189,7 +189,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["salesforceOauth2ProviderConfig"]
             )
         }
-    elif "microsoftOauth2ProviderConfig" in data:
+    elif data.get("microsoftOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.microsoft_oauth2_provider_config_input
 
         return {
@@ -197,7 +197,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["microsoftOauth2ProviderConfig"]
             )
         }
-    elif "atlassianOauth2ProviderConfig" in data:
+    elif data.get("atlassianOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.atlassian_oauth2_provider_config_input
 
         return {
@@ -205,7 +205,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["atlassianOauth2ProviderConfig"]
             )
         }
-    elif "linkedinOauth2ProviderConfig" in data:
+    elif data.get("linkedinOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.linkedin_oauth2_provider_config_input
 
         return {
@@ -213,7 +213,7 @@ def deserialize_json(data: dict) -> Oauth2ProviderConfigInput:
                 data["linkedinOauth2ProviderConfig"]
             )
         }
-    elif "includedOauth2ProviderConfig" in data:
+    elif data.get("includedOauth2ProviderConfig") is not None:
         import capo_bedrock_agentcore_control.types.included_oauth2_provider_config_input
 
         return {

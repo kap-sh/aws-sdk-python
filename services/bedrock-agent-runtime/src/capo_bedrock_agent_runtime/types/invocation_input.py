@@ -88,9 +88,9 @@ def serialize_json(value: InvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> InvocationInput:
     out: InvocationInput = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "invocationType" in data:
+    if data.get("invocationType") is not None:
         import capo_bedrock_agent_runtime.types.invocation_type
 
         out["invocation_type"] = (
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> InvocationInput:
                 data["invocationType"]
             )
         )
-    if "actionGroupInvocationInput" in data:
+    if data.get("actionGroupInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.action_group_invocation_input
 
         out["action_group_invocation_input"] = (
@@ -106,7 +106,7 @@ def deserialize_json(data: dict) -> InvocationInput:
                 data["actionGroupInvocationInput"]
             )
         )
-    if "knowledgeBaseLookupInput" in data:
+    if data.get("knowledgeBaseLookupInput") is not None:
         import capo_bedrock_agent_runtime.types.knowledge_base_lookup_input
 
         out["knowledge_base_lookup_input"] = (
@@ -114,7 +114,7 @@ def deserialize_json(data: dict) -> InvocationInput:
                 data["knowledgeBaseLookupInput"]
             )
         )
-    if "codeInterpreterInvocationInput" in data:
+    if data.get("codeInterpreterInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.code_interpreter_invocation_input
 
         out["code_interpreter_invocation_input"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> InvocationInput:
                 data["codeInterpreterInvocationInput"]
             )
         )
-    if "agentCollaboratorInvocationInput" in data:
+    if data.get("agentCollaboratorInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.agent_collaborator_invocation_input
 
         out["agent_collaborator_invocation_input"] = (

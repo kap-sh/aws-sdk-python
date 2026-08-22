@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> FunctionParameters:
 
     out: FunctionParameters = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.function_parameter.deserialize_json(item)
         )

@@ -19,7 +19,7 @@ def serialize_json(value: CustomDocumentIdentifier) -> dict:
 
 def deserialize_json(data: dict) -> CustomDocumentIdentifier:
     out: CustomDocumentIdentifier = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("CustomDocumentIdentifier.id required")

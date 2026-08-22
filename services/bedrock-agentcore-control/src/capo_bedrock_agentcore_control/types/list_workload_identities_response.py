@@ -34,7 +34,7 @@ def serialize_json(value: ListWorkloadIdentitiesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListWorkloadIdentitiesResponse:
     out: ListWorkloadIdentitiesResponse = {}  # type: ignore[typeddict-item]
-    if "workloadIdentities" in data:
+    if data.get("workloadIdentities") is not None:
         import capo_bedrock_agentcore_control.types.workload_identity_list
 
         out["workload_identities"] = (
@@ -46,6 +46,6 @@ def deserialize_json(data: dict) -> ListWorkloadIdentitiesResponse:
         raise DeserializationError(
             "ListWorkloadIdentitiesResponse.workload_identities required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

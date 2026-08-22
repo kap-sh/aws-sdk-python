@@ -70,7 +70,7 @@ def serialize_json(value: KnowledgeBaseOrchestrationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseOrchestrationConfiguration:
     out: KnowledgeBaseOrchestrationConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptTemplate" in data:
+    if data.get("promptTemplate") is not None:
         import capo_bedrock_agent.types.knowledge_base_prompt_template
 
         out["prompt_template"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseOrchestrationConfiguration:
                 data["promptTemplate"]
             )
         )
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock_agent.types.prompt_inference_configuration
 
         out["inference_config"] = (
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseOrchestrationConfiguration:
                 data["inferenceConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         import capo_bedrock_agent.types.additional_model_request_fields
 
         out["additional_model_request_fields"] = (
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseOrchestrationConfiguration:
                 data["additionalModelRequestFields"]
             )
         )
-    if "performanceConfig" in data:
+    if data.get("performanceConfig") is not None:
         import capo_bedrock_agent.types.performance_configuration
 
         out["performance_config"] = (

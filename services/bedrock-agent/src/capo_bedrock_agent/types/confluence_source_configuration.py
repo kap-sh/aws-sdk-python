@@ -44,11 +44,11 @@ def serialize_json(value: ConfluenceSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ConfluenceSourceConfiguration:
     out: ConfluenceSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "hostUrl" in data:
+    if data.get("hostUrl") is not None:
         out["host_url"] = data["hostUrl"]
     else:
         raise DeserializationError("ConfluenceSourceConfiguration.host_url required")
-    if "hostType" in data:
+    if data.get("hostType") is not None:
         import capo_bedrock_agent.types.confluence_host_type
 
         out["host_type"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> ConfluenceSourceConfiguration:
         )
     else:
         raise DeserializationError("ConfluenceSourceConfiguration.host_type required")
-    if "authType" in data:
+    if data.get("authType") is not None:
         import capo_bedrock_agent.types.confluence_auth_type
 
         out["auth_type"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> ConfluenceSourceConfiguration:
         )
     else:
         raise DeserializationError("ConfluenceSourceConfiguration.auth_type required")
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError(

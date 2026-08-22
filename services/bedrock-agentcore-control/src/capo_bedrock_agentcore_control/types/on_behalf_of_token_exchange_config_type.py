@@ -43,7 +43,7 @@ def serialize_json(value: OnBehalfOfTokenExchangeConfigType) -> dict:
 
 def deserialize_json(data: dict) -> OnBehalfOfTokenExchangeConfigType:
     out: OnBehalfOfTokenExchangeConfigType = {}  # type: ignore[typeddict-item]
-    if "grantType" in data:
+    if data.get("grantType") is not None:
         import capo_bedrock_agentcore_control.types.on_behalf_of_token_exchange_grant_type_type
 
         out["grant_type"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> OnBehalfOfTokenExchangeConfigType:
         raise DeserializationError(
             "OnBehalfOfTokenExchangeConfigType.grant_type required"
         )
-    if "tokenExchangeGrantTypeConfig" in data:
+    if data.get("tokenExchangeGrantTypeConfig") is not None:
         import capo_bedrock_agentcore_control.types.token_exchange_grant_type_config_type
 
         out["token_exchange_grant_type_config"] = (

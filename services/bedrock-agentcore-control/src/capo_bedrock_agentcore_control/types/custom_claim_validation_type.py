@@ -44,13 +44,13 @@ def serialize_json(value: CustomClaimValidationType) -> dict:
 
 def deserialize_json(data: dict) -> CustomClaimValidationType:
     out: CustomClaimValidationType = {}  # type: ignore[typeddict-item]
-    if "inboundTokenClaimName" in data:
+    if data.get("inboundTokenClaimName") is not None:
         out["inbound_token_claim_name"] = data["inboundTokenClaimName"]
     else:
         raise DeserializationError(
             "CustomClaimValidationType.inbound_token_claim_name required"
         )
-    if "inboundTokenClaimValueType" in data:
+    if data.get("inboundTokenClaimValueType") is not None:
         import capo_bedrock_agentcore_control.types.inbound_token_claim_value_type
 
         out["inbound_token_claim_value_type"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> CustomClaimValidationType:
         raise DeserializationError(
             "CustomClaimValidationType.inbound_token_claim_value_type required"
         )
-    if "authorizingClaimMatchValue" in data:
+    if data.get("authorizingClaimMatchValue") is not None:
         import capo_bedrock_agentcore_control.types.authorizing_claim_match_value_type
 
         out["authorizing_claim_match_value"] = (

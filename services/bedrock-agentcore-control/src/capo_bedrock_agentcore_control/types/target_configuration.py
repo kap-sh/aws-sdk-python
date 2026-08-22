@@ -48,7 +48,7 @@ def serialize_json(value: TargetConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> TargetConfiguration:
-    if "mcp" in data:
+    if data.get("mcp") is not None:
         import capo_bedrock_agentcore_control.types.mcp_target_configuration
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> TargetConfiguration:
                 data["mcp"]
             )
         }
-    elif "http" in data:
+    elif data.get("http") is not None:
         import capo_bedrock_agentcore_control.types.http_target_configuration
 
         return {

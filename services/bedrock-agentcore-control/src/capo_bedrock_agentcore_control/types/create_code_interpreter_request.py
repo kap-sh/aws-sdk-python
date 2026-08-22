@@ -77,15 +77,15 @@ def serialize_json(value: CreateCodeInterpreterRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateCodeInterpreterRequest:
     out: CreateCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateCodeInterpreterRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.code_interpreter_network_configuration
 
         out["network_configuration"] = (
@@ -97,7 +97,7 @@ def deserialize_json(data: dict) -> CreateCodeInterpreterRequest:
         raise DeserializationError(
             "CreateCodeInterpreterRequest.network_configuration required"
         )
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore_control.types.certificates
 
         out["certificates"] = (
@@ -105,9 +105,9 @@ def deserialize_json(data: dict) -> CreateCodeInterpreterRequest:
                 data["certificates"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

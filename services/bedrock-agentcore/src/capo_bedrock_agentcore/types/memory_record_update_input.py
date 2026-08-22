@@ -73,11 +73,11 @@ def serialize_json(value: MemoryRecordUpdateInput) -> dict:
 
 def deserialize_json(data: dict) -> MemoryRecordUpdateInput:
     out: MemoryRecordUpdateInput = {}  # type: ignore[typeddict-item]
-    if "memoryRecordId" in data:
+    if data.get("memoryRecordId") is not None:
         out["memory_record_id"] = data["memoryRecordId"]
     else:
         raise DeserializationError("MemoryRecordUpdateInput.memory_record_id required")
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["timestamp"] = (
@@ -87,13 +87,13 @@ def deserialize_json(data: dict) -> MemoryRecordUpdateInput:
         )
     else:
         raise DeserializationError("MemoryRecordUpdateInput.timestamp required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore.types.memory_content
 
         out["content"] = capo_bedrock_agentcore.types.memory_content.deserialize_json(
             data["content"]
         )
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore.types.namespaces_list
 
         out["namespaces"] = (
@@ -101,9 +101,9 @@ def deserialize_json(data: dict) -> MemoryRecordUpdateInput:
                 data["namespaces"]
             )
         )
-    if "memoryStrategyId" in data:
+    if data.get("memoryStrategyId") is not None:
         out["memory_strategy_id"] = data["memoryStrategyId"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agentcore.types.memory_record_metadata_map
 
         out["metadata"] = (

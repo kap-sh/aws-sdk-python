@@ -87,7 +87,7 @@ def serialize_json(value: CustomConsolidationConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> CustomConsolidationConfiguration:
-    if "semanticConsolidationOverride" in data:
+    if data.get("semanticConsolidationOverride") is not None:
         import capo_bedrock_agentcore_control.types.semantic_consolidation_override
 
         return {
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> CustomConsolidationConfiguration:
                 data["semanticConsolidationOverride"]
             )
         }
-    elif "summaryConsolidationOverride" in data:
+    elif data.get("summaryConsolidationOverride") is not None:
         import capo_bedrock_agentcore_control.types.summary_consolidation_override
 
         return {
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> CustomConsolidationConfiguration:
                 data["summaryConsolidationOverride"]
             )
         }
-    elif "userPreferenceConsolidationOverride" in data:
+    elif data.get("userPreferenceConsolidationOverride") is not None:
         import capo_bedrock_agentcore_control.types.user_preference_consolidation_override
 
         return {
@@ -111,7 +111,7 @@ def deserialize_json(data: dict) -> CustomConsolidationConfiguration:
                 data["userPreferenceConsolidationOverride"]
             )
         }
-    elif "episodicConsolidationOverride" in data:
+    elif data.get("episodicConsolidationOverride") is not None:
         import capo_bedrock_agentcore_control.types.episodic_consolidation_override
 
         return {

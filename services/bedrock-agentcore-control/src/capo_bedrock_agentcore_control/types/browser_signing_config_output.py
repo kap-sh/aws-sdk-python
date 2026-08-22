@@ -17,7 +17,7 @@ def serialize_json(value: BrowserSigningConfigOutput) -> dict:
 
 def deserialize_json(data: dict) -> BrowserSigningConfigOutput:
     out: BrowserSigningConfigOutput = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         out["enabled"] = False

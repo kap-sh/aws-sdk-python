@@ -34,11 +34,11 @@ def serialize_json(value: RecordingConfig) -> dict:
 
 def deserialize_json(data: dict) -> RecordingConfig:
     out: RecordingConfig = {}  # type: ignore[typeddict-item]
-    if "enabled" in data:
+    if data.get("enabled") is not None:
         out["enabled"] = data["enabled"]
     else:
         out["enabled"] = False
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agentcore_control.types.s3_location
 
         out["s3_location"] = (

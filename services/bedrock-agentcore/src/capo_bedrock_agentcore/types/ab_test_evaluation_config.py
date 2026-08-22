@@ -42,9 +42,9 @@ def serialize_json(value: ABTestEvaluationConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> ABTestEvaluationConfig:
-    if "onlineEvaluationConfigArn" in data:
+    if data.get("onlineEvaluationConfigArn") is not None:
         return {"onlineEvaluationConfigArn": data["onlineEvaluationConfigArn"]}
-    elif "perVariantOnlineEvaluationConfig" in data:
+    elif data.get("perVariantOnlineEvaluationConfig") is not None:
         import capo_bedrock_agentcore.types.per_variant_online_evaluation_config_list
 
         return {

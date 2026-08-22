@@ -32,7 +32,7 @@ def serialize_json(value: FlowAliasConcurrencyConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FlowAliasConcurrencyConfiguration:
     out: FlowAliasConcurrencyConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.concurrency_type
 
         out["type"] = capo_bedrock_agent.types.concurrency_type.deserialize_json(
@@ -40,6 +40,6 @@ def deserialize_json(data: dict) -> FlowAliasConcurrencyConfiguration:
         )
     else:
         raise DeserializationError("FlowAliasConcurrencyConfiguration.type required")
-    if "maxConcurrency" in data:
+    if data.get("maxConcurrency") is not None:
         out["max_concurrency"] = data["maxConcurrency"]
     return out

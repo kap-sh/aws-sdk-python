@@ -30,7 +30,7 @@ def serialize_json(value: DocumentCustomOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> DocumentCustomOutputConfiguration:
     out: DocumentCustomOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "fallbackBlueprints" in data:
+    if data.get("fallbackBlueprints") is not None:
         import capo_bedrock_data_automation.types.fallback_blueprint_items
 
         out["fallback_blueprints"] = (

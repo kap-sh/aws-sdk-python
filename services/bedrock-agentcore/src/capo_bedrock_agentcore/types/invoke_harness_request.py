@@ -109,7 +109,7 @@ def serialize_json(value: InvokeHarnessRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeHarnessRequest:
     out: InvokeHarnessRequest = {}  # type: ignore[typeddict-item]
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_agentcore.types.harness_messages
 
         out["messages"] = (
@@ -119,7 +119,7 @@ def deserialize_json(data: dict) -> InvokeHarnessRequest:
         )
     else:
         raise DeserializationError("InvokeHarnessRequest.messages required")
-    if "model" in data:
+    if data.get("model") is not None:
         import capo_bedrock_agentcore.types.harness_model_configuration
 
         out["model"] = (
@@ -127,7 +127,7 @@ def deserialize_json(data: dict) -> InvokeHarnessRequest:
                 data["model"]
             )
         )
-    if "systemPrompt" in data:
+    if data.get("systemPrompt") is not None:
         import capo_bedrock_agentcore.types.harness_system_prompt
 
         out["system_prompt"] = (
@@ -135,19 +135,19 @@ def deserialize_json(data: dict) -> InvokeHarnessRequest:
                 data["systemPrompt"]
             )
         )
-    if "tools" in data:
+    if data.get("tools") is not None:
         import capo_bedrock_agentcore.types.harness_tools
 
         out["tools"] = capo_bedrock_agentcore.types.harness_tools.deserialize_json(
             data["tools"]
         )
-    if "skills" in data:
+    if data.get("skills") is not None:
         import capo_bedrock_agentcore.types.harness_skills
 
         out["skills"] = capo_bedrock_agentcore.types.harness_skills.deserialize_json(
             data["skills"]
         )
-    if "allowedTools" in data:
+    if data.get("allowedTools") is not None:
         import capo_bedrock_agentcore.types.harness_allowed_tools
 
         out["allowed_tools"] = (
@@ -155,12 +155,12 @@ def deserialize_json(data: dict) -> InvokeHarnessRequest:
                 data["allowedTools"]
             )
         )
-    if "maxIterations" in data:
+    if data.get("maxIterations") is not None:
         out["max_iterations"] = data["maxIterations"]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "timeoutSeconds" in data:
+    if data.get("timeoutSeconds") is not None:
         out["timeout_seconds"] = data["timeoutSeconds"]
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
     return out

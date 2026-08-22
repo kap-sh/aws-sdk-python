@@ -30,11 +30,11 @@ def serialize_json(value: FlowTraceNodeOutputNext) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceNodeOutputNext:
     out: FlowTraceNodeOutputNext = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("FlowTraceNodeOutputNext.node_name required")
-    if "inputFieldName" in data:
+    if data.get("inputFieldName") is not None:
         out["input_field_name"] = data["inputFieldName"]
     else:
         raise DeserializationError("FlowTraceNodeOutputNext.input_field_name required")

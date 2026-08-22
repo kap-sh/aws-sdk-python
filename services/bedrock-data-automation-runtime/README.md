@@ -13,9 +13,9 @@ from capo_bedrock_data_automation_runtime import AsyncBedrockDataAutomationRunti
 
 
 async def main():
-    async with AsyncBedrockDataAutomationRuntimeClient() as s3:
+    async with AsyncBedrockDataAutomationRuntimeClient() as bedrock_data_automation_runtime:
         # Example: call the invoke_data_automation operation
-        response = await s3.invoke_data_automation()
+        response = await bedrock_data_automation_runtime.invoke_data_automation()
         print(response["output_configuration"])
 ```
 
@@ -29,9 +29,9 @@ from capo_bedrock_data_automation_runtime.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncBedrockDataAutomationRuntimeClient() as s3:
+    async with AsyncBedrockDataAutomationRuntimeClient() as bedrock_data_automation_runtime:
         try:
-            await s3.invoke_data_automation()
+            await bedrock_data_automation_runtime.invoke_data_automation()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_bedrock_data_automation_runtime import AsyncBedrockDataAutomationRunti
 
 
 async def main():
-    async with AsyncBedrockDataAutomationRuntimeClient() as s3:
+    async with AsyncBedrockDataAutomationRuntimeClient() as bedrock_data_automation_runtime:
         # Default: 3 attempts for every operation
-        response = await s3.invoke_data_automation()
+        response = await bedrock_data_automation_runtime.invoke_data_automation()
 
         # Override per operation
-        response = await s3.invoke_data_automation(config_overrides={"retry_max_attempts": 5})
+        response = await bedrock_data_automation_runtime.invoke_data_automation(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.invoke_data_automation(config_overrides={"retry_max_attempts": 1})
+        response = await bedrock_data_automation_runtime.invoke_data_automation(config_overrides={"retry_max_attempts": 1})
 ```

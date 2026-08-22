@@ -22,7 +22,7 @@ def serialize_json(value: StorageFlowNodeS3Configuration) -> dict:
 
 def deserialize_json(data: dict) -> StorageFlowNodeS3Configuration:
     out: StorageFlowNodeS3Configuration = {}  # type: ignore[typeddict-item]
-    if "bucketName" in data:
+    if data.get("bucketName") is not None:
         out["bucket_name"] = data["bucketName"]
     else:
         out["bucket_name"] = ""

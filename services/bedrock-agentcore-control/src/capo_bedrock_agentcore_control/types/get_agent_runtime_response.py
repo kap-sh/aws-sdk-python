@@ -213,27 +213,27 @@ def serialize_json(value: GetAgentRuntimeResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
     out: GetAgentRuntimeResponse = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError("GetAgentRuntimeResponse.agent_runtime_arn required")
-    if "agentRuntimeName" in data:
+    if data.get("agentRuntimeName") is not None:
         out["agent_runtime_name"] = data["agentRuntimeName"]
     else:
         raise DeserializationError(
             "GetAgentRuntimeResponse.agent_runtime_name required"
         )
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
     else:
         raise DeserializationError("GetAgentRuntimeResponse.agent_runtime_id required")
-    if "agentRuntimeVersion" in data:
+    if data.get("agentRuntimeVersion") is not None:
         out["agent_runtime_version"] = data["agentRuntimeVersion"]
     else:
         raise DeserializationError(
             "GetAgentRuntimeResponse.agent_runtime_version required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -243,7 +243,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
         )
     else:
         raise DeserializationError("GetAgentRuntimeResponse.created_at required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -253,11 +253,11 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
         )
     else:
         raise DeserializationError("GetAgentRuntimeResponse.last_updated_at required")
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("GetAgentRuntimeResponse.role_arn required")
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.network_configuration
 
         out["network_configuration"] = (
@@ -269,7 +269,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
         raise DeserializationError(
             "GetAgentRuntimeResponse.network_configuration required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_status
 
         out["status"] = (
@@ -279,7 +279,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
         )
     else:
         raise DeserializationError("GetAgentRuntimeResponse.status required")
-    if "lifecycleConfiguration" in data:
+    if data.get("lifecycleConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.lifecycle_configuration
 
         out["lifecycle_configuration"] = (
@@ -291,11 +291,11 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
         raise DeserializationError(
             "GetAgentRuntimeResponse.lifecycle_configuration required"
         )
-    if "failureReason" in data:
+    if data.get("failureReason") is not None:
         out["failure_reason"] = data["failureReason"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "workloadIdentityDetails" in data:
+    if data.get("workloadIdentityDetails") is not None:
         import capo_bedrock_agentcore_control.types.workload_identity_details
 
         out["workload_identity_details"] = (
@@ -303,7 +303,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["workloadIdentityDetails"]
             )
         )
-    if "agentRuntimeArtifact" in data:
+    if data.get("agentRuntimeArtifact") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_artifact
 
         out["agent_runtime_artifact"] = (
@@ -311,7 +311,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["agentRuntimeArtifact"]
             )
         )
-    if "protocolConfiguration" in data:
+    if data.get("protocolConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.protocol_configuration
 
         out["protocol_configuration"] = (
@@ -319,7 +319,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["protocolConfiguration"]
             )
         )
-    if "environmentVariables" in data:
+    if data.get("environmentVariables") is not None:
         import capo_bedrock_agentcore_control.types.environment_variables_map
 
         out["environment_variables"] = (
@@ -327,7 +327,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["environmentVariables"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -335,7 +335,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["authorizerConfiguration"]
             )
         )
-    if "requestHeaderConfiguration" in data:
+    if data.get("requestHeaderConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.request_header_configuration
 
         out["request_header_configuration"] = (
@@ -343,7 +343,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["requestHeaderConfiguration"]
             )
         )
-    if "metadataConfiguration" in data:
+    if data.get("metadataConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.runtime_metadata_configuration
 
         out["metadata_configuration"] = (
@@ -351,7 +351,7 @@ def deserialize_json(data: dict) -> GetAgentRuntimeResponse:
                 data["metadataConfiguration"]
             )
         )
-    if "filesystemConfigurations" in data:
+    if data.get("filesystemConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.filesystem_configurations
 
         out["filesystem_configurations"] = (

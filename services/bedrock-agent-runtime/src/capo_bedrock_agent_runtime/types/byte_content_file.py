@@ -32,11 +32,11 @@ def serialize_json(value: ByteContentFile) -> dict:
 
 def deserialize_json(data: dict) -> ByteContentFile:
     out: ByteContentFile = {}  # type: ignore[typeddict-item]
-    if "mediaType" in data:
+    if data.get("mediaType") is not None:
         out["media_type"] = data["mediaType"]
     else:
         raise DeserializationError("ByteContentFile.media_type required")
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock_agent_runtime.types.byte_content_blob
 
         out["data"] = (

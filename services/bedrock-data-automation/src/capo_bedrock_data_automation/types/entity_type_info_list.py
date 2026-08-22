@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> EntityTypeInfoList:
 
     out: EntityTypeInfoList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.entity_type_info.deserialize_json(item)
         )

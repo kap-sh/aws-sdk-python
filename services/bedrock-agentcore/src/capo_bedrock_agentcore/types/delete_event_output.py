@@ -24,7 +24,7 @@ def serialize_json(value: DeleteEventOutput) -> dict:
 
 def deserialize_json(data: dict) -> DeleteEventOutput:
     out: DeleteEventOutput = {}  # type: ignore[typeddict-item]
-    if "eventId" in data:
+    if data.get("eventId") is not None:
         out["event_id"] = data["eventId"]
     else:
         raise DeserializationError("DeleteEventOutput.event_id required")

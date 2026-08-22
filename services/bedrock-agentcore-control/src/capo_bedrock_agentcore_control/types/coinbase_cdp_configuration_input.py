@@ -82,15 +82,15 @@ def serialize_json(value: CoinbaseCdpConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> CoinbaseCdpConfigurationInput:
     out: CoinbaseCdpConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "apiKeyId" in data:
+    if data.get("apiKeyId") is not None:
         out["api_key_id"] = data["apiKeyId"]
     else:
         raise DeserializationError("CoinbaseCdpConfigurationInput.api_key_id required")
-    if "apiKeySecret" in data:
+    if data.get("apiKeySecret") is not None:
         out["api_key_secret"] = data["apiKeySecret"]
     else:
         out["api_key_secret"] = ""
-    if "apiKeySecretSource" in data:
+    if data.get("apiKeySecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["api_key_secret_source"] = (
@@ -98,7 +98,7 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationInput:
                 data["apiKeySecretSource"]
             )
         )
-    if "apiKeySecretConfig" in data:
+    if data.get("apiKeySecretConfig") is not None:
         import capo_bedrock_agentcore_control.types.secret_reference
 
         out["api_key_secret_config"] = (
@@ -106,11 +106,11 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationInput:
                 data["apiKeySecretConfig"]
             )
         )
-    if "walletSecret" in data:
+    if data.get("walletSecret") is not None:
         out["wallet_secret"] = data["walletSecret"]
     else:
         out["wallet_secret"] = ""
-    if "walletSecretSource" in data:
+    if data.get("walletSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["wallet_secret_source"] = (
@@ -118,7 +118,7 @@ def deserialize_json(data: dict) -> CoinbaseCdpConfigurationInput:
                 data["walletSecretSource"]
             )
         )
-    if "walletSecretConfig" in data:
+    if data.get("walletSecretConfig") is not None:
         import capo_bedrock_agentcore_control.types.secret_reference
 
         out["wallet_secret_config"] = (

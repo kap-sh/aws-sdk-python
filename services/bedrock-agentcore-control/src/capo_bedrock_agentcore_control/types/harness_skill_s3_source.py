@@ -24,7 +24,7 @@ def serialize_json(value: HarnessSkillS3Source) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSkillS3Source:
     out: HarnessSkillS3Source = {}  # type: ignore[typeddict-item]
-    if "uri" in data:
+    if data.get("uri") is not None:
         out["uri"] = data["uri"]
     else:
         raise DeserializationError("HarnessSkillS3Source.uri required")

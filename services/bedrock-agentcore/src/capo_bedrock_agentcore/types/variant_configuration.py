@@ -40,7 +40,7 @@ def serialize_json(value: VariantConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> VariantConfiguration:
     out: VariantConfiguration = {}  # type: ignore[typeddict-item]
-    if "configurationBundle" in data:
+    if data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore.types.configuration_bundle_ref
 
         out["configuration_bundle"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> VariantConfiguration:
                 data["configurationBundle"]
             )
         )
-    if "target" in data:
+    if data.get("target") is not None:
         import capo_bedrock_agentcore.types.target_ref
 
         out["target"] = capo_bedrock_agentcore.types.target_ref.deserialize_json(

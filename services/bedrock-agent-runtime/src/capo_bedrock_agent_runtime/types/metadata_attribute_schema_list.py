@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> MetadataAttributeSchemaList:
 
     out: MetadataAttributeSchemaList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.metadata_attribute_schema.deserialize_json(
                 item

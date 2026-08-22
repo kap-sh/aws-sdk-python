@@ -55,7 +55,7 @@ def serialize_json(value: ListIngestionJobsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListIngestionJobsRequest:
     out: ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-    if "filters" in data:
+    if data.get("filters") is not None:
         import capo_bedrock_agent.types.ingestion_job_filters
 
         out["filters"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> ListIngestionJobsRequest:
                 data["filters"]
             )
         )
-    if "sortBy" in data:
+    if data.get("sortBy") is not None:
         import capo_bedrock_agent.types.ingestion_job_sort_by
 
         out["sort_by"] = (
@@ -71,8 +71,8 @@ def deserialize_json(data: dict) -> ListIngestionJobsRequest:
                 data["sortBy"]
             )
         )
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

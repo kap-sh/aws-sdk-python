@@ -46,13 +46,13 @@ def serialize_aws_json_1_1(value: Blueprint) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> Blueprint:
     out: Blueprint = {}  # type: ignore[typeddict-item]
-    if "blueprintArn" in data:
+    if data.get("blueprintArn") is not None:
         out["blueprint_arn"] = data["blueprintArn"]
     else:
         raise DeserializationError("Blueprint.blueprint_arn required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
-    if "stage" in data:
+    if data.get("stage") is not None:
         import capo_bedrock_data_automation_runtime.types.blueprint_stage
 
         out["stage"] = (

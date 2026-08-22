@@ -47,17 +47,17 @@ def serialize_json(value: SearchCriteria) -> dict:
 
 def deserialize_json(data: dict) -> SearchCriteria:
     out: SearchCriteria = {}  # type: ignore[typeddict-item]
-    if "searchQuery" in data:
+    if data.get("searchQuery") is not None:
         out["search_query"] = data["searchQuery"]
     else:
         raise DeserializationError("SearchCriteria.search_query required")
-    if "memoryStrategyId" in data:
+    if data.get("memoryStrategyId") is not None:
         out["memory_strategy_id"] = data["memoryStrategyId"]
-    if "topK" in data:
+    if data.get("topK") is not None:
         out["top_k"] = data["topK"]
     else:
         out["top_k"] = 10
-    if "metadataFilters" in data:
+    if data.get("metadataFilters") is not None:
         import capo_bedrock_agentcore.types.memory_metadata_filter_list
 
         out["metadata_filters"] = (

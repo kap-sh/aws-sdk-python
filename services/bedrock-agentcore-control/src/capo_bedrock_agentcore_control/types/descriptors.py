@@ -66,7 +66,7 @@ def serialize_json(value: Descriptors) -> dict:
 
 def deserialize_json(data: dict) -> Descriptors:
     out: Descriptors = {}  # type: ignore[typeddict-item]
-    if "mcp" in data:
+    if data.get("mcp") is not None:
         import capo_bedrock_agentcore_control.types.mcp_descriptor
 
         out["mcp"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> Descriptors:
                 data["mcp"]
             )
         )
-    if "a2a" in data:
+    if data.get("a2a") is not None:
         import capo_bedrock_agentcore_control.types.a2a_descriptor
 
         out["a2a"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> Descriptors:
                 data["a2a"]
             )
         )
-    if "custom" in data:
+    if data.get("custom") is not None:
         import capo_bedrock_agentcore_control.types.custom_descriptor
 
         out["custom"] = (
@@ -90,7 +90,7 @@ def deserialize_json(data: dict) -> Descriptors:
                 data["custom"]
             )
         )
-    if "agentSkills" in data:
+    if data.get("agentSkills") is not None:
         import capo_bedrock_agentcore_control.types.agent_skills_descriptor
 
         out["agent_skills"] = (

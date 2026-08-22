@@ -35,7 +35,7 @@ def serialize_json(value: KmsConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> KmsConfiguration:
     out: KmsConfiguration = {}  # type: ignore[typeddict-item]
-    if "keyType" in data:
+    if data.get("keyType") is not None:
         import capo_bedrock_agentcore_control.types.key_type
 
         out["key_type"] = (
@@ -45,6 +45,6 @@ def deserialize_json(data: dict) -> KmsConfiguration:
         )
     else:
         raise DeserializationError("KmsConfiguration.key_type required")
-    if "kmsKeyArn" in data:
+    if data.get("kmsKeyArn") is not None:
         out["kms_key_arn"] = data["kmsKeyArn"]
     return out

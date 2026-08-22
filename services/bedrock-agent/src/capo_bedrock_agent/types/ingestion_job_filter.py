@@ -50,7 +50,7 @@ def serialize_json(value: IngestionJobFilter) -> dict:
 
 def deserialize_json(data: dict) -> IngestionJobFilter:
     out: IngestionJobFilter = {}  # type: ignore[typeddict-item]
-    if "attribute" in data:
+    if data.get("attribute") is not None:
         import capo_bedrock_agent.types.ingestion_job_filter_attribute
 
         out["attribute"] = (
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> IngestionJobFilter:
         )
     else:
         raise DeserializationError("IngestionJobFilter.attribute required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agent.types.ingestion_job_filter_operator
 
         out["operator"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> IngestionJobFilter:
         )
     else:
         raise DeserializationError("IngestionJobFilter.operator required")
-    if "values" in data:
+    if data.get("values") is not None:
         import capo_bedrock_agent.types.ingestion_job_filter_values
 
         out["values"] = (

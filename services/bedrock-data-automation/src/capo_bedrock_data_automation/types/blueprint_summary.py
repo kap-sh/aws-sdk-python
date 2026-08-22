@@ -67,13 +67,13 @@ def serialize_json(value: BlueprintSummary) -> dict:
 
 def deserialize_json(data: dict) -> BlueprintSummary:
     out: BlueprintSummary = {}  # type: ignore[typeddict-item]
-    if "blueprintArn" in data:
+    if data.get("blueprintArn") is not None:
         out["blueprint_arn"] = data["blueprintArn"]
     else:
         raise DeserializationError("BlueprintSummary.blueprint_arn required")
-    if "blueprintVersion" in data:
+    if data.get("blueprintVersion") is not None:
         out["blueprint_version"] = data["blueprintVersion"]
-    if "blueprintStage" in data:
+    if data.get("blueprintStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["blueprint_stage"] = (
@@ -81,9 +81,9 @@ def deserialize_json(data: dict) -> BlueprintSummary:
                 data["blueprintStage"]
             )
         )
-    if "blueprintName" in data:
+    if data.get("blueprintName") is not None:
         out["blueprint_name"] = data["blueprintName"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (
@@ -93,7 +93,7 @@ def deserialize_json(data: dict) -> BlueprintSummary:
         )
     else:
         raise DeserializationError("BlueprintSummary.creation_time required")
-    if "lastModifiedTime" in data:
+    if data.get("lastModifiedTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["last_modified_time"] = (

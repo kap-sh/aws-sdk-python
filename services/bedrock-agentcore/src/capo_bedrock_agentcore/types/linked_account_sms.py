@@ -24,7 +24,7 @@ def serialize_json(value: LinkedAccountSms) -> dict:
 
 def deserialize_json(data: dict) -> LinkedAccountSms:
     out: LinkedAccountSms = {}  # type: ignore[typeddict-item]
-    if "phoneNumber" in data:
+    if data.get("phoneNumber") is not None:
         out["phone_number"] = data["phoneNumber"]
     else:
         raise DeserializationError("LinkedAccountSms.phone_number required")

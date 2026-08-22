@@ -33,7 +33,7 @@ def serialize_json(value: FlowCompletionEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowCompletionEvent:
     out: FlowCompletionEvent = {}  # type: ignore[typeddict-item]
-    if "completionReason" in data:
+    if data.get("completionReason") is not None:
         import capo_bedrock_agent_runtime.types.flow_completion_reason
 
         out["completion_reason"] = (

@@ -72,16 +72,20 @@ class OptimizePromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.optimize_prompt_request.OptimizePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["input"] = input
-        input_["target_model_id"] = target_model_id
+        input_: capo_bedrock_agent_runtime.types.optimize_prompt_request.OptimizePromptRequest = {
+            "input": input,
+            "target_model_id": target_model_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
 
 class AsyncOptimizePromptResource:
@@ -128,13 +132,17 @@ class AsyncOptimizePromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.optimize_prompt_request.OptimizePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["input"] = input
-        input_["target_model_id"] = target_model_id
+        input_: capo_bedrock_agent_runtime.types.optimize_prompt_request.OptimizePromptRequest = {
+            "input": input,
+            "target_model_id": target_model_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()

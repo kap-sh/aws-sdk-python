@@ -86,33 +86,33 @@ def serialize_json(value: GetConfigurationBundleVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetConfigurationBundleVersionResponse:
     out: GetConfigurationBundleVersionResponse = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.bundle_arn required"
         )
-    if "bundleId" in data:
+    if data.get("bundleId") is not None:
         out["bundle_id"] = data["bundleId"]
     else:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.bundle_id required"
         )
-    if "bundleName" in data:
+    if data.get("bundleName") is not None:
         out["bundle_name"] = data["bundleName"]
     else:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.bundle_name required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.version_id required"
         )
-    if "components" in data:
+    if data.get("components") is not None:
         import capo_bedrock_agentcore_control.types.component_configuration_map
 
         out["components"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> GetConfigurationBundleVersionResponse:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.components required"
         )
-    if "lineageMetadata" in data:
+    if data.get("lineageMetadata") is not None:
         import capo_bedrock_agentcore_control.types.version_lineage_metadata
 
         out["lineage_metadata"] = (
@@ -132,7 +132,7 @@ def deserialize_json(data: dict) -> GetConfigurationBundleVersionResponse:
                 data["lineageMetadata"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> GetConfigurationBundleVersionResponse:
         raise DeserializationError(
             "GetConfigurationBundleVersionResponse.created_at required"
         )
-    if "versionCreatedAt" in data:
+    if data.get("versionCreatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["version_created_at"] = (

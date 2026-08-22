@@ -18,7 +18,7 @@ def serialize_json(value: ConcurrentModificationException_) -> dict:
 
 def deserialize_json(data: dict) -> ConcurrentModificationException_:
     out: ConcurrentModificationException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("ConcurrentModificationException_.message required")
@@ -30,15 +30,20 @@ class ConcurrentModificationException(ServiceError):
 
     code: str | None = "ConcurrentModificationException"
 
-    def __init__(self, data: ConcurrentModificationException_):
+    def __init__(
+        self, data: ConcurrentModificationException_, message: str | None = None
+    ):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ConcurrentModificationException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ConcurrentModificationException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ConcurrentModificationException":
+        return cls(deserialize_json(data), message)

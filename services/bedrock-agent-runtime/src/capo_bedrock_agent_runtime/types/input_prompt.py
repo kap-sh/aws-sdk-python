@@ -32,7 +32,7 @@ def serialize_json(value: InputPrompt) -> dict:
 
 
 def deserialize_json(data: dict) -> InputPrompt:
-    if "textPrompt" in data:
+    if data.get("textPrompt") is not None:
         import capo_bedrock_agent_runtime.types.text_prompt
 
         return {

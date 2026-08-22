@@ -32,7 +32,7 @@ def serialize_json(value: GroundTruthSource) -> dict:
 
 
 def deserialize_json(data: dict) -> GroundTruthSource:
-    if "inline" in data:
+    if data.get("inline") is not None:
         import capo_bedrock_agentcore.types.inline_ground_truth
 
         return {

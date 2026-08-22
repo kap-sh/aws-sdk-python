@@ -88,13 +88,13 @@ def serialize_json(value: PromptConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PromptConfiguration:
     out: PromptConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptType" in data:
+    if data.get("promptType") is not None:
         import capo_bedrock_agent.types.prompt_type
 
         out["prompt_type"] = capo_bedrock_agent.types.prompt_type.deserialize_json(
             data["promptType"]
         )
-    if "promptCreationMode" in data:
+    if data.get("promptCreationMode") is not None:
         import capo_bedrock_agent.types.creation_mode
 
         out["prompt_creation_mode"] = (
@@ -102,15 +102,15 @@ def deserialize_json(data: dict) -> PromptConfiguration:
                 data["promptCreationMode"]
             )
         )
-    if "promptState" in data:
+    if data.get("promptState") is not None:
         import capo_bedrock_agent.types.prompt_state
 
         out["prompt_state"] = capo_bedrock_agent.types.prompt_state.deserialize_json(
             data["promptState"]
         )
-    if "basePromptTemplate" in data:
+    if data.get("basePromptTemplate") is not None:
         out["base_prompt_template"] = data["basePromptTemplate"]
-    if "inferenceConfiguration" in data:
+    if data.get("inferenceConfiguration") is not None:
         import capo_bedrock_agent.types.inference_configuration
 
         out["inference_configuration"] = (
@@ -118,14 +118,14 @@ def deserialize_json(data: dict) -> PromptConfiguration:
                 data["inferenceConfiguration"]
             )
         )
-    if "parserMode" in data:
+    if data.get("parserMode") is not None:
         import capo_bedrock_agent.types.creation_mode
 
         out["parser_mode"] = capo_bedrock_agent.types.creation_mode.deserialize_json(
             data["parserMode"]
         )
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
     return out

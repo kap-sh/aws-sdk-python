@@ -16,5 +16,7 @@ def serialize_json(input_to_serialize: CustomParameterMap) -> dict:
 def deserialize_json(data: dict) -> CustomParameterMap:
     out: CustomParameterMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

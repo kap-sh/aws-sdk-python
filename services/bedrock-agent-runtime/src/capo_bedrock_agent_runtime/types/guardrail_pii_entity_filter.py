@@ -48,7 +48,7 @@ def serialize_json(value: GuardrailPiiEntityFilter) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailPiiEntityFilter:
     out: GuardrailPiiEntityFilter = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_pii_entity_type
 
         out["type"] = (
@@ -56,9 +56,9 @@ def deserialize_json(data: dict) -> GuardrailPiiEntityFilter:
                 data["type"]
             )
         )
-    if "match" in data:
+    if data.get("match") is not None:
         out["match"] = data["match"]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_agent_runtime.types.guardrail_sensitive_information_policy_action
 
         out["action"] = (

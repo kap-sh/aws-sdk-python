@@ -31,10 +31,10 @@ def serialize_json(value: RuntimeTargetConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RuntimeTargetConfiguration:
     out: RuntimeTargetConfiguration = {}  # type: ignore[typeddict-item]
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("RuntimeTargetConfiguration.arn required")
-    if "qualifier" in data:
+    if data.get("qualifier") is not None:
         out["qualifier"] = data["qualifier"]
     return out

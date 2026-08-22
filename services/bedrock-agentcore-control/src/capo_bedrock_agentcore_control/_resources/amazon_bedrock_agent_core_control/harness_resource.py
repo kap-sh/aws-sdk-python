@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -153,11 +154,13 @@ class HarnessResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_name"] = harness_name
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["execution_role_arn"] = execution_role_arn
+        input_: capo_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {
+            "harness_name": harness_name,
+            "execution_role_arn": execution_role_arn,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if environment is not None:
             input_["environment"] = environment
         if environment_artifact is not None:
@@ -194,6 +197,7 @@ class HarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_harness(
@@ -236,16 +240,19 @@ class HarnessResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {
+            "harness_id": harness_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_harness(
@@ -283,14 +290,16 @@ class HarnessResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
+        input_: capo_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {
+            "harness_id": harness_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_harnesses(
@@ -333,7 +342,7 @@ class HarnessResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -344,6 +353,7 @@ class HarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_harness(
@@ -439,10 +449,12 @@ class HarnessResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {
+            "harness_id": harness_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if environment is not None:
@@ -479,6 +491,7 @@ class HarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -580,11 +593,13 @@ class AsyncHarnessResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_name"] = harness_name
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["execution_role_arn"] = execution_role_arn
+        input_: capo_bedrock_agentcore_control.types.create_harness_request.CreateHarnessRequest = {
+            "harness_name": harness_name,
+            "execution_role_arn": execution_role_arn,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if environment is not None:
             input_["environment"] = environment
         if environment_artifact is not None:
@@ -621,6 +636,7 @@ class AsyncHarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_harness(
@@ -664,16 +680,19 @@ class AsyncHarnessResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_harness_request.DeleteHarnessRequest = {
+            "harness_id": harness_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_harness(
@@ -712,14 +731,16 @@ class AsyncHarnessResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
+        input_: capo_bedrock_agentcore_control.types.get_harness_request.GetHarnessRequest = {
+            "harness_id": harness_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_harnesses(
@@ -763,7 +784,7 @@ class AsyncHarnessResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_harnesses_request.ListHarnessesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -774,6 +795,7 @@ class AsyncHarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_harness(
@@ -870,10 +892,12 @@ class AsyncHarnessResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {}  # type: ignore[typeddict-item]
-        input_["harness_id"] = harness_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.update_harness_request.UpdateHarnessRequest = {
+            "harness_id": harness_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
         if environment is not None:
@@ -910,4 +934,5 @@ class AsyncHarnessResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

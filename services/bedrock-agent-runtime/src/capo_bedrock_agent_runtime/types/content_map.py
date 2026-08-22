@@ -23,6 +23,8 @@ def serialize_json(input_to_serialize: ContentMap) -> dict:
 def deserialize_json(data: dict) -> ContentMap:
     out: ContentMap = {}
     for key, value in data.items():
+        if value is None:
+            continue
         import capo_bedrock_agent_runtime.types.parameters
 
         out[key] = capo_bedrock_agent_runtime.types.parameters.deserialize_json(value)

@@ -33,10 +33,10 @@ def serialize_json(value: ToolDescriptionOutput) -> dict:
 
 def deserialize_json(data: dict) -> ToolDescriptionOutput:
     out: ToolDescriptionOutput = {}  # type: ignore[typeddict-item]
-    if "toolName" in data:
+    if data.get("toolName") is not None:
         out["tool_name"] = data["toolName"]
     else:
         raise DeserializationError("ToolDescriptionOutput.tool_name required")
-    if "recommendedToolDescription" in data:
+    if data.get("recommendedToolDescription") is not None:
         out["recommended_tool_description"] = data["recommendedToolDescription"]
     return out

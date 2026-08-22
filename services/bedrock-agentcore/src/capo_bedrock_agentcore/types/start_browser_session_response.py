@@ -48,17 +48,17 @@ def serialize_json(value: StartBrowserSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StartBrowserSessionResponse:
     out: StartBrowserSessionResponse = {}  # type: ignore[typeddict-item]
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError(
             "StartBrowserSessionResponse.browser_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("StartBrowserSessionResponse.session_id required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["created_at"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> StartBrowserSessionResponse:
         )
     else:
         raise DeserializationError("StartBrowserSessionResponse.created_at required")
-    if "streams" in data:
+    if data.get("streams") is not None:
         import capo_bedrock_agentcore.types.browser_session_stream
 
         out["streams"] = (

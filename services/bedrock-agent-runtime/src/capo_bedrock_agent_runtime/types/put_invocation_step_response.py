@@ -24,7 +24,7 @@ def serialize_json(value: PutInvocationStepResponse) -> dict:
 
 def deserialize_json(data: dict) -> PutInvocationStepResponse:
     out: PutInvocationStepResponse = {}  # type: ignore[typeddict-item]
-    if "invocationStepId" in data:
+    if data.get("invocationStepId") is not None:
         out["invocation_step_id"] = data["invocationStepId"]
     else:
         raise DeserializationError(

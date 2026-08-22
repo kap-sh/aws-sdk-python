@@ -44,13 +44,13 @@ def serialize_json(value: ListSessionsInput) -> dict:
 
 def deserialize_json(data: dict) -> ListSessionsInput:
     out: ListSessionsInput = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 100
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "filter" in data:
+    if data.get("filter") is not None:
         import capo_bedrock_agentcore.types.session_filter
 
         out["filter"] = capo_bedrock_agentcore.types.session_filter.deserialize_json(

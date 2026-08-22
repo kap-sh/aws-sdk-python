@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -115,14 +116,16 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["dataset_name"] = dataset_name
+        input_: capo_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {
+            "dataset_name": dataset_name,
+            "source": source,
+            "schema_type": schema_type,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["source"] = source
-        input_["schema_type"] = schema_type
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
@@ -133,6 +136,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -175,8 +179,9 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
 
@@ -185,6 +190,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -229,10 +235,12 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {
+            "dataset_id": dataset_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
 
@@ -241,6 +249,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -283,8 +292,9 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
 
@@ -293,6 +303,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -331,7 +342,7 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -342,6 +353,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def add_dataset_examples(
@@ -387,17 +399,20 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["source"] = source
+        input_: capo_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "source": source,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_dataset_version(
@@ -441,16 +456,19 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {
+            "dataset_id": dataset_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_dataset_examples(
@@ -495,17 +513,20 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["example_ids"] = example_ids
+        input_: capo_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "example_ids": example_ids,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_dataset_examples(
@@ -552,8 +573,9 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
         if max_results is not None:
@@ -566,6 +588,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_dataset_versions(
@@ -607,8 +630,9 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {
+            "dataset_id": dataset_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -619,6 +643,7 @@ class Dataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_dataset_examples(
@@ -664,17 +689,20 @@ class Dataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["examples"] = examples
+        input_: capo_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "examples": examples,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -735,14 +763,16 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["dataset_name"] = dataset_name
+        input_: capo_bedrock_agentcore_control.types.create_dataset_request.CreateDatasetRequest = {
+            "dataset_name": dataset_name,
+            "source": source,
+            "schema_type": schema_type,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["source"] = source
-        input_["schema_type"] = schema_type
         if kms_key_arn is not None:
             input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
@@ -753,6 +783,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -796,8 +827,9 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.get_dataset_request.GetDatasetRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
 
@@ -806,6 +838,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -851,10 +884,12 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.update_dataset_request.UpdateDatasetRequest = {
+            "dataset_id": dataset_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
 
@@ -863,6 +898,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -906,8 +942,9 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.delete_dataset_request.DeleteDatasetRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
 
@@ -916,6 +953,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -955,7 +993,7 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_datasets_request.ListDatasetsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -966,6 +1004,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def add_dataset_examples(
@@ -1012,17 +1051,20 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["source"] = source
+        input_: capo_bedrock_agentcore_control.types.add_dataset_examples_request.AddDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "source": source,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_dataset_version(
@@ -1067,16 +1109,19 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.create_dataset_version_request.CreateDatasetVersionRequest = {
+            "dataset_id": dataset_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_dataset_examples(
@@ -1122,17 +1167,20 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["example_ids"] = example_ids
+        input_: capo_bedrock_agentcore_control.types.delete_dataset_examples_request.DeleteDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "example_ids": example_ids,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_dataset_examples(
@@ -1180,8 +1228,9 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.list_dataset_examples_request.ListDatasetExamplesRequest = {
+            "dataset_id": dataset_id
+        }
         if dataset_version is not None:
             input_["dataset_version"] = dataset_version
         if max_results is not None:
@@ -1194,6 +1243,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_dataset_versions(
@@ -1236,8 +1286,9 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
+        input_: capo_bedrock_agentcore_control.types.list_dataset_versions_request.ListDatasetVersionsRequest = {
+            "dataset_id": dataset_id
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -1248,6 +1299,7 @@ class AsyncDataset:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_dataset_examples(
@@ -1294,15 +1346,18 @@ class AsyncDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {}  # type: ignore[typeddict-item]
-        input_["dataset_id"] = dataset_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["examples"] = examples
+        input_: capo_bedrock_agentcore_control.types.update_dataset_examples_request.UpdateDatasetExamplesRequest = {
+            "dataset_id": dataset_id,
+            "examples": examples,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

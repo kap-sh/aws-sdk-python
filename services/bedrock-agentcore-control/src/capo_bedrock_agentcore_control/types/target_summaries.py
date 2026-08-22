@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> TargetSummaries:
 
     out: TargetSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.target_summary.deserialize_json(item)
         )

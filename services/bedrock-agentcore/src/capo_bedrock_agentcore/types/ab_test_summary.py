@@ -80,19 +80,19 @@ def serialize_json(value: ABTestSummary) -> dict:
 
 def deserialize_json(data: dict) -> ABTestSummary:
     out: ABTestSummary = {}  # type: ignore[typeddict-item]
-    if "abTestId" in data:
+    if data.get("abTestId") is not None:
         out["ab_test_id"] = data["abTestId"]
     else:
         raise DeserializationError("ABTestSummary.ab_test_id required")
-    if "abTestArn" in data:
+    if data.get("abTestArn") is not None:
         out["ab_test_arn"] = data["abTestArn"]
     else:
         raise DeserializationError("ABTestSummary.ab_test_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ABTestSummary.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.ab_test_status
 
         out["status"] = capo_bedrock_agentcore.types.ab_test_status.deserialize_json(
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> ABTestSummary:
         )
     else:
         raise DeserializationError("ABTestSummary.status required")
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore.types.ab_test_execution_status
 
         out["execution_status"] = (
@@ -110,11 +110,11 @@ def deserialize_json(data: dict) -> ABTestSummary:
         )
     else:
         raise DeserializationError("ABTestSummary.execution_status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "gatewayArn" in data:
+    if data.get("gatewayArn") is not None:
         out["gateway_arn"] = data["gatewayArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["created_at"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> ABTestSummary:
         )
     else:
         raise DeserializationError("ABTestSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["updated_at"] = (

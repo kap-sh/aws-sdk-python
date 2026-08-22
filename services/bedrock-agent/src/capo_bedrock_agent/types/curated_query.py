@@ -30,11 +30,11 @@ def serialize_json(value: CuratedQuery) -> dict:
 
 def deserialize_json(data: dict) -> CuratedQuery:
     out: CuratedQuery = {}  # type: ignore[typeddict-item]
-    if "naturalLanguage" in data:
+    if data.get("naturalLanguage") is not None:
         out["natural_language"] = data["naturalLanguage"]
     else:
         raise DeserializationError("CuratedQuery.natural_language required")
-    if "sql" in data:
+    if data.get("sql") is not None:
         out["sql"] = data["sql"]
     else:
         raise DeserializationError("CuratedQuery.sql required")

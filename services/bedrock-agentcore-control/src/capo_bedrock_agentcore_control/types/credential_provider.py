@@ -65,7 +65,7 @@ def serialize_json(value: CredentialProvider) -> dict:
 
 
 def deserialize_json(data: dict) -> CredentialProvider:
-    if "oauthCredentialProvider" in data:
+    if data.get("oauthCredentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.o_auth_credential_provider
 
         return {
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> CredentialProvider:
                 data["oauthCredentialProvider"]
             )
         }
-    elif "apiKeyCredentialProvider" in data:
+    elif data.get("apiKeyCredentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.gateway_api_key_credential_provider
 
         return {
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> CredentialProvider:
                 data["apiKeyCredentialProvider"]
             )
         }
-    elif "iamCredentialProvider" in data:
+    elif data.get("iamCredentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.iam_credential_provider
 
         return {

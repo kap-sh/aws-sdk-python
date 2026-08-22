@@ -26,11 +26,11 @@ def serialize_json(value: LexFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> LexFlowNodeConfiguration:
     out: LexFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "botAliasArn" in data:
+    if data.get("botAliasArn") is not None:
         out["bot_alias_arn"] = data["botAliasArn"]
     else:
         out["bot_alias_arn"] = ""
-    if "localeId" in data:
+    if data.get("localeId") is not None:
         out["locale_id"] = data["localeId"]
     else:
         out["locale_id"] = ""

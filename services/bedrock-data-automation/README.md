@@ -13,9 +13,9 @@ from capo_bedrock_data_automation import AsyncBedrockDataAutomationClient
 
 
 async def main():
-    async with AsyncBedrockDataAutomationClient() as s3:
+    async with AsyncBedrockDataAutomationClient() as bedrock_data_automation:
         # Example: call the copy_blueprint_stage operation
-        response = await s3.copy_blueprint_stage()
+        response = await bedrock_data_automation.copy_blueprint_stage()
         print(response)
 ```
 
@@ -28,9 +28,9 @@ from capo_bedrock_data_automation import AsyncBedrockDataAutomationClient
 
 
 async def main():
-    async with AsyncBedrockDataAutomationClient() as s3:
+    async with AsyncBedrockDataAutomationClient() as bedrock_data_automation:
         # Example: paginate over list_data_automation_library_entities
-        async for item in s3.iter_list_data_automation_library_entities():
+        async for item in bedrock_data_automation.iter_list_data_automation_library_entities():
             print(item)
 ```
 
@@ -44,9 +44,9 @@ from capo_bedrock_data_automation.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncBedrockDataAutomationClient() as s3:
+    async with AsyncBedrockDataAutomationClient() as bedrock_data_automation:
         try:
-            await s3.copy_blueprint_stage()
+            await bedrock_data_automation.copy_blueprint_stage()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -63,13 +63,13 @@ from capo_bedrock_data_automation import AsyncBedrockDataAutomationClient
 
 
 async def main():
-    async with AsyncBedrockDataAutomationClient() as s3:
+    async with AsyncBedrockDataAutomationClient() as bedrock_data_automation:
         # Default: 3 attempts for every operation
-        response = await s3.copy_blueprint_stage()
+        response = await bedrock_data_automation.copy_blueprint_stage()
 
         # Override per operation
-        response = await s3.copy_blueprint_stage(config_overrides={"retry_max_attempts": 5})
+        response = await bedrock_data_automation.copy_blueprint_stage(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.copy_blueprint_stage(config_overrides={"retry_max_attempts": 1})
+        response = await bedrock_data_automation.copy_blueprint_stage(config_overrides={"retry_max_attempts": 1})
 ```

@@ -35,7 +35,7 @@ def serialize_json(value: StringListValidation) -> dict:
 
 def deserialize_json(data: dict) -> StringListValidation:
     out: StringListValidation = {}  # type: ignore[typeddict-item]
-    if "allowedValues" in data:
+    if data.get("allowedValues") is not None:
         import capo_bedrock_agentcore_control.types.allowed_string_list_values_list
 
         out["allowed_values"] = (
@@ -43,6 +43,6 @@ def deserialize_json(data: dict) -> StringListValidation:
                 data["allowedValues"]
             )
         )
-    if "maxItems" in data:
+    if data.get("maxItems") is not None:
         out["max_items"] = data["maxItems"]
     return out

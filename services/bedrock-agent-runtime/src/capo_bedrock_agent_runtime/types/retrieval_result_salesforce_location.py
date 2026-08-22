@@ -18,6 +18,6 @@ def serialize_json(value: RetrievalResultSalesforceLocation) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultSalesforceLocation:
     out: RetrievalResultSalesforceLocation = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
     return out

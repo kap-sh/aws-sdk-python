@@ -25,7 +25,15 @@ class RerankResult(TypedDict, closed=True):
 def serialize_json(value: RerankResult) -> dict:
     out: dict = {}
     out["index"] = value["index"]
-    out["relevanceScore"] = value["relevance_score"]
+    out["relevanceScore"] = (
+        "NaN"
+        if value["relevance_score"] != value["relevance_score"]
+        else "Infinity"
+        if value["relevance_score"] == float("inf")
+        else "-Infinity"
+        if value["relevance_score"] == float("-inf")
+        else value["relevance_score"]
+    )
     if "document" in value:
         import capo_bedrock_agent_runtime.types.rerank_document
 
@@ -39,15 +47,15 @@ def serialize_json(value: RerankResult) -> dict:
 
 def deserialize_json(data: dict) -> RerankResult:
     out: RerankResult = {}  # type: ignore[typeddict-item]
-    if "index" in data:
+    if data.get("index") is not None:
         out["index"] = data["index"]
     else:
         raise DeserializationError("RerankResult.index required")
-    if "relevanceScore" in data:
-        out["relevance_score"] = data["relevanceScore"]
+    if data.get("relevanceScore") is not None:
+        out["relevance_score"] = float(data["relevanceScore"])
     else:
         raise DeserializationError("RerankResult.relevance_score required")
-    if "document" in data:
+    if data.get("document") is not None:
         import capo_bedrock_agent_runtime.types.rerank_document
 
         out["document"] = (

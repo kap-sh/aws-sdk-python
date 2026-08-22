@@ -53,7 +53,7 @@ def serialize_json(value: AgentRuntimeArtifact) -> dict:
 
 
 def deserialize_json(data: dict) -> AgentRuntimeArtifact:
-    if "containerConfiguration" in data:
+    if data.get("containerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.container_configuration
 
         return {
@@ -61,7 +61,7 @@ def deserialize_json(data: dict) -> AgentRuntimeArtifact:
                 data["containerConfiguration"]
             )
         }
-    elif "codeConfiguration" in data:
+    elif data.get("codeConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.code_configuration
 
         return {

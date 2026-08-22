@@ -38,11 +38,11 @@ def serialize_json(value: ToolDescriptionInput) -> dict:
 
 def deserialize_json(data: dict) -> ToolDescriptionInput:
     out: ToolDescriptionInput = {}  # type: ignore[typeddict-item]
-    if "toolName" in data:
+    if data.get("toolName") is not None:
         out["tool_name"] = data["toolName"]
     else:
         raise DeserializationError("ToolDescriptionInput.tool_name required")
-    if "toolDescription" in data:
+    if data.get("toolDescription") is not None:
         import capo_bedrock_agentcore.types.tool_description_config
 
         out["tool_description"] = (

@@ -36,9 +36,9 @@ def serialize_json(value: CustomOrchestrationTrace) -> dict:
 
 def deserialize_json(data: dict) -> CustomOrchestrationTrace:
     out: CustomOrchestrationTrace = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "event" in data:
+    if data.get("event") is not None:
         import capo_bedrock_agent_runtime.types.custom_orchestration_trace_event
 
         out["event"] = (

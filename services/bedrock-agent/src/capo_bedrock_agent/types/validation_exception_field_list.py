@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ValidationExceptionFieldList:
 
     out: ValidationExceptionFieldList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.validation_exception_field.deserialize_json(item)
         )

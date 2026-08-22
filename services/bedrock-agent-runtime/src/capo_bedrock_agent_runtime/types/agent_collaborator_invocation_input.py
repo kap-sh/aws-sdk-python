@@ -42,11 +42,11 @@ def serialize_json(value: AgentCollaboratorInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> AgentCollaboratorInvocationInput:
     out: AgentCollaboratorInvocationInput = {}  # type: ignore[typeddict-item]
-    if "agentCollaboratorName" in data:
+    if data.get("agentCollaboratorName") is not None:
         out["agent_collaborator_name"] = data["agentCollaboratorName"]
-    if "agentCollaboratorAliasArn" in data:
+    if data.get("agentCollaboratorAliasArn") is not None:
         out["agent_collaborator_alias_arn"] = data["agentCollaboratorAliasArn"]
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_agent_runtime.types.agent_collaborator_input_payload
 
         out["input"] = (

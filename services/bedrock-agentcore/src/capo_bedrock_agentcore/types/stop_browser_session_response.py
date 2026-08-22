@@ -35,17 +35,17 @@ def serialize_json(value: StopBrowserSessionResponse) -> dict:
 
 def deserialize_json(data: dict) -> StopBrowserSessionResponse:
     out: StopBrowserSessionResponse = {}  # type: ignore[typeddict-item]
-    if "browserIdentifier" in data:
+    if data.get("browserIdentifier") is not None:
         out["browser_identifier"] = data["browserIdentifier"]
     else:
         raise DeserializationError(
             "StopBrowserSessionResponse.browser_identifier required"
         )
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("StopBrowserSessionResponse.session_id required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore.types.date_timestamp
 
         out["last_updated_at"] = (

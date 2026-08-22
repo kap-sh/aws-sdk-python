@@ -28,11 +28,11 @@ def serialize_json(value: ViewPort) -> dict:
 
 def deserialize_json(data: dict) -> ViewPort:
     out: ViewPort = {}  # type: ignore[typeddict-item]
-    if "width" in data:
+    if data.get("width") is not None:
         out["width"] = data["width"]
     else:
         raise DeserializationError("ViewPort.width required")
-    if "height" in data:
+    if data.get("height") is not None:
         out["height"] = data["height"]
     else:
         raise DeserializationError("ViewPort.height required")

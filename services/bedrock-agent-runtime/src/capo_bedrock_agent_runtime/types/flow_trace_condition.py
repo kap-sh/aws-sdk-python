@@ -19,7 +19,7 @@ def serialize_json(value: FlowTraceCondition) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceCondition:
     out: FlowTraceCondition = {}  # type: ignore[typeddict-item]
-    if "conditionName" in data:
+    if data.get("conditionName") is not None:
         out["condition_name"] = data["conditionName"]
     else:
         raise DeserializationError("FlowTraceCondition.condition_name required")

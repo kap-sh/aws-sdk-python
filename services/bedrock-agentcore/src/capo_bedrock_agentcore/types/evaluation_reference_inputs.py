@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> EvaluationReferenceInputs:
 
     out: EvaluationReferenceInputs = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.evaluation_reference_input.deserialize_json(
                 item

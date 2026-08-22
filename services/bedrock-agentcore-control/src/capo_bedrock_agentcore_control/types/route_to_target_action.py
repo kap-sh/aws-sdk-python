@@ -50,7 +50,7 @@ def serialize_json(value: RouteToTargetAction) -> dict:
 
 
 def deserialize_json(data: dict) -> RouteToTargetAction:
-    if "staticRoute" in data:
+    if data.get("staticRoute") is not None:
         import capo_bedrock_agentcore_control.types.static_route
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> RouteToTargetAction:
                 data["staticRoute"]
             )
         }
-    elif "weightedRoute" in data:
+    elif data.get("weightedRoute") is not None:
         import capo_bedrock_agentcore_control.types.weighted_route
 
         return {

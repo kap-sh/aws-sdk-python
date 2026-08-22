@@ -23,6 +23,6 @@ def serialize_json(value: AgentDescriptor) -> dict:
 
 def deserialize_json(data: dict) -> AgentDescriptor:
     out: AgentDescriptor = {}  # type: ignore[typeddict-item]
-    if "aliasArn" in data:
+    if data.get("aliasArn") is not None:
         out["alias_arn"] = data["aliasArn"]
     return out

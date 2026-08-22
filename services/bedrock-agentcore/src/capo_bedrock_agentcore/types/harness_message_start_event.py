@@ -31,7 +31,7 @@ def serialize_json(value: HarnessMessageStartEvent) -> dict:
 
 def deserialize_json(data: dict) -> HarnessMessageStartEvent:
     out: HarnessMessageStartEvent = {}  # type: ignore[typeddict-item]
-    if "role" in data:
+    if data.get("role") is not None:
         import capo_bedrock_agentcore.types.harness_conversation_role
 
         out["role"] = (

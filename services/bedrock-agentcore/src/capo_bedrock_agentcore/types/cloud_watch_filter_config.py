@@ -44,7 +44,7 @@ def serialize_json(value: CloudWatchFilterConfig) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchFilterConfig:
     out: CloudWatchFilterConfig = {}  # type: ignore[typeddict-item]
-    if "sessionIds" in data:
+    if data.get("sessionIds") is not None:
         import capo_bedrock_agentcore.types.evaluation_string_list
 
         out["session_ids"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> CloudWatchFilterConfig:
                 data["sessionIds"]
             )
         )
-    if "timeRange" in data:
+    if data.get("timeRange") is not None:
         import capo_bedrock_agentcore.types.session_filter_config
 
         out["time_range"] = (

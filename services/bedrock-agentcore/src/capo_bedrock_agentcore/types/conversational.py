@@ -34,7 +34,7 @@ def serialize_json(value: Conversational) -> dict:
 
 def deserialize_json(data: dict) -> Conversational:
     out: Conversational = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore.types.content
 
         out["content"] = capo_bedrock_agentcore.types.content.deserialize_json(
@@ -42,7 +42,7 @@ def deserialize_json(data: dict) -> Conversational:
         )
     else:
         raise DeserializationError("Conversational.content required")
-    if "role" in data:
+    if data.get("role") is not None:
         import capo_bedrock_agentcore.types.role
 
         out["role"] = capo_bedrock_agentcore.types.role.deserialize_json(data["role"])

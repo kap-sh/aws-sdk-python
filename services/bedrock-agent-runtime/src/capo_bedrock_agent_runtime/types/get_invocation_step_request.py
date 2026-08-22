@@ -34,7 +34,7 @@ def serialize_json(value: GetInvocationStepRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetInvocationStepRequest:
     out: GetInvocationStepRequest = {}  # type: ignore[typeddict-item]
-    if "invocationIdentifier" in data:
+    if data.get("invocationIdentifier") is not None:
         out["invocation_identifier"] = data["invocationIdentifier"]
     else:
         raise DeserializationError(

@@ -55,7 +55,7 @@ def serialize_json(value: ConfigurationBundleAction) -> dict:
 
 
 def deserialize_json(data: dict) -> ConfigurationBundleAction:
-    if "staticOverride" in data:
+    if data.get("staticOverride") is not None:
         import capo_bedrock_agentcore_control.types.static_override
 
         return {
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> ConfigurationBundleAction:
                 data["staticOverride"]
             )
         }
-    elif "weightedOverride" in data:
+    elif data.get("weightedOverride") is not None:
         import capo_bedrock_agentcore_control.types.weighted_override
 
         return {

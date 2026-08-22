@@ -40,15 +40,15 @@ def serialize_json(value: DatasetVersionSummary) -> dict:
 
 def deserialize_json(data: dict) -> DatasetVersionSummary:
     out: DatasetVersionSummary = {}  # type: ignore[typeddict-item]
-    if "datasetVersion" in data:
+    if data.get("datasetVersion") is not None:
         out["dataset_version"] = data["datasetVersion"]
     else:
         raise DeserializationError("DatasetVersionSummary.dataset_version required")
-    if "exampleCount" in data:
+    if data.get("exampleCount") is not None:
         out["example_count"] = data["exampleCount"]
     else:
         raise DeserializationError("DatasetVersionSummary.example_count required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (

@@ -19,7 +19,7 @@ def serialize_json(value: SystemManagedBlock) -> dict:
 
 def deserialize_json(data: dict) -> SystemManagedBlock:
     out: SystemManagedBlock = {}  # type: ignore[typeddict-item]
-    if "managedBy" in data:
+    if data.get("managedBy") is not None:
         out["managed_by"] = data["managedBy"]
     else:
         raise DeserializationError("SystemManagedBlock.managed_by required")

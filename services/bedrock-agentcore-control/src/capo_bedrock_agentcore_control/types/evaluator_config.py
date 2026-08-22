@@ -48,7 +48,7 @@ def serialize_json(value: EvaluatorConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluatorConfig:
-    if "llmAsAJudge" in data:
+    if data.get("llmAsAJudge") is not None:
         import capo_bedrock_agentcore_control.types.llm_as_a_judge_evaluator_config
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> EvaluatorConfig:
                 data["llmAsAJudge"]
             )
         }
-    elif "codeBased" in data:
+    elif data.get("codeBased") is not None:
         import capo_bedrock_agentcore_control.types.code_based_evaluator_config
 
         return {

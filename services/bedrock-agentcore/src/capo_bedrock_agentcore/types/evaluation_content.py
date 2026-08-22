@@ -23,7 +23,7 @@ def serialize_json(value: EvaluationContent) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationContent:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
     else:
         raise DeserializationError("EvaluationContent: no recognized variant key")

@@ -47,19 +47,19 @@ def serialize_json(value: StopBatchEvaluationResponse) -> dict:
 
 def deserialize_json(data: dict) -> StopBatchEvaluationResponse:
     out: StopBatchEvaluationResponse = {}  # type: ignore[typeddict-item]
-    if "batchEvaluationId" in data:
+    if data.get("batchEvaluationId") is not None:
         out["batch_evaluation_id"] = data["batchEvaluationId"]
     else:
         raise DeserializationError(
             "StopBatchEvaluationResponse.batch_evaluation_id required"
         )
-    if "batchEvaluationArn" in data:
+    if data.get("batchEvaluationArn") is not None:
         out["batch_evaluation_arn"] = data["batchEvaluationArn"]
     else:
         raise DeserializationError(
             "StopBatchEvaluationResponse.batch_evaluation_arn required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.batch_evaluation_status
 
         out["status"] = (
@@ -69,6 +69,6 @@ def deserialize_json(data: dict) -> StopBatchEvaluationResponse:
         )
     else:
         raise DeserializationError("StopBatchEvaluationResponse.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     return out

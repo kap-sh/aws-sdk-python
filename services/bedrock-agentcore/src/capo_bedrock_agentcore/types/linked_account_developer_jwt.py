@@ -27,11 +27,11 @@ def serialize_json(value: LinkedAccountDeveloperJwt) -> dict:
 
 def deserialize_json(data: dict) -> LinkedAccountDeveloperJwt:
     out: LinkedAccountDeveloperJwt = {}  # type: ignore[typeddict-item]
-    if "kid" in data:
+    if data.get("kid") is not None:
         out["kid"] = data["kid"]
     else:
         raise DeserializationError("LinkedAccountDeveloperJwt.kid required")
-    if "sub" in data:
+    if data.get("sub") is not None:
         out["sub"] = data["sub"]
     else:
         raise DeserializationError("LinkedAccountDeveloperJwt.sub required")

@@ -43,25 +43,25 @@ def serialize_json(value: CreateConfigurationBundleResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateConfigurationBundleResponse:
     out: CreateConfigurationBundleResponse = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "CreateConfigurationBundleResponse.bundle_arn required"
         )
-    if "bundleId" in data:
+    if data.get("bundleId") is not None:
         out["bundle_id"] = data["bundleId"]
     else:
         raise DeserializationError(
             "CreateConfigurationBundleResponse.bundle_id required"
         )
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(
             "CreateConfigurationBundleResponse.version_id required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (

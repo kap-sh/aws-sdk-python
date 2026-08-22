@@ -49,7 +49,7 @@ def serialize_json(value: MemoryConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> MemoryConfiguration:
     out: MemoryConfiguration = {}  # type: ignore[typeddict-item]
-    if "enabledMemoryTypes" in data:
+    if data.get("enabledMemoryTypes") is not None:
         import capo_bedrock_agent.types.enabled_memory_types
 
         out["enabled_memory_types"] = (
@@ -59,11 +59,11 @@ def deserialize_json(data: dict) -> MemoryConfiguration:
         )
     else:
         raise DeserializationError("MemoryConfiguration.enabled_memory_types required")
-    if "storageDays" in data:
+    if data.get("storageDays") is not None:
         out["storage_days"] = data["storageDays"]
     else:
         out["storage_days"] = 30
-    if "sessionSummaryConfiguration" in data:
+    if data.get("sessionSummaryConfiguration") is not None:
         import capo_bedrock_agent.types.session_summary_configuration
 
         out["session_summary_configuration"] = (

@@ -48,7 +48,7 @@ def serialize_json(value: RecommendationConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> RecommendationConfig:
-    if "systemPromptRecommendationConfig" in data:
+    if data.get("systemPromptRecommendationConfig") is not None:
         import capo_bedrock_agentcore.types.system_prompt_recommendation_config
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> RecommendationConfig:
                 data["systemPromptRecommendationConfig"]
             )
         }
-    elif "toolDescriptionRecommendationConfig" in data:
+    elif data.get("toolDescriptionRecommendationConfig") is not None:
         import capo_bedrock_agentcore.types.tool_description_recommendation_config
 
         return {

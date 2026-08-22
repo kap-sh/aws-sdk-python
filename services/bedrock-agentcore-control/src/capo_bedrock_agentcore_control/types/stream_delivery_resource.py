@@ -35,7 +35,7 @@ def serialize_json(value: StreamDeliveryResource) -> dict:
 
 
 def deserialize_json(data: dict) -> StreamDeliveryResource:
-    if "kinesis" in data:
+    if data.get("kinesis") is not None:
         import capo_bedrock_agentcore_control.types.kinesis_resource
 
         return {

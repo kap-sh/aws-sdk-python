@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> PromptVariantList:
 
     out: PromptVariantList = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.prompt_variant.deserialize_json(item))
     return out

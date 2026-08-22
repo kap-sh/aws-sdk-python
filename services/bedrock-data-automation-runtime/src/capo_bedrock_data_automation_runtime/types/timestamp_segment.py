@@ -22,11 +22,11 @@ def serialize_aws_json_1_1(value: TimestampSegment) -> dict:
 
 def deserialize_aws_json_1_1(data: dict) -> TimestampSegment:
     out: TimestampSegment = {}  # type: ignore[typeddict-item]
-    if "startTimeMillis" in data:
+    if data.get("startTimeMillis") is not None:
         out["start_time_millis"] = data["startTimeMillis"]
     else:
         raise DeserializationError("TimestampSegment.start_time_millis required")
-    if "endTimeMillis" in data:
+    if data.get("endTimeMillis") is not None:
         out["end_time_millis"] = data["endTimeMillis"]
     else:
         raise DeserializationError("TimestampSegment.end_time_millis required")

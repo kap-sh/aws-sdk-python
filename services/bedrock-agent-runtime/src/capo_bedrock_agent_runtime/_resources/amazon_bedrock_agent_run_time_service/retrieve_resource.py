@@ -89,9 +89,10 @@ class RetrieveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["retrieval_query"] = retrieval_query
+        input_: capo_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "retrieval_query": retrieval_query,
+        }
         if retrieval_configuration is not None:
             input_["retrieval_configuration"] = retrieval_configuration
         if guardrail_configuration is not None:
@@ -104,6 +105,7 @@ class RetrieveResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -165,9 +167,10 @@ class AsyncRetrieveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["retrieval_query"] = retrieval_query
+        input_: capo_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "retrieval_query": retrieval_query,
+        }
         if retrieval_configuration is not None:
             input_["retrieval_configuration"] = retrieval_configuration
         if guardrail_configuration is not None:
@@ -180,4 +183,5 @@ class AsyncRetrieveResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

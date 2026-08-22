@@ -33,11 +33,11 @@ def serialize_json(value: HarnessRemoteMcpConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessRemoteMcpConfig:
     out: HarnessRemoteMcpConfig = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
     else:
         raise DeserializationError("HarnessRemoteMcpConfig.url required")
-    if "headers" in data:
+    if data.get("headers") is not None:
         import capo_bedrock_agentcore.types.http_headers_map
 
         out["headers"] = capo_bedrock_agentcore.types.http_headers_map.deserialize_json(

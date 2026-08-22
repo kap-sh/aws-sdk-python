@@ -46,7 +46,7 @@ def serialize_json(value: CodeInterpreterResult) -> dict:
 
 def deserialize_json(data: dict) -> CodeInterpreterResult:
     out: CodeInterpreterResult = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agentcore.types.content_block_list
 
         out["content"] = (
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> CodeInterpreterResult:
         )
     else:
         raise DeserializationError("CodeInterpreterResult.content required")
-    if "structuredContent" in data:
+    if data.get("structuredContent") is not None:
         import capo_bedrock_agentcore.types.tool_result_structured_content
 
         out["structured_content"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> CodeInterpreterResult:
                 data["structuredContent"]
             )
         )
-    if "isError" in data:
+    if data.get("isError") is not None:
         out["is_error"] = data["isError"]
     return out
 

@@ -27,13 +27,13 @@ def serialize_json(value: DuplicateConnectionsFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> DuplicateConnectionsFlowValidationDetails:
     out: DuplicateConnectionsFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "source" in data:
+    if data.get("source") is not None:
         out["source"] = data["source"]
     else:
         raise DeserializationError(
             "DuplicateConnectionsFlowValidationDetails.source required"
         )
-    if "target" in data:
+    if data.get("target") is not None:
         out["target"] = data["target"]
     else:
         raise DeserializationError(

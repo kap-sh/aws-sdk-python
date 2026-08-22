@@ -38,7 +38,7 @@ def serialize_json(value: AtlassianOauth2ProviderConfigOutput) -> dict:
 
 def deserialize_json(data: dict) -> AtlassianOauth2ProviderConfigOutput:
     out: AtlassianOauth2ProviderConfigOutput = {}  # type: ignore[typeddict-item]
-    if "oauthDiscovery" in data:
+    if data.get("oauthDiscovery") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_discovery
 
         out["oauth_discovery"] = (
@@ -50,6 +50,6 @@ def deserialize_json(data: dict) -> AtlassianOauth2ProviderConfigOutput:
         raise DeserializationError(
             "AtlassianOauth2ProviderConfigOutput.oauth_discovery required"
         )
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
     return out

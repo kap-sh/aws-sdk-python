@@ -37,15 +37,15 @@ def serialize_json(value: SessionSummary) -> dict:
 
 def deserialize_json(data: dict) -> SessionSummary:
     out: SessionSummary = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("SessionSummary.session_id required")
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
     else:
         raise DeserializationError("SessionSummary.actor_id required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["created_at"] = (

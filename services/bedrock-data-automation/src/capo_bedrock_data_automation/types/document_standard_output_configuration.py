@@ -54,7 +54,7 @@ def serialize_json(value: DocumentStandardOutputConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> DocumentStandardOutputConfiguration:
     out: DocumentStandardOutputConfiguration = {}  # type: ignore[typeddict-item]
-    if "extraction" in data:
+    if data.get("extraction") is not None:
         import capo_bedrock_data_automation.types.document_standard_extraction
 
         out["extraction"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> DocumentStandardOutputConfiguration:
                 data["extraction"]
             )
         )
-    if "generativeField" in data:
+    if data.get("generativeField") is not None:
         import capo_bedrock_data_automation.types.document_standard_generative_field
 
         out["generative_field"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> DocumentStandardOutputConfiguration:
                 data["generativeField"]
             )
         )
-    if "outputFormat" in data:
+    if data.get("outputFormat") is not None:
         import capo_bedrock_data_automation.types.document_output_format
 
         out["output_format"] = (

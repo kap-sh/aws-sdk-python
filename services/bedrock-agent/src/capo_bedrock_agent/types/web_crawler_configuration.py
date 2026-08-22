@@ -69,7 +69,7 @@ def serialize_json(value: WebCrawlerConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> WebCrawlerConfiguration:
     out: WebCrawlerConfiguration = {}  # type: ignore[typeddict-item]
-    if "crawlerLimits" in data:
+    if data.get("crawlerLimits") is not None:
         import capo_bedrock_agent.types.web_crawler_limits
 
         out["crawler_limits"] = (
@@ -77,7 +77,7 @@ def deserialize_json(data: dict) -> WebCrawlerConfiguration:
                 data["crawlerLimits"]
             )
         )
-    if "inclusionFilters" in data:
+    if data.get("inclusionFilters") is not None:
         import capo_bedrock_agent.types.filter_list
 
         out["inclusion_filters"] = (
@@ -85,7 +85,7 @@ def deserialize_json(data: dict) -> WebCrawlerConfiguration:
                 data["inclusionFilters"]
             )
         )
-    if "exclusionFilters" in data:
+    if data.get("exclusionFilters") is not None:
         import capo_bedrock_agent.types.filter_list
 
         out["exclusion_filters"] = (
@@ -93,14 +93,14 @@ def deserialize_json(data: dict) -> WebCrawlerConfiguration:
                 data["exclusionFilters"]
             )
         )
-    if "scope" in data:
+    if data.get("scope") is not None:
         import capo_bedrock_agent.types.web_scope_type
 
         out["scope"] = capo_bedrock_agent.types.web_scope_type.deserialize_json(
             data["scope"]
         )
-    if "userAgent" in data:
+    if data.get("userAgent") is not None:
         out["user_agent"] = data["userAgent"]
-    if "userAgentHeader" in data:
+    if data.get("userAgentHeader") is not None:
         out["user_agent_header"] = data["userAgentHeader"]
     return out

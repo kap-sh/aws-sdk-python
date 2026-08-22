@@ -37,7 +37,7 @@ def serialize_json(value: ListInvocationsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListInvocationsResponse:
     out: ListInvocationsResponse = {}  # type: ignore[typeddict-item]
-    if "invocationSummaries" in data:
+    if data.get("invocationSummaries") is not None:
         import capo_bedrock_agent_runtime.types.invocation_summaries
 
         out["invocation_summaries"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListInvocationsResponse:
         raise DeserializationError(
             "ListInvocationsResponse.invocation_summaries required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

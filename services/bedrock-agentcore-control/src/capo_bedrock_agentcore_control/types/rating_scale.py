@@ -48,7 +48,7 @@ def serialize_json(value: RatingScale) -> dict:
 
 
 def deserialize_json(data: dict) -> RatingScale:
-    if "numerical" in data:
+    if data.get("numerical") is not None:
         import capo_bedrock_agentcore_control.types.numerical_scale_definitions
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> RatingScale:
                 data["numerical"]
             )
         }
-    elif "categorical" in data:
+    elif data.get("categorical") is not None:
         import capo_bedrock_agentcore_control.types.categorical_scale_definitions
 
         return {

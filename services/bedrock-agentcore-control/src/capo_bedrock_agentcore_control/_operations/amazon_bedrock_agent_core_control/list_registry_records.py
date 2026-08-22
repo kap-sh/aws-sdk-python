@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agentcore_control._auth._signers
 import capo_bedrock_agentcore_control._auth._sigv4
+import capo_bedrock_agentcore_control._protocol.eventstream
 import capo_bedrock_agentcore_control.errors.access_denied_exception
 import capo_bedrock_agentcore_control.errors.conflict_exception
 import capo_bedrock_agentcore_control.errors.internal_server_exception
@@ -40,27 +41,27 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agentcore_control.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "ConflictException":
             raise capo_bedrock_agentcore_control.errors.conflict_exception.ConflictException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_agentcore_control.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_agentcore_control.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_agentcore_control.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agentcore_control.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -117,24 +118,42 @@ def build_request(
             Endpoint=options.endpoint,
         )
     )  # noqa: F841
+    import capo_bedrock_agentcore_control.types.descriptor_type
+    import capo_bedrock_agentcore_control.types.registry_record_status
+
     url = endpoint.url.rstrip("/") + "/registries/{registryId}/records"
-    url = url.replace("{registryId}", quote(str(input_["registry_id"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{registryId}", quote(input_["registry_id"], safe=""))
+    params: list[tuple[str, str]] = []
     if "max_results" in input_:
-        params["maxResults"] = str(input_["max_results"])
+        params.append(("maxResults", str(input_["max_results"])))
     if "next_token" in input_:
-        params["nextToken"] = str(input_["next_token"])
+        params.append(("nextToken", input_["next_token"]))
     if "name" in input_:
-        params["name"] = str(input_["name"])
+        params.append(("name", input_["name"]))
     if "status" in input_:
-        params["status"] = str(input_["status"])
+        params.append(
+            (
+                "status",
+                capo_bedrock_agentcore_control.types.registry_record_status.serialize_json(
+                    input_["status"]
+                ),
+            )
+        )
     if "descriptor_type" in input_:
-        params["descriptorType"] = str(input_["descriptor_type"])
+        params.append(
+            (
+                "descriptorType",
+                capo_bedrock_agentcore_control.types.descriptor_type.serialize_json(
+                    input_["descriptor_type"]
+                ),
+            )
+        )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

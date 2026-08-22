@@ -47,13 +47,13 @@ def serialize_json(value: StartCodeInterpreterSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartCodeInterpreterSessionRequest:
     out: StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "sessionTimeoutSeconds" in data:
+    if data.get("sessionTimeoutSeconds") is not None:
         out["session_timeout_seconds"] = data["sessionTimeoutSeconds"]
     else:
         out["session_timeout_seconds"] = 900
-    if "certificates" in data:
+    if data.get("certificates") is not None:
         import capo_bedrock_agentcore.types.certificates
 
         out["certificates"] = (
@@ -61,6 +61,6 @@ def deserialize_json(data: dict) -> StartCodeInterpreterSessionRequest:
                 data["certificates"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

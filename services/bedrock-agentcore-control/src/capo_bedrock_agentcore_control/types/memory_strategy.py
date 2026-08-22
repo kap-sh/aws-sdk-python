@@ -129,17 +129,17 @@ def serialize_json(value: MemoryStrategy) -> dict:
 
 def deserialize_json(data: dict) -> MemoryStrategy:
     out: MemoryStrategy = {}  # type: ignore[typeddict-item]
-    if "strategyId" in data:
+    if data.get("strategyId") is not None:
         out["strategy_id"] = data["strategyId"]
     else:
         raise DeserializationError("MemoryStrategy.strategy_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("MemoryStrategy.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         import capo_bedrock_agentcore_control.types.strategy_configuration
 
         out["configuration"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
                 data["configuration"]
             )
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.memory_strategy_type
 
         out["type"] = (
@@ -157,7 +157,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
         )
     else:
         raise DeserializationError("MemoryStrategy.type required")
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespaces"] = (
@@ -167,7 +167,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
         )
     else:
         raise DeserializationError("MemoryStrategy.namespaces required")
-    if "namespaceTemplates" in data:
+    if data.get("namespaceTemplates") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespace_templates"] = (
@@ -177,7 +177,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
         )
     else:
         raise DeserializationError("MemoryStrategy.namespace_templates required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["created_at"] = (
@@ -185,7 +185,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
                 data["createdAt"]
             )
         )
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["updated_at"] = (
@@ -193,7 +193,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
                 data["updatedAt"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.memory_strategy_status
 
         out["status"] = (
@@ -201,7 +201,7 @@ def deserialize_json(data: dict) -> MemoryStrategy:
                 data["status"]
             )
         )
-    if "memoryRecordSchema" in data:
+    if data.get("memoryRecordSchema") is not None:
         import capo_bedrock_agentcore_control.types.memory_record_schema
 
         out["memory_record_schema"] = (

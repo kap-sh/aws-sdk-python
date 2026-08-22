@@ -65,17 +65,17 @@ def serialize_json(value: CreateApiKeyCredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateApiKeyCredentialProviderRequest:
     out: CreateApiKeyCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "CreateApiKeyCredentialProviderRequest.name required"
         )
-    if "apiKey" in data:
+    if data.get("apiKey") is not None:
         out["api_key"] = data["apiKey"]
     else:
         out["api_key"] = ""
-    if "apiKeySecretConfig" in data:
+    if data.get("apiKeySecretConfig") is not None:
         import capo_bedrock_agentcore_control.types.secret_reference
 
         out["api_key_secret_config"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> CreateApiKeyCredentialProviderRequest:
                 data["apiKeySecretConfig"]
             )
         )
-    if "apiKeySecretSource" in data:
+    if data.get("apiKeySecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["api_key_secret_source"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> CreateApiKeyCredentialProviderRequest:
                 data["apiKeySecretSource"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

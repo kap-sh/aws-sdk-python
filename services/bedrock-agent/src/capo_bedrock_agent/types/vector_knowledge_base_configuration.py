@@ -52,13 +52,13 @@ def serialize_json(value: VectorKnowledgeBaseConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> VectorKnowledgeBaseConfiguration:
     out: VectorKnowledgeBaseConfiguration = {}  # type: ignore[typeddict-item]
-    if "embeddingModelArn" in data:
+    if data.get("embeddingModelArn") is not None:
         out["embedding_model_arn"] = data["embeddingModelArn"]
     else:
         raise DeserializationError(
             "VectorKnowledgeBaseConfiguration.embedding_model_arn required"
         )
-    if "embeddingModelConfiguration" in data:
+    if data.get("embeddingModelConfiguration") is not None:
         import capo_bedrock_agent.types.embedding_model_configuration
 
         out["embedding_model_configuration"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> VectorKnowledgeBaseConfiguration:
                 data["embeddingModelConfiguration"]
             )
         )
-    if "supplementalDataStorageConfiguration" in data:
+    if data.get("supplementalDataStorageConfiguration") is not None:
         import capo_bedrock_agent.types.supplemental_data_storage_configuration
 
         out["supplemental_data_storage_configuration"] = (

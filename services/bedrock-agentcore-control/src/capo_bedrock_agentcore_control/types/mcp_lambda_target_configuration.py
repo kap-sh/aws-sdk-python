@@ -34,11 +34,11 @@ def serialize_json(value: McpLambdaTargetConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> McpLambdaTargetConfiguration:
     out: McpLambdaTargetConfiguration = {}  # type: ignore[typeddict-item]
-    if "lambdaArn" in data:
+    if data.get("lambdaArn") is not None:
         out["lambda_arn"] = data["lambdaArn"]
     else:
         raise DeserializationError("McpLambdaTargetConfiguration.lambda_arn required")
-    if "toolSchema" in data:
+    if data.get("toolSchema") is not None:
         import capo_bedrock_agentcore_control.types.tool_schema
 
         out["tool_schema"] = (

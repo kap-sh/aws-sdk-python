@@ -36,7 +36,7 @@ def serialize_json(value: IngestionJobSortBy) -> dict:
 
 def deserialize_json(data: dict) -> IngestionJobSortBy:
     out: IngestionJobSortBy = {}  # type: ignore[typeddict-item]
-    if "attribute" in data:
+    if data.get("attribute") is not None:
         import capo_bedrock_agent.types.ingestion_job_sort_by_attribute
 
         out["attribute"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> IngestionJobSortBy:
         )
     else:
         raise DeserializationError("IngestionJobSortBy.attribute required")
-    if "order" in data:
+    if data.get("order") is not None:
         import capo_bedrock_agent.types.sort_order
 
         out["order"] = capo_bedrock_agent.types.sort_order.deserialize_json(

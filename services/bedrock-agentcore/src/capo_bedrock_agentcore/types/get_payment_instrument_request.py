@@ -47,15 +47,15 @@ def serialize_json(value: GetPaymentInstrumentRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetPaymentInstrumentRequest:
     out: GetPaymentInstrumentRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "GetPaymentInstrumentRequest.payment_manager_arn required"
         )
-    if "paymentConnectorId" in data:
+    if data.get("paymentConnectorId") is not None:
         out["payment_connector_id"] = data["paymentConnectorId"]
-    if "paymentInstrumentId" in data:
+    if data.get("paymentInstrumentId") is not None:
         out["payment_instrument_id"] = data["paymentInstrumentId"]
     else:
         raise DeserializationError(

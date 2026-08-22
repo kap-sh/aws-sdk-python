@@ -40,7 +40,7 @@ def serialize_json(value: KnowledgeBaseLookupOutput) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseLookupOutput:
     out: KnowledgeBaseLookupOutput = {}  # type: ignore[typeddict-item]
-    if "retrievedReferences" in data:
+    if data.get("retrievedReferences") is not None:
         import capo_bedrock_agent_runtime.types.retrieved_references
 
         out["retrieved_references"] = (
@@ -48,7 +48,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseLookupOutput:
                 data["retrievedReferences"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

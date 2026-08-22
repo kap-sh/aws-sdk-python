@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> PolicyEngineSummaryList:
 
     out: PolicyEngineSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.policy_engine_summary.deserialize_json(
                 item

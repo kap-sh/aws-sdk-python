@@ -31,9 +31,9 @@ def serialize_json(value: CodeInterpreterInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> CodeInterpreterInvocationInput:
     out: CodeInterpreterInvocationInput = {}  # type: ignore[typeddict-item]
-    if "code" in data:
+    if data.get("code") is not None:
         out["code"] = data["code"]
-    if "files" in data:
+    if data.get("files") is not None:
         import capo_bedrock_agent_runtime.types.files
 
         out["files"] = capo_bedrock_agent_runtime.types.files.deserialize_json(

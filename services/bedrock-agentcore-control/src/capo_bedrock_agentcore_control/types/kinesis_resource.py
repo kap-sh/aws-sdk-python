@@ -34,11 +34,11 @@ def serialize_json(value: KinesisResource) -> dict:
 
 def deserialize_json(data: dict) -> KinesisResource:
     out: KinesisResource = {}  # type: ignore[typeddict-item]
-    if "dataStreamArn" in data:
+    if data.get("dataStreamArn") is not None:
         out["data_stream_arn"] = data["dataStreamArn"]
     else:
         raise DeserializationError("KinesisResource.data_stream_arn required")
-    if "contentConfigurations" in data:
+    if data.get("contentConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.content_configuration_list
 
         out["content_configurations"] = (

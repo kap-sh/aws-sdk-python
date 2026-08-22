@@ -65,7 +65,15 @@ def serialize_json(value: EvaluationResultContent) -> dict:
         value["context"]
     )
     if "value" in value:
-        out["value"] = value["value"]
+        out["value"] = (
+            "NaN"
+            if value["value"] != value["value"]
+            else "Infinity"
+            if value["value"] == float("inf")
+            else "-Infinity"
+            if value["value"] == float("-inf")
+            else value["value"]
+        )
     if "label" in value:
         out["label"] = value["label"]
     if "token_usage" in value:
@@ -91,21 +99,21 @@ def serialize_json(value: EvaluationResultContent) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationResultContent:
     out: EvaluationResultContent = {}  # type: ignore[typeddict-item]
-    if "evaluatorArn" in data:
+    if data.get("evaluatorArn") is not None:
         out["evaluator_arn"] = data["evaluatorArn"]
     else:
         raise DeserializationError("EvaluationResultContent.evaluator_arn required")
-    if "evaluatorId" in data:
+    if data.get("evaluatorId") is not None:
         out["evaluator_id"] = data["evaluatorId"]
     else:
         raise DeserializationError("EvaluationResultContent.evaluator_id required")
-    if "evaluatorName" in data:
+    if data.get("evaluatorName") is not None:
         out["evaluator_name"] = data["evaluatorName"]
     else:
         raise DeserializationError("EvaluationResultContent.evaluator_name required")
-    if "explanation" in data:
+    if data.get("explanation") is not None:
         out["explanation"] = data["explanation"]
-    if "context" in data:
+    if data.get("context") is not None:
         import capo_bedrock_agentcore.types.context
 
         out["context"] = capo_bedrock_agentcore.types.context.deserialize_json(
@@ -113,21 +121,21 @@ def deserialize_json(data: dict) -> EvaluationResultContent:
         )
     else:
         raise DeserializationError("EvaluationResultContent.context required")
-    if "value" in data:
-        out["value"] = data["value"]
-    if "label" in data:
+    if data.get("value") is not None:
+        out["value"] = float(data["value"])
+    if data.get("label") is not None:
         out["label"] = data["label"]
-    if "tokenUsage" in data:
+    if data.get("tokenUsage") is not None:
         import capo_bedrock_agentcore.types.token_usage
 
         out["token_usage"] = capo_bedrock_agentcore.types.token_usage.deserialize_json(
             data["tokenUsage"]
         )
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         out["error_code"] = data["errorCode"]
-    if "ignoredReferenceInputFields" in data:
+    if data.get("ignoredReferenceInputFields") is not None:
         import capo_bedrock_agentcore.types.ignored_reference_input_fields
 
         out["ignored_reference_input_fields"] = (

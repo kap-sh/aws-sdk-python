@@ -44,9 +44,9 @@ def serialize_json(value: UpdateAgentKnowledgeBaseRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentKnowledgeBaseRequest:
     out: UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "knowledgeBaseState" in data:
+    if data.get("knowledgeBaseState") is not None:
         import capo_bedrock_agent.types.knowledge_base_state
 
         out["knowledge_base_state"] = (

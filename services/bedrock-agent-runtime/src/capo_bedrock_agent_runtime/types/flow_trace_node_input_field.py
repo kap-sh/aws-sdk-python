@@ -86,11 +86,11 @@ def serialize_json(value: FlowTraceNodeInputField) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceNodeInputField:
     out: FlowTraceNodeInputField = {}  # type: ignore[typeddict-item]
-    if "nodeInputName" in data:
+    if data.get("nodeInputName") is not None:
         out["node_input_name"] = data["nodeInputName"]
     else:
         raise DeserializationError("FlowTraceNodeInputField.node_input_name required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_input_content
 
         out["content"] = (
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeInputField:
         )
     else:
         raise DeserializationError("FlowTraceNodeInputField.content required")
-    if "source" in data:
+    if data.get("source") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_input_source
 
         out["source"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeInputField:
                 data["source"]
             )
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.flow_node_io_data_type
 
         out["type"] = (
@@ -116,7 +116,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeInputField:
                 data["type"]
             )
         )
-    if "category" in data:
+    if data.get("category") is not None:
         import capo_bedrock_agent_runtime.types.flow_node_input_category
 
         out["category"] = (
@@ -124,7 +124,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeInputField:
                 data["category"]
             )
         )
-    if "executionChain" in data:
+    if data.get("executionChain") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_input_execution_chain
 
         out["execution_chain"] = (

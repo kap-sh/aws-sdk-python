@@ -20,14 +20,22 @@ class SamplingConfig(TypedDict, closed=True):
 # --- restJson1 ser/de ---
 def serialize_json(value: SamplingConfig) -> dict:
     out: dict = {}
-    out["samplingPercentage"] = value["sampling_percentage"]
+    out["samplingPercentage"] = (
+        "NaN"
+        if value["sampling_percentage"] != value["sampling_percentage"]
+        else "Infinity"
+        if value["sampling_percentage"] == float("inf")
+        else "-Infinity"
+        if value["sampling_percentage"] == float("-inf")
+        else value["sampling_percentage"]
+    )
     return out
 
 
 def deserialize_json(data: dict) -> SamplingConfig:
     out: SamplingConfig = {}  # type: ignore[typeddict-item]
-    if "samplingPercentage" in data:
-        out["sampling_percentage"] = data["samplingPercentage"]
+    if data.get("samplingPercentage") is not None:
+        out["sampling_percentage"] = float(data["samplingPercentage"])
     else:
         raise DeserializationError("SamplingConfig.sampling_percentage required")
     return out

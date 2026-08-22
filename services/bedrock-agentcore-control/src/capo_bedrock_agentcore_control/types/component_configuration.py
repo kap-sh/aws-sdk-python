@@ -19,7 +19,7 @@ def serialize_json(value: ComponentConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ComponentConfiguration:
     out: ComponentConfiguration = {}  # type: ignore[typeddict-item]
-    if "configuration" in data:
+    if data.get("configuration") is not None:
         out["configuration"] = data["configuration"]
     else:
         raise DeserializationError("ComponentConfiguration.configuration required")

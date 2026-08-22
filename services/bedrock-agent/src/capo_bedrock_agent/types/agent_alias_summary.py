@@ -84,17 +84,17 @@ def serialize_json(value: AgentAliasSummary) -> dict:
 
 def deserialize_json(data: dict) -> AgentAliasSummary:
     out: AgentAliasSummary = {}  # type: ignore[typeddict-item]
-    if "agentAliasId" in data:
+    if data.get("agentAliasId") is not None:
         out["agent_alias_id"] = data["agentAliasId"]
     else:
         raise DeserializationError("AgentAliasSummary.agent_alias_id required")
-    if "agentAliasName" in data:
+    if data.get("agentAliasName") is not None:
         out["agent_alias_name"] = data["agentAliasName"]
     else:
         raise DeserializationError("AgentAliasSummary.agent_alias_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.agent_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> AgentAliasSummary:
                 data["routingConfiguration"]
             )
         )
-    if "agentAliasStatus" in data:
+    if data.get("agentAliasStatus") is not None:
         import capo_bedrock_agent.types.agent_alias_status
 
         out["agent_alias_status"] = (
@@ -112,7 +112,7 @@ def deserialize_json(data: dict) -> AgentAliasSummary:
         )
     else:
         raise DeserializationError("AgentAliasSummary.agent_alias_status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -120,7 +120,7 @@ def deserialize_json(data: dict) -> AgentAliasSummary:
         )
     else:
         raise DeserializationError("AgentAliasSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -128,7 +128,7 @@ def deserialize_json(data: dict) -> AgentAliasSummary:
         )
     else:
         raise DeserializationError("AgentAliasSummary.updated_at required")
-    if "aliasInvocationState" in data:
+    if data.get("aliasInvocationState") is not None:
         import capo_bedrock_agent.types.alias_invocation_state
 
         out["alias_invocation_state"] = (

@@ -29,7 +29,7 @@ def serialize_json(value: GetDataAutomationProjectResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetDataAutomationProjectResponse:
     out: GetDataAutomationProjectResponse = {}  # type: ignore[typeddict-item]
-    if "project" in data:
+    if data.get("project") is not None:
         import capo_bedrock_data_automation.types.data_automation_project
 
         out["project"] = (

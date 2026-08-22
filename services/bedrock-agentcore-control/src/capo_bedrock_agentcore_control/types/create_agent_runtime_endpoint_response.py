@@ -70,29 +70,29 @@ def serialize_json(value: CreateAgentRuntimeEndpointResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateAgentRuntimeEndpointResponse:
     out: CreateAgentRuntimeEndpointResponse = {}  # type: ignore[typeddict-item]
-    if "targetVersion" in data:
+    if data.get("targetVersion") is not None:
         out["target_version"] = data["targetVersion"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeEndpointResponse.target_version required"
         )
-    if "agentRuntimeEndpointArn" in data:
+    if data.get("agentRuntimeEndpointArn") is not None:
         out["agent_runtime_endpoint_arn"] = data["agentRuntimeEndpointArn"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeEndpointResponse.agent_runtime_endpoint_arn required"
         )
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError(
             "CreateAgentRuntimeEndpointResponse.agent_runtime_arn required"
         )
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
-    if "endpointName" in data:
+    if data.get("endpointName") is not None:
         out["endpoint_name"] = data["endpointName"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_endpoint_status
 
         out["status"] = (
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> CreateAgentRuntimeEndpointResponse:
         )
     else:
         raise DeserializationError("CreateAgentRuntimeEndpointResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (

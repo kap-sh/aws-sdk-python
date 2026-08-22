@@ -27,7 +27,7 @@ def serialize_json(value: SpeakerLabelingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SpeakerLabelingConfiguration:
     out: SpeakerLabelingConfiguration = {}  # type: ignore[typeddict-item]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_bedrock_data_automation.types.state
 
         out["state"] = capo_bedrock_data_automation.types.state.deserialize_json(

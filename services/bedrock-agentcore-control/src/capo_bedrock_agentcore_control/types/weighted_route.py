@@ -30,7 +30,7 @@ def serialize_json(value: WeightedRoute) -> dict:
 
 def deserialize_json(data: dict) -> WeightedRoute:
     out: WeightedRoute = {}  # type: ignore[typeddict-item]
-    if "trafficSplit" in data:
+    if data.get("trafficSplit") is not None:
         import capo_bedrock_agentcore_control.types.target_traffic_split_entries
 
         out["traffic_split"] = (

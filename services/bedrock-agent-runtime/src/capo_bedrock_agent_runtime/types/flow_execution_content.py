@@ -23,7 +23,7 @@ def serialize_json(value: FlowExecutionContent) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowExecutionContent:
-    if "document" in data:
+    if data.get("document") is not None:
         return {"document": data["document"]}
     else:
         raise DeserializationError("FlowExecutionContent: no recognized variant key")

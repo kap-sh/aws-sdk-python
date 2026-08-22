@@ -82,13 +82,13 @@ def serialize_json(value: EpisodicMemoryStrategyInput) -> dict:
 
 def deserialize_json(data: dict) -> EpisodicMemoryStrategyInput:
     out: EpisodicMemoryStrategyInput = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("EpisodicMemoryStrategyInput.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "namespaces" in data:
+    if data.get("namespaces") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespaces"] = (
@@ -96,7 +96,7 @@ def deserialize_json(data: dict) -> EpisodicMemoryStrategyInput:
                 data["namespaces"]
             )
         )
-    if "namespaceTemplates" in data:
+    if data.get("namespaceTemplates") is not None:
         import capo_bedrock_agentcore_control.types.namespaces_list
 
         out["namespace_templates"] = (
@@ -104,7 +104,7 @@ def deserialize_json(data: dict) -> EpisodicMemoryStrategyInput:
                 data["namespaceTemplates"]
             )
         )
-    if "reflectionConfiguration" in data:
+    if data.get("reflectionConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.episodic_reflection_configuration_input
 
         out["reflection_configuration"] = (
@@ -112,7 +112,7 @@ def deserialize_json(data: dict) -> EpisodicMemoryStrategyInput:
                 data["reflectionConfiguration"]
             )
         )
-    if "memoryRecordSchema" in data:
+    if data.get("memoryRecordSchema") is not None:
         import capo_bedrock_agentcore_control.types.memory_record_schema
 
         out["memory_record_schema"] = (

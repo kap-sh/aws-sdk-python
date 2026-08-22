@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> EventMetadataFilterList:
 
     out: EventMetadataFilterList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.event_metadata_filter_expression.deserialize_json(
                 item

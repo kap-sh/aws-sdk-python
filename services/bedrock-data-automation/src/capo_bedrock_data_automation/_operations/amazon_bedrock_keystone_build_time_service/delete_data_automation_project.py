@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_data_automation._auth._signers
 import capo_bedrock_data_automation._auth._sigv4
+import capo_bedrock_data_automation._protocol.eventstream
 import capo_bedrock_data_automation.errors.access_denied_exception
 import capo_bedrock_data_automation.errors.internal_server_exception
 import capo_bedrock_data_automation.errors.resource_not_found_exception
@@ -37,23 +38,23 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_data_automation.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_data_automation.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_data_automation.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_data_automation.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_data_automation.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -111,13 +112,14 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/data-automation-projects/{projectArn}/"
-    url = url.replace("{projectArn}", quote(str(input_["project_arn"]), safe=""))
-    params: dict[str, str] = {}
+    url = url.replace("{projectArn}", quote(input_["project_arn"], safe=""))
+    params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )

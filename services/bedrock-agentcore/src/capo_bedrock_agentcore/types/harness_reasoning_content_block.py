@@ -47,7 +47,7 @@ def serialize_json(value: HarnessReasoningContentBlock) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessReasoningContentBlock:
-    if "reasoningText" in data:
+    if data.get("reasoningText") is not None:
         import capo_bedrock_agentcore.types.harness_reasoning_text_block
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> HarnessReasoningContentBlock:
                 data["reasoningText"]
             )
         }
-    elif "redactedContent" in data:
+    elif data.get("redactedContent") is not None:
         import capo_bedrock_agentcore.types._prelude.blob
 
         return {

@@ -33,10 +33,10 @@ def serialize_json(value: VersionFilter) -> dict:
 
 def deserialize_json(data: dict) -> VersionFilter:
     out: VersionFilter = {}  # type: ignore[typeddict-item]
-    if "branchName" in data:
+    if data.get("branchName") is not None:
         out["branch_name"] = data["branchName"]
-    if "createdByName" in data:
+    if data.get("createdByName") is not None:
         out["created_by_name"] = data["createdByName"]
-    if "latestPerBranch" in data:
+    if data.get("latestPerBranch") is not None:
         out["latest_per_branch"] = data["latestPerBranch"]
     return out

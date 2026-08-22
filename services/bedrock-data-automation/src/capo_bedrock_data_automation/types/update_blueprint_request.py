@@ -50,11 +50,11 @@ def serialize_json(value: UpdateBlueprintRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateBlueprintRequest:
     out: UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
-    if "schema" in data:
+    if data.get("schema") is not None:
         out["schema"] = data["schema"]
     else:
         raise DeserializationError("UpdateBlueprintRequest.schema required")
-    if "blueprintStage" in data:
+    if data.get("blueprintStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["blueprint_stage"] = (
@@ -62,7 +62,7 @@ def deserialize_json(data: dict) -> UpdateBlueprintRequest:
                 data["blueprintStage"]
             )
         )
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation.types.encryption_configuration
 
         out["encryption_configuration"] = (

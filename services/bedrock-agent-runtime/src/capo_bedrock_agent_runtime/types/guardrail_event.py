@@ -31,7 +31,7 @@ def serialize_json(value: GuardrailEvent) -> dict:
 
 def deserialize_json(data: dict) -> GuardrailEvent:
     out: GuardrailEvent = {}  # type: ignore[typeddict-item]
-    if "action" in data:
+    if data.get("action") is not None:
         import capo_bedrock_agent_runtime.types.guadrail_action
 
         out["action"] = (

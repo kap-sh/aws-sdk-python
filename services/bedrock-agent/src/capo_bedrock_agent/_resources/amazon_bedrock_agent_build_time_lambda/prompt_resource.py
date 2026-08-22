@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -111,8 +112,9 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
         if customer_encryption_key_arn is not None:
@@ -121,8 +123,9 @@ class PromptResource:
             input_["default_variant"] = default_variant
         if variants is not None:
             input_["variants"] = variants
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -131,6 +134,7 @@ class PromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -170,8 +174,9 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.get_prompt_request.GetPromptRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if prompt_version is not None:
             input_["prompt_version"] = prompt_version
 
@@ -180,6 +185,7 @@ class PromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -237,8 +243,10 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {
+            "name": name,
+            "prompt_identifier": prompt_identifier,
+        }
         if description is not None:
             input_["description"] = description
         if customer_encryption_key_arn is not None:
@@ -247,13 +255,13 @@ class PromptResource:
             input_["default_variant"] = default_variant
         if variants is not None:
             input_["variants"] = variants
-        input_["prompt_identifier"] = prompt_identifier
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -296,8 +304,9 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if prompt_version is not None:
             input_["prompt_version"] = prompt_version
 
@@ -306,6 +315,7 @@ class PromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -349,7 +359,7 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}
         if prompt_identifier is not None:
             input_["prompt_identifier"] = prompt_identifier
         if max_results is not None:
@@ -362,6 +372,7 @@ class PromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def create_prompt_version(
@@ -411,12 +422,14 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -425,6 +438,7 @@ class PromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -491,8 +505,9 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {
+            "name": name
+        }
         if description is not None:
             input_["description"] = description
         if customer_encryption_key_arn is not None:
@@ -501,8 +516,9 @@ class AsyncPromptResource:
             input_["default_variant"] = default_variant
         if variants is not None:
             input_["variants"] = variants
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -511,6 +527,7 @@ class AsyncPromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -551,8 +568,9 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.get_prompt_request.GetPromptRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if prompt_version is not None:
             input_["prompt_version"] = prompt_version
 
@@ -561,6 +579,7 @@ class AsyncPromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -619,8 +638,10 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {
+            "name": name,
+            "prompt_identifier": prompt_identifier,
+        }
         if description is not None:
             input_["description"] = description
         if customer_encryption_key_arn is not None:
@@ -629,13 +650,13 @@ class AsyncPromptResource:
             input_["default_variant"] = default_variant
         if variants is not None:
             input_["variants"] = variants
-        input_["prompt_identifier"] = prompt_identifier
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -679,8 +700,9 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if prompt_version is not None:
             input_["prompt_version"] = prompt_version
 
@@ -689,6 +711,7 @@ class AsyncPromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -733,7 +756,7 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}
         if prompt_identifier is not None:
             input_["prompt_identifier"] = prompt_identifier
         if max_results is not None:
@@ -746,6 +769,7 @@ class AsyncPromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def create_prompt_version(
@@ -796,12 +820,14 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
-        input_["prompt_identifier"] = prompt_identifier
+        input_: capo_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {
+            "prompt_identifier": prompt_identifier
+        }
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -810,4 +836,5 @@ class AsyncPromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

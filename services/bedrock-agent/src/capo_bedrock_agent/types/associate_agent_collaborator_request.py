@@ -62,7 +62,7 @@ def serialize_json(value: AssociateAgentCollaboratorRequest) -> dict:
 
 def deserialize_json(data: dict) -> AssociateAgentCollaboratorRequest:
     out: AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-    if "agentDescriptor" in data:
+    if data.get("agentDescriptor") is not None:
         import capo_bedrock_agent.types.agent_descriptor
 
         out["agent_descriptor"] = (
@@ -74,19 +74,19 @@ def deserialize_json(data: dict) -> AssociateAgentCollaboratorRequest:
         raise DeserializationError(
             "AssociateAgentCollaboratorRequest.agent_descriptor required"
         )
-    if "collaboratorName" in data:
+    if data.get("collaboratorName") is not None:
         out["collaborator_name"] = data["collaboratorName"]
     else:
         raise DeserializationError(
             "AssociateAgentCollaboratorRequest.collaborator_name required"
         )
-    if "collaborationInstruction" in data:
+    if data.get("collaborationInstruction") is not None:
         out["collaboration_instruction"] = data["collaborationInstruction"]
     else:
         raise DeserializationError(
             "AssociateAgentCollaboratorRequest.collaboration_instruction required"
         )
-    if "relayConversationHistory" in data:
+    if data.get("relayConversationHistory") is not None:
         import capo_bedrock_agent.types.relay_conversation_history
 
         out["relay_conversation_history"] = (
@@ -94,6 +94,6 @@ def deserialize_json(data: dict) -> AssociateAgentCollaboratorRequest:
                 data["relayConversationHistory"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

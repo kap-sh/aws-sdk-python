@@ -31,7 +31,7 @@ def serialize_json(value: EvaluationExpectedTrajectory) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationExpectedTrajectory:
     out: EvaluationExpectedTrajectory = {}  # type: ignore[typeddict-item]
-    if "toolNames" in data:
+    if data.get("toolNames") is not None:
         import capo_bedrock_agentcore.types.evaluation_tool_names
 
         out["tool_names"] = (

@@ -49,9 +49,25 @@ def serialize_json(value: HarnessLiteLlmModelConfig) -> dict:
     if "max_tokens" in value:
         out["maxTokens"] = value["max_tokens"]
     if "temperature" in value:
-        out["temperature"] = value["temperature"]
+        out["temperature"] = (
+            "NaN"
+            if value["temperature"] != value["temperature"]
+            else "Infinity"
+            if value["temperature"] == float("inf")
+            else "-Infinity"
+            if value["temperature"] == float("-inf")
+            else value["temperature"]
+        )
     if "top_p" in value:
-        out["topP"] = value["top_p"]
+        out["topP"] = (
+            "NaN"
+            if value["top_p"] != value["top_p"]
+            else "Infinity"
+            if value["top_p"] == float("inf")
+            else "-Infinity"
+            if value["top_p"] == float("-inf")
+            else value["top_p"]
+        )
     if "additional_params" in value:
         out["additionalParams"] = value["additional_params"]
     return out
@@ -59,20 +75,20 @@ def serialize_json(value: HarnessLiteLlmModelConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessLiteLlmModelConfig:
     out: HarnessLiteLlmModelConfig = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("HarnessLiteLlmModelConfig.model_id required")
-    if "apiKeyArn" in data:
+    if data.get("apiKeyArn") is not None:
         out["api_key_arn"] = data["apiKeyArn"]
-    if "apiBase" in data:
+    if data.get("apiBase") is not None:
         out["api_base"] = data["apiBase"]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "temperature" in data:
-        out["temperature"] = data["temperature"]
-    if "topP" in data:
-        out["top_p"] = data["topP"]
-    if "additionalParams" in data:
+    if data.get("temperature") is not None:
+        out["temperature"] = float(data["temperature"])
+    if data.get("topP") is not None:
+        out["top_p"] = float(data["topP"])
+    if data.get("additionalParams") is not None:
         out["additional_params"] = data["additionalParams"]
     return out

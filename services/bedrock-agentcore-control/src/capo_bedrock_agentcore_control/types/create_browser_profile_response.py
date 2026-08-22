@@ -52,15 +52,15 @@ def serialize_json(value: CreateBrowserProfileResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateBrowserProfileResponse:
     out: CreateBrowserProfileResponse = {}  # type: ignore[typeddict-item]
-    if "profileId" in data:
+    if data.get("profileId") is not None:
         out["profile_id"] = data["profileId"]
     else:
         raise DeserializationError("CreateBrowserProfileResponse.profile_id required")
-    if "profileArn" in data:
+    if data.get("profileArn") is not None:
         out["profile_arn"] = data["profileArn"]
     else:
         raise DeserializationError("CreateBrowserProfileResponse.profile_arn required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> CreateBrowserProfileResponse:
         )
     else:
         raise DeserializationError("CreateBrowserProfileResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.browser_profile_status
 
         out["status"] = (

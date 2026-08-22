@@ -244,7 +244,7 @@ def serialize_json(value: FlowNodeConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> FlowNodeConfiguration:
-    if "input" in data:
+    if data.get("input") is not None:
         import capo_bedrock_agent.types.input_flow_node_configuration
 
         return {
@@ -252,7 +252,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["input"]
             )
         }
-    elif "output" in data:
+    elif data.get("output") is not None:
         import capo_bedrock_agent.types.output_flow_node_configuration
 
         return {
@@ -260,7 +260,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["output"]
             )
         }
-    elif "knowledgeBase" in data:
+    elif data.get("knowledgeBase") is not None:
         import capo_bedrock_agent.types.knowledge_base_flow_node_configuration
 
         return {
@@ -268,7 +268,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["knowledgeBase"]
             )
         }
-    elif "condition" in data:
+    elif data.get("condition") is not None:
         import capo_bedrock_agent.types.condition_flow_node_configuration
 
         return {
@@ -276,7 +276,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["condition"]
             )
         }
-    elif "lex" in data:
+    elif data.get("lex") is not None:
         import capo_bedrock_agent.types.lex_flow_node_configuration
 
         return {
@@ -284,7 +284,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["lex"]
             )
         }
-    elif "prompt" in data:
+    elif data.get("prompt") is not None:
         import capo_bedrock_agent.types.prompt_flow_node_configuration
 
         return {
@@ -292,7 +292,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["prompt"]
             )
         }
-    elif "lambdaFunction" in data:
+    elif data.get("lambdaFunction") is not None:
         import capo_bedrock_agent.types.lambda_function_flow_node_configuration
 
         return {
@@ -300,7 +300,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["lambdaFunction"]
             )
         }
-    elif "storage" in data:
+    elif data.get("storage") is not None:
         import capo_bedrock_agent.types.storage_flow_node_configuration
 
         return {
@@ -308,7 +308,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["storage"]
             )
         }
-    elif "agent" in data:
+    elif data.get("agent") is not None:
         import capo_bedrock_agent.types.agent_flow_node_configuration
 
         return {
@@ -316,7 +316,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["agent"]
             )
         }
-    elif "retrieval" in data:
+    elif data.get("retrieval") is not None:
         import capo_bedrock_agent.types.retrieval_flow_node_configuration
 
         return {
@@ -324,7 +324,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["retrieval"]
             )
         }
-    elif "iterator" in data:
+    elif data.get("iterator") is not None:
         import capo_bedrock_agent.types.iterator_flow_node_configuration
 
         return {
@@ -332,7 +332,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["iterator"]
             )
         }
-    elif "collector" in data:
+    elif data.get("collector") is not None:
         import capo_bedrock_agent.types.collector_flow_node_configuration
 
         return {
@@ -340,7 +340,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["collector"]
             )
         }
-    elif "inlineCode" in data:
+    elif data.get("inlineCode") is not None:
         import capo_bedrock_agent.types.inline_code_flow_node_configuration
 
         return {
@@ -348,7 +348,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["inlineCode"]
             )
         }
-    elif "loop" in data:
+    elif data.get("loop") is not None:
         import capo_bedrock_agent.types.loop_flow_node_configuration
 
         return {
@@ -356,7 +356,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["loop"]
             )
         }
-    elif "loopInput" in data:
+    elif data.get("loopInput") is not None:
         import capo_bedrock_agent.types.loop_input_flow_node_configuration
 
         return {
@@ -364,7 +364,7 @@ def deserialize_json(data: dict) -> FlowNodeConfiguration:
                 data["loopInput"]
             )
         }
-    elif "loopController" in data:
+    elif data.get("loopController") is not None:
         import capo_bedrock_agent.types.loop_controller_flow_node_configuration
 
         return {

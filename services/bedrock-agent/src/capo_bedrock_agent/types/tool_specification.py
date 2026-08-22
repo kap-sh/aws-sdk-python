@@ -41,13 +41,13 @@ def serialize_json(value: ToolSpecification) -> dict:
 
 def deserialize_json(data: dict) -> ToolSpecification:
     out: ToolSpecification = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("ToolSpecification.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "inputSchema" in data:
+    if data.get("inputSchema") is not None:
         import capo_bedrock_agent.types.tool_input_schema
 
         out["input_schema"] = (
@@ -57,6 +57,6 @@ def deserialize_json(data: dict) -> ToolSpecification:
         )
     else:
         raise DeserializationError("ToolSpecification.input_schema required")
-    if "strict" in data:
+    if data.get("strict") is not None:
         out["strict"] = data["strict"]
     return out

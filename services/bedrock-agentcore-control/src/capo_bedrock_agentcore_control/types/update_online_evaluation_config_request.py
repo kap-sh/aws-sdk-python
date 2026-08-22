@@ -90,17 +90,17 @@ def serialize_json(value: UpdateOnlineEvaluationConfigRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigRequest:
     out: UpdateOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "rule" in data:
+    if data.get("rule") is not None:
         import capo_bedrock_agentcore_control.types.rule
 
         out["rule"] = capo_bedrock_agentcore_control.types.rule.deserialize_json(
             data["rule"]
         )
-    if "dataSourceConfig" in data:
+    if data.get("dataSourceConfig") is not None:
         import capo_bedrock_agentcore_control.types.data_source_config
 
         out["data_source_config"] = (
@@ -108,7 +108,7 @@ def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigRequest:
                 data["dataSourceConfig"]
             )
         )
-    if "evaluators" in data:
+    if data.get("evaluators") is not None:
         import capo_bedrock_agentcore_control.types.evaluator_list
 
         out["evaluators"] = (
@@ -116,9 +116,9 @@ def deserialize_json(data: dict) -> UpdateOnlineEvaluationConfigRequest:
                 data["evaluators"]
             )
         )
-    if "evaluationExecutionRoleArn" in data:
+    if data.get("evaluationExecutionRoleArn") is not None:
         out["evaluation_execution_role_arn"] = data["evaluationExecutionRoleArn"]
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore_control.types.online_evaluation_execution_status
 
         out["execution_status"] = (

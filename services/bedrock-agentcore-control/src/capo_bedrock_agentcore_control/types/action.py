@@ -48,7 +48,7 @@ def serialize_json(value: Action) -> dict:
 
 
 def deserialize_json(data: dict) -> Action:
-    if "configurationBundle" in data:
+    if data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_action
 
         return {
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> Action:
                 data["configurationBundle"]
             )
         }
-    elif "routeToTarget" in data:
+    elif data.get("routeToTarget") is not None:
         import capo_bedrock_agentcore_control.types.route_to_target_action
 
         return {

@@ -83,11 +83,11 @@ def serialize_json(value: StripePrivyConfigurationOutput) -> dict:
 
 def deserialize_json(data: dict) -> StripePrivyConfigurationOutput:
     out: StripePrivyConfigurationOutput = {}  # type: ignore[typeddict-item]
-    if "appId" in data:
+    if data.get("appId") is not None:
         out["app_id"] = data["appId"]
     else:
         raise DeserializationError("StripePrivyConfigurationOutput.app_id required")
-    if "appSecretArn" in data:
+    if data.get("appSecretArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["app_secret_arn"] = (
@@ -99,9 +99,9 @@ def deserialize_json(data: dict) -> StripePrivyConfigurationOutput:
         raise DeserializationError(
             "StripePrivyConfigurationOutput.app_secret_arn required"
         )
-    if "appSecretJsonKey" in data:
+    if data.get("appSecretJsonKey") is not None:
         out["app_secret_json_key"] = data["appSecretJsonKey"]
-    if "appSecretSource" in data:
+    if data.get("appSecretSource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["app_secret_source"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> StripePrivyConfigurationOutput:
                 data["appSecretSource"]
             )
         )
-    if "authorizationPrivateKeyArn" in data:
+    if data.get("authorizationPrivateKeyArn") is not None:
         import capo_bedrock_agentcore_control.types.secret
 
         out["authorization_private_key_arn"] = (
@@ -121,11 +121,11 @@ def deserialize_json(data: dict) -> StripePrivyConfigurationOutput:
         raise DeserializationError(
             "StripePrivyConfigurationOutput.authorization_private_key_arn required"
         )
-    if "authorizationPrivateKeyJsonKey" in data:
+    if data.get("authorizationPrivateKeyJsonKey") is not None:
         out["authorization_private_key_json_key"] = data[
             "authorizationPrivateKeyJsonKey"
         ]
-    if "authorizationPrivateKeySource" in data:
+    if data.get("authorizationPrivateKeySource") is not None:
         import capo_bedrock_agentcore_control.types.secret_source_type
 
         out["authorization_private_key_source"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> StripePrivyConfigurationOutput:
                 data["authorizationPrivateKeySource"]
             )
         )
-    if "authorizationId" in data:
+    if data.get("authorizationId") is not None:
         out["authorization_id"] = data["authorizationId"]
     else:
         raise DeserializationError(

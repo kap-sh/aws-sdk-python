@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> DocumentOutputTextFormatTypes:
 
     out: DocumentOutputTextFormatTypes = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.document_output_text_format_type.deserialize_json(
                 item

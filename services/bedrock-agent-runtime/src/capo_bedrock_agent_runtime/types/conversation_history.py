@@ -27,7 +27,7 @@ def serialize_json(value: ConversationHistory) -> dict:
 
 def deserialize_json(data: dict) -> ConversationHistory:
     out: ConversationHistory = {}  # type: ignore[typeddict-item]
-    if "messages" in data:
+    if data.get("messages") is not None:
         import capo_bedrock_agent_runtime.types.messages
 
         out["messages"] = capo_bedrock_agent_runtime.types.messages.deserialize_json(

@@ -31,7 +31,7 @@ def serialize_json(value: UpdatedHarnessMemoryConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedHarnessMemoryConfiguration:
     out: UpdatedHarnessMemoryConfiguration = {}  # type: ignore[typeddict-item]
-    if "optionalValue" in data:
+    if data.get("optionalValue") is not None:
         import capo_bedrock_agentcore_control.types.harness_memory_configuration
 
         out["optional_value"] = (

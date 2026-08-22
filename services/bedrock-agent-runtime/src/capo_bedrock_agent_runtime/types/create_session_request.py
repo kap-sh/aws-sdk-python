@@ -47,7 +47,7 @@ def serialize_json(value: CreateSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateSessionRequest:
     out: CreateSessionRequest = {}  # type: ignore[typeddict-item]
-    if "sessionMetadata" in data:
+    if data.get("sessionMetadata") is not None:
         import capo_bedrock_agent_runtime.types.session_metadata_map
 
         out["session_metadata"] = (
@@ -55,9 +55,9 @@ def deserialize_json(data: dict) -> CreateSessionRequest:
                 data["sessionMetadata"]
             )
         )
-    if "encryptionKeyArn" in data:
+    if data.get("encryptionKeyArn") is not None:
         out["encryption_key_arn"] = data["encryptionKeyArn"]
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agent_runtime.types.tags_map
 
         out["tags"] = capo_bedrock_agent_runtime.types.tags_map.deserialize_json(

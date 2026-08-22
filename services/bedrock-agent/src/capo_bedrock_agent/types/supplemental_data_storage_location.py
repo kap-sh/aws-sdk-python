@@ -39,7 +39,7 @@ def serialize_json(value: SupplementalDataStorageLocation) -> dict:
 
 def deserialize_json(data: dict) -> SupplementalDataStorageLocation:
     out: SupplementalDataStorageLocation = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.supplemental_data_storage_location_type
 
         out["type"] = (
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> SupplementalDataStorageLocation:
         )
     else:
         raise DeserializationError("SupplementalDataStorageLocation.type required")
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent.types.s3_location
 
         out["s3_location"] = capo_bedrock_agent.types.s3_location.deserialize_json(

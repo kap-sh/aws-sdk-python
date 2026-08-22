@@ -31,7 +31,7 @@ def serialize_json(value: UpdatedServerDefinition) -> dict:
 
 def deserialize_json(data: dict) -> UpdatedServerDefinition:
     out: UpdatedServerDefinition = {}  # type: ignore[typeddict-item]
-    if "optionalValue" in data:
+    if data.get("optionalValue") is not None:
         import capo_bedrock_agentcore_control.types.server_definition
 
         out["optional_value"] = (

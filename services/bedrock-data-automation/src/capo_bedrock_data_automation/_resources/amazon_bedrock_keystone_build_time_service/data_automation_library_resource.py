@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_data_automation._auth._signers
@@ -91,12 +92,14 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_name"] = library_name
+        input_: capo_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {
+            "library_name": library_name
+        }
         if library_description is not None:
             input_["library_description"] = library_description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -107,6 +110,7 @@ class DataAutomationLibraryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -144,14 +148,16 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -196,18 +202,21 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
         if library_description is not None:
             input_["library_description"] = library_description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -246,14 +255,16 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -295,7 +306,7 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -308,6 +319,7 @@ class DataAutomationLibraryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -359,12 +371,14 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_name"] = library_name
+        input_: capo_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {
+            "library_name": library_name
+        }
         if library_description is not None:
             input_["library_description"] = library_description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if encryption_configuration is not None:
             input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
@@ -375,6 +389,7 @@ class AsyncDataAutomationLibraryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -413,14 +428,16 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -466,18 +483,21 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
         if library_description is not None:
             input_["library_description"] = library_description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -517,14 +537,16 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input_["library_arn"] = library_arn
+        input_: capo_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {
+            "library_arn": library_arn
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -567,7 +589,7 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -580,4 +602,5 @@ class AsyncDataAutomationLibraryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

@@ -49,11 +49,11 @@ def serialize_json(value: SetTokenVaultCMKResponse) -> dict:
 
 def deserialize_json(data: dict) -> SetTokenVaultCMKResponse:
     out: SetTokenVaultCMKResponse = {}  # type: ignore[typeddict-item]
-    if "tokenVaultId" in data:
+    if data.get("tokenVaultId") is not None:
         out["token_vault_id"] = data["tokenVaultId"]
     else:
         raise DeserializationError("SetTokenVaultCMKResponse.token_vault_id required")
-    if "kmsConfiguration" in data:
+    if data.get("kmsConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.kms_configuration
 
         out["kms_configuration"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> SetTokenVaultCMKResponse:
         raise DeserializationError(
             "SetTokenVaultCMKResponse.kms_configuration required"
         )
-    if "lastModifiedDate" in data:
+    if data.get("lastModifiedDate") is not None:
         import capo_bedrock_agentcore_control.types._prelude.timestamp
 
         out["last_modified_date"] = (

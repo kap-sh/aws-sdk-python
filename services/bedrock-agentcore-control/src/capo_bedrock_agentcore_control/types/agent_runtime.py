@@ -70,27 +70,27 @@ def serialize_json(value: AgentRuntime) -> dict:
 
 def deserialize_json(data: dict) -> AgentRuntime:
     out: AgentRuntime = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeArn" in data:
+    if data.get("agentRuntimeArn") is not None:
         out["agent_runtime_arn"] = data["agentRuntimeArn"]
     else:
         raise DeserializationError("AgentRuntime.agent_runtime_arn required")
-    if "agentRuntimeId" in data:
+    if data.get("agentRuntimeId") is not None:
         out["agent_runtime_id"] = data["agentRuntimeId"]
     else:
         raise DeserializationError("AgentRuntime.agent_runtime_id required")
-    if "agentRuntimeVersion" in data:
+    if data.get("agentRuntimeVersion") is not None:
         out["agent_runtime_version"] = data["agentRuntimeVersion"]
     else:
         raise DeserializationError("AgentRuntime.agent_runtime_version required")
-    if "agentRuntimeName" in data:
+    if data.get("agentRuntimeName") is not None:
         out["agent_runtime_name"] = data["agentRuntimeName"]
     else:
         raise DeserializationError("AgentRuntime.agent_runtime_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
     else:
         raise DeserializationError("AgentRuntime.description required")
-    if "lastUpdatedAt" in data:
+    if data.get("lastUpdatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["last_updated_at"] = (
@@ -100,7 +100,7 @@ def deserialize_json(data: dict) -> AgentRuntime:
         )
     else:
         raise DeserializationError("AgentRuntime.last_updated_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_status
 
         out["status"] = (

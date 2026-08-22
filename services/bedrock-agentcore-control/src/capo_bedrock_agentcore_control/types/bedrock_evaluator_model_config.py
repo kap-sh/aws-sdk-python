@@ -44,11 +44,11 @@ def serialize_json(value: BedrockEvaluatorModelConfig) -> dict:
 
 def deserialize_json(data: dict) -> BedrockEvaluatorModelConfig:
     out: BedrockEvaluatorModelConfig = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("BedrockEvaluatorModelConfig.model_id required")
-    if "inferenceConfig" in data:
+    if data.get("inferenceConfig") is not None:
         import capo_bedrock_agentcore_control.types.inference_configuration
 
         out["inference_config"] = (
@@ -56,6 +56,6 @@ def deserialize_json(data: dict) -> BedrockEvaluatorModelConfig:
                 data["inferenceConfig"]
             )
         )
-    if "additionalModelRequestFields" in data:
+    if data.get("additionalModelRequestFields") is not None:
         out["additional_model_request_fields"] = data["additionalModelRequestFields"]
     return out

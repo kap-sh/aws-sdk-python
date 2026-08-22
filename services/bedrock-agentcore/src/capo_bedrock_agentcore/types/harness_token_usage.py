@@ -33,20 +33,20 @@ def serialize_json(value: HarnessTokenUsage) -> dict:
 
 def deserialize_json(data: dict) -> HarnessTokenUsage:
     out: HarnessTokenUsage = {}  # type: ignore[typeddict-item]
-    if "inputTokens" in data:
+    if data.get("inputTokens") is not None:
         out["input_tokens"] = data["inputTokens"]
     else:
         raise DeserializationError("HarnessTokenUsage.input_tokens required")
-    if "outputTokens" in data:
+    if data.get("outputTokens") is not None:
         out["output_tokens"] = data["outputTokens"]
     else:
         raise DeserializationError("HarnessTokenUsage.output_tokens required")
-    if "totalTokens" in data:
+    if data.get("totalTokens") is not None:
         out["total_tokens"] = data["totalTokens"]
     else:
         raise DeserializationError("HarnessTokenUsage.total_tokens required")
-    if "cacheReadInputTokens" in data:
+    if data.get("cacheReadInputTokens") is not None:
         out["cache_read_input_tokens"] = data["cacheReadInputTokens"]
-    if "cacheWriteInputTokens" in data:
+    if data.get("cacheWriteInputTokens") is not None:
         out["cache_write_input_tokens"] = data["cacheWriteInputTokens"]
     return out

@@ -25,5 +25,7 @@ def deserialize_json(data: list) -> DataSourceSummaries:
 
     out: DataSourceSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(capo_bedrock_agent.types.data_source_summary.deserialize_json(item))
     return out

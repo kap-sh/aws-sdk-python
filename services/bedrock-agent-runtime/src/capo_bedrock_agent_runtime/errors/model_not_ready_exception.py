@@ -27,7 +27,7 @@ def serialize_json(value: ModelNotReadyException_) -> dict:
 
 def deserialize_json(data: dict) -> ModelNotReadyException_:
     out: ModelNotReadyException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 
@@ -37,18 +37,21 @@ class ModelNotReadyException(ServiceError):
 
     code: str | None = "ModelNotReadyException"
 
-    def __init__(self, data: ModelNotReadyException_):
+    def __init__(self, data: ModelNotReadyException_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="ModelNotReadyException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "ModelNotReadyException":
-        return cls(deserialize_json(data))
+    def from_json(
+        cls, data: dict, message: str | None = None
+    ) -> "ModelNotReadyException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: ModelNotReadyException_) -> bytes:

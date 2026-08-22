@@ -69,11 +69,11 @@ def serialize_json(value: CreateBlueprintRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateBlueprintRequest:
     out: CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
-    if "blueprintName" in data:
+    if data.get("blueprintName") is not None:
         out["blueprint_name"] = data["blueprintName"]
     else:
         raise DeserializationError("CreateBlueprintRequest.blueprint_name required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_data_automation.types.type
 
         out["type"] = capo_bedrock_data_automation.types.type.deserialize_json(
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> CreateBlueprintRequest:
         )
     else:
         raise DeserializationError("CreateBlueprintRequest.type required")
-    if "blueprintStage" in data:
+    if data.get("blueprintStage") is not None:
         import capo_bedrock_data_automation.types.blueprint_stage
 
         out["blueprint_stage"] = (
@@ -89,13 +89,13 @@ def deserialize_json(data: dict) -> CreateBlueprintRequest:
                 data["blueprintStage"]
             )
         )
-    if "schema" in data:
+    if data.get("schema") is not None:
         out["schema"] = data["schema"]
     else:
         raise DeserializationError("CreateBlueprintRequest.schema required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> CreateBlueprintRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation.types.tag_list
 
         out["tags"] = capo_bedrock_data_automation.types.tag_list.deserialize_json(

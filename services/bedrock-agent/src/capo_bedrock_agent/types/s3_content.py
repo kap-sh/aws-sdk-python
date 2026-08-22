@@ -28,7 +28,7 @@ def serialize_json(value: S3Content) -> dict:
 
 def deserialize_json(data: dict) -> S3Content:
     out: S3Content = {}  # type: ignore[typeddict-item]
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent.types.s3_location
 
         out["s3_location"] = capo_bedrock_agent.types.s3_location.deserialize_json(

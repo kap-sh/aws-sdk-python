@@ -57,7 +57,7 @@ def serialize_json(value: ModalityRoutingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModalityRoutingConfiguration:
     out: ModalityRoutingConfiguration = {}  # type: ignore[typeddict-item]
-    if "jpeg" in data:
+    if data.get("jpeg") is not None:
         import capo_bedrock_data_automation.types.desired_modality
 
         out["jpeg"] = (
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> ModalityRoutingConfiguration:
                 data["jpeg"]
             )
         )
-    if "png" in data:
+    if data.get("png") is not None:
         import capo_bedrock_data_automation.types.desired_modality
 
         out["png"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> ModalityRoutingConfiguration:
                 data["png"]
             )
         )
-    if "mp4" in data:
+    if data.get("mp4") is not None:
         import capo_bedrock_data_automation.types.desired_modality
 
         out["mp4"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> ModalityRoutingConfiguration:
                 data["mp4"]
             )
         )
-    if "mov" in data:
+    if data.get("mov") is not None:
         import capo_bedrock_data_automation.types.desired_modality
 
         out["mov"] = (

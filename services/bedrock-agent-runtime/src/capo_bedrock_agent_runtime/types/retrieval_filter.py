@@ -200,7 +200,7 @@ def serialize_json(value: RetrievalFilter) -> dict:
 
 
 def deserialize_json(data: dict) -> RetrievalFilter:
-    if "equals" in data:
+    if data.get("equals") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -208,7 +208,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["equals"]
             )
         }
-    elif "notEquals" in data:
+    elif data.get("notEquals") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -216,7 +216,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["notEquals"]
             )
         }
-    elif "greaterThan" in data:
+    elif data.get("greaterThan") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -224,7 +224,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["greaterThan"]
             )
         }
-    elif "greaterThanOrEquals" in data:
+    elif data.get("greaterThanOrEquals") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -232,7 +232,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["greaterThanOrEquals"]
             )
         }
-    elif "lessThan" in data:
+    elif data.get("lessThan") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -240,7 +240,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["lessThan"]
             )
         }
-    elif "lessThanOrEquals" in data:
+    elif data.get("lessThanOrEquals") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -248,7 +248,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["lessThanOrEquals"]
             )
         }
-    elif "in" in data:
+    elif data.get("in") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -256,7 +256,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["in"]
             )
         }
-    elif "notIn" in data:
+    elif data.get("notIn") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -264,7 +264,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["notIn"]
             )
         }
-    elif "startsWith" in data:
+    elif data.get("startsWith") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -272,7 +272,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["startsWith"]
             )
         }
-    elif "listContains" in data:
+    elif data.get("listContains") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -280,7 +280,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["listContains"]
             )
         }
-    elif "stringContains" in data:
+    elif data.get("stringContains") is not None:
         import capo_bedrock_agent_runtime.types.filter_attribute
 
         return {
@@ -288,7 +288,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["stringContains"]
             )
         }
-    elif "andAll" in data:
+    elif data.get("andAll") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_filter_list
 
         return {
@@ -296,7 +296,7 @@ def deserialize_json(data: dict) -> RetrievalFilter:
                 data["andAll"]
             )
         }
-    elif "orAll" in data:
+    elif data.get("orAll") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_filter_list
 
         return {

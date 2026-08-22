@@ -34,7 +34,7 @@ def serialize_json(value: ListOauth2CredentialProvidersResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListOauth2CredentialProvidersResponse:
     out: ListOauth2CredentialProvidersResponse = {}  # type: ignore[typeddict-item]
-    if "credentialProviders" in data:
+    if data.get("credentialProviders") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_credential_providers
 
         out["credential_providers"] = (
@@ -46,6 +46,6 @@ def deserialize_json(data: dict) -> ListOauth2CredentialProvidersResponse:
         raise DeserializationError(
             "ListOauth2CredentialProvidersResponse.credential_providers required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

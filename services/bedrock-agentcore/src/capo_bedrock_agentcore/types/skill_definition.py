@@ -32,8 +32,8 @@ def serialize_json(value: SkillDefinition) -> dict:
 
 def deserialize_json(data: dict) -> SkillDefinition:
     out: SkillDefinition = {}  # type: ignore[typeddict-item]
-    if "schemaVersion" in data:
+    if data.get("schemaVersion") is not None:
         out["schema_version"] = data["schemaVersion"]
-    if "inlineContent" in data:
+    if data.get("inlineContent") is not None:
         out["inline_content"] = data["inlineContent"]
     return out

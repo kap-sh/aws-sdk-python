@@ -60,11 +60,11 @@ def serialize_json(value: OAuthCredentialProvider) -> dict:
 
 def deserialize_json(data: dict) -> OAuthCredentialProvider:
     out: OAuthCredentialProvider = {}  # type: ignore[typeddict-item]
-    if "providerArn" in data:
+    if data.get("providerArn") is not None:
         out["provider_arn"] = data["providerArn"]
     else:
         raise DeserializationError("OAuthCredentialProvider.provider_arn required")
-    if "scopes" in data:
+    if data.get("scopes") is not None:
         import capo_bedrock_agentcore.types.o_auth_scopes
 
         out["scopes"] = capo_bedrock_agentcore.types.o_auth_scopes.deserialize_json(
@@ -72,7 +72,7 @@ def deserialize_json(data: dict) -> OAuthCredentialProvider:
         )
     else:
         raise DeserializationError("OAuthCredentialProvider.scopes required")
-    if "customParameters" in data:
+    if data.get("customParameters") is not None:
         import capo_bedrock_agentcore.types.o_auth_custom_parameters
 
         out["custom_parameters"] = (
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> OAuthCredentialProvider:
                 data["customParameters"]
             )
         )
-    if "grantType" in data:
+    if data.get("grantType") is not None:
         import capo_bedrock_agentcore.types.o_auth_grant_type
 
         out["grant_type"] = (
@@ -90,6 +90,6 @@ def deserialize_json(data: dict) -> OAuthCredentialProvider:
         )
     else:
         out["grant_type"] = "CLIENT_CREDENTIALS"
-    if "defaultReturnUrl" in data:
+    if data.get("defaultReturnUrl") is not None:
         out["default_return_url"] = data["defaultReturnUrl"]
     return out

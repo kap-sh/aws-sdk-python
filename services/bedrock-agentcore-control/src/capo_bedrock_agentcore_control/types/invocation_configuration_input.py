@@ -27,11 +27,11 @@ def serialize_json(value: InvocationConfigurationInput) -> dict:
 
 def deserialize_json(data: dict) -> InvocationConfigurationInput:
     out: InvocationConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "topicArn" in data:
+    if data.get("topicArn") is not None:
         out["topic_arn"] = data["topicArn"]
     else:
         raise DeserializationError("InvocationConfigurationInput.topic_arn required")
-    if "payloadDeliveryBucketName" in data:
+    if data.get("payloadDeliveryBucketName") is not None:
         out["payload_delivery_bucket_name"] = data["payloadDeliveryBucketName"]
     else:
         raise DeserializationError(

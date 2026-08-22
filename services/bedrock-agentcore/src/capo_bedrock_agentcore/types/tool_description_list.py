@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ToolDescriptionList:
 
     out: ToolDescriptionList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.tool_description_input.deserialize_json(item)
         )

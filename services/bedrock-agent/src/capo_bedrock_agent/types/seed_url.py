@@ -23,6 +23,6 @@ def serialize_json(value: SeedUrl) -> dict:
 
 def deserialize_json(data: dict) -> SeedUrl:
     out: SeedUrl = {}  # type: ignore[typeddict-item]
-    if "url" in data:
+    if data.get("url") is not None:
         out["url"] = data["url"]
     return out

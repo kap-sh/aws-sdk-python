@@ -55,13 +55,13 @@ def serialize_json(value: CitationEvent) -> dict:
 
 def deserialize_json(data: dict) -> CitationEvent:
     out: CitationEvent = {}  # type: ignore[typeddict-item]
-    if "citation" in data:
+    if data.get("citation") is not None:
         import capo_bedrock_agent_runtime.types.citation
 
         out["citation"] = capo_bedrock_agent_runtime.types.citation.deserialize_json(
             data["citation"]
         )
-    if "generatedResponsePart" in data:
+    if data.get("generatedResponsePart") is not None:
         import capo_bedrock_agent_runtime.types.generated_response_part
 
         out["generated_response_part"] = (
@@ -69,7 +69,7 @@ def deserialize_json(data: dict) -> CitationEvent:
                 data["generatedResponsePart"]
             )
         )
-    if "retrievedReferences" in data:
+    if data.get("retrievedReferences") is not None:
         import capo_bedrock_agent_runtime.types.retrieved_references
 
         out["retrieved_references"] = (

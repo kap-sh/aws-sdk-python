@@ -33,7 +33,7 @@ def serialize_json(value: EntityTypeInfo) -> dict:
 
 def deserialize_json(data: dict) -> EntityTypeInfo:
     out: EntityTypeInfo = {}  # type: ignore[typeddict-item]
-    if "entityType" in data:
+    if data.get("entityType") is not None:
         import capo_bedrock_data_automation.types.entity_type
 
         out["entity_type"] = (
@@ -43,6 +43,6 @@ def deserialize_json(data: dict) -> EntityTypeInfo:
         )
     else:
         raise DeserializationError("EntityTypeInfo.entity_type required")
-    if "entityMetadata" in data:
+    if data.get("entityMetadata") is not None:
         out["entity_metadata"] = data["entityMetadata"]
     return out

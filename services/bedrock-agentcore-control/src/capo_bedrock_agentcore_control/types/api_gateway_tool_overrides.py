@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> ApiGatewayToolOverrides:
 
     out: ApiGatewayToolOverrides = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.api_gateway_tool_override.deserialize_json(
                 item

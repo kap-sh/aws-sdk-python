@@ -32,7 +32,7 @@ def serialize_json(value: PromptInferenceConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> PromptInferenceConfiguration:
-    if "text" in data:
+    if data.get("text") is not None:
         import capo_bedrock_agent.types.prompt_model_inference_configuration
 
         return {

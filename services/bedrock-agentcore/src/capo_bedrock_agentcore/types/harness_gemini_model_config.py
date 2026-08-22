@@ -38,9 +38,25 @@ def serialize_json(value: HarnessGeminiModelConfig) -> dict:
     if "max_tokens" in value:
         out["maxTokens"] = value["max_tokens"]
     if "temperature" in value:
-        out["temperature"] = value["temperature"]
+        out["temperature"] = (
+            "NaN"
+            if value["temperature"] != value["temperature"]
+            else "Infinity"
+            if value["temperature"] == float("inf")
+            else "-Infinity"
+            if value["temperature"] == float("-inf")
+            else value["temperature"]
+        )
     if "top_p" in value:
-        out["topP"] = value["top_p"]
+        out["topP"] = (
+            "NaN"
+            if value["top_p"] != value["top_p"]
+            else "Infinity"
+            if value["top_p"] == float("inf")
+            else "-Infinity"
+            if value["top_p"] == float("-inf")
+            else value["top_p"]
+        )
     if "top_k" in value:
         out["topK"] = value["top_k"]
     return out
@@ -48,20 +64,20 @@ def serialize_json(value: HarnessGeminiModelConfig) -> dict:
 
 def deserialize_json(data: dict) -> HarnessGeminiModelConfig:
     out: HarnessGeminiModelConfig = {}  # type: ignore[typeddict-item]
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError("HarnessGeminiModelConfig.model_id required")
-    if "apiKeyArn" in data:
+    if data.get("apiKeyArn") is not None:
         out["api_key_arn"] = data["apiKeyArn"]
     else:
         raise DeserializationError("HarnessGeminiModelConfig.api_key_arn required")
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
-    if "temperature" in data:
-        out["temperature"] = data["temperature"]
-    if "topP" in data:
-        out["top_p"] = data["topP"]
-    if "topK" in data:
+    if data.get("temperature") is not None:
+        out["temperature"] = float(data["temperature"])
+    if data.get("topP") is not None:
+        out["top_p"] = float(data["topP"])
+    if data.get("topK") is not None:
         out["top_k"] = data["topK"]
     return out

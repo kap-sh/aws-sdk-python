@@ -37,7 +37,7 @@ def serialize_json(value: ReturnControlPayload) -> dict:
 
 def deserialize_json(data: dict) -> ReturnControlPayload:
     out: ReturnControlPayload = {}  # type: ignore[typeddict-item]
-    if "invocationInputs" in data:
+    if data.get("invocationInputs") is not None:
         import capo_bedrock_agent_runtime.types.invocation_inputs
 
         out["invocation_inputs"] = (
@@ -45,7 +45,7 @@ def deserialize_json(data: dict) -> ReturnControlPayload:
                 data["invocationInputs"]
             )
         )
-    if "invocationId" in data:
+    if data.get("invocationId") is not None:
         out["invocation_id"] = data["invocationId"]
     return out
 

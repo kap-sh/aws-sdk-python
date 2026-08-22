@@ -30,7 +30,7 @@ def serialize_json(value: QueryTransformationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> QueryTransformationConfiguration:
     out: QueryTransformationConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.query_transformation_type
 
         out["type"] = (

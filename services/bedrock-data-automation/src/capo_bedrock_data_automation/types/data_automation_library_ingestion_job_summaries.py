@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> DataAutomationLibraryIngestionJobSummaries:
 
     out: DataAutomationLibraryIngestionJobSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.data_automation_library_ingestion_job_summary.deserialize_json(
                 item

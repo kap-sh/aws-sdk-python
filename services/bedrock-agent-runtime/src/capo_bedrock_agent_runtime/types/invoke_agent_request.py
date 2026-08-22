@@ -102,7 +102,7 @@ def serialize_json(value: InvokeAgentRequest) -> dict:
 
 def deserialize_json(data: dict) -> InvokeAgentRequest:
     out: InvokeAgentRequest = {}  # type: ignore[typeddict-item]
-    if "sessionState" in data:
+    if data.get("sessionState") is not None:
         import capo_bedrock_agent_runtime.types.session_state
 
         out["session_state"] = (
@@ -110,15 +110,15 @@ def deserialize_json(data: dict) -> InvokeAgentRequest:
                 data["sessionState"]
             )
         )
-    if "endSession" in data:
+    if data.get("endSession") is not None:
         out["end_session"] = data["endSession"]
-    if "enableTrace" in data:
+    if data.get("enableTrace") is not None:
         out["enable_trace"] = data["enableTrace"]
-    if "inputText" in data:
+    if data.get("inputText") is not None:
         out["input_text"] = data["inputText"]
-    if "memoryId" in data:
+    if data.get("memoryId") is not None:
         out["memory_id"] = data["memoryId"]
-    if "bedrockModelConfigurations" in data:
+    if data.get("bedrockModelConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.bedrock_model_configurations
 
         out["bedrock_model_configurations"] = (
@@ -126,7 +126,7 @@ def deserialize_json(data: dict) -> InvokeAgentRequest:
                 data["bedrockModelConfigurations"]
             )
         )
-    if "streamingConfigurations" in data:
+    if data.get("streamingConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.streaming_configurations
 
         out["streaming_configurations"] = (
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> InvokeAgentRequest:
                 data["streamingConfigurations"]
             )
         )
-    if "promptCreationConfigurations" in data:
+    if data.get("promptCreationConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.prompt_creation_configurations
 
         out["prompt_creation_configurations"] = (

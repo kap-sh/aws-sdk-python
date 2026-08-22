@@ -55,7 +55,7 @@ def serialize_json(value: HarnessAgentCoreRuntimeEnvironmentRequest) -> dict:
 
 def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironmentRequest:
     out: HarnessAgentCoreRuntimeEnvironmentRequest = {}  # type: ignore[typeddict-item]
-    if "lifecycleConfiguration" in data:
+    if data.get("lifecycleConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.lifecycle_configuration
 
         out["lifecycle_configuration"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironmentRequest:
                 data["lifecycleConfiguration"]
             )
         )
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.network_configuration
 
         out["network_configuration"] = (
@@ -71,7 +71,7 @@ def deserialize_json(data: dict) -> HarnessAgentCoreRuntimeEnvironmentRequest:
                 data["networkConfiguration"]
             )
         )
-    if "filesystemConfigurations" in data:
+    if data.get("filesystemConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.filesystem_configurations
 
         out["filesystem_configurations"] = (

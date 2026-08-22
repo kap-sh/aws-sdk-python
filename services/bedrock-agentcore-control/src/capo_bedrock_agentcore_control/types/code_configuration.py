@@ -48,7 +48,7 @@ def serialize_json(value: CodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CodeConfiguration:
     out: CodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "code" in data:
+    if data.get("code") is not None:
         import capo_bedrock_agentcore_control.types.code
 
         out["code"] = capo_bedrock_agentcore_control.types.code.deserialize_json(
@@ -56,7 +56,7 @@ def deserialize_json(data: dict) -> CodeConfiguration:
         )
     else:
         raise DeserializationError("CodeConfiguration.code required")
-    if "runtime" in data:
+    if data.get("runtime") is not None:
         import capo_bedrock_agentcore_control.types.agent_managed_runtime_type
 
         out["runtime"] = (
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> CodeConfiguration:
         )
     else:
         raise DeserializationError("CodeConfiguration.runtime required")
-    if "entryPoint" in data:
+    if data.get("entryPoint") is not None:
         import capo_bedrock_agentcore_control.types.entry_points
 
         out["entry_point"] = (

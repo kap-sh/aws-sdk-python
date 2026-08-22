@@ -34,15 +34,15 @@ def serialize_json(value: NodeInputSource) -> dict:
 
 def deserialize_json(data: dict) -> NodeInputSource:
     out: NodeInputSource = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("NodeInputSource.node_name required")
-    if "outputFieldName" in data:
+    if data.get("outputFieldName") is not None:
         out["output_field_name"] = data["outputFieldName"]
     else:
         raise DeserializationError("NodeInputSource.output_field_name required")
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     else:
         raise DeserializationError("NodeInputSource.expression required")

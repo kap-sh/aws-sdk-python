@@ -24,7 +24,7 @@ def serialize_json(value: GetWorkloadAccessTokenRequest) -> dict:
 
 def deserialize_json(data: dict) -> GetWorkloadAccessTokenRequest:
     out: GetWorkloadAccessTokenRequest = {}  # type: ignore[typeddict-item]
-    if "workloadName" in data:
+    if data.get("workloadName") is not None:
         out["workload_name"] = data["workloadName"]
     else:
         raise DeserializationError(

@@ -94,11 +94,11 @@ def serialize_json(value: DataAutomationLibraryIngestionJob) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
     out: DataAutomationLibraryIngestionJob = {}  # type: ignore[typeddict-item]
-    if "jobArn" in data:
+    if data.get("jobArn") is not None:
         out["job_arn"] = data["jobArn"]
     else:
         raise DeserializationError("DataAutomationLibraryIngestionJob.job_arn required")
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (
@@ -110,7 +110,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJob.creation_time required"
         )
-    if "entityType" in data:
+    if data.get("entityType") is not None:
         import capo_bedrock_data_automation.types.entity_type
 
         out["entity_type"] = (
@@ -122,7 +122,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJob.entity_type required"
         )
-    if "operationType" in data:
+    if data.get("operationType") is not None:
         import capo_bedrock_data_automation.types.library_ingestion_job_operation_type
 
         out["operation_type"] = (
@@ -134,7 +134,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJob.operation_type required"
         )
-    if "jobStatus" in data:
+    if data.get("jobStatus") is not None:
         import capo_bedrock_data_automation.types.library_ingestion_job_status
 
         out["job_status"] = (
@@ -146,7 +146,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJob.job_status required"
         )
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation.types.output_configuration
 
         out["output_configuration"] = (
@@ -158,7 +158,7 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
         raise DeserializationError(
             "DataAutomationLibraryIngestionJob.output_configuration required"
         )
-    if "completionTime" in data:
+    if data.get("completionTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["completion_time"] = (
@@ -166,8 +166,8 @@ def deserialize_json(data: dict) -> DataAutomationLibraryIngestionJob:
                 data["completionTime"]
             )
         )
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
-    if "errorType" in data:
+    if data.get("errorType") is not None:
         out["error_type"] = data["errorType"]
     return out

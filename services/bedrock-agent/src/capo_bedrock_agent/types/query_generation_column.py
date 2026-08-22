@@ -41,11 +41,11 @@ def serialize_json(value: QueryGenerationColumn) -> dict:
 
 def deserialize_json(data: dict) -> QueryGenerationColumn:
     out: QueryGenerationColumn = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "inclusion" in data:
+    if data.get("inclusion") is not None:
         import capo_bedrock_agent.types.include_exclude
 
         out["inclusion"] = capo_bedrock_agent.types.include_exclude.deserialize_json(

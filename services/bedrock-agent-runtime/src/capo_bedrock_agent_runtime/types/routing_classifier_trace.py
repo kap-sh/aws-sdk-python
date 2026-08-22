@@ -78,7 +78,7 @@ def serialize_json(value: RoutingClassifierTrace) -> dict:
 
 
 def deserialize_json(data: dict) -> RoutingClassifierTrace:
-    if "invocationInput" in data:
+    if data.get("invocationInput") is not None:
         import capo_bedrock_agent_runtime.types.invocation_input
 
         return {
@@ -86,7 +86,7 @@ def deserialize_json(data: dict) -> RoutingClassifierTrace:
                 data["invocationInput"]
             )
         }
-    elif "observation" in data:
+    elif data.get("observation") is not None:
         import capo_bedrock_agent_runtime.types.observation
 
         return {
@@ -94,7 +94,7 @@ def deserialize_json(data: dict) -> RoutingClassifierTrace:
                 data["observation"]
             )
         }
-    elif "modelInvocationInput" in data:
+    elif data.get("modelInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.model_invocation_input
 
         return {
@@ -102,7 +102,7 @@ def deserialize_json(data: dict) -> RoutingClassifierTrace:
                 data["modelInvocationInput"]
             )
         }
-    elif "modelInvocationOutput" in data:
+    elif data.get("modelInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.routing_classifier_model_invocation_output
 
         return {

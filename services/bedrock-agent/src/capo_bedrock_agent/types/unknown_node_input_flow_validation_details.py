@@ -28,13 +28,13 @@ def serialize_json(value: UnknownNodeInputFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> UnknownNodeInputFlowValidationDetails:
     out: UnknownNodeInputFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(
             "UnknownNodeInputFlowValidationDetails.node required"
         )
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     else:
         raise DeserializationError(

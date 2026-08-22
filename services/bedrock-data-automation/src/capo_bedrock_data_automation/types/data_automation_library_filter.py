@@ -23,7 +23,7 @@ def serialize_json(value: DataAutomationLibraryFilter) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationLibraryFilter:
     out: DataAutomationLibraryFilter = {}  # type: ignore[typeddict-item]
-    if "libraryArn" in data:
+    if data.get("libraryArn") is not None:
         out["library_arn"] = data["libraryArn"]
     else:
         raise DeserializationError("DataAutomationLibraryFilter.library_arn required")

@@ -47,15 +47,15 @@ def serialize_json(value: AgentCollaboratorInputPayload) -> dict:
 
 def deserialize_json(data: dict) -> AgentCollaboratorInputPayload:
     out: AgentCollaboratorInputPayload = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.payload_type
 
         out["type"] = capo_bedrock_agent_runtime.types.payload_type.deserialize_json(
             data["type"]
         )
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "returnControlResults" in data:
+    if data.get("returnControlResults") is not None:
         import capo_bedrock_agent_runtime.types.return_control_results
 
         out["return_control_results"] = (

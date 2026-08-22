@@ -52,7 +52,7 @@ def serialize_json(value: SystemPromptRecommendationConfig) -> dict:
 
 def deserialize_json(data: dict) -> SystemPromptRecommendationConfig:
     out: SystemPromptRecommendationConfig = {}  # type: ignore[typeddict-item]
-    if "systemPrompt" in data:
+    if data.get("systemPrompt") is not None:
         import capo_bedrock_agentcore.types.system_prompt_config
 
         out["system_prompt"] = (
@@ -64,7 +64,7 @@ def deserialize_json(data: dict) -> SystemPromptRecommendationConfig:
         raise DeserializationError(
             "SystemPromptRecommendationConfig.system_prompt required"
         )
-    if "agentTraces" in data:
+    if data.get("agentTraces") is not None:
         import capo_bedrock_agentcore.types.agent_traces_config
 
         out["agent_traces"] = (
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> SystemPromptRecommendationConfig:
         raise DeserializationError(
             "SystemPromptRecommendationConfig.agent_traces required"
         )
-    if "evaluationConfig" in data:
+    if data.get("evaluationConfig") is not None:
         import capo_bedrock_agentcore.types.recommendation_evaluation_config
 
         out["evaluation_config"] = (

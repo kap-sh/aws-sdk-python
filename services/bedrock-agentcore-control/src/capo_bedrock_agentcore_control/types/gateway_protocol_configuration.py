@@ -35,7 +35,7 @@ def serialize_json(value: GatewayProtocolConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> GatewayProtocolConfiguration:
-    if "mcp" in data:
+    if data.get("mcp") is not None:
         import capo_bedrock_agentcore_control.types.mcp_gateway_configuration
 
         return {

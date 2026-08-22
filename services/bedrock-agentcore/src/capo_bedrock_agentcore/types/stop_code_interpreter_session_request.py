@@ -32,6 +32,6 @@ def serialize_json(value: StopCodeInterpreterSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> StopCodeInterpreterSessionRequest:
     out: StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

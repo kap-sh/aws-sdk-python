@@ -37,7 +37,7 @@ def serialize_json(value: ProxyConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ProxyConfiguration:
     out: ProxyConfiguration = {}  # type: ignore[typeddict-item]
-    if "proxies" in data:
+    if data.get("proxies") is not None:
         import capo_bedrock_agentcore.types.proxies
 
         out["proxies"] = capo_bedrock_agentcore.types.proxies.deserialize_json(
@@ -45,7 +45,7 @@ def deserialize_json(data: dict) -> ProxyConfiguration:
         )
     else:
         raise DeserializationError("ProxyConfiguration.proxies required")
-    if "bypass" in data:
+    if data.get("bypass") is not None:
         import capo_bedrock_agentcore.types.proxy_bypass
 
         out["bypass"] = capo_bedrock_agentcore.types.proxy_bypass.deserialize_json(

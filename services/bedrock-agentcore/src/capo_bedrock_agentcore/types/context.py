@@ -32,7 +32,7 @@ def serialize_json(value: Context) -> dict:
 
 
 def deserialize_json(data: dict) -> Context:
-    if "spanContext" in data:
+    if data.get("spanContext") is not None:
         import capo_bedrock_agentcore.types.span_context
 
         return {

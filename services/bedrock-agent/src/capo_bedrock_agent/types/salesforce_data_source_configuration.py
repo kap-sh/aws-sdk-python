@@ -43,7 +43,7 @@ def serialize_json(value: SalesforceDataSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SalesforceDataSourceConfiguration:
     out: SalesforceDataSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "sourceConfiguration" in data:
+    if data.get("sourceConfiguration") is not None:
         import capo_bedrock_agent.types.salesforce_source_configuration
 
         out["source_configuration"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> SalesforceDataSourceConfiguration:
         raise DeserializationError(
             "SalesforceDataSourceConfiguration.source_configuration required"
         )
-    if "crawlerConfiguration" in data:
+    if data.get("crawlerConfiguration") is not None:
         import capo_bedrock_agent.types.salesforce_crawler_configuration
 
         out["crawler_configuration"] = (

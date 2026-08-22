@@ -92,13 +92,13 @@ def serialize_json(value: UpdateConfigurationBundleRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateConfigurationBundleRequest:
     out: UpdateConfigurationBundleRequest = {}  # type: ignore[typeddict-item]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "bundleName" in data:
+    if data.get("bundleName") is not None:
         out["bundle_name"] = data["bundleName"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "components" in data:
+    if data.get("components") is not None:
         import capo_bedrock_agentcore_control.types.component_configuration_map
 
         out["components"] = (
@@ -106,7 +106,7 @@ def deserialize_json(data: dict) -> UpdateConfigurationBundleRequest:
                 data["components"]
             )
         )
-    if "parentVersionIds" in data:
+    if data.get("parentVersionIds") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_version_list
 
         out["parent_version_ids"] = (
@@ -114,11 +114,11 @@ def deserialize_json(data: dict) -> UpdateConfigurationBundleRequest:
                 data["parentVersionIds"]
             )
         )
-    if "branchName" in data:
+    if data.get("branchName") is not None:
         out["branch_name"] = data["branchName"]
-    if "commitMessage" in data:
+    if data.get("commitMessage") is not None:
         out["commit_message"] = data["commitMessage"]
-    if "createdBy" in data:
+    if data.get("createdBy") is not None:
         import capo_bedrock_agentcore_control.types.version_created_by_source
 
         out["created_by"] = (

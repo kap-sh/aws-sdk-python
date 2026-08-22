@@ -22,8 +22,8 @@ def serialize_json(value: LifecycleConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> LifecycleConfiguration:
     out: LifecycleConfiguration = {}  # type: ignore[typeddict-item]
-    if "idleRuntimeSessionTimeout" in data:
+    if data.get("idleRuntimeSessionTimeout") is not None:
         out["idle_runtime_session_timeout"] = data["idleRuntimeSessionTimeout"]
-    if "maxLifetime" in data:
+    if data.get("maxLifetime") is not None:
         out["max_lifetime"] = data["maxLifetime"]
     return out

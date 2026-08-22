@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> HierarchicalChunkingLevelConfigurations:
 
     out: HierarchicalChunkingLevelConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.hierarchical_chunking_level_configuration.deserialize_json(
                 item

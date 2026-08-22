@@ -31,7 +31,7 @@ def serialize_json(value: LoopControllerFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> LoopControllerFlowNodeConfiguration:
     out: LoopControllerFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "continueCondition" in data:
+    if data.get("continueCondition") is not None:
         import capo_bedrock_agent.types.flow_condition
 
         out["continue_condition"] = (
@@ -43,7 +43,7 @@ def deserialize_json(data: dict) -> LoopControllerFlowNodeConfiguration:
         raise DeserializationError(
             "LoopControllerFlowNodeConfiguration.continue_condition required"
         )
-    if "maxIterations" in data:
+    if data.get("maxIterations") is not None:
         out["max_iterations"] = data["maxIterations"]
     else:
         out["max_iterations"] = 10

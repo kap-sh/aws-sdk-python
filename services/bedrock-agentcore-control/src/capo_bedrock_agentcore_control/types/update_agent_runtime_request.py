@@ -153,7 +153,7 @@ def serialize_json(value: UpdateAgentRuntimeRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
     out: UpdateAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
-    if "agentRuntimeArtifact" in data:
+    if data.get("agentRuntimeArtifact") is not None:
         import capo_bedrock_agentcore_control.types.agent_runtime_artifact
 
         out["agent_runtime_artifact"] = (
@@ -165,11 +165,11 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
         raise DeserializationError(
             "UpdateAgentRuntimeRequest.agent_runtime_artifact required"
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("UpdateAgentRuntimeRequest.role_arn required")
-    if "networkConfiguration" in data:
+    if data.get("networkConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.network_configuration
 
         out["network_configuration"] = (
@@ -181,9 +181,9 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
         raise DeserializationError(
             "UpdateAgentRuntimeRequest.network_configuration required"
         )
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -191,7 +191,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "requestHeaderConfiguration" in data:
+    if data.get("requestHeaderConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.request_header_configuration
 
         out["request_header_configuration"] = (
@@ -199,7 +199,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["requestHeaderConfiguration"]
             )
         )
-    if "protocolConfiguration" in data:
+    if data.get("protocolConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.protocol_configuration
 
         out["protocol_configuration"] = (
@@ -207,7 +207,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["protocolConfiguration"]
             )
         )
-    if "lifecycleConfiguration" in data:
+    if data.get("lifecycleConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.lifecycle_configuration
 
         out["lifecycle_configuration"] = (
@@ -215,7 +215,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["lifecycleConfiguration"]
             )
         )
-    if "metadataConfiguration" in data:
+    if data.get("metadataConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.runtime_metadata_configuration
 
         out["metadata_configuration"] = (
@@ -223,7 +223,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["metadataConfiguration"]
             )
         )
-    if "environmentVariables" in data:
+    if data.get("environmentVariables") is not None:
         import capo_bedrock_agentcore_control.types.environment_variables_map
 
         out["environment_variables"] = (
@@ -231,7 +231,7 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["environmentVariables"]
             )
         )
-    if "filesystemConfigurations" in data:
+    if data.get("filesystemConfigurations") is not None:
         import capo_bedrock_agentcore_control.types.filesystem_configurations
 
         out["filesystem_configurations"] = (
@@ -239,6 +239,6 @@ def deserialize_json(data: dict) -> UpdateAgentRuntimeRequest:
                 data["filesystemConfigurations"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

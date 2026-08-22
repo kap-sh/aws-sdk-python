@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> HarnessSystemPrompt:
 
     out: HarnessSystemPrompt = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.harness_system_content_block.deserialize_json(
                 item

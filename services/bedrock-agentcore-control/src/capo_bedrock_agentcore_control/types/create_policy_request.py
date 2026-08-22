@@ -63,11 +63,11 @@ def serialize_json(value: CreatePolicyRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePolicyRequest:
     out: CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreatePolicyRequest.name required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agentcore_control.types.policy_definition
 
         out["definition"] = (
@@ -77,9 +77,9 @@ def deserialize_json(data: dict) -> CreatePolicyRequest:
         )
     else:
         raise DeserializationError("CreatePolicyRequest.definition required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "validationMode" in data:
+    if data.get("validationMode") is not None:
         import capo_bedrock_agentcore_control.types.policy_validation_mode
 
         out["validation_mode"] = (
@@ -89,6 +89,6 @@ def deserialize_json(data: dict) -> CreatePolicyRequest:
         )
     else:
         out["validation_mode"] = "FAIL_ON_ANY_FINDINGS"
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

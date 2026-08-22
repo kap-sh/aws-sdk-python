@@ -68,9 +68,9 @@ def serialize_json(value: UpdatePaymentManagerRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdatePaymentManagerRequest:
     out: UpdatePaymentManagerRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "authorizerType" in data:
+    if data.get("authorizerType") is not None:
         import capo_bedrock_agentcore_control.types.payments_authorizer_type
 
         out["authorizer_type"] = (
@@ -78,7 +78,7 @@ def deserialize_json(data: dict) -> UpdatePaymentManagerRequest:
                 data["authorizerType"]
             )
         )
-    if "authorizerConfiguration" in data:
+    if data.get("authorizerConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.authorizer_configuration
 
         out["authorizer_configuration"] = (
@@ -86,8 +86,8 @@ def deserialize_json(data: dict) -> UpdatePaymentManagerRequest:
                 data["authorizerConfiguration"]
             )
         )
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

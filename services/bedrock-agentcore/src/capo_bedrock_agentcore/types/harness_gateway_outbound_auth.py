@@ -48,11 +48,11 @@ def serialize_json(value: HarnessGatewayOutboundAuth) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessGatewayOutboundAuth:
-    if "awsIam" in data:
+    if data.get("awsIam") is not None:
         return {"awsIam": None}
-    elif "none" in data:
+    elif data.get("none") is not None:
         return {"none": None}
-    elif "oauth" in data:
+    elif data.get("oauth") is not None:
         import capo_bedrock_agentcore.types.o_auth_credential_provider
 
         return {

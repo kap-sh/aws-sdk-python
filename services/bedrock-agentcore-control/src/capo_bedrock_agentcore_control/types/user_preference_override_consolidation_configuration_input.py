@@ -31,13 +31,13 @@ def deserialize_json(
     data: dict,
 ) -> UserPreferenceOverrideConsolidationConfigurationInput:
     out: UserPreferenceOverrideConsolidationConfigurationInput = {}  # type: ignore[typeddict-item]
-    if "appendToPrompt" in data:
+    if data.get("appendToPrompt") is not None:
         out["append_to_prompt"] = data["appendToPrompt"]
     else:
         raise DeserializationError(
             "UserPreferenceOverrideConsolidationConfigurationInput.append_to_prompt required"
         )
-    if "modelId" in data:
+    if data.get("modelId") is not None:
         out["model_id"] = data["modelId"]
     else:
         raise DeserializationError(

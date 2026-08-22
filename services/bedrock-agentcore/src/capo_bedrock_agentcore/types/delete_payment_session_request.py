@@ -35,13 +35,13 @@ def serialize_json(value: DeletePaymentSessionRequest) -> dict:
 
 def deserialize_json(data: dict) -> DeletePaymentSessionRequest:
     out: DeletePaymentSessionRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "DeletePaymentSessionRequest.payment_manager_arn required"
         )
-    if "paymentSessionId" in data:
+    if data.get("paymentSessionId") is not None:
         out["payment_session_id"] = data["paymentSessionId"]
     else:
         raise DeserializationError(

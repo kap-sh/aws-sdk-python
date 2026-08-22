@@ -52,7 +52,7 @@ def serialize_json(value: DocumentMetadata) -> dict:
 
 def deserialize_json(data: dict) -> DocumentMetadata:
     out: DocumentMetadata = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.metadata_source_type
 
         out["type"] = capo_bedrock_agent.types.metadata_source_type.deserialize_json(
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> DocumentMetadata:
         )
     else:
         raise DeserializationError("DocumentMetadata.type required")
-    if "inlineAttributes" in data:
+    if data.get("inlineAttributes") is not None:
         import capo_bedrock_agent.types.metadata_attributes
 
         out["inline_attributes"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> DocumentMetadata:
                 data["inlineAttributes"]
             )
         )
-    if "s3Location" in data:
+    if data.get("s3Location") is not None:
         import capo_bedrock_agent.types.custom_s3_location
 
         out["s3_location"] = (

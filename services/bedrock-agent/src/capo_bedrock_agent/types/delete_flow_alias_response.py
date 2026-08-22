@@ -28,11 +28,11 @@ def serialize_json(value: DeleteFlowAliasResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteFlowAliasResponse:
     out: DeleteFlowAliasResponse = {}  # type: ignore[typeddict-item]
-    if "flowId" in data:
+    if data.get("flowId") is not None:
         out["flow_id"] = data["flowId"]
     else:
         raise DeserializationError("DeleteFlowAliasResponse.flow_id required")
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("DeleteFlowAliasResponse.id required")

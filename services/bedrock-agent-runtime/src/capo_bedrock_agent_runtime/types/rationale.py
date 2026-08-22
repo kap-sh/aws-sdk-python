@@ -30,8 +30,8 @@ def serialize_json(value: Rationale) -> dict:
 
 def deserialize_json(data: dict) -> Rationale:
     out: Rationale = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     return out

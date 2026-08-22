@@ -67,7 +67,7 @@ def serialize_json(value: EvaluationReferenceInput) -> dict:
 
 def deserialize_json(data: dict) -> EvaluationReferenceInput:
     out: EvaluationReferenceInput = {}  # type: ignore[typeddict-item]
-    if "context" in data:
+    if data.get("context") is not None:
         import capo_bedrock_agentcore.types.context
 
         out["context"] = capo_bedrock_agentcore.types.context.deserialize_json(
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> EvaluationReferenceInput:
         )
     else:
         raise DeserializationError("EvaluationReferenceInput.context required")
-    if "expectedResponse" in data:
+    if data.get("expectedResponse") is not None:
         import capo_bedrock_agentcore.types.evaluation_content
 
         out["expected_response"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> EvaluationReferenceInput:
                 data["expectedResponse"]
             )
         )
-    if "assertions" in data:
+    if data.get("assertions") is not None:
         import capo_bedrock_agentcore.types.evaluation_content_list
 
         out["assertions"] = (
@@ -91,7 +91,7 @@ def deserialize_json(data: dict) -> EvaluationReferenceInput:
                 data["assertions"]
             )
         )
-    if "expectedTrajectory" in data:
+    if data.get("expectedTrajectory") is not None:
         import capo_bedrock_agentcore.types.evaluation_expected_trajectory
 
         out["expected_trajectory"] = (

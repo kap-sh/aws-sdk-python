@@ -38,19 +38,19 @@ def serialize_json(value: MismatchedNodeInputTypeFlowValidationDetails) -> dict:
 
 def deserialize_json(data: dict) -> MismatchedNodeInputTypeFlowValidationDetails:
     out: MismatchedNodeInputTypeFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "node" in data:
+    if data.get("node") is not None:
         out["node"] = data["node"]
     else:
         raise DeserializationError(
             "MismatchedNodeInputTypeFlowValidationDetails.node required"
         )
-    if "input" in data:
+    if data.get("input") is not None:
         out["input"] = data["input"]
     else:
         raise DeserializationError(
             "MismatchedNodeInputTypeFlowValidationDetails.input required"
         )
-    if "expectedType" in data:
+    if data.get("expectedType") is not None:
         import capo_bedrock_agent.types.flow_node_io_data_type
 
         out["expected_type"] = (

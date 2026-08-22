@@ -27,11 +27,11 @@ def serialize_json(value: PineconeFieldMapping) -> dict:
 
 def deserialize_json(data: dict) -> PineconeFieldMapping:
     out: PineconeFieldMapping = {}  # type: ignore[typeddict-item]
-    if "textField" in data:
+    if data.get("textField") is not None:
         out["text_field"] = data["textField"]
     else:
         raise DeserializationError("PineconeFieldMapping.text_field required")
-    if "metadataField" in data:
+    if data.get("metadataField") is not None:
         out["metadata_field"] = data["metadataField"]
     else:
         raise DeserializationError("PineconeFieldMapping.metadata_field required")

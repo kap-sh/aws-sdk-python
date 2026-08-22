@@ -30,7 +30,7 @@ def serialize_json(value: A2aDescriptor) -> dict:
 
 def deserialize_json(data: dict) -> A2aDescriptor:
     out: A2aDescriptor = {}  # type: ignore[typeddict-item]
-    if "agentCard" in data:
+    if data.get("agentCard") is not None:
         import capo_bedrock_agentcore.types.agent_card_definition
 
         out["agent_card"] = (

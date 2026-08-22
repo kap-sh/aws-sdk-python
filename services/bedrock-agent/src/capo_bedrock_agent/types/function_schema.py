@@ -32,7 +32,7 @@ def serialize_json(value: FunctionSchema) -> dict:
 
 
 def deserialize_json(data: dict) -> FunctionSchema:
-    if "functions" in data:
+    if data.get("functions") is not None:
         import capo_bedrock_agent.types.functions
 
         return {

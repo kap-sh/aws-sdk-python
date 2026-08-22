@@ -39,15 +39,15 @@ def serialize_json(value: StripePrivyTokenResponseOutput) -> dict:
 
 def deserialize_json(data: dict) -> StripePrivyTokenResponseOutput:
     out: StripePrivyTokenResponseOutput = {}  # type: ignore[typeddict-item]
-    if "authorizationSignature" in data:
+    if data.get("authorizationSignature") is not None:
         out["authorization_signature"] = data["authorizationSignature"]
-    if "requestExpiry" in data:
+    if data.get("requestExpiry") is not None:
         out["request_expiry"] = data["requestExpiry"]
-    if "appId" in data:
+    if data.get("appId") is not None:
         out["app_id"] = data["appId"]
     else:
         raise DeserializationError("StripePrivyTokenResponseOutput.app_id required")
-    if "basicAuthToken" in data:
+    if data.get("basicAuthToken") is not None:
         out["basic_auth_token"] = data["basicAuthToken"]
     else:
         raise DeserializationError(

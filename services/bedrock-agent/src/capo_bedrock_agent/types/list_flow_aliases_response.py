@@ -37,7 +37,7 @@ def serialize_json(value: ListFlowAliasesResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListFlowAliasesResponse:
     out: ListFlowAliasesResponse = {}  # type: ignore[typeddict-item]
-    if "flowAliasSummaries" in data:
+    if data.get("flowAliasSummaries") is not None:
         import capo_bedrock_agent.types.flow_alias_summaries
 
         out["flow_alias_summaries"] = (
@@ -49,6 +49,6 @@ def deserialize_json(data: dict) -> ListFlowAliasesResponse:
         raise DeserializationError(
             "ListFlowAliasesResponse.flow_alias_summaries required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

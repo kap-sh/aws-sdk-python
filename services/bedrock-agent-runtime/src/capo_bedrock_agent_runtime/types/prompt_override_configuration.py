@@ -39,7 +39,7 @@ def serialize_json(value: PromptOverrideConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PromptOverrideConfiguration:
     out: PromptOverrideConfiguration = {}  # type: ignore[typeddict-item]
-    if "promptConfigurations" in data:
+    if data.get("promptConfigurations") is not None:
         import capo_bedrock_agent_runtime.types.prompt_configurations
 
         out["prompt_configurations"] = (
@@ -51,6 +51,6 @@ def deserialize_json(data: dict) -> PromptOverrideConfiguration:
         raise DeserializationError(
             "PromptOverrideConfiguration.prompt_configurations required"
         )
-    if "overrideLambda" in data:
+    if data.get("overrideLambda") is not None:
         out["override_lambda"] = data["overrideLambda"]
     return out

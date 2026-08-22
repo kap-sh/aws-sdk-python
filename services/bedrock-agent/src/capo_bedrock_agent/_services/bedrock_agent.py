@@ -209,14 +209,16 @@ class BedrockAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input_["definition"] = definition
+        input_: capo_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {
+            "definition": definition
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def __enter__(self) -> Self:

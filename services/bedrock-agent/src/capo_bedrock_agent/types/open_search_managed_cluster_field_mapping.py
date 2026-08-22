@@ -30,19 +30,19 @@ def serialize_json(value: OpenSearchManagedClusterFieldMapping) -> dict:
 
 def deserialize_json(data: dict) -> OpenSearchManagedClusterFieldMapping:
     out: OpenSearchManagedClusterFieldMapping = {}  # type: ignore[typeddict-item]
-    if "vectorField" in data:
+    if data.get("vectorField") is not None:
         out["vector_field"] = data["vectorField"]
     else:
         raise DeserializationError(
             "OpenSearchManagedClusterFieldMapping.vector_field required"
         )
-    if "textField" in data:
+    if data.get("textField") is not None:
         out["text_field"] = data["textField"]
     else:
         raise DeserializationError(
             "OpenSearchManagedClusterFieldMapping.text_field required"
         )
-    if "metadataField" in data:
+    if data.get("metadataField") is not None:
         out["metadata_field"] = data["metadataField"]
     else:
         raise DeserializationError(

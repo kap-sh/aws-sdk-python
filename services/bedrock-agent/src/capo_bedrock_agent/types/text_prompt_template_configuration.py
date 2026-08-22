@@ -48,11 +48,11 @@ def serialize_json(value: TextPromptTemplateConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> TextPromptTemplateConfiguration:
     out: TextPromptTemplateConfiguration = {}  # type: ignore[typeddict-item]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
     else:
         raise DeserializationError("TextPromptTemplateConfiguration.text required")
-    if "cachePoint" in data:
+    if data.get("cachePoint") is not None:
         import capo_bedrock_agent.types.cache_point_block
 
         out["cache_point"] = (
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> TextPromptTemplateConfiguration:
                 data["cachePoint"]
             )
         )
-    if "inputVariables" in data:
+    if data.get("inputVariables") is not None:
         import capo_bedrock_agent.types.prompt_input_variables_list
 
         out["input_variables"] = (

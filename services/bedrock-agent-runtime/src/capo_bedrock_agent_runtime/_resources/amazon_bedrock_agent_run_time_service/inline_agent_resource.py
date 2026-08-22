@@ -166,11 +166,13 @@ class InlineAgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {
+            "foundation_model": foundation_model,
+            "instruction": instruction,
+            "session_id": session_id,
+        }
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
-        input_["foundation_model"] = foundation_model
-        input_["instruction"] = instruction
         if idle_session_ttl_in_seconds is not None:
             input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if action_groups is not None:
@@ -187,7 +189,6 @@ class InlineAgentResource:
             input_["collaborator_configurations"] = collaborator_configurations
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["session_id"] = session_id
         if end_session is not None:
             input_["end_session"] = end_session
         if enable_trace is not None:
@@ -214,7 +215,10 @@ class InlineAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            response.response.close()
 
 
 class AsyncInlineAgentResource:
@@ -336,11 +340,13 @@ class AsyncInlineAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {
+            "foundation_model": foundation_model,
+            "instruction": instruction,
+            "session_id": session_id,
+        }
         if customer_encryption_key_arn is not None:
             input_["customer_encryption_key_arn"] = customer_encryption_key_arn
-        input_["foundation_model"] = foundation_model
-        input_["instruction"] = instruction
         if idle_session_ttl_in_seconds is not None:
             input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if action_groups is not None:
@@ -357,7 +363,6 @@ class AsyncInlineAgentResource:
             input_["collaborator_configurations"] = collaborator_configurations
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["session_id"] = session_id
         if end_session is not None:
             input_["end_session"] = end_session
         if enable_trace is not None:
@@ -384,4 +389,7 @@ class AsyncInlineAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        yield response.output
+        try:
+            yield response.output
+        finally:
+            await response.response.aclose()

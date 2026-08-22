@@ -206,27 +206,27 @@ def serialize_json(value: Agent) -> dict:
 
 def deserialize_json(data: dict) -> Agent:
     out: Agent = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("Agent.agent_id required")
-    if "agentName" in data:
+    if data.get("agentName") is not None:
         out["agent_name"] = data["agentName"]
     else:
         raise DeserializationError("Agent.agent_name required")
-    if "agentArn" in data:
+    if data.get("agentArn") is not None:
         out["agent_arn"] = data["agentArn"]
     else:
         raise DeserializationError("Agent.agent_arn required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("Agent.agent_version required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "instruction" in data:
+    if data.get("instruction") is not None:
         out["instruction"] = data["instruction"]
-    if "agentStatus" in data:
+    if data.get("agentStatus") is not None:
         import capo_bedrock_agent.types.agent_status
 
         out["agent_status"] = capo_bedrock_agent.types.agent_status.deserialize_json(
@@ -234,11 +234,11 @@ def deserialize_json(data: dict) -> Agent:
         )
     else:
         raise DeserializationError("Agent.agent_status required")
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "orchestrationType" in data:
+    if data.get("orchestrationType") is not None:
         import capo_bedrock_agent.types.orchestration_type
 
         out["orchestration_type"] = (
@@ -246,7 +246,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["orchestrationType"]
             )
         )
-    if "customOrchestration" in data:
+    if data.get("customOrchestration") is not None:
         import capo_bedrock_agent.types.custom_orchestration
 
         out["custom_orchestration"] = (
@@ -254,17 +254,17 @@ def deserialize_json(data: dict) -> Agent:
                 data["customOrchestration"]
             )
         )
-    if "idleSessionTTLInSeconds" in data:
+    if data.get("idleSessionTTLInSeconds") is not None:
         out["idle_session_ttl_in_seconds"] = data["idleSessionTTLInSeconds"]
     else:
         raise DeserializationError("Agent.idle_session_ttl_in_seconds required")
-    if "agentResourceRoleArn" in data:
+    if data.get("agentResourceRoleArn") is not None:
         out["agent_resource_role_arn"] = data["agentResourceRoleArn"]
     else:
         raise DeserializationError("Agent.agent_resource_role_arn required")
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -272,7 +272,7 @@ def deserialize_json(data: dict) -> Agent:
         )
     else:
         raise DeserializationError("Agent.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -280,13 +280,13 @@ def deserialize_json(data: dict) -> Agent:
         )
     else:
         raise DeserializationError("Agent.updated_at required")
-    if "preparedAt" in data:
+    if data.get("preparedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["prepared_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
             data["preparedAt"]
         )
-    if "failureReasons" in data:
+    if data.get("failureReasons") is not None:
         import capo_bedrock_agent.types.failure_reasons
 
         out["failure_reasons"] = (
@@ -294,7 +294,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["failureReasons"]
             )
         )
-    if "recommendedActions" in data:
+    if data.get("recommendedActions") is not None:
         import capo_bedrock_agent.types.recommended_actions
 
         out["recommended_actions"] = (
@@ -302,7 +302,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["recommendedActions"]
             )
         )
-    if "promptOverrideConfiguration" in data:
+    if data.get("promptOverrideConfiguration") is not None:
         import capo_bedrock_agent.types.prompt_override_configuration
 
         out["prompt_override_configuration"] = (
@@ -310,7 +310,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["promptOverrideConfiguration"]
             )
         )
-    if "guardrailConfiguration" in data:
+    if data.get("guardrailConfiguration") is not None:
         import capo_bedrock_agent.types.guardrail_configuration
 
         out["guardrail_configuration"] = (
@@ -318,7 +318,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["guardrailConfiguration"]
             )
         )
-    if "memoryConfiguration" in data:
+    if data.get("memoryConfiguration") is not None:
         import capo_bedrock_agent.types.memory_configuration
 
         out["memory_configuration"] = (
@@ -326,7 +326,7 @@ def deserialize_json(data: dict) -> Agent:
                 data["memoryConfiguration"]
             )
         )
-    if "agentCollaboration" in data:
+    if data.get("agentCollaboration") is not None:
         import capo_bedrock_agent.types.agent_collaboration
 
         out["agent_collaboration"] = (

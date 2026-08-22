@@ -18,7 +18,7 @@ def serialize_json(value: DecryptionFailure_) -> dict:
 
 def deserialize_json(data: dict) -> DecryptionFailure_:
     out: DecryptionFailure_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     else:
         raise DeserializationError("DecryptionFailure_.message required")
@@ -30,15 +30,16 @@ class DecryptionFailure(ServiceError):
 
     code: str | None = "DecryptionFailure"
 
-    def __init__(self, data: DecryptionFailure_):
+    def __init__(self, data: DecryptionFailure_, message: str | None = None):
         super().__init__(
             "client",
             is_throttling_error=False,
             is_retryable=False,
             code="DecryptionFailure",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "DecryptionFailure":
-        return cls(deserialize_json(data))
+    def from_json(cls, data: dict, message: str | None = None) -> "DecryptionFailure":
+        return cls(deserialize_json(data), message)

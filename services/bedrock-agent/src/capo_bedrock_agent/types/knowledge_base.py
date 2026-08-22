@@ -98,25 +98,25 @@ def serialize_json(value: KnowledgeBase) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBase:
     out: KnowledgeBase = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("KnowledgeBase.knowledge_base_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("KnowledgeBase.name required")
-    if "knowledgeBaseArn" in data:
+    if data.get("knowledgeBaseArn") is not None:
         out["knowledge_base_arn"] = data["knowledgeBaseArn"]
     else:
         raise DeserializationError("KnowledgeBase.knowledge_base_arn required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "roleArn" in data:
+    if data.get("roleArn") is not None:
         out["role_arn"] = data["roleArn"]
     else:
         raise DeserializationError("KnowledgeBase.role_arn required")
-    if "knowledgeBaseConfiguration" in data:
+    if data.get("knowledgeBaseConfiguration") is not None:
         import capo_bedrock_agent.types.knowledge_base_configuration
 
         out["knowledge_base_configuration"] = (
@@ -128,7 +128,7 @@ def deserialize_json(data: dict) -> KnowledgeBase:
         raise DeserializationError(
             "KnowledgeBase.knowledge_base_configuration required"
         )
-    if "storageConfiguration" in data:
+    if data.get("storageConfiguration") is not None:
         import capo_bedrock_agent.types.storage_configuration
 
         out["storage_configuration"] = (
@@ -136,7 +136,7 @@ def deserialize_json(data: dict) -> KnowledgeBase:
                 data["storageConfiguration"]
             )
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.knowledge_base_status
 
         out["status"] = capo_bedrock_agent.types.knowledge_base_status.deserialize_json(
@@ -144,7 +144,7 @@ def deserialize_json(data: dict) -> KnowledgeBase:
         )
     else:
         raise DeserializationError("KnowledgeBase.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -152,7 +152,7 @@ def deserialize_json(data: dict) -> KnowledgeBase:
         )
     else:
         raise DeserializationError("KnowledgeBase.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -160,7 +160,7 @@ def deserialize_json(data: dict) -> KnowledgeBase:
         )
     else:
         raise DeserializationError("KnowledgeBase.updated_at required")
-    if "failureReasons" in data:
+    if data.get("failureReasons") is not None:
         import capo_bedrock_agent.types.failure_reasons
 
         out["failure_reasons"] = (

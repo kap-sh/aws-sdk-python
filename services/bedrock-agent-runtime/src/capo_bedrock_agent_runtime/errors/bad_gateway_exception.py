@@ -33,9 +33,9 @@ def serialize_json(value: BadGatewayException_) -> dict:
 
 def deserialize_json(data: dict) -> BadGatewayException_:
     out: BadGatewayException_ = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
-    if "resourceName" in data:
+    if data.get("resourceName") is not None:
         out["resource_name"] = data["resourceName"]
     return out
 
@@ -45,18 +45,19 @@ class BadGatewayException(ServiceError):
 
     code: str | None = "BadGatewayException"
 
-    def __init__(self, data: BadGatewayException_):
+    def __init__(self, data: BadGatewayException_, message: str | None = None):
         super().__init__(
             "server",
             is_throttling_error=False,
             is_retryable=False,
             code="BadGatewayException",
+            message=message if message is not None else data.get("message"),
         )
         self.data = data
 
     @classmethod
-    def from_json(cls, data: dict) -> "BadGatewayException":
-        return cls(deserialize_json(data))
+    def from_json(cls, data: dict, message: str | None = None) -> "BadGatewayException":
+        return cls(deserialize_json(data), message)
 
 
 def serialize_event_json(value: BadGatewayException_) -> bytes:

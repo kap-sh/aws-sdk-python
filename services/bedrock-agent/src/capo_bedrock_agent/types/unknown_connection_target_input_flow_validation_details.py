@@ -24,7 +24,7 @@ def serialize_json(value: UnknownConnectionTargetInputFlowValidationDetails) -> 
 
 def deserialize_json(data: dict) -> UnknownConnectionTargetInputFlowValidationDetails:
     out: UnknownConnectionTargetInputFlowValidationDetails = {}  # type: ignore[typeddict-item]
-    if "connection" in data:
+    if data.get("connection") is not None:
         out["connection"] = data["connection"]
     else:
         raise DeserializationError(

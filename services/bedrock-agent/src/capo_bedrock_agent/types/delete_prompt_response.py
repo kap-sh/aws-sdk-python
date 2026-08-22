@@ -29,10 +29,10 @@ def serialize_json(value: DeletePromptResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeletePromptResponse:
     out: DeletePromptResponse = {}  # type: ignore[typeddict-item]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("DeletePromptResponse.id required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     return out

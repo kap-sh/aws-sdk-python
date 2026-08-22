@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -112,14 +113,16 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "name": name,
+            "data_source_configuration": data_source_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
             input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
@@ -134,6 +137,7 @@ class DataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete_data_source(
@@ -176,15 +180,17 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_data_source(
@@ -224,15 +230,17 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_data_sources(
@@ -274,8 +282,9 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -286,6 +295,7 @@ class DataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update_data_source(
@@ -348,13 +358,14 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "name": name,
+            "data_source_configuration": data_source_configuration,
+        }
         if description is not None:
             input_["description"] = description
-        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
             input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
@@ -369,6 +380,7 @@ class DataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -440,14 +452,16 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "name": name,
+            "data_source_configuration": data_source_configuration,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
             input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
@@ -462,6 +476,7 @@ class AsyncDataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete_data_source(
@@ -505,15 +520,17 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_data_source(
@@ -554,15 +571,17 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_data_sources(
@@ -605,8 +624,9 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
+        input_: capo_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {
+            "knowledge_base_id": knowledge_base_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -617,6 +637,7 @@ class AsyncDataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update_data_source(
@@ -680,13 +701,14 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["name"] = name
+        input_: capo_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "name": name,
+            "data_source_configuration": data_source_configuration,
+        }
         if description is not None:
             input_["description"] = description
-        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
             input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
@@ -701,4 +723,5 @@ class AsyncDataSourceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

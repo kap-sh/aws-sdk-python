@@ -47,7 +47,7 @@ def serialize_json(value: AgentTracesConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> AgentTracesConfig:
-    if "sessionSpans" in data:
+    if data.get("sessionSpans") is not None:
         import capo_bedrock_agentcore.types.spans
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> AgentTracesConfig:
                 data["sessionSpans"]
             )
         }
-    elif "cloudwatchLogs" in data:
+    elif data.get("cloudwatchLogs") is not None:
         import capo_bedrock_agentcore.types.cloud_watch_logs_trace_config
 
         return {

@@ -40,11 +40,11 @@ def serialize_json(value: FlowExecutionInputEvent) -> dict:
 
 def deserialize_json(data: dict) -> FlowExecutionInputEvent:
     out: FlowExecutionInputEvent = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("FlowExecutionInputEvent.node_name required")
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["timestamp"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> FlowExecutionInputEvent:
         )
     else:
         raise DeserializationError("FlowExecutionInputEvent.timestamp required")
-    if "fields" in data:
+    if data.get("fields") is not None:
         import capo_bedrock_agent_runtime.types.flow_input_fields
 
         out["fields"] = (

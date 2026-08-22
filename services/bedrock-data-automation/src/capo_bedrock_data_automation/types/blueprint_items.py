@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> BlueprintItems:
 
     out: BlueprintItems = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_data_automation.types.blueprint_item.deserialize_json(item)
         )

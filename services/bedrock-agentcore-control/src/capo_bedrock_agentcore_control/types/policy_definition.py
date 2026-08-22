@@ -50,7 +50,7 @@ def serialize_json(value: PolicyDefinition) -> dict:
 
 
 def deserialize_json(data: dict) -> PolicyDefinition:
-    if "cedar" in data:
+    if data.get("cedar") is not None:
         import capo_bedrock_agentcore_control.types.cedar_policy
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> PolicyDefinition:
                 data["cedar"]
             )
         }
-    elif "policyGeneration" in data:
+    elif data.get("policyGeneration") is not None:
         import capo_bedrock_agentcore_control.types.policy_generation_details
 
         return {

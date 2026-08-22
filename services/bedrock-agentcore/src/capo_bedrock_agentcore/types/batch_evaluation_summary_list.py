@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> BatchEvaluationSummaryList:
 
     out: BatchEvaluationSummaryList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.batch_evaluation_summary.deserialize_json(item)
         )

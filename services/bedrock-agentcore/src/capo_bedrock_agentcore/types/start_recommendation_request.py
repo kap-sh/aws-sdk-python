@@ -56,13 +56,13 @@ def serialize_json(value: StartRecommendationRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartRecommendationRequest:
     out: StartRecommendationRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("StartRecommendationRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore.types.recommendation_type
 
         out["type"] = capo_bedrock_agentcore.types.recommendation_type.deserialize_json(
@@ -70,7 +70,7 @@ def deserialize_json(data: dict) -> StartRecommendationRequest:
         )
     else:
         raise DeserializationError("StartRecommendationRequest.type required")
-    if "recommendationConfig" in data:
+    if data.get("recommendationConfig") is not None:
         import capo_bedrock_agentcore.types.recommendation_config
 
         out["recommendation_config"] = (
@@ -82,6 +82,6 @@ def deserialize_json(data: dict) -> StartRecommendationRequest:
         raise DeserializationError(
             "StartRecommendationRequest.recommendation_config required"
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

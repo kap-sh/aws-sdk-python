@@ -32,7 +32,7 @@ def serialize_json(value: ProxyCredentials) -> dict:
 
 
 def deserialize_json(data: dict) -> ProxyCredentials:
-    if "basicAuth" in data:
+    if data.get("basicAuth") is not None:
         import capo_bedrock_agentcore.types.basic_auth
 
         return {

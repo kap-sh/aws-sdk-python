@@ -89,9 +89,10 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
+        input_: capo_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+        }
         if memory_id is not None:
             input_["memory_id"] = memory_id
         if session_id is not None:
@@ -102,6 +103,7 @@ class MemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_agent_memory(
@@ -157,21 +159,23 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+            "memory_type": memory_type,
+            "memory_id": memory_id,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
-        input_["memory_type"] = memory_type
-        input_["memory_id"] = memory_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -229,9 +233,10 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
+        input_: capo_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+        }
         if memory_id is not None:
             input_["memory_id"] = memory_id
         if session_id is not None:
@@ -242,6 +247,7 @@ class AsyncMemoryResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_agent_memory(
@@ -298,19 +304,21 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {
+            "agent_id": agent_id,
+            "agent_alias_id": agent_alias_id,
+            "memory_type": memory_type,
+            "memory_id": memory_id,
+        }
         if next_token is not None:
             input_["next_token"] = next_token
         if max_items is not None:
             input_["max_items"] = max_items
-        input_["agent_id"] = agent_id
-        input_["agent_alias_id"] = agent_alias_id
-        input_["memory_type"] = memory_type
-        input_["memory_id"] = memory_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

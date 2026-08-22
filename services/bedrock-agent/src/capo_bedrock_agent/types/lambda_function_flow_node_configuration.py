@@ -22,7 +22,7 @@ def serialize_json(value: LambdaFunctionFlowNodeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> LambdaFunctionFlowNodeConfiguration:
     out: LambdaFunctionFlowNodeConfiguration = {}  # type: ignore[typeddict-item]
-    if "lambdaArn" in data:
+    if data.get("lambdaArn") is not None:
         out["lambda_arn"] = data["lambdaArn"]
     else:
         out["lambda_arn"] = ""

@@ -19,7 +19,7 @@ def serialize_json(value: SessionConfig) -> dict:
 
 def deserialize_json(data: dict) -> SessionConfig:
     out: SessionConfig = {}  # type: ignore[typeddict-item]
-    if "sessionTimeoutMinutes" in data:
+    if data.get("sessionTimeoutMinutes") is not None:
         out["session_timeout_minutes"] = data["sessionTimeoutMinutes"]
     else:
         raise DeserializationError("SessionConfig.session_timeout_minutes required")

@@ -52,7 +52,7 @@ def serialize_json(value: PrivateEndpoint) -> dict:
 
 
 def deserialize_json(data: dict) -> PrivateEndpoint:
-    if "selfManagedLatticeResource" in data:
+    if data.get("selfManagedLatticeResource") is not None:
         import capo_bedrock_agentcore_control.types.self_managed_lattice_resource
 
         return {
@@ -60,7 +60,7 @@ def deserialize_json(data: dict) -> PrivateEndpoint:
                 data["selfManagedLatticeResource"]
             )
         }
-    elif "managedVpcResource" in data:
+    elif data.get("managedVpcResource") is not None:
         import capo_bedrock_agentcore_control.types.managed_vpc_resource
 
         return {

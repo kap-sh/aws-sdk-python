@@ -30,7 +30,7 @@ def serialize_json(value: DocumentExtractionGranularity) -> dict:
 
 def deserialize_json(data: dict) -> DocumentExtractionGranularity:
     out: DocumentExtractionGranularity = {}  # type: ignore[typeddict-item]
-    if "types" in data:
+    if data.get("types") is not None:
         import capo_bedrock_data_automation.types.document_extraction_granularity_types
 
         out["types"] = (

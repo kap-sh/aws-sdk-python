@@ -40,11 +40,11 @@ def serialize_json(value: ListDataAutomationLibrariesRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListDataAutomationLibrariesRequest:
     out: ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "projectFilter" in data:
+    if data.get("projectFilter") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_filter
 
         out["project_filter"] = (

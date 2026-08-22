@@ -89,19 +89,19 @@ def serialize_json(value: ModelInvocationInput) -> dict:
 
 def deserialize_json(data: dict) -> ModelInvocationInput:
     out: ModelInvocationInput = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "text" in data:
+    if data.get("text") is not None:
         out["text"] = data["text"]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.prompt_type
 
         out["type"] = capo_bedrock_agent_runtime.types.prompt_type.deserialize_json(
             data["type"]
         )
-    if "overrideLambda" in data:
+    if data.get("overrideLambda") is not None:
         out["override_lambda"] = data["overrideLambda"]
-    if "promptCreationMode" in data:
+    if data.get("promptCreationMode") is not None:
         import capo_bedrock_agent_runtime.types.creation_mode
 
         out["prompt_creation_mode"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> ModelInvocationInput:
                 data["promptCreationMode"]
             )
         )
-    if "inferenceConfiguration" in data:
+    if data.get("inferenceConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.inference_configuration
 
         out["inference_configuration"] = (
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> ModelInvocationInput:
                 data["inferenceConfiguration"]
             )
         )
-    if "parserMode" in data:
+    if data.get("parserMode") is not None:
         import capo_bedrock_agent_runtime.types.creation_mode
 
         out["parser_mode"] = (
@@ -125,6 +125,6 @@ def deserialize_json(data: dict) -> ModelInvocationInput:
                 data["parserMode"]
             )
         )
-    if "foundationModel" in data:
+    if data.get("foundationModel") is not None:
         out["foundation_model"] = data["foundationModel"]
     return out

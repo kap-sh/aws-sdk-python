@@ -90,10 +90,11 @@ class PaymentCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["credential_provider_vendor"] = credential_provider_vendor
-        input_["provider_configuration_input"] = provider_configuration_input
+        input_: capo_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {
+            "name": name,
+            "credential_provider_vendor": credential_provider_vendor,
+            "provider_configuration_input": provider_configuration_input,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -102,6 +103,7 @@ class PaymentCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -141,14 +143,16 @@ class PaymentCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -195,16 +199,18 @@ class PaymentCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["credential_provider_vendor"] = credential_provider_vendor
-        input_["provider_configuration_input"] = provider_configuration_input
+        input_: capo_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {
+            "name": name,
+            "credential_provider_vendor": credential_provider_vendor,
+            "provider_configuration_input": provider_configuration_input,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -243,14 +249,16 @@ class PaymentCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {
+            "name": name
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_payment_credential_providers(
@@ -291,7 +299,7 @@ class PaymentCredentialProvider:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -302,6 +310,7 @@ class PaymentCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -357,10 +366,11 @@ class AsyncPaymentCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["credential_provider_vendor"] = credential_provider_vendor
-        input_["provider_configuration_input"] = provider_configuration_input
+        input_: capo_bedrock_agentcore_control.types.create_payment_credential_provider_request.CreatePaymentCredentialProviderRequest = {
+            "name": name,
+            "credential_provider_vendor": credential_provider_vendor,
+            "provider_configuration_input": provider_configuration_input,
+        }
         if tags is not None:
             input_["tags"] = tags
 
@@ -369,6 +379,7 @@ class AsyncPaymentCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -409,14 +420,16 @@ class AsyncPaymentCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.get_payment_credential_provider_request.GetPaymentCredentialProviderRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -464,16 +477,18 @@ class AsyncPaymentCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
-        input_["credential_provider_vendor"] = credential_provider_vendor
-        input_["provider_configuration_input"] = provider_configuration_input
+        input_: capo_bedrock_agentcore_control.types.update_payment_credential_provider_request.UpdatePaymentCredentialProviderRequest = {
+            "name": name,
+            "credential_provider_vendor": credential_provider_vendor,
+            "provider_configuration_input": provider_configuration_input,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -513,14 +528,16 @@ class AsyncPaymentCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.delete_payment_credential_provider_request.DeletePaymentCredentialProviderRequest = {
+            "name": name
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_payment_credential_providers(
@@ -562,7 +579,7 @@ class AsyncPaymentCredentialProvider:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_payment_credential_providers_request.ListPaymentCredentialProvidersRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -573,4 +590,5 @@ class AsyncPaymentCredentialProvider:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

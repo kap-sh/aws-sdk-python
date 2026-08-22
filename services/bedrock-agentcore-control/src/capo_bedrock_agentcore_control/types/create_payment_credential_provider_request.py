@@ -53,13 +53,13 @@ def serialize_json(value: CreatePaymentCredentialProviderRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreatePaymentCredentialProviderRequest:
     out: CreatePaymentCredentialProviderRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError(
             "CreatePaymentCredentialProviderRequest.name required"
         )
-    if "credentialProviderVendor" in data:
+    if data.get("credentialProviderVendor") is not None:
         import capo_bedrock_agentcore_control.types.payment_credential_provider_vendor_type
 
         out["credential_provider_vendor"] = (
@@ -71,7 +71,7 @@ def deserialize_json(data: dict) -> CreatePaymentCredentialProviderRequest:
         raise DeserializationError(
             "CreatePaymentCredentialProviderRequest.credential_provider_vendor required"
         )
-    if "providerConfigurationInput" in data:
+    if data.get("providerConfigurationInput") is not None:
         import capo_bedrock_agentcore_control.types.payment_provider_configuration_input
 
         out["provider_configuration_input"] = (
@@ -83,7 +83,7 @@ def deserialize_json(data: dict) -> CreatePaymentCredentialProviderRequest:
         raise DeserializationError(
             "CreatePaymentCredentialProviderRequest.provider_configuration_input required"
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_agentcore_control.types.tags_map
 
         out["tags"] = capo_bedrock_agentcore_control.types.tags_map.deserialize_json(

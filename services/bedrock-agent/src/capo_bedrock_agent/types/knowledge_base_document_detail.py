@@ -56,19 +56,19 @@ def serialize_json(value: KnowledgeBaseDocumentDetail) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseDocumentDetail:
     out: KnowledgeBaseDocumentDetail = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError(
             "KnowledgeBaseDocumentDetail.knowledge_base_id required"
         )
-    if "dataSourceId" in data:
+    if data.get("dataSourceId") is not None:
         out["data_source_id"] = data["dataSourceId"]
     else:
         raise DeserializationError(
             "KnowledgeBaseDocumentDetail.data_source_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.document_status
 
         out["status"] = capo_bedrock_agent.types.document_status.deserialize_json(
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseDocumentDetail:
         )
     else:
         raise DeserializationError("KnowledgeBaseDocumentDetail.status required")
-    if "identifier" in data:
+    if data.get("identifier") is not None:
         import capo_bedrock_agent.types.document_identifier
 
         out["identifier"] = (
@@ -86,9 +86,9 @@ def deserialize_json(data: dict) -> KnowledgeBaseDocumentDetail:
         )
     else:
         raise DeserializationError("KnowledgeBaseDocumentDetail.identifier required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

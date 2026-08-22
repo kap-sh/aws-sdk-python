@@ -31,7 +31,7 @@ def serialize_json(value: EmbeddingModelConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> EmbeddingModelConfiguration:
     out: EmbeddingModelConfiguration = {}  # type: ignore[typeddict-item]
-    if "bedrockEmbeddingModelConfiguration" in data:
+    if data.get("bedrockEmbeddingModelConfiguration") is not None:
         import capo_bedrock_agent.types.bedrock_embedding_model_configuration
 
         out["bedrock_embedding_model_configuration"] = (

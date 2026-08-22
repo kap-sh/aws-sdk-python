@@ -59,13 +59,13 @@ def serialize_json(value: RegistryRecordOAuthCredentialProvider) -> dict:
 
 def deserialize_json(data: dict) -> RegistryRecordOAuthCredentialProvider:
     out: RegistryRecordOAuthCredentialProvider = {}  # type: ignore[typeddict-item]
-    if "providerArn" in data:
+    if data.get("providerArn") is not None:
         out["provider_arn"] = data["providerArn"]
     else:
         raise DeserializationError(
             "RegistryRecordOAuthCredentialProvider.provider_arn required"
         )
-    if "grantType" in data:
+    if data.get("grantType") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_o_auth_grant_type
 
         out["grant_type"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> RegistryRecordOAuthCredentialProvider:
                 data["grantType"]
             )
         )
-    if "scopes" in data:
+    if data.get("scopes") is not None:
         import capo_bedrock_agentcore_control.types.scope_list
 
         out["scopes"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> RegistryRecordOAuthCredentialProvider:
                 data["scopes"]
             )
         )
-    if "customParameters" in data:
+    if data.get("customParameters") is not None:
         import capo_bedrock_agentcore_control.types.custom_parameter_map
 
         out["custom_parameters"] = (

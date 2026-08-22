@@ -24,7 +24,7 @@ def serialize_json(value: PaymentCredentialProviderConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PaymentCredentialProviderConfiguration:
     out: PaymentCredentialProviderConfiguration = {}  # type: ignore[typeddict-item]
-    if "credentialProviderArn" in data:
+    if data.get("credentialProviderArn") is not None:
         out["credential_provider_arn"] = data["credentialProviderArn"]
     else:
         raise DeserializationError(

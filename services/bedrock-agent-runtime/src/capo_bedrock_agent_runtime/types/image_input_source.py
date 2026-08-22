@@ -29,7 +29,7 @@ def serialize_json(value: ImageInputSource) -> dict:
 
 
 def deserialize_json(data: dict) -> ImageInputSource:
-    if "bytes" in data:
+    if data.get("bytes") is not None:
         import capo_bedrock_agent_runtime.types._prelude.blob
 
         return {

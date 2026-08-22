@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> GeneratedQueries:
 
     out: GeneratedQueries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.generated_query.deserialize_json(item)
         )

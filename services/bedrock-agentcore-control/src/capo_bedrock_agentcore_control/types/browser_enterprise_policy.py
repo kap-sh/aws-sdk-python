@@ -43,7 +43,7 @@ def serialize_json(value: BrowserEnterprisePolicy) -> dict:
 
 def deserialize_json(data: dict) -> BrowserEnterprisePolicy:
     out: BrowserEnterprisePolicy = {}  # type: ignore[typeddict-item]
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_agentcore_control.types.resource_location
 
         out["location"] = (
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> BrowserEnterprisePolicy:
         )
     else:
         raise DeserializationError("BrowserEnterprisePolicy.location required")
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.browser_enterprise_policy_type
 
         out["type"] = (

@@ -52,7 +52,7 @@ def serialize_json(value: DocumentIdentifier) -> dict:
 
 def deserialize_json(data: dict) -> DocumentIdentifier:
     out: DocumentIdentifier = {}  # type: ignore[typeddict-item]
-    if "dataSourceType" in data:
+    if data.get("dataSourceType") is not None:
         import capo_bedrock_agent.types.content_data_source_type
 
         out["data_source_type"] = (
@@ -62,11 +62,11 @@ def deserialize_json(data: dict) -> DocumentIdentifier:
         )
     else:
         raise DeserializationError("DocumentIdentifier.data_source_type required")
-    if "s3" in data:
+    if data.get("s3") is not None:
         import capo_bedrock_agent.types.s3_location
 
         out["s3"] = capo_bedrock_agent.types.s3_location.deserialize_json(data["s3"])
-    if "custom" in data:
+    if data.get("custom") is not None:
         import capo_bedrock_agent.types.custom_document_identifier
 
         out["custom"] = (

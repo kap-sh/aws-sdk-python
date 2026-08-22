@@ -38,7 +38,7 @@ def serialize_json(value: UpdateBrowserStreamRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateBrowserStreamRequest:
     out: UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
-    if "streamUpdate" in data:
+    if data.get("streamUpdate") is not None:
         import capo_bedrock_agentcore.types.stream_update
 
         out["stream_update"] = (
@@ -48,6 +48,6 @@ def deserialize_json(data: dict) -> UpdateBrowserStreamRequest:
         )
     else:
         raise DeserializationError("UpdateBrowserStreamRequest.stream_update required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

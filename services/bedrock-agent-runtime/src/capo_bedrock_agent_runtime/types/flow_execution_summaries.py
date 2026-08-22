@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> FlowExecutionSummaries:
 
     out: FlowExecutionSummaries = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.flow_execution_summary.deserialize_json(
                 item

@@ -41,11 +41,11 @@ def serialize_json(value: CloudWatchLogsFilter) -> dict:
 
 def deserialize_json(data: dict) -> CloudWatchLogsFilter:
     out: CloudWatchLogsFilter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("CloudWatchLogsFilter.key required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agentcore.types.cloud_watch_logs_filter_operator
 
         out["operator"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> CloudWatchLogsFilter:
         )
     else:
         raise DeserializationError("CloudWatchLogsFilter.operator required")
-    if "value" in data:
+    if data.get("value") is not None:
         import capo_bedrock_agentcore.types.filter_value
 
         out["value"] = capo_bedrock_agentcore.types.filter_value.deserialize_json(

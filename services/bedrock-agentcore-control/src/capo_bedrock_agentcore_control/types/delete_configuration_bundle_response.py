@@ -34,13 +34,13 @@ def serialize_json(value: DeleteConfigurationBundleResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteConfigurationBundleResponse:
     out: DeleteConfigurationBundleResponse = {}  # type: ignore[typeddict-item]
-    if "bundleId" in data:
+    if data.get("bundleId") is not None:
         out["bundle_id"] = data["bundleId"]
     else:
         raise DeserializationError(
             "DeleteConfigurationBundleResponse.bundle_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.configuration_bundle_status
 
         out["status"] = (

@@ -53,7 +53,7 @@ def serialize_json(value: MemoryMetadataFilterExpression) -> dict:
 
 def deserialize_json(data: dict) -> MemoryMetadataFilterExpression:
     out: MemoryMetadataFilterExpression = {}  # type: ignore[typeddict-item]
-    if "left" in data:
+    if data.get("left") is not None:
         import capo_bedrock_agentcore.types.memory_record_left_expression
 
         out["left"] = (
@@ -63,7 +63,7 @@ def deserialize_json(data: dict) -> MemoryMetadataFilterExpression:
         )
     else:
         raise DeserializationError("MemoryMetadataFilterExpression.left required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agentcore.types.memory_record_operator_type
 
         out["operator"] = (
@@ -73,7 +73,7 @@ def deserialize_json(data: dict) -> MemoryMetadataFilterExpression:
         )
     else:
         raise DeserializationError("MemoryMetadataFilterExpression.operator required")
-    if "right" in data:
+    if data.get("right") is not None:
         import capo_bedrock_agentcore.types.memory_record_right_expression
 
         out["right"] = (

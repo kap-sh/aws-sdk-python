@@ -11,6 +11,7 @@ from typing_extensions import Never
 
 import capo_bedrock_agentcore_control._auth._signers
 import capo_bedrock_agentcore_control._auth._sigv4
+import capo_bedrock_agentcore_control._protocol.eventstream
 import capo_bedrock_agentcore_control.errors.access_denied_exception
 import capo_bedrock_agentcore_control.errors.internal_server_exception
 import capo_bedrock_agentcore_control.errors.resource_not_found_exception
@@ -48,23 +49,23 @@ def handle_error(response: zapros.Response) -> Never:
     match code:
         case "AccessDeniedException":
             raise capo_bedrock_agentcore_control.errors.access_denied_exception.AccessDeniedException.from_json(
-                data
+                data, message
             )
         case "InternalServerException":
             raise capo_bedrock_agentcore_control.errors.internal_server_exception.InternalServerException.from_json(
-                data
+                data, message
             )
         case "ResourceNotFoundException":
             raise capo_bedrock_agentcore_control.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
-                data
+                data, message
             )
         case "ThrottlingException":
             raise capo_bedrock_agentcore_control.errors.throttling_exception.ThrottlingException.from_json(
-                data
+                data, message
             )
         case "ValidationException":
             raise capo_bedrock_agentcore_control.errors.validation_exception.ValidationException.from_json(
-                data
+                data, message
             )
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
@@ -122,17 +123,16 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/runtimes/{agentRuntimeId}/"
-    url = url.replace(
-        "{agentRuntimeId}", quote(str(input_["agent_runtime_id"]), safe="")
-    )
-    params: dict[str, str] = {}
+    url = url.replace("{agentRuntimeId}", quote(input_["agent_runtime_id"], safe=""))
+    params: list[tuple[str, str]] = []
     if "agent_runtime_version" in input_:
-        params["version"] = str(input_["agent_runtime_version"])
+        params.append(("version", input_["agent_runtime_version"]))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
-    normalized_url.search_params.update(params)
+    for k, v in params:
+        normalized_url.search_params.append(k, v)
     return zapros.Request(
         normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )

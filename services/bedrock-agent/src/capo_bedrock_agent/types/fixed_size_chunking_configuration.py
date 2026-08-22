@@ -22,11 +22,11 @@ def serialize_json(value: FixedSizeChunkingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> FixedSizeChunkingConfiguration:
     out: FixedSizeChunkingConfiguration = {}  # type: ignore[typeddict-item]
-    if "maxTokens" in data:
+    if data.get("maxTokens") is not None:
         out["max_tokens"] = data["maxTokens"]
     else:
         raise DeserializationError("FixedSizeChunkingConfiguration.max_tokens required")
-    if "overlapPercentage" in data:
+    if data.get("overlapPercentage") is not None:
         out["overlap_percentage"] = data["overlapPercentage"]
     else:
         raise DeserializationError(

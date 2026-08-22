@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> AgentAliasHistoryEvents:
 
     out: AgentAliasHistoryEvents = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent.types.agent_alias_history_event.deserialize_json(item)
         )

@@ -56,7 +56,7 @@ def serialize_json(value: RedshiftQueryEngineStorageConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RedshiftQueryEngineStorageConfiguration:
     out: RedshiftQueryEngineStorageConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.redshift_query_engine_storage_type
 
         out["type"] = (
@@ -68,7 +68,7 @@ def deserialize_json(data: dict) -> RedshiftQueryEngineStorageConfiguration:
         raise DeserializationError(
             "RedshiftQueryEngineStorageConfiguration.type required"
         )
-    if "awsDataCatalogConfiguration" in data:
+    if data.get("awsDataCatalogConfiguration") is not None:
         import capo_bedrock_agent.types.redshift_query_engine_aws_data_catalog_storage_configuration
 
         out["aws_data_catalog_configuration"] = (
@@ -76,7 +76,7 @@ def deserialize_json(data: dict) -> RedshiftQueryEngineStorageConfiguration:
                 data["awsDataCatalogConfiguration"]
             )
         )
-    if "redshiftConfiguration" in data:
+    if data.get("redshiftConfiguration") is not None:
         import capo_bedrock_agent.types.redshift_query_engine_redshift_storage_configuration
 
         out["redshift_configuration"] = (

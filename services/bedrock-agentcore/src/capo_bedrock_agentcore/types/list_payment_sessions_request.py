@@ -43,14 +43,14 @@ def serialize_json(value: ListPaymentSessionsRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListPaymentSessionsRequest:
     out: ListPaymentSessionsRequest = {}  # type: ignore[typeddict-item]
-    if "paymentManagerArn" in data:
+    if data.get("paymentManagerArn") is not None:
         out["payment_manager_arn"] = data["paymentManagerArn"]
     else:
         raise DeserializationError(
             "ListPaymentSessionsRequest.payment_manager_arn required"
         )
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     return out

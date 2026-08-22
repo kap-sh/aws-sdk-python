@@ -35,11 +35,11 @@ def serialize_json(value: DataAutomationProjectFilter) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationProjectFilter:
     out: DataAutomationProjectFilter = {}  # type: ignore[typeddict-item]
-    if "projectArn" in data:
+    if data.get("projectArn") is not None:
         out["project_arn"] = data["projectArn"]
     else:
         raise DeserializationError("DataAutomationProjectFilter.project_arn required")
-    if "projectStage" in data:
+    if data.get("projectStage") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage
 
         out["project_stage"] = (

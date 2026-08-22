@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agent._auth._signers
@@ -87,18 +88,21 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["document_identifiers"] = document_identifiers
+        input_: capo_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "document_identifiers": document_identifiers,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def get_knowledge_base_documents(
@@ -141,16 +145,18 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["document_identifiers"] = document_identifiers
+        input_: capo_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "document_identifiers": document_identifiers,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def ingest_knowledge_base_documents(
@@ -197,18 +203,21 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["documents"] = documents
+        input_: capo_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "documents": documents,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list_knowledge_base_documents(
@@ -253,9 +262,10 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -266,6 +276,7 @@ class KnowledgeBaseDocumentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -318,18 +329,21 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["document_identifiers"] = document_identifiers
+        input_: capo_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "document_identifiers": document_identifiers,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def get_knowledge_base_documents(
@@ -373,16 +387,18 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        input_["document_identifiers"] = document_identifiers
+        input_: capo_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "document_identifiers": document_identifiers,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def ingest_knowledge_base_documents(
@@ -430,18 +446,21 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["documents"] = documents
+        input_: capo_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+            "documents": documents,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list_knowledge_base_documents(
@@ -487,9 +506,10 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["knowledge_base_id"] = knowledge_base_id
-        input_["data_source_id"] = data_source_id
+        input_: capo_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {
+            "knowledge_base_id": knowledge_base_id,
+            "data_source_id": data_source_id,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -500,4 +520,5 @@ class AsyncKnowledgeBaseDocumentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

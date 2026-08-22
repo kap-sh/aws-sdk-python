@@ -109,9 +109,9 @@ def serialize_json(value: UpdateRegistryRecordRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
     out: UpdateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "description" in data:
+    if data.get("description") is not None:
         import capo_bedrock_agentcore_control.types.updated_description
 
         out["description"] = (
@@ -119,7 +119,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
                 data["description"]
             )
         )
-    if "descriptorType" in data:
+    if data.get("descriptorType") is not None:
         import capo_bedrock_agentcore_control.types.descriptor_type
 
         out["descriptor_type"] = (
@@ -127,7 +127,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
                 data["descriptorType"]
             )
         )
-    if "descriptors" in data:
+    if data.get("descriptors") is not None:
         import capo_bedrock_agentcore_control.types.updated_descriptors
 
         out["descriptors"] = (
@@ -135,9 +135,9 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
                 data["descriptors"]
             )
         )
-    if "recordVersion" in data:
+    if data.get("recordVersion") is not None:
         out["record_version"] = data["recordVersion"]
-    if "synchronizationType" in data:
+    if data.get("synchronizationType") is not None:
         import capo_bedrock_agentcore_control.types.updated_synchronization_type
 
         out["synchronization_type"] = (
@@ -145,7 +145,7 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
                 data["synchronizationType"]
             )
         )
-    if "synchronizationConfiguration" in data:
+    if data.get("synchronizationConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.updated_synchronization_configuration
 
         out["synchronization_configuration"] = (
@@ -153,6 +153,6 @@ def deserialize_json(data: dict) -> UpdateRegistryRecordRequest:
                 data["synchronizationConfiguration"]
             )
         )
-    if "triggerSynchronization" in data:
+    if data.get("triggerSynchronization") is not None:
         out["trigger_synchronization"] = data["triggerSynchronization"]
     return out

@@ -29,7 +29,7 @@ def serialize_json(value: AudioStandardExtraction) -> dict:
 
 def deserialize_json(data: dict) -> AudioStandardExtraction:
     out: AudioStandardExtraction = {}  # type: ignore[typeddict-item]
-    if "category" in data:
+    if data.get("category") is not None:
         import capo_bedrock_data_automation.types.audio_extraction_category
 
         out["category"] = (

@@ -60,11 +60,11 @@ def serialize_json(value: FlowTraceNodeOutputField) -> dict:
 
 def deserialize_json(data: dict) -> FlowTraceNodeOutputField:
     out: FlowTraceNodeOutputField = {}  # type: ignore[typeddict-item]
-    if "nodeOutputName" in data:
+    if data.get("nodeOutputName") is not None:
         out["node_output_name"] = data["nodeOutputName"]
     else:
         raise DeserializationError("FlowTraceNodeOutputField.node_output_name required")
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_output_content
 
         out["content"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeOutputField:
         )
     else:
         raise DeserializationError("FlowTraceNodeOutputField.content required")
-    if "next" in data:
+    if data.get("next") is not None:
         import capo_bedrock_agent_runtime.types.flow_trace_node_output_next_list
 
         out["next"] = (
@@ -82,7 +82,7 @@ def deserialize_json(data: dict) -> FlowTraceNodeOutputField:
                 data["next"]
             )
         )
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent_runtime.types.flow_node_io_data_type
 
         out["type"] = (

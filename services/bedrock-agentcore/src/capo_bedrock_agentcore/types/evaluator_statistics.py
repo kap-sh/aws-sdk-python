@@ -12,12 +12,20 @@ class EvaluatorStatistics(TypedDict, closed=True):
 def serialize_json(value: EvaluatorStatistics) -> dict:
     out: dict = {}
     if "average_score" in value:
-        out["averageScore"] = value["average_score"]
+        out["averageScore"] = (
+            "NaN"
+            if value["average_score"] != value["average_score"]
+            else "Infinity"
+            if value["average_score"] == float("inf")
+            else "-Infinity"
+            if value["average_score"] == float("-inf")
+            else value["average_score"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> EvaluatorStatistics:
     out: EvaluatorStatistics = {}  # type: ignore[typeddict-item]
-    if "averageScore" in data:
-        out["average_score"] = data["averageScore"]
+    if data.get("averageScore") is not None:
+        out["average_score"] = float(data["averageScore"])
     return out

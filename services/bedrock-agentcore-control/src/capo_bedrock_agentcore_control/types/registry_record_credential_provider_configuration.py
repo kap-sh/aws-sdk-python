@@ -40,7 +40,7 @@ def serialize_json(value: RegistryRecordCredentialProviderConfiguration) -> dict
 
 def deserialize_json(data: dict) -> RegistryRecordCredentialProviderConfiguration:
     out: RegistryRecordCredentialProviderConfiguration = {}  # type: ignore[typeddict-item]
-    if "credentialProviderType" in data:
+    if data.get("credentialProviderType") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_credential_provider_type
 
         out["credential_provider_type"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> RegistryRecordCredentialProviderConfiguratio
         raise DeserializationError(
             "RegistryRecordCredentialProviderConfiguration.credential_provider_type required"
         )
-    if "credentialProvider" in data:
+    if data.get("credentialProvider") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_credential_provider_union
 
         out["credential_provider"] = (

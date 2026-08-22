@@ -41,11 +41,11 @@ def serialize_json(value: Filter) -> dict:
 
 def deserialize_json(data: dict) -> Filter:
     out: Filter = {}  # type: ignore[typeddict-item]
-    if "key" in data:
+    if data.get("key") is not None:
         out["key"] = data["key"]
     else:
         raise DeserializationError("Filter.key required")
-    if "operator" in data:
+    if data.get("operator") is not None:
         import capo_bedrock_agentcore_control.types.filter_operator
 
         out["operator"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> Filter:
         )
     else:
         raise DeserializationError("Filter.operator required")
-    if "value" in data:
+    if data.get("value") is not None:
         import capo_bedrock_agentcore_control.types.filter_value
 
         out["value"] = (

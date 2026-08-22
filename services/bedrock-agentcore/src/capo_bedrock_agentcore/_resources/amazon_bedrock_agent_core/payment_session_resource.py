@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore._auth._signers
@@ -96,23 +97,26 @@ class PaymentSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_payment_session_request.CreatePaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.create_payment_session_request.CreatePaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "expiry_time_in_minutes": expiry_time_in_minutes,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if limits is not None:
             input_["limits"] = limits
-        input_["expiry_time_in_minutes"] = expiry_time_in_minutes
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -158,19 +162,21 @@ class PaymentSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_session_request.GetPaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_session_request.GetPaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -212,17 +218,19 @@ class PaymentSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_payment_session_request.DeletePaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.delete_payment_session_request.DeletePaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -271,12 +279,13 @@ class PaymentSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_payment_sessions_request.ListPaymentSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_payment_sessions_request.ListPaymentSessionsRequest = {
+            "payment_manager_arn": payment_manager_arn
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -287,6 +296,7 @@ class PaymentSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -347,23 +357,26 @@ class AsyncPaymentSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.create_payment_session_request.CreatePaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.create_payment_session_request.CreatePaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "expiry_time_in_minutes": expiry_time_in_minutes,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if limits is not None:
             input_["limits"] = limits
-        input_["expiry_time_in_minutes"] = expiry_time_in_minutes
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -410,19 +423,21 @@ class AsyncPaymentSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.get_payment_session_request.GetPaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.get_payment_session_request.GetPaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -465,17 +480,19 @@ class AsyncPaymentSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.delete_payment_session_request.DeletePaymentSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.delete_payment_session_request.DeletePaymentSessionRequest = {
+            "payment_manager_arn": payment_manager_arn,
+            "payment_session_id": payment_session_id,
+        }
         if user_id is not None:
             input_["user_id"] = user_id
-        input_["payment_manager_arn"] = payment_manager_arn
-        input_["payment_session_id"] = payment_session_id
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -525,12 +542,13 @@ class AsyncPaymentSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.list_payment_sessions_request.ListPaymentSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore.types.list_payment_sessions_request.ListPaymentSessionsRequest = {
+            "payment_manager_arn": payment_manager_arn
+        }
         if user_id is not None:
             input_["user_id"] = user_id
         if agent_name is not None:
             input_["agent_name"] = agent_name
-        input_["payment_manager_arn"] = payment_manager_arn
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -541,4 +559,5 @@ class AsyncPaymentSessionResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

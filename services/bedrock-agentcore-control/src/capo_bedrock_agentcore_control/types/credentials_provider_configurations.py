@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> CredentialsProviderConfigurations:
 
     out: CredentialsProviderConfigurations = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore_control.types.credentials_provider_configuration.deserialize_json(
                 item

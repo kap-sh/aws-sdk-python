@@ -41,7 +41,7 @@ def serialize_json(value: BrowserNetworkConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> BrowserNetworkConfiguration:
     out: BrowserNetworkConfiguration = {}  # type: ignore[typeddict-item]
-    if "networkMode" in data:
+    if data.get("networkMode") is not None:
         import capo_bedrock_agentcore_control.types.browser_network_mode
 
         out["network_mode"] = (
@@ -51,7 +51,7 @@ def deserialize_json(data: dict) -> BrowserNetworkConfiguration:
         )
     else:
         out["network_mode"] = "PUBLIC"
-    if "vpcConfig" in data:
+    if data.get("vpcConfig") is not None:
         import capo_bedrock_agentcore_control.types.vpc_config
 
         out["vpc_config"] = (

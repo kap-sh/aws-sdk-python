@@ -33,7 +33,7 @@ def serialize_json(value: ListPromptsResponse) -> dict:
 
 def deserialize_json(data: dict) -> ListPromptsResponse:
     out: ListPromptsResponse = {}  # type: ignore[typeddict-item]
-    if "promptSummaries" in data:
+    if data.get("promptSummaries") is not None:
         import capo_bedrock_agent.types.prompt_summaries
 
         out["prompt_summaries"] = (
@@ -43,6 +43,6 @@ def deserialize_json(data: dict) -> ListPromptsResponse:
         )
     else:
         raise DeserializationError("ListPromptsResponse.prompt_summaries required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

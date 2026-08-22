@@ -129,27 +129,27 @@ def serialize_json(value: AgentActionGroup) -> dict:
 
 def deserialize_json(data: dict) -> AgentActionGroup:
     out: AgentActionGroup = {}  # type: ignore[typeddict-item]
-    if "agentId" in data:
+    if data.get("agentId") is not None:
         out["agent_id"] = data["agentId"]
     else:
         raise DeserializationError("AgentActionGroup.agent_id required")
-    if "agentVersion" in data:
+    if data.get("agentVersion") is not None:
         out["agent_version"] = data["agentVersion"]
     else:
         raise DeserializationError("AgentActionGroup.agent_version required")
-    if "actionGroupId" in data:
+    if data.get("actionGroupId") is not None:
         out["action_group_id"] = data["actionGroupId"]
     else:
         raise DeserializationError("AgentActionGroup.action_group_id required")
-    if "actionGroupName" in data:
+    if data.get("actionGroupName") is not None:
         out["action_group_name"] = data["actionGroupName"]
     else:
         raise DeserializationError("AgentActionGroup.action_group_name required")
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -157,7 +157,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
         )
     else:
         raise DeserializationError("AgentActionGroup.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -165,7 +165,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
         )
     else:
         raise DeserializationError("AgentActionGroup.updated_at required")
-    if "parentActionSignature" in data:
+    if data.get("parentActionSignature") is not None:
         import capo_bedrock_agent.types.action_group_signature
 
         out["parent_action_signature"] = (
@@ -173,7 +173,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["parentActionSignature"]
             )
         )
-    if "parentActionGroupSignatureParams" in data:
+    if data.get("parentActionGroupSignatureParams") is not None:
         import capo_bedrock_agent.types.action_group_signature_params
 
         out["parent_action_group_signature_params"] = (
@@ -181,7 +181,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["parentActionGroupSignatureParams"]
             )
         )
-    if "actionGroupExecutor" in data:
+    if data.get("actionGroupExecutor") is not None:
         import capo_bedrock_agent.types.action_group_executor
 
         out["action_group_executor"] = (
@@ -189,13 +189,13 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["actionGroupExecutor"]
             )
         )
-    if "apiSchema" in data:
+    if data.get("apiSchema") is not None:
         import capo_bedrock_agent.types.api_schema
 
         out["api_schema"] = capo_bedrock_agent.types.api_schema.deserialize_json(
             data["apiSchema"]
         )
-    if "functionSchema" in data:
+    if data.get("functionSchema") is not None:
         import capo_bedrock_agent.types.function_schema
 
         out["function_schema"] = (
@@ -203,7 +203,7 @@ def deserialize_json(data: dict) -> AgentActionGroup:
                 data["functionSchema"]
             )
         )
-    if "actionGroupState" in data:
+    if data.get("actionGroupState") is not None:
         import capo_bedrock_agent.types.action_group_state
 
         out["action_group_state"] = (

@@ -51,7 +51,7 @@ def serialize_json(value: AudioExtractionCategory) -> dict:
 
 def deserialize_json(data: dict) -> AudioExtractionCategory:
     out: AudioExtractionCategory = {}  # type: ignore[typeddict-item]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_bedrock_data_automation.types.state
 
         out["state"] = capo_bedrock_data_automation.types.state.deserialize_json(
@@ -59,7 +59,7 @@ def deserialize_json(data: dict) -> AudioExtractionCategory:
         )
     else:
         raise DeserializationError("AudioExtractionCategory.state required")
-    if "types" in data:
+    if data.get("types") is not None:
         import capo_bedrock_data_automation.types.audio_extraction_category_types
 
         out["types"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> AudioExtractionCategory:
                 data["types"]
             )
         )
-    if "typeConfiguration" in data:
+    if data.get("typeConfiguration") is not None:
         import capo_bedrock_data_automation.types.audio_extraction_category_type_configuration
 
         out["type_configuration"] = (

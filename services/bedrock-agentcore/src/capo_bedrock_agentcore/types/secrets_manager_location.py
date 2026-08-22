@@ -24,7 +24,7 @@ def serialize_json(value: SecretsManagerLocation) -> dict:
 
 def deserialize_json(data: dict) -> SecretsManagerLocation:
     out: SecretsManagerLocation = {}  # type: ignore[typeddict-item]
-    if "secretArn" in data:
+    if data.get("secretArn") is not None:
         out["secret_arn"] = data["secretArn"]
     else:
         raise DeserializationError("SecretsManagerLocation.secret_arn required")

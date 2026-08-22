@@ -16,4 +16,4 @@ def serialize_json(value: StatusReasons) -> list:
 
 
 def deserialize_json(data: list) -> StatusReasons:
-    return list(data)
+    return [item for item in data if item is not None]

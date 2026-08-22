@@ -40,11 +40,11 @@ def serialize_json(value: NodeInputEvent) -> dict:
 
 def deserialize_json(data: dict) -> NodeInputEvent:
     out: NodeInputEvent = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
     else:
         raise DeserializationError("NodeInputEvent.node_name required")
-    if "timestamp" in data:
+    if data.get("timestamp") is not None:
         import capo_bedrock_agent_runtime.types.date_timestamp
 
         out["timestamp"] = (
@@ -54,7 +54,7 @@ def deserialize_json(data: dict) -> NodeInputEvent:
         )
     else:
         raise DeserializationError("NodeInputEvent.timestamp required")
-    if "fields" in data:
+    if data.get("fields") is not None:
         import capo_bedrock_agent_runtime.types.node_input_fields
 
         out["fields"] = (

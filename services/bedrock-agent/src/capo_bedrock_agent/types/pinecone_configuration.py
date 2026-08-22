@@ -49,19 +49,19 @@ def serialize_json(value: PineconeConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> PineconeConfiguration:
     out: PineconeConfiguration = {}  # type: ignore[typeddict-item]
-    if "connectionString" in data:
+    if data.get("connectionString") is not None:
         out["connection_string"] = data["connectionString"]
     else:
         raise DeserializationError("PineconeConfiguration.connection_string required")
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError(
             "PineconeConfiguration.credentials_secret_arn required"
         )
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
-    if "fieldMapping" in data:
+    if data.get("fieldMapping") is not None:
         import capo_bedrock_agent.types.pinecone_field_mapping
 
         out["field_mapping"] = (

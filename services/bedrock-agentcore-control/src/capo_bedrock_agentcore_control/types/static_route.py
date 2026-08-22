@@ -24,7 +24,7 @@ def serialize_json(value: StaticRoute) -> dict:
 
 def deserialize_json(data: dict) -> StaticRoute:
     out: StaticRoute = {}  # type: ignore[typeddict-item]
-    if "targetName" in data:
+    if data.get("targetName") is not None:
         out["target_name"] = data["targetName"]
     else:
         raise DeserializationError("StaticRoute.target_name required")

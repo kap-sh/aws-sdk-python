@@ -26,7 +26,7 @@ def serialize_json(value: ModalityProcessingConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ModalityProcessingConfiguration:
     out: ModalityProcessingConfiguration = {}  # type: ignore[typeddict-item]
-    if "state" in data:
+    if data.get("state") is not None:
         import capo_bedrock_data_automation.types.state
 
         out["state"] = capo_bedrock_data_automation.types.state.deserialize_json(

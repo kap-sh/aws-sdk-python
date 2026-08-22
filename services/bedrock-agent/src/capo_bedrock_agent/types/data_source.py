@@ -121,19 +121,19 @@ def serialize_json(value: DataSource) -> dict:
 
 def deserialize_json(data: dict) -> DataSource:
     out: DataSource = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("DataSource.knowledge_base_id required")
-    if "dataSourceId" in data:
+    if data.get("dataSourceId") is not None:
         out["data_source_id"] = data["dataSourceId"]
     else:
         raise DeserializationError("DataSource.data_source_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DataSource.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.data_source_status
 
         out["status"] = capo_bedrock_agent.types.data_source_status.deserialize_json(
@@ -141,9 +141,9 @@ def deserialize_json(data: dict) -> DataSource:
         )
     else:
         raise DeserializationError("DataSource.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "dataSourceConfiguration" in data:
+    if data.get("dataSourceConfiguration") is not None:
         import capo_bedrock_agent.types.data_source_configuration
 
         out["data_source_configuration"] = (
@@ -153,7 +153,7 @@ def deserialize_json(data: dict) -> DataSource:
         )
     else:
         raise DeserializationError("DataSource.data_source_configuration required")
-    if "serverSideEncryptionConfiguration" in data:
+    if data.get("serverSideEncryptionConfiguration") is not None:
         import capo_bedrock_agent.types.server_side_encryption_configuration
 
         out["server_side_encryption_configuration"] = (
@@ -161,7 +161,7 @@ def deserialize_json(data: dict) -> DataSource:
                 data["serverSideEncryptionConfiguration"]
             )
         )
-    if "vectorIngestionConfiguration" in data:
+    if data.get("vectorIngestionConfiguration") is not None:
         import capo_bedrock_agent.types.vector_ingestion_configuration
 
         out["vector_ingestion_configuration"] = (
@@ -169,7 +169,7 @@ def deserialize_json(data: dict) -> DataSource:
                 data["vectorIngestionConfiguration"]
             )
         )
-    if "dataDeletionPolicy" in data:
+    if data.get("dataDeletionPolicy") is not None:
         import capo_bedrock_agent.types.data_deletion_policy
 
         out["data_deletion_policy"] = (
@@ -177,7 +177,7 @@ def deserialize_json(data: dict) -> DataSource:
                 data["dataDeletionPolicy"]
             )
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -185,7 +185,7 @@ def deserialize_json(data: dict) -> DataSource:
         )
     else:
         raise DeserializationError("DataSource.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -193,7 +193,7 @@ def deserialize_json(data: dict) -> DataSource:
         )
     else:
         raise DeserializationError("DataSource.updated_at required")
-    if "failureReasons" in data:
+    if data.get("failureReasons") is not None:
         import capo_bedrock_agent.types.failure_reasons
 
         out["failure_reasons"] = (

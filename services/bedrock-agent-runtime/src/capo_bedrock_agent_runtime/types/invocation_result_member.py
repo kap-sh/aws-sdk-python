@@ -47,7 +47,7 @@ def serialize_json(value: InvocationResultMember) -> dict:
 
 
 def deserialize_json(data: dict) -> InvocationResultMember:
-    if "apiResult" in data:
+    if data.get("apiResult") is not None:
         import capo_bedrock_agent_runtime.types.api_result
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> InvocationResultMember:
                 data["apiResult"]
             )
         }
-    elif "functionResult" in data:
+    elif data.get("functionResult") is not None:
         import capo_bedrock_agent_runtime.types.function_result
 
         return {

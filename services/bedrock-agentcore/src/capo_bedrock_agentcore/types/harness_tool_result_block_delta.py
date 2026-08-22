@@ -35,9 +35,9 @@ def serialize_json(value: HarnessToolResultBlockDelta) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessToolResultBlockDelta:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "json" in data:
+    elif data.get("json") is not None:
         return {"json": data["json"]}
     else:
         raise DeserializationError(

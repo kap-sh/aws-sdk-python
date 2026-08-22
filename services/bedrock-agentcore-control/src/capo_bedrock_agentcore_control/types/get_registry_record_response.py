@@ -135,25 +135,25 @@ def serialize_json(value: GetRegistryRecordResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetRegistryRecordResponse:
     out: GetRegistryRecordResponse = {}  # type: ignore[typeddict-item]
-    if "registryArn" in data:
+    if data.get("registryArn") is not None:
         out["registry_arn"] = data["registryArn"]
     else:
         raise DeserializationError("GetRegistryRecordResponse.registry_arn required")
-    if "recordArn" in data:
+    if data.get("recordArn") is not None:
         out["record_arn"] = data["recordArn"]
     else:
         raise DeserializationError("GetRegistryRecordResponse.record_arn required")
-    if "recordId" in data:
+    if data.get("recordId") is not None:
         out["record_id"] = data["recordId"]
     else:
         raise DeserializationError("GetRegistryRecordResponse.record_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("GetRegistryRecordResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "descriptorType" in data:
+    if data.get("descriptorType") is not None:
         import capo_bedrock_agentcore_control.types.descriptor_type
 
         out["descriptor_type"] = (
@@ -163,7 +163,7 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
         )
     else:
         raise DeserializationError("GetRegistryRecordResponse.descriptor_type required")
-    if "descriptors" in data:
+    if data.get("descriptors") is not None:
         import capo_bedrock_agentcore_control.types.descriptors
 
         out["descriptors"] = (
@@ -173,9 +173,9 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
         )
     else:
         raise DeserializationError("GetRegistryRecordResponse.descriptors required")
-    if "recordVersion" in data:
+    if data.get("recordVersion") is not None:
         out["record_version"] = data["recordVersion"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.registry_record_status
 
         out["status"] = (
@@ -185,7 +185,7 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
         )
     else:
         raise DeserializationError("GetRegistryRecordResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -195,7 +195,7 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
         )
     else:
         raise DeserializationError("GetRegistryRecordResponse.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -205,9 +205,9 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
         )
     else:
         raise DeserializationError("GetRegistryRecordResponse.updated_at required")
-    if "statusReason" in data:
+    if data.get("statusReason") is not None:
         out["status_reason"] = data["statusReason"]
-    if "synchronizationType" in data:
+    if data.get("synchronizationType") is not None:
         import capo_bedrock_agentcore_control.types.synchronization_type
 
         out["synchronization_type"] = (
@@ -215,7 +215,7 @@ def deserialize_json(data: dict) -> GetRegistryRecordResponse:
                 data["synchronizationType"]
             )
         )
-    if "synchronizationConfiguration" in data:
+    if data.get("synchronizationConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.synchronization_configuration
 
         out["synchronization_configuration"] = (

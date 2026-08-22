@@ -61,19 +61,19 @@ def serialize_json(value: ListMemoryRecordsInput) -> dict:
 
 def deserialize_json(data: dict) -> ListMemoryRecordsInput:
     out: ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-    if "namespace" in data:
+    if data.get("namespace") is not None:
         out["namespace"] = data["namespace"]
-    if "namespacePath" in data:
+    if data.get("namespacePath") is not None:
         out["namespace_path"] = data["namespacePath"]
-    if "memoryStrategyId" in data:
+    if data.get("memoryStrategyId") is not None:
         out["memory_strategy_id"] = data["memoryStrategyId"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 100
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "metadataFilters" in data:
+    if data.get("metadataFilters") is not None:
         import capo_bedrock_agentcore.types.memory_metadata_filter_list
 
         out["metadata_filters"] = (

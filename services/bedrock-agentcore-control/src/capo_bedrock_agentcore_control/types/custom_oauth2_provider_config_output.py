@@ -91,7 +91,7 @@ def serialize_json(value: CustomOauth2ProviderConfigOutput) -> dict:
 
 def deserialize_json(data: dict) -> CustomOauth2ProviderConfigOutput:
     out: CustomOauth2ProviderConfigOutput = {}  # type: ignore[typeddict-item]
-    if "oauthDiscovery" in data:
+    if data.get("oauthDiscovery") is not None:
         import capo_bedrock_agentcore_control.types.oauth2_discovery
 
         out["oauth_discovery"] = (
@@ -103,9 +103,9 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigOutput:
         raise DeserializationError(
             "CustomOauth2ProviderConfigOutput.oauth_discovery required"
         )
-    if "clientId" in data:
+    if data.get("clientId") is not None:
         out["client_id"] = data["clientId"]
-    if "privateEndpoint" in data:
+    if data.get("privateEndpoint") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint
 
         out["private_endpoint"] = (
@@ -113,7 +113,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigOutput:
                 data["privateEndpoint"]
             )
         )
-    if "privateEndpointOverrides" in data:
+    if data.get("privateEndpointOverrides") is not None:
         import capo_bedrock_agentcore_control.types.private_endpoint_overrides
 
         out["private_endpoint_overrides"] = (
@@ -121,7 +121,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigOutput:
                 data["privateEndpointOverrides"]
             )
         )
-    if "onBehalfOfTokenExchangeConfig" in data:
+    if data.get("onBehalfOfTokenExchangeConfig") is not None:
         import capo_bedrock_agentcore_control.types.on_behalf_of_token_exchange_config_type
 
         out["on_behalf_of_token_exchange_config"] = (
@@ -129,7 +129,7 @@ def deserialize_json(data: dict) -> CustomOauth2ProviderConfigOutput:
                 data["onBehalfOfTokenExchangeConfig"]
             )
         )
-    if "clientAuthenticationMethod" in data:
+    if data.get("clientAuthenticationMethod") is not None:
         import capo_bedrock_agentcore_control.types.client_authentication_method_type
 
         out["client_authentication_method"] = (

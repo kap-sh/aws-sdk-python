@@ -20,7 +20,7 @@ def serialize_json(value: AnalyzePromptEvent) -> dict:
 
 def deserialize_json(data: dict) -> AnalyzePromptEvent:
     out: AnalyzePromptEvent = {}  # type: ignore[typeddict-item]
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out
 

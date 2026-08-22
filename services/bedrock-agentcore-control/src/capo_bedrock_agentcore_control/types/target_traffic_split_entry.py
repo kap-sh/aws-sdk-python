@@ -47,21 +47,21 @@ def serialize_json(value: TargetTrafficSplitEntry) -> dict:
 
 def deserialize_json(data: dict) -> TargetTrafficSplitEntry:
     out: TargetTrafficSplitEntry = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("TargetTrafficSplitEntry.name required")
-    if "weight" in data:
+    if data.get("weight") is not None:
         out["weight"] = data["weight"]
     else:
         raise DeserializationError("TargetTrafficSplitEntry.weight required")
-    if "targetName" in data:
+    if data.get("targetName") is not None:
         out["target_name"] = data["targetName"]
     else:
         raise DeserializationError("TargetTrafficSplitEntry.target_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agentcore_control.types.traffic_split_metadata_map
 
         out["metadata"] = (

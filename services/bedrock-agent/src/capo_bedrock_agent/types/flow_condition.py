@@ -31,10 +31,10 @@ def serialize_json(value: FlowCondition) -> dict:
 
 def deserialize_json(data: dict) -> FlowCondition:
     out: FlowCondition = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("FlowCondition.name required")
-    if "expression" in data:
+    if data.get("expression") is not None:
         out["expression"] = data["expression"]
     return out

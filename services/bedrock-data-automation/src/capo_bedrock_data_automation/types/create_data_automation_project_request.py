@@ -121,15 +121,15 @@ def serialize_json(value: CreateDataAutomationProjectRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
     out: CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-    if "projectName" in data:
+    if data.get("projectName") is not None:
         out["project_name"] = data["projectName"]
     else:
         raise DeserializationError(
             "CreateDataAutomationProjectRequest.project_name required"
         )
-    if "projectDescription" in data:
+    if data.get("projectDescription") is not None:
         out["project_description"] = data["projectDescription"]
-    if "projectStage" in data:
+    if data.get("projectStage") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage
 
         out["project_stage"] = (
@@ -137,7 +137,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
                 data["projectStage"]
             )
         )
-    if "projectType" in data:
+    if data.get("projectType") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_type
 
         out["project_type"] = (
@@ -147,7 +147,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
         )
     else:
         out["project_type"] = "ASYNC"
-    if "standardOutputConfiguration" in data:
+    if data.get("standardOutputConfiguration") is not None:
         import capo_bedrock_data_automation.types.standard_output_configuration
 
         out["standard_output_configuration"] = (
@@ -159,7 +159,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
         raise DeserializationError(
             "CreateDataAutomationProjectRequest.standard_output_configuration required"
         )
-    if "customOutputConfiguration" in data:
+    if data.get("customOutputConfiguration") is not None:
         import capo_bedrock_data_automation.types.custom_output_configuration
 
         out["custom_output_configuration"] = (
@@ -167,7 +167,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
                 data["customOutputConfiguration"]
             )
         )
-    if "overrideConfiguration" in data:
+    if data.get("overrideConfiguration") is not None:
         import capo_bedrock_data_automation.types.override_configuration
 
         out["override_configuration"] = (
@@ -175,7 +175,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
                 data["overrideConfiguration"]
             )
         )
-    if "dataAutomationLibraryConfiguration" in data:
+    if data.get("dataAutomationLibraryConfiguration") is not None:
         import capo_bedrock_data_automation.types.data_automation_library_configuration
 
         out["data_automation_library_configuration"] = (
@@ -183,9 +183,9 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
                 data["dataAutomationLibraryConfiguration"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "encryptionConfiguration" in data:
+    if data.get("encryptionConfiguration") is not None:
         import capo_bedrock_data_automation.types.encryption_configuration
 
         out["encryption_configuration"] = (
@@ -193,7 +193,7 @@ def deserialize_json(data: dict) -> CreateDataAutomationProjectRequest:
                 data["encryptionConfiguration"]
             )
         )
-    if "tags" in data:
+    if data.get("tags") is not None:
         import capo_bedrock_data_automation.types.tag_list
 
         out["tags"] = capo_bedrock_data_automation.types.tag_list.deserialize_json(

@@ -77,7 +77,7 @@ def serialize_json(value: MCPGatewayConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> MCPGatewayConfiguration:
     out: MCPGatewayConfiguration = {}  # type: ignore[typeddict-item]
-    if "supportedVersions" in data:
+    if data.get("supportedVersions") is not None:
         import capo_bedrock_agentcore_control.types.mcp_supported_versions
 
         out["supported_versions"] = (
@@ -85,9 +85,9 @@ def deserialize_json(data: dict) -> MCPGatewayConfiguration:
                 data["supportedVersions"]
             )
         )
-    if "instructions" in data:
+    if data.get("instructions") is not None:
         out["instructions"] = data["instructions"]
-    if "searchType" in data:
+    if data.get("searchType") is not None:
         import capo_bedrock_agentcore_control.types.search_type
 
         out["search_type"] = (
@@ -95,7 +95,7 @@ def deserialize_json(data: dict) -> MCPGatewayConfiguration:
                 data["searchType"]
             )
         )
-    if "sessionConfiguration" in data:
+    if data.get("sessionConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.session_configuration
 
         out["session_configuration"] = (
@@ -103,7 +103,7 @@ def deserialize_json(data: dict) -> MCPGatewayConfiguration:
                 data["sessionConfiguration"]
             )
         )
-    if "streamingConfiguration" in data:
+    if data.get("streamingConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.streaming_configuration
 
         out["streaming_configuration"] = (

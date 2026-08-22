@@ -14,4 +14,4 @@ def serialize_json(value: S3Prefixes) -> list:
 
 
 def deserialize_json(data: list) -> S3Prefixes:
-    return list(data)
+    return [item for item in data if item is not None]

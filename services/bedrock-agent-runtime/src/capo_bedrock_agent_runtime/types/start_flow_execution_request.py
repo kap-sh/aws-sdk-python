@@ -56,9 +56,9 @@ def serialize_json(value: StartFlowExecutionRequest) -> dict:
 
 def deserialize_json(data: dict) -> StartFlowExecutionRequest:
     out: StartFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-    if "flowExecutionName" in data:
+    if data.get("flowExecutionName") is not None:
         out["flow_execution_name"] = data["flowExecutionName"]
-    if "inputs" in data:
+    if data.get("inputs") is not None:
         import capo_bedrock_agent_runtime.types.flow_inputs
 
         out["inputs"] = capo_bedrock_agent_runtime.types.flow_inputs.deserialize_json(
@@ -66,7 +66,7 @@ def deserialize_json(data: dict) -> StartFlowExecutionRequest:
         )
     else:
         raise DeserializationError("StartFlowExecutionRequest.inputs required")
-    if "modelPerformanceConfiguration" in data:
+    if data.get("modelPerformanceConfiguration") is not None:
         import capo_bedrock_agent_runtime.types.model_performance_configuration
 
         out["model_performance_configuration"] = (

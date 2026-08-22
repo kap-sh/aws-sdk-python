@@ -40,9 +40,9 @@ def serialize_json(value: FlowExecutionError) -> dict:
 
 def deserialize_json(data: dict) -> FlowExecutionError:
     out: FlowExecutionError = {}  # type: ignore[typeddict-item]
-    if "nodeName" in data:
+    if data.get("nodeName") is not None:
         out["node_name"] = data["nodeName"]
-    if "error" in data:
+    if data.get("error") is not None:
         import capo_bedrock_agent_runtime.types.flow_execution_error_type
 
         out["error"] = (
@@ -50,6 +50,6 @@ def deserialize_json(data: dict) -> FlowExecutionError:
                 data["error"]
             )
         )
-    if "message" in data:
+    if data.get("message") is not None:
         out["message"] = data["message"]
     return out

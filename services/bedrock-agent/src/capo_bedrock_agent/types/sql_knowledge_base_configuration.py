@@ -41,7 +41,7 @@ def serialize_json(value: SqlKnowledgeBaseConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> SqlKnowledgeBaseConfiguration:
     out: SqlKnowledgeBaseConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.query_engine_type
 
         out["type"] = capo_bedrock_agent.types.query_engine_type.deserialize_json(
@@ -49,7 +49,7 @@ def deserialize_json(data: dict) -> SqlKnowledgeBaseConfiguration:
         )
     else:
         raise DeserializationError("SqlKnowledgeBaseConfiguration.type required")
-    if "redshiftConfiguration" in data:
+    if data.get("redshiftConfiguration") is not None:
         import capo_bedrock_agent.types.redshift_configuration
 
         out["redshift_configuration"] = (

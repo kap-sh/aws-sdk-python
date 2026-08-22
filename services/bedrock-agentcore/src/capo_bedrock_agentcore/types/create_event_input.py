@@ -73,13 +73,13 @@ def serialize_json(value: CreateEventInput) -> dict:
 
 def deserialize_json(data: dict) -> CreateEventInput:
     out: CreateEventInput = {}  # type: ignore[typeddict-item]
-    if "actorId" in data:
+    if data.get("actorId") is not None:
         out["actor_id"] = data["actorId"]
     else:
         raise DeserializationError("CreateEventInput.actor_id required")
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
-    if "eventTimestamp" in data:
+    if data.get("eventTimestamp") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["event_timestamp"] = (
@@ -89,7 +89,7 @@ def deserialize_json(data: dict) -> CreateEventInput:
         )
     else:
         raise DeserializationError("CreateEventInput.event_timestamp required")
-    if "payload" in data:
+    if data.get("payload") is not None:
         import capo_bedrock_agentcore.types.payload_type_list
 
         out["payload"] = (
@@ -99,15 +99,15 @@ def deserialize_json(data: dict) -> CreateEventInput:
         )
     else:
         raise DeserializationError("CreateEventInput.payload required")
-    if "branch" in data:
+    if data.get("branch") is not None:
         import capo_bedrock_agentcore.types.branch
 
         out["branch"] = capo_bedrock_agentcore.types.branch.deserialize_json(
             data["branch"]
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agentcore.types.metadata_map
 
         out["metadata"] = capo_bedrock_agentcore.types.metadata_map.deserialize_json(

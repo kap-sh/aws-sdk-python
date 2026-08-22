@@ -52,7 +52,7 @@ def serialize_json(value: GetBlueprintOptimizationStatusResponse) -> dict:
 
 def deserialize_json(data: dict) -> GetBlueprintOptimizationStatusResponse:
     out: GetBlueprintOptimizationStatusResponse = {}  # type: ignore[typeddict-item]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_job_status
 
         out["status"] = (
@@ -60,11 +60,11 @@ def deserialize_json(data: dict) -> GetBlueprintOptimizationStatusResponse:
                 data["status"]
             )
         )
-    if "errorType" in data:
+    if data.get("errorType") is not None:
         out["error_type"] = data["errorType"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
-    if "outputConfiguration" in data:
+    if data.get("outputConfiguration") is not None:
         import capo_bedrock_data_automation.types.blueprint_optimization_output_configuration
 
         out["output_configuration"] = (

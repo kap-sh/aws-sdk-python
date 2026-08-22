@@ -45,7 +45,7 @@ def serialize_json(value: EvaluationTarget) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluationTarget:
-    if "spanIds" in data:
+    if data.get("spanIds") is not None:
         import capo_bedrock_agentcore.types.span_ids
 
         return {
@@ -53,7 +53,7 @@ def deserialize_json(data: dict) -> EvaluationTarget:
                 data["spanIds"]
             )
         }
-    elif "traceIds" in data:
+    elif data.get("traceIds") is not None:
         import capo_bedrock_agentcore.types.trace_ids
 
         return {

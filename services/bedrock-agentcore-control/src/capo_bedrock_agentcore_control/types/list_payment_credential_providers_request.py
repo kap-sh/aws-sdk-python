@@ -21,9 +21,9 @@ def serialize_json(value: ListPaymentCredentialProvidersRequest) -> dict:
 
 def deserialize_json(data: dict) -> ListPaymentCredentialProvidersRequest:
     out: ListPaymentCredentialProvidersRequest = {}  # type: ignore[typeddict-item]
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
-    if "maxResults" in data:
+    if data.get("maxResults") is not None:
         out["max_results"] = data["maxResults"]
     else:
         out["max_results"] = 10

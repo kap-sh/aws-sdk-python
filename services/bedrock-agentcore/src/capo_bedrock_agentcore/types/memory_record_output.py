@@ -47,11 +47,11 @@ def serialize_json(value: MemoryRecordOutput) -> dict:
 
 def deserialize_json(data: dict) -> MemoryRecordOutput:
     out: MemoryRecordOutput = {}  # type: ignore[typeddict-item]
-    if "memoryRecordId" in data:
+    if data.get("memoryRecordId") is not None:
         out["memory_record_id"] = data["memoryRecordId"]
     else:
         raise DeserializationError("MemoryRecordOutput.memory_record_id required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.memory_record_status
 
         out["status"] = (
@@ -61,10 +61,10 @@ def deserialize_json(data: dict) -> MemoryRecordOutput:
         )
     else:
         raise DeserializationError("MemoryRecordOutput.status required")
-    if "requestIdentifier" in data:
+    if data.get("requestIdentifier") is not None:
         out["request_identifier"] = data["requestIdentifier"]
-    if "errorCode" in data:
+    if data.get("errorCode") is not None:
         out["error_code"] = data["errorCode"]
-    if "errorMessage" in data:
+    if data.get("errorMessage") is not None:
         out["error_message"] = data["errorMessage"]
     return out

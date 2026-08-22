@@ -36,7 +36,7 @@ def serialize_json(value: ContentConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ContentConfiguration:
     out: ContentConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agentcore_control.types.content_type
 
         out["type"] = (
@@ -46,7 +46,7 @@ def deserialize_json(data: dict) -> ContentConfiguration:
         )
     else:
         raise DeserializationError("ContentConfiguration.type required")
-    if "level" in data:
+    if data.get("level") is not None:
         import capo_bedrock_agentcore_control.types.content_level
 
         out["level"] = (

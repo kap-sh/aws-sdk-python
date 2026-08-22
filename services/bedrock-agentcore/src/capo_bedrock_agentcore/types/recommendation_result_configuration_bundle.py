@@ -30,13 +30,13 @@ def serialize_json(value: RecommendationResultConfigurationBundle) -> dict:
 
 def deserialize_json(data: dict) -> RecommendationResultConfigurationBundle:
     out: RecommendationResultConfigurationBundle = {}  # type: ignore[typeddict-item]
-    if "bundleArn" in data:
+    if data.get("bundleArn") is not None:
         out["bundle_arn"] = data["bundleArn"]
     else:
         raise DeserializationError(
             "RecommendationResultConfigurationBundle.bundle_arn required"
         )
-    if "versionId" in data:
+    if data.get("versionId") is not None:
         out["version_id"] = data["versionId"]
     else:
         raise DeserializationError(

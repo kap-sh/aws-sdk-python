@@ -76,9 +76,10 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input_["search_query"] = search_query
-        input_["registry_ids"] = registry_ids
+        input_: capo_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {
+            "search_query": search_query,
+            "registry_ids": registry_ids,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if filters is not None:
@@ -89,6 +90,7 @@ class RegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -141,9 +143,10 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input_["search_query"] = search_query
-        input_["registry_ids"] = registry_ids
+        input_: capo_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {
+            "search_query": search_query,
+            "registry_ids": registry_ids,
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if filters is not None:
@@ -154,4 +157,5 @@ class AsyncRegistryRecordResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

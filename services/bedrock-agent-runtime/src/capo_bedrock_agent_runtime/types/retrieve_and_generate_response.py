@@ -56,11 +56,11 @@ def serialize_json(value: RetrieveAndGenerateResponse) -> dict:
 
 def deserialize_json(data: dict) -> RetrieveAndGenerateResponse:
     out: RetrieveAndGenerateResponse = {}  # type: ignore[typeddict-item]
-    if "sessionId" in data:
+    if data.get("sessionId") is not None:
         out["session_id"] = data["sessionId"]
     else:
         raise DeserializationError("RetrieveAndGenerateResponse.session_id required")
-    if "output" in data:
+    if data.get("output") is not None:
         import capo_bedrock_agent_runtime.types.retrieve_and_generate_output
 
         out["output"] = (
@@ -70,13 +70,13 @@ def deserialize_json(data: dict) -> RetrieveAndGenerateResponse:
         )
     else:
         raise DeserializationError("RetrieveAndGenerateResponse.output required")
-    if "citations" in data:
+    if data.get("citations") is not None:
         import capo_bedrock_agent_runtime.types.citations
 
         out["citations"] = capo_bedrock_agent_runtime.types.citations.deserialize_json(
             data["citations"]
         )
-    if "guardrailAction" in data:
+    if data.get("guardrailAction") is not None:
         import capo_bedrock_agent_runtime.types.guadrail_action
 
         out["guardrail_action"] = (

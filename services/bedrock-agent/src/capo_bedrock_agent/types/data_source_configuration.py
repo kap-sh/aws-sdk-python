@@ -93,7 +93,7 @@ def serialize_json(value: DataSourceConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> DataSourceConfiguration:
     out: DataSourceConfiguration = {}  # type: ignore[typeddict-item]
-    if "type" in data:
+    if data.get("type") is not None:
         import capo_bedrock_agent.types.data_source_type
 
         out["type"] = capo_bedrock_agent.types.data_source_type.deserialize_json(
@@ -101,7 +101,7 @@ def deserialize_json(data: dict) -> DataSourceConfiguration:
         )
     else:
         raise DeserializationError("DataSourceConfiguration.type required")
-    if "s3Configuration" in data:
+    if data.get("s3Configuration") is not None:
         import capo_bedrock_agent.types.s3_data_source_configuration
 
         out["s3_configuration"] = (
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> DataSourceConfiguration:
                 data["s3Configuration"]
             )
         )
-    if "webConfiguration" in data:
+    if data.get("webConfiguration") is not None:
         import capo_bedrock_agent.types.web_data_source_configuration
 
         out["web_configuration"] = (
@@ -117,7 +117,7 @@ def deserialize_json(data: dict) -> DataSourceConfiguration:
                 data["webConfiguration"]
             )
         )
-    if "confluenceConfiguration" in data:
+    if data.get("confluenceConfiguration") is not None:
         import capo_bedrock_agent.types.confluence_data_source_configuration
 
         out["confluence_configuration"] = (
@@ -125,7 +125,7 @@ def deserialize_json(data: dict) -> DataSourceConfiguration:
                 data["confluenceConfiguration"]
             )
         )
-    if "salesforceConfiguration" in data:
+    if data.get("salesforceConfiguration") is not None:
         import capo_bedrock_agent.types.salesforce_data_source_configuration
 
         out["salesforce_configuration"] = (
@@ -133,7 +133,7 @@ def deserialize_json(data: dict) -> DataSourceConfiguration:
                 data["salesforceConfiguration"]
             )
         )
-    if "sharePointConfiguration" in data:
+    if data.get("sharePointConfiguration") is not None:
         import capo_bedrock_agent.types.share_point_data_source_configuration
 
         out["share_point_configuration"] = (

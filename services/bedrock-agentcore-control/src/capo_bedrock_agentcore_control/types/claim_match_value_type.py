@@ -46,9 +46,9 @@ def serialize_json(value: ClaimMatchValueType) -> dict:
 
 
 def deserialize_json(data: dict) -> ClaimMatchValueType:
-    if "matchValueString" in data:
+    if data.get("matchValueString") is not None:
         return {"matchValueString": data["matchValueString"]}
-    elif "matchValueStringList" in data:
+    elif data.get("matchValueStringList") is not None:
         import capo_bedrock_agentcore_control.types.match_value_string_list
 
         return {

@@ -29,6 +29,8 @@ def deserialize_json(data: list) -> KnowledgeBaseRetrievalResults:
 
     out: KnowledgeBaseRetrievalResults = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agent_runtime.types.knowledge_base_retrieval_result.deserialize_json(
                 item

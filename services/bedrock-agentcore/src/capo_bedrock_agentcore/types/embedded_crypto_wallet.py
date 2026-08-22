@@ -48,7 +48,7 @@ def serialize_json(value: EmbeddedCryptoWallet) -> dict:
 
 def deserialize_json(data: dict) -> EmbeddedCryptoWallet:
     out: EmbeddedCryptoWallet = {}  # type: ignore[typeddict-item]
-    if "network" in data:
+    if data.get("network") is not None:
         import capo_bedrock_agentcore.types.crypto_wallet_network
 
         out["network"] = (
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> EmbeddedCryptoWallet:
         )
     else:
         raise DeserializationError("EmbeddedCryptoWallet.network required")
-    if "linkedAccounts" in data:
+    if data.get("linkedAccounts") is not None:
         import capo_bedrock_agentcore.types.linked_account_list
 
         out["linked_accounts"] = (
@@ -68,8 +68,8 @@ def deserialize_json(data: dict) -> EmbeddedCryptoWallet:
         )
     else:
         raise DeserializationError("EmbeddedCryptoWallet.linked_accounts required")
-    if "walletAddress" in data:
+    if data.get("walletAddress") is not None:
         out["wallet_address"] = data["walletAddress"]
-    if "redirectUrl" in data:
+    if data.get("redirectUrl") is not None:
         out["redirect_url"] = data["redirectUrl"]
     return out

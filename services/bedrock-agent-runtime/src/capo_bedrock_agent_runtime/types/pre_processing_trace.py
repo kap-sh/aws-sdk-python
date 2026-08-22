@@ -49,7 +49,7 @@ def serialize_json(value: PreProcessingTrace) -> dict:
 
 
 def deserialize_json(data: dict) -> PreProcessingTrace:
-    if "modelInvocationInput" in data:
+    if data.get("modelInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.model_invocation_input
 
         return {
@@ -57,7 +57,7 @@ def deserialize_json(data: dict) -> PreProcessingTrace:
                 data["modelInvocationInput"]
             )
         }
-    elif "modelInvocationOutput" in data:
+    elif data.get("modelInvocationOutput") is not None:
         import capo_bedrock_agent_runtime.types.pre_processing_model_invocation_output
 
         return {

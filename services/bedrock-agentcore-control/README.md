@@ -13,9 +13,9 @@ from capo_bedrock_agentcore_control import AsyncBedrockAgentCoreControlClient
 
 
 async def main():
-    async with AsyncBedrockAgentCoreControlClient() as s3:
+    async with AsyncBedrockAgentCoreControlClient() as bedrock_agent_core_control:
         # Example: call the delete_resource_policy operation
-        response = await s3.delete_resource_policy()
+        response = await bedrock_agent_core_control.delete_resource_policy()
         print(response)
 ```
 
@@ -29,9 +29,9 @@ from capo_bedrock_agentcore_control.error import AccessDeniedException
 
 
 async def main():
-    async with AsyncBedrockAgentCoreControlClient() as s3:
+    async with AsyncBedrockAgentCoreControlClient() as bedrock_agent_core_control:
         try:
-            await s3.delete_resource_policy()
+            await bedrock_agent_core_control.delete_resource_policy()
         except AccessDeniedException as e:
             print(f"Error: {e}")
             print(e.data)  # additional error data
@@ -48,13 +48,13 @@ from capo_bedrock_agentcore_control import AsyncBedrockAgentCoreControlClient
 
 
 async def main():
-    async with AsyncBedrockAgentCoreControlClient() as s3:
+    async with AsyncBedrockAgentCoreControlClient() as bedrock_agent_core_control:
         # Default: 3 attempts for every operation
-        response = await s3.delete_resource_policy()
+        response = await bedrock_agent_core_control.delete_resource_policy()
 
         # Override per operation
-        response = await s3.delete_resource_policy(config_overrides={"retry_max_attempts": 5})
+        response = await bedrock_agent_core_control.delete_resource_policy(config_overrides={"retry_max_attempts": 5})
 
         # Disable retries for this call
-        response = await s3.delete_resource_policy(config_overrides={"retry_max_attempts": 1})
+        response = await bedrock_agent_core_control.delete_resource_policy(config_overrides={"retry_max_attempts": 1})
 ```

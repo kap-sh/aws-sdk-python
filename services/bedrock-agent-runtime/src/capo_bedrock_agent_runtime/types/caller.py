@@ -26,7 +26,7 @@ def serialize_json(value: Caller) -> dict:
 
 
 def deserialize_json(data: dict) -> Caller:
-    if "agentAliasArn" in data:
+    if data.get("agentAliasArn") is not None:
         return {"agentAliasArn": data["agentAliasArn"]}
     else:
         raise DeserializationError("Caller: no recognized variant key")

@@ -29,7 +29,7 @@ def serialize_json(value: EvaluatorReference) -> dict:
 
 
 def deserialize_json(data: dict) -> EvaluatorReference:
-    if "evaluatorId" in data:
+    if data.get("evaluatorId") is not None:
         return {"evaluatorId": data["evaluatorId"]}
     else:
         raise DeserializationError("EvaluatorReference: no recognized variant key")

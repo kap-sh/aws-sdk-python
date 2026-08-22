@@ -101,13 +101,13 @@ def serialize_json(value: CreateRegistryRecordRequest) -> dict:
 
 def deserialize_json(data: dict) -> CreateRegistryRecordRequest:
     out: CreateRegistryRecordRequest = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateRegistryRecordRequest.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "descriptorType" in data:
+    if data.get("descriptorType") is not None:
         import capo_bedrock_agentcore_control.types.descriptor_type
 
         out["descriptor_type"] = (
@@ -119,7 +119,7 @@ def deserialize_json(data: dict) -> CreateRegistryRecordRequest:
         raise DeserializationError(
             "CreateRegistryRecordRequest.descriptor_type required"
         )
-    if "descriptors" in data:
+    if data.get("descriptors") is not None:
         import capo_bedrock_agentcore_control.types.descriptors
 
         out["descriptors"] = (
@@ -127,9 +127,9 @@ def deserialize_json(data: dict) -> CreateRegistryRecordRequest:
                 data["descriptors"]
             )
         )
-    if "recordVersion" in data:
+    if data.get("recordVersion") is not None:
         out["record_version"] = data["recordVersion"]
-    if "synchronizationType" in data:
+    if data.get("synchronizationType") is not None:
         import capo_bedrock_agentcore_control.types.synchronization_type
 
         out["synchronization_type"] = (
@@ -137,7 +137,7 @@ def deserialize_json(data: dict) -> CreateRegistryRecordRequest:
                 data["synchronizationType"]
             )
         )
-    if "synchronizationConfiguration" in data:
+    if data.get("synchronizationConfiguration") is not None:
         import capo_bedrock_agentcore_control.types.synchronization_configuration
 
         out["synchronization_configuration"] = (
@@ -145,6 +145,6 @@ def deserialize_json(data: dict) -> CreateRegistryRecordRequest:
                 data["synchronizationConfiguration"]
             )
         )
-    if "clientToken" in data:
+    if data.get("clientToken") is not None:
         out["client_token"] = data["clientToken"]
     return out

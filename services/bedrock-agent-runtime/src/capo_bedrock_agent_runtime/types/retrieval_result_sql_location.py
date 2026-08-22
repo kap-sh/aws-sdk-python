@@ -18,6 +18,6 @@ def serialize_json(value: RetrievalResultSqlLocation) -> dict:
 
 def deserialize_json(data: dict) -> RetrievalResultSqlLocation:
     out: RetrievalResultSqlLocation = {}  # type: ignore[typeddict-item]
-    if "query" in data:
+    if data.get("query") is not None:
         out["query"] = data["query"]
     return out

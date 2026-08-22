@@ -18,6 +18,6 @@ def serialize_json(value: HarnessSlidingWindowConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> HarnessSlidingWindowConfiguration:
     out: HarnessSlidingWindowConfiguration = {}  # type: ignore[typeddict-item]
-    if "messagesCount" in data:
+    if data.get("messagesCount") is not None:
         out["messages_count"] = data["messagesCount"]
     return out

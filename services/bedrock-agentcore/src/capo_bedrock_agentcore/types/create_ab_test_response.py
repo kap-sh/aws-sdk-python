@@ -62,17 +62,17 @@ def serialize_json(value: CreateABTestResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateABTestResponse:
     out: CreateABTestResponse = {}  # type: ignore[typeddict-item]
-    if "abTestId" in data:
+    if data.get("abTestId") is not None:
         out["ab_test_id"] = data["abTestId"]
     else:
         raise DeserializationError("CreateABTestResponse.ab_test_id required")
-    if "abTestArn" in data:
+    if data.get("abTestArn") is not None:
         out["ab_test_arn"] = data["abTestArn"]
     else:
         raise DeserializationError("CreateABTestResponse.ab_test_arn required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.ab_test_status
 
         out["status"] = capo_bedrock_agentcore.types.ab_test_status.deserialize_json(
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> CreateABTestResponse:
         )
     else:
         raise DeserializationError("CreateABTestResponse.status required")
-    if "executionStatus" in data:
+    if data.get("executionStatus") is not None:
         import capo_bedrock_agentcore.types.ab_test_execution_status
 
         out["execution_status"] = (
@@ -90,7 +90,7 @@ def deserialize_json(data: dict) -> CreateABTestResponse:
         )
     else:
         raise DeserializationError("CreateABTestResponse.execution_status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore.types._prelude.timestamp
 
         out["created_at"] = (

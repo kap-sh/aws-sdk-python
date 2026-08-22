@@ -69,15 +69,15 @@ def serialize_json(value: TargetSummary) -> dict:
 
 def deserialize_json(data: dict) -> TargetSummary:
     out: TargetSummary = {}  # type: ignore[typeddict-item]
-    if "targetId" in data:
+    if data.get("targetId") is not None:
         out["target_id"] = data["targetId"]
     else:
         raise DeserializationError("TargetSummary.target_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("TargetSummary.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.target_status
 
         out["status"] = (
@@ -87,9 +87,9 @@ def deserialize_json(data: dict) -> TargetSummary:
         )
     else:
         raise DeserializationError("TargetSummary.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -99,7 +99,7 @@ def deserialize_json(data: dict) -> TargetSummary:
         )
     else:
         raise DeserializationError("TargetSummary.created_at required")
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["updated_at"] = (
@@ -109,6 +109,6 @@ def deserialize_json(data: dict) -> TargetSummary:
         )
     else:
         raise DeserializationError("TargetSummary.updated_at required")
-    if "resourcePriority" in data:
+    if data.get("resourcePriority") is not None:
         out["resource_priority"] = data["resourcePriority"]
     return out

@@ -14,16 +14,32 @@ class NumberValidation(TypedDict, closed=True):
 def serialize_json(value: NumberValidation) -> dict:
     out: dict = {}
     if "min_value" in value:
-        out["minValue"] = value["min_value"]
+        out["minValue"] = (
+            "NaN"
+            if value["min_value"] != value["min_value"]
+            else "Infinity"
+            if value["min_value"] == float("inf")
+            else "-Infinity"
+            if value["min_value"] == float("-inf")
+            else value["min_value"]
+        )
     if "max_value" in value:
-        out["maxValue"] = value["max_value"]
+        out["maxValue"] = (
+            "NaN"
+            if value["max_value"] != value["max_value"]
+            else "Infinity"
+            if value["max_value"] == float("inf")
+            else "-Infinity"
+            if value["max_value"] == float("-inf")
+            else value["max_value"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> NumberValidation:
     out: NumberValidation = {}  # type: ignore[typeddict-item]
-    if "minValue" in data:
-        out["min_value"] = data["minValue"]
-    if "maxValue" in data:
-        out["max_value"] = data["maxValue"]
+    if data.get("minValue") is not None:
+        out["min_value"] = float(data["minValue"])
+    if data.get("maxValue") is not None:
+        out["max_value"] = float(data["maxValue"])
     return out

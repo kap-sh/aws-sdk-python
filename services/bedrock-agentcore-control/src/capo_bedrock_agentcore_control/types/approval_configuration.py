@@ -17,7 +17,7 @@ def serialize_json(value: ApprovalConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> ApprovalConfiguration:
     out: ApprovalConfiguration = {}  # type: ignore[typeddict-item]
-    if "autoApproval" in data:
+    if data.get("autoApproval") is not None:
         out["auto_approval"] = data["autoApproval"]
     else:
         out["auto_approval"] = False

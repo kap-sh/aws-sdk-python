@@ -45,9 +45,9 @@ def serialize_json(value: RoutingClassifierModelInvocationOutput) -> dict:
 
 def deserialize_json(data: dict) -> RoutingClassifierModelInvocationOutput:
     out: RoutingClassifierModelInvocationOutput = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "rawResponse" in data:
+    if data.get("rawResponse") is not None:
         import capo_bedrock_agent_runtime.types.raw_response
 
         out["raw_response"] = (
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> RoutingClassifierModelInvocationOutput:
                 data["rawResponse"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(

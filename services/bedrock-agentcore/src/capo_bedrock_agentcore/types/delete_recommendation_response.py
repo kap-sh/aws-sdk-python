@@ -32,13 +32,13 @@ def serialize_json(value: DeleteRecommendationResponse) -> dict:
 
 def deserialize_json(data: dict) -> DeleteRecommendationResponse:
     out: DeleteRecommendationResponse = {}  # type: ignore[typeddict-item]
-    if "recommendationId" in data:
+    if data.get("recommendationId") is not None:
         out["recommendation_id"] = data["recommendationId"]
     else:
         raise DeserializationError(
             "DeleteRecommendationResponse.recommendation_id required"
         )
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore.types.recommendation_status
 
         out["status"] = (

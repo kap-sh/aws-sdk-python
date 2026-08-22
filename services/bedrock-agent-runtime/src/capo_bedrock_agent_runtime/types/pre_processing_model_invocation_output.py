@@ -71,9 +71,9 @@ def serialize_json(value: PreProcessingModelInvocationOutput) -> dict:
 
 def deserialize_json(data: dict) -> PreProcessingModelInvocationOutput:
     out: PreProcessingModelInvocationOutput = {}  # type: ignore[typeddict-item]
-    if "traceId" in data:
+    if data.get("traceId") is not None:
         out["trace_id"] = data["traceId"]
-    if "parsedResponse" in data:
+    if data.get("parsedResponse") is not None:
         import capo_bedrock_agent_runtime.types.pre_processing_parsed_response
 
         out["parsed_response"] = (
@@ -81,7 +81,7 @@ def deserialize_json(data: dict) -> PreProcessingModelInvocationOutput:
                 data["parsedResponse"]
             )
         )
-    if "rawResponse" in data:
+    if data.get("rawResponse") is not None:
         import capo_bedrock_agent_runtime.types.raw_response
 
         out["raw_response"] = (
@@ -89,13 +89,13 @@ def deserialize_json(data: dict) -> PreProcessingModelInvocationOutput:
                 data["rawResponse"]
             )
         )
-    if "metadata" in data:
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.metadata
 
         out["metadata"] = capo_bedrock_agent_runtime.types.metadata.deserialize_json(
             data["metadata"]
         )
-    if "reasoningContent" in data:
+    if data.get("reasoningContent") is not None:
         import capo_bedrock_agent_runtime.types.reasoning_content_block
 
         out["reasoning_content"] = (

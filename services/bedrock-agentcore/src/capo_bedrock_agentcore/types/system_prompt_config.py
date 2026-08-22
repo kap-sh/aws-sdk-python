@@ -41,9 +41,9 @@ def serialize_json(value: SystemPromptConfig) -> dict:
 
 
 def deserialize_json(data: dict) -> SystemPromptConfig:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "configurationBundle" in data:
+    elif data.get("configurationBundle") is not None:
         import capo_bedrock_agentcore.types.system_prompt_configuration_bundle
 
         return {

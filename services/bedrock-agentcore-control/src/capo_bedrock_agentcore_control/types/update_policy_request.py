@@ -59,7 +59,7 @@ def serialize_json(value: UpdatePolicyRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdatePolicyRequest:
     out: UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
-    if "description" in data:
+    if data.get("description") is not None:
         import capo_bedrock_agentcore_control.types.updated_description
 
         out["description"] = (
@@ -67,7 +67,7 @@ def deserialize_json(data: dict) -> UpdatePolicyRequest:
                 data["description"]
             )
         )
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agentcore_control.types.policy_definition
 
         out["definition"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> UpdatePolicyRequest:
                 data["definition"]
             )
         )
-    if "validationMode" in data:
+    if data.get("validationMode") is not None:
         import capo_bedrock_agentcore_control.types.policy_validation_mode
 
         out["validation_mode"] = (

@@ -61,13 +61,13 @@ def serialize_json(value: UpdateAgentAliasRequest) -> dict:
 
 def deserialize_json(data: dict) -> UpdateAgentAliasRequest:
     out: UpdateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-    if "agentAliasName" in data:
+    if data.get("agentAliasName") is not None:
         out["agent_alias_name"] = data["agentAliasName"]
     else:
         raise DeserializationError("UpdateAgentAliasRequest.agent_alias_name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "routingConfiguration" in data:
+    if data.get("routingConfiguration") is not None:
         import capo_bedrock_agent.types.agent_alias_routing_configuration
 
         out["routing_configuration"] = (
@@ -75,7 +75,7 @@ def deserialize_json(data: dict) -> UpdateAgentAliasRequest:
                 data["routingConfiguration"]
             )
         )
-    if "aliasInvocationState" in data:
+    if data.get("aliasInvocationState") is not None:
         import capo_bedrock_agent.types.alias_invocation_state
 
         out["alias_invocation_state"] = (

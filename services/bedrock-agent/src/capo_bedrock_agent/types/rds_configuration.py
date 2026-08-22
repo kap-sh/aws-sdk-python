@@ -44,23 +44,23 @@ def serialize_json(value: RdsConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> RdsConfiguration:
     out: RdsConfiguration = {}  # type: ignore[typeddict-item]
-    if "resourceArn" in data:
+    if data.get("resourceArn") is not None:
         out["resource_arn"] = data["resourceArn"]
     else:
         raise DeserializationError("RdsConfiguration.resource_arn required")
-    if "credentialsSecretArn" in data:
+    if data.get("credentialsSecretArn") is not None:
         out["credentials_secret_arn"] = data["credentialsSecretArn"]
     else:
         raise DeserializationError("RdsConfiguration.credentials_secret_arn required")
-    if "databaseName" in data:
+    if data.get("databaseName") is not None:
         out["database_name"] = data["databaseName"]
     else:
         raise DeserializationError("RdsConfiguration.database_name required")
-    if "tableName" in data:
+    if data.get("tableName") is not None:
         out["table_name"] = data["tableName"]
     else:
         raise DeserializationError("RdsConfiguration.table_name required")
-    if "fieldMapping" in data:
+    if data.get("fieldMapping") is not None:
         import capo_bedrock_agent.types.rds_field_mapping
 
         out["field_mapping"] = (

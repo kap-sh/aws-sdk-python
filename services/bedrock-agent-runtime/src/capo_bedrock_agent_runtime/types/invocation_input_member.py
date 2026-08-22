@@ -50,7 +50,7 @@ def serialize_json(value: InvocationInputMember) -> dict:
 
 
 def deserialize_json(data: dict) -> InvocationInputMember:
-    if "apiInvocationInput" in data:
+    if data.get("apiInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.api_invocation_input
 
         return {
@@ -58,7 +58,7 @@ def deserialize_json(data: dict) -> InvocationInputMember:
                 data["apiInvocationInput"]
             )
         }
-    elif "functionInvocationInput" in data:
+    elif data.get("functionInvocationInput") is not None:
         import capo_bedrock_agent_runtime.types.function_invocation_input
 
         return {

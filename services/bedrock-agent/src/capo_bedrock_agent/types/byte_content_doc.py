@@ -31,11 +31,11 @@ def serialize_json(value: ByteContentDoc) -> dict:
 
 def deserialize_json(data: dict) -> ByteContentDoc:
     out: ByteContentDoc = {}  # type: ignore[typeddict-item]
-    if "mimeType" in data:
+    if data.get("mimeType") is not None:
         out["mime_type"] = data["mimeType"]
     else:
         raise DeserializationError("ByteContentDoc.mime_type required")
-    if "data" in data:
+    if data.get("data") is not None:
         import capo_bedrock_agent.types.byte_content_blob
 
         out["data"] = capo_bedrock_agent.types.byte_content_blob.deserialize_json(

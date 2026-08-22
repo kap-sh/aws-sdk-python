@@ -40,7 +40,7 @@ def serialize_json(value: CustomTransformationConfiguration) -> dict:
 
 def deserialize_json(data: dict) -> CustomTransformationConfiguration:
     out: CustomTransformationConfiguration = {}  # type: ignore[typeddict-item]
-    if "intermediateStorage" in data:
+    if data.get("intermediateStorage") is not None:
         import capo_bedrock_agent.types.intermediate_storage
 
         out["intermediate_storage"] = (
@@ -52,7 +52,7 @@ def deserialize_json(data: dict) -> CustomTransformationConfiguration:
         raise DeserializationError(
             "CustomTransformationConfiguration.intermediate_storage required"
         )
-    if "transformations" in data:
+    if data.get("transformations") is not None:
         import capo_bedrock_agent.types.transformations
 
         out["transformations"] = (

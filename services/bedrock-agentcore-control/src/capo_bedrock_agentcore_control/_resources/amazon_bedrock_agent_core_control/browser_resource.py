@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -119,13 +120,14 @@ class BrowserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {
+            "name": name,
+            "network_configuration": network_configuration,
+        }
         if description is not None:
             input_["description"] = description
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["network_configuration"] = network_configuration
         if recording is not None:
             input_["recording"] = recording
         if browser_signing is not None:
@@ -134,8 +136,9 @@ class BrowserResource:
             input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -144,6 +147,7 @@ class BrowserResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -181,14 +185,16 @@ class BrowserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_id"] = browser_id
+        input_: capo_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {
+            "browser_id": browser_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -232,16 +238,19 @@ class BrowserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_id"] = browser_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {
+            "browser_id": browser_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -288,7 +297,7 @@ class BrowserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -301,6 +310,7 @@ class BrowserResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -377,13 +387,14 @@ class AsyncBrowserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_browser_request.CreateBrowserRequest = {
+            "name": name,
+            "network_configuration": network_configuration,
+        }
         if description is not None:
             input_["description"] = description
         if execution_role_arn is not None:
             input_["execution_role_arn"] = execution_role_arn
-        input_["network_configuration"] = network_configuration
         if recording is not None:
             input_["recording"] = recording
         if browser_signing is not None:
@@ -392,8 +403,9 @@ class AsyncBrowserResource:
             input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
             input_["certificates"] = certificates
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -402,6 +414,7 @@ class AsyncBrowserResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -440,14 +453,16 @@ class AsyncBrowserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_id"] = browser_id
+        input_: capo_bedrock_agentcore_control.types.get_browser_request.GetBrowserRequest = {
+            "browser_id": browser_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -492,16 +507,19 @@ class AsyncBrowserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {}  # type: ignore[typeddict-item]
-        input_["browser_id"] = browser_id
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_browser_request.DeleteBrowserRequest = {
+            "browser_id": browser_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -549,7 +567,7 @@ class AsyncBrowserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_browsers_request.ListBrowsersRequest = {}
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -562,4 +580,5 @@ class AsyncBrowserResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

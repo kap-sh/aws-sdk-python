@@ -28,7 +28,7 @@ def serialize_json(value: CreateHarnessResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateHarnessResponse:
     out: CreateHarnessResponse = {}  # type: ignore[typeddict-item]
-    if "harness" in data:
+    if data.get("harness") is not None:
         import capo_bedrock_agentcore_control.types.harness
 
         out["harness"] = capo_bedrock_agentcore_control.types.harness.deserialize_json(

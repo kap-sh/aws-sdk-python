@@ -35,7 +35,7 @@ def serialize_json(value: ListEventsOutput) -> dict:
 
 def deserialize_json(data: dict) -> ListEventsOutput:
     out: ListEventsOutput = {}  # type: ignore[typeddict-item]
-    if "events" in data:
+    if data.get("events") is not None:
         import capo_bedrock_agentcore.types.event_list
 
         out["events"] = capo_bedrock_agentcore.types.event_list.deserialize_json(
@@ -43,6 +43,6 @@ def deserialize_json(data: dict) -> ListEventsOutput:
         )
     else:
         raise DeserializationError("ListEventsOutput.events required")
-    if "nextToken" in data:
+    if data.get("nextToken") is not None:
         out["next_token"] = data["nextToken"]
     return out

@@ -52,19 +52,19 @@ def serialize_json(value: CreateCodeInterpreterResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateCodeInterpreterResponse:
     out: CreateCodeInterpreterResponse = {}  # type: ignore[typeddict-item]
-    if "codeInterpreterId" in data:
+    if data.get("codeInterpreterId") is not None:
         out["code_interpreter_id"] = data["codeInterpreterId"]
     else:
         raise DeserializationError(
             "CreateCodeInterpreterResponse.code_interpreter_id required"
         )
-    if "codeInterpreterArn" in data:
+    if data.get("codeInterpreterArn") is not None:
         out["code_interpreter_arn"] = data["codeInterpreterArn"]
     else:
         raise DeserializationError(
             "CreateCodeInterpreterResponse.code_interpreter_arn required"
         )
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agentcore_control.types.date_timestamp
 
         out["created_at"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> CreateCodeInterpreterResponse:
         )
     else:
         raise DeserializationError("CreateCodeInterpreterResponse.created_at required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agentcore_control.types.code_interpreter_status
 
         out["status"] = (

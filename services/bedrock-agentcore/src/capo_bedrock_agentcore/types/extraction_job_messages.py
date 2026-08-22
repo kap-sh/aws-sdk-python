@@ -32,7 +32,7 @@ def serialize_json(value: ExtractionJobMessages) -> dict:
 
 
 def deserialize_json(data: dict) -> ExtractionJobMessages:
-    if "messagesList" in data:
+    if data.get("messagesList") is not None:
         import capo_bedrock_agentcore.types.messages_list
 
         return {

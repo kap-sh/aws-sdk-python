@@ -57,7 +57,7 @@ def serialize_json(value: RerankingMetadataSelectiveModeConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> RerankingMetadataSelectiveModeConfiguration:
-    if "fieldsToInclude" in data:
+    if data.get("fieldsToInclude") is not None:
         import capo_bedrock_agent_runtime.types.fields_for_reranking
 
         return {
@@ -65,7 +65,7 @@ def deserialize_json(data: dict) -> RerankingMetadataSelectiveModeConfiguration:
                 data["fieldsToInclude"]
             )
         }
-    elif "fieldsToExclude" in data:
+    elif data.get("fieldsToExclude") is not None:
         import capo_bedrock_agent_runtime.types.fields_for_reranking
 
         return {

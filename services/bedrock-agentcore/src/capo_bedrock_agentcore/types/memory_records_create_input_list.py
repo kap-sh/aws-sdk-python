@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> MemoryRecordsCreateInputList:
 
     out: MemoryRecordsCreateInputList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.memory_record_create_input.deserialize_json(
                 item

@@ -70,9 +70,9 @@ def serialize_json(value: HarnessContentBlockDelta) -> dict:
 
 
 def deserialize_json(data: dict) -> HarnessContentBlockDelta:
-    if "text" in data:
+    if data.get("text") is not None:
         return {"text": data["text"]}
-    elif "toolUse" in data:
+    elif data.get("toolUse") is not None:
         import capo_bedrock_agentcore.types.harness_tool_use_block_delta
 
         return {
@@ -80,7 +80,7 @@ def deserialize_json(data: dict) -> HarnessContentBlockDelta:
                 data["toolUse"]
             )
         }
-    elif "toolResult" in data:
+    elif data.get("toolResult") is not None:
         import capo_bedrock_agentcore.types.harness_tool_result_blocks_delta
 
         return {
@@ -88,7 +88,7 @@ def deserialize_json(data: dict) -> HarnessContentBlockDelta:
                 data["toolResult"]
             )
         }
-    elif "reasoningContent" in data:
+    elif data.get("reasoningContent") is not None:
         import capo_bedrock_agentcore.types.harness_reasoning_content_block_delta
 
         return {

@@ -23,5 +23,7 @@ def serialize_json(input_to_serialize: AdditionalModelRequestFields) -> dict:
 def deserialize_json(data: dict) -> AdditionalModelRequestFields:
     out: AdditionalModelRequestFields = {}
     for key, value in data.items():
+        if value is None:
+            continue
         out[key] = value
     return out

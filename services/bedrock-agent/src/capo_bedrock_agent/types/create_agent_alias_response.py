@@ -28,7 +28,7 @@ def serialize_json(value: CreateAgentAliasResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateAgentAliasResponse:
     out: CreateAgentAliasResponse = {}  # type: ignore[typeddict-item]
-    if "agentAlias" in data:
+    if data.get("agentAlias") is not None:
         import capo_bedrock_agent.types.agent_alias
 
         out["agent_alias"] = capo_bedrock_agent.types.agent_alias.deserialize_json(

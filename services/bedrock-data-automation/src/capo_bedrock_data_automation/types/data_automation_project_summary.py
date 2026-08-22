@@ -62,11 +62,11 @@ def serialize_json(value: DataAutomationProjectSummary) -> dict:
 
 def deserialize_json(data: dict) -> DataAutomationProjectSummary:
     out: DataAutomationProjectSummary = {}  # type: ignore[typeddict-item]
-    if "projectArn" in data:
+    if data.get("projectArn") is not None:
         out["project_arn"] = data["projectArn"]
     else:
         raise DeserializationError("DataAutomationProjectSummary.project_arn required")
-    if "projectStage" in data:
+    if data.get("projectStage") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_stage
 
         out["project_stage"] = (
@@ -74,7 +74,7 @@ def deserialize_json(data: dict) -> DataAutomationProjectSummary:
                 data["projectStage"]
             )
         )
-    if "projectType" in data:
+    if data.get("projectType") is not None:
         import capo_bedrock_data_automation.types.data_automation_project_type
 
         out["project_type"] = (
@@ -82,9 +82,9 @@ def deserialize_json(data: dict) -> DataAutomationProjectSummary:
                 data["projectType"]
             )
         )
-    if "projectName" in data:
+    if data.get("projectName") is not None:
         out["project_name"] = data["projectName"]
-    if "creationTime" in data:
+    if data.get("creationTime") is not None:
         import capo_bedrock_data_automation.types.date_timestamp
 
         out["creation_time"] = (

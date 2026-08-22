@@ -47,7 +47,7 @@ def serialize_json(value: PromptTemplateConfiguration) -> dict:
 
 
 def deserialize_json(data: dict) -> PromptTemplateConfiguration:
-    if "text" in data:
+    if data.get("text") is not None:
         import capo_bedrock_agent.types.text_prompt_template_configuration
 
         return {
@@ -55,7 +55,7 @@ def deserialize_json(data: dict) -> PromptTemplateConfiguration:
                 data["text"]
             )
         }
-    elif "chat" in data:
+    elif data.get("chat") is not None:
         import capo_bedrock_agent.types.chat_prompt_template_configuration
 
         return {

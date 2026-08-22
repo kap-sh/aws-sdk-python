@@ -40,7 +40,7 @@ def serialize_json(value: ImageStandardExtraction) -> dict:
 
 def deserialize_json(data: dict) -> ImageStandardExtraction:
     out: ImageStandardExtraction = {}  # type: ignore[typeddict-item]
-    if "category" in data:
+    if data.get("category") is not None:
         import capo_bedrock_data_automation.types.image_extraction_category
 
         out["category"] = (
@@ -50,7 +50,7 @@ def deserialize_json(data: dict) -> ImageStandardExtraction:
         )
     else:
         raise DeserializationError("ImageStandardExtraction.category required")
-    if "boundingBox" in data:
+    if data.get("boundingBox") is not None:
         import capo_bedrock_data_automation.types.image_bounding_box
 
         out["bounding_box"] = (

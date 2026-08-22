@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -100,15 +101,17 @@ class AgentEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_agent_runtime_endpoint_request.CreateAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_agent_runtime_endpoint_request.CreateAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "name": name,
+        }
         if agent_runtime_version is not None:
             input_["agent_runtime_version"] = agent_runtime_version
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -117,6 +120,7 @@ class AgentEndpointResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -156,15 +160,17 @@ class AgentEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_agent_runtime_endpoint_request.GetAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
+        input_: capo_bedrock_agentcore_control.types.get_agent_runtime_endpoint_request.GetAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -218,21 +224,24 @@ class AgentEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_agent_runtime_endpoint_request.UpdateAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
+        input_: capo_bedrock_agentcore_control.types.update_agent_runtime_endpoint_request.UpdateAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
         if agent_runtime_version is not None:
             input_["agent_runtime_version"] = agent_runtime_version
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -276,17 +285,20 @@ class AgentEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_agent_runtime_endpoint_request.DeleteAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_agent_runtime_endpoint_request.DeleteAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -331,8 +343,9 @@ class AgentEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_agent_runtime_endpoints_request.ListAgentRuntimeEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
+        input_: capo_bedrock_agentcore_control.types.list_agent_runtime_endpoints_request.ListAgentRuntimeEndpointsRequest = {
+            "agent_runtime_id": agent_runtime_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -343,6 +356,7 @@ class AgentEndpointResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -404,15 +418,17 @@ class AsyncAgentEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_agent_runtime_endpoint_request.CreateAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["name"] = name
+        input_: capo_bedrock_agentcore_control.types.create_agent_runtime_endpoint_request.CreateAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "name": name,
+        }
         if agent_runtime_version is not None:
             input_["agent_runtime_version"] = agent_runtime_version
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if tags is not None:
             input_["tags"] = tags
 
@@ -421,6 +437,7 @@ class AsyncAgentEndpointResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -461,15 +478,17 @@ class AsyncAgentEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_agent_runtime_endpoint_request.GetAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
+        input_: capo_bedrock_agentcore_control.types.get_agent_runtime_endpoint_request.GetAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -524,21 +543,24 @@ class AsyncAgentEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_agent_runtime_endpoint_request.UpdateAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
+        input_: capo_bedrock_agentcore_control.types.update_agent_runtime_endpoint_request.UpdateAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
         if agent_runtime_version is not None:
             input_["agent_runtime_version"] = agent_runtime_version
         if description is not None:
             input_["description"] = description
-        if client_token is not None:
-            input_["client_token"] = client_token
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -583,17 +605,20 @@ class AsyncAgentEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_agent_runtime_endpoint_request.DeleteAgentRuntimeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
-        input_["endpoint_name"] = endpoint_name
-        if client_token is not None:
-            input_["client_token"] = client_token
+        input_: capo_bedrock_agentcore_control.types.delete_agent_runtime_endpoint_request.DeleteAgentRuntimeEndpointRequest = {
+            "agent_runtime_id": agent_runtime_id,
+            "endpoint_name": endpoint_name,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -639,8 +664,9 @@ class AsyncAgentEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_agent_runtime_endpoints_request.ListAgentRuntimeEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input_["agent_runtime_id"] = agent_runtime_id
+        input_: capo_bedrock_agentcore_control.types.list_agent_runtime_endpoints_request.ListAgentRuntimeEndpointsRequest = {
+            "agent_runtime_id": agent_runtime_id
+        }
         if max_results is not None:
             input_["max_results"] = max_results
         if next_token is not None:
@@ -651,4 +677,5 @@ class AsyncAgentEndpointResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

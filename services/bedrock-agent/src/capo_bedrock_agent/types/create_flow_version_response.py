@@ -79,29 +79,29 @@ def serialize_json(value: CreateFlowVersionResponse) -> dict:
 
 def deserialize_json(data: dict) -> CreateFlowVersionResponse:
     out: CreateFlowVersionResponse = {}  # type: ignore[typeddict-item]
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("CreateFlowVersionResponse.name required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "executionRoleArn" in data:
+    if data.get("executionRoleArn") is not None:
         out["execution_role_arn"] = data["executionRoleArn"]
     else:
         raise DeserializationError(
             "CreateFlowVersionResponse.execution_role_arn required"
         )
-    if "customerEncryptionKeyArn" in data:
+    if data.get("customerEncryptionKeyArn") is not None:
         out["customer_encryption_key_arn"] = data["customerEncryptionKeyArn"]
-    if "id" in data:
+    if data.get("id") is not None:
         out["id"] = data["id"]
     else:
         raise DeserializationError("CreateFlowVersionResponse.id required")
-    if "arn" in data:
+    if data.get("arn") is not None:
         out["arn"] = data["arn"]
     else:
         raise DeserializationError("CreateFlowVersionResponse.arn required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.flow_status
 
         out["status"] = capo_bedrock_agent.types.flow_status.deserialize_json(
@@ -109,7 +109,7 @@ def deserialize_json(data: dict) -> CreateFlowVersionResponse:
         )
     else:
         raise DeserializationError("CreateFlowVersionResponse.status required")
-    if "createdAt" in data:
+    if data.get("createdAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["created_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(
@@ -117,11 +117,11 @@ def deserialize_json(data: dict) -> CreateFlowVersionResponse:
         )
     else:
         raise DeserializationError("CreateFlowVersionResponse.created_at required")
-    if "version" in data:
+    if data.get("version") is not None:
         out["version"] = data["version"]
     else:
         raise DeserializationError("CreateFlowVersionResponse.version required")
-    if "definition" in data:
+    if data.get("definition") is not None:
         import capo_bedrock_agent.types.flow_definition
 
         out["definition"] = capo_bedrock_agent.types.flow_definition.deserialize_json(

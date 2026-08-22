@@ -52,19 +52,19 @@ def serialize_json(value: DataSourceSummary) -> dict:
 
 def deserialize_json(data: dict) -> DataSourceSummary:
     out: DataSourceSummary = {}  # type: ignore[typeddict-item]
-    if "knowledgeBaseId" in data:
+    if data.get("knowledgeBaseId") is not None:
         out["knowledge_base_id"] = data["knowledgeBaseId"]
     else:
         raise DeserializationError("DataSourceSummary.knowledge_base_id required")
-    if "dataSourceId" in data:
+    if data.get("dataSourceId") is not None:
         out["data_source_id"] = data["dataSourceId"]
     else:
         raise DeserializationError("DataSourceSummary.data_source_id required")
-    if "name" in data:
+    if data.get("name") is not None:
         out["name"] = data["name"]
     else:
         raise DeserializationError("DataSourceSummary.name required")
-    if "status" in data:
+    if data.get("status") is not None:
         import capo_bedrock_agent.types.data_source_status
 
         out["status"] = capo_bedrock_agent.types.data_source_status.deserialize_json(
@@ -72,9 +72,9 @@ def deserialize_json(data: dict) -> DataSourceSummary:
         )
     else:
         raise DeserializationError("DataSourceSummary.status required")
-    if "description" in data:
+    if data.get("description") is not None:
         out["description"] = data["description"]
-    if "updatedAt" in data:
+    if data.get("updatedAt") is not None:
         import capo_bedrock_agent.types.date_timestamp
 
         out["updated_at"] = capo_bedrock_agent.types.date_timestamp.deserialize_json(

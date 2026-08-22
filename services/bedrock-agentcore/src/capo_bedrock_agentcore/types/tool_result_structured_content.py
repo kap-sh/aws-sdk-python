@@ -41,26 +41,34 @@ def serialize_json(value: ToolResultStructuredContent) -> dict:
     if "exit_code" in value:
         out["exitCode"] = value["exit_code"]
     if "execution_time" in value:
-        out["executionTime"] = value["execution_time"]
+        out["executionTime"] = (
+            "NaN"
+            if value["execution_time"] != value["execution_time"]
+            else "Infinity"
+            if value["execution_time"] == float("inf")
+            else "-Infinity"
+            if value["execution_time"] == float("-inf")
+            else value["execution_time"]
+        )
     return out
 
 
 def deserialize_json(data: dict) -> ToolResultStructuredContent:
     out: ToolResultStructuredContent = {}  # type: ignore[typeddict-item]
-    if "taskId" in data:
+    if data.get("taskId") is not None:
         out["task_id"] = data["taskId"]
-    if "taskStatus" in data:
+    if data.get("taskStatus") is not None:
         import capo_bedrock_agentcore.types.task_status
 
         out["task_status"] = capo_bedrock_agentcore.types.task_status.deserialize_json(
             data["taskStatus"]
         )
-    if "stdout" in data:
+    if data.get("stdout") is not None:
         out["stdout"] = data["stdout"]
-    if "stderr" in data:
+    if data.get("stderr") is not None:
         out["stderr"] = data["stderr"]
-    if "exitCode" in data:
+    if data.get("exitCode") is not None:
         out["exit_code"] = data["exitCode"]
-    if "executionTime" in data:
-        out["execution_time"] = data["executionTime"]
+    if data.get("executionTime") is not None:
+        out["execution_time"] = float(data["executionTime"])
     return out

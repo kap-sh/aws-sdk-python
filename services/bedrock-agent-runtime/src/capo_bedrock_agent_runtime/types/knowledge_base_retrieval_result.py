@@ -46,7 +46,15 @@ def serialize_json(value: KnowledgeBaseRetrievalResult) -> dict:
             )
         )
     if "score" in value:
-        out["score"] = value["score"]
+        out["score"] = (
+            "NaN"
+            if value["score"] != value["score"]
+            else "Infinity"
+            if value["score"] == float("inf")
+            else "-Infinity"
+            if value["score"] == float("-inf")
+            else value["score"]
+        )
     if "metadata" in value:
         import capo_bedrock_agent_runtime.types.retrieval_result_metadata
 
@@ -60,7 +68,7 @@ def serialize_json(value: KnowledgeBaseRetrievalResult) -> dict:
 
 def deserialize_json(data: dict) -> KnowledgeBaseRetrievalResult:
     out: KnowledgeBaseRetrievalResult = {}  # type: ignore[typeddict-item]
-    if "content" in data:
+    if data.get("content") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_content
 
         out["content"] = (
@@ -70,7 +78,7 @@ def deserialize_json(data: dict) -> KnowledgeBaseRetrievalResult:
         )
     else:
         raise DeserializationError("KnowledgeBaseRetrievalResult.content required")
-    if "location" in data:
+    if data.get("location") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_location
 
         out["location"] = (
@@ -78,9 +86,9 @@ def deserialize_json(data: dict) -> KnowledgeBaseRetrievalResult:
                 data["location"]
             )
         )
-    if "score" in data:
-        out["score"] = data["score"]
-    if "metadata" in data:
+    if data.get("score") is not None:
+        out["score"] = float(data["score"])
+    if data.get("metadata") is not None:
         import capo_bedrock_agent_runtime.types.retrieval_result_metadata
 
         out["metadata"] = (

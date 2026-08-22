@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import uuid
 from typing import TYPE_CHECKING, Optional
 
 import capo_bedrock_agentcore_control._auth._signers
@@ -105,17 +106,19 @@ class OnlineEvaluationConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_online_evaluation_config_request.CreateOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["online_evaluation_config_name"] = online_evaluation_config_name
+        input_: capo_bedrock_agentcore_control.types.create_online_evaluation_config_request.CreateOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_name": online_evaluation_config_name,
+            "rule": rule,
+            "data_source_config": data_source_config,
+            "evaluators": evaluators,
+            "evaluation_execution_role_arn": evaluation_execution_role_arn,
+            "enable_on_create": enable_on_create,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["rule"] = rule
-        input_["data_source_config"] = data_source_config
-        input_["evaluators"] = evaluators
-        input_["evaluation_execution_role_arn"] = evaluation_execution_role_arn
-        input_["enable_on_create"] = enable_on_create
         if tags is not None:
             input_["tags"] = tags
 
@@ -124,6 +127,7 @@ class OnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def read(
@@ -161,14 +165,16 @@ class OnlineEvaluationConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_online_evaluation_config_request.GetOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.get_online_evaluation_config_request.GetOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def update(
@@ -234,10 +240,12 @@ class OnlineEvaluationConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_online_evaluation_config_request.UpdateOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.update_online_evaluation_config_request.UpdateOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if rule is not None:
@@ -256,6 +264,7 @@ class OnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def delete(
@@ -294,14 +303,16 @@ class OnlineEvaluationConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_online_evaluation_config_request.DeleteOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.delete_online_evaluation_config_request.DeleteOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
     def list(
@@ -340,7 +351,7 @@ class OnlineEvaluationConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_online_evaluation_configs_request.ListOnlineEvaluationConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_online_evaluation_configs_request.ListOnlineEvaluationConfigsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -351,6 +362,7 @@ class OnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        response.response.close()
         return response.output
 
 
@@ -415,17 +427,19 @@ class AsyncOnlineEvaluationConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.create_online_evaluation_config_request.CreateOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["online_evaluation_config_name"] = online_evaluation_config_name
+        input_: capo_bedrock_agentcore_control.types.create_online_evaluation_config_request.CreateOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_name": online_evaluation_config_name,
+            "rule": rule,
+            "data_source_config": data_source_config,
+            "evaluators": evaluators,
+            "evaluation_execution_role_arn": evaluation_execution_role_arn,
+            "enable_on_create": enable_on_create,
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
-        input_["rule"] = rule
-        input_["data_source_config"] = data_source_config
-        input_["evaluators"] = evaluators
-        input_["evaluation_execution_role_arn"] = evaluation_execution_role_arn
-        input_["enable_on_create"] = enable_on_create
         if tags is not None:
             input_["tags"] = tags
 
@@ -434,6 +448,7 @@ class AsyncOnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def read(
@@ -472,14 +487,16 @@ class AsyncOnlineEvaluationConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.get_online_evaluation_config_request.GetOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.get_online_evaluation_config_request.GetOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def update(
@@ -546,10 +563,12 @@ class AsyncOnlineEvaluationConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.update_online_evaluation_config_request.UpdateOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        if client_token is not None:
-            input_["client_token"] = client_token
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.update_online_evaluation_config_request.UpdateOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
+        if client_token is None:
+            client_token = str(uuid.uuid4())
+        input_["client_token"] = client_token
         if description is not None:
             input_["description"] = description
         if rule is not None:
@@ -568,6 +587,7 @@ class AsyncOnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def delete(
@@ -607,14 +627,16 @@ class AsyncOnlineEvaluationConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.delete_online_evaluation_config_request.DeleteOnlineEvaluationConfigRequest = {}  # type: ignore[typeddict-item]
-        input_["online_evaluation_config_id"] = online_evaluation_config_id
+        input_: capo_bedrock_agentcore_control.types.delete_online_evaluation_config_request.DeleteOnlineEvaluationConfigRequest = {
+            "online_evaluation_config_id": online_evaluation_config_id
+        }
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output
 
     async def list(
@@ -654,7 +676,7 @@ class AsyncOnlineEvaluationConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input_: capo_bedrock_agentcore_control.types.list_online_evaluation_configs_request.ListOnlineEvaluationConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: capo_bedrock_agentcore_control.types.list_online_evaluation_configs_request.ListOnlineEvaluationConfigsRequest = {}
         if next_token is not None:
             input_["next_token"] = next_token
         if max_results is not None:
@@ -665,4 +687,5 @@ class AsyncOnlineEvaluationConfig:
             handler=_handler,
             interceptors=list(interceptors_),
         )
+        await response.response.aclose()
         return response.output

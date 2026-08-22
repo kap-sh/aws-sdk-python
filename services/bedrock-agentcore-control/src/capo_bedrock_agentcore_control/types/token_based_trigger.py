@@ -18,6 +18,6 @@ def serialize_json(value: TokenBasedTrigger) -> dict:
 
 def deserialize_json(data: dict) -> TokenBasedTrigger:
     out: TokenBasedTrigger = {}  # type: ignore[typeddict-item]
-    if "tokenCount" in data:
+    if data.get("tokenCount") is not None:
         out["token_count"] = data["tokenCount"]
     return out

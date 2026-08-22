@@ -55,7 +55,7 @@ def serialize_json(value: CoinbaseCdpTokenRequestInput) -> dict:
 
 def deserialize_json(data: dict) -> CoinbaseCdpTokenRequestInput:
     out: CoinbaseCdpTokenRequestInput = {}  # type: ignore[typeddict-item]
-    if "requestMethod" in data:
+    if data.get("requestMethod") is not None:
         import capo_bedrock_agentcore.types.payment_http_method_type
 
         out["request_method"] = (
@@ -67,16 +67,16 @@ def deserialize_json(data: dict) -> CoinbaseCdpTokenRequestInput:
         raise DeserializationError(
             "CoinbaseCdpTokenRequestInput.request_method required"
         )
-    if "requestHost" in data:
+    if data.get("requestHost") is not None:
         out["request_host"] = data["requestHost"]
-    if "requestPath" in data:
+    if data.get("requestPath") is not None:
         out["request_path"] = data["requestPath"]
     else:
         raise DeserializationError("CoinbaseCdpTokenRequestInput.request_path required")
-    if "includeWalletAuthToken" in data:
+    if data.get("includeWalletAuthToken") is not None:
         out["include_wallet_auth_token"] = data["includeWalletAuthToken"]
     else:
         out["include_wallet_auth_token"] = False
-    if "requestBody" in data:
+    if data.get("requestBody") is not None:
         out["request_body"] = data["requestBody"]
     return out

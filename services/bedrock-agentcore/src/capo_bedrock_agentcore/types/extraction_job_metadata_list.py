@@ -27,6 +27,8 @@ def deserialize_json(data: list) -> ExtractionJobMetadataList:
 
     out: ExtractionJobMetadataList = []
     for item in data:
+        if item is None:
+            continue
         out.append(
             capo_bedrock_agentcore.types.extraction_job_metadata.deserialize_json(item)
         )

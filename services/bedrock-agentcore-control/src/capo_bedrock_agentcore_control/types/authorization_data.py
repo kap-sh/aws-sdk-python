@@ -35,7 +35,7 @@ def serialize_json(value: AuthorizationData) -> dict:
 
 
 def deserialize_json(data: dict) -> AuthorizationData:
-    if "oauth2" in data:
+    if data.get("oauth2") is not None:
         import capo_bedrock_agentcore_control.types.o_auth2_authorization_data
 
         return {
