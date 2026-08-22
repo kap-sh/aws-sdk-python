@@ -25,6 +25,7 @@ def serialize_xml(value: TargetGrant, parent: Element, tag: str) -> None:
         import capo_s3.types.grantee
 
         capo_s3.types.grantee.serialize_xml(value["grantee"], el, "Grantee")
+        el[-1].set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
     if "permission" in value:
         import capo_s3.types.bucket_logs_permission
 
