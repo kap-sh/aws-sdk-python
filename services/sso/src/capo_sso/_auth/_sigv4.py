@@ -11,6 +11,7 @@ canonicalization paths.
 from __future__ import annotations
 
 import datetime as _dt
+import functools
 import hashlib
 import hmac
 import re
@@ -163,7 +164,10 @@ def _build_canonical_request(
     return canonical_request, signed_headers
 
 
+@functools.lru_cache(maxsize=8)
 def _derive_signing_key(secret: str, date: str, region: str, service: str) -> bytes:
+    # The key depends only on the UTC date stamp (not the full timestamp),
+    # so it is reused for every request in the same day/region/service.
     k_date = hmac.new(
         b"AWS4" + secret.encode("utf-8"), date.encode("ascii"), hashlib.sha256
     ).digest()
