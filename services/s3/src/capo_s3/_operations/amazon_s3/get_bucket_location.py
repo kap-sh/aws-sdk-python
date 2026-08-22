@@ -14,7 +14,7 @@ import capo_s3.types.bucket_location_constraint
 import capo_s3.types.get_bucket_location_output
 import capo_s3.types.get_bucket_location_request
 from capo_s3._protocol.errors import parse_error_metadata
-from capo_s3._protocol.xml import fromstring
+from capo_s3._protocol.xml import Element, fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from capo_s3._rule_engine._endpoint_runtime import apply_label
 from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -35,10 +35,11 @@ def handle_error(response: zapros.Response) -> Never:
 def handle_response(
     response: zapros.Response,
 ) -> capo_s3.types.get_bucket_location_output.GetBucketLocationOutput:
+    # aws.customizations#s3UnwrappedXmlOutput: the root element is the member itself
+    root = Element("GetBucketLocationOutput")
+    root.append(fromstring(response.read()))
     out: capo_s3.types.get_bucket_location_output.GetBucketLocationOutput = (
-        capo_s3.types.get_bucket_location_output.deserialize_xml(
-            fromstring(response.read())
-        )
+        capo_s3.types.get_bucket_location_output.deserialize_xml(root)
     )
     return out
 
@@ -46,10 +47,11 @@ def handle_response(
 async def async_handle_response(
     response: zapros.Response,
 ) -> capo_s3.types.get_bucket_location_output.GetBucketLocationOutput:
+    # aws.customizations#s3UnwrappedXmlOutput: the root element is the member itself
+    root = Element("GetBucketLocationOutput")
+    root.append(fromstring(await response.aread()))
     out: capo_s3.types.get_bucket_location_output.GetBucketLocationOutput = (
-        capo_s3.types.get_bucket_location_output.deserialize_xml(
-            fromstring(await response.aread())
-        )
+        capo_s3.types.get_bucket_location_output.deserialize_xml(root)
     )
     return out
 
