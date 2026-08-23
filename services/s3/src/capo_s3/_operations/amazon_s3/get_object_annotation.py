@@ -55,7 +55,7 @@ def handle_error(response: zapros.Response) -> Never:
 def handle_response(
     response: zapros.Response,
 ) -> capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput:
-    _iter = cast(Any, response.iter_bytes())
+    _iter = cast(Any, response.iter_raw())
     out: capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput = {
         "annotation_payload": _iter
     }  # type: ignore[reportAssignmentType]
@@ -111,7 +111,7 @@ def handle_response(
 async def async_handle_response(
     response: zapros.Response,
 ) -> capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput:
-    _iter = cast(Any, response.async_iter_bytes())
+    _iter = cast(Any, response.async_iter_raw())
     out: capo_s3.types.get_object_annotation_output.GetObjectAnnotationOutput = {
         "annotation_payload": _iter
     }  # type: ignore[reportAssignmentType]

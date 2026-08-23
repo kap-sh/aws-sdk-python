@@ -53,7 +53,7 @@ def handle_response(
     response: zapros.Response,
 ) -> capo_cloudfront.types.get_function_result.GetFunctionResult:
     out: capo_cloudfront.types.get_function_result.GetFunctionResult = {
-        "function_code": response.read()
+        "function_code": b"".join(response.iter_raw())
     }  # type: ignore[typeddict-item]
     if "ETag" in response.headers:
         out["e_tag"] = response.headers["ETag"]
@@ -66,7 +66,7 @@ async def async_handle_response(
     response: zapros.Response,
 ) -> capo_cloudfront.types.get_function_result.GetFunctionResult:
     out: capo_cloudfront.types.get_function_result.GetFunctionResult = {
-        "function_code": await response.aread()
+        "function_code": b"".join([chunk async for chunk in response.async_iter_raw()])
     }  # type: ignore[typeddict-item]
     if "ETag" in response.headers:
         out["e_tag"] = response.headers["ETag"]

@@ -250,7 +250,7 @@ def handle_response(
     response: zapros.Response,
 ) -> capo_lambda.types.invocation_response.InvocationResponse:
     out: capo_lambda.types.invocation_response.InvocationResponse = {
-        "payload": response.read()
+        "payload": b"".join(response.iter_raw())
     }  # type: ignore[typeddict-item]
     if "X-Amz-Function-Error" in response.headers:
         out["function_error"] = response.headers["X-Amz-Function-Error"]
@@ -268,7 +268,7 @@ async def async_handle_response(
     response: zapros.Response,
 ) -> capo_lambda.types.invocation_response.InvocationResponse:
     out: capo_lambda.types.invocation_response.InvocationResponse = {
-        "payload": await response.aread()
+        "payload": b"".join([chunk async for chunk in response.async_iter_raw()])
     }  # type: ignore[typeddict-item]
     if "X-Amz-Function-Error" in response.headers:
         out["function_error"] = response.headers["X-Amz-Function-Error"]

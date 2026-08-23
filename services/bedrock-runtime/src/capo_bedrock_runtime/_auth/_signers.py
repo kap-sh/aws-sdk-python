@@ -81,10 +81,6 @@ class SigV4Signer(Signer[Credentials]):
             body = req.body
         else:
             body = None
-        # Strip Accept-Encoding so transports/intermediaries can't transcode
-        # the response and so the value never enters the canonical request.
-        if "accept-encoding" in req.headers:
-            del req.headers["Accept-Encoding"]
         return sign_sigv4(req, ctx, body)
 
     def sign(self, req: Request) -> Request:
@@ -109,8 +105,4 @@ class SigV4Signer(Signer[Credentials]):
             body = req.body
         else:
             body = None
-        # Strip Accept-Encoding so transports/intermediaries can't transcode
-        # the response and so the value never enters the canonical request.
-        if "accept-encoding" in req.headers:
-            del req.headers["Accept-Encoding"]
         return sign_sigv4(req, ctx, body)

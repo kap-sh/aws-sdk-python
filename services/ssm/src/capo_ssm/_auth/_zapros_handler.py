@@ -33,6 +33,21 @@ def ensure_sync_handler(
     )
 
 
+def strip_accept_encoding(request: Request) -> Request:
+    """Drop the ``Accept-Encoding`` zapros adds to every request.
+
+    Like the AWS SDKs, the client never asks for transport compression: a
+    response body must be the service's actual bytes so ``Content-Length``,
+    checksums and ``Range`` stay coherent and a ``Content-Encoding`` on it is
+    always stored metadata (an S3 object's), never something to undo. Removing
+    the header before signing also keeps it out of the canonical request, where
+    a proxy rewriting it in flight would break the signature.
+    """
+    if "accept-encoding" in request.headers:
+        del request.headers["Accept-Encoding"]
+    return request
+
+
 class AuthMiddleware(BaseMiddleware, AsyncBaseMiddleware):
     """Sign the outgoing request using the Signer placed in ``context["signer"]``.
 
@@ -40,7 +55,8 @@ class AuthMiddleware(BaseMiddleware, AsyncBaseMiddleware):
     effective auth scheme to a concrete :class:`Signer` and threads it
     through ``request.context`` before dispatch. This middleware does the
     actual signing; ``None`` means the operation opted out via
-    ``@optionalAuth`` and the request passes through untouched.
+    ``@optionalAuth`` and the request passes through unsigned. Either way
+    ``Accept-Encoding`` is stripped first (see :func:`strip_accept_encoding`).
     """
 
     def __init__(self, next_handler: BaseHandler | AsyncBaseHandler) -> None:
@@ -49,6 +65,7 @@ class AuthMiddleware(BaseMiddleware, AsyncBaseMiddleware):
 
     def handle(self, request: Request) -> Response:
         next_handler = ensure_sync_handler(self.next)
+        request = strip_accept_encoding(request)
         signer = cast(Optional[Signer], request.context.get("signer"))
         if signer is not None:
             request = signer.sign(request)
@@ -56,6 +73,7 @@ class AuthMiddleware(BaseMiddleware, AsyncBaseMiddleware):
 
     async def ahandle(self, request: Request) -> Response:
         next_handler = ensure_async_handler(self.async_next)
+        request = strip_accept_encoding(request)
         signer = cast(Optional[Signer], request.context.get("signer"))
         if signer is not None:
             request = await signer.asign(request)
