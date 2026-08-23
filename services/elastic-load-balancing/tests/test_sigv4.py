@@ -20,6 +20,7 @@ from zapros import Headers, Request
 
 from capo_elastic_load_balancing._auth._sigv4 import (
     SigV4AuthContext,
+    build_sigv4_auth_scheme,
     _build_canonical_request,
     _canonical_headers,
     _canonical_path,
@@ -530,3 +531,27 @@ def test_async_body_rejected(monkeypatch):
     )
     with pytest.raises(Exception):
         mw.handle(req)
+
+
+def test_build_sigv4_auth_scheme_overlays_endpoint_entry_on_defaults():
+    """The rule set's entry only modifies the properties it carries; IAM's
+    global endpoint names just signingRegion, so signingName must still be the
+    operation default."""
+    assert build_sigv4_auth_scheme("iam", "eu-west-1", {"name": "sigv4", "signingRegion": "us-east-1"}) == {
+        "name": "sigv4",
+        "signingName": "iam",
+        "signingRegion": "us-east-1",
+        "disableDoubleEncoding": False,
+        "disableNormalizePath": False,
+    }
+    # endpoint-carried flags win over the defaults (S3 sets disableDoubleEncoding)
+    assert build_sigv4_auth_scheme("s3", None, {"name": "sigv4", "signingRegion": "us-west-2", "disableDoubleEncoding": True}) == {
+        "name": "sigv4",
+        "signingName": "s3",
+        "signingRegion": "us-west-2",
+        "disableDoubleEncoding": True,
+        "disableNormalizePath": False,
+    }
+    # no region from either source -> unresolvable
+    assert build_sigv4_auth_scheme("s3", None, {"name": "sigv4"}) is None
+    assert build_sigv4_auth_scheme("s3", None) is None

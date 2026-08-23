@@ -25,21 +25,29 @@ from zapros._utils import get_host_header_value
 
 
 def build_sigv4_auth_scheme(
-    signing_name: str, region: str | None
+    signing_name: str, region: str | None, endpoint_scheme: dict[str, Any] | None = None
 ) -> dict[str, Any] | None:
-    """Return a sigv4 auth scheme dict for the given signing name and region.
+    """Return the sigv4 auth scheme for ``signing_name``/``region``, with the
+    endpoint rule set's matching ``authSchemes`` entry overlaid on top.
 
-    Returns None when region is not set so callers can use it in an ``or`` chain.
+    The rule set only *modifies* signing properties of the resolved scheme
+    (Smithy rules engine, ``authSchemes``): keys it carries win, keys it omits
+    keep the operation defaults — IAM's global endpoint names only
+    ``signingRegion``, for instance. Returns None when no signing region is
+    known from either source.
     """
-    if region is None:
-        return None
-    return {
+    scheme: dict[str, Any] = {
         "name": "sigv4",
         "signingName": signing_name,
         "signingRegion": region,
         "disableDoubleEncoding": False,
         "disableNormalizePath": False,
     }
+    if endpoint_scheme:
+        scheme.update(endpoint_scheme)
+    if scheme.get("signingRegion") is None:
+        return None
+    return scheme
 
 
 class SigV4AuthContext(TypedDict):

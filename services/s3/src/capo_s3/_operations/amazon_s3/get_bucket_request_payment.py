@@ -16,7 +16,6 @@ import capo_s3.types.payer
 from capo_s3._protocol.errors import parse_error_metadata
 from capo_s3._protocol.xml import fromstring
 from capo_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from capo_s3._rule_engine._endpoint_runtime import apply_label
 from capo_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from capo_s3.errors import UnknownServiceError
 
@@ -55,17 +54,26 @@ def get_signer(
     auth_schemes: list[dict[str, Any]] | None = None,
 ) -> capo_s3._auth._signers.Signer | None:
     name_to_schema = {s["name"]: s for s in (auth_schemes or [])}  # noqa: F841
-    if options.credentials_provider is not None:
-        sigv4_config = (
-            name_to_schema.get("sigv4")
-            or name_to_schema.get("sigv4a")
-            or name_to_schema.get("sigv4-s3express")
-            or capo_s3._auth._sigv4.build_sigv4_auth_scheme("s3", options.region)
+    if (
+        options.credentials_provider is not None
+        and name_to_schema
+        and not name_to_schema.keys() & {"sigv4", "sigv4-s3express"}
+    ):
+        raise RuntimeError(
+            "Endpoint requires an unsupported auth scheme: " + ", ".join(name_to_schema)
         )
-        if sigv4_config is not None:
-            return capo_s3._auth._signers.SigV4Signer(
-                options.credentials_provider, auth_scheme=sigv4_config
+    if options.credentials_provider is not None:
+        endpoint_scheme = name_to_schema.get("sigv4") or name_to_schema.get(
+            "sigv4-s3express"
+        )
+        if endpoint_scheme is not None or not name_to_schema:
+            sigv4_config = capo_s3._auth._sigv4.build_sigv4_auth_scheme(
+                "s3", options.region, endpoint_scheme
             )
+            if sigv4_config is not None:
+                return capo_s3._auth._signers.SigV4Signer(
+                    options.credentials_provider, auth_scheme=sigv4_config
+                )
     raise RuntimeError("Auth was not resolved")
 
 
@@ -94,8 +102,7 @@ def build_request(
             DisableS3ExpressSessionAuth=options.disable_s3_express_session_auth,
         )
     )  # noqa: F841
-    url = endpoint.url.rstrip("/") + "/{Bucket}?requestPayment"
-    url = apply_label(url, "{Bucket}", input_["bucket"])
+    url = endpoint.url.rstrip("/") + "?requestPayment"
     params: list[tuple[str, str]] = []
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "expected_bucket_owner" in input_:
