@@ -6054,6 +6054,45 @@ class AsyncS3Client:
         await response.response.aclose()
         return response.output
 
+    async def iter_list_objects_v2(
+        self,
+        bucket: "capo_s3.types.bucket_name.BucketName",
+        *,
+        config_overrides: Optional[AsyncS3ClientConfig] = None,
+        delimiter: Optional["capo_s3.types.delimiter.Delimiter"] = None,
+        encoding_type: Optional["capo_s3.types.encoding_type.EncodingType"] = None,
+        max_keys: Optional["capo_s3.types.max_keys.MaxKeys"] = None,
+        prefix: Optional["capo_s3.types.prefix.Prefix"] = None,
+        continuation_token: Optional["capo_s3.types.token.Token"] = None,
+        fetch_owner: Optional["capo_s3.types.fetch_owner.FetchOwner"] = None,
+        start_after: Optional["capo_s3.types.start_after.StartAfter"] = None,
+        request_payer: Optional["capo_s3.types.request_payer.RequestPayer"] = None,
+        expected_bucket_owner: Optional["capo_s3.types.account_id.AccountId"] = None,
+        optional_object_attributes: Optional[
+            "capo_s3.types.optional_object_attributes_list.OptionalObjectAttributesList"
+        ] = None,
+    ) -> "AsyncIterator[capo_s3.types.list_objects_v2_output.ListObjectsV2Output]":
+        _token = continuation_token
+        while True:
+            _response = await self.list_objects_v2(
+                bucket,
+                config_overrides=config_overrides,
+                delimiter=delimiter,
+                encoding_type=encoding_type,
+                max_keys=max_keys,
+                prefix=prefix,
+                continuation_token=_token,
+                fetch_owner=fetch_owner,
+                start_after=start_after,
+                request_payer=request_payer,
+                expected_bucket_owner=expected_bucket_owner,
+                optional_object_attributes=optional_object_attributes,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_continuation_token",))
+            if not _token:
+                break
+
     async def list_object_versions(
         self,
         bucket: "capo_s3.types.bucket_name.BucketName",
