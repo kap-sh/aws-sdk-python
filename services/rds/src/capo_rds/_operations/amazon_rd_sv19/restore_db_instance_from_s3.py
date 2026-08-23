@@ -229,7 +229,7 @@ def restore_db_instance_from_s3(
 ]:
     response = options.client.handler.handle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             response.read()
             handle_error(response)
         return handle_response(response), response
@@ -247,7 +247,7 @@ async def async_restore_db_instance_from_s3(
 ]:
     response = await options.client.handler.ahandle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             await response.aread()
             handle_error(response)
         return await async_handle_response(response), response

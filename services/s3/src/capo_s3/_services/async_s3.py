@@ -6090,7 +6090,7 @@ class AsyncS3Client:
             )
             yield _response
             _token = _resolve_path(_response, ("next_continuation_token",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_object_versions(
@@ -6310,7 +6310,7 @@ class AsyncS3Client:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("next_part_number_marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def put_bucket_abac(

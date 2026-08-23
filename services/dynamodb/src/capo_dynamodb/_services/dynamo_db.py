@@ -2347,6 +2347,31 @@ class DynamoDBClient:
         response.response.close()
         return response.output
 
+    def iter_list_contributor_insights(
+        self,
+        *,
+        config_overrides: Optional[DynamoDBClientConfig] = None,
+        table_name: Optional["capo_dynamodb.types.table_arn.TableArn"] = None,
+        next_token: Optional[
+            "capo_dynamodb.types.next_token_string.NextTokenString"
+        ] = None,
+        max_results: Optional[
+            "capo_dynamodb.types.list_contributor_insights_limit.ListContributorInsightsLimit"
+        ] = None,
+    ) -> "Iterator[capo_dynamodb.types.list_contributor_insights_output.ListContributorInsightsOutput]":
+        _token = next_token
+        while True:
+            _response = self.list_contributor_insights(
+                config_overrides=config_overrides,
+                table_name=table_name,
+                next_token=_token,
+                max_results=max_results,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     def list_exports(
         self,
         *,
@@ -2402,6 +2427,31 @@ class DynamoDBClient:
         )
         response.response.close()
         return response.output
+
+    def iter_list_exports(
+        self,
+        *,
+        config_overrides: Optional[DynamoDBClientConfig] = None,
+        table_arn: Optional["capo_dynamodb.types.table_arn.TableArn"] = None,
+        max_results: Optional[
+            "capo_dynamodb.types.list_exports_max_limit.ListExportsMaxLimit"
+        ] = None,
+        next_token: Optional[
+            "capo_dynamodb.types.export_next_token.ExportNextToken"
+        ] = None,
+    ) -> "Iterator[capo_dynamodb.types.list_exports_output.ListExportsOutput]":
+        _token = next_token
+        while True:
+            _response = self.list_exports(
+                config_overrides=config_overrides,
+                table_arn=table_arn,
+                max_results=max_results,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     def list_global_tables(
         self,
@@ -2515,6 +2565,31 @@ class DynamoDBClient:
         )
         response.response.close()
         return response.output
+
+    def iter_list_imports(
+        self,
+        *,
+        config_overrides: Optional[DynamoDBClientConfig] = None,
+        table_arn: Optional["capo_dynamodb.types.table_arn.TableArn"] = None,
+        page_size: Optional[
+            "capo_dynamodb.types.list_imports_max_limit.ListImportsMaxLimit"
+        ] = None,
+        next_token: Optional[
+            "capo_dynamodb.types.import_next_token.ImportNextToken"
+        ] = None,
+    ) -> "Iterator[capo_dynamodb.types.list_imports_output.ListImportsOutput]":
+        _token = next_token
+        while True:
+            _response = self.list_imports(
+                config_overrides=config_overrides,
+                table_arn=table_arn,
+                page_size=page_size,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     def list_tables(
         self,

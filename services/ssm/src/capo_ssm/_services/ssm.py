@@ -4895,6 +4895,35 @@ class SSMClient:
         response.response.close()
         return response.output
 
+    def iter_describe_parameters(
+        self,
+        *,
+        config_overrides: Optional[SSMClientConfig] = None,
+        filters: Optional[
+            "capo_ssm.types.parameters_filter_list.ParametersFilterList"
+        ] = None,
+        parameter_filters: Optional[
+            "capo_ssm.types.parameter_string_filter_list.ParameterStringFilterList"
+        ] = None,
+        max_results: Optional["capo_ssm.types.max_results.MaxResults"] = None,
+        next_token: Optional["capo_ssm.types.next_token.NextToken"] = None,
+        shared: Optional["capo_ssm.types.boolean.Boolean"] = None,
+    ) -> "Iterator[capo_ssm.types.describe_parameters_result.DescribeParametersResult]":
+        _token = next_token
+        while True:
+            _response = self.describe_parameters(
+                config_overrides=config_overrides,
+                filters=filters,
+                parameter_filters=parameter_filters,
+                max_results=max_results,
+                next_token=_token,
+                shared=shared,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     def describe_patch_baselines(
         self,
         *,
@@ -6537,6 +6566,29 @@ class SSMClient:
         response.response.close()
         return response.output
 
+    def iter_get_parameter_history(
+        self,
+        name: "capo_ssm.types.ps_parameter_name.PSParameterName",
+        *,
+        config_overrides: Optional[SSMClientConfig] = None,
+        with_decryption: Optional["capo_ssm.types.boolean.Boolean"] = None,
+        max_results: Optional["capo_ssm.types.max_results.MaxResults"] = None,
+        next_token: Optional["capo_ssm.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_ssm.types.get_parameter_history_result.GetParameterHistoryResult]":
+        _token = next_token
+        while True:
+            _response = self.get_parameter_history(
+                name,
+                config_overrides=config_overrides,
+                with_decryption=with_decryption,
+                max_results=max_results,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     def get_parameters(
         self,
         names: "capo_ssm.types.parameter_name_list.ParameterNameList",
@@ -6656,6 +6708,37 @@ class SSMClient:
         )
         response.response.close()
         return response.output
+
+    def iter_get_parameters_by_path(
+        self,
+        path: "capo_ssm.types.ps_parameter_name.PSParameterName",
+        *,
+        config_overrides: Optional[SSMClientConfig] = None,
+        recursive: Optional["capo_ssm.types.boolean.Boolean"] = None,
+        parameter_filters: Optional[
+            "capo_ssm.types.parameter_string_filter_list.ParameterStringFilterList"
+        ] = None,
+        with_decryption: Optional["capo_ssm.types.boolean.Boolean"] = None,
+        max_results: Optional[
+            "capo_ssm.types.get_parameters_by_path_max_results.GetParametersByPathMaxResults"
+        ] = None,
+        next_token: Optional["capo_ssm.types.next_token.NextToken"] = None,
+    ) -> "Iterator[capo_ssm.types.get_parameters_by_path_result.GetParametersByPathResult]":
+        _token = next_token
+        while True:
+            _response = self.get_parameters_by_path(
+                path,
+                config_overrides=config_overrides,
+                recursive=recursive,
+                parameter_filters=parameter_filters,
+                with_decryption=with_decryption,
+                max_results=max_results,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     def get_patch_baseline(
         self,

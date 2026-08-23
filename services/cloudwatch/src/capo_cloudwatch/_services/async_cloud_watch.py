@@ -931,6 +931,47 @@ class AsyncCloudWatchClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_describe_alarms(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        alarm_names: Optional["capo_cloudwatch.types.alarm_names.AlarmNames"] = None,
+        alarm_name_prefix: Optional[
+            "capo_cloudwatch.types.alarm_name_prefix.AlarmNamePrefix"
+        ] = None,
+        alarm_types: Optional["capo_cloudwatch.types.alarm_types.AlarmTypes"] = None,
+        children_of_alarm_name: Optional[
+            "capo_cloudwatch.types.alarm_name.AlarmName"
+        ] = None,
+        parents_of_alarm_name: Optional[
+            "capo_cloudwatch.types.alarm_name.AlarmName"
+        ] = None,
+        state_value: Optional["capo_cloudwatch.types.state_value.StateValue"] = None,
+        action_prefix: Optional[
+            "capo_cloudwatch.types.action_prefix.ActionPrefix"
+        ] = None,
+        max_records: Optional["capo_cloudwatch.types.max_records.MaxRecords"] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.describe_alarms_output.DescribeAlarmsOutput]":
+        _token = next_token
+        while True:
+            _response = await self.describe_alarms(
+                config_overrides=config_overrides,
+                alarm_names=alarm_names,
+                alarm_name_prefix=alarm_name_prefix,
+                alarm_types=alarm_types,
+                children_of_alarm_name=children_of_alarm_name,
+                parents_of_alarm_name=parents_of_alarm_name,
+                state_value=state_value,
+                action_prefix=action_prefix,
+                max_records=max_records,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def describe_alarms_for_metric(
         self,
         *,
@@ -1165,6 +1206,27 @@ class AsyncCloudWatchClient:
         )
         await response.response.aclose()
         return response.output
+
+    async def iter_describe_insight_rules(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "capo_cloudwatch.types.insight_rule_max_results.InsightRuleMaxResults"
+        ] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.describe_insight_rules_output.DescribeInsightRulesOutput]":
+        _token = next_token
+        while True:
+            _response = await self.describe_insight_rules(
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     async def disable_alarm_actions(
         self,
@@ -1723,6 +1785,41 @@ class AsyncCloudWatchClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_get_metric_data(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        metric_data_queries: Optional[
+            "capo_cloudwatch.types.metric_data_queries.MetricDataQueries"
+        ] = None,
+        start_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_cloudwatch.types.timestamp.Timestamp"] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+        scan_by: Optional["capo_cloudwatch.types.scan_by.ScanBy"] = None,
+        max_datapoints: Optional[
+            "capo_cloudwatch.types.get_metric_data_max_datapoints.GetMetricDataMaxDatapoints"
+        ] = None,
+        label_options: Optional[
+            "capo_cloudwatch.types.label_options.LabelOptions"
+        ] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.get_metric_data_output.GetMetricDataOutput]":
+        _token = next_token
+        while True:
+            _response = await self.get_metric_data(
+                config_overrides=config_overrides,
+                metric_data_queries=metric_data_queries,
+                start_time=start_time,
+                end_time=end_time,
+                next_token=_token,
+                scan_by=scan_by,
+                max_datapoints=max_datapoints,
+                label_options=label_options,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def get_metric_statistics(
         self,
         *,
@@ -2158,6 +2255,31 @@ class AsyncCloudWatchClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_list_managed_insight_rules(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        resource_arn: Optional[
+            "capo_cloudwatch.types.amazon_resource_name.AmazonResourceName"
+        ] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "capo_cloudwatch.types.insight_rule_max_results.InsightRuleMaxResults"
+        ] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.list_managed_insight_rules_output.ListManagedInsightRulesOutput]":
+        _token = next_token
+        while True:
+            _response = await self.list_managed_insight_rules(
+                config_overrides=config_overrides,
+                resource_arn=resource_arn,
+                next_token=_token,
+                max_results=max_results,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def list_metrics(
         self,
         *,
@@ -2233,6 +2355,41 @@ class AsyncCloudWatchClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_list_metrics(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        namespace: Optional["capo_cloudwatch.types.namespace.Namespace"] = None,
+        metric_name: Optional["capo_cloudwatch.types.metric_name.MetricName"] = None,
+        dimensions: Optional[
+            "capo_cloudwatch.types.dimension_filters.DimensionFilters"
+        ] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+        recently_active: Optional[
+            "capo_cloudwatch.types.recently_active.RecentlyActive"
+        ] = None,
+        include_linked_accounts: Optional[
+            "capo_cloudwatch.types.include_linked_accounts.IncludeLinkedAccounts"
+        ] = None,
+        owning_account: Optional["capo_cloudwatch.types.account_id.AccountId"] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.list_metrics_output.ListMetricsOutput]":
+        _token = next_token
+        while True:
+            _response = await self.list_metrics(
+                config_overrides=config_overrides,
+                namespace=namespace,
+                metric_name=metric_name,
+                dimensions=dimensions,
+                next_token=_token,
+                recently_active=recently_active,
+                include_linked_accounts=include_linked_accounts,
+                owning_account=owning_account,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def list_metric_streams(
         self,
         *,
@@ -2285,6 +2442,27 @@ class AsyncCloudWatchClient:
         )
         await response.response.aclose()
         return response.output
+
+    async def iter_list_metric_streams(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchClientConfig] = None,
+        next_token: Optional["capo_cloudwatch.types.next_token.NextToken"] = None,
+        max_results: Optional[
+            "capo_cloudwatch.types.list_metric_streams_max_results.ListMetricStreamsMaxResults"
+        ] = None,
+    ) -> "AsyncIterator[capo_cloudwatch.types.list_metric_streams_output.ListMetricStreamsOutput]":
+        _token = next_token
+        while True:
+            _response = await self.list_metric_streams(
+                config_overrides=config_overrides,
+                next_token=_token,
+                max_results=max_results,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     async def list_tags_for_resource(
         self,

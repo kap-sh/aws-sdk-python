@@ -10,6 +10,8 @@ from typing import TYPE_CHECKING
 
 from zapros import Response
 
+from .xml import fromstring
+
 if TYPE_CHECKING:
     from xml.etree.ElementTree import Element
 
@@ -69,8 +71,23 @@ def parse_error_metadata_json(
     return code, message
 
 
+def is_xml_error_body(body: bytes) -> bool:
+    """Whether a 2xx response body is really an XML error document.
+
+    S3 answers CopyObject, UploadPartCopy and CompleteMultipartUpload
+    with ``200 OK`` before the operation finishes; a failure after that
+    point is reported as an ``<Error>`` body (or an empty body) on the
+    200 response. Official SDKs check the body for exactly these
+    operations.
+    """
+    if not body:
+        return True
+    return fromstring(body).tag == "Error"
+
+
 __all__ = [
     "find_error_element",
+    "is_xml_error_body",
     "parse_error_metadata",
     "parse_error_metadata_json",
 ]

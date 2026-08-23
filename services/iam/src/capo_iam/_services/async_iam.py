@@ -3864,6 +3864,27 @@ class AsyncIAMClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_get_account_authorization_details(
+        self,
+        *,
+        config_overrides: Optional[AsyncIAMClientConfig] = None,
+        filter: Optional["capo_iam.types.entity_list_type.entityListType"] = None,
+        max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
+        marker: Optional["capo_iam.types.marker_type.markerType"] = None,
+    ) -> "AsyncIterator[capo_iam.types.get_account_authorization_details_response.GetAccountAuthorizationDetailsResponse]":
+        _token = marker
+        while True:
+            _response = await self.get_account_authorization_details(
+                config_overrides=config_overrides,
+                filter=filter,
+                max_items=max_items,
+                marker=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("marker",))
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
+                break
+
     async def get_account_password_policy(
         self, *, config_overrides: Optional[AsyncIAMClientConfig] = None
     ) -> "capo_iam.types.get_account_password_policy_response.GetAccountPasswordPolicyResponse":
@@ -4241,7 +4262,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def get_group_policy(
@@ -5543,7 +5564,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_account_aliases(
@@ -5618,7 +5639,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_attached_group_policies(
@@ -5701,7 +5722,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_attached_role_policies(
@@ -5784,7 +5805,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_attached_user_policies(
@@ -5867,7 +5888,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_delegation_requests(
@@ -5994,6 +6015,35 @@ class AsyncIAMClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_list_entities_for_policy(
+        self,
+        policy_arn: "capo_iam.types.arn_type.arnType",
+        *,
+        config_overrides: Optional[AsyncIAMClientConfig] = None,
+        entity_filter: Optional["capo_iam.types.entity_type.EntityType"] = None,
+        path_prefix: Optional["capo_iam.types.path_type.pathType"] = None,
+        policy_usage_filter: Optional[
+            "capo_iam.types.policy_usage_type.PolicyUsageType"
+        ] = None,
+        marker: Optional["capo_iam.types.marker_type.markerType"] = None,
+        max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
+    ) -> "AsyncIterator[capo_iam.types.list_entities_for_policy_response.ListEntitiesForPolicyResponse]":
+        _token = marker
+        while True:
+            _response = await self.list_entities_for_policy(
+                policy_arn,
+                config_overrides=config_overrides,
+                entity_filter=entity_filter,
+                path_prefix=path_prefix,
+                policy_usage_filter=policy_usage_filter,
+                marker=_token,
+                max_items=max_items,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("marker",))
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
+                break
+
     async def list_group_policies(
         self,
         group_name: "capo_iam.types.group_name_type.groupNameType",
@@ -6073,7 +6123,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_groups(
@@ -6154,7 +6204,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_groups_for_user(
@@ -6236,7 +6286,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_instance_profiles(
@@ -6311,7 +6361,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_instance_profiles_for_role(
@@ -6387,7 +6437,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_instance_profile_tags(
@@ -6463,7 +6513,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_mfa_devices(
@@ -6543,7 +6593,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_mfa_device_tags(
@@ -6620,7 +6670,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_open_id_connect_providers(
@@ -6733,7 +6783,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_organizations_features(
@@ -6875,7 +6925,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_policies_granting_service_access(
@@ -7010,7 +7060,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_policy_versions(
@@ -7087,7 +7137,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_role_policies(
@@ -7163,7 +7213,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_roles(
@@ -7238,7 +7288,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_role_tags(
@@ -7320,7 +7370,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_saml_providers(
@@ -7433,7 +7483,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_server_certificates(
@@ -7508,7 +7558,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_server_certificate_tags(
@@ -7584,7 +7634,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_service_specific_credentials(
@@ -7731,7 +7781,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_ssh_public_keys(
@@ -7806,7 +7856,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_user_policies(
@@ -7882,7 +7932,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_users(
@@ -7963,7 +8013,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_user_tags(
@@ -8045,7 +8095,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def list_virtual_mfa_devices(
@@ -8131,7 +8181,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def put_account_properties(
@@ -9059,7 +9109,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def simulate_principal_policy(
@@ -9233,7 +9283,7 @@ class AsyncIAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     async def tag_instance_profile(

@@ -1484,6 +1484,31 @@ class AsyncECRClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_describe_image_scan_findings(
+        self,
+        repository_name: "capo_ecr.types.repository_name.RepositoryName",
+        image_id: "capo_ecr.types.image_identifier.ImageIdentifier",
+        *,
+        config_overrides: Optional[AsyncECRClientConfig] = None,
+        registry_id: Optional["capo_ecr.types.registry_id.RegistryId"] = None,
+        next_token: Optional["capo_ecr.types.next_token.NextToken"] = None,
+        max_results: Optional["capo_ecr.types.max_results.MaxResults"] = None,
+    ) -> "AsyncIterator[capo_ecr.types.describe_image_scan_findings_response.DescribeImageScanFindingsResponse]":
+        _token = next_token
+        while True:
+            _response = await self.describe_image_scan_findings(
+                repository_name,
+                image_id,
+                config_overrides=config_overrides,
+                registry_id=registry_id,
+                next_token=_token,
+                max_results=max_results,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def describe_image_signing_status(
         self,
         repository_name: "capo_ecr.types.repository_name.RepositoryName",

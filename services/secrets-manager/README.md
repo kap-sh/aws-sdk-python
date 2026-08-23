@@ -19,6 +19,21 @@ async def main():
         print(response["secret_values"])
 ```
 
+## Pagination
+
+Some operations in this SDK support pagination. If the operation supports pagination it will have an `iter_` prefixed method that returns an async iterator.
+
+```python
+from capo_secrets_manager import AsyncSecretsManagerClient
+
+
+async def main():
+    async with AsyncSecretsManagerClient() as secrets_manager:
+        # Example: paginate over batch_get_secret_value
+        async for item in secrets_manager.iter_batch_get_secret_value():
+            print(item)
+```
+
 ## Error Handling
 
 The SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.

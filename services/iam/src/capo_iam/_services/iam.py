@@ -3795,6 +3795,27 @@ class IAMClient:
         response.response.close()
         return response.output
 
+    def iter_get_account_authorization_details(
+        self,
+        *,
+        config_overrides: Optional[IAMClientConfig] = None,
+        filter: Optional["capo_iam.types.entity_list_type.entityListType"] = None,
+        max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
+        marker: Optional["capo_iam.types.marker_type.markerType"] = None,
+    ) -> "Iterator[capo_iam.types.get_account_authorization_details_response.GetAccountAuthorizationDetailsResponse]":
+        _token = marker
+        while True:
+            _response = self.get_account_authorization_details(
+                config_overrides=config_overrides,
+                filter=filter,
+                max_items=max_items,
+                marker=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("marker",))
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
+                break
+
     def get_account_password_policy(
         self, *, config_overrides: Optional[IAMClientConfig] = None
     ) -> "capo_iam.types.get_account_password_policy_response.GetAccountPasswordPolicyResponse":
@@ -4162,7 +4183,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def get_group_policy(
@@ -5440,7 +5461,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_account_aliases(
@@ -5514,7 +5535,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_attached_group_policies(
@@ -5596,7 +5617,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_attached_role_policies(
@@ -5678,7 +5699,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_attached_user_policies(
@@ -5760,7 +5781,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_delegation_requests(
@@ -5885,6 +5906,35 @@ class IAMClient:
         response.response.close()
         return response.output
 
+    def iter_list_entities_for_policy(
+        self,
+        policy_arn: "capo_iam.types.arn_type.arnType",
+        *,
+        config_overrides: Optional[IAMClientConfig] = None,
+        entity_filter: Optional["capo_iam.types.entity_type.EntityType"] = None,
+        path_prefix: Optional["capo_iam.types.path_type.pathType"] = None,
+        policy_usage_filter: Optional[
+            "capo_iam.types.policy_usage_type.PolicyUsageType"
+        ] = None,
+        marker: Optional["capo_iam.types.marker_type.markerType"] = None,
+        max_items: Optional["capo_iam.types.max_items_type.maxItemsType"] = None,
+    ) -> "Iterator[capo_iam.types.list_entities_for_policy_response.ListEntitiesForPolicyResponse]":
+        _token = marker
+        while True:
+            _response = self.list_entities_for_policy(
+                policy_arn,
+                config_overrides=config_overrides,
+                entity_filter=entity_filter,
+                path_prefix=path_prefix,
+                policy_usage_filter=policy_usage_filter,
+                marker=_token,
+                max_items=max_items,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("marker",))
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
+                break
+
     def list_group_policies(
         self,
         group_name: "capo_iam.types.group_name_type.groupNameType",
@@ -5963,7 +6013,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_groups(
@@ -6043,7 +6093,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_groups_for_user(
@@ -6124,7 +6174,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_instance_profiles(
@@ -6198,7 +6248,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_instance_profiles_for_role(
@@ -6273,7 +6323,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_instance_profile_tags(
@@ -6348,7 +6398,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_mfa_devices(
@@ -6427,7 +6477,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_mfa_device_tags(
@@ -6503,7 +6553,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_open_id_connect_providers(
@@ -6614,7 +6664,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_organizations_features(
@@ -6754,7 +6804,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_policies_granting_service_access(
@@ -6887,7 +6937,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_policy_versions(
@@ -6963,7 +7013,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_role_policies(
@@ -7038,7 +7088,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_roles(
@@ -7110,7 +7160,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_role_tags(
@@ -7191,7 +7241,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_saml_providers(
@@ -7302,7 +7352,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_server_certificates(
@@ -7378,7 +7428,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_server_certificate_tags(
@@ -7453,7 +7503,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_service_specific_credentials(
@@ -7598,7 +7648,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_ssh_public_keys(
@@ -7672,7 +7722,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_user_policies(
@@ -7747,7 +7797,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_users(
@@ -7825,7 +7875,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_user_tags(
@@ -7906,7 +7956,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_virtual_mfa_devices(
@@ -7991,7 +8041,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def put_account_properties(
@@ -8903,7 +8953,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def simulate_principal_policy(
@@ -9076,7 +9126,7 @@ class IAMClient:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def tag_instance_profile(

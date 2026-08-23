@@ -9384,6 +9384,29 @@ class RDSClient:
         response.response.close()
         return response.output
 
+    def iter_download_db_log_file_portion(
+        self,
+        *,
+        config_overrides: Optional[RDSClientConfig] = None,
+        db_instance_identifier: Optional["capo_rds.types.string.String"] = None,
+        log_file_name: Optional["capo_rds.types.string.String"] = None,
+        marker: Optional["capo_rds.types.string.String"] = None,
+        number_of_lines: Optional["capo_rds.types.integer.Integer"] = None,
+    ) -> "Iterator[capo_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails]":
+        _token = marker
+        while True:
+            _response = self.download_db_log_file_portion(
+                config_overrides=config_overrides,
+                db_instance_identifier=db_instance_identifier,
+                log_file_name=log_file_name,
+                marker=_token,
+                number_of_lines=number_of_lines,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("marker",))
+            if not _token:
+                break
+
     def enable_http_endpoint(
         self,
         *,

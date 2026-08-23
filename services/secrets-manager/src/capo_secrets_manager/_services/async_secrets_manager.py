@@ -2,6 +2,7 @@
 
 import uuid
 import warnings
+from collections.abc import AsyncIterator
 from typing import TYPE_CHECKING, Any, Iterable, Optional
 
 from typing_extensions import Self, TypedDict
@@ -17,6 +18,7 @@ from capo_secrets_manager._auth._providers import (
     default_aws_credentials_chain,
 )
 from capo_secrets_manager._auth._zapros_handler import AuthMiddleware
+from capo_secrets_manager._pagination import resolve_path as _resolve_path
 from capo_secrets_manager._services._aws_config import aaws_config
 from capo_secrets_manager._services._pipeline import (
     AsyncInterceptor,
@@ -279,6 +281,37 @@ class AsyncSecretsManagerClient:
         )
         await response.response.aclose()
         return response.output
+
+    async def iter_batch_get_secret_value(
+        self,
+        *,
+        config_overrides: Optional[AsyncSecretsManagerClientConfig] = None,
+        secret_id_list: Optional[
+            "capo_secrets_manager.types.secret_id_list_type.SecretIdListType"
+        ] = None,
+        filters: Optional[
+            "capo_secrets_manager.types.filters_list_type.FiltersListType"
+        ] = None,
+        max_results: Optional[
+            "capo_secrets_manager.types.max_results_batch_type.MaxResultsBatchType"
+        ] = None,
+        next_token: Optional[
+            "capo_secrets_manager.types.next_token_type.NextTokenType"
+        ] = None,
+    ) -> "AsyncIterator[capo_secrets_manager.types.batch_get_secret_value_response.BatchGetSecretValueResponse]":
+        _token = next_token
+        while True:
+            _response = await self.batch_get_secret_value(
+                config_overrides=config_overrides,
+                secret_id_list=secret_id_list,
+                filters=filters,
+                max_results=max_results,
+                next_token=_token,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     async def cancel_rotate_secret(
         self,
@@ -901,6 +934,43 @@ class AsyncSecretsManagerClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_list_secrets(
+        self,
+        *,
+        config_overrides: Optional[AsyncSecretsManagerClientConfig] = None,
+        include_planned_deletion: Optional[
+            "capo_secrets_manager.types.boolean_type.BooleanType"
+        ] = None,
+        max_results: Optional[
+            "capo_secrets_manager.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "capo_secrets_manager.types.next_token_type.NextTokenType"
+        ] = None,
+        filters: Optional[
+            "capo_secrets_manager.types.filters_list_type.FiltersListType"
+        ] = None,
+        sort_order: Optional[
+            "capo_secrets_manager.types.sort_order_type.SortOrderType"
+        ] = None,
+        sort_by: Optional["capo_secrets_manager.types.sort_by_type.SortByType"] = None,
+    ) -> "AsyncIterator[capo_secrets_manager.types.list_secrets_response.ListSecretsResponse]":
+        _token = next_token
+        while True:
+            _response = await self.list_secrets(
+                config_overrides=config_overrides,
+                include_planned_deletion=include_planned_deletion,
+                max_results=max_results,
+                next_token=_token,
+                filters=filters,
+                sort_order=sort_order,
+                sort_by=sort_by,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def list_secret_version_ids(
         self,
         secret_id: "capo_secrets_manager.types.secret_id_type.SecretIdType",
@@ -971,6 +1041,35 @@ class AsyncSecretsManagerClient:
         )
         await response.response.aclose()
         return response.output
+
+    async def iter_list_secret_version_ids(
+        self,
+        secret_id: "capo_secrets_manager.types.secret_id_type.SecretIdType",
+        *,
+        config_overrides: Optional[AsyncSecretsManagerClientConfig] = None,
+        max_results: Optional[
+            "capo_secrets_manager.types.max_results_type.MaxResultsType"
+        ] = None,
+        next_token: Optional[
+            "capo_secrets_manager.types.next_token_type.NextTokenType"
+        ] = None,
+        include_deprecated: Optional[
+            "capo_secrets_manager.types.boolean_type.BooleanType"
+        ] = None,
+    ) -> "AsyncIterator[capo_secrets_manager.types.list_secret_version_ids_response.ListSecretVersionIdsResponse]":
+        _token = next_token
+        while True:
+            _response = await self.list_secret_version_ids(
+                secret_id,
+                config_overrides=config_overrides,
+                max_results=max_results,
+                next_token=_token,
+                include_deprecated=include_deprecated,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
 
     async def put_resource_policy(
         self,

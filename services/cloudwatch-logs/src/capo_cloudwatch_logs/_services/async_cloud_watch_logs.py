@@ -3901,6 +3901,55 @@ class AsyncCloudWatchLogsClient:
         await response.response.aclose()
         return response.output
 
+    async def iter_filter_log_events(
+        self,
+        *,
+        config_overrides: Optional[AsyncCloudWatchLogsClientConfig] = None,
+        log_group_name: Optional[
+            "capo_cloudwatch_logs.types.log_group_name.LogGroupName"
+        ] = None,
+        log_group_identifier: Optional[
+            "capo_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
+        ] = None,
+        log_stream_names: Optional[
+            "capo_cloudwatch_logs.types.input_log_stream_names.InputLogStreamNames"
+        ] = None,
+        log_stream_name_prefix: Optional[
+            "capo_cloudwatch_logs.types.log_stream_name.LogStreamName"
+        ] = None,
+        start_time: Optional["capo_cloudwatch_logs.types.timestamp.Timestamp"] = None,
+        end_time: Optional["capo_cloudwatch_logs.types.timestamp.Timestamp"] = None,
+        filter_pattern: Optional[
+            "capo_cloudwatch_logs.types.filter_pattern.FilterPattern"
+        ] = None,
+        next_token: Optional["capo_cloudwatch_logs.types.next_token.NextToken"] = None,
+        limit: Optional["capo_cloudwatch_logs.types.events_limit.EventsLimit"] = None,
+        interleaved: Optional[
+            "capo_cloudwatch_logs.types.interleaved.Interleaved"
+        ] = None,
+        unmask: Optional["capo_cloudwatch_logs.types.unmask.Unmask"] = None,
+    ) -> "AsyncIterator[capo_cloudwatch_logs.types.filter_log_events_response.FilterLogEventsResponse]":
+        _token = next_token
+        while True:
+            _response = await self.filter_log_events(
+                config_overrides=config_overrides,
+                log_group_name=log_group_name,
+                log_group_identifier=log_group_identifier,
+                log_stream_names=log_stream_names,
+                log_stream_name_prefix=log_stream_name_prefix,
+                start_time=start_time,
+                end_time=end_time,
+                filter_pattern=filter_pattern,
+                next_token=_token,
+                limit=limit,
+                interleaved=interleaved,
+                unmask=unmask,
+            )
+            yield _response
+            _token = _resolve_path(_response, ("next_token",))
+            if not _token:
+                break
+
     async def get_data_protection_policy(
         self,
         log_group_identifier: "capo_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier",

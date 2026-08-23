@@ -29,8 +29,8 @@ from capo_iam import AsyncIAMClient
 
 async def main():
     async with AsyncIAMClient() as iam:
-        # Example: paginate over get_group
-        async for item in iam.iter_get_group():
+        # Example: paginate over get_account_authorization_details
+        async for item in iam.iter_get_account_authorization_details():
             print(item)
 ```
 

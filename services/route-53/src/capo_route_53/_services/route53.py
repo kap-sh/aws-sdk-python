@@ -3020,7 +3020,7 @@ class Route53Client:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("next_marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_hosted_zones(
@@ -3110,7 +3110,7 @@ class Route53Client:
             for _item in _page or []:
                 yield _item
             _token = _resolve_path(_response, ("next_marker",))
-            if not _token:
+            if not _token or not _resolve_path(_response, ("is_truncated",)):
                 break
 
     def list_hosted_zones_by_name(

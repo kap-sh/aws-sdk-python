@@ -29,8 +29,8 @@ from capo_dynamodb import AsyncDynamoDBClient
 
 async def main():
     async with AsyncDynamoDBClient() as dynamo_db:
-        # Example: paginate over list_tables
-        async for item in dynamo_db.iter_list_tables():
+        # Example: paginate over list_contributor_insights
+        async for item in dynamo_db.iter_list_contributor_insights():
             print(item)
 ```
 
