@@ -155,7 +155,7 @@ def get_object_acl(
 ) -> tuple[capo_s3.types.get_object_acl_output.GetObjectAclOutput, zapros.Response]:
     response = options.client.handler.handle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             response.read()
             handle_error(response)
         return handle_response(response), response
@@ -170,7 +170,7 @@ async def async_get_object_acl(
 ) -> tuple[capo_s3.types.get_object_acl_output.GetObjectAclOutput, zapros.Response]:
     response = await options.client.handler.ahandle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             await response.aread()
             handle_error(response)
         return await async_handle_response(response), response

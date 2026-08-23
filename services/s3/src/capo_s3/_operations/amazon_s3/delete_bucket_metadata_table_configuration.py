@@ -103,7 +103,7 @@ def delete_bucket_metadata_table_configuration(
 ) -> tuple[None, zapros.Response]:
     response = options.client.handler.handle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             response.read()
             handle_error(response)
         return None, response
@@ -118,7 +118,7 @@ async def async_delete_bucket_metadata_table_configuration(
 ) -> tuple[None, zapros.Response]:
     response = await options.client.handler.ahandle(build_request(options, input_))
     try:
-        if response.status >= 400:
+        if response.status >= 300:
             await response.aread()
             handle_error(response)
         return None, response
