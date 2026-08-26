@@ -292,9 +292,12 @@ def build_request(
     ]:
         raise ValueError("Content-Length is required for streaming input")
     if "checksum_algorithm" in input_:
-        capo_s3._checksums.set_request_checksum(
+        if not capo_s3._checksums.set_request_checksum(
             headers, body, input_.get("checksum_algorithm")
-        )
+        ):
+            body = capo_s3._checksums.trailing_checksum(
+                headers, cast(Iterator[bytes], body), input_.get("checksum_algorithm")
+            )
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     for k, v in params:
@@ -393,9 +396,14 @@ async def async_build_request(
     ]:
         raise ValueError("Content-Length is required for streaming input")
     if "checksum_algorithm" in input_:
-        capo_s3._checksums.set_request_checksum(
+        if not capo_s3._checksums.set_request_checksum(
             headers, body, input_.get("checksum_algorithm")
-        )
+        ):
+            body = capo_s3._checksums.trailing_checksum(
+                headers,
+                cast(AsyncIterator[bytes], body),
+                input_.get("checksum_algorithm"),
+            )
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     for k, v in params:
