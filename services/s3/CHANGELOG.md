@@ -1,5 +1,23 @@
 # aws-sdk-s3
 
+## 0.15.0
+
+### Minor Changes
+
+- 0f1b0c8: detect errors in 200 responses of CopyObject, UploadPartCopy and CompleteMultipartUpload
+- 50a001f: honor disableDoubleEncoding and sign all S3-family services as S3
+- a330d6a: do not decompress streaming blob responses
+- 6f6c8ee: add iter_list_objects_v2
+- 2e3d7fb: declare xmlns:xsi on Grantee so ACL/logging/restore bodies are well-formed XML
+- 74bb9ab: add Body, a replayable streaming request body that survives retries
+- 0b4bd53: set the trailing chunk with the checksum for streaming requests
+- 0ff41e5: overlay endpoint authSchemes on the default sigv4 scheme
+- 7ea0e66: more robust pagination termination
+
+### Patch Changes
+
+- 3b57055: fix: respect `aws.customizations#s3UnwrappedXmlOutput` so `get_bucket_location` returns `location_constraint` instead of `{}`
+
 ## 0.14.0
 
 ### Minor Changes
