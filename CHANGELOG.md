@@ -1,5 +1,40 @@
 # AWS SDK for Python - Releases
 
+## 2026-08-26
+
+- [aws-sdk-bedrock v0.3.0](services/bedrock/CHANGELOG.md)
+- [aws-sdk-bedrock-agent v0.2.0](services/bedrock-agent/CHANGELOG.md)
+- [aws-sdk-bedrock-agent-runtime v0.2.0](services/bedrock-agent-runtime/CHANGELOG.md)
+- [aws-sdk-bedrock-agentcore v0.2.0](services/bedrock-agentcore/CHANGELOG.md)
+- [aws-sdk-bedrock-agentcore-control v0.2.0](services/bedrock-agentcore-control/CHANGELOG.md)
+- [aws-sdk-bedrock-data-automation v0.2.0](services/bedrock-data-automation/CHANGELOG.md)
+- [aws-sdk-bedrock-data-automation-runtime v0.2.0](services/bedrock-data-automation-runtime/CHANGELOG.md)
+- [aws-sdk-bedrock-runtime v0.6.0](services/bedrock-runtime/CHANGELOG.md)
+- [aws-sdk-cloudfront v0.9.0](services/cloudfront/CHANGELOG.md)
+- [aws-sdk-cloudwatch v0.11.0](services/cloudwatch/CHANGELOG.md)
+- [aws-sdk-cloudwatch-logs v0.6.0](services/cloudwatch-logs/CHANGELOG.md)
+- [aws-sdk-dynamodb v0.6.0](services/dynamodb/CHANGELOG.md)
+- [aws-sdk-ec2 v0.16.0](services/ec2/CHANGELOG.md)
+- [aws-sdk-ecr v0.8.0](services/ecr/CHANGELOG.md)
+- [aws-sdk-ecs v0.13.0](services/ecs/CHANGELOG.md)
+- [aws-sdk-elastic-load-balancing v0.9.0](services/elastic-load-balancing/CHANGELOG.md)
+- [aws-sdk-eventbridge v0.6.0](services/eventbridge/CHANGELOG.md)
+- [aws-sdk-iam v0.13.0](services/iam/CHANGELOG.md)
+- [aws-sdk-kms v0.6.0](services/kms/CHANGELOG.md)
+- [aws-sdk-lambda v0.12.0](services/lambda/CHANGELOG.md)
+- [aws-sdk-rds v0.11.0](services/rds/CHANGELOG.md)
+- [aws-sdk-route-53 v0.9.0](services/route-53/CHANGELOG.md)
+- [aws-sdk-s3 v0.15.0](services/s3/CHANGELOG.md)
+- [aws-sdk-scheduler v0.9.0](services/scheduler/CHANGELOG.md)
+- [aws-sdk-secrets-manager v0.6.0](services/secrets-manager/CHANGELOG.md)
+- [aws-sdk-sfn v0.6.0](services/sfn/CHANGELOG.md)
+- [aws-sdk-sns v0.6.0](services/sns/CHANGELOG.md)
+- [aws-sdk-sqs v0.6.0](services/sqs/CHANGELOG.md)
+- [aws-sdk-ssm v0.6.0](services/ssm/CHANGELOG.md)
+- [aws-sdk-sso v0.8.0](services/sso/CHANGELOG.md)
+- [aws-sdk-sso-oidc v0.8.0](services/sso-oidc/CHANGELOG.md)
+- [aws-sdk-sts v0.9.0](services/sts/CHANGELOG.md)
+
 ## 2026-08-22
 
 - [aws-sdk-bedrock v0.2.0](services/bedrock/CHANGELOG.md)
